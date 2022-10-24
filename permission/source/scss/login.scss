@@ -1,0 +1,134 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : login.scss
+    Date   : 2022.09.14
+    Menu   : 로그인
+/*------------------------------------------------------------------------------------------------------------*/
+
+
+/********** modal each **********/
+.container {
+
+  /******************** 로그인 ********************/
+
+}
+
+/* 로그인 */
+.permission_login {
+  @include img_login;
+  min-width: 1200px;
+  background-position: left center;
+  background-size: cover;
+
+  &:before {
+    content: "인앱 전용 참여형 캠페인 수익을 가져가세요";
+    position: absolute;
+    width: 100%;
+    max-width: calc(100% - 600px);
+    left: 0;
+    bottom: 80px;
+    display: inline-block;
+    font-size: 26px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    right: 0;
+    min-width: 400px;
+    max-width: 600px;
+    height: -webkit-fill-available;
+    min-height: 800px;
+    margin: 0 auto;
+    padding: 0 100px;
+    background-color: #ffffff;
+    z-index: 1;
+
+    .title {
+      border: none;
+
+      p {
+        @include ftBold;
+        font-size: 40px;
+        text-align: left;
+      }
+    }
+
+    .content {
+      flex: none;
+
+      section {
+        @include secLayout_t2;
+
+        &.sec_login {
+          .box_login {
+            width: 30%;
+            min-width: 400px;
+            margin-top: 22px;
+
+            .idBox,
+            .pwBox {
+
+              .input {
+                width: 100%;
+                height: 50px;
+                margin-top: 10px;
+
+                input[type="text"],
+                input[type="password"] {
+                  width: 100%;
+                  height: 100%;
+                  padding: 0 15px 0 15px;
+                  color: #4d4f5c;
+                  font-size: 15px;
+                  border: 1px solid #999999;
+                  border-radius: 10px;
+                  background-color: transparent;
+
+                  &::placeholder {
+                    font-size: 15px;
+                    color: #999999;
+                  }
+                }
+              }
+
+              p {
+                @include ftMedium;
+                font-size: 18px;
+                color: $mainColor;
+              }
+            }
+
+            .idBox {
+              margin-top: 50px;
+            }
+
+            .pwBox {
+              margin-top: 45px;
+            }
+          }
+        }
+
+        .buttonBox {
+          margin-top: 45px;
+
+          button {
+            &.login {
+              @include btnLayout;
+              @include btn_green;
+              width: 100%;
+              height: 60px;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

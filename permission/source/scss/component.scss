@@ -1,0 +1,1713 @@
+@charset 'utf-8';
+
+/*------------------------------------------------------------------------------------------------------------
+    File   : component.scss
+    Date   : 2022.09.16
+    Explain: component
+------------------------------------------------------------------------------------------------------------*/
+
+
+/******************** color ********************/
+/* basic color */
+$mainColor: #85b74e;
+
+/* main nav */
+$menuActiveFontColor: #85c73d;
+$mainNavDefalutFontColor: #666666;
+$mainNavBg : #181c27;
+
+/***** font *****/
+$fontColor: #010101;
+$subFontColor: #777777;
+$subFontColor_whiteGray: #777777;
+$placehoderFtColor: #d0d0d0;
+
+/***** border *****/
+$borderColor: #d9d9d9;
+$borderColorT2: #e9e9e9;
+
+/***** background-color *****/
+$bgColor:#f5f5f5;
+
+/***** input *****/
+$inputBg: #fff9f9;
+$inputBorder: #d0d0d0;
+
+/***** scrollbar *****/
+$scrollBgColor:#e9e9e9;
+$scrollThumbBGColor:#b8b8b8;
+
+/***** up & down *****/
+$upColor: #f85479;
+$downColor: #2e7ce1;
+
+
+
+/******************** animation ********************/
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/******************** scroll ********************/
+/* 
+::-webkit-scrollbar{
+@include scrollbar;}
+*/
+@mixin scrollbar {
+  width: 4px;
+  height: 4px;
+  background: #ebebeb;
+}
+
+/* 
+::-webkit-scrollbar-thumb{
+@include scrollbar-thumb;}
+*/
+@mixin scrollbar-thumb {
+  height: 15px;
+  background: #bbbbbb;
+  border-radius: 0px;
+}
+
+
+
+/******************** font ********************/
+/* NotoSan */
+@mixin ftRegular {
+  font-family: "NotoSansR";
+}
+
+@mixin ftMedium {
+  font-family: "NotoSansM";
+}
+
+@mixin ftBold {
+  font-family: "NotoSansB";
+}
+
+/* NotoSan */
+@mixin ftNanumSquare_L {
+  font-family: "NanumSquareL";
+}
+
+@mixin ftNanumSquare_R {
+  font-family: "NanumSquareR";
+}
+
+@mixin ftNanumSquare_B {
+  font-family: "NanumSquareB";
+}
+
+
+/******************** text ********************/
+::selection {
+  color: #fff;
+  background: $mainColor;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.disNone {
+  display: none !important;
+}
+
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.txtHide {
+  @include txtHide();
+}
+
+@mixin txtDot {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  top: -3px;
+  margin-right: 4px;
+  border-radius: 100%;
+  background-color: $fontColor;
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin ellipsis_l2($wlc:2) {
+  display: -webkit-box;
+  //width: 100px;
+  //height: 100px;
+  //line-height: 22px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: $wlc;
+  -webkit-box-orient: vertical;
+}
+
+/* ellipsis hover */
+@mixin ellipsisHover {
+  overflow: visible;
+  white-space: normal;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.elHvrVsbl {
+  @include ellipsis;
+}
+
+.elHvrVsbl2 {
+  @include ellipsis_l2;
+}
+
+.elHvrVsbl4 {
+  @include ellipsis_l2($wlc:4);
+}
+
+
+
+
+/******************** layout ********************/
+@mixin secLayout($pd:20px, $mg:20px 0 0 0) {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: $pd;
+  // box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+@mixin secLayout_t2($pd:20px, $mg:30px 0 0 0) {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  // box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  border: none;
+  margin: $mg;
+  box-shadow: none;
+}
+
+// @mixin titleLayout {
+//   font-family: "NotoSansM";
+//   font-size: 16px;
+//   letter-spacing: -0.3px;
+//   color: #333;
+// }
+
+// @mixin description {
+//   font-size: 13px;
+//   line-height: 18px;
+//   color: #777777;
+// }
+
+
+
+//********************* icon *********************/
+@mixin iLayout {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+}
+
+
+
+//********************* loading *********************/
+@mixin loadingCircle {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 997;
+
+  &:before {
+    @include iLayout;
+    @include ico_loadingCircle;
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    background-size: 40px 40px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    z-index: 999;
+  }
+}
+
+@mixin loadingDot {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 999;
+
+  &:before {
+    @include iLayout;
+    @include ico_loadingDot;
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-size: 44px 44px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    z-index: 999;
+  }
+}
+
+.dimCircle {
+  @include loadingCircle;
+}
+
+.dimDot {
+  @include loadingDot;
+}
+
+
+
+
+/********************* flex *********************/
+@mixin flexLayout_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+/******************** iBubble,iMark ********************/
+@mixin iBox {
+  position: relative;
+  display: inline-block;
+}
+
+/* iBubble */
+@mixin iBubbleAfter($width:200px) {
+  display: none;
+  position: absolute;
+  width: $width;
+  height: auto;
+  padding: 8px 15px;
+  color: #3e3e3e;
+  font-size: 12px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px;
+  white-space: normal;
+  font-family: "NotoSansR";
+  border: 1px solid #a8c884;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  cursor: default;
+  z-index: 200;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 12%;
+    border: solid transparent;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #f8f8f8;
+    border-width: 5px;
+    margin-left: -5px;
+  }
+
+  &:before {
+    border-color: rgba(133, 183, 78, 0);
+    border-top-color: $mainColor;
+    border-width: 6px;
+    margin-left: -6px;
+  }
+}
+
+// 말꼬리가 왼쪽에 있는 말풍선
+@mixin iBubbleAfter_L {
+
+  &:after,
+  &:before {
+    top: auto;
+    bottom: 88%;
+    left: -2%;
+    transform: rotate(-270deg);
+  }
+
+  &:after {
+    border-width: 8px;
+  }
+}
+
+// 말꼬리가 왼쪽 위에 있는 말풍선
+@mixin iBubbleAfter_TL($top:25px) {
+  top: $top;
+
+  &:after,
+  &:before {
+    top: auto;
+    bottom: 100%;
+    left: 12%;
+    transform: rotate(-180deg);
+  }
+}
+
+// 말꼬리가 오른쪽 위에 있는 말풍선
+@mixin iBubbleAfter_TR {
+
+  &:after,
+  &:before {
+    top: auto;
+    bottom: 100%;
+    left: 88%;
+    transform: rotate(-180deg);
+  }
+}
+
+// 말꼬리가 오른쪽하단에 있는 말풍선
+@mixin iBubbleAfter_RB {
+
+  &:after,
+  &:before {
+    top: 100%;
+    left: 88%;
+  }
+}
+
+
+/* iMark */
+@mixin iMark {
+  @include iLayout;
+  @include ico_Qmark;
+  margin: 0 5px;
+  vertical-align: sub;
+  cursor: pointer;
+}
+
+/* Qmark */
+@mixin Qmark {
+  @include iLayout;
+  @include ico_Qmark;
+  margin: 0 5px;
+  vertical-align: sub;
+  cursor: pointer;
+}
+
+@mixin QmarkHover {
+  @include ftRegular();
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  padding: 12px 15px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #4b4b4b;
+  border: 1px solid $mainColor;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  z-index: 200;
+
+  &:after,
+  &:before {
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 7px;
+    margin-left: -15px;
+  }
+
+  &:before {
+    border-color: rgba(204, 60, 68, 0);
+    border-top-color: $mainColor;
+    border-width: 8px;
+    margin-left: -16px;
+  }
+}
+
+@mixin QmarkHover_BL {
+
+  &:after,
+  &:before {
+    top: 100%;
+    left: 20%;
+  }
+}
+
+@mixin QmarkHover_BC {
+
+  &:after,
+  &:before {
+    top: 100%;
+    left: 50%;
+  }
+}
+
+@mixin QmarkHover_BR {
+
+  &:after,
+  &:before {
+    top: 100%;
+    left: 90%;
+  }
+}
+
+i {
+  &.Qmark {
+    @include Qmark;
+  }
+
+  &.QmarkHover {
+    @include QmarkHover;
+    @include QmarkHover_BL;
+    display: none;
+  }
+}
+
+/* tooltip hover */
+@mixin tooltipkHover {
+  @include ftMedium;
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 15px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #4b4b4b;
+  border: 1px solid #cc3c44;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  z-index: 200;
+
+  &:after,
+  &:before {
+    position: absolute;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    pointer-events: none;
+  }
+
+  &:after {
+    bottom: -14px;
+    left: 22px;
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 7px;
+    margin-left: -15px;
+  }
+
+  &:before {
+    bottom: -16px;
+    left: 22px;
+    border-color: rgba(204, 60, 68, 0);
+    border-top-color: #cc3c44;
+    border-width: 8px;
+    margin-left: -16px;
+  }
+}
+
+
+
+
+/******************** input ********************/
+/********** input **********/
+/* input */
+input,
+textarea {
+  @include ftRegular;
+  display: inline-block;
+  height: 36px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+
+  &:disabled {
+    color: #777;
+    background-color: #f8f8f8;
+  }
+
+  &:focus {
+    border: 1px solid #151a34;
+    outline: none;
+  }
+
+  &:focus {
+    border: none;
+  }
+
+  &::placeholder {
+    color: #777;
+  }
+}
+
+
+/*textarea*/
+textarea {
+  resize: none;
+  padding: 12px 10px;
+}
+
+
+/* checkbox  */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]+label {
+  margin-right: 35px;
+  font-size: 15px;
+  vertical-align: middle;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+input[type="checkbox"]+label:before {
+  @include ico_checkbox_off;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 7px 3px 0;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked+label:before {
+  content: "";
+  @include ico_checkbox_on;
+}
+
+/* toggle */
+@mixin ip_toggle {
+  position: relative;
+  display: inline-block;
+  min-height: 30px;
+  line-height: 15px;
+
+  input[type="checkbox"] {
+    position: relative;
+    display: inline-block;
+    -webkit-appearance: none;
+    width: 65px;
+    height: 26px;
+    // top: 50%;
+    // margin-top: -15px;
+    font-size: 13px;
+    border-radius: 50px;
+    font-family: "NotoSansR";
+    background-color: #bbb;
+    transition: all .3s ease;
+    cursor: pointer;
+
+    &:before {
+      content: 'OFF';
+      position: absolute;
+      top: 5px;
+      right: 12px;
+      color: #fff;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50px;
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      margin-top: -10px;
+      transition: all .3s ease;
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: $mainColor;
+    transition: all .3s ease;
+
+    &:before {
+      content: 'ON';
+      right: auto;
+      left: 15px;
+    }
+
+    &:after {
+      left: 40px;
+      transition: all .3s ease;
+    }
+  }
+
+  input[type="checkbox"]+label {
+    position: absolute;
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+
+    &:before {
+      display: inline;
+      font-size: 13px;
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    &:before {
+      display: inline;
+      font-size: 13px;
+    }
+  }
+}
+
+
+/* select */
+@mixin select {
+  @include ico_selectbox;
+  display: inline-block;
+  min-width: 180px;
+  height: 30px;
+  padding: 6px 25px 6px 14px;
+  font-size: 13px;
+  color: $fontColor;
+  line-height: 1;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  box-shadow: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  font-family: "NotoSansR";
+
+  &::option {}
+
+  &:disabled {
+    color: #bbb;
+    border: 1px solid #d0d0d0;
+    background-color: #f8f8f8;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+select {
+  @include select;
+}
+
+
+
+/* button */
+@mixin button {
+  font-family: "NotoSansR";
+}
+
+button {
+  @include button;
+}
+
+@mixin btnLayout {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+/* 하단 버튼 */
+@mixin btnLayout_t2($margin: 30px auto, $btnMarginLeft:10px) {
+  margin: $margin;
+  text-align: center;
+
+  button {
+    margin-left: $btnMarginLeft;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+/* table button */
+@mixin btnLayoutS($height:36px) {
+  min-width: 100px;
+  height: $height;
+  padding: 3px 15px 3px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* box 하단 버튼 */
+@mixin btnLayoutM($height:40px) {
+  min-width: 130px;
+  height: $height;
+  padding: 3px 15px 3px;
+  font-size: 13px;
+  color: #ffffff;
+  text-align: center;
+}
+
+@mixin btn_green {
+  color: #ffffff;
+  border: 1px solid $mainColor;
+  background-color: $mainColor;
+}
+
+@mixin btn_white {
+  color: $mainColor;
+  border: 1px solid $mainColor;
+  background-color: #fff;
+}
+
+@mixin btn_gray {
+  color: #ffffff;
+  border: 1px solid #bbbbbb;
+  background-color: #bbbbbb;
+}
+
+@mixin btn_deepGray {
+  color: #ffffff;
+  border: 1px solid #7e7e7e;
+  background-color: #7e7e7e;
+}
+
+@mixin btn_black {
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+}
+
+@mixin btn_disabled {
+  color: #aaaaaa;
+  border: 1px solid #d2d2d2;
+  background-color: #e9e9e9;
+}
+
+@mixin btn_excelDownload {
+  width: 130px;
+  height: 30px;
+  font-size: 13px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2;
+  border-radius: 4px;
+  border: 1px solid $mainColor;
+  background-color: #fff;
+
+  &:after {
+    @include iLayout;
+    @include ico_download_off;
+    content: "";
+    position: relative;
+    display: inline-block;
+    top: 1px;
+    margin-left: 10px;
+  }
+}
+
+/* searchBox */
+/* searchBox type 1 */
+@mixin searchBox {
+  input[type="text"] {
+    width: 340px;
+
+    &::placeholder {
+      @include ftRegular;
+      font-size: 13px;
+      color: $placehoderFtColor;
+    }
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_green;
+    position: relative;
+    width: 80px;
+    height: 36px;
+    margin-left: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+@mixin searchBox_t2 {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  height: 30px;
+  line-height: 1;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+
+  input {
+    width: calc(100% - 40px);
+    height: 30px;
+    padding: 10px 10px;
+    border: none;
+    background-color: transparent;
+
+    &::placeholder {
+      color: #b3b3b3;
+      font-size: 13px;
+      font-family: "NotoSansR";
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    @include btnLayout;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    right: 0px;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
+
+    &:after {
+      @include iLayout;
+      // @include ico_search_red;
+      @include ico_search;
+    }
+  }
+}
+
+/* searchBox type 2 */
+@mixin searchBox_t3 {
+  display: flex;
+
+  select {
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+
+    &::placeholder {
+      @include ftRegular;
+      font-size: 13px;
+      color: $placehoderFtColor;
+    }
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_green;
+    position: relative;
+    width: 106px;
+    height: 36px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid $mainColor;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+
+
+/* calendarBox */
+@mixin calendarBox {
+  cursor: pointer;
+
+  // p {
+  //   display: inline-block;
+  //   padding-right: 12px;
+  //   font-size: 14px;
+  // }
+
+  .calendar {
+    display: inline-block;
+    width: 240px;
+    height: 30px;
+    padding: 0 10px 0 0;
+    border: 1px solid $mainColor;
+    border-radius: 4px;
+    background-color: #fff;
+
+    input {
+      width: 180px;
+      height: 26px;
+      padding: 0px 10px 2px;
+      text-align: center;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dateChoice,
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .icon {
+      position: relative;
+      top: -1px;
+      width: 40px;
+      height: 30px;
+      left: -1px;
+      text-align: center;
+      border-radius: 4px 0 0 4px;
+      background-color: $mainColor;
+
+      &:before {
+        @include iLayout;
+        @include ico_calendar;
+        height: 28px;
+        background-size: 16px 15px;
+      }
+    }
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_green;
+    width: 84px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 13px;
+    vertical-align: bottom;
+  }
+}
+
+
+/********** tab, tabView **********/
+/* tab */
+
+/* tabButton */
+@mixin tabButton {
+  ul {
+    font-size: 0;
+
+    li {
+      position: relative;
+      display: inline-block;
+      min-width: 90px;
+      height: 30px;
+      margin-left: -1px;
+      font-size: 13px;
+      text-align: center;
+      line-height: 2;
+      color: #999;
+      border: 1px solid #d0d0d0;
+      background-color: #f9fafb;
+      cursor: pointer;
+
+      &.on {
+        color: #fff;
+        border: 1px solid $mainColor;
+        background-color: $mainColor;
+      }
+    }
+  }
+}
+
+/* tab */
+@mixin tab {
+  ul {
+    font-size: 0;
+
+    li {
+      position: relative;
+      display: inline-block;
+      min-width: 120px;
+      height: 45px;
+      top: 1px;
+      margin-left: 4px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 2.5;
+      color: #9b9ca4;
+      border: 1px solid #dadada;
+      border-bottom: 0;
+      border-radius: 4px 4px 0 0;
+      background-color: #e5e8eb;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 0;
+        // box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.15);
+
+      }
+
+      &.on {
+        top: 2px;
+        color: #3e3e3e;
+        border: 1px solid #eee;
+        border-top: 2px solid $mainColor;
+        border-bottom: none;
+        border-radius: 0;
+        background-color: #fff;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+/* tab type-2 */
+@mixin tab_t2 {
+  ul {
+    font-size: 0;
+    border-bottom: 1px solid $mainColor;
+
+    li {
+      position: relative;
+      display: inline-block;
+      min-width: 180px;
+      height: 40px;
+      margin-right: 5px;
+      font-size: 15px;
+      text-align: center;
+      line-height: 2.6;
+      color: #aeaeae;
+      border-radius: 5px 5px 0 0;
+      border: 1px solid #e8e8e8;
+      border-bottom: none;
+      background-color: #f8f8f8;
+      cursor: pointer;
+
+      &.on {
+        @include ftMedium;
+        height: 41px;
+        top: 1px;
+        color: $mainColor;
+        border: 1px solid $mainColor;
+        border-bottom: none;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+/* tabView*/
+@mixin tabView {
+  padding: 30px;
+  background-color: #fff;
+
+  .tabViewList {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+
+
+/******************** table ********************/
+// header fixed, thead에 추가
+@mixin tableHeaderFixed {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@mixin tableHeaderBeforeFixed {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-bottom: 1px solid $borderColorT2;
+  background-color: #e9e9e9;
+  z-index: -1;
+}
+
+/* text overflow */
+@mixin hoverVisible {
+  white-space: normal !important;
+  overflow: visible !important;
+  word-break: break-all !important;
+}
+
+/* border */
+@mixin tableBorderTop {
+  border-top: 1px solid #999999;
+}
+
+/* div table */
+@mixin divTableColumnTh {
+  padding: 20px 30px;
+  font-size: 15px;
+  text-align: left;
+  color: #777;
+  font-family: "NotoSansM";
+}
+
+@mixin divTableColumnTd {
+  flex-grow: 1;
+  padding: 12px 25px;
+  font-size: 14px;
+  text-align: left;
+  color: #777;
+}
+
+@mixin divTableRowTd {
+  font-size: 13px;
+  text-align: center;
+}
+
+
+/* tableWrap */
+@mixin tableWrap {
+  overflow: auto;
+  // border: 1px solid #e9e9e9;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+/* tableWrapDataNone */
+/* tableWrap 하단에 include & 높이값 지정 */
+@mixin tableWrapDataNone {
+  &.tableWrapDataNone {
+    height: auto;
+    border-bottom: none;
+
+    .tableBox {
+
+      tbody,
+      tfoot {
+        display: none;
+      }
+    }
+  }
+}
+
+/* tableDataNone */
+/* 검색 결과가 없습니다. 
+높이값 입력 필수 */
+@mixin divTblDataNone {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  height: 300px;
+  border-bottom: 1px solid #e9e9e9;
+
+  >div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: -webkit-fill-available;
+
+    p {
+      display: block;
+      font-size: 14px;
+      color: #bbb;
+      text-align: center;
+    }
+  }
+}
+
+
+/* divTable */
+@mixin divTable {
+  display: table;
+  min-width: 100%;
+
+  .divTblHead {
+    @include tableHeaderFixed;
+    display: table-header-group;
+
+    .divTblTr {
+      display: table-row;
+
+      >div {
+        display: table-cell;
+        padding: 10px;
+        min-height: 36px;
+        font-size: 14px;
+        text-align: center;
+        border: 1px solid $borderColor;
+        border-right: none;
+        border-bottom: none;
+        background-color: #f8f8f8;
+
+        &.sorting {
+          @include icon_sortDefault;
+        }
+
+        &.sorting_asc {
+          @include icon_sortUp;
+        }
+
+        &.sorting_desc {
+          @include icon_sortDown;
+        }
+
+        &.sorting,
+        &.sorting_asc,
+        &.sorting_desc {
+          background-size: 15px 13px;
+          background-position-x: calc(100% - 10px);
+          background-color: #f8f8f8;
+          cursor: pointer;
+        }
+
+        &:last-child {
+          border-right: 1px solid #eaeaea;
+        }
+      }
+
+      &:nth-child(1) {
+        >div {
+          display: table-cell;
+          min-height: 36px;
+          padding: 11px 10px 10px 10px;
+          font-size: 14px;
+          vertical-align: middle;
+          text-align: center;
+          border-top: none;
+          background-color: #f8f8f8;
+        }
+      }
+
+      &:nth-child(2) {
+        >div {
+          @include ftMedium;
+          vertical-align: middle;
+          line-height: 18px;
+          background-color: $borderColor;
+        }
+      }
+    }
+  }
+
+  .divTblBody {
+    display: table-row-group;
+
+    .divTblTr {
+      display: table-row;
+
+      >div {
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 18px;
+        vertical-align: middle;
+        border: 1px solid $borderColor;
+        border-right: none;
+        border-bottom: none;
+
+        &:last-child {
+          border-right: 1px solid $borderColor;
+        }
+      }
+    }
+  }
+
+  .divTblFoot {
+    display: table-footer-group;
+
+    .divTblTr {
+      display: table-row;
+
+      >div {
+        display: table-cell;
+        padding: 10px;
+      }
+    }
+  }
+
+  &.divTableColumn {
+    .divTblBody {
+      padding: 30px 0;
+
+      .divTblTr {
+
+        &:first-child {
+          >div {
+            box-sizing: border-box;
+            border-top: 10px solid transparent;
+          }
+        }
+
+        &:last-child {
+          >div {
+            box-sizing: border-box;
+            border-bottom: 10px solid transparent;
+          }
+        }
+
+        >div {
+          border: none;
+
+          &:nth-child(odd) {
+            @include divTableColumnTh;
+            min-width: 230px;
+            padding-top: 20px;
+            vertical-align: text-top;
+            background-color: $mainColor;
+
+            // &.star {
+            //   &:before {
+            //     content: "*";
+            //     position: relative;
+            //     display: inline-block;
+            //     font-size: 15px;
+            //     color: $errorColor;
+            //     font-family: "NotoSansM";
+            //   }
+            // }
+          }
+
+          &:nth-child(even) {
+            @include divTableColumnTd;
+          }
+        }
+      }
+    }
+  }
+
+  &.divTableRow {
+    .divTblHead {
+      .divTblTr {
+        >div {
+          display: table-cell;
+          padding: 13px 10px;
+          min-height: 36px;
+          font-size: 14px;
+          color: #777;
+          text-align: center;
+          border: 1px solid #e9e9e9;
+          background-color: #f8f8f8;
+          font-family: "NotoSansM";
+        }
+      }
+    }
+
+    .divTblBody {
+      .divTblTr {
+        >div {
+          border-right: 1px solid #e9e9e9;
+          border-bottom: 1px solid #e9e9e9;
+
+          &:first-child {
+            border-left: 1px solid #e9e9e9;
+          }
+        }
+
+        &:last-child {
+          >div {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* tableBox */
+@mixin tableTh_t2 {
+  min-height: 30px;
+  padding: 6px 10px;
+  font-size: 12px;
+  background-color: #f5f5f5;
+}
+
+/* table thead 두번째줄 색상 변경 */
+@mixin tableTheadTh {
+  background-color: #f4fcec;
+}
+
+@mixin tableBox {
+  table {
+    width: 100%;
+    background: #fff;
+
+    td,
+    th {
+      min-height: 46px;
+      padding: 16px 10px;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 18px;
+      border: 1px solid #eaeaea;
+
+      &.strong {
+        @include ftBold;
+      }
+
+      input[type="checkbox"]+label:before {
+        margin: 0;
+      }
+    }
+
+    thead {
+      tr {
+        th {
+          color: #3e3e3e;
+          font-size: 12px;
+          font-weight: normal;
+          background-color: #f5f5f5;
+          font-family: "NotoSansM";
+
+          &:first-child {
+            border-left: none;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+
+        &:first-child {
+          th {
+            border-top: none;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        th,
+        td {
+          &:first-child {
+            border-left: none;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+
+        th {
+          color: #777;
+          font-size: 12px;
+          font-weight: normal;
+          font-family: "NotoSansR";
+        }
+
+        td {
+          line-height: 1.3;
+          color: #333;
+          font-size: 12px;
+          white-space: normal;
+          word-break: break-all;
+        }
+      }
+    }
+
+    tfoot {
+
+      th,
+      td {
+        @include ftRegular;
+        font-weight: normal;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+// .tableWrap {
+//   @include tableWrap;
+
+//   .divTable {
+//     @include divTable;
+//   }
+
+//   .tableBox {
+//     @include tableBox;
+//   }
+// }
+
+/* 가로 테이블 */
+@mixin tableBox_t2 {
+  border-top: 1px solid #999999;
+
+  table {
+    width: 100%;
+    background: #fff;
+
+    td,
+    th {
+      vertical-align: middle;
+      text-align: left;
+      border: 1px solid #eaeaea;
+
+      &.strong {
+        @include ftBold;
+      }
+
+      input[type="checkbox"]+label:before {
+        margin: 0;
+      }
+    }
+
+    tbody {
+      tr {
+
+        th,
+        td {
+          &:first-child {
+            border-left: none;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+
+        th {
+          padding: 20px 30px;
+          color: #3e3e3e;
+          font-size: 15px;
+          line-height: 22px;
+          font-weight: normal;
+          background-color: #f5f5f5;
+          font-family: "NotoSansR";
+        }
+
+        td {
+          padding: 20px 25px;
+          line-height: 1.3;
+          color: #333;
+          font-size: 12px;
+          white-space: normal;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/********** paging  **********/
+@mixin paging {
+  position: relative;
+  text-align: center;
+
+  >ul {
+    font-size: 0;
+    margin: 30px auto;
+    text-align: center;
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    >li {
+      display: inline-block;
+      vertical-align: middle;
+      min-width: 25px;
+      height: 35px;
+      line-height: 18px;
+      text-align: center;
+      color: #888;
+      border-right: none;
+      cursor: pointer;
+
+      &:hover {
+        a {
+          color: $mainColor;
+        }
+      }
+
+      >a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        line-height: 2.8;
+        color: #b3b3b3;
+      }
+
+      &.on {
+        a {
+          @include ftBold;
+          color: $mainColor;
+        }
+      }
+
+      &.prev-list {
+        @include ico_paging_prevList;
+      }
+
+      &.prev {
+        @include ico_paging_prev;
+      }
+
+      &.next {
+        @include ico_paging_next;
+      }
+
+      &.next-list {
+        @include ico_paging_nextList;
+      }
+    }
+  }
+}

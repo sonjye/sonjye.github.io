@@ -1,0 +1,259 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : revenueReport.scss
+    Date   : 2022.09.14
+    Menu   : 수익리포트
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+
+/**********  common css **********/
+
+.container {}
+
+
+/**********  each css **********/
+.container {
+
+  /* 수익리포트 */
+  &.permission_revenueReport {
+
+    .content {
+      margin-top: 0;
+
+      section {
+        &.sec_revenueReport {
+          @include secLayout_t2;
+          margin-top: 0;
+
+          .box_revenueStats {
+            display: flex;
+            justify-content: space-between;
+
+            >div {
+              flex-grow: 1;
+              max-width: 33.33333%;
+              height: 180px;
+              margin-left: 20px;
+              border-radius: 5px;
+              box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.15);
+
+              /* 오늘 예상 수익 */
+              &:first-child {
+                margin-left: 0;
+                border: 1px solid #a8c884;
+
+                .titBox {
+                  background-color: #a8c884;
+                }
+              }
+
+              /* 이번달 수익 */
+              &:nth-child(2) {
+                border: 1px solid #90bbe6;
+
+                .titBox {
+                  background-color: #90bbe6;
+                }
+              }
+
+              /* 지난달 수익 */
+              &:nth-child(3) {
+                border: 1px solid #f1d191;
+
+                .titBox {
+                  background-color: #f1d191;
+                }
+              }
+
+              .titBox {
+                height: 60px;
+
+                p {
+                  font-size: 25px;
+                  text-align: center;
+                  color: #fff;
+                  line-height: 2.3;
+                }
+              }
+
+              .contBox {
+                position: relative;
+                display: inline-flex;
+                flex-direction: column;
+                width: 100%;
+                height: 118px;
+                padding: 10px 20px;
+                background-color: #fff;
+                border-radius: 0 0 5px 5px;
+
+                p {
+                  overflow-wrap: anywhere;
+                  margin: auto 0;
+                  font-size: 35px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+
+        &.sec_listTable {
+          margin-top: 80px;
+
+          .buttonBox {
+            position: absolute;
+            top: -50px;
+            right: 20px;
+
+            button {
+              &.excelDownload {
+                @include btn_excelDownload;
+              }
+            }
+          }
+
+          .box_listTable {
+
+            .tableHeader {
+              display: flex;
+              justify-content: space-between;
+
+              .selectBox {
+                margin-right: 10px;
+              }
+
+              .calendarBox {
+                @include calendarBox;
+                flex-grow: 1;
+              }
+
+              .tabButton {
+                @include tabButton;
+              }
+            }
+
+            .graphWrap {
+              margin: 20px 0 0 0;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+
+              .titBox {
+                p {
+                  font-size: 20px;
+                  text-align: center;
+                }
+              }
+
+              .graphBox {
+                margin: 20px 0 0 0;
+              }
+            }
+
+            .box {
+              margin-top: 20px;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+
+              .tableWrap {
+                @include tableWrap;
+                @include tableBorderTop;
+
+                &.tableWrapDataNone {
+                  height: auto;
+                  border-bottom: none;
+
+                  .tableBox {
+                    tbody {
+                      display: none;
+                    }
+                  }
+                }
+
+                .tableBox {
+                  @include tableBox;
+                  // max-height: 200px;
+
+                  table {
+                    thead {
+                      @include tableHeaderFixed;
+
+                      &:before {
+                        @include tableHeaderBeforeFixed;
+                      }
+
+                      tr {
+                        &:first-child {
+
+                          th {
+                            @include tableTh_t2;
+                          }
+                        }
+
+                        &:nth-child(2) {
+                          th {
+                            @include tableTheadTh;
+                          }
+                        }
+
+                        th {
+                          &:first-child {
+                            width: 170px;
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {
+
+                          &.sat,
+                          &.success {
+                            color: #0090ff;
+                          }
+
+                          &.sun,
+                          &.repeat {
+                            color: #ff2c2c;
+                          }
+
+                          &:nth-child(10) {
+                            color: #2000ff;
+                          }
+
+                          &:nth-child(11) {
+                            color: #ff2c2c;
+                          }
+
+                          &:nth-child(12) {
+                            color: $mainColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .tableDataNone {
+                @include divTblDataNone;
+              }
+
+              .paging {
+                @include paging;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/***** 01.menu - revenueReport *****/

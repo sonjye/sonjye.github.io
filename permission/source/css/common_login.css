@@ -1,0 +1,704 @@
+@charset "UTF-8";
+/*-------------------------------------------------------------------------------------------------------------
+    Explain : 포미션 
+    File : common_login.scss 
+    Date : 2022.09.14
+/*------------------------------------------------------------------------------------------------------------*/
+/* z-inde 참고 */
+/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998), iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
+/***** 공통 CSS *****/
+/*------------------------------------------------------------------------------------------------------------
+    File   : image.scss
+    Date   : 2022.09.06
+    Explain: image
+------------------------------------------------------------------------------------------------------------*/
+/******************** logo  ********************/
+/******************** header ********************/
+/******************** menu ********************/
+/******************** login ********************/
+/******************** loading ********************/
+/******************** icon ********************/
+/******************** modal icon ********************/
+/******************** table ********************/
+/* sort */
+/******************** input ********************/
+/* calendar */
+/* radio */
+/* checkbox */
+/* select */
+/* calendar */
+/* search */
+/******************** paging  ********************/
+/******************** etc  ********************/
+/*------------------------------------------------------------------------------------------------------------
+    File   : component.scss
+    Date   : 2022.09.16
+    Explain: component
+------------------------------------------------------------------------------------------------------------*/
+/******************** color ********************/
+/* basic color */
+/* main nav */
+/***** font *****/
+/***** border *****/
+/***** background-color *****/
+/***** input *****/
+/***** scrollbar *****/
+/***** up & down *****/
+/******************** animation ********************/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/******************** scroll ********************/
+/* 
+::-webkit-scrollbar{
+@include scrollbar;}
+*/
+/* 
+::-webkit-scrollbar-thumb{
+@include scrollbar-thumb;}
+*/
+/******************** font ********************/
+/* NotoSan */
+/* NotoSan */
+/******************** text ********************/
+::-moz-selection {
+  color: #fff;
+  background: #85b74e;
+}
+::selection {
+  color: #fff;
+  background: #85b74e;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.disNone {
+  display: none !important;
+}
+
+.txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+/* ellipsis hover */
+.elHvrVsbl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.elHvrVsbl2 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.elHvrVsbl4 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/******************** layout ********************/
+.dimCircle {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 997;
+}
+
+.dimCircle:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  background: url("../img/component/ico_loadingCircle.gif") center center no-repeat;
+  position: absolute;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  background-size: 40px 40px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  z-index: 999;
+}
+
+.dimDot {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 999;
+}
+
+.dimDot:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 44px;
+  height: 44px;
+  background: url("../img/component/ico_loadingDot.gif") center center no-repeat;
+  position: absolute;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background-size: 44px 44px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  z-index: 999;
+}
+
+/********************* flex *********************/
+/******************** iBubble,iMark ********************/
+/* iBubble */
+/* iMark */
+/* Qmark */
+i.Qmark {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_Qmark.svg") center center no-repeat;
+  margin: 0 5px;
+  vertical-align: sub;
+  cursor: pointer;
+}
+
+i.QmarkHover {
+  font-family: "NotoSansR";
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  padding: 12px 15px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #4b4b4b;
+  border: 1px solid #85b74e;
+  border-radius: 5px;
+  background: #ffffff;
+  -webkit-box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  display: none;
+}
+
+i.QmarkHover:after, i.QmarkHover:before {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+i.QmarkHover:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+  border-width: 7px;
+  margin-left: -15px;
+}
+
+i.QmarkHover:before {
+  border-color: rgba(204, 60, 68, 0);
+  border-top-color: #85b74e;
+  border-width: 8px;
+  margin-left: -16px;
+}
+
+i.QmarkHover:after, i.QmarkHover:before {
+  top: 100%;
+  left: 20%;
+}
+
+/* tooltip hover */
+/******************** input ********************/
+/********** input **********/
+/* input */
+input,
+textarea {
+  font-family: "NotoSansR";
+  display: inline-block;
+  height: 36px;
+  padding: 10px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:disabled,
+textarea:disabled {
+  color: #777;
+  background-color: #f8f8f8;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #151a34;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #777;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #777;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #777;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777;
+}
+
+/*textarea*/
+textarea {
+  resize: none;
+  padding: 12px 10px;
+}
+
+/* checkbox  */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  margin-right: 35px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] + label:last-child {
+  margin-right: 0;
+}
+
+input[type="checkbox"] + label:before {
+  background: url("../img/component/ico_checkbox_off.svg") center center no-repeat;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 7px 3px 0;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  background: url("../img/component/ico_checkbox_on.svg") center center no-repeat;
+}
+
+/* toggle */
+/* select */
+select {
+  width: 10px;
+  height: 7px;
+  background: #fff url("../img/component/ico_selectbox.svg") no-repeat right 10px center/10px;
+  display: inline-block;
+  min-width: 180px;
+  height: 30px;
+  padding: 6px 25px 6px 14px;
+  font-size: 13px;
+  color: #010101;
+  line-height: 1;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  outline: none;
+  font-family: "NotoSansR";
+}
+
+select:disabled {
+  color: #bbb;
+  border: 1px solid #d0d0d0;
+  background-color: #f8f8f8;
+}
+
+select:focus {
+  outline: none;
+}
+
+/* button */
+button {
+  font-family: "NotoSansR";
+}
+
+/* 하단 버튼 */
+/* table button */
+/* box 하단 버튼 */
+/* searchBox */
+/* searchBox type 1 */
+/* searchBox type 2 */
+/* calendarBox */
+/********** tab, tabView **********/
+/* tab */
+/* tabButton */
+/* tab */
+/* tab type-2 */
+/* tabView*/
+/******************** table ********************/
+/* text overflow */
+/* border */
+/* div table */
+/* tableWrap */
+/* tableWrapDataNone */
+/* tableWrap 하단에 include & 높이값 지정 */
+/* tableDataNone */
+/* 검색 결과가 없습니다. 
+높이값 입력 필수 */
+/* divTable */
+/* tableBox */
+/* table thead 두번째줄 색상 변경 */
+/* 가로 테이블 */
+/********** paging  **********/
+/*------------------------------------------------------------------------------------------------------------
+    Explain : 포미션 
+    File : layout_login.scss 
+    Date : 2022.09.14
+------------------------------------------------------------------------------------------------------------*/
+/******************** html ********************/
+html {
+  height: 100%;
+  min-height: -webkit-fill-available;
+  background-color: #ffffff;
+}
+
+html body {
+  height: inherit;
+  background-color: transparent;
+}
+
+/******************** container_wrapper ********************/
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 1920px;
+  /* [d] 스크립트연동 버튼 추가 시 min-width값 변동 */
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+  overflow: auto;
+}
+
+/******************** container ********************/
+.container {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  font-family: "NotoSansR";
+}
+
+.container.wide-view {
+  width: calc(100% - 60px);
+  margin-left: 60px;
+}
+
+.container .title {
+  position: relative;
+  width: 100%;
+  min-height: 20px;
+  font-family: "NotoSansM";
+}
+
+.container .title p:first-child {
+  font-family: "NotoSansM";
+  font-size: 18px;
+}
+
+.container .content > section {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+/******************** footer ********************/
+footer {
+  margin: 30px 0;
+}
+
+footer .corp a {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+footer .corp a:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 14px;
+  border-left: 1px solid #333;
+}
+
+footer .corp a:first-child:before {
+  display: none;
+}
+
+footer .address {
+  position: relative;
+  margin-top: 40px;
+  border-top: 1px solid #999999;
+  padding-top: 25px;
+}
+
+footer .address p {
+  font-size: 15px;
+  line-height: 22px;
+  text-align: left;
+}
+
+footer .address p:nth-child(3), footer .address p:nth-child(4) {
+  display: inline-block;
+}
+
+footer .address p:nth-child(4) {
+  margin-left: 5px;
+}
+
+footer .address p:last-child {
+  margin-top: 30px;
+}
+
+/***** 개별 CSS *****/
+/* 모달 */
+/* 로그인 */
+/*-------------------------------------------------------------------------------------------------------------
+    File   : login.scss
+    Date   : 2022.09.14
+    Menu   : 로그인
+/*------------------------------------------------------------------------------------------------------------*/
+/********** modal each **********/
+.container {
+  /******************** 로그인 ********************/
+}
+
+/* 로그인 */
+.permission_login {
+  background: url("../img/content/img_login.jpg") center center no-repeat;
+  min-width: 1200px;
+  background-position: left center;
+  background-size: cover;
+}
+
+.permission_login:before {
+  content: "인앱 전용 참여형 캠페인 수익을 가져가세요";
+  position: absolute;
+  width: 100%;
+  max-width: calc(100% - 600px);
+  left: 0;
+  bottom: 80px;
+  display: inline-block;
+  font-size: 26px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.permission_login .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  float: right;
+  right: 0;
+  min-width: 400px;
+  max-width: 600px;
+  height: -webkit-fill-available;
+  min-height: 800px;
+  margin: 0 auto;
+  padding: 0 100px;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.permission_login .container .title {
+  border: none;
+}
+
+.permission_login .container .title p {
+  font-family: "NotoSansB";
+  font-size: 40px;
+  text-align: left;
+}
+
+.permission_login .container .content {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+
+.permission_login .container .content section {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  margin: 30px 0 0 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.permission_login .container .content section.sec_login .box_login {
+  width: 30%;
+  min-width: 400px;
+  margin-top: 22px;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input,
+.permission_login .container .content section.sec_login .box_login .pwBox .input {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="text"],
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="password"],
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="text"],
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="password"] {
+  width: 100%;
+  height: 100%;
+  padding: 0 15px 0 15px;
+  color: #4d4f5c;
+  font-size: 15px;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="text"]::-webkit-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="password"]::-webkit-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="text"]::-webkit-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="password"]::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #999999;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="text"]:-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="password"]:-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="text"]:-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="password"]:-ms-input-placeholder {
+  font-size: 15px;
+  color: #999999;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="text"]::-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="password"]::-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="text"]::-ms-input-placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="password"]::-ms-input-placeholder {
+  font-size: 15px;
+  color: #999999;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="text"]::placeholder,
+.permission_login .container .content section.sec_login .box_login .idBox .input input[type="password"]::placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="text"]::placeholder,
+.permission_login .container .content section.sec_login .box_login .pwBox .input input[type="password"]::placeholder {
+  font-size: 15px;
+  color: #999999;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox p,
+.permission_login .container .content section.sec_login .box_login .pwBox p {
+  font-family: "NotoSansM";
+  font-size: 18px;
+  color: #85b74e;
+}
+
+.permission_login .container .content section.sec_login .box_login .idBox {
+  margin-top: 50px;
+}
+
+.permission_login .container .content section.sec_login .box_login .pwBox {
+  margin-top: 45px;
+}
+
+.permission_login .container .content section .buttonBox {
+  margin-top: 45px;
+}
+
+.permission_login .container .content section .buttonBox button.login {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #85b74e;
+  background-color: #85b74e;
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+}

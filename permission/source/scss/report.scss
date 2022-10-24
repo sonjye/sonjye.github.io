@@ -1,0 +1,395 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : report.scss
+    Date   : 2022.09.14
+    Menu   : 리포트
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+
+/**********  common css **********/
+
+.container {}
+
+
+/**********  each css **********/
+.container {
+
+  /* 리포트 > 1.일자별 */
+  &.permission_reportDay {
+    .content {
+      section {
+        &.sec_listTable {
+          @include secLayout_t2;
+          // margin-top: 20px;
+
+          .box_listTable {
+            >.tab {
+              @include tab;
+            }
+
+            .buttonBox {
+              position: absolute;
+              top: 0;
+              right: 0;
+
+              button {
+                @include btnLayout;
+
+                &.excelDownload {
+                  @include btn_excelDownload;
+                }
+              }
+            }
+
+            .tabView {
+              @include secLayout;
+              @include tabView;
+              margin-top: 0;
+              border-radius: 0 0 5px 5px;
+
+              .tabViewList {
+
+                .searchBox {
+                  display: flex;
+                  justify-content: space-between;
+
+                  >div {
+                    margin-left: 10px;
+
+                    &:first-child {
+                      margin-left: 0;
+                    }
+                  }
+
+                  .selectBox {}
+
+                  .calendarBox {
+                    @include calendarBox;
+                    flex-grow: 1;
+                  }
+
+                  >.tabButton {
+                    @include tabButton;
+                  }
+                }
+
+                .graphWrap {
+                  margin: 20px 0 0 0;
+                  padding: 20px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+
+                  .titBox {
+                    p {
+                      font-size: 20px;
+                      text-align: center;
+                    }
+                  }
+
+                  .graphBox {
+                    margin: 20px 0 0 0;
+                  }
+                }
+
+                /* 요약 리포트 */
+                .summaryReport {
+                  margin-top: 20px;
+                  padding: 20px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+
+                  .titBox {
+                    p {
+                      font-size: 15px;
+                    }
+                  }
+
+                  .contBox {
+                    margin-top: 10px;
+
+                    .tableWrap {
+                      @include tableWrap;
+                      @include tableBorderTop;
+
+                      &.tableWrapDataNone {
+                        height: auto;
+                        border-bottom: none;
+
+                        .tableBox {
+                          tbody {
+                            display: none;
+                          }
+                        }
+                      }
+
+                      .tableBox {
+                        @include tableBox;
+                        // max-height: 200px;
+
+                        table {
+                          thead {
+                            @include tableHeaderFixed;
+
+                            &:before {
+                              @include tableHeaderBeforeFixed;
+                            }
+
+                            tr {
+                              &:first-child {
+
+                                th {
+                                  @include tableTh_t2;
+
+                                  .iBox {
+                                    @include iBox;
+
+                                    .Qmark {
+                                      @include iLayout;
+                                      @include ico_Qmark;
+                                    }
+
+                                    .QmarkHover {
+                                      @include iBubbleAfter($width:170px);
+                                      @include iBubbleAfter_TL;
+                                    }
+                                  }
+                                }
+                              }
+
+                              &:nth-child(2) {
+                                th {
+                                  @include tableTheadTh;
+
+                                  &:nth-child(7) {
+                                    color: #2000ff;
+                                  }
+
+                                  &:nth-child(8) {
+                                    color: #ff2c2c;
+                                  }
+
+                                  &:nth-child(9) {
+                                    color: $mainColor;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          tbody {
+                            tr {
+                              td {
+                                &.sat {
+                                  color: #0090ff;
+                                }
+
+                                &.sun {
+                                  color: #ff2c2c;
+                                }
+
+                                &:nth-child(7) {
+                                  color: #2000ff;
+                                }
+
+                                &:nth-child(8) {
+                                  color: #ff2c2c;
+                                }
+
+                                &:nth-child(9) {
+                                  color: $mainColor;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    .tableDataNone {
+                      @include divTblDataNone;
+                    }
+
+                    .paging {
+                      @include paging;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 리포트 > 2.건별 리포트 */
+  &.permission_reportCase {
+    .content {
+      section {
+        &.sec_listTable {
+          @include secLayout;
+          // margin-top: 20px;
+
+          .box_listTable {
+
+            .searchBox {
+              display: flex;
+              justify-content: space-between;
+
+              >div {
+                margin-left: 10px;
+
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+
+              .selectBox {
+                select {
+                  max-width: 130px;
+                  min-width: 130px;
+                }
+              }
+
+              .calendarBox {
+                @include calendarBox;
+                flex-grow: 1;
+              }
+
+              >.tabButton {
+                @include tabButton;
+              }
+            }
+
+            .graphWrap {
+              margin: 20px 0 0 0;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+
+              .titBox {
+                p {
+                  font-size: 20px;
+                  text-align: center;
+                }
+              }
+
+              .graphBox {
+                margin: 20px 0 0 0;
+              }
+            }
+
+            /* 요약 리포트 */
+            .summaryReport {
+              margin-top: 20px;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+
+              .tableWrap {
+                @include tableWrap;
+                @include tableBorderTop;
+
+                &.tableWrapDataNone {
+                  height: auto;
+                  border-bottom: none;
+
+                  .tableBox {
+                    tbody {
+                      display: none;
+                    }
+                  }
+                }
+
+                .tableBox {
+                  @include tableBox;
+                  // max-height: 200px;
+
+                  table {
+                    thead {
+                      @include tableHeaderFixed;
+
+                      &:before {
+                        @include tableHeaderBeforeFixed;
+                      }
+
+                      tr {
+                        &:first-child {
+
+                          th {
+                            @include tableTh_t2;
+                          }
+                        }
+
+                        &:nth-child(2) {
+                          th {
+                            @include tableTheadTh;
+
+                            &:nth-child(7) {
+                              color: #2000ff;
+                            }
+
+                            &:nth-child(8) {
+                              color: #ff2c2c;
+                            }
+
+                            &:nth-child(9) {
+                              color: $mainColor;
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {
+
+                          &.sat,
+                          &.success {
+                            color: #0090ff;
+                          }
+
+                          &.sun,
+                          &.repeat {
+                            color: #ff2c2c;
+                          }
+
+                          &:nth-child(5) {
+                            color: #2000ff;
+                          }
+
+                          &:nth-child(6) {
+                            color: #ff2c2c;
+                          }
+
+                          &:nth-child(7) {
+                            color: $mainColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .tableDataNone {
+                @include divTblDataNone;
+              }
+
+              .paging {
+                @include paging;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/***** 03.menu - report *****/

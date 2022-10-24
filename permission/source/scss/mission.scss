@@ -1,0 +1,468 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : mission.scss
+    Date   : 2022.09.14
+    Menu   : 미션관리
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+
+/**********  common css **********/
+
+.container {}
+
+
+/**********  each css **********/
+.container {
+
+  /* 미션관리  */
+  &.permission_mission {
+    .content {
+      section {
+        &.sec_mission {
+          @include secLayout;
+
+          .box_search {
+            .searchBox {
+              display: flex;
+              justify-content: space-between;
+
+              >div {
+                margin-left: 10px;
+
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+
+              .calendarBox {
+                @include calendarBox;
+                flex-grow: 1;
+              }
+
+              .tabButton {
+                @include tabButton;
+              }
+            }
+          }
+
+          .box_table {
+            margin-top: 20px;
+            padding: 20px 0;
+            border: 1px solid #ddd;
+
+            .tableHeader {
+              @include flexLayout_spaceBetween;
+              padding: 0px 20px 20px 20px;
+              vertical-align: middle;
+              border-bottom: 1px solid #ddd;
+
+              >div {
+                margin: auto 0;
+
+                &:first-child {
+                  margin-left: 0;
+
+                  &:before {
+                    display: none;
+                  }
+                }
+              }
+
+              .txtBox {
+                p {
+                  font-size: 14px;
+
+                  span {
+                    color: $mainColor;
+
+                    &:before {
+                      content: "(";
+                      position: relative;
+                      display: inline-block;
+                      margin: 0 2px;
+                      color: #333;
+                    }
+
+                    &:after {
+                      content: ")";
+                      position: relative;
+                      display: inline-block;
+                      margin: 0 2px;
+                      color: #333;
+                    }
+                  }
+                }
+              }
+
+              .tabButton {
+                &:nth-of-type(2) {
+                  display: inline-flex;
+                  margin: auto 40px;
+
+                  &:before {
+                    content: "";
+                    position: relative;
+                    display: inline-block;
+                    width: 1px;
+                    height: 15px;
+                    margin: 0 20px 0 0;
+                    background-color: #999;
+                  }
+
+                  &:after {
+                    content: "";
+                    position: relative;
+                    display: inline-block;
+                    width: 1px;
+                    height: 15px;
+                    margin: 0 0 0 20px;
+                    background-color: #999;
+                  }
+
+                  ul {
+                    li {
+                      @include ftMedium;
+                      display: inline-block;
+                      padding: 0 20px;
+                      font-size: 14px;
+                      color: #aaa;
+                      cursor: pointer;
+
+                      &.on {
+                        color: $mainColor;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .searchBox {
+                flex-grow: 1;
+
+                .inputSearch {
+                  @include searchBox_t2;
+                  width: 500px;
+                }
+              }
+
+              .buttonBox {
+                margin-left: 10px;
+
+                button {
+                  @include btnLayout;
+
+                  &.submit {
+                    @include btn_green;
+                    width: 84px;
+                    height: 30px;
+                  }
+                }
+              }
+            }
+
+            .tableWrap {
+              @include tableWrap;
+              @include tableBorderTop;
+              margin: 20px;
+
+              &.tableWrapDataNone {
+                height: auto;
+                border-bottom: none;
+
+                .tableBox {
+                  tbody {
+                    display: none;
+                  }
+                }
+              }
+
+              .tableBox {
+                @include tableBox;
+                // max-height: 200px;
+
+                table {
+                  thead {
+                    @include tableHeaderFixed;
+
+                    &:before {
+                      @include tableHeaderBeforeFixed;
+                    }
+
+                    tr {
+                      &:nth-child(2) {
+                        th {
+                          &:nth-child(7) {
+                            color: #2000ff;
+                          }
+
+                          &:nth-child(8) {
+                            color: #ff2c2c;
+                          }
+
+                          &:nth-child(9) {
+                            color: $mainColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      td {
+                        &.sat {
+                          color: #0090ff;
+                        }
+
+                        &.sun {
+                          color: #ff2c2c;
+                        }
+
+                        &:nth-child(2),
+                        &:nth-child(3) {
+                          width: 170px;
+                          padding: 10px;
+
+                          img {
+                            width: 150px;
+                            height: 150px;
+                            border: 1px solid #eaeaea;
+                          }
+                        }
+
+                        &:nth-child(4) {
+                          width: 240px;
+                          text-align: left;
+
+                          p {
+                            &:first-child {
+                              @include ftBold;
+                              font-size: 15px;
+                            }
+
+                            &:nth-child(2) {
+                              margin-top: 5px;
+                              font-size: 12px;
+                              line-height: 18px;
+                            }
+                          }
+                        }
+
+                        &:nth-child(6) {
+                          div {
+                            display: inline-block;
+
+                            &:first-child {
+                              color: #ff2c2c;
+                            }
+
+                            &:nth-child(2) {
+                              &:before {
+                                content: "/";
+                                position: relative;
+                                display: inline-block;
+                                margin: 0 1px;
+                              }
+                            }
+                          }
+                        }
+
+                        &:nth-child(8) {
+                          width: 170px;
+                        }
+
+                        &:nth-child(9) {
+                          width: 170px;
+                        }
+
+                        .toggleBox {
+                          .ip_toggle {
+                            @include ip_toggle;
+                          }
+                        }
+
+                        button {
+                          @include btnLayout;
+                          @include btn_black;
+                          display: block;
+                          margin: 5px auto 0;
+                          width: 100px;
+                          height: 26px;
+                          font-size: 14px;
+                          text-align: center;
+
+                          &:first-child {
+                            margin-top: 0;
+                          }
+
+                          &.reRegister {
+                            @include btn_green;
+                          }
+                        }
+
+                        &:nth-child(9) {
+                          color: $mainColor;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .tableDataNone {
+              @include divTblDataNone;
+            }
+
+            .paging {
+              @include paging;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 미션등록 */
+  &.permission_missionRegister {
+    .content {
+      section {
+        &.sec_missionRegister {
+          @include secLayout_t2;
+
+          .box_missionRegister {
+            @include secLayout;
+
+            .tableWrap {
+              .tableBox {
+                @include tableBox_t2;
+
+                table {
+                  tbody {
+                    tr {
+                      th {
+                        width: 15%;
+                        min-width: 200px;
+                      }
+
+                      td {
+                        .buttonBox {
+                          position: relative;
+                          display: inline-block;
+                          min-width: 270px;
+                          height: 127px;
+                          margin-right: 20px;
+                          padding: 23px 20px;
+                          vertical-align: middle;
+                          text-align: center;
+                          background-color: #f6f6f9;
+
+                          button {
+                            @include btnLayout;
+                            @include btn_black;
+                            width: 230px;
+                            height: 36px;
+                          }
+
+                          >div {
+                            width: 230px;
+                            height: 36px;
+                            margin: 10px 0 0 0;
+                            border-radius: 4px;
+                            vertical-align: middle;
+                            font-size: 14px;
+                            line-height: 2.4;
+                            text-align: center;
+                            color: #999999;
+                            border: 1px dotted #d6d6d6;
+                            background-color: #ffffff;
+                          }
+                        }
+
+                        .imgBox {
+                          position: relative;
+                          display: inline-block;
+                          vertical-align: middle;
+
+                          img {
+                            width: 127px;
+                            height: 127px;
+                            border: 1px solid #eaeaea;
+                          }
+
+                          i {
+                            @include iLayout;
+                            @include ico_closeBox;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            cursor: pointer;
+                          }
+                        }
+                      }
+
+                      &:nth-child(1),
+                      &:nth-child(2),
+                      &:nth-child(5) {
+                        input {
+                          min-width: 600px;
+                          width: 50%;
+                        }
+                      }
+
+                      &:nth-child(3),
+                      &:nth-child(4) {
+                        input {
+                          min-width: 100px;
+                          width: 20%;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            >.buttonBox {
+              @include btnLayout_t2;
+              margin-top: 30px;
+
+              button {
+                @include btnLayout;
+                @include btnLayoutM;
+
+                &.cancel {
+                  @include btn_gray;
+                }
+
+                &.register {
+                  @include btn_green;
+                }
+              }
+            }
+          }
+
+          >.buttonBox {
+            @include btnLayout_t2;
+            margin-top: 25px;
+
+            button {
+              @include btnLayout;
+              @include btnLayoutM;
+
+              &.reRegister {
+                @include btn_green;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/***** 04.menu - media *****/
