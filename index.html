@@ -1,1 +1,636 @@
-22.03.07 test
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="Open RTB SSP" />
+    <meta name="keywords" content="Open RTB SSP" />
+    <meta name="author" content="SONJYE" />
+    <link rel="shortcut icon" href="./source/image/favicon/favicon.ico" type="image/ico">
+    <title>SONJYE</title>
+    <!-- 기본 CSS, JS -->
+    <link type="text/css" href="./source/css/base.css" rel="stylesheet" />
+    <script type="text/javascript" src="./source/js/jquery-2.2.2.min.js"></script>
+    <!-- //기본 CSS, JS -->
+    <link type="text/css" href="./source/css/common.css" rel="stylesheet" />
+    <script src="./source/js/jquery.easing.1.3.js"></script>
+    <script src="./source/js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./source/js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="./source/js/lib/daterangepicker_popup.js"></script>
+    <link type="text/css" href="./source/css/lib/daterangepicker_popup.css" rel="stylesheet" />
+    <script src="./source/js/ui.js"></script>
+    <!-- slick -->
+    <script type="text/javascript" src="./source/js/lib/slick-1.8.1/slick/slick.min.js"></script>
+    <script type="text/css" src="./source/js/lib/slick-1.8.1/slick/slick.css"></script>
+    <script type="text/css" src="./source/js/lib/slick-1.8.1/slick/slick-theme.css"></script>
+    <!--// slick end -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script>
+        // $(document).ready(function () {
+        //     var slick = $(".sec_project .cont .listArea");
+        //     $(slick).slick({
+        //         centerMode: true,
+        //         centerPadding: '60px',
+        //         slidesToShow: 3,
+        //         arrows: true,
+        //         adaptiveHeight: true,
+        //         centerMode: true,
+        //         centerPadding: '10px',
+        //         // autoplay: true,
+        //         autoplaySpeed: 4000,
+        //         responsive: [{
+        //             // breakpoint: 768,
+        //             settings: {
+        //                 centerPadding: '20vw',
+        //             }
+        //         }, {
+        //             // breakpoint: 480,
+        //             settings: {
+        //                 centerPadding: '0',
+        //                 arrows: false,
+        //             }
+        //         }]
+        //     });
+        // });
+        $(document).ready(function () {
+            var slick = $(".sec_project .cont .listArea");
+            $(slick).slick({
+                centerMode: true,
+                centerPadding: '500px',
+                slidesToShow: 1,
+                // autoplay: true,
+                autoplaySpeed: 4000,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header headerWt">
+            <h1><a href="javascript:void(0);">SONJYE</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">MAIN</a></li>
+                    <li><a href="javascript:void(0);">About ME</a></li>
+                    <li><a href="javascript:void(0);">Work</a></li>
+                    <li><a href="javascript:void(0);">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="container sonjye_index">
+            <div class="title disNone">
+                <p>현황관리</p>
+            </div>
+            <div class="content">
+                <section class="sec_intro">
+                    <div class="tit">
+                        <p>PORTPOLIO</p>
+                        <!-- <p>MOBTUNE</p> -->
+                        <!-- <p>SONJYE</p> -->
+                        <p>Hello. publicsher Son jihye portfolio - 2022</p>
+                        <!-- <p>2022</p> -->
+                    </div>
+                    <div class="cont">
+                        <!-- <div class="link">
+                            <div class="titBox">
+                                <p>About</p>
+                            </div>
+                            <div class="contBox">01</div>
+                        </div> -->
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </section>
+                <section class="sec_aboutMe">
+                    <div class="box_aboutMe">
+                        <div class="tit">
+                            <!-- <p><strong>안녕하세요,</strong><br>퍼블리셔<br>
+                                <strong>손지혜</strong>입니다.</p> -->
+                            <p>안녕하세요,</p>
+                            <p>만나서 반갑습니다</p>
+                        </div>
+                        <div class="cont">
+                            <div class="titBox">
+                                <p>손지혜</p>
+                                <p>Son-Ji-Hye</p>
+                            </div>
+                            <div class="contBox">
+                                <!-- <p>SON JI HYE</p> -->
+                                <p>1990.05.10</p>
+                                <p>+82 10.9747.4478</p>
+                                <p>aqua178@naver.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// box_aboutMe end -->
+                    <div class="box_career">
+                        <div class="tit">
+                            <p>About Me</p>
+                        </div>
+                        <div class="cont">
+                            <div class="career">
+                                <div class="titBox">
+                                    <p>Career</p>
+                                </div>
+                                <div class="contBox">
+                                    <!-- <div>
+                                        <p>총 8년 1개월</p>
+                                    </div> -->
+                                    <div>
+                                        <p>인라이플</p>
+                                        <p>2021.12 ~ 재직중</p>
+                                    </div>
+                                    <div>
+                                        <p>디온소프트텍</p>
+                                        <p>2020.02 ~ 2021.11 </p>
+                                    </div>
+                                    <div>
+                                        <p>CMB</p>
+                                        <p>2012.03 ~ 2018.03 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="educate">
+                                <div class="titBox">
+                                    <p>Education</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>웹/모바일 접근성</p>
+                                        <p>2014.05 ~ 2014.05 </p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                        <!-- <p>웹/모바일 접근성 진단 평가 & NEXT WEB 과정</p> -->
+                                    </div>
+                                    <div>
+                                        <p>자바스크립트 & JQuery기초</p>
+                                        <p>2013. 11 ~ 2014. 01 </p>
+                                        <!-- <p>디자인티모</p> -->
+                                        <!-- <p>자바스크립트 & JQuery 기초</p> -->
+                                    </div>
+                                    <div>
+                                        <p>HTML5 & Javascript, CSS3 </p>
+                                        <p>2013. 09 ~ 2013. 09</p>
+                                        <!-- <p>웹타임교육센터</p> -->
+                                        <!-- <p>HTML5 & Javascript, CSS3</p> -->
+                                    </div>
+                                    <div>
+                                        <p>클라우드 환경의 DB구축을 위한 가상화 구현기 </p>
+                                        <p>2012. 10 ~ 2012. 10 </p>
+                                        <!-- <p>디지털인재개발원</p>
+                                    <p>클라우드 환경의 DB구축을 위한 가상화 구현기법</p> -->
+                                    </div>
+                                    <div>
+                                        <p>XHTML+CSS웹표준</p>
+                                        <p>2012. 05 ~ 2012. 06 </p>
+                                        <!-- <p>더조은컴퓨터아트학원</p>
+                                    <p>XHTML+CSS웹표준</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="certificate">
+                                <div class="titBox">
+                                    <p>Certificate</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>정보기기운용기능사 </p>
+                                        <p>2007. 11 </p>
+                                        <!-- <p>한국산업인력공단</p> -->
+                                    </div>
+                                    <div>
+                                        <p>컴퓨터활용능력 2급 </p>
+                                        <p>2007. 08 </p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                    </div>
+                                    <div>
+                                        <p>워드프로세서 1급</p>
+                                        <p>2007. 03 </p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="levelEducate">
+                                <div class="titBox">
+                                    <p>Completion</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>학점은행제</p>
+                                        <p>2013. 03 ~ 2014. 01 </p>
+                                        <!-- <p>정보통신공학 </p> -->
+                                    </div>
+                                    <div>
+                                        <p>명지전문대학</p>
+                                        <p>2009. 03 ~ 2012. 02</p>
+                                        <!-- <p>정보통신과</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skills">
+                                <div class="titBox">
+                                    <p>Skills</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>(기획부터 퍼블리싱까지)</p>
+                                    </div>
+                                    <div>
+                                        <p>HTML</p>
+                                        <p>CSS</p>
+                                        <p>Jquery</p>
+                                        <p>Zeplin</p>
+                                        <p>Photoshop</p>
+                                        <p>Illustrator</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// box_career end -->
+                    <div class="box_career">
+                        <!-- <div class="tit">
+                            <p>About Me</p>
+                        </div> -->
+                        <div class="cont">
+                            <div class="career">
+                                <div class="titBox">
+                                    <p>경력사항</p>
+                                </div>
+                                <div class="contBox">
+                                    <!-- <div>
+                                        <p>총 8년 1개월</p>
+                                    </div> -->
+                                    <div>
+                                        <p>2021.12 ~ 재직중</p>
+                                        <p>인라이플</p>
+                                    </div>
+                                    <div>
+                                        <p>2020.02 ~ 2021.11 </p>
+                                        <p>디온소프트텍</p>
+                                    </div>
+                                    <div>
+                                        <p>2012.03 ~ 2018.03 </p>
+                                        <p>CMB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="educate">
+                                <div class="titBox">
+                                    <p>교육정보</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>2014. 05 ~ 2014. 05 </p>
+                                        <p>웹/모바일 접근성</p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                        <!-- <p>웹/모바일 접근성 진단 평가 & NEXT WEB 과정</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2013. 11 ~ 2014. 01 </p>
+                                        <p>자바스크립트 & JQuery기초</p>
+                                        <!-- <p>디자인티모</p> -->
+                                        <!-- <p>자바스크립트 & JQuery 기초</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2013. 09 ~ 2013. 09</p>
+                                        <p>HTML5 & Javascript, CSS3 </p>
+                                        <!-- <p>웹타임교육센터</p> -->
+                                        <!-- <p>HTML5 & Javascript, CSS3</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2012. 10 ~ 2012. 10 </p>
+                                        <p>클라우드 환경의 DB구축을 위한 가상화 구현기 </p>
+                                        <!-- <p>디지털인재개발원</p>
+                                    <p>클라우드 환경의 DB구축을 위한 가상화 구현기법</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2012. 05 ~ 2012. 06 </p>
+                                        <p>XHTML+CSS웹표준</p>
+                                        <!-- <p>더조은컴퓨터아트학원</p>
+                                    <p>XHTML+CSS웹표준</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="certificate">
+                                <div class="titBox">
+                                    <p>자격정보</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>2007. 11 </p>
+                                        <p>정보기기운용기능사 </p>
+                                        <!-- <p>한국산업인력공단</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2007. 08 </p>
+                                        <p>컴퓨터활용능력 2급 </p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                    </div>
+                                    <div>
+                                        <p>2007. 03 </p>
+                                        <p>워드프로세서 1급</p>
+                                        <!-- <p>대한상공회의소</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="levelEducate">
+                                <div class="titBox">
+                                    <p>학력사항</p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>2013. 03 ~ 2014. 01 </p>
+                                        <p>학점은행제</p>
+                                        <!-- <p>정보통신공학 </p> -->
+                                    </div>
+                                    <div>
+                                        <p>2009. 03 ~ 2012. 02</p>
+                                        <p>명지전문대학</p>
+                                        <!-- <p>정보통신과</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skills">
+                                <div class="titBox">
+                                    <p>능력치<span>(기획부터 퍼블리싱까지)</span></p>
+                                </div>
+                                <div class="contBox">
+                                    <div>
+                                        <p>HTML</p>
+                                        <p>CSS</p>
+                                        <p>Jquery</p>
+                                        <p>Zeplin</p>
+                                        <p>Photoshop</p>
+                                        <p>Illustrator</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// box_career end -->
+                </section>
+                <!--//sec_aboutMe end-->
+                <section class="sec_project">
+                    <div class="box_work">
+                        <!-- <div class="tit">
+                            <p>PROJECT</p>
+                        </div> -->
+                        <div class="cont">
+                            <!-- <div class="numBox">
+                                <div>
+                                    <p>01</p>
+                                </div>
+                                <div>
+                                    <p>01</p>
+                                </div>
+                            </div> -->
+                            <div class="listArea">
+                                <div class="list">
+                                    <div class="titBox">
+                                        <p>01. ABM 남양</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="imgBox">ABM 남양</div>
+                                        <div class="detailBox">
+                                            <div class="txtBox">
+                                                <div>
+                                                    <p>설명</p>
+                                                    <p>ABM(AI Big-data Management) 플랫폼은 고객 데이터 관리부터 마케팅까지 여러 기능들을 하나의
+                                                        플랫폼으로 제공하며, 구글, 네이버, 다음 광고까지 통합 운영 관리가 가능한 기능을 갖추고 있습니다.</p>
+                                                </div>
+                                                <div>
+                                                    <p>참여도 : 100%</p>
+                                                    <div class="graphBox">
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttonBox"><button type="button" class="more">MORE View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="titBox">
+                                        <p>01. ABM 남양</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="imgBox">ABM 남양</div>
+                                        <div class="detailBox">
+                                            <div class="txtBox">
+                                                <div>
+                                                    <p>설명</p>
+                                                    <p>ABM(AI Big-data Management) 플랫폼은 고객 데이터 관리부터 마케팅까지 여러 기능들을 하나의
+                                                        플랫폼으로 제공하며, 구글, 네이버, 다음 광고까지 통합 운영 관리가 가능한 기능을 갖추고 있습니다.</p>
+                                                </div>
+                                                <div>
+                                                    <p>참여도 : 100%</p>
+                                                    <div class="graphBox">
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttonBox"><button type="button" class="more">MORE View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="titBox">
+                                        <!-- <p>02</p> -->
+                                        <p>02. 모비온 외부인력 활용/관리</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="imgBox">모비온 외부인력 활용/관리</div>
+                                        <div class="detailBox">
+                                            <div class="txtBox">
+                                                <div>
+                                                    <p>설명</p>
+                                                    <p>모비온의 외부인력을 활용/관리하기위한 기능을 갖춘 관리자 사이트입니다.</p>
+                                                </div>
+                                                <div>
+                                                    <p>참여도 : 100%</p>
+                                                    <div class="graphBox">
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttonBox"><button type="button" class="more">MORE View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="titBox">
+                                        <!-- <p>04</p> -->
+                                        <p>03.모비튠</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="imgBox">모비튠</div>
+                                        <div class="detailBox">
+                                            <div class="txtBox">
+                                                <div>
+                                                    <p>설명</p>
+                                                    <p>모비튠은 사이트에서 고객이 취하는 수많은 액션들을 다양한 목적에 따라 조합하고 활용할 수 있도록 도움을 드리는
+                                                        CRM(고객 관계 관리)Tool 입니다.</p>
+                                                </div>
+                                                <div>
+                                                    <p>참여도 : 90%</p>
+                                                    <div class="graphBox">
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttonBox"><button type="button" class="more">MORE View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="titBox">
+                                        <!-- <p>03</p> -->
+                                        <p>04.모비피드</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="imgBox">모비피드</div>
+                                        <div class="detailBox">
+                                            <div class="txtBox">
+                                                <div>
+                                                    <p>설명</p>
+                                                    <p>통합 뉴스채널입니다. 현재는 오아시스피드로 이름을 변경하여 사용중입니다.</p>
+                                                </div>
+                                                <div>
+                                                    <p>참여도 : 100% (1차 제작완료 후 업무인계함)</p>
+                                                    <div class="graphBox">
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="width: 100%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttonBox"><button type="button" class="more">MORE View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// box_aboutMe end -->
+                </section>
+                <!--//sec_work end-->
+                <section>
+                    <div>THANKS</div>
+                </section>
+            </div>
+            <!--// content end -->
+        </section>
+        <!--//container end-->
+        <footer>
+            <a href="#" class="top">TOP</a>
+            <div class="footer">
+                <div class="logo">
+                    <p>SONJYE</p>
+                </div>
+                <div class="address">
+                    <p>E-MAIL : aqua178@naver.com</p>
+                </div>
+                <div class="copyright">
+                    <p>Copyright. SONJYE All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
