@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="Open RTB SSP" />
+    <meta name="keywords" content="Open RTB SSP" />
+    <meta name="author" content="인라이플" />
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico" type="image/ico">
+    <title>모비온</title>
+    <!-- 기본 CSS, JS -->
+    <link type="text/css" href="../../css/base.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+    <!-- //기본 CSS, JS -->
+    <link type="text/css" href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery.easing.1.3.js"></script>
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <link type="text/css" href="../../css/lib/daterangepicker_popup.css" rel="stylesheet" />
+    <script src="../../js/ui.js"></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- 퍼블 확인 용 STYLE CSS -->
+    <style>
+        .modalWrap,
+        .sec_modalWrap {
+            position: relative !important;
+            margin: 100px auto;
+        }
+
+        /* 메뉴 설명 */
+        .wrapper>strong {
+            position: relative;
+            display: block;
+            width: 50%;
+            top: 50px;
+            margin: 50px auto 0;
+            font-weight: bold;
+            font-size: 24px;
+            color: #333;
+            z-index: 999;
+        }
+
+        .wrapper>p {
+            position: relative;
+            display: block;
+            width: 50%;
+            top: 50px;
+            margin: 20px auto 0;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            z-index: 999;
+        }
+    </style>
+    <!-- 퍼블 확인 용 STYLE CSS END -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠 최고관리자</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">현황관리</a></li>
+                    <li><a href="javascript:void(0);">계정관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="manager">관리자</div>
+                <div class="name"><strong>홍길동</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btnUserMenu"><i></i></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <p>현황관리</p>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="currentSet"></i><span>현황관리</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="modalDim btnClose"></div>
+        <!-- // modalDim end-->
+        <strong>0.공통</strong>
+        <p>공통 > 버튼 하나 모달</p>
+        <!-- 공통 > 확인경고창 -->
+        <div class="modalWrap md_alert">
+            <div class="modalTitle">
+                <p>확인</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>확인되었습니다.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+            </div>
+        </div>
+        <!--// md_alert end -->
+        <p>공통 > 버튼 두개 모달</p>
+        <!-- 공통 > 확인경고창 -->
+        <div class="modalWrap md_confirm">
+            <div class="modalTitle">
+                <p>확인</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>계정이 확인되었습니다.</p>
+                        <strong>광고주명 : 모비온</strong>
+                    </div>
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+                <button type="button" class="cancel">취소</button>
+            </div>
+        </div>
+        <!--// md_accountConfirm end -->
+        <strong>0.로그인</strong>
+        <p>로그인 > 접속 계정 만료</p>
+        <!-- 로그인 > 접속 계정 만료 -->
+        <div class="modalWrap md_accountExpire">
+            <div class="modalTitle">
+                <p>접속 계정 만료</p>
+                <!-- 접속제한 TYPE 2 -->
+                <!-- <p>접속 IP 만료</p>-->
+                <!-- 접속제한 TYPE 3 -->
+                <!--<p>비허가 IP 접속</p> -->
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>입력하신 계정으로 로그인이 불가합니다.</p>
+                        <p>관리자에게 문의해주세요.</p>
+                    </div>
+                    <!-- 접속제한 TYPE 2 -->
+                    <!-- <div class="box_txt">
+                        <p>해당 IP로 로그인이 불가합니다.</p>
+                        <p>관리자에게 문의해주세요.</p>
+                    </div> -->
+                    <!-- 접속제한 TYPE 3 -->
+                    <!-- <div class="box_txt">
+                        <p>접근이 제한된 IP입니다.</p>
+                    </div> -->
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+            </div>
+        </div>
+        <!--// md_accountConfirm end -->
+        <section class="container">
+            <div class="title">
+            </div>
+            <div class="content">
+            </div>
+        </section>
+        <!--// container -->
+    </div>
+</body>
+
+</html>

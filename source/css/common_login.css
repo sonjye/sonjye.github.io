@@ -1,0 +1,2861 @@
+@charset "UTF-8";
+/*-------------------------------------------------------------------------------------------------------------
+    Explain : 포트폴리오
+    File : common_login.scss
+    Date   : 2022.06.20
+/*------------------------------------------------------------------------------------------------------------*/
+/* z-inde 참고 */
+/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998), iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
+/***** 공통 CSS *****/
+/*------------------------------------------------------------------------------------------------------------
+    File   : image.scss
+    Date   : 2022.06.16
+    Explain: image
+------------------------------------------------------------------------------------------------------------*/
+/******************** test  ********************/
+/******************** logo  ********************/
+/******************** header ********************/
+/******************** menu ********************/
+/******************** login ********************/
+/******************** index ********************/
+/******************** icon ********************/
+/******************** modal icon ********************/
+/******************** table ********************/
+/* sort */
+/******************** input ********************/
+/* radio */
+/* checkbox */
+/* select */
+/* calendar */
+/******************** paging  ********************/
+/******************** etc  ********************/
+/*------------------------------------------------------------------------------------------------------------
+    File   : component.scss
+    Date   : 2022.12.15
+    Explain: component
+------------------------------------------------------------------------------------------------------------*/
+/******************** color ********************/
+/* basic color */
+/* main nav */
+/***** font *****/
+/***** border *****/
+/***** background-color *****/
+/***** input *****/
+/***** scrollbar *****/
+/***** up & down *****/
+/******************** animation ********************/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/******************** scroll ********************/
+/* 
+::-webkit-scrollbar{
+@include scrollbar;}
+*/
+/* 
+::-webkit-scrollbar-thumb{
+@include scrollbar-thumb;}
+*/
+/******************** font ********************/
+/* notosans */
+/* roboto */
+/* maruburi */
+/* NanumSquareRound */
+/* gangwon */
+/* RixInooAriDuri */
+/* NanumSquare */
+/******************** text ********************/
+::-moz-selection {
+  background: #fffacd;
+}
+::selection {
+  background: #fffacd;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.disNone {
+  display: none !important;
+}
+
+.txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+/* ellipsis hover */
+.elHvrVsbl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.elHvrVsbl2 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.elHvrVsbl4 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/******************** layout ********************/
+/********************* flex *********************/
+/******************** iBubble,iMark ********************/
+/* iBubble */
+/* iMark */
+/* Qmark */
+i.Qmark {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_Qmark.svg") center center no-repeat;
+  margin: 0 5px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+i.QmarkHover {
+  font-family: "NotoSansR";
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  padding: 12px 15px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #4b4b4b;
+  border: 1px solid #fffacd;
+  border-radius: 5px;
+  background: #ffffff;
+  -webkit-box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  display: none;
+}
+
+i.QmarkHover:after, i.QmarkHover:before {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+i.QmarkHover:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+  border-width: 7px;
+  margin-left: -15px;
+}
+
+i.QmarkHover:before {
+  border-color: rgba(204, 60, 68, 0);
+  border-top-color: #fffacd;
+  border-width: 8px;
+  margin-left: -16px;
+}
+
+i.QmarkHover:after, i.QmarkHover:before {
+  top: 100%;
+  left: 20%;
+}
+
+/* tooltip hover */
+/******************** graph tooltip ********************/
+.graphTooltip {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  line-height: 19px;
+  color: #333;
+}
+
+/******************** table ********************/
+/******************** input ********************/
+/********** input **********/
+/* input */
+input,
+textarea {
+  font-family: "NotoSansR";
+  display: inline-block;
+  height: 36px;
+  padding: 10px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:disabled,
+textarea:disabled {
+  color: #777;
+  background-color: #f8f8f8;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #b7b8bd;
+  outline: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #777;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #777;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #777;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777;
+}
+
+/*textarea*/
+textarea {
+  resize: none;
+  padding: 12px 10px;
+}
+
+/* checkbox  */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  margin-right: 35px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] + label:last-child {
+  margin-right: 0;
+}
+
+input[type="checkbox"] + label:before {
+  background: url("../img/component/ico_checkbox_off.svg") center center no-repeat;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 7px 3px 0;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  background: url("../img/component/ico_checkbox_on.svg") center center no-repeat;
+}
+
+/* select */
+select {
+  width: 10px;
+  height: 7px;
+  background: #fff url("../img/component/ico_selectbox.svg") no-repeat right 10px center/10px;
+  display: inline-block;
+  min-width: 180px;
+  height: 36px;
+  padding: 8px 25px 8px 10px;
+  font-size: 13px;
+  color: #010101;
+  line-height: 1;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  outline: none;
+  font-family: "NotoSansR";
+}
+
+select:disabled {
+  color: #bbb;
+  border: 1px solid #d0d0d0;
+  background-color: #f8f8f8;
+}
+
+select:focus {
+  outline: none;
+}
+
+/* button */
+button {
+  font-family: "NotoSansR";
+}
+
+/* table button */
+/* searchBox */
+/* searchBox type 1 */
+/* searchBox type 2 */
+/* calendarBox */
+.calendarBox {
+  cursor: pointer;
+}
+
+.calendarBox p {
+  display: inline-block;
+  padding-right: 12px;
+  font-size: 14px;
+}
+
+.calendarBox .calendar {
+  display: inline-block;
+  width: 230px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.calendarBox .calendar input {
+  width: 180px;
+  height: 34px;
+  padding: 1px 10px 2px;
+  text-align: center;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+.calendarBox .calendar .dateChoice,
+.calendarBox .calendar .icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.calendarBox .calendar .icon {
+  width: 20px;
+  height: 20px;
+  background: url("../img/component/ico_calendar.svg") center center no-repeat;
+  position: relative;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  background-size: 18px 20px;
+}
+
+.calendarBox button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  width: 80px;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.calendarBox .checkBox {
+  display: inline-block;
+}
+
+/********** tab, tabView **********/
+/* tab */
+/* tab type-2 */
+.tab ul {
+  padding-left: 30px;
+  font-size: 0;
+  border-bottom: 1px solid #fffacd;
+}
+
+.tab ul li {
+  position: relative;
+  display: inline-block;
+  min-width: 180px;
+  height: 60px;
+  margin-right: 5px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 3.3;
+  color: #999;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #e9e9e9;
+  border-bottom: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.tab ul li.on {
+  font-family: "NotoSansM";
+  height: 61px;
+  top: 1px;
+  color: #fff;
+  border: 1px solid #fffacd;
+  border-bottom: none;
+  background-color: #fffacd;
+}
+
+/* tabView*/
+.tabView {
+  padding: 30px;
+  background-color: #fff;
+}
+
+.tabView .tabViewList {
+  display: none;
+}
+
+.tabView .tabViewList.show {
+  display: block;
+}
+
+/********** table  **********/
+/* tableWrap */
+/* tableWrapDataNone */
+/* tableWrap 하단에 include & 높이값 지정 */
+/* tableDataNone */
+/* 검색 결과가 없습니다. 
+높이값 입력 필수 */
+.tableDataNone {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.tableDataNone > div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: -webkit-fill-available;
+}
+
+.tableDataNone > div p {
+  display: block;
+  font-size: 14px;
+  color: #bbb;
+  text-align: center;
+}
+
+/* divTable */
+/* tableBox */
+.tableWrap {
+  overflow: auto;
+  border: 1px solid #e9e9e9;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.tableWrap .divTable {
+  display: table;
+  min-width: 100%;
+}
+
+.tableWrap .divTable .divTblHead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: table-header-group;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr {
+  display: table-row;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div {
+  display: table-cell;
+  padding: 10px;
+  min-height: 36px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  border-right: none;
+  border-bottom: none;
+  background-color: #f8f8f8;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div.sorting {
+  background-image: url("../img/component/ico_sortDefault.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div.sorting_asc {
+  background-image: url("../img/component/ico_sortUp.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div.sorting_desc {
+  background-image: url("../img/component/ico_sortDown.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div.sorting, .tableWrap .divTable .divTblHead .divTblTr > div.sorting_asc, .tableWrap .divTable .divTblHead .divTblTr > div.sorting_desc {
+  background-size: 15px 13px;
+  background-position-x: calc(100% - 10px);
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr > div:last-child {
+  border-right: 1px solid #eaeaea;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr:nth-child(1) > div {
+  display: table-cell;
+  min-height: 36px;
+  padding: 11px 10px 10px 10px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+  border-top: none;
+  background-color: #f8f8f8;
+}
+
+.tableWrap .divTable .divTblHead .divTblTr:nth-child(2) > div {
+  font-family: "NotoSansM";
+  vertical-align: middle;
+  line-height: 18px;
+  background-color: #d9d9d9;
+}
+
+.tableWrap .divTable .divTblBody {
+  display: table-row-group;
+}
+
+.tableWrap .divTable .divTblBody .divTblTr {
+  display: table-row;
+}
+
+.tableWrap .divTable .divTblBody .divTblTr > div {
+  display: table-cell;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 18px;
+  vertical-align: middle;
+  border: 1px solid #d9d9d9;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tableWrap .divTable .divTblBody .divTblTr > div:last-child {
+  border-right: 1px solid #d9d9d9;
+}
+
+.tableWrap .divTable .divTblFoot {
+  display: table-footer-group;
+}
+
+.tableWrap .divTable .divTblFoot .divTblTr {
+  display: table-row;
+}
+
+.tableWrap .divTable .divTblFoot .divTblTr > div {
+  display: table-cell;
+  padding: 10px;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody {
+  padding: 30px 0;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody .divTblTr:first-child > div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: 10px solid transparent;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody .divTblTr:last-child > div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 10px solid transparent;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody .divTblTr > div {
+  border: none;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody .divTblTr > div:nth-child(odd) {
+  padding: 20px 30px;
+  font-size: 15px;
+  text-align: left;
+  color: #777;
+  font-family: "NotoSansM";
+  min-width: 230px;
+  padding-top: 20px;
+  vertical-align: text-top;
+  background-color: #fffacd;
+}
+
+.tableWrap .divTable.divTableColumn .divTblBody .divTblTr > div:nth-child(even) {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 12px 25px;
+  font-size: 14px;
+  text-align: left;
+  color: #777;
+}
+
+.tableWrap .divTable.divTableRow .divTblHead .divTblTr > div {
+  display: table-cell;
+  padding: 13px 10px;
+  min-height: 36px;
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  border: 1px solid #e9e9e9;
+  background-color: #f8f8f8;
+  font-family: "NotoSansM";
+}
+
+.tableWrap .divTable.divTableRow .divTblBody .divTblTr > div {
+  border-right: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.tableWrap .divTable.divTableRow .divTblBody .divTblTr > div:first-child {
+  border-left: 1px solid #e9e9e9;
+}
+
+.tableWrap .divTable.divTableRow .divTblBody .divTblTr:last-child > div {
+  border-bottom: none;
+}
+
+.tableWrap .tableBox {
+  /* dataTable */
+}
+
+.tableWrap .tableBox table {
+  width: 100%;
+  background: #fff;
+}
+
+.tableWrap .tableBox table td,
+.tableWrap .tableBox table th {
+  padding: 10px 10px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 18px;
+  border: 1px solid #eaeaea;
+}
+
+.tableWrap .tableBox table td.strong,
+.tableWrap .tableBox table th.strong {
+  font-family: "NotoSansB";
+}
+
+.tableWrap .tableBox table td input[type="checkbox"] + label:before,
+.tableWrap .tableBox table th input[type="checkbox"] + label:before {
+  margin: 0;
+}
+
+.tableWrap .tableBox table thead tr th {
+  color: #3e3e3e;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #cae2af;
+  font-family: "NotoSansM";
+}
+
+.tableWrap .tableBox table thead tr th.sorting {
+  background-image: url("../img/component/ico_sortDefault.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .tableBox table thead tr th.sorting_asc {
+  background-image: url("../img/component/ico_sortUp.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .tableBox table thead tr th.sorting_desc {
+  background-image: url("../img/component/ico_sortDown.svg");
+  background-size: 15px 13px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.tableWrap .tableBox table thead tr th.sorting, .tableWrap .tableBox table thead tr th.sorting_asc, .tableWrap .tableBox table thead tr th.sorting_desc {
+  padding-right: 22px;
+  background-size: 15px 13px;
+  background-position-x: calc(100% - 6px);
+  cursor: pointer;
+}
+
+.tableWrap .tableBox table thead tr th:first-child {
+  border-left: none;
+}
+
+.tableWrap .tableBox table thead tr th:last-child {
+  border-right: none;
+}
+
+.tableWrap .tableBox table thead tr:first-child th {
+  border-top: none;
+}
+
+.tableWrap .tableBox table tbody tr {
+  /* 상위 tr */
+  /* 자식 tr */
+  /* 손자 tr */
+}
+
+.tableWrap .tableBox table tbody tr th:first-child,
+.tableWrap .tableBox table tbody tr td:first-child {
+  border-left: none;
+}
+
+.tableWrap .tableBox table tbody tr th:last-child,
+.tableWrap .tableBox table tbody tr td:last-child {
+  border-right: none;
+}
+
+.tableWrap .tableBox table tbody tr th {
+  color: #777;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: "NotoSansR";
+}
+
+.tableWrap .tableBox table tbody tr td {
+  line-height: 1.3;
+  color: #333;
+  font-size: 13px;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.tableWrap .tableBox table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrHasChild .btnToggle {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  font-size: 0;
+  text-align: center;
+  background-color: transparent;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrHasChild .btnToggle:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  content: "▼";
+  font-size: 12px;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrHasChild td {
+  background-color: transparent;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrHasChild.on .btnToggle:before {
+  content: "▲";
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild {
+  display: none;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild .btnToggle {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  font-size: 0;
+  text-align: center;
+  background-color: transparent;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild .btnToggle:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  content: "▲";
+  font-size: 12px;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild.on {
+  display: table-row;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild.on .btnToggle:before {
+  content: "▼";
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild.up .btnToggle {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  font-size: 0;
+  text-align: center;
+  background-color: transparent;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrChild.up .btnToggle:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  content: "▲";
+  font-size: 12px;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrGrandChild {
+  display: none;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrGrandChild.on {
+  display: table-row;
+}
+
+.tableWrap .tableBox table tbody tr.divTblTrGrandChild td:first-child {
+  font-family: "NotoSansR";
+}
+
+.tableWrap .tableBox table tfoot th,
+.tableWrap .tableBox table tfoot td {
+  font-family: "NotoSansR";
+  font-weight: normal;
+}
+
+.tableWrap .tableBox table tfoot th:first-child,
+.tableWrap .tableBox table tfoot td:first-child {
+  border-left: none;
+}
+
+.tableWrap .tableBox table tfoot th:last-child,
+.tableWrap .tableBox table tfoot td:last-child {
+  border-right: none;
+}
+
+.tableWrap .tableBox.dataTable table {
+  border-collapse: collapse;
+}
+
+/********** paging  **********/
+.paging {
+  position: relative;
+  text-align: center;
+}
+
+.paging > ul {
+  font-size: 0;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.paging > ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.paging > ul > li {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 25px;
+  height: 35px;
+  line-height: 18px;
+  text-align: center;
+  color: #888;
+  border-right: none;
+  cursor: pointer;
+}
+
+.paging > ul > li:hover a {
+  color: #fffacd;
+}
+
+.paging > ul > li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  line-height: 2.8;
+  color: #b3b3b3;
+}
+
+.paging > ul > li.on a {
+  font-family: "NotoSansB";
+  color: #fffacd;
+}
+
+.paging > ul > li.prev-list {
+  background: url("../img/component/ico_paging_prevList.svg") no-repeat center/9px;
+}
+
+.paging > ul > li.prev {
+  background: url("../img/component/ico_paging_prev.svg") no-repeat center/7px;
+}
+
+.paging > ul > li.next {
+  background: url("../img/component/ico_paging_next.svg") no-repeat center/7px;
+}
+
+.paging > ul > li.next-list {
+  background: url("../img/component/ico_paging_nextList.svg") no-repeat center/9px;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+    File   : layout_login.scss
+    Date   : 2022.06.06
+------------------------------------------------------------------------------------------------------------*/
+/******************** html ********************/
+html {
+  height: 100%;
+  min-height: -webkit-fill-available;
+  background-color: #3a4652;
+}
+
+html body {
+  height: inherit;
+  background-color: transparent;
+}
+
+/******************** container_wrapper ********************/
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+}
+
+/******************** container ********************/
+.container {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  font-family: "NotoSansR";
+}
+
+.container:after {
+  display: block;
+  width: 100%;
+  content: "";
+  clear: both;
+}
+
+.container.wide-view {
+  width: calc(100% - 60px);
+  margin-left: 60px;
+}
+
+.container .title {
+  position: relative;
+  width: 100%;
+  min-height: 20px;
+  font-family: "NotoSansM";
+}
+
+.container .title p:first-child {
+  font-family: "NotoSansM";
+  font-size: 18px;
+}
+
+.container .content > section {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  margin: 0px;
+  border: 1px solid #eee;
+}
+
+/***** 개별 CSS *****/
+/* 모달 */
+/*-------------------------------------------------------------------------------------------------------------
+    File   : modal.scss
+    Date   : 2022.06.14
+/*------------------------------------------------------------------------------------------------------------*/
+/* 팝업 최대 높이 값 800PX 넘어갈 경우 스크롤 */
+/******************** layout ********************/
+/******************** modalDim ********************/
+.modalDim {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background: #000000;
+  opacity: 0.2;
+  border-radius: 0;
+  z-index: 998;
+}
+
+.modalDim.hidden {
+  display: none;
+}
+
+/******************** modalWrap ********************/
+/* modalWrap type 1 */
+/* modalWrap type 2 */
+/*-------------------------------------------------------------------------------------------------------------
+    File   : modal.scss
+    Date   : 2022.06.15
+/*------------------------------------------------------------------------------------------------------------*/
+/* 팝업 최대 높이 값 800PX 넘어갈 경우 스크롤 */
+/********** modal each **********/
+.modalWrap {
+  /***** 공통 *****/
+  /* 버튼 한개 */
+  /* 버튼 두개 */
+  /***** 로그인 *****/
+  /* 접속 계정 만료 */
+  /* 현황관리 -  담당자 배정하기 */
+  /******************** 계정관리 메뉴 ********************/
+  /* 계정관리 -  업무현황 */
+  /******************** 표준카테고리 매칭 메뉴 ********************/
+  /* 표준카테고리 매칭 -표준 카테고리 설정  */
+  /* 표준카테고리 매칭 - xxx 카테고리 상품 현황  */
+}
+
+.modalWrap ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.modalWrap ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+}
+
+.modalWrap.md_alert {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 380px;
+  height: 220px;
+}
+
+.modalWrap.md_alert .modalTitle {
+  font-family: "NotoSansM";
+  height: 50px;
+  padding: 0px 20px 0 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 12px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: #fffacd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_alert .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 1.8;
+}
+
+.modalWrap.md_alert .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_wht.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 17px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_alert .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_alert .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_alert .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_alert .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_alert .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_alert .modalContent {
+  height: 70px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_alert .modalContent section .box_txt {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 26px;
+  color: #555;
+}
+
+.modalWrap.md_alert .modalContent section .box_txt strong {
+  font-family: "NotoSansM";
+}
+
+.modalWrap.md_alert .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+.modalWrap.md_alert .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_alert .modalFooter button.cancel {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_confirm {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 380px;
+  height: 250px;
+}
+
+.modalWrap.md_confirm .modalTitle {
+  font-family: "NotoSansM";
+  height: 50px;
+  padding: 0px 20px 0 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 12px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: #fffacd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_confirm .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 1.8;
+}
+
+.modalWrap.md_confirm .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_wht.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 17px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_confirm .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_confirm .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_confirm .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_confirm .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_confirm .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_confirm .modalContent {
+  height: 100px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_confirm .modalContent section .box_txt {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 26px;
+  color: #555;
+}
+
+.modalWrap.md_confirm .modalContent section .box_txt strong {
+  font-family: "NotoSansM";
+}
+
+.modalWrap.md_confirm .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+.modalWrap.md_confirm .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_confirm .modalFooter button.cancel {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_accountExpire {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 380px;
+  height: 230px;
+}
+
+.modalWrap.md_accountExpire .modalTitle {
+  font-family: "NotoSansM";
+  height: 50px;
+  padding: 0px 20px 0 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 12px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: #fffacd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_accountExpire .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 1.8;
+}
+
+.modalWrap.md_accountExpire .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_wht.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 17px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_accountExpire .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_accountExpire .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_accountExpire .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_accountExpire .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_accountExpire .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_accountExpire .modalContent {
+  height: 80px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_accountExpire .modalContent section .box_txt {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 20px;
+  color: #555;
+}
+
+.modalWrap.md_accountExpire .modalContent section .box_txt strong {
+  font-family: "NotoSansM";
+}
+
+.modalWrap.md_accountExpire .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+.modalWrap.md_accountExpire .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_accountExpire .modalFooter button.cancel {
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+}
+
+.modalWrap.md_staffAssign {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 1000px;
+  height: 485px;
+}
+
+.modalWrap.md_staffAssign .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_staffAssign .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 3.5;
+}
+
+.modalWrap.md_staffAssign .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_bk.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 30px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_staffAssign .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_staffAssign .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_staffAssign .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_staffAssign .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_staffAssign .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_staffAssign .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+
+.modalWrap.md_staffAssign .modalContent {
+  height: 400px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 4px 0 0 4px;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox input[type="text"]::-webkit-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox input[type="text"]:-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox input[type="text"]::-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox input[type="text"]::placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .searchBox button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  position: relative;
+  width: 106px;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fffacd;
+  border-radius: 0 4px 4px 0;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap {
+  height: 300px;
+  margin-top: 30px;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table thead:before {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-bottom: 1px solid #e9e9e9;
+  background-color: #e9e9e9;
+  z-index: -1;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr:hover {
+  background-color: #bfe09b;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr:hover td:last-child {
+  background-color: #fffacd;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr:hover td:last-child a {
+  color: #fff;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr.staffPick {
+  background-color: #eaeaea;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr.staffPick td:last-child {
+  background-color: #ff0000;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr.staffPick td:last-child a {
+  color: #fff;
+}
+
+.modalWrap.md_staffAssign .modalContent section.sec_searchStaff .tableWrap .tableBox table tbody tr td a {
+  text-decoration: underline;
+}
+
+.modalWrap.md_workCurrent {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 1000px;
+  height: 485px;
+}
+
+.modalWrap.md_workCurrent .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_workCurrent .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 3.5;
+}
+
+.modalWrap.md_workCurrent .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_bk.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 30px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_workCurrent .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_workCurrent .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_workCurrent .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_workCurrent .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_workCurrent .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_workCurrent .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+
+.modalWrap.md_workCurrent .modalContent {
+  height: 400px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 4px 0 0 4px;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox input[type="text"]::-webkit-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox input[type="text"]:-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox input[type="text"]::-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox input[type="text"]::placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .searchBox button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  position: relative;
+  width: 106px;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fffacd;
+  border-radius: 0 4px 4px 0;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap {
+  height: 300px;
+  margin-top: 30px;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead:before {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-bottom: 1px solid #e9e9e9;
+  background-color: #e9e9e9;
+  z-index: -1;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td:nth-child(7) {
+  text-decoration: underline;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td:nth-child(8) {
+  background-color: #f00;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.modalWrap.md_workCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td a {
+  text-decoration: underline;
+}
+
+.modalWrap.md_categorySet {
+  position: absolute;
+  z-index: 999;
+  min-height: 600px;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory {
+  width: 100%;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory {
+  position: relative;
+  width: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory .guideBox p {
+  font-size: 14px;
+  color: #fff;
+  line-height: 15px;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory .imgBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory .imgBox > div {
+  margin-left: 10px;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory .imgBox > div:first-child {
+  margin-left: 0;
+}
+
+.modalWrap.md_categorySet section.sec_imgCategory .imgCategory .imgBox > div img {
+  height: 150px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 700px;
+  height: auto;
+  margin-top: 70px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 3.5;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_bk.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 30px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent {
+  height: 320px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 4px 0 0 4px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox input[type="text"]::-webkit-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox input[type="text"]:-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox input[type="text"]::-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox input[type="text"]::placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .searchBox button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  position: relative;
+  width: 106px;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fffacd;
+  border-radius: 0 4px 4px 0;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .txtBox {
+  margin-top: 60px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .txtBox p {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .txtBox p:first-child {
+  font-family: "NotoSansB";
+  font-size: 16px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .txtBox p:nth-child(2) {
+  color: #777;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox {
+  border: 1px solid #eaeaea;
+  border-top: none;
+  max-height: 240px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 36px;
+  padding: 0 0px 0 14px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li:hover {
+  background-color: #bfe09b;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li:hover > div > div {
+  color: #fff;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li:hover button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li:hover button.choice {
+  border-radius: 0;
+  width: 100px;
+  height: 36px;
+  color: #fff;
+  background-color: #7abd2f;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li > div > div {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li > div > div:after {
+  content: ">";
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li > div > div:last-child:after {
+  content: "";
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li > div > div span.pick {
+  font-family: "NotoSansM";
+  color: #f00;
+  font-size: 15px;
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+}
+
+.modalWrap.md_categorySet section.sec_modalWrap .modalContent section.sec_searchList .searchList .listBox ul li button.choice {
+  border-radius: 0;
+  width: 100px;
+  height: 36px;
+  color: #fff;
+  background-color: #fff;
+}
+
+.modalWrap.md_categoryCurrent {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+          box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  width: 1200px;
+  height: 800px;
+}
+
+.modalWrap.md_categoryCurrent .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modalWrap.md_categoryCurrent .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 3.5;
+}
+
+.modalWrap.md_categoryCurrent .modalTitle button.close {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 15px;
+  height: 15px;
+  background: url("../img/component/ico_md_close_bk.svg") center center no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 30px;
+  top: 10px;
+  padding: 15px;
+  font-size: 0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section ::-webkit-scrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: #e9e9e9;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: #b8b8b8;
+}
+
+.modalWrap.md_categoryCurrent .modalFooter {
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.modalWrap.md_categoryCurrent .modalFooter button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  background: #fffacd;
+  color: #fff;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 30px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 3px;
+}
+
+.modalWrap.md_categoryCurrent .modalTitle {
+  font-family: "NotoSansR";
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+
+.modalWrap.md_categoryCurrent .modalContent {
+  height: 650px;
+  padding-bottom: 0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 400px;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 4px 0 0 4px;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox input[type="text"]::-webkit-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox input[type="text"]:-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox input[type="text"]::-ms-input-placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox input[type="text"]::placeholder {
+  font-family: "NotoSansR";
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableHeader .searchBox button {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  position: relative;
+  width: 106px;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fffacd;
+  border-radius: 0 4px 4px 0;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap {
+  height: 510px;
+  margin-top: 20px;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap.tableWrapDataNone {
+  height: auto;
+  border-bottom: none;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap.tableWrapDataNone .tableBox tbody,
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap.tableWrapDataNone .tableBox tfoot {
+  display: none;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead:before {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-bottom: 1px solid #e9e9e9;
+  background-color: #e9e9e9;
+  z-index: -1;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead tr:nth-child(2) th {
+  width: 10%;
+  background-color: #fafdf4;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table thead tr:nth-child(2) th:nth-child(8) {
+  width: 20%;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td:nth-child(8) {
+  width: 20%;
+  text-align: left;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td img {
+  width: 100%;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tbody tr td a {
+  text-decoration: underline;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableWrap .tableBox table tfoot tr th {
+  background-color: #fafdf4;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .tableDataNone {
+  height: 440px;
+}
+
+.modalWrap.md_categoryCurrent .modalContent section.sec_searchCurrent .paging ul {
+  margin: 20px auto 0;
+}
+
+.modalWrap.md_categoryCurrent .modalFooter .btnArea button.close {
+  color: #ffffff;
+  border: 1px solid #7e7e7e;
+  background-color: #7e7e7e;
+}
+
+/* 로그인 */
+/*-------------------------------------------------------------------------------------------------------------
+    File   : login.scss
+    Date   : 2022.06.17
+/*------------------------------------------------------------------------------------------------------------*/
+/* 팝업 최대 높이 값 800PX 넘어갈 경우 스크롤 */
+/********** modal each **********/
+.container {
+  /******************** 로그인 ********************/
+  /* 로그인 */
+}
+
+.container.externalManage_login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: inherit;
+  margin: 0;
+}
+
+.container.externalManage_login ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: #ebebeb;
+}
+
+.container.externalManage_login ::-webkit-scrollbar-thumb {
+  height: 15px;
+  background: #bbbbbb;
+  border-radius: 0px;
+}
+
+.container.externalManage_login .title {
+  text-align: center;
+}
+
+.container.externalManage_login .title p {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 136px;
+  height: 27px;
+  background: url("../img/logo/logo_enliple.svg") center center no-repeat;
+  width: 288px;
+  height: 57px;
+  margin-left: -30px;
+}
+
+.container.externalManage_login .content section.sec_login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 470px;
+  min-height: 380px;
+  margin: 30px auto 0;
+  padding: 30px 50px 40px;
+  border-top: 5px solid #fffacd;
+}
+
+.container.externalManage_login .content section.sec_login .box_txt p {
+  font-family: "NotoSansM";
+  font-size: 22px;
+  color: #4d4f5c;
+  text-align: center;
+}
+
+.container.externalManage_login .content section.sec_login .box_login {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-top: 22px;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea select {
+  width: 100%;
+  height: 48px;
+  padding: 10px 30px 10px 15px;
+  font-size: 16px;
+  border: 1px solid #e8e9ec;
+  background-position: right 15px center;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  margin-top: 18px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #e8e9ec;
+  cursor: pointer;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox > div {
+  position: relative;
+  height: 100%;
+  padding: 0px 35px 0px 15px;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox > div:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  width: 10px;
+  height: 7px;
+  background: #fff url("../img/component/ico_selectbox.svg") no-repeat right 10px center/10px;
+  position: absolute;
+  width: 12px;
+  height: 7px;
+  top: 20px;
+  right: 20px;
+  background-position: center;
+  z-index: 2;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox > div p {
+  font-size: 16px;
+  color: #4d4f5c;
+  line-height: 3;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox ul {
+  display: none;
+  position: absolute;
+  width: calc(100% + 2px);
+  height: 134px;
+  margin-left: -1px;
+  border: 1px solid #e8e9ec;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox ul li {
+  height: 48px;
+  padding: 16px 15px;
+  color: #4d4f5c;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .selectBox ul li:hover {
+  background-color: #f8f8f8;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 48px;
+  margin-top: 18px;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input:before,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  position: absolute;
+  margin-left: 15px;
+  padding: 15px 0;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"],
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"],
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"],
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 100%;
+  padding: 0 15px 0 40px;
+  color: #4d4f5c;
+  font-size: 16px;
+  border: 1px solid #e8e9ec;
+  border-radius: 4px;
+  background-color: #fcfcff;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"]::-webkit-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"]::-webkit-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"]::-webkit-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"]::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #9b9ca4;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"]:-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"]:-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"]:-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"]:-ms-input-placeholder {
+  font-size: 16px;
+  color: #9b9ca4;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"]::-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"]::-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"]::-ms-input-placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"]::-ms-input-placeholder {
+  font-size: 16px;
+  color: #9b9ca4;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"]::placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"]::placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"]::placeholder,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"]::placeholder {
+  font-size: 16px;
+  color: #9b9ca4;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="text"]:focus,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input input[type="password"]:focus,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="text"]:focus,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input input[type="password"]:focus {
+  border-color: #bfe09a;
+  background-color: #fafdf3;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox p,
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #2fa6fa;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input:before {
+  width: 14px;
+  height: 18px;
+  background: url("../img/component/ico_id_off.svg") center center no-repeat;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .idBox .input.focus:before {
+  width: 14px;
+  height: 18px;
+  background: url("../img/component/ico_id_on.svg") center center no-repeat;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input:before {
+  width: 14px;
+  height: 19px;
+  background: url("../img/component/ico_pw_off.svg") center center no-repeat;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .inputArea .pwBox .input.focus:before {
+  width: 14px;
+  height: 19px;
+  background: url("../img/component/ico_pw_on.svg") center center no-repeat;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .checkBox input[type="checkbox"] + label {
+  font-size: 14px;
+  color: #4d4f5c;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .checkBox input[type="checkbox"] + label:before {
+  position: relative;
+  top: -2px;
+  margin-bottom: 0;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .optionBox p {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .optionBox p:first-child {
+  color: #4d4f5c;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .optionBox p:nth-child(2) {
+  color: #fffacd;
+}
+
+.container.externalManage_login .content section.sec_login .box_login .optionArea .optionBox p:nth-child(2):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin: 0 10px;
+  vertical-align: bottom;
+  border-left: 1px solid #f4f4f6;
+}
+
+.container.externalManage_login .content section .btnArea {
+  margin-top: 50px;
+}
+
+.container.externalManage_login .content section .btnArea button.login {
+  font-family: "NotoSansM";
+  color: #ffffff;
+  border: 1px solid #fffacd;
+  background-color: #fffacd;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "NotoSansR";
+  width: 100%;
+  height: 52px;
+  font-size: 20px;
+  -webkit-box-shadow: 0px 8px 13px 0 rgba(32, 73, 102, 0.1);
+          box-shadow: 0px 8px 13px 0 rgba(32, 73, 102, 0.1);
+}
+
+.container.externalManage_login footer {
+  margin: 20px 0;
+}
+
+.container.externalManage_login footer p {
+  text-align: center;
+  font-size: 16px;
+  color: #9ba0a2;
+}
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : test.scss
+    Date   : 2022.06.13
+    Menu   : 테스트
+/*-------------------------------------------------------------------------------------------------------------*/
+/********** externalManage common css **********/
+/********** externalManage each css **********/
+/***** 01.menu - currentSet *****/
