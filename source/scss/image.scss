@@ -17,9 +17,9 @@
 
 /******************** test  ********************/
 @mixin img_me {
-  width: 563px;
-  height: 541px;
-  background: url("../img/test/dog-1.jpg") center center no-repeat;
+  @include image($folder:'content', $name: '/universe_4', $format:"jpg");
+  // width: 563px;
+  // height: 541px;
 }
 
 

@@ -222,8 +222,8 @@ var iBubble = function () {
 
 
 $(function () {
-  navigation();
-  daterangepicker();
+  // navigation();
+  // daterangepicker();
   tab();
   iBubble();
 });
