@@ -7,6 +7,7 @@
 /* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
 
 /***** 공통 CSS *****/
+@import "_base";
 @import "image";
 @import "component";
 @import "layout";

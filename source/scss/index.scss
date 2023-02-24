@@ -7,14 +7,8 @@
 /*-------------------------------------------------------------------------------------------------------------*/
 
 
-
-/********** externalManage common css **********/
-
-.container {}
-
-
-/********** externalManage each css **********/
-.container {
+/********** sonjye_index each css **********/
+.wrapper {
 
   /* 손졔 포트폴리오 */
   &.sonjye_index {
@@ -415,7 +409,8 @@
         }
 
         &.sec_project {
-          padding: 140px 0px 80px;
+          height: auto;
+          padding: 200px 100px 80px;
           // background-color: #ffdd6b;
 
           .box_work {
@@ -431,32 +426,37 @@
               color: #2a2d3e;
 
               p {
+                // @include ftBold;
+                // @include ft_Maruburi_B;
+                @include ft_nanumSR_EB;
+                @include ftBold;
+                // @include ft_Gangwon_B;
                 position: relative;
-                width: fit-content;
-                margin: 0 auto;
                 font-size: 36px;
                 text-align: center;
+                margin: 0 auto;
                 z-index: 1;
 
-                &:before {
-                  content: "";
-                  position: absolute;
-                  display: inline-block;
-                  width: 190px;
-                  height: 18px;
-                  bottom: -4px;
-                  left: -10px;
-                  background-color: #ffdd6b;
-                  // background-color: #2a2d3e;
-                  -webkit-transform: skew(-20deg);
-                  opacity: 0.7;
-                  z-index: -1;
-                }
+                // &:before {
+                //   content: "";
+                //   position: absolute;
+                //   display: inline-block;
+                //   width: 190px;
+                //   height: 18px;
+                //   bottom: -4px;
+                //   left: -10px;
+                //   background-color: #ffdd6b;
+                //   background-color: #2a2d3e;
+                //   -webkit-transform: skew(-20deg);
+                //   opacity: 0.7;
+                //   z-index: -1;
+                // }
               }
             }
 
             .cont {
-              // background-color: #FAFAD2;
+              margin-top: 40px;
+              // background-color: #FAFAD2;     
 
               .numBox {
                 position: absolute;
@@ -467,10 +467,8 @@
 
                   &:nth-child(1) {
                     p {
-
                       top: -50px;
                       color: #f4f4f4;
-
                     }
                   }
 
@@ -506,152 +504,153 @@
               }
 
               .listArea {
+                display: flex;
+                flex-wrap: wrap;
                 width: 100%;
                 padding: 20px 0 0px 0;
                 overflow: hidden;
 
                 .list {
-                  display: inline-block;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  width: 32%;
+                  max-height: 650px;
+                  margin: 30px 0 0 2%;
+                  padding: 30px 25px 30px 25px;
                   outline: none;
-                }
-              }
+                  // border: 1px solid #eee;
+                  border-radius: 10px;
+                  background-color: #f8f9fb;
 
-              >div {
-                // display: flex;
-                // display: inline-block;
-                // margin: 80px auto 0;
 
-                &:nth-child(2) {
-                  // width: 40%;
-                  // border: 1px solid pink;
-                }
-
-                &:nth-child(1) {}
-
-                .titBox {
-                  margin-top: 20px;
-
-                  p {
+                  .titBox {
+                    // padding-bottom: 15px;
+                    // border-bottom: 2px solid #f5f5f5;
                     text-align: center;
-                    text-indent: -30px;
 
-                    &:nth-child(1) {
-                      @include ft_nanumSR_EB;
-                      font-size: 32px;
-                    }
+                    p {
+                      &:nth-child(1) {
+                        font-size: 0;
 
-                    &:nth-child(2) {
-                      @include ft_nanumSR_EB;
-                      @include ft_maruburi_B;
-                      font-size: 32px;
-                    }
-                  }
-                }
+                        &:before {
+                          @include iLayout;
+                          // @include logo_abmNamyang;
+                          content: "";
+                          position: relative;
+                          display: inline-block;
+                          height: 28px !important;
+                          background-size: contain !important;
+                        }
+                      }
 
-                .contBox {
-                  position: relative;
+                      &:nth-child(2) {
+                        @include ft_maruburi_B;
+                        @include ft_nanumSR_EB;
+                        margin-top: 20px;
+                        color: $pointColor;
+                        font-size: 20px;
+                      }
 
-                  .imgBox {
-                    font-size: 0;
-
-                    &:before {
-                      @include img_browser;
-                      content: "";
-                      display: inline-block;
-                      width: 100%;
-                      height: 500px;
-                      background-position: center;
-                      background-size: contain;
-                    }
-
-                    &:hover {
-                      // background-color: pink;
+                      &:nth-child(3) {
+                        margin-top: 8px;
+                      }
                     }
                   }
 
-                  .detailBox {
-                    display: flex;
+                  .contBox {
+                    display: inline-flex;
                     flex-direction: column;
-                    position: absolute;
-                    width: 715px;
-                    height: 450px;
-                    top: 18px;
-                    left: 79px;
-                    padding: 80px 60px 60px 60px;
-                    border-radius: 10px;
-                    background-color: rgba(0, 0, 0, 0.7);
+                    flex-grow: 1;
+                    position: relative;
+                    margin-top: 10px;
 
-                    .txtBox {
-                      >div {
-                        &:nth-child(2) {
-                          margin-top: 20px;
-                        }
+                    .imgBox {
+                      font-size: 0;
+                      width: 100%;
+                      height: 300px;
+                      // max-height: 330px;
 
-                        p {
-                          // @include ftBold;
-                          // @include ft_Maruburi_B;
-                          @include ft_nanumSR_R;
-                          // @include ft_Gangwon_R;
-                          font-size: 18px;
-                          line-height: 1.5;
-                          color: #fff;
-
-                          &:nth-child(1) {
-                            font-size: 22px;
-                          }
-
-                          &:nth-child(2) {
-                            margin-top: 4px;
-                          }
-                        }
+                      &:before {
+                        @include img_browser;
+                        content: "";
+                        position: relative;
+                        display: inline-block;
+                        width: 100%;
+                        // min-height: 280px;
+                        height: 340px;
+                        background-position: center;
+                        background-position-y: top;
                       }
                     }
 
-                    .graphBox {
-                      margin-top: 5px;
-                      // border: 1px solid #fff;
-                      // border-radius: 15px;
-                      // background-color: #212332;
-                      width: 60%;
-                      display: flex;
-                      // margin-left: 10px;
+                    .txtBox {
+                      flex-grow: 1;
+                      position: relative;
+                      margin-top: 20px;
 
-                      >div {
-                        @include ft_nanumSR_B;
-                        position: relative;
-                        flex-grow: 1;
-                        // width: 70px;
-                        height: 20px;
-                        margin-left: 2%;
-                        // padding: 8px 10px;
-                        color: #fff;
-                        color: #222;
-                        font-size: 16px;
-                        border-radius: 5px;
-                        // border: 1px solid #f6fad9;
+                      p {
+                        @include ft_nanumSR_R;
+                        font-size: 15px;
+                        line-height: 1.5;
+                        // color: #fff;
+                      }
+                    }
 
-                        background-color: rgba(666, 666, 666, 0.1);
+                    .percentBox {
+                      position: relative;
+                      margin-top: 30px;
+
+                      p {
+                        @include ft_nanumSR_R;
+                        font-size: 15px;
+                        line-height: 1.5;
+                        // color: #fff;
+                      }
+
+                      .graphBox {
+                        margin-top: 5px;
+                        // border: 1px solid #fff;
+                        // border-radius: 15px;
+                        // background-color: #212332;
+                        width: 50%;
+                        display: flex;
+                        // margin-left: 10px;
 
                         >div {
-                          position: absolute;
-                          // width: calc(100% + 2px);
-                          height: 100%;
-                          // top: -1px;
+                          @include ft_nanumSR_B;
+                          position: relative;
+                          flex-grow: 1;
+                          // width: 70px;
+                          height: 12px;
+                          margin-left: 2%;
+                          // padding: 8px 10px;
+                          color: #fff;
+                          color: #222;
+                          font-size: 16px;
+                          border-radius: 5px;
+                          // border: 1px solid #f6fad9;
+                          background-color: rgba(666, 666, 666, 0.1);
 
-                          left: 0;
-                          border-radius: 4px;
-                          background-color: #f6fad9;
-                        }
+                          >div {
+                            position: absolute;
+                            // width: calc(100% + 2px);
+                            height: 100%;
+                            // top: -1px;
+                            left: 0;
+                            border-radius: 2px;
+                            background-color: #f6fad9;
+                            background-color: #666;
+                          }
 
-                        // background-color: #c3dec1;
-                        &:first-child {
-                          margin-left: 0;
+                          &:first-child {
+                            margin-left: 0;
+                          }
                         }
                       }
                     }
 
                     .buttonBox {
-                      flex-grow: 1;
                       position: relative;
                       text-align: right;
 
@@ -663,38 +662,127 @@
 
                         &.more {
                           // @include btn_white;
-                          width: 180px;
-                          height: 50px;
+                          width: 140px;
+                          height: 40px;
                           color: #fff;
-                          font-size: 16px;
-                          border: 1px solid #fff;
-                          background-color: rgba(999, 999, 999, 0.2)
+                          font-size: 14px;
+                          // border: 1px solid #fff;
+                          // background-color: rgba(999, 999, 999, 0.2)
+                          background-color: #231f2d;
+
+                          &:hover {
+                            background-color: $pointColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &:nth-child(3n+1) {
+                    margin-left: 0;
+                  }
+
+                  &:nth-child(-n+3) {
+                    margin-top: 0;
+                  }
+
+                  /* list - 1 */
+                  &:nth-child(1) {
+                    .titBox {
+                      p {
+                        &:nth-child(1) {
+                          &:before {
+                            @include logo_1pay_by;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  /* list - 2 */
+                  &:nth-child(2) {
+                    .titBox {
+                      p {
+                        &:nth-child(1) {
+
+                          &:before {
+                            @include logo_abmNamyang;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  /* list - 3 */
+                  &:nth-child(3) {
+                    .titBox {
+                      p {
+                        &:nth-child(1) {
+
+                          &:before {
+                            @include logo_enliple;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  /* list - 4 */
+                  &:nth-child(4) {
+                    .titBox {
+                      p {
+                        &:nth-child(1) {
+
+                          &:before {
+                            @include logo_mobtune;
+                            width: 40%;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  /* list - 4 */
+                  &:nth-child(5) {
+                    .titBox {
+                      p {
+                        &:nth-child(1) {
+
+                          &:before {
+                            @include logo_mobfeed;
+                          }
                         }
                       }
                     }
                   }
                 }
+              }
+            }
+          }
+        }
 
-                /* abmNamyang */
-                &.abmNamyang {
-                  .titBox {
-                    p {}
-                  }
-
-                  .contBox {
-                    .imgBox {}
-
-                    .detailBox {
+        &.sec_contact {
+          .box_thanks {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: -webkit-fill-available;
 
 
-                      .buttonBox {
-                        button {
-                          &.more {}
-                        }
-                      }
-                    }
-                  }
-                }
+            p {
+              @include ft_rix_R;
+              margin: auto 0;
+              font-size: 8.625rem;
+              text-align: center;
+
+              &:after {
+                content: ".";
+                position: relative;
+                display: inline-block;
+                margin-left: 2px;
+                color: #b73748;
+                font-size: 108px;
+                font-size: 6.75rem;
               }
             }
           }
@@ -706,4 +794,4 @@
 
 
 
-/***** 01.menu - currentSet *****/
+/***** index end *****/

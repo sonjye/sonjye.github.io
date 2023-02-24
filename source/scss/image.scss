@@ -26,11 +26,34 @@
 
 /******************** logo  ********************/
 @mixin logo_enliple {
-  width: 136px;
-  height: 27px;
-  background: url("../img/logo/logo_enliple.svg") center center no-repeat;
+  @include image($folder:'logo', $name: '/logo_enliple');
+  width: 153px;
+  height: 29px;
 }
 
+@mixin logo_1pay_by {
+  @include image($folder:'logo', $name: '/logo_1pay_by');
+  width: 66px;
+  height: 19px;
+}
+
+@mixin logo_abmNamyang {
+  @include image($folder:'logo', $name: '/logo_abmNamyang');
+  width: 130px;
+  height: 33px;
+}
+
+@mixin logo_mobtune {
+  @include image($folder:'logo', $name: '/logo_mobtune', $format:'png');
+  width: 921px;
+  height: 132px;
+}
+
+@mixin logo_mobfeed {
+  @include image($folder:'logo', $name: '/logo_mobfeed', $format:'png');
+  width: 120px;
+  height: 21px;
+}
 
 
 /******************** header ********************/
