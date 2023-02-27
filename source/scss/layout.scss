@@ -22,6 +22,13 @@ html {
   ::-webkit-scrollbar-track {
     @include scrollbar-track;
   }
+
+  body {
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    // overflow: hidden;
+  }
 }
 
 
@@ -59,8 +66,9 @@ header {
     margin: auto 0;
 
     a {
-      // @include ft_Maruburi_B;
       @include ft_rix_R;
+      position: relative;
+      // @include ft_Maruburi_B;
       // @include txtHide();
       font-size: 28px;
       color: #000;
@@ -74,12 +82,12 @@ header {
 
       &:after {
         content: "";
-        position: relative;
+        position: absolute;
         display: inline-block;
         // top: -23px;
         // left: -46px;
-        top: -22px;
-        left: 2px;
+        top: -8px;
+        right: -8px;
         width: 7px;
         height: 7px;
         border-radius: 2px;
@@ -113,6 +121,12 @@ header {
           margin-left: 0;
         }
 
+        &:hover {
+          a {
+            color: $pointColor;
+          }
+        }
+
         a {
           // @include ft_maruburi_B;
           display: block;
@@ -128,7 +142,7 @@ header {
   }
 }
 
-header.headerWt {
+header.headerWht {
   background-color: transparent;
 
   h1 {
@@ -494,12 +508,136 @@ header.headerWt {
 
   .content {
     // margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    transition: all 700ms ease 0s;
+
 
     >section {
       @include secLayout;
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      height: 100vh;
+
+      overflow: hidden;
+      color: #000;
 
       &:first-child {
         margin-top: 0;
+      }
+    }
+  }
+
+  .dot {
+    position: absolute;
+    top: 13%;
+    right: 80px;
+    transform: translateY(-50%);
+
+    ul {
+      li {
+        position: relative;
+        font-size: 0;
+        width: 16px;
+        height: 16px;
+        margin: 50px auto;
+
+        &.active {
+          width: 16px;
+          height: 16px;
+
+          &:before {
+            opacity: 1;
+          }
+
+          &:after {
+            background-color: $pointColor;
+          }
+        }
+
+        &:active {
+          &:after {
+            background-color: $pointColor;
+          }
+        }
+
+        &:hover {
+          &:before {
+            opacity: 1;
+            cursor: pointer;
+          }
+
+          &:after {
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+        &:before {
+          position: absolute;
+          display: inline-block;
+          top: 50%;
+          left: -130px;
+          transform: translateY(-50%);
+          width: 99px;
+          height: 36px;
+          color: #fff;
+          border-radius: 36px;
+          text-align: center;
+          line-height: 36px;
+          font-size: 12px;
+          transition: all 0.3s;
+          opacity: 0;
+          background-color: $pointColor;
+
+          &::hover {
+            width: 16px;
+            height: 16px;
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #222;
+          background-color: #fff;
+        }
+
+        &:nth-child(1) {
+          &:before {
+            content: "MAIN";
+          }
+        }
+
+        &:nth-child(2) {
+          &:before {
+            content: "About Me";
+          }
+        }
+
+        &:nth-child(3) {
+          &:before {
+            content: "Work";
+          }
+        }
+
+        &:nth-child(4) {
+          &:before {
+            content: "Contact";
+          }
+        }
       }
     }
   }
