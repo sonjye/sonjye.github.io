@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-    <g style="stroke:#79bd2f;fill:#fafdf3;stroke-linejoin:round">
-        <rect width="20" height="20" rx="2" style="stroke:none"/>
-        <rect x=".5" y=".5" width="19" height="19" rx="1.5" style="fill:none"/>
-    </g>
-    <path data-name="모양 8" d="m2831 549.222 4.444 4.444 6.667-6.667" transform="translate(-2826.556 -541.444)" style="stroke-width:2px;fill:none;stroke:#79bd2f"/>
-</svg>
