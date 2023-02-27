@@ -130,7 +130,6 @@
           padding: 1.875rem 100px;
           padding: 200px 100px 40px;
 
-
           .box_aboutMe {
             display: flex;
             flex-direction: column;
@@ -411,7 +410,8 @@
         &.sec_project {
           height: auto;
           padding: 200px 100px 80px;
-          // background-color: #ffdd6b;
+          // background-color: #ffdd6b;                  
+          background-color: #f8f9fb;
 
           .box_work {
             display: flex;
@@ -521,8 +521,8 @@
                   outline: none;
                   // border: 1px solid #eee;
                   border-radius: 10px;
-                  background-color: #f8f9fb;
-
+                  background-color: #fff;
+                  border: 1px solid #f8f9fb;
 
                   .titBox {
                     // padding-bottom: 15px;

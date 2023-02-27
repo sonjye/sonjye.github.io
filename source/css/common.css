@@ -2,7 +2,7 @@
 /*-------------------------------------------------------------------------------------------------------------
     Explain : 포트폴리오
     File : common.scss
-    Date   : 2023.01.03
+    Date   : 2023.02.27
 /*------------------------------------------------------------------------------------------------------------*/
 /* z-inde 참고 */
 /* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
@@ -1754,7 +1754,6 @@ header.headerWht:hover .mainNav ul li:hover a {
   padding: 1.875rem 100px;
   border-radius: 5px;
   margin: 0px;
-  border: 1px solid #eee;
   position: relative;
   width: 100%;
   height: 100%;
@@ -2368,6 +2367,7 @@ footer .footer div.address {
 .wrapper.sonjye_index .content section.sec_project {
   height: auto;
   padding: 200px 100px 80px;
+  background-color: #f8f9fb;
 }
 
 .wrapper.sonjye_index .content section.sec_project .box_work {
@@ -2467,7 +2467,8 @@ footer .footer div.address {
   padding: 30px 25px 30px 25px;
   outline: none;
   border-radius: 10px;
-  background-color: #f8f9fb;
+  background-color: #fff;
+  border: 1px solid #f8f9fb;
   /* list - 1 */
   /* list - 2 */
   /* list - 3 */

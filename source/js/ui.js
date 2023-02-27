@@ -1,51 +1,24 @@
 
 var navigation = function(){
-   /* header 유저메뉴 리스트 토글 */
-   var userMenuIcon = $("header .userinfo .userMenu .btnUserMenu");
-    $(userMenuIcon).on("click", function () {
-        var nextEl = $(this).next("ul");
-        $(this).toggleClass("on");
-        nextEl.toggle(300);
-    });
-    $(document).mouseup(function (e) {
-        var userMenu = $(".userMenu");
-        if (!userMenu.is(e.target) && userMenu.has(e.target).length === 0) {
-            $(".userMenu ul").hide(300);
-            $(".userMenu .btns").removeClass("on");
-        }
-    });
-    $(".navigation .hamburger").on("click", function () {
-        $(".navigation").toggleClass("closed");
-        $(".container").toggleClass("wide-view");
-        if ($(".navigation").hasClass("closed")) {
-            $(".navigation").animate({
-                width: "70px",
-            }, 400);
-        } else {
-            $(".navigation").animate({
-                width: "250px",
-            }, 400);
-        }
-    });
-    $(".navigation ul li:has(ul)").addClass("has-list");
-    $(".navigation > ul > li > a").on("click", function () {
-        var nextEl = $(this).next();
-        $(".navigation > ul > li").removeClass("active");
-        $(this).closest("li").addClass("active");
-        if (nextEl.is("ul") && nextEl.is(":visible")) {
-            $(this).closest("li").removeClass("active");
-            nextEl.slideUp("fast");
-        }
-        if (nextEl.is("ul") && !nextEl.is(":visible")) {
-            $(".navigation > ul > li > ul:visible").slideUp(300);
-            nextEl.slideDown("fast");
-        }
-        if (nextEl.is("ul")) {
-            return false;
-        } else {
-            return true;
-        }
-    });
+  var lastScroll = 0;
+  var scrollPosition = $(window).height();
+  $(window).scroll(function(event){
+    var scroll = $(this).scrollTop();
+    if(scroll > scrollPosition) {
+      $(".header").removeClass("headerWht");
+    }
+    else {
+      $(".header").addClass("headerWht");
+    }
+    lastScroll = scroll;
+  });
+
+//  if($(window).scrollTop() > $('.a').height() -51) {
+//   $('.b').addClass('c');
+//  }
+//  else if($(window).scrollTop() < $('#a').height() -51){
+//     $('.b').removeClass('c');
+//  }
 };
 
 var daterangepicker = function () {
