@@ -1,0 +1,225 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : modal.scss
+    Date   : 2022.06.14
+/*------------------------------------------------------------------------------------------------------------*/
+/* 팝업 최대 높이 값 800PX 넘어갈 경우 스크롤 */
+
+
+/******************** layout ********************/
+@mixin modalLayout {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+}
+
+@mixin modalTitle {
+  @include ftMedium;
+  height: 50px;
+  padding: 0px 20px 0 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 12px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: $mainColor;
+}
+
+@mixin modalTitle_white {
+  @include ftRegular;
+  height: 50px;
+  padding: 0px 30px 0 0px;
+  margin: 0 30px;
+  color: #2a2a2a;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+
+@mixin modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll
+}
+
+@mixin tableScrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: $scrollBgColor;
+}
+
+@mixin tableScrollbar_thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: $scrollThumbBGColor;
+}
+
+
+/******************** modalDim ********************/
+.modalDim {
+  //display: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background: #000000;
+  opacity: 0.2;
+  border-radius: 0;
+  z-index: 998;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+/******************** modalWrap ********************/
+/* modalWrap type 1 */
+@mixin modalWrap {
+  @include modalLayout;
+
+  .modalTitle {
+    @include modalTitle;
+    display: flex;
+
+    p {
+      flex-grow: 1;
+      line-height: 1.8;
+    }
+
+    button {
+      &.close {
+        @include btnLayout;
+        @include ico_md_close_wht;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 17px;
+        top: 10px;
+        padding: 15px;
+        font-size: 0;
+      }
+    }
+  }
+
+  .modalContent {
+    @include modalContent;
+
+    section {
+
+      // custom scroll
+      ::-webkit-scrollbar {
+        @include tableScrollbar;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        @include tableScrollbar_thumb;
+      }
+    }
+  }
+
+  .modalFooter {
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+
+    button {
+      @include btnLayout;
+      @include transition;
+      display: inline-block;
+      background: $mainColor;
+      color: #fff;
+      min-width: 120px;
+      min-height: 40px;
+      padding: 0 30px;
+      line-height: 28px;
+      vertical-align: middle;
+      font-size: 15px;
+      margin: 0 3px;
+
+      // &:hover {
+      //   box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+      // }
+    }
+  }
+}
+
+/* modalWrap type 2 */
+@mixin modalWrap_t2 {
+  @include modalLayout;
+
+  .modalTitle {
+    @include modalTitle_white;
+    display: flex;
+
+    p {
+      flex-grow: 1;
+      line-height: 3.5;
+    }
+
+    button {
+      &.close {
+        @include btnLayout;
+        @include ico_md_close_bk;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 30px;
+        top: 10px;
+        padding: 15px;
+        font-size: 0;
+      }
+    }
+  }
+
+  .modalContent {
+    @include modalContent;
+
+    section {
+
+      // custom scroll
+      ::-webkit-scrollbar {
+        @include tableScrollbar;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        @include tableScrollbar_thumb;
+      }
+    }
+  }
+
+  .modalFooter {
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+
+    button {
+      @include btnLayout;
+      @include transition;
+      display: inline-block;
+      background: $mainColor;
+      color: #fff;
+      min-width: 120px;
+      min-height: 40px;
+      padding: 0 30px;
+      line-height: 28px;
+      vertical-align: middle;
+      font-size: 15px;
+      margin: 0 3px;
+
+      // &:hover {
+      //   box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+      // }
+    }
+  }
+}

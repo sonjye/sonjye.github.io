@@ -1,0 +1,300 @@
+@charset 'utf-8';
+
+/*-------------------------------------------------------------------------------------------------------------
+    File   : modal.scss
+    Date   : 2022.04.08
+/*------------------------------------------------------------------------------------------------------------*/
+/* 팝업 최대 높이 값 800PX 넘어갈 경우 스크롤 */
+
+
+/********** common  **********/
+
+@mixin modalLayout {
+  position: absolute;
+  z-index: 999;
+  border-radius: 10px;
+  box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+}
+
+@mixin modalTitle {
+  height: 50px;
+  padding: 0px 10px 0 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: 12px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: $mainColor;
+  font-family: "NotoSansM";
+}
+
+@mixin modalSubTitle {
+  @include ftMedium;
+  font-size: 16px;
+}
+
+@mixin modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+
+  margin: 10px 0 0 10px;
+  padding: 20px 20px 30px 20px;
+  overflow-y: scroll
+}
+
+@mixin tableScrollbar {
+  width: 5px;
+  padding: 0 10px;
+  height: 15px;
+  background: $scrollBgColor;
+}
+
+@mixin tableScrollbar_thumb {
+  height: 15px;
+  background: #dedede;
+  border-radius: 10px;
+  background-color: $scrollThumbBGColor;
+}
+
+
+/* modalDim */
+.modalDim {
+  //display: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background: #000000;
+  opacity: 0.2;
+  border-radius: 0;
+  z-index: 998;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+/* modalWrap */
+.modalWrap {
+  @include modalLayout;
+
+  .modalTitle {
+    @include modalTitle;
+    display: flex;
+
+    p {
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    button {
+      &.close {
+        @include btnLayout;
+        @include ico_md_close_wht;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 17px;
+        top: 10px;
+        padding: 15px;
+        font-size: 0;
+      }
+    }
+  }
+
+  .modalContent {
+    @include modalContent;
+
+    section {
+      .secTit {
+        min-height: 30px;
+
+        p {
+          font-size: 16px;
+          font-family: "NotoSansM";
+        }
+      }
+
+      .secCont {
+
+        // custom scroll
+        ::-webkit-scrollbar {
+          @include tableScrollbar;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          @include tableScrollbar_thumb;
+        }
+      }
+    }
+  }
+
+  .modalFooter {
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+
+    button {
+      @include btnLayout;
+      @include dpLayout;
+      @include transition;
+      background: $mainColor;
+      color: #fff;
+      min-width: 120px;
+      min-height: 40px;
+      line-height: 28px;
+      padding: 0 30px;
+      margin: 0 3px;
+
+      &:hover {
+        box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
+      }
+
+      &.cancel {
+        @include btn_gray;
+      }
+    }
+  }
+}
+
+
+
+/********** modal each **********/
+.modalWrap {
+
+  // custom scroll
+  ::-webkit-scrollbar {
+    width: 5px;
+    padding: 0 10px;
+    height: 15px;
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: 15px;
+    background: #dedede;
+    border-radius: 10px;
+  }
+
+
+  /***** 공통 *****/
+  /* 확인 */
+  &.md_alert {
+    width: 380px;
+    height: 220px;
+
+    .modalContent {
+      height: 70px;
+      padding-bottom: 0;
+
+      section {
+        .box_txt {
+          margin-top: 10px;
+          text-align: center;
+          line-height: 26px;
+          color: #555;
+
+          strong {
+            @include ftMedium;
+          }
+        }
+      }
+    }
+
+    .modalFooter {
+      button {
+        @include btnLayoutM;
+
+        &.confirm {
+          @include btn_red;
+        }
+
+        &.cancel {
+          @include btn_gray;
+        }
+      }
+    }
+  }
+
+  /* 계정 확인 */
+  &.md_confirm {
+    width: 380px;
+    height: 250px;
+
+    .modalContent {
+      height: 100px;
+      padding-bottom: 0;
+
+      section {
+        .box_txt {
+          margin-top: 10px;
+          text-align: center;
+          line-height: 26px;
+          color: #555;
+
+          strong {
+            @include ftMedium;
+          }
+        }
+      }
+    }
+
+    .modalFooter {
+      button {
+        @include btnLayoutM;
+
+        &.confirm {
+          @include btn_red;
+        }
+
+        &.cancel {
+          @include btn_gray;
+        }
+      }
+    }
+  }
+
+  /* 로그인 -  접속 IP 확인 */
+  &.md_ipAlert {
+    width: 380px;
+    height: 260px;
+
+    .modalContent {
+      height: 110px;
+      padding-bottom: 0;
+
+      section {
+        .box_txt {
+          margin-top: 10px;
+          text-align: center;
+          line-height: 26px;
+          color: #555;
+
+          strong {
+            @include ftMedium;
+          }
+
+          p {
+            margin-top: 10px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+
+    .modalFooter {
+      button {
+        @include btnLayoutM;
+
+        &.setting {
+          @include btn_red;
+        }
+      }
+    }
+  }
+}

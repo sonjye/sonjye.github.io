@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="Open RTB SSP" />
+    <meta name="keywords" content="Open RTB SSP" />
+    <meta name="author" content="인라이플" />
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico" type="image/ico">
+    <title>모비온</title>
+    <!-- 기본 CSS, JS -->
+    <link type="text/css" href="../../css/base.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+    <!-- //기본 CSS, JS -->
+    <link type="text/css" href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery.easing.1.3.js"></script>
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <link type="text/css" href="../../css/lib/daterangepicker_popup.css" rel="stylesheet" />
+    <script src="../../js/ui.js"></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- 퍼블 확인 용 STYLE CSS -->
+    <style>
+        .modalWrap,
+        .sec_modalWrap {
+            position: relative !important;
+            margin: 100px auto;
+        }
+
+        /* 메뉴 설명 */
+        .wrapper>strong {
+            position: relative;
+            display: block;
+            width: 50%;
+            top: 50px;
+            margin: 50px auto 0;
+            font-weight: bold;
+            font-size: 24px;
+            color: #333;
+            z-index: 999;
+        }
+
+        .wrapper>p {
+            position: relative;
+            display: block;
+            width: 50%;
+            top: 50px;
+            margin: 20px auto 0;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            z-index: 999;
+        }
+    </style>
+    <!-- 퍼블 확인 용 STYLE CSS END -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠 최고관리자</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">현황관리</a></li>
+                    <li><a href="javascript:void(0);">계정관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="manager">관리자</div>
+                <div class="name"><strong>홍길동</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btnUserMenu"><i></i></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <p>현황관리</p>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="currentSet"></i><span>현황관리</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="modalDim"></div>
+        <!-- // modalDim end-->
+        <strong>0.공통</strong>
+        <p>공통 > 버튼 하나 모달</p>
+        <!-- 공통 > 확인경고창 -->
+        <div class="modalWrap md_alert">
+            <div class="modalTitle">
+                <p>확인</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>확인되었습니다.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+            </div>
+        </div>
+        <!--// md_alert end -->
+        <p>공통 > 버튼 두개 모달</p>
+        <!-- 공통 > 확인경고창 -->
+        <div class="modalWrap md_confirm">
+            <div class="modalTitle">
+                <p>확인</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>계정이 확인되었습니다.</p>
+                        <strong>광고주명 : 모비온</strong>
+                    </div>
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+                <button type="button" class="cancel">취소</button>
+            </div>
+        </div>
+        <!--// md_accountConfirm end -->
+        <strong>0.로그인</strong>
+        <p>로그인 > 접속 계정 만료</p>
+        <!-- 로그인 > 접속 계정 만료 -->
+        <div class="modalWrap md_accountExpire">
+            <div class="modalTitle">
+                <p>접속 계정 만료</p>
+                <!-- 접속제한 TYPE 2 -->
+                <!-- <p>접속 IP 만료</p>-->
+                <!-- 접속제한 TYPE 3 -->
+                <!--<p>비허가 IP 접속</p> -->
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="modalSection">
+                    <div class="box_txt">
+                        <p>입력하신 계정으로 로그인이 불가합니다.</p>
+                        <p>관리자에게 문의해주세요.</p>
+                    </div>
+                    <!-- 접속제한 TYPE 2 -->
+                    <!-- <div class="box_txt">
+                        <p>해당 IP로 로그인이 불가합니다.</p>
+                        <p>관리자에게 문의해주세요.</p>
+                    </div> -->
+                    <!-- 접속제한 TYPE 3 -->
+                    <!-- <div class="box_txt">
+                        <p>접근이 제한된 IP입니다.</p>
+                    </div> -->
+                </section>
+            </div>
+            <div class="modalFooter">
+                <button type="button" class="confirm">확인</button>
+            </div>
+        </div>
+        <!--// md_accountConfirm end -->
+        <strong>A1.현황관리 메뉴</strong>
+        <p>현황관리 > 담당자 배정하기</p>
+        <!-- 현황관리 > 담당자 배정하기-->
+        <div class="modalWrap md_staffAssign">
+            <div class="modalTitle">
+                <p>담당자 배정하기</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="sec_searchStaff">
+                    <div class="searchBox">
+                        <input type="text" name="" id="" placeholder="담당자 이름 혹은 ID를 입력하세요.">
+                        <button type="button" class="search">검색</button>
+                    </div>
+                    <div class="tableWrap">
+                        <div class="tableBox">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" class="sorting_asc">담당자</th>
+                                        <th colspan="2">업무 배정현황</th>
+                                        <th colspan="3">업무 배정현황(카테고리 기준)</th>
+                                        <th rowspan="2">관리</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="sorting_asc">광고주</th>
+                                        <th class="sorting_desc">카테고리</th>
+                                        <th class="sorting_asc">매칭완료</th>
+                                        <th class="sorting_asc">진행중</th>
+                                        <th class="sorting_asc">미설정</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="staffPick">
+                                        <td>홍길동 (UserID)</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td><a href="#">지정하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>홍길동 (UserID)</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td><a href="#">지정하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--// md_staffAssign end -->
+        <strong>A2.계정관리 메뉴</strong>
+        <p>계정관리 > 업무현황 </p>
+        <!-- 현황관리 > 담당자 배정하기-->
+        <div class="modalWrap md_workCurrent">
+            <div class="modalTitle">
+                <p>업무현황</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="sec_searchCurrent">
+                    <div class="searchBox">
+                        <input type="text" name="" id="" placeholder="담당자 이름 혹은 ID를 입력하세요.">
+                        <button type="button" class="search">검색</button>
+                    </div>
+                    <div class="tableWrap">
+                        <div class="tableBox">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">업무 배정현황</th>
+                                        <th colspan="3">업무 배정현황(카테고리 기준)</th>
+                                        <th rowspan="2">업무 배정일자</th>
+                                        <th rowspan="2">관리</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="sorting_asc">광고주</th>
+                                        <th class="sorting_desc">광고주</th>
+                                        <th class="sorting_asc">카테고리</th>
+                                        <th class="sorting_asc">매칭완료</th>
+                                        <th class="sorting_asc">진행중</th>
+                                        <th class="sorting_asc">미설정</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>2022-05-03/19: 00: 22</td>
+                                        <td><a href="#">해제하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>000,000</td>
+                                        <td>2022-05-03/19: 00: 22</td>
+                                        <td><a href="#">해제하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--// md_workCurrent end -->
+        <strong>E2.표준카테고리 매칭 메뉴</strong>
+        <p>표준카테고리 매칭 > 표준 카테고리 설정(검색 전 : listBox > none) </p>
+        <!-- 표준카테고리 매칭 > 표준 카테고리 설정 팝업 -->
+        <div class="modalWrap md_categorySet">
+            <section class="sec_imgCategory">
+                <div class="imgCategory">
+                    <div class="guideBox">
+                        <p>※ 표준 카테고리 설정 시 참고할 해당 카테고리 인기재 이미지입니다.</p>
+                    </div>
+                    <div class="imgBox">
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="sec_modalWrap">
+                <div class="modalTitle">
+                    <p>표준 카테고리 설정하기</p>
+                    <button type="button" class="close">닫기</button>
+                </div>
+                <div class="modalContent">
+                    <section class="sec_searchList">
+                        <div class="searchList">
+                            <div class="searchBox">
+                                <input type="text" name="" id="" placeholder="광고주명 혹은 광고주 ID를 입력하세요.">
+                                <button type="button" class="search">검색</button>
+                            </div>
+                            <div class="txtBox">
+                                <p>카테고리를 검색해보세요</p>
+                                <p> 티셔츠, 바지, 원피스 등 키워드를 입력하여<br> 표준 카테고리를 검색해보세요. </p>
+                            </div>
+                            <div class="listBox" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--// modalContent end -->
+            </section>
+        </div>
+        <!--// md_categorySet end -->
+        <p>표준카테고리 매칭 > 표준 카테고리 설정(검색 후 : txtBox > none ) </p>
+        <!-- 표준카테고리 매칭 > 표준 카테고리 설정 팝업 -->
+        <div class="modalWrap md_categorySet">
+            <section class="sec_imgCategory">
+                <div class="imgCategory">
+                    <div class="guideBox">
+                        <p>※ 표준 카테고리 설정 시 참고할 해당 카테고리 인기재 이미지입니다.</p>
+                    </div>
+                    <div class="imgBox">
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                        <div><img src="../../img/test/image-1.jpg"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="sec_modalWrap">
+                <div class="modalTitle">
+                    <p>표준 카테고리 설정하기</p>
+                    <button type="button" class="close">닫기</button>
+                </div>
+                <div class="modalContent">
+                    <section class="sec_searchList">
+                        <div class="searchList">
+                            <div class="searchBox">
+                                <input type="text" name="" id="" placeholder="광고주명 혹은 광고주 ID를 입력하세요.">
+                                <button type="button" class="search">검색</button>
+                            </div>
+                            <div class="txtBox" style="display:none;">
+                                <p>카테고리를 검색해보세요</p>
+                                <p> 티셔츠, 바지, 원피스 등 키워드를 입력하여<br> 표준 카테고리를 검색해보세요. </p>
+                            </div>
+                            <div class="listBox">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>패션</div>
+                                            <div>여성<span class="pick">의류</span></div>
+                                            <div>잠옷</div>
+                                        </div>
+                                        <button type="button" class="choice">선택하기</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--// modalContent end -->
+            </section>
+        </div>
+        <!--// md_categorySet end -->
+        <p>표준카테고리 매칭 > xxx 카테고리 상품 현황 </p>
+        <!-- 표준카테고리 매칭 > xxx 카테고리 상품 현황-->
+        <div class="modalWrap md_categoryCurrent">
+            <div class="modalTitle">
+                <p>OOOO 카테고리 상품 현황</p>
+                <button type="button" class="close">닫기</button>
+            </div>
+            <div class="modalContent">
+                <section class="sec_searchCurrent">
+                    <div class="tableHeader">
+                        <div class="searchBox">
+                            <input type="text" name="" id="" placeholder="담당자 이름 혹은 ID를 입력하세요.">
+                            <button type="button" class="search">검색</button>
+                        </div>
+                        <div class="selectBox"><select name="" id="">
+                                <option value="">10개씩 보기</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--// tableHeader end-->
+                    <!--// 내용이 없을 때 tableWrap & tableWrapDataNone 함께 사용 -->
+                    <div class="tableWrap">
+                        <div class="tableBox">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>상품</th>
+                                        <th class="sorting_asc">상품코드</th>
+                                        <th colspan="2">광고주 카테고리</th>
+                                        <th colspan="3">표준 카테고리</th>
+                                        <th>상품명</th>
+                                        <th class="sorting_desc">판매가격</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>-</th>
+                                        <th>42개</th>
+                                        <th>13개</th>
+                                        <th>13개</th>
+                                        <th>13개</th>
+                                        <th>13개</th>
+                                        <th>-</th>
+                                        <th>-</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="../../img/test/image-1.jpg" alt=""></td>
+                                        <td>45789</td>
+                                        <td>DRESS</td>
+                                        <td>원피스</td>
+                                        <td>패션</td>
+                                        <td>여성 의류</td>
+                                        <td>원피스</td>
+                                        <td>
+                                            <div>사라린넨원피스_A2OP 여자쇼핑몰 오피스룩 하객룩 여성오피스 오피스룩 하객룩 여성오피스 오피스룩 하객룩 여성오피스 오피스룩
+                                                하객룩 여성오피스</div>
+                                        </td>
+                                        <td>12,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../img/test/image-1.jpg" alt=""></td>
+                                        <td>45789</td>
+                                        <td>DRESS</td>
+                                        <td>원피스</td>
+                                        <td>패션</td>
+                                        <td>여성 의류</td>
+                                        <td>원피스</td>
+                                        <td>
+                                            <div>사라린넨원피스_A2OP 여자쇼핑몰 오피스룩 하객룩 여성오피스</div>
+                                        </td>
+                                        <td>12,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>-</th>
+                                        <th>42개</th>
+                                        <th>13개</th>
+                                        <th>31개</th>
+                                        <th>22개</th>
+                                        <th>51개</th>
+                                        <th>-</th>
+                                        <th>-</th>
+                                        <th>-</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <div class="tableDataNone">
+                        <div>
+                            <p>검색 결과가 없습니다.</p>
+                        </div>
+                    </div> -->
+                    <!--// tableDataNone end -->
+                    <div class="paging">
+                        <ul>
+                            <li class="prev-list"><a href="javascript:pageLink(0-10);"></a></li>
+                            <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                            <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                            <li><a href="javascript:pageLink(2);">2</a></li>
+                            <li><a href="javascript:pageLink(3);">3</a></li>
+                            <li><a href="javascript:pageLink(4);">4</a></li>
+                            <li><a href="javascript:pageLink(5);">5</a></li>
+                            <li><a href="javascript:pageLink(6);">6</a></li>
+                            <li><a href="javascript:pageLink(7);">7</a></li>
+                            <li><a href="javascript:pageLink(8);">8</a></li>
+                            <li><a href="javascript:pageLink(9);">9</a></li>
+                            <li><a href="javascript:pageLink(10);">10</a></li>
+                            <li class="next"><a href="javascript:pageLink(10+1);"></a>
+                            <li class="next-list"><a href="javascript:pageLink(10+10);"></a></li>
+                        </ul>
+                    </div>
+                    <!--// paging end -->
+                </section>
+            </div>
+            <div class="modalFooter">
+                <div class="btnArea">
+                    <button type="button" class="close">닫기</button>
+                </div>
+                <!--// btnArea end -->
+            </div>
+        </div>
+        <!--// md_categoryCurrent end -->
+        <section class="container">
+            <div class="title">
+            </div>
+            <div class="content">
+            </div>
+        </section>
+        <!--// container -->
+    </div>
+</body>
+
+</html>
