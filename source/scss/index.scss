@@ -1,13 +1,9 @@
 @charset 'utf-8';
+/*---------------------------------
+    File : index.scss
+    Date : 2023.03.22 
+/*---------------------------------*/
 
-/*-------------------------------------------------------------------------------------------------------------
-    File   : index.scss
-    Date   : 2022.06.21
-    Menu   : index
-/*-------------------------------------------------------------------------------------------------------------*/
-
-
-/********** sonjye_index each css **********/
 .wrapper {
 
   /* 손졔 포트폴리오 */
@@ -77,12 +73,6 @@
 
             p {
               &:first-child {
-                @include ft_gangwon_B;
-                // @include ft_Maruburi_B;
-                // @include ft_NanumSR_B;
-                // @include ft_robotoB;
-                @include ftBold;
-                // @include ft_NanumSR_EB;
                 @include ft_rix_R;
                 font-size: 138px;
                 font-size: 8.625rem;

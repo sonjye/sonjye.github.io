@@ -1,12 +1,13 @@
 @charset 'utf-8';
 
-/*------------------------------------------------------------------------------------------------------------
+/*---------------------------------
     File   : image.scss
-    Date   : 2023.01.03
-    Explain: image
-------------------------------------------------------------------------------------------------------------*/
+    Date   : 2023.03.23
+/*---------------------------------*/
 
-/******************** common  ********************/
+/* 
+common 
+*/
 @mixin image($folder, $name, $path: "../image/", $format: "svg", $bgX:center, $bgY:center) {
   background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat;
   background-position-x: $bgX;
@@ -15,7 +16,9 @@
 }
 
 
-/******************** test  ********************/
+/*
+test 
+*/
 @mixin img_me {
   @include image($folder:'content', $name: '/universe_4', $format:"jpg");
   // width: 563px;
@@ -23,8 +26,9 @@
 }
 
 
-
-/******************** logo  ********************/
+/*
+logo
+*/
 @mixin logo_enliple {
   @include image($folder:'logo', $name: '/logo_enliple');
   width: 153px;
@@ -56,8 +60,9 @@
 }
 
 
-/******************** header ********************/
-/******************** footer ********************/
+/*
+header
+*/
 @mixin ico_top {
   @include image($folder:'component', $name: '/ico_top', $format:"png");
   width: 26px;
@@ -65,192 +70,31 @@
 }
 
 
-
-
-/******************** menu ********************/
-
-
-
-/******************** login ********************/
-
-
-
-/******************** index ********************/
+/* 
+index
+*/
 @mixin img_browser {
+  @include image($folder:'content', $name: '/img_browser', $format:'png');
   width: 542px;
   height: 337px;
-  background: url("../image/content/img_browser.png") center center no-repeat;
 }
 
-@mixin img_abmNamyang {
-  width: 3840px;
-  height: 5430px;
-  background: url("../image/content/img_browser.png") center center no-repeat;
+@mixin img_universe {
+  @include image($folder:'content', $name: '/bg_universe', $format:'png');
 }
 
-
-
-
-
-
-/******************** icon ********************/
-@mixin ico_Qmark {
-  width: 15px;
-  height: 15px;
-  background: url("../img/component/ico_Qmark.svg") center center no-repeat;
+/* 
+sub
+*/
+/* mobtune */
+@mixin img_mobtune_rfmAnalysis {
+  @include image($folder:'content', $name: '/img_mobtune_rfmAnalysis', $format:'png');
 }
 
-@mixin ico_Qmark_wht {
-  width: 15px;
-  height: 15px;
-  background: url("../img/component/ico_Qmark_wht.svg") center center no-repeat;
+@mixin img_mobtune_campaignList {
+  @include image($folder:'content', $name: '/img_mobtune_campaignList', $format:'png');
 }
 
-
-
-
-
-/******************** modal icon ********************/
-@mixin ico_md_close_wht {
-  width: 15px;
-  height: 15px;
-  background: url("../img/component/ico_md_close_wht.svg") center center no-repeat;
-}
-
-@mixin ico_md_close_bk {
-  width: 15px;
-  height: 15px;
-  background: url("../img/component/ico_md_close_bk.svg") center center no-repeat;
-}
-
-
-/******************** table ********************/
-/* sort */
-@mixin icon_sortDefault {
-  background-image: url("../img/component/ico_sortDefault.svg");
-  background-size: 15px 13px;
-  background-position: right center;
-  background-repeat: no-repeat;
-}
-
-@mixin icon_sortUp {
-  background-image: url("../img/component/ico_sortUp.svg");
-  background-size: 15px 13px;
-  background-position: right center;
-  background-repeat: no-repeat;
-}
-
-@mixin icon_sortDown {
-  background-image: url("../img/component/ico_sortDown.svg");
-  background-size: 15px 13px;
-  background-position: right center;
-  background-repeat: no-repeat;
-}
-
-
-
-/******************** input ********************/
-/* radio */
-// @mixin ico_radio_on {
-//   background: url("../img/component/ico_radio_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_on_gy {
-//   background: url("../img/component/ico_radio_on_gy.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_off {
-//   background: url("../img/component/ico_radio_off.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_m_on {
-//   background: url("../img/component/ico_radio_m_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_m_off {
-//   background: url("../img/component/ico_radio_m_off.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_l_on {
-//   background: url("../img/component/ico_radio_l_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_radio_l_off {
-//   background: url("../img/component/ico_radio_l_off.svg") center center no-repeat;
-// }
-
-
-/* checkbox */
-@mixin ico_checkbox_on {
-  background: url("../img/component/ico_checkbox_on.svg") center center no-repeat;
-}
-
-@mixin ico_checkbox_off {
-  background: url("../img/component/ico_checkbox_off.svg") center center no-repeat;
-}
-
-// @mixin ico_checkbox_s_on {
-//   background: url("../img/component/ico_checkbox_s_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_checkbox_s_off {
-//   background: url("../img/component/ico_checkbox_s_off.svg") center center no-repeat;
-// }
-
-// @mixin ico_checkbox_m_on {
-//   background: url("../img/component/ico_checkbox_m_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_checkbox_m_off {
-//   background: url("../img/component/ico_checkbox_m_off.svg") center center no-repeat;
-// }
-
-// @mixin ico_checkbox_l_on {
-//   background: url("../img/component/ico_checkbox_l_on.svg") center center no-repeat;
-// }
-
-// @mixin ico_checkbox_l_off {
-//   background: url("../img/component/ico_checkbox_l_off.svg") center center no-repeat;
-// }
-
-
-/* select */
-@mixin ico_selectbox {
-  width: 10px;
-  height: 7px;
-  background: #fff url("../img/component/ico_selectbox.svg") no-repeat right 10px center/10px;
-}
-
-/* calendar */
-@mixin ico_calendar {
-  width: 20px;
-  height: 20px;
-  background: url("../img/component/ico_calendar.svg") center center no-repeat;
-}
-
-
-
-/******************** paging  ********************/
-@mixin ico_paging_prevList {
-  background: url("../img/component/ico_paging_prevList.svg") no-repeat center/9px;
-}
-
-@mixin ico_paging_prev {
-  background: url("../img/component/ico_paging_prev.svg") no-repeat center/7px;
-}
-
-@mixin ico_paging_next {
-  background: url("../img/component/ico_paging_next.svg") no-repeat center/7px;
-}
-
-@mixin ico_paging_nextList {
-  background: url("../img/component/ico_paging_nextList.svg") no-repeat center/9px;
-}
-
-
-
-
-/******************** etc  ********************/
-@mixin ico_setting_on {
-  background: url("../img/component/ico_setting_on.svg") no-repeat center center;
+@mixin img_mobtune_userInfo {
+  @include image($folder:'content', $name: '/img_mobtune_userInfo', $format:'png');
 }

@@ -1,12 +1,15 @@
-/*-------------------------------------------------------------------------------------------------------------
-    Explain : 포트폴리오
-    File : common.scss
-    Date   : 2023.02.27
-/*------------------------------------------------------------------------------------------------------------*/
+@charset 'utf-8';
+/*---------------------------------
+    Explain : POTFOLIO
+    File : common.scss 
+    Date : 2023.03.22 
+    Version : 1.0.0
+/*---------------------------------*/
+
 /* z-inde 참고 */
 /* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
 
-/***** 공통 CSS *****/
+@import "_font";
 @import "_base";
 @import "image";
 @import "component";
@@ -14,15 +17,38 @@
 
 
 /***** 개별 CSS *****/
-/* 모달 */
-// @import "modal_layout";
-// @import "modal";
-
 /* index */
 @import "index";
 
-/* 로그인 */
-// @import "login";
+/* sub */
+@import "sub";
+
+/* 마이원페이 어드민 */
+// @import "may1pay";
+
+/* ABM 남양 */
+// @import "abmNamyang";
+
+/* 모비온 외부인력 활용/관리 */
+// @import "works";
+
+/* 모비튠 */
+// @import "mobtune";
+
+/* 모비피드(오아시스피드) */
+// @import "mobfeed";
+
+/* 모비튠 최고관리자 */
+// @import "mobtuneAdmin";
+
+/* 아이앱스 */
+// @import "iappas";
+
+/* 포미션 */
+// @import "permission";
+
+/* 쿠팡락커 */
+// @import "coupangLocker
 
 /* 참고용 css */
 // @import "layoutExample";

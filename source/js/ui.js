@@ -5,10 +5,10 @@ var navigation = function(){
   $(window).scroll(function(event){
     var scroll = $(this).scrollTop();
     if(scroll > scrollPosition) {
-      $(".header").removeClass("headerWht");
+      $(".sonjye_main .header").removeClass("headerWht");
     }
     else {
-      $(".header").addClass("headerWht");
+      $(".sonjye_main .header").addClass("headerWht");
     }
     lastScroll = scroll;
   });
@@ -184,6 +184,17 @@ var tab = function () {
     });
 };
 
+/* category */
+var category = function () {
+    $(".category li").click(function (e) {
+    $(this).closest(".category").find("li").removeClass("on");
+    var categoryIndex = $(this).addClass("on").index();
+    var categoryListIndex = $(this).closest(".container").find(".categoryList > div");
+    $(categoryListIndex).removeClass("show");
+    $(categoryListIndex).eq(categoryIndex).addClass("show");
+    });
+};
+
 /* iMark 마우스 오버 & 마우스 아웃시 말풍선 효과 */
 var iBubble = function () {
     $('.iMark').on('mouseover', function () {
@@ -197,6 +208,7 @@ var iBubble = function () {
 $(function () {
   navigation();
   daterangepicker();
+  category();
   tab();
   iBubble();
 });
