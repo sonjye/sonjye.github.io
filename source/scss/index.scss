@@ -1,13 +1,14 @@
 @charset 'utf-8';
 /*---------------------------------
     File : index.scss
-    Date : 2023.03.22 
+    Date : 2023.04.05 
 /*---------------------------------*/
 
 .wrapper {
 
   /* 손졔 포트폴리오 */
   &.sonjye_index {
+
     .title {
       display: none;
     }
@@ -15,6 +16,7 @@
     .content {
       section {
         height: 100vh;
+        min-height: 800px;
 
         ::-webkit-scrollbar {
           @include scrollbar;
@@ -61,7 +63,7 @@
             background-position: 95% 100%;
           }
 
-          .tit {
+          .txtBox {
             position: relative;
             display: flex;
             justify-content: center;
@@ -116,6 +118,7 @@
         &.sec_aboutMe {
           display: flex;
           justify-content: space-evenly;
+          min-height: 1000px;
           padding: 140px 80px 80px 40px;
           padding: 1.875rem 100px;
           padding: 200px 100px 40px;
@@ -124,12 +127,9 @@
             display: flex;
             flex-direction: column;
             justify-content: start;
-            // align-items: center;
-            // width: 25%;
 
             .tit {
               width: fit-content;
-              // margin: 0 auto;
 
               &:before {
                 @include img_me;
@@ -149,7 +149,6 @@
 
               p {
                 @include ft_maruburi_B;
-                // @include ft_NanumSR_B;
                 display: block;
                 font-size: 36px;
                 font-size: 2.25rem;
@@ -213,10 +212,6 @@
                   // @include ft_Maruburi_R;
                   font-size: 16px;
                   line-height: 1.5;
-
-                  &:first-child {}
-
-                  &:nth-child(2) {}
                 }
               }
             }
@@ -234,11 +229,8 @@
               position: relative;
 
               p {
-                // @include ftBold;
-                // @include ft_Maruburi_B;
                 @include ft_nanumSR_EB;
                 @include ftBold;
-                // @include ft_Gangwon_B;
                 position: relative;
                 font-size: 36px;
                 z-index: 1;
@@ -251,7 +243,6 @@
                   height: 18px;
                   bottom: -4px;
                   left: -10px;
-                  // background-color: #ffdd6b;
                   -webkit-transform: skew(-20deg);
                   opacity: 0.7;
                   z-index: -1;
@@ -293,13 +284,9 @@
 
                   &:first-child {
                     margin-top: 0;
-
-                    p {}
                   }
 
                   p {
-                    // @include ftMedium;
-                    // @include ft_NanumSR_R;
                     display: inline-block;
                     font-size: 14px;
                     color: #666;
@@ -310,10 +297,6 @@
                       color: #222;
                       color: #000;
                       font-size: 15px;
-                    }
-
-                    &:nth-child(2) {
-                      // @include ft_Maruburi_R;
                     }
                   }
                 }
@@ -385,8 +368,6 @@
                           border-radius: 4px;
                           background-color: #fffacd;
                           background-color: #231f2d;
-
-                          &:first-child {}
                         }
                       }
                     }
@@ -400,7 +381,6 @@
         &.sec_project {
           height: auto;
           padding: 200px 100px 80px;
-          // background-color: #ffdd6b;                  
           background-color: #f8f9fb;
 
           .box_work {
@@ -411,42 +391,21 @@
 
             .tit {
               @include ft_nanumSR_EB;
-              // @include ft_Maruburi_B;
-              color: #191b28;
               color: #2a2d3e;
 
               p {
-                // @include ftBold;
-                // @include ft_Maruburi_B;
                 @include ft_nanumSR_EB;
                 @include ftBold;
-                // @include ft_Gangwon_B;
                 position: relative;
                 font-size: 36px;
                 text-align: center;
                 margin: 0 auto;
                 z-index: 1;
-
-                // &:before {
-                //   content: "";
-                //   position: absolute;
-                //   display: inline-block;
-                //   width: 190px;
-                //   height: 18px;
-                //   bottom: -4px;
-                //   left: -10px;
-                //   background-color: #ffdd6b;
-                //   background-color: #2a2d3e;
-                //   -webkit-transform: skew(-20deg);
-                //   opacity: 0.7;
-                //   z-index: -1;
-                // }
               }
             }
 
             .cont {
               margin-top: 40px;
-              // background-color: #FAFAD2;     
 
               .numBox {
                 position: absolute;
@@ -468,19 +427,14 @@
                     top: -92px;
 
                     p {
-                      // color: #fff;
                       top: 50px;
                       color: #212332;
                     }
                   }
 
                   p {
-                    position: relative;
-                    // @include ft_NanumSR_EB;
-                    // @include ft_Maruburi_B;
-                    // @include ft_Gangwon_B;
-                    // @include ftBold;
                     @include ft_roboto_B;
+                    position: relative;
                     font-size: 42px;
                     text-align: center;
                     font-size: 92px;
@@ -509,40 +463,32 @@
                   margin: 30px 0 0 2%;
                   padding: 30px 25px 30px 25px;
                   outline: none;
-                  // border: 1px solid #eee;
                   border-radius: 10px;
-                  background-color: #fff;
                   border: 1px solid #f8f9fb;
+                  background-color: #fff;
 
                   .titBox {
-                    // padding-bottom: 15px;
-                    // border-bottom: 2px solid #f5f5f5;
                     text-align: center;
 
                     p {
                       &:nth-child(1) {
-                        font-size: 0;
+                        @include ft_nanumSR_EB;
+                        margin-top: 20px;
+                        color: $pointColor;
+                        font-size: 20px;
 
                         &:before {
                           @include iLayout;
-                          // @include logo_abmNamyang;
                           content: "";
                           position: relative;
-                          display: inline-block;
+                          display: block;
+                          margin: 0 auto 8px;
                           height: 28px !important;
                           background-size: contain !important;
                         }
                       }
 
                       &:nth-child(2) {
-                        @include ft_maruburi_B;
-                        @include ft_nanumSR_EB;
-                        margin-top: 20px;
-                        color: $pointColor;
-                        font-size: 20px;
-                      }
-
-                      &:nth-child(3) {
                         margin-top: 8px;
                       }
                     }
@@ -559,7 +505,6 @@
                       font-size: 0;
                       width: 100%;
                       height: 300px;
-                      // max-height: 330px;
 
                       &:before {
                         @include img_browser;
@@ -567,10 +512,9 @@
                         position: relative;
                         display: inline-block;
                         width: 100%;
-                        // min-height: 280px;
-                        height: 340px;
                         background-position: center;
                         background-position-y: top;
+                        background-size: contain;
                       }
                     }
 
@@ -583,7 +527,6 @@
                         @include ft_nanumSR_R;
                         font-size: 15px;
                         line-height: 1.5;
-                        // color: #fff;
                       }
                     }
 
@@ -595,14 +538,10 @@
                         @include ft_nanumSR_R;
                         font-size: 15px;
                         line-height: 1.5;
-                        // color: #fff;
                       }
 
                       .graphBox {
                         margin-top: 5px;
-                        // border: 1px solid #fff;
-                        // border-radius: 15px;
-                        // background-color: #212332;
                         width: 50%;
                         display: flex;
                         // margin-left: 10px;
@@ -611,22 +550,17 @@
                           @include ft_nanumSR_B;
                           position: relative;
                           flex-grow: 1;
-                          // width: 70px;
                           height: 12px;
                           margin-left: 2%;
-                          // padding: 8px 10px;
                           color: #fff;
                           color: #222;
                           font-size: 16px;
                           border-radius: 5px;
-                          // border: 1px solid #f6fad9;
                           background-color: rgba(666, 666, 666, 0.1);
 
                           >div {
                             position: absolute;
-                            // width: calc(100% + 2px);
                             height: 100%;
-                            // top: -1px;
                             left: 0;
                             border-radius: 2px;
                             background-color: #f6fad9;
@@ -651,13 +585,10 @@
                         bottom: 0;
 
                         &.more {
-                          // @include btn_white;
                           width: 140px;
                           height: 40px;
                           color: #fff;
                           font-size: 14px;
-                          // border: 1px solid #fff;
-                          // background-color: rgba(999, 999, 999, 0.2)
                           background-color: #231f2d;
 
                           &:hover {
@@ -682,7 +613,8 @@
                       p {
                         &:nth-child(1) {
                           &:before {
-                            @include logo_1pay_by;
+                            @include logo_mobtune;
+                            width: 30%;
                           }
                         }
                       }
@@ -708,7 +640,6 @@
                     .titBox {
                       p {
                         &:nth-child(1) {
-
                           &:before {
                             @include logo_enliple;
                           }
@@ -722,10 +653,9 @@
                     .titBox {
                       p {
                         &:nth-child(1) {
-
                           &:before {
-                            @include logo_mobtune;
-                            width: 40%;
+                            @include logo_1pay_by;
+
                           }
                         }
                       }
@@ -737,7 +667,6 @@
                     .titBox {
                       p {
                         &:nth-child(1) {
-
                           &:before {
                             @include logo_mobfeed;
                           }

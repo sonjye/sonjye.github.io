@@ -11,9 +11,11 @@
 
 @import "_font";
 @import "_base";
-@import "image";
-@import "component";
-@import "layout";
+@import "_color";
+@import "_image";
+@import "mixin";
+@import "content";
+@import "_layout";
 
 
 /***** 개별 CSS *****/
@@ -29,23 +31,11 @@
 /* ABM 남양 */
 // @import "abmNamyang";
 
-/* 모비온 외부인력 활용/관리 */
-// @import "works";
-
 /* 모비튠 */
 // @import "mobtune";
 
 /* 모비피드(오아시스피드) */
 // @import "mobfeed";
-
-/* 모비튠 최고관리자 */
-// @import "mobtuneAdmin";
-
-/* 아이앱스 */
-// @import "iappas";
-
-/* 포미션 */
-// @import "permission";
 
 /* 쿠팡락커 */
 // @import "coupangLocker

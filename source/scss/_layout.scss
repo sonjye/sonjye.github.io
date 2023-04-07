@@ -1,0 +1,546 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File   : layout.scss
+    Date   : 2023.04.04
+/*---------------------------------*/
+
+/* 
+html
+ */
+html {
+  min-height: -webkit-fill-available;
+
+  ::-webkit-scrollbar {
+    @include scrollbar;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include scrollbar-thumb;
+  }
+
+  ::-webkit-scrollbar-track {
+    @include scrollbar-track;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+  }
+}
+
+
+
+/* 
+wrapper
+*/
+.wrapper {
+  position: relative;
+  width: 100%;
+  //min-width: 1920px; /* [d] 스크립트연동 버튼 추가 시 min-width값 변동 */
+  min-width: 1900px;
+  min-height: -webkit-fill-available;
+}
+
+
+/* 
+header
+*/
+header {
+  @include transition;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 120px;
+  top: 0;
+  margin: 0;
+  padding: 0 100px 0 100px;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+  z-index: 20;
+
+  h1 {
+    display: inline-block;
+    margin: auto 0;
+
+    a {
+      @include ft_rix_R;
+      position: relative;
+      display: block;
+      font-size: 28px;
+      color: $block;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        top: -8px;
+        right: -8px;
+        border-radius: 2px;
+        background-color: $pointColor;
+      }
+    }
+  }
+
+  .gnb {
+    display: inline-block;
+
+    >ul {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      font-size: 0;
+
+      >li {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-width: 160px;
+        height: 100%;
+        vertical-align: middle;
+
+        >a {
+          @include transition();
+          @include ftMedium;
+          position: relative;
+          display: block;
+          margin: 0 auto;
+          font-size: 20px;
+          color: $fontColor;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:hover {
+          >a {
+            color: $pointColor;
+          }
+
+          .depth {
+            opacity: 1;
+            visibility: visible;
+
+            >ul {
+              top: 0;
+            }
+          }
+        }
+
+        &.on {
+          &:hover {
+            >a {
+              color: $pointColor;
+            }
+          }
+
+          >a {
+            color: $fontColor;
+
+            &:after {
+              content: "";
+              position: absolute;
+              display: inline-block;
+              width: 5px;
+              height: 5px;
+              top: -4px;
+              right: -6px;
+              border-radius: 2px;
+              background-color: $pointColor;
+            }
+          }
+        }
+      }
+
+      /* li hover시 하위메뉴 */
+      .depth {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 50%;
+        top: 107px;
+        width: 150px;
+        margin: 0 0 0 -75px;
+        overflow: hidden;
+        transition: all 0.5s;
+
+        >ul {
+          position: relative;
+          top: -150px;
+          padding: 30px 0;
+          height: 100%;
+          border-radius: 5px;
+          transition: all ease 0.7s;
+          background-color: $pointColor;
+
+          >li {
+            a {
+              display: block;
+              padding: 9px 0;
+              font-size: 18px;
+              color: $white;
+              letter-spacing: -0.04px;
+              line-height: 1.4;
+
+              &:hover {
+                @include ftBold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+header.headerWht {
+  background-color: rgba(35, 31, 45, 0.5);
+
+  h1 {
+    a {
+      color: $fontColor_white;
+    }
+  }
+
+  .gnb {
+    >ul {
+      >li {
+        &.on {
+          a {
+            color: $fontColor_white;
+          }
+        }
+
+        a {
+          color: $fontColor_white;
+        }
+
+        &:hover {
+          >a {
+            color: $pointColor;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .gnb {
+      >ul {
+        >li {
+          &:hover {
+            >a {
+              color: $pointColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* 
+navigation
+*/
+/* snb */
+.snb {
+  position: absolute;
+  width: 250px;
+  margin: 0px 0 0 80px;
+
+  ul {
+    li {
+      position: relative;
+      margin: 35px 0 0 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      a {
+        @include ftBold;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: $subFontColor_whiteGray;
+      }
+
+      &.on {
+        a {
+          color: $fontColor;
+
+          &:before {
+            @include txtDot_t2;
+          }
+        }
+      }
+
+      &:hover {
+        a {
+          color: $pointColor;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* 
+container
+*/
+.container {
+  width: calc(100% - 0px);
+  min-height: 1000px;
+  // margin-left: 250px;
+  // padding: 30px;
+  position: relative;
+  @include transition();
+  font-size: 15px;
+
+  &:after {
+    display: block;
+    width: 100%;
+    content: "";
+    clear: both;
+  }
+
+  &.wide-view {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+
+  .title {
+    @include ftMedium;
+    position: relative;
+    width: 100%;
+    min-height: 20px;
+
+    p {
+      &:first-child {
+        @include ftMedium;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    transition: all 700ms ease 0s;
+
+
+    >section {
+      @include secLayout;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      height: 100vh;
+      overflow: hidden;
+      color: $fontColor;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .dot {
+    position: absolute;
+    top: 13%;
+    right: 80px;
+    transform: translateY(-50%);
+
+    ul {
+      li {
+        position: relative;
+        font-size: 0;
+        width: 16px;
+        height: 16px;
+        margin: 50px auto;
+
+        &.active {
+          width: 16px;
+          height: 16px;
+
+          &:before {
+            opacity: 1;
+          }
+
+          &:after {
+            background-color: $pointColor;
+          }
+        }
+
+        &:active {
+          &:after {
+            background-color: $pointColor;
+          }
+        }
+
+        &:hover {
+          &:before {
+            opacity: 1;
+            cursor: pointer;
+          }
+
+          &:after {
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+        &:before {
+          position: absolute;
+          display: inline-block;
+          top: 50%;
+          left: -130px;
+          transform: translateY(-50%);
+          width: 99px;
+          height: 36px;
+          color: $fontColor_white;
+          border-radius: 36px;
+          text-align: center;
+          line-height: 36px;
+          font-size: 12px;
+          transition: all 0.3s;
+          opacity: 0;
+          background-color: $pointColor;
+
+          &::hover {
+            width: 16px;
+            height: 16px;
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: $white;
+        }
+
+        &:nth-child(1) {
+          &:before {
+            content: "MAIN";
+          }
+        }
+
+        &:nth-child(2) {
+          &:before {
+            content: "About Me";
+          }
+        }
+
+        &:nth-child(3) {
+          &:before {
+            content: "Work";
+          }
+        }
+
+        &:nth-child(4) {
+          &:before {
+            content: "Contact";
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*
+footer 
+*/
+footer {
+  position: relative;
+  width: 100%;
+  padding: 100px;
+  background-color: #222;
+
+  a {
+    &.top {
+      position: absolute;
+      top: -150px;
+      right: 50px;
+      width: 80px;
+      height: 80px;
+      font-size: 0;
+      background-color: #222;
+      border-radius: 100%;
+      transition: all 0.2s ease-in-out;
+
+      &:before {
+        @include iLayout;
+        @include ico_top;
+        content: "";
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        background-color: $pointColor;
+      }
+    }
+  }
+
+  .footer {
+    position: relative;
+    display: inline-block;
+
+    p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 27px;
+    }
+
+    div {
+      &.logo {
+        p {
+          @include ft_rix_R;
+          font-size: 22px;
+
+          &:after {
+            content: "";
+            position: relative;
+            display: inline-block;
+            top: -22px;
+            left: 2px;
+            width: 7px;
+            height: 7px;
+            border-radius: 2px;
+            background-color: $pointColor;
+          }
+        }
+      }
+
+      &.address {
+        margin-top: 40px;
+      }
+    }
+  }
+}

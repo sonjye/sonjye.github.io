@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/*---------------------------------
+    File : mixin.scss
+    Date : 2023.04.04 
+/*---------------------------------*/
+/* 
+scroll 
+*/
+/* 
+::-webkit-scrollbar{
+@include scrollbar;}
+*/
+/* 
+::-webkit-scrollbar-thumb{
+@include scrollbar-thumb;}
+*/
+/* 스크롤바 위치 */
+/* 스크롤바 bg */
+/* 
+animation 
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 
+font 
+*/
+/* notosans */
+/* roboto */
+/* maruburi */
+/* NanumSquareRound */
+/* gangwon */
+/* RixInooAriDuri */
+/* NanumSquare */
+/* Kyobo */
+/* Kyobo */
+/* 
+text
+ */
+/* txtDot */
+/* ellipsis */
+/* ellipsis hover */
+/* icon */
+/* flex */
+/* button */
+/* layout */

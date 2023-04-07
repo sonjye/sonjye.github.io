@@ -1,14 +1,14 @@
-
+/* category */
 var navigation = function(){
   var lastScroll = 0;
   var scrollPosition = $(window).height();
   $(window).scroll(function(event){
     var scroll = $(this).scrollTop();
     if(scroll > scrollPosition) {
-      $(".sonjye_main .header").removeClass("headerWht");
+      $(".sonjye_index .header").removeClass("headerWht");
     }
     else {
-      $(".sonjye_main .header").addClass("headerWht");
+      $(".sonjye_index .header").addClass("headerWht");
     }
     lastScroll = scroll;
   });
@@ -184,6 +184,9 @@ var tab = function () {
     });
 };
 
+/*
+sub
+*/
 /* category */
 var category = function () {
     $(".category li").click(function (e) {
