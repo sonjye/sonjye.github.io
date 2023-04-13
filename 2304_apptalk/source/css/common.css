@@ -623,6 +623,11 @@ container
   /* 상세  */
 }
 
+.wrapper.apptalk_list section.sec_list ul li a {
+  border: 1px solid #f00;
+  height: inherit;
+}
+
 .wrapper.apptalk_list section.sec_list ul li .list {
   position: relative;
   display: -webkit-box;
@@ -634,6 +639,7 @@ container
   width: 100%;
   min-height: 64px;
   padding: 8px 0;
+  border: 1px solid #00f;
 }
 
 .wrapper.apptalk_list section.sec_list ul li .list .imgBox img {

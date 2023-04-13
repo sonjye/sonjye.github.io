@@ -12,6 +12,11 @@
       &.sec_list {
         ul {
           li {
+            a {
+              border: 1px solid #f00;
+              height: inherit;
+            }
+
             .list {
               position: relative;
               display: flex;
@@ -19,6 +24,7 @@
               width: 100%;
               min-height: 64px;
               padding: 8px 0;
+              border: 1px solid #00f;
 
               .imgBox {
                 img {
