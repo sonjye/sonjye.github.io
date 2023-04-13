@@ -1,7 +1,7 @@
 @charset 'utf-8';
 /*---------------------------------
     File : mixin.scss
-    Date : 2023.04.04 
+    Date : 2023.04.13 
 /*---------------------------------*/
 
 /* 
@@ -48,57 +48,6 @@ animation
   transition: all 0.2s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/*
- animation-name: dowmUp;
-*/
-@keyframes dowmUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-    -webkit-transform: translateY(50px);
-    -moz-transform: translateY(50px);
-    -ms-transform: translateY(50px);
-    -o-transform: translateY(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@mixin ani_downUp {
-  animation-name: dowmUp;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-}
-
-
-@keyframes move {
-
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 15px;
-  }
-
-  100% {
-    top: 0;
-  }
-}
 
 /* 
 font 
@@ -129,14 +78,6 @@ text
   text-indent: -999999px;
   font-size: 0;
 }
-
-@mixin description {
-  font-size: 13px;
-  line-height: 18px;
-  color: #777777;
-}
-
-
 
 /* ellipsis */
 @mixin ellipsis {
@@ -214,12 +155,6 @@ text
   border-radius: 5px;
 }
 
-@mixin btn_white {
-  color: $mainColor;
-  border: 1px solid $mainColor;
-  background-color: #fff;
-}
-
 @mixin btn_gray {
   color: $fontColor;
   border: none;
@@ -230,21 +165,4 @@ text
   color: #aaaaaa;
   border: 1px solid #d2d2d2;
   background-color: #e9e9e9;
-}
-
-
-
-
-/* layout */
-@mixin secLayout($pd:30px, $mg:0px) {
-  position: relative;
-  width: 100%;
-  background: #fff;
-  padding: $pd;
-  padding: 1.875rem;
-  padding: 1.875rem 100px;
-  // box-shadow: 0.8px 0.6px 5px 0 rgba(0, 0, 0, 0.15);
-  // border-radius: 5px;
-  margin: $mg;
-  // border: 1px solid #eee;
 }

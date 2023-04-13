@@ -28,18 +28,6 @@
   @include txtHide();
 }
 
-.elHvrVsbl {
-  @include ellipsis;
-}
-
-.elHvrVsbl2 {
-  @include ellipsis_l2;
-}
-
-.elHvrVsbl4 {
-  @include ellipsis_l2($wlc:4);
-}
-
 /* button */
 button {
   @include button;
