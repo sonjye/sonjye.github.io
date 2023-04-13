@@ -624,8 +624,7 @@ container
 }
 
 .wrapper.apptalk_list section.sec_list ul li a {
-  border: 1px solid #f00;
-  height: inherit;
+  display: block;
 }
 
 .wrapper.apptalk_list section.sec_list ul li .list {
