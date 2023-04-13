@@ -552,6 +552,7 @@ navigation
       -ms-flex-align: left;
           align-items: left;
   height: 100%;
+  padding: 0 6px;
   text-align: center;
   font-size: 0;
 }
@@ -580,7 +581,7 @@ navigation
   position: relative;
   display: block;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0;
   font-size: 20px;
   letter-spacing: -0.32px;
   color: #afafaf;
@@ -593,7 +594,7 @@ navigation
   width: 6px;
   height: 6px;
   top: -3px;
-  right: 4px;
+  right: -5px;
   border-radius: 100%;
   background-color: #6341b3;
 }
