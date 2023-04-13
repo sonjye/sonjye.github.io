@@ -651,6 +651,7 @@ container
 }
 
 .wrapper.apptalk_list section.sec_list ul li .list .textBox {
+  background-color: blue;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
