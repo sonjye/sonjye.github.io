@@ -629,7 +629,6 @@ container
 
 .wrapper.apptalk_list section.sec_list ul li a {
   display: block;
-  background-color: orange;
 }
 
 .wrapper.apptalk_list section.sec_list ul li .list {
@@ -643,7 +642,6 @@ container
   width: 100%;
   height: 64px;
   padding: 8px 0;
-  border: 1px solid #0f0;
   background-color: green;
 }
 
