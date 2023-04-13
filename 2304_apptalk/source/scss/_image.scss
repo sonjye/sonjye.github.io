@@ -21,9 +21,10 @@ common
 header
 */
 @mixin ico_apptalk {
-  @include image($folder:'component', $name: '/ico_apptalk', $format:'png');
-  width: 26px;
-  height: 37px;
+  @include image($folder:'icon', $name: '/ico_apptalk', $format:'png');
+  width: 36px;
+  height: 36px;
+  background-size: 100% 100%;
 }
 
 /* 

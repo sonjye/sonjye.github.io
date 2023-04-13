@@ -13,8 +13,7 @@
         ul {
           li {
             a {
-              border: 1px solid #f00;
-              height: inherit;
+              display: block;
             }
 
             .list {
@@ -22,9 +21,8 @@
               display: flex;
               align-items: center;
               width: 100%;
-              min-height: 64px;
+              height: 64px;
               padding: 8px 0;
-              border: 1px solid #00f;
 
               .imgBox {
                 img {
@@ -57,7 +55,7 @@
                 height: -webkit-fill-available;
                 min-height: 37px;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: end;
 
                 p {
@@ -69,13 +67,17 @@
 
                   &:nth-child(2) {
                     @include ftM;
+                    position:relative;
+                    display: inline-flex;
+                    margin:6px 0 0 0;
+                    justify-content: center;
+                    align-items: center;
                     font-size: 8px;
                     color: $white;
                     text-align: center;
                     letter-spacing: -0.16px;
                     min-width: 16px;
                     min-height: 16px;
-                    padding: 3px 0 0 0;
                     border-radius: 100%;
                     background-color: $pointColor;
                   }

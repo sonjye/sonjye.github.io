@@ -2,11 +2,10 @@
 /*---------------------------------
     Explain : APPTALK
     File : common.scss 
-    Date : 2023.04.10 
+    Date : 2023.04.13 
     Version : 1.0.0
 /*---------------------------------*/
 /* z-inde 참고 */
-/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
 /*
 header(100)
 */
@@ -519,11 +518,12 @@ header > .title h1 i.apptalk {
   display: inline-block;
   background-position: 0px 0px;
   font-size: 0;
-  background: url("../image/component/ico_apptalk.png") no-repeat;
+  background: url("../image/icon/ico_apptalk.png") no-repeat;
   background-position-x: center;
   background-position-y: center;
-  width: 26px;
-  height: 37px;
+  width: 36px;
+  height: 36px;
+  background-size: 100% 100%;
   vertical-align: middle;
   margin-right: 10px;
 }
@@ -1163,5 +1163,3 @@ container
 }
 
 /***** product end *****/
-/* sub */
-/* 참고용 css */

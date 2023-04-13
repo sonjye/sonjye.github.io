@@ -2,18 +2,17 @@
 /*---------------------------------
     Explain : APPTALK
     File : common.scss 
-    Date : 2023.04.10 
+    Date : 2023.04.13 
     Version : 1.0.0
 /*---------------------------------*/
 
 /* z-inde 참고 */
-/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
 /*
 header(100)
 */
- 
 
-@import "_font"; 
+
+@import "_font";
 @import "_base";
 @import "_color";
 @import "_image";
@@ -28,14 +27,3 @@ header(100)
 
 /* 내가 본 상품 */
 @import "product";
-
-/* sub */
-// @import "sub";
-
-/* 참고용 css */
-// @import "layoutExample";
-
-//삭제 예정
-// @import "bak";
-// TEST
-// @import "test";
