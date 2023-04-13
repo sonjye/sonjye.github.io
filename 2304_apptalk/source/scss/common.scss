@@ -1,0 +1,41 @@
+@charset 'utf-8';
+/*---------------------------------
+    Explain : APPTALK
+    File : common.scss 
+    Date : 2023.04.10 
+    Version : 1.0.0
+/*---------------------------------*/
+
+/* z-inde 참고 */
+/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
+/*
+header(100)
+*/
+
+
+@import "_font";
+@import "_base";
+@import "_color";
+@import "_image";
+@import "_mixin";
+@import "_content";
+@import "_layout";
+
+
+/***** 개별 CSS *****/
+/* apptalk */
+@import "apptalk";
+
+/* 내가 본 상품 */
+@import "product";
+
+/* sub */
+// @import "sub";
+
+/* 참고용 css */
+// @import "layoutExample";
+
+//삭제 예정
+// @import "bak";
+// TEST
+// @import "test";

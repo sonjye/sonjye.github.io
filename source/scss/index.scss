@@ -33,21 +33,6 @@
           padding-top: 100px;
           background-color: #231f2d;
 
-          @keyframes move {
-
-            0% {
-              top: 0;
-            }
-
-            50% {
-              top: 15px;
-            }
-
-            100% {
-              top: 0;
-            }
-          }
-
           &:before {
             animation-name: move;
             animation-duration: 3s;

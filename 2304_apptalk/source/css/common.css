@@ -1,0 +1,1153 @@
+@charset "UTF-8";
+/*---------------------------------
+    Explain : APPTALK
+    File : common.scss 
+    Date : 2023.04.10 
+    Version : 1.0.0
+/*---------------------------------*/
+/* z-inde 참고 */
+/* 높은 순으로 >> loadingBg(9999), modalLayout(999), modalDim(998),iBubble,Qmark,tootip(200), navigation(100), dimCircle,loadingCircle(100), tableHeaderFixed(1) etc */
+/*
+header(100)
+*/
+/*---------------------------------
+    File : font.scss
+/*---------------------------------*/
+/* NotoSans */
+@font-face {
+  font-family: "NotoSansL";
+  src: url("../font/notokr-light.eot");
+  /* IE9 Compat Modes */
+  src: url("../font/notokr-light.eot?#iefix") format("embedded-opentype"), url("../font/notokr-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"), url("../font/notokr-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"), url("../font/notokr-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"), url("../font/notokr-bold.woff") format("woff");
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  background: #fff;
+  -webkit-text-fill-color: #333;
+}
+
+html,
+body {
+  width: 100%;
+  font-family: "NotoSansR";
+  font-size: 0.75rem;
+  color: #000;
+}
+
+/*---------------------------------
+    File : color.scss
+    Date : 2023.04.10 
+/*---------------------------------*/
+/* 
+color 
+*/
+/* basic */
+/* unique */
+/* main nav */
+/***** font *****/
+/* border */
+/* background-color */
+/* button */
+/*---------------------------------
+    File   : image.scss
+    Date   : 2023.04.11
+/*---------------------------------*/
+/* 
+common 
+*/
+/*
+header
+*/
+/* 
+index
+*/
+/* 
+test
+*/
+/*---------------------------------
+    File : mixin.scss
+    Date : 2023.04.04 
+/*---------------------------------*/
+/* 
+scroll 
+*/
+/* 
+::-webkit-scrollbar{
+@include scrollbar;}
+*/
+/* 
+::-webkit-scrollbar-thumb{
+@include scrollbar-thumb;}
+*/
+/* 스크롤바 위치 */
+/* 스크롤바 bg */
+/* 
+animation 
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ animation-name: dowmUp;
+*/
+@-webkit-keyframes dowmUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes dowmUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 15px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes move {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 15px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/* 
+font 
+*/
+/* notosans */
+/* 
+text
+ */
+/* ellipsis */
+/* ellipsis hover */
+/* icon */
+/* flex */
+/* button */
+/* layout */
+/*---------------------------------
+    File   : content.scss
+    Date   : 2023.04.11
+/*---------------------------------*/
+/* selection */
+::-moz-selection {
+  background: #f3efff;
+}
+::selection {
+  background: #f3efff;
+}
+
+/* display none */
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.disNone {
+  display: none !important;
+}
+
+/* text */
+.txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.elHvrVsbl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.elHvrVsbl2 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.elHvrVsbl4 {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* button */
+button {
+  font-family: "NotoSansR";
+}
+
+/*---------------------------------
+    File   : layout.scss
+    Date   : 2023.04.04
+/*---------------------------------*/
+/* 
+html
+ */
+html {
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+}
+
+html body {
+  width: 100vw;
+  height: 100vh;
+  line-height: 1;
+}
+
+/* 
+wrapper
+*/
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 280px;
+}
+
+/* 
+header
+*/
+header {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: -webkit-sticky;
+  position: sticky;
+  display: block;
+  width: 100vw;
+  height: 96px;
+  top: 0;
+  padding: 0 16px;
+  background-color: #ffffff;
+  z-index: 100;
+}
+
+header > .title {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 55px;
+  padding: 4px 4px;
+}
+
+header > .title button.back {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  background: url("../image/component/ico_back.svg") no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  width: 20px;
+  height: 20px;
+  text-indent: -999999px;
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  margin: auto 0;
+  padding: 14px;
+}
+
+header > .title h1 {
+  font-family: "NotoSansB";
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 14px;
+  padding: 0 10px;
+  font-size: 18px;
+  color: #222222;
+}
+
+header > .title h1 i.apptalk {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  background: url("../image/component/ico_apptalk.png") no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  width: 26px;
+  height: 37px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* 
+navigation
+*/
+.gnb {
+  position: relative;
+  display: block;
+  height: 41px;
+}
+
+.gnb > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+}
+
+.gnb > ul > li {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  margin-left: 22px;
+  vertical-align: middle;
+}
+
+.gnb > ul > li:first-child {
+  margin: 0;
+}
+
+.gnb > ul > li > a {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-family: "NotoSansM";
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  padding: 0 10px;
+  font-size: 20px;
+  letter-spacing: -0.32px;
+  color: #afafaf;
+}
+
+.gnb > ul > li > a:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  top: -3px;
+  right: 4px;
+  border-radius: 100%;
+  background-color: #6341b3;
+}
+
+.gnb > ul > li:first-child {
+  margin-left: 0;
+}
+
+.gnb > ul > li.on > a {
+  color: #222222;
+}
+
+/* 
+container
+*/
+.container {
+  position: relative;
+  width: 100vw;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+/***** 개별 CSS *****/
+/* apptalk */
+/*---------------------------------
+    File : apptalk.scss
+    Date : 2023.04.11 
+/*---------------------------------*/
+.wrapper {
+  /* 리스트 */
+  /* 상세  */
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 8px 0;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .imgBox img {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #cfd6e1;
+  border-radius: 4px;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .textBox {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  margin-left: 10px;
+  color: #777777;
+  line-height: 16px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .textBox p {
+  display: -webkit-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .alarmBox {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 100px;
+  height: -webkit-fill-available;
+  min-height: 37px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .alarmBox p:first-child {
+  font-family: "NotoSansL";
+  font-size: 10px;
+  color: #a7a7a7;
+}
+
+.wrapper.apptalk_list section.sec_list ul li .list .alarmBox p:nth-child(2) {
+  font-family: "NotoSansM";
+  font-size: 8px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.16px;
+  min-width: 16px;
+  min-height: 16px;
+  padding: 3px 0 0 0;
+  border-radius: 100%;
+  background-color: #6341b3;
+}
+
+.wrapper.apptalk_detail {
+  background-color: #f3efff;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list {
+  /* card, card_wideList, card_carousel 공통 */
+  /* card, card_wideList 공통 */
+  /*
+          card
+          기본형, 메인타이틀형, 이미지형, 와이드 이미지형
+          */
+  /*
+          card_wideList
+          와이드리스트형 
+          */
+  /*
+          card_carousel
+          캐러셀형 
+          */
+  /* swiper css */
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .date {
+  position: relative;
+  max-width: 280px;
+  margin-top: 8px;
+  text-align: right;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .date p {
+  font-size: 11px;
+  letter-spacing: -0.22px;
+  color: #666666;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel {
+  border-radius: 10px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .title,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .title,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .title {
+  font-family: "NotoSansB";
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 39px;
+  padding: 0 10px;
+  border-radius: 10px 10px 0 0;
+  background-color: #6341b3;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .title p,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .title p,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .title p {
+  margin: auto 0;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: left;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relaitve;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .buttonBox,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .buttonBox,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .buttonBox button,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .buttonBox button,
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .buttonBox button {
+  width: 100%;
+  height: 37px;
+  padding: 3px 15px 3px;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 5px;
+  color: #222222;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .buttonBox button:nth-child(2),
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .buttonBox button:nth-child(2),
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .buttonBox button:nth-child(2) {
+  margin-left: 8px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card,
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList {
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 280px;
+  margin: 10px 0 0 0;
+  background-color: #ffffff;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content {
+  padding: 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .titBox {
+  margin: 0 0 10px 0;
+  padding: 0px 0 10px 0;
+  border-bottom: 1px solid #f3efff;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .titBox p:first-child {
+  font-size: 11px;
+  line-height: 17px;
+  color: #a7a7a7;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .titBox p:nth-child(2) {
+  font-family: "NotoSansB";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .imgBox {
+  margin-bottom: 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .imgBox img {
+  width: 100%;
+  max-height: 130px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .imgBox_wide {
+  margin-bottom: 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .imgBox_wide img {
+  width: 100%;
+  max-height: 60px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .textBox {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .textBox p {
+  font-family: "NotoSansR";
+  color: #000000;
+  line-height: 19px;
+  font-size: 13px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card .content .buttonBox {
+  margin: 12px 0 0 0;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content {
+  padding: 0;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .titBox {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 50px;
+  padding: 0 14px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .titBox p {
+  font-family: "NotoSansB";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content > .imgBox img {
+  width: 100%;
+  max-height: 140px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .listBox {
+  padding: 2px 0;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .listBox .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .listBox .list .imgBox img {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .listBox .list .textBox {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 12px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .listBox .list .textBox p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2px 14px 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_wideList .content .buttonBox button {
+  font-family: "NotoSansR";
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #222222;
+  border: none;
+  background-color: #f5f5f5;
+  font-size: 13px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel {
+  margin: 10px 0 0 0;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .card_carouselList {
+  display: inline-block;
+  width: 260px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel + .date {
+  max-width: 260px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content {
+  padding: 0;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .titBox {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 50px;
+  padding: 0 14px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .titBox p {
+  font-family: "NotoSansB";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content > .imgBox {
+  margin: 0 auto;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content > .imgBox img {
+  width: 232px;
+  height: 257px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+  padding: 2px 14px 14px;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel .content .buttonBox button {
+  font-family: "NotoSansR";
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #222222;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel swiper-container swiper-slide {
+  min-width: 260px;
+  max-width: 260px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel swiper-container swiper-slide img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.wrapper.apptalk_detail section.sec_card > .list .card_carousel swiper-container .swiper-pagination {
+  display: none;
+}
+
+/***** apptalk end *****/
+/* 내가 본 상품 */
+/*---------------------------------
+    File : product.scss
+    Date : 2023.04.11 
+/*---------------------------------*/
+.wrapper {
+  /* 리스트 */
+}
+
+.wrapper.apptalk_productList {
+  background-color: #f3efff;
+}
+
+.wrapper.apptalk_productList section.sec_list ul {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li {
+  width: calc(50% - 12px);
+  min-height: 64px;
+  margin: 24px 0 0 0;
+  text-align: center;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li:nth-child(1), .wrapper.apptalk_productList section.sec_list ul li:nth-child(2) {
+  margin: 0;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li:nth-child(2n) {
+  margin-left: 16px;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li .list .imgBox img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 156px;
+  max-height: 156px;
+  border: 1px solid #cfd6e1;
+  border-radius: 6px;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li .list .textBox {
+  position: relative;
+  max-width: 156px;
+  margin: 8px auto 0 auto;
+  text-align: left;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li .list .textBox p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li .list .textBox p:first-child {
+  line-height: 27px;
+  color: #555;
+  font-size: 18px;
+}
+
+.wrapper.apptalk_productList section.sec_list ul li .list .textBox p:nth-child(2) {
+  font-family: "NotoSansB";
+  font-size: 18px;
+  line-height: 27px;
+  color: #6341b3;
+}
+
+/***** product end *****/
+/* sub */
+/* 참고용 css */

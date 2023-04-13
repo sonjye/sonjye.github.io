@@ -1,0 +1,179 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File   : layout.scss
+    Date   : 2023.04.04
+/*---------------------------------*/
+
+/* 
+html
+ */
+html {
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    line-height: 1;
+  }
+}
+
+
+
+/* 
+wrapper
+*/
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 280px;
+  // min-height: -webkit-fill-available;
+}
+
+
+/* 
+header
+*/
+header {
+  @include transition;
+  position: sticky;
+  display: block;
+  width: 100vw;
+  height: 96px;
+  top: 0;
+  padding: 0 16px;
+  background-color: $white;
+  z-index: 100;
+
+  >.title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding: 4px 4px;
+
+    button {
+      &.back {
+        @include iLayout;
+        @include ico_back;
+        @include txtHide;
+        position: relative;
+        display: inline-block;
+        margin: auto 0;
+        padding: 14px;
+        // border: 1px solid #f00;
+      }
+    }
+
+    h1 {
+      @include ftB;
+      position: relative;
+      display: inline-block;
+      margin: 0 0 0 14px;
+      padding: 0 10px;
+      font-size: 18px;
+      color: $fontColor;
+      // border: 1px solid #f00;
+
+      i {
+        &.apptalk {
+          @include iLayout;
+          @include ico_apptalk;
+          vertical-align: middle;
+          margin-right: 10px;
+
+          // &:before {
+          //   content: "";
+          //   position: relative;
+          //   display: inline-block;
+          //   width: 36px;
+          //   height: 36px;
+          //   border-radius: 60px;
+          //   background-color: $white;
+          //   box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.04);
+          // }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* 
+navigation
+*/
+.gnb {
+  position: relative;
+  display: block;
+  height: 41px;
+
+  >ul {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    height: 100%;
+    text-align: center;
+    font-size: 0;
+
+    >li {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 22px;
+      vertical-align: middle;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      >a {
+        @include transition();
+        @include ftM;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0 10px;
+        font-size: 20px;
+        letter-spacing: -0.32px;
+        color: $gnbDefalutFontColor;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          top: -3px;
+          right: 4px;
+          border-radius: 100%;
+          background-color: $pointColor;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.on {
+        >a {
+          color: $gnbActiveFontColor;
+        }
+      }
+    }
+  }
+}
+
+
+/* 
+container
+*/
+.container {
+  position: relative;
+  width: 100vw;
+  padding: 10px 12px;
+  font-size: 15px;
+}

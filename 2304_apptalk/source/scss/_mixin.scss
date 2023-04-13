@@ -104,99 +104,21 @@ animation
 font 
 */
 /* notosans */
-@mixin ftRegular {
+@mixin ftL {
+  font-family: "NotoSansL";
+}
+
+@mixin ftR {
   font-family: "NotoSansR";
 }
 
-@mixin ftMedium {
+@mixin ftM {
   font-family: "NotoSansM";
 }
 
-@mixin ftBold {
+@mixin ftB {
   font-family: "NotoSansB";
 }
-
-/* roboto */
-@mixin ft_roboto_B {
-  font-family: "RobotoB";
-}
-
-/* maruburi */
-@mixin ft_maruburi_B {
-  font-family: "MaruBuri_B";
-}
-
-@mixin ft_maruburi_SB {
-  font-family: "MaruBuri_SB";
-}
-
-@mixin ft_maruburi_R {
-  font-family: "MaruBuri_R";
-}
-
-@mixin ft_maruburi_L {
-  font-family: "MaruBuri_L";
-}
-
-@mixin ft_maruburi_EL {
-  font-family: "MaruBuri_EL";
-}
-
-
-/* NanumSquareRound */
-@mixin ft_nanumSR_EB {
-  font-family: "NanumSR_EB";
-}
-
-@mixin ft_nanumSR_B {
-  font-family: "NanumSR_B";
-}
-
-@mixin ft_nanumSR_R {
-  font-family: "NanumSR_R";
-}
-
-@mixin ft_nanumSR_L {
-  font-family: "NanumSR_L";
-}
-
-/* gangwon */
-@mixin ft_gangwon_B {
-  font-family: "ft_Gangwon_B";
-}
-
-@mixin ft_gangwon_R {
-  font-family: "ft_Gangwon_R";
-}
-
-/* RixInooAriDuri */
-@mixin ft_rix_R {
-  font-family: "RixInooAriDuri_R";
-}
-
-/* NanumSquare */
-@mixin ft_nanumSquare_B {
-  font-family: "NanumSquareB";
-}
-
-@mixin ft_nanumSquare_R {
-  font-family: "NanumSquareR";
-}
-
-@mixin ft_nanumSquare_L {
-  font-family: "NanumSquareL";
-}
-
-/* Kyobo */
-@mixin ft_kyoboPDY {
-  font-family: "KyoboPDY";
-}
-
-/* Kyobo */
-@mixin ft_kyoboSJY {
-  font-family: "KyoboSJY";
-}
-
 
 
 
@@ -214,33 +136,6 @@ text
   color: #777777;
 }
 
-
-/* txtDot */
-@mixin txtDot {
-  content: "";
-  position: relative;
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  top: -3px;
-  margin-right: 4px;
-  border-radius: 100%;
-  background-color: $fontColor;
-}
-
-@mixin txtDot_t2 {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  top: 10px;
-  left: 16px;
-  margin-right: 4px;
-  font-size: 14px;
-  border-radius: 100%;
-  background-color: $pointColor;
-}
 
 
 /* ellipsis */
@@ -300,28 +195,35 @@ text
 
 /* button */
 @mixin button {
-  @include ftRegular();
+  @include ftR();
 }
 
 @mixin btnLayout {
-  @include ftRegular();
+  @include ftR();
   text-align: center;
   font-size: 14px;
   border-radius: 4px;
 }
 
-@mixin btnLayoutS($height:36px) {
-  min-width: 100px;
+@mixin btnLayout_big($height:37px) {
+  width: 100%;
   height: $height;
   padding: 3px 15px 3px;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
+  border-radius: 5px;
 }
 
 @mixin btn_white {
   color: $mainColor;
   border: 1px solid $mainColor;
   background-color: #fff;
+}
+
+@mixin btn_gray {
+  color: $fontColor;
+  border: none;
+  background-color: $btnBg_gray;
 }
 
 @mixin btn_disabled {

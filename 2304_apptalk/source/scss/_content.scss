@@ -1,0 +1,46 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File   : content.scss
+    Date   : 2023.04.11
+/*---------------------------------*/
+
+
+/* selection */
+::selection {
+  background: $bgColor;
+}
+
+
+/* display none */
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.disNone {
+  display: none !important;
+}
+
+/* text */
+.txtHide {
+  @include txtHide();
+}
+
+.elHvrVsbl {
+  @include ellipsis;
+}
+
+.elHvrVsbl2 {
+  @include ellipsis_l2;
+}
+
+.elHvrVsbl4 {
+  @include ellipsis_l2($wlc:4);
+}
+
+/* button */
+button {
+  @include button;
+}

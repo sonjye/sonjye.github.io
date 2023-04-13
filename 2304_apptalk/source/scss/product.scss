@@ -1,0 +1,83 @@
+@charset 'utf-8';
+/*---------------------------------
+    File : product.scss
+    Date : 2023.04.11 
+/*---------------------------------*/
+
+.wrapper {
+
+  /* 리스트 */
+  &.apptalk_productList {
+    background-color: $bgColor;
+
+    section {
+      &.sec_list {
+        ul {
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+
+          li {
+            width: calc(50% - 12px);
+            min-height: 64px;
+            margin: 24px 0 0 0;
+            text-align: center;
+
+            &:nth-child(1),
+            &:nth-child(2) {
+              margin: 0;
+            }
+
+            &:nth-child(2n) {
+              margin-left: 16px;
+            }
+
+            .list {
+              .imgBox {
+                img {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  max-width: 156px;
+                  max-height: 156px;
+                  border: 1px solid #cfd6e1;
+                  border-radius: 6px;
+                }
+              }
+
+              .textBox {
+                position: relative;
+                max-width: 156px;
+                margin: 8px auto 0 auto;
+                text-align: left;
+
+                p {
+                  @include ellipsis;
+
+                  &:first-child {
+                    line-height: 27px;
+                    color: #555;
+                    font-size: 18px;
+                  }
+
+                  &:nth-child(2) {
+                    @include ftB;
+                    font-size: 18px;
+                    line-height: 27px;
+                    color: $pointColor;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/***** product end *****/

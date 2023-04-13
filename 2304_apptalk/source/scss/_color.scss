@@ -1,0 +1,37 @@
+@charset 'utf-8';
+/*---------------------------------
+    File : color.scss
+    Date : 2023.04.10 
+/*---------------------------------*/
+
+/* 
+color 
+*/
+/* basic */
+$white: #ffffff;
+$black: #000000;
+
+/* unique */
+$pointColor: #6341b3;
+
+/* main nav */
+$gnbDefalutFontColor: #afafaf;
+$gnbActiveFontColor: #222222;
+$gnbBg : $white;
+
+/***** font *****/
+$fontColor: #222222;
+$fontColor_white: $white;
+$subFontColor: #777777;
+$subFontColor_deepGray: #666666;
+$subFontColor_whiteGray: #a7a7a7;
+
+/* border */
+$borderColor: #ece8f8;
+
+/* background-color */
+$bgColor:#f3efff;
+
+/* button */
+$btnBg_gray:#f5f5f5;
+$btnFont_gray:$fontColor;

@@ -1,0 +1,76 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File   : image.scss
+    Date   : 2023.04.11
+/*---------------------------------*/
+
+/* 
+common 
+*/
+@mixin image($folder, $name, $path: "../image/", $format: "svg", $bgX:center, $bgY:center) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat;
+  background-position-x: $bgX;
+  background-position-y: $bgY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+}
+
+
+
+/*
+header
+*/
+@mixin ico_apptalk {
+  @include image($folder:'component', $name: '/ico_apptalk', $format:'png');
+  width: 26px;
+  height: 37px;
+}
+
+/* 
+index
+*/
+@mixin ico_back {
+  @include image($folder:'component', $name: '/ico_back');
+  width: 20px;
+  height: 20px;
+}
+
+
+/* 
+test
+*/
+@mixin img_ico {
+  @include image($folder:'test', $name: '/image_ico', $format:'png');
+  width: 60px;
+  height: 60px;
+}
+
+@mixin img_image {
+  @include image($folder:'test', $name: '/image', $format:'png');
+  width: 378px;
+  height: 195px;
+}
+
+@mixin img_list {
+  @include image($folder:'test', $name: '/image_list', $format:'png');
+  width: 234px;
+  height: 234px;
+}
+
+@mixin img_wide {
+  @include image($folder:'test', $name: '/image_wide', $format:'png');
+  width: 378px;
+  height: 90px;
+}
+
+@mixin img_wideList {
+  @include image($folder:'test', $name: '/image_wideList', $format:'png');
+  width: 420px;
+  height: 210px;
+}
+
+@mixin img_carousel {
+  @include image($folder:'test', $name: '/image_carousel', $format:'png');
+  width: 348px;
+  height: 386px;
+}

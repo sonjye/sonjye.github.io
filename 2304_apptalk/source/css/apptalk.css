@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*---------------------------------
+    File : index.scss
+    Date : 2023.04.05 
+/*---------------------------------*/
+.wrapper {
+  /* 앱톡 */
+}
+
+.wrapper.apptalk_list section.sec_list .list {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px 0;
+}
+
+.wrapper.apptalk_list section.sec_list .list .alarmBox p:first-child {
+  font-size: 10px;
+}
+
+/***** apptalk end *****/

@@ -1,0 +1,39 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File : font.scss
+/*---------------------------------*/
+
+/* NotoSans */
+@font-face {
+  font-family: "NotoSansL";
+  src: url("../font/notokr-light.eot");
+  /* IE9 Compat Modes */
+  src: url("../font/notokr-light.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../font/notokr-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../font/notokr-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"),
+    url("../font/notokr-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../font/notokr-bold.woff") format("woff");
+}
