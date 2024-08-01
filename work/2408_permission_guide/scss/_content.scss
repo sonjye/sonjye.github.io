@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+/*
+File   : content.scss
+Date   : 2024.07.31
+*/
+
+//* text */
+::selection {
+  color: $ftColor4;
+  background: $pointColor;
+}
+
+.hide {
+  @include txtHide();
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone {
+  display: none !important;
+}
+
+
+
+//* pointColor*/
+.pointColor {
+  color: var(--pointColor);
+}

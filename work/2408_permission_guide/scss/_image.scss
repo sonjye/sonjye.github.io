@@ -1,0 +1,70 @@
+@charset 'utf-8';
+
+/*
+File   : image.scss
+Date   : 2024.07.31
+*/
+
+@mixin image($folder, $name, $path: "../image/", $format: "png", $bgXY:center, $width:null, $height: null, $bgSize:null) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+  width: $width;
+  height: $height;
+  background-size: $bgSize;
+}
+
+@mixin imageMask($path:"../image/", $folder:null, $name:null, $format:"svg", $bgXY:center, $width:null, $height: null, $color:null) {
+  mask: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  width: $width;
+  height: $height;
+  background: $color;
+}
+
+
+//* common */
+@mixin ico_i {
+  @include image($folder:'component', $name: '/ico_i', $format:"svg", $width:16px, $height: 16px, $bgSize: contain);
+}
+
+//* each */
+@mixin ico_mapBox {
+  @include image($folder:'component', $name: '/ico_mapBox', $width:120px, $height: 111px, $bgSize: contain);
+}
+
+@mixin ico_map {
+  @include image($folder:'component', $name: '/ico_map', $width:24px, $height: 24px, $bgSize: contain);
+}
+
+@mixin ico_place {
+  @include image($folder:'component', $name: '/ico_place', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+@mixin ico_capture {
+  @include image($folder:'component', $name: '/ico_capture', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+@mixin ico_image {
+  @include image($folder:'component', $name: '/ico_image', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+@mixin ico_reward {
+  @include image($folder:'component', $name: '/ico_reward', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+
+//* example */
+// @mixin img_ex1 {
+//   @include image($folder:'example', $name: '/img_ex1', $width:267px, $height: 67px, $bgSize: contain);
+// }
+
+// @mixin img_ex2 {
+//   @include image($folder:'example', $name: '/img_ex2', $width:null, $height: null);
+// }
+
+// @mixin img_ex3 {
+//   @include image($folder:'example', $name: '/img_ex3', $width:null, $height: null);
+// }
+
+// @mixin img_ex4 {
+//   @include image($folder:'example', $name: '/img_ex4', $width:null, $height: null);
+// }

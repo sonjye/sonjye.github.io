@@ -1,0 +1,1333 @@
+@charset 'utf-8';
+
+/*
+File   : modal.scss
+Date   : 2023.07.15
+*/
+
+.wrap {
+
+  //* 공통 */
+  .modalWrap {
+
+    //* 공통 - alert  */
+    &.md_alert {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 220px;
+
+        .modalContent {
+          @include flex_center_column;
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+            }
+
+            strong {
+              @include fontB;
+              font-size: 16px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 광고등록 */
+  .modalWrap {
+
+    //* 이미지 소재등록  */
+    &.md_imgPreview {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 1005px;
+        height: 800px;
+
+        .modalContent {
+          .box_frameDetail {
+            @include flexBox($j:start, $fw:wrap, $a:start, $g:12px);
+
+            .box {
+              position: relative;
+              margin: 20px 0 0 0;
+
+              >div {
+                width: 180px;
+                height: 180px;
+                outline: 1px solid $borderColor;
+                border-radius: 5px;
+                background-color: $bgColor3;
+
+                &.empty {
+                  background-color: $bgColor3;
+
+                  &:before {
+                    // @include flexBox($j:center, $g:0px);
+                    @include iLayout;
+                    @include ico_emptyImg;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -70%);
+                  }
+
+                  img {
+                    display: none;
+                  }
+                }
+
+                img {
+                  border-radius: 5px;
+                  width: 100%;
+                  height: 100%;
+                  background-size: contain;
+                  object-fit: contain;
+                  object-position: center center;
+                }
+              }
+
+              p {
+                margin-top: 12px;
+                text-align: center;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // //* 프레임 1set 자세히 보기  */
+    &.md_frameDetail {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 1400px;
+        // height: 800px;
+        height: 830px;
+        // height: 1400px;
+
+        .modalContent {
+          // max-height: 1240px;
+          max-height: 680px;
+
+          .box_frameDetail {
+            // @include flexBox($fw:wrap, $a:start, $g:30px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // grid-row: auto/span 3;
+            gap: 30px;
+            row-gap: 0;
+            column-gap: 30px;
+            // grid-template-rows: 3fr;
+            grid-auto-rows: minmax(50px, auto);
+            // grid-auto-columns: minmax(55px, auto);
+
+            // (common) list 클래스가 포함된 1~5까지 모두
+            [class*="list"] {
+              @include flexBox($j:start, $fw:wrap, $a:start);
+              position: relative;
+              padding-top: 30px;
+
+              &:not(:last-child) {
+                margin-bottom: 30px;
+              }
+
+              p {
+                @include fontM;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 14px;
+              }
+
+              .box {
+                span {
+                  @include inflexBox($j:center);
+                  position: relative;
+                  min-width: 64px;
+                  padding: 2px 4px;
+                  height: 30px;
+                  font-size: 14px;
+                  text-align: center;
+                  border-radius: 5px;
+                }
+
+                &:nth-of-type(1) {
+                  span {
+                    color: $pointColor;
+                    border: 1px solid $pointColor;
+                    background-color: $btn_BgColor3;
+
+                  }
+                }
+
+                &:nth-of-type(2) {
+                  span {
+                    color: $ftColor4;
+                    border: 1px solid $pointColor;
+                    background-color: $pointColor;
+
+                  }
+                }
+
+                .imgBox {
+                  margin: 10px 0 0 0;
+                  outline: 1px solid $borderColor;
+                  border-radius: 5px;
+                  background-color: $bgColor3;
+
+                  img {
+                    border-radius: 5px;
+                    background-size: contain;
+                    object-fit: contain;
+                    object-position: center center;
+                  }
+
+                  // 이미지 없음 
+                  &.empty {
+                    &:before {
+                      // @include flexBox($j:center, $g:0px);
+                      @include iLayout;
+                      @include ico_emptyImg;
+                      // position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    }
+
+                    img {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+
+            // (each) list 
+            .list {
+
+              // 320*480
+              &:nth-child(1) {
+                grid-column: 1/span 1;
+                grid-row: 1/span 11;
+
+                // color: red;
+                .imgBox {
+                  width: 320px;
+                  height: 480px;
+
+                  img {
+                    width: 320px;
+                    height: 480px;
+                  }
+                }
+              }
+
+              // 320*600
+              &:nth-child(2) {
+                grid-column: 2/span 1;
+                grid-row: 1/span 13;
+
+                .imgBox {
+                  width: 320px;
+                  height: 600px;
+
+                  img {
+                    width: 320px;
+                    height: 600px;
+                  }
+                }
+              }
+
+              // 250*250
+              &:nth-child(3) {
+                grid-column: 1/span 1;
+                grid-row: 12/span 6;
+
+                .imgBox {
+                  width: 250px;
+                  height: 250px;
+
+                  img {
+                    width: 250px;
+                    height: 250px;
+                  }
+                }
+              }
+
+              // 320*100
+              &:nth-child(4) {
+                grid-column: 2/span 1;
+                grid-row: 15/span 3;
+
+                .imgBox {
+                  width: 320px;
+                  height: 100px;
+
+                  img {
+                    width: 320px;
+                    height: 100px;
+                  }
+                }
+              }
+
+              // 970*90
+              &:nth-child(5) {
+                grid-column: 1/span 2;
+                grid-row: 18/span 3;
+
+                .box {
+                  @include flexBox($a:top);
+
+                  .imgBox {
+                    width: 970px;
+                    height: 90px;
+                    margin: 0;
+
+                    img {
+                      width: 970px;
+                      height: 90px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 프레임 1set 자세히 보기 -2  */
+    &.md_frameDetail2 {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 1000px;
+        height: 800px;
+
+        .modalContent {
+          .box_frameDetail {
+            @include flexBox($j:start, $fw:wrap, $a:start, $g:16px);
+
+            .box {
+              p {
+                @include fontM;
+                font-size: 14px;
+              }
+
+              >div {
+                margin: 20px 0 0 0;
+                outline: 1px solid $borderColor;
+                border-radius: 5px;
+                background-color: $bgColor3;
+
+                img {
+                  border-radius: 5px;
+                  background-size: contain;
+                  object-fit: contain;
+                  object-position: center center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 결제  */
+    &.md_payment {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 580px;
+        height: 670px;
+
+        .modalContent {
+          section {
+            &.sec_payment {
+
+              .payType {
+
+                // title 
+                .radioBox {
+                  @include flexBox($j:start);
+
+                  >p {
+                    @include fontM;
+                    min-width: 100px;
+                    font-size: 16px;
+                  }
+
+                  input[type="radio"] {
+                    @include tabButton_ip($w:116px, $h:60px, $m:0);
+
+                    +label {
+                      @include flexBox($f: inline-flex, $d:column, $j:center, $g:0px);
+                      margin: 0;
+                      vertical-align: middle;
+
+                      span {
+                        display: block;
+                        line-height: 18px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              // 결제유형 > 신용카드, 무통장입금 공통 
+              .cardList,
+              .bankbookList {
+                margin-top: 30px;
+
+                // title 
+                >p {
+                  @include fontM;
+                  min-width: 100px;
+                  font-size: 16px;
+                }
+
+                ul {
+                  li {
+                    &:nth-child(n+2) {
+                      margin-top: 20px;
+                    }
+                  }
+                }
+              }
+
+              //카드 결제자 정보
+              .cardList {
+
+                // title 
+                >p {
+                  &:nth-of-type(1) {
+                    @include fontM;
+                    min-width: 100px;
+                    font-size: 16px;
+                  }
+                }
+
+                ul {
+                  margin-top: 20px;
+
+                  li {
+                    @include flexBox($j:start, $g:10px);
+
+                    &:nth-child(n+2) {
+                      margin-top: 10px;
+                    }
+
+                    p {
+                      min-width: 100px;
+                    }
+
+                    input[type="text"] {
+                      width: 240px;
+                    }
+                  }
+
+                  +p {
+                    margin-top: 15px;
+                    font-size: 13px;
+                    color: $subFtColor;
+                  }
+                }
+              }
+
+              // 무통장입금 
+              .bankbookList {
+                ul {
+                  li {
+                    @include flexBox($j:start, $g:10px);
+                    min-height: 36px;
+
+                    &:nth-child(1) {
+                      p {
+                        font-size: 16px;
+
+                        &:nth-child(1) {
+                          @include fontM;
+                        }
+
+                        &:nth-child(2) {
+                          @include fontR;
+                        }
+                      }
+                    }
+
+                    // title 
+                    >p {
+                      &:nth-of-type(1) {
+                        min-width: 140px;
+                      }
+                    }
+
+                    input[type="text"] {
+                      width: 300px;
+                    }
+                  }
+                }
+              }
+
+              // 총 주문 내용
+              .total {
+                border-top: 1px solid $borderColor;
+                margin-top: 20px;
+                padding-top: 20px;
+
+                li {
+
+                  >div {
+                    margin-top: 20px;
+
+                    ul {
+                      li {
+                        @include flexBox;
+
+                        &:nth-child(n+2) {
+                          margin-top: 10px;
+                        }
+
+                      }
+
+                      &:nth-child(1) {
+                        li {
+                          &:last-child {
+
+                            span {
+                              &:nth-child(2) {
+                                color: $subFtColor;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      &:nth-child(2) {
+                        @include fontM;
+                        margin-top: 20px;
+                        padding-top: 20px;
+                        border-top: 1px solid $borderColor;
+                        color: $pointColor;
+                        font-size: 16px;
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 무통장입금 결제 */
+    &.md_bankbookPay {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 300px;
+
+        .modalContent {
+          .box_info {
+            @include flexBox($d:column, $j:center);
+            height: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: $bgColor8;
+
+            ul {
+              li {
+                @include flexBox($j:center);
+                font-size: 14px;
+                line-height: 1.5;
+
+                &:nth-child(n+2) {}
+
+                &:last-child {
+                  p {
+                    &:last-child {
+                      @include fontB;
+                      color: $pointColor;
+                    }
+                  }
+                }
+
+                p {
+                  &:nth-child(2) {
+                    @include fontM;
+                  }
+                }
+              }
+            }
+
+            >p {
+              text-align: center;
+              font-size: 13px;
+              line-height: 1.5;
+              color: $subFtColor;
+            }
+          }
+        }
+      }
+    }
+
+    //* (공통) 결제 요청 완료, 결제 오류, 결제 완료*/
+    &.md_paymentRequest,
+    &.md_paymentError,
+    &.md_completeComplete {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 250px;
+
+        .modalContent {
+          @include flexBox();
+
+          >div {
+            text-align: left;
+            margin-left: 64px;
+            padding-left: 84px;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              &:nth-child(1) {
+                color: $ftColor5;
+              }
+
+              &:only-child {
+                color: $ftColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별) 결제 요청 완료  */
+    &.md_paymentRequest {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_paymentComplete;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별) 결제 오류  */
+    &.md_paymentError {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_paymentError;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별)결제 완료  */
+    &.md_completeComplete {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_check;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    /* 결제 취소 요청 */
+    &.md_errorAlarm {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 250px;
+
+        .modalContent {
+          @include flexBox();
+
+          >div {
+            @include flexBox($j:start);
+            text-align: left;
+            margin-left: 64px;
+            padding-left: 30px;
+
+            &:before {
+              @include iLayout;
+              @include ico_error2;
+              position: absolute;
+              margin-left: -84px;
+            }
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              &:nth-child(1) {
+                color: $ftColor5;
+              }
+
+              &:only-child {
+                color: $ftColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 결제 취소 요청  */
+    &.md_payCancelRequest {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 340px;
+
+        .modalContent {
+
+          .requestBox,
+          .requestCompleteBox {
+
+            p {
+              text-align: center;
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            ul {
+              margin: 20px 0 0 0;
+              padding: 15px 0;
+
+              li {
+                @include flexBox();
+
+                &:nth-child(1) {
+                  color: $subFtColor;
+                }
+
+                &:nth-child(n+2) {
+                  margin-top: 10px;
+                }
+
+                &:last-child {
+                  p {
+                    &:last-child {
+                      color: $pointColor;
+                    }
+                  }
+                }
+
+                p {
+                  &:last-child {
+                    &:after {
+                      content: "원";
+                      position: relative;
+                      display: inline-block;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // 결제 취소 요청 UI
+          .requestBox {
+            ul {
+              margin: 20px 0 0 0;
+              padding: 15px 0;
+              border-top: 1px solid $borderColor;
+              border-bottom: 1px solid $borderColor;
+            }
+          }
+
+          // 결제 취소 요청 완료 UI
+          .requestCompleteBox {
+            ul {
+              margin: 20px 0 0 0;
+              padding: 16px;
+              border-radius: 4px;
+              background-color: $bgColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 광고목록 */
+  .modalWrap {
+
+    //* 소재/카피 미리보기  */
+    &.md_materialPreview {
+      @include modalLayout2;
+
+      .modalContainer {
+        width: 1000px;
+        height: 800px;
+
+        .modalContent {
+          padding-right: 0;
+
+          .sec_set {
+            .tab {
+              @include tabLi_t3;
+              margin-top: 20px;
+
+              +.checkBox {
+                @include fontM;
+                position: absolute;
+                top: 30px;
+                right: 20px;
+                font-size: 16px;
+              }
+            }
+
+            .tabView {
+              @include tabViewBox;
+
+              .tabViewList {
+                @include tabViewList;
+                // min-height: 630px;
+                margin-top: 20px;
+                max-height: 550px;
+                overflow-y: auto;
+                padding-right: 20px;
+
+                // >div {
+                //   &:nth-child(n+2) {
+                //     margin-top: 12px;
+                //   }
+                // }
+
+                // tabViewList >이미지 소재
+                &:nth-child(1) {
+                  .box_material {
+                    >.tit {
+                      @include title3;
+                    }
+
+                    >.cont {
+                      .checkBox {
+                        margin-top: 20px;
+                        font-size: 16px;
+                      }
+
+                      .inputBox {
+                        @include flexBox($j:start, $fw:wrap, $g:12px);
+                        margin-top: 20px;
+
+                        >div {
+                          @include flexBox($j:start, $g:12px);
+
+                          &:nth-child(1) {
+                            width: 100%;
+                          }
+
+                          &:nth-child(2) {
+                            margin-right: 18px;
+                          }
+
+                          >p {
+                            @include fontM;
+                            min-width: 120px;
+                            font-size: 16px;
+                          }
+
+                          .selectDiv {
+                            @include selectDiv;
+                            @include flexBox($f:inline-flex, $g:8px);
+
+                            .selectList {
+                              ul {
+                                li {
+                                  &.wait {
+                                    &:before {
+                                      @include ico_check2;
+                                      content: "모비온 대기";
+                                      color: $ftColor6;
+                                      background-color: $bgColor4;
+                                    }
+                                  }
+
+                                  &.retune {
+                                    &:before {
+                                      @include ico_close2;
+                                      content: "모비온 반려";
+                                      color: $ftColor7;
+                                      background-color: $bgColor5;
+                                    }
+                                  }
+
+                                  &.wait,
+                                  &.retune {
+                                    &:before {
+                                      @include flexBox($f:inline-flex, $j:start, $a:center, $g:8px);
+                                      position: relative;
+                                      // display: inline-block;
+                                      min-height: 20px;
+                                      min-width: fit-content;
+                                      padding: 0 8px 0 20px;
+                                      margin-right: 8px;
+                                      font-size: 12px;
+                                      vertical-align: middle;
+                                      border-radius: 10px;
+                                      background-position: 4px 4px;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+
+                            >button {
+                              &.connect {
+                                @include btnLayout($w:80px, $h:36px);
+                                @include btn_main;
+                              }
+                            }
+                          }
+
+                          input {
+                            min-width: 300px;
+                          }
+                        }
+                      }
+
+                      .frameBox {
+                        margin-top: 20px;
+                        padding-top: 20px;
+                        border-top: 1px solid $borderColor;
+
+                        .tit {
+                          @include fontM;
+                          font-size: 16px;
+                        }
+
+                        .cont {
+                          @include flexBox($fw:wrap, $a:flex-start, $j:start, $g:12px);
+
+                          .box {
+                            margin: 20px 0 0 0; // 이미지 없음 
+
+                            .imgBox {
+                              position: relative;
+                              width: 180px;
+                              height: 180px;
+                              border: 1px solid $borderColor;
+                              border-radius: 5px;
+                              background-color: $white;
+
+                              &.empty {
+                                background-color: $bgColor3;
+
+                                &:before {
+                                  // @include flexBox($j:center, $g:0px);
+                                  @include iLayout;
+                                  @include ico_emptyImg;
+                                  position: absolute;
+                                  background-size: 40px 30px;
+                                  top: 50%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                }
+
+                                img {
+                                  display: none;
+                                }
+                              }
+
+                              img {
+                                border-radius: 5px;
+                                width: 100%;
+                                height: 100%;
+                                background-size: contain;
+                                object-fit: contain;
+                                object-position: center center;
+                              }
+                            }
+
+                            p {
+                              font-size: 12px;
+                              line-height: 1.5;
+                              text-align: center;
+
+                              &:nth-of-type(1) {
+                                margin-top: 12px;
+                              }
+
+                              &:nth-of-type(2) {
+                                color: $subFtColor;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .box_copy {
+                    margin-top: 20px;
+                    padding: 20px 0 40px 0;
+                    border-top: 1px solid $borderColor;
+
+                    .tit {
+                      @include title3;
+                    }
+
+                    // cont 
+                    .cont {
+                      .checkBox {
+                        margin-top: 20px;
+                      }
+
+                      // list
+                      >div {
+
+                        // common 
+                        &.checkBox {
+                          font-size: 16px;
+
+                          >p {
+                            @include ip_title;
+                          }
+                        }
+
+                        .calendarBox {
+                          @include calendar_single($width: 140px);
+                          display: inline-block;
+
+                          &.off {
+                            &:before {
+                              @include inputOff;
+                            }
+                          }
+                        }
+
+                        .timeBox {
+                          @include timeBox;
+                          display: inline-block;
+                          margin-left: 10px;
+
+                          &.off {
+                            &:before {
+                              @include inputOff;
+                            }
+                          }
+                        }
+
+                        &:nth-child(n+2) {
+                          margin-top: 30px;
+                        }
+
+                        // // 카피 추후적용 체크박스 
+                        // &:nth-child(1) {
+                        //   @include fontM;
+                        // }
+
+                        // 적용항목 체크박스 
+                        &:nth-child(1) {
+                          @include flexBox($j:start, $g:20px);
+                          margin-top: 20px;
+
+                          >p {
+                            @include ip_title;
+                          }
+                        }
+
+                        // 상단타이틀
+                        &:nth-child(2) {
+                          @include flexBox($j:start, $g:10px);
+
+                          b {
+                            @include title3;
+                            position: relative;
+                            display: inline-block;
+                            min-width: 120px;
+                          }
+
+                          >div {
+                            display: inline-block;
+
+                            input {
+                              min-width: 260px;
+
+                              &:nth-child(n+2) {
+                                margin-left: 8px;
+                              }
+                            }
+                          }
+                        }
+
+                        // 상품정보
+                        &:nth-child(3) {
+                          >b {
+                            @include title3;
+                            position: relative;
+                            display: block;
+                          }
+
+                          ul {
+                            margin-top: 20px;
+
+                            li {
+                              @include flexBox($j:start, $g:8px);
+
+                              &:nth-child(n+2) {
+                                margin-top: 12px;
+                              }
+
+                              &:nth-child(1) {
+                                input {
+                                  width: 530px;
+                                }
+                              }
+
+                              &:nth-child(n+2):nth-child(-n+4) {
+                                input {
+                                  text-align: right;
+                                }
+                              }
+
+                              >p {
+                                @include ip_title;
+                                min-width: 120px;
+                              }
+
+                              input {
+                                min-width: 260px;
+                              }
+                            }
+                          }
+                        }
+
+                        // 일자 및 시간
+                        &:nth-child(4) {
+                          @include flexBox($j:start, $g:10px);
+
+                          b {
+                            @include title3;
+                            position: relative;
+                            display: inline-block;
+                            min-width: 120px;
+                          }
+
+                          >div {
+                            display: inline-block;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                // tabViewList > URL 
+                &:nth-child(2) {
+                  .box_url {
+                    .tit {
+                      @include title3;
+                    }
+
+                    .cont {
+                      margin-top: 20px;
+
+                      // list 
+                      >div {
+                        @include flexBox($j:start, $g:15px);
+
+                        &:nth-child(1) {
+                          @include fontM;
+                          font-size: 16px;
+                        }
+
+                        &:nth-child(2) {
+                          margin-top: 20px;
+                        }
+
+                        &:nth-child(n+3) {
+                          margin-top: 12px;
+                        }
+
+                        &:nth-child(4) {
+                          input {
+                            width: 438px;
+                          }
+                        }
+
+                        >p {
+                          @include ip_title($w:80px);
+                        }
+
+                        input {
+                          width: 500px;
+                        }
+
+                        button {
+                          @include btnLayout;
+                          @include btn_main;
+                          width: 100px;
+                          height: 36px;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                // tabViewList > 카피 소재
+                &:nth-child(3) {
+
+                  .box_frame {
+                    .frameList {
+                      @include flexBox($fw:wrap, $j:start, $g:20px);
+                      position: relative;
+                      margin-top: 10px;
+
+                      .box {
+                        @include flexBox($d:column, $j:start, $g:10px);
+                        flex: 0 1 calc(25% - 15px);
+                        width: 180px;
+
+                        // 이미지 없음 
+                        &.empty {
+                          .imgBox {
+                            &:before {
+                              // @include flexBox($j:center, $g:0px);
+                              @include iLayout;
+                              @include ico_emptyImg;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                            }
+
+                            img {
+                              display: none;
+                            }
+                          }
+
+                          .slick-dots {
+                            display: none !important;
+                          }
+                        }
+
+                        // slick dot custom
+                        .slick-dots {
+                          bottom: 10px;
+                          @include slick_dot;
+                        }
+
+                        .slick-arrow {
+                          @include slick_arrow;
+                        }
+
+                        .slick-dotted {
+                          &.slick-slider {
+                            margin: 0;
+                          }
+                        }
+
+                        .checkBox {
+                          @include fontM;
+                        }
+
+                        .imgBox {
+                          position: relative;
+                          width: 180px;
+                          height: 180px;
+                          border-radius: 5px;
+                          border: 1px solid #dadada;
+                          background-color: #f5f5f5;
+
+                          img {
+                            max-width: 178px;
+                            max-height: 178px;
+                            object-fit: none;
+                            background-size: contain;
+                            object-fit: contain;
+                            object-position: center center;
+                          }
+                        }
+
+                        .buttonBox {
+                          position: relative;
+                          width: 180px;
+
+                          button {
+                            @include flexBox($j:center, $g:4px);
+                            @include btnLayout($w:100%, $h:36px);
+                            @include btn2;
+
+                            &:before {
+                              @include iLayout;
+                              @include ico_search;
+                            }
+
+                            &:hover {
+                              @include btn_main;
+
+                              &:before {
+                                @include iLayout;
+                                @include ico_search2;
+                              }
+                            }
+                          }
+                        }
+
+                        p {
+                          text-align: center;
+
+                          &:nth-of-type(1) {
+                            margin-top: 12px;
+                            color: $subFtColor;
+                            font-size: 12px;
+                          }
+
+                          &:nth-of-type(2) {
+                            font-size: 14px;
+                            margin-top: 4px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@charset 'utf-8';
+
+/*
+File   : layout.scss
+Date   : 2024.07.31
+*/
+
+
+//* html */
+html {
+  min-height: -webkit-fill-available;
+  color: $ftColor;
+
+  // ::-webkit-scrollbar {
+  //   @include scrollbar;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   @include scrollbar_thumb;
+  // }
+}
+
+
+//* wrap */
+.wrap {
+  position: relative;
+  width: 100%;
+  //min-width: 1920px; 
+  // min-width: 1900px;
+  // max-width: 768px;
+  margin: 0 auto;
+  color: $ftColor;
+  background-color: $bgColor;
+}
+
+
+
+
+//* contents */
+.contents {
+  @include transition();
+  // width: calc(100% - 250px);
+  // min-height: 1000px;
+  // margin: 0 0 45px 250px;
+  // padding: 30px;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    clear: both;
+  }
+}
+
+//* footer */
+footer {}

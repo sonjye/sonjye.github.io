@@ -1,0 +1,757 @@
+@charset "UTF-8";
+/*
+Explain : permission 
+File : common.scss 
+Date : 2024.07.31
+Version : 1.1.01
+*/
+/*
+z-index 순서
+*/
+/*
+File   : font.scss
+Date   : 2024.06.31
+*/
+@font-face {
+  font-family: "Pretendard_Thin";
+  src: url("../font/Pretendard-Thin.eot");
+  src: url("../font/Pretendard-Thin.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_Light";
+  src: url("../font/Pretendard-Light.eot");
+  src: url("../font/Pretendard-Light.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_Medium";
+  src: url("../font/Pretendard-Medium.eot");
+  src: url("../font/Pretendard-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_SemiBold";
+  src: url("../font/Pretendard-SemiBold.eot");
+  src: url("../font/Pretendard-SemiBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_Bold";
+  src: url("../font/Pretendard-Bold.eot");
+  src: url("../font/Pretendard-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_ExtraBold";
+  src: url("../font/Pretendard-ExtraBold.eot");
+  src: url("../font/Pretendard-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard_Black";
+  src: url("../font/Pretendard-Black.eot");
+  src: url("../font/Pretendard-Black.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Black.woff") format("woff");
+}
+
+/*
+File   : base.scss
+Date   : 2024.07.31
+*/
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Pretendard_Light";
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/*
+File   : color.scss
+Date   : 2024.07.31
+*/
+/*
+File   : image.scss
+Date   : 2024.07.31
+*/
+/*
+File   : mixin.scss
+Date   : 2024.07.31
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+File   : layout.scss
+Date   : 2024.07.31
+*/
+html {
+  min-height: -webkit-fill-available;
+  color: #333333;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  color: #333333;
+  background-color: #f1f4f6;
+}
+
+.contents {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.contents:after {
+  display: block;
+  content: "";
+  width: 100%;
+  clear: both;
+}
+
+/*
+File   : content.scss
+Date   : 2024.07.31
+*/
+::-moz-selection {
+  color: #ffffff;
+  background: #2f84fc;
+}
+::selection {
+  color: #ffffff;
+  background: #2f84fc;
+}
+
+.hide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone {
+  display: none !important;
+}
+
+.pointColor {
+  color: var(--pointColor);
+}
+
+/*
+File   : guide.scss
+Date   : 2024.07.31
+*/
+.wrap.pm_guide .title {
+  position: relative;
+  min-height: 130px;
+  padding: 10px 20px;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guide .title p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guide .title p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mapBox.png") no-repeat center;
+  width: 120px;
+  height: 111px;
+  background-size: contain;
+  content: "";
+  position: relative;
+  display: inline-block;
+}
+
+.wrap.pm_guide .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+
+.wrap.pm_guide .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guide .content section.sec_guide .tit {
+  text-align: center;
+}
+
+.wrap.pm_guide .content section.sec_guide .tit p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  font-size: 20px;
+}
+
+.wrap.pm_guide .content section.sec_guide .tit p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_map.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  content: "";
+}
+
+.wrap.pm_guide .content section.sec_guide .tit p:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guide .content section.sec_guide .tit p:nth-child(2) {
+  color: #7d838d;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li {
+  font-family: "Pretendard_Bold";
+  position: relative;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  margin: 0 20px 0 0;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(n+2) {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:not(:last-child):after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  top: 44px;
+  left: 20px;
+  background-color: #e1e6eb;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(1):before {
+  background: url("../image/component/ico_place.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(2):before {
+  background: url("../image/component/ico_capture.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(3):before {
+  background: url("../image/component/ico_image.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(4):before {
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont > p {
+  position: relative;
+  margin: 30px 0 0 0;
+  padding: 0 0 0 20px;
+  line-height: 1.2;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont > p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont > p span {
+  color: #2f84fc;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont .btnArea {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont .btnArea button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont .btnArea button.copy {
+  color: #2f84fc;
+  border: 1px solid #eaf2fe;
+  background-color: #eaf2fe;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont .btnArea button.move {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guide .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guide .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li p {
+  text-align: left;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 16px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1):before {
+  content: "1";
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  margin: 4px 0 0 0;
+  color: #7d838d;
+  font-size: 15px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
+  font-family: "Pretendard_Bold";
+  margin: 8px 0 0 0;
+  color: #2f84fc;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) {
+  line-height: 22px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2):before {
+  content: "2";
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) p:nth-child(2) {
+  text-align: center;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) img {
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) {
+  line-height: 22px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3):before {
+  content: "3";
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) p {
+  font-family: "Pretendard_Bold";
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) p:nth-of-type(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  max-width: 240px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4):before {
+  content: "4";
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p {
+  position: relative;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(2) {
+  margin: 4px 0 0 0;
+  color: #7d838d;
+  font-size: 15px;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3) {
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+
+.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3) span {
+  color: #2f84fc;
+  line-height: 22px;
+}
+
+.wrap footer {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: #f1f4f6;
+}
+
+.wrap footer .guide {
+  position: relative;
+  padding: 12px;
+  text-align: center;
+}
+
+.wrap footer .guide p {
+  line-height: 22px;
+  word-break: auto-phrase;
+}
+
+.wrap footer .guide p b {
+  font-family: "Pretendard_Bold";
+}
+
+.wrap footer button.upload {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  width: 100%;
+  min-height: 52px;
+  font-size: 16px;
+}

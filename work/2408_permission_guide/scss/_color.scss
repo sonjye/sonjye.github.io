@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/*
+File   : color.scss
+Date   : 2024.07.31
+*/
+
+
+$white: #ffffff;
+$black: #000000;
+$red: #ff0000;
+
+//* basic */
+$mainColor: #2f84fc;
+$ftColor: #333333;
+$subFtColor: #7d838d;
+// $borderColor: #e3e3e3;
+$bgColor: #f1f4f6;
+
+// point 
+$pointColor: $mainColor;
+
+//* Font */
+$ftColor2: $pointColor;
+$ftColor3: #000000;
+$ftColor4: #ffffff;
+
+// borderColor
+$borderColor: #e1e6eb;
+
+// bgColor 
+$bgColor2: #ffffff;
+
+//* button */
+// main 1 - on (main)
+$btn1_ftColor: $ftColor4;
+$btn1_bgColor: $pointColor;
+// main 2 - on (sub)
+$btn2_ftColor: $pointColor;
+$btn2_bgColor: #eaf2fe;
+
+
+//* Etc */
+$etcColor1: #f1f4f6;

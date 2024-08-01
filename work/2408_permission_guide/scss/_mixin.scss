@@ -1,0 +1,130 @@
+@charset 'utf-8';
+/*
+File   : mixin.scss
+Date   : 2024.07.31
+*/
+
+
+//* font */
+@mixin fontR {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+}
+
+@mixin fontM {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+}
+
+@mixin fontB {
+  font-family: "Pretendard_Bold";
+}
+
+
+
+//* text */
+// hide 
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+
+
+//* display*/
+//* inline-block */
+@mixin dpLayout {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin inflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+
+//* animation */
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+//* ico */
+@mixin iLayout($a:middle) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+}
+
+
+@mixin btnLayout {
+  @include fontR;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+@mixin btnS($w: 80px, $minW:80px, $h:36px, $br:4px, $fs:14px, $pd:0 15px) {
+  @include fontM;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+}
+
+
+
+// ON > bg: pointColor
+@mixin btn_main {
+  color: $btn1_ftColor;
+  border: 1px solid $btn1_bgColor;
+  background-color: $btn1_bgColor;
+
+  // &:disabled {
+  //   @include btn_disabled;
+  // }
+}
+
+//  BG : white
+@mixin btn2 {
+  color: $btn2_ftColor;
+  border: 1px solid $btn2_bgColor;
+  background-color: $btn2_bgColor;
+
+  // &:disabled {
+  //   @include btn_disabled;
+  // }
+}
