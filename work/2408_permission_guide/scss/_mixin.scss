@@ -131,7 +131,7 @@ Date   : 2024.08.02
 
 
 //* input */
-@mixin inputSave($w:null, $h:null) {
+@mixin inputSave($w:null, $h:null, $minW:84px) {
   @include flexBox($g:0);
   position: relative;
   width: $w;
@@ -142,6 +142,7 @@ Date   : 2024.08.02
 
   input {
     @include fontR;
+    width: calc(100% - #{$minW});
     padding: 10px 16px;
     font-size: 15px;
     flex-grow: 1;
@@ -156,7 +157,7 @@ Date   : 2024.08.02
   button {
     @include btn_main;
     @include fontR;
-    min-width: 84px;
+    min-width: $minW;
     height: $h;
     padding: 10px 12px;
     border-radius: 24px;

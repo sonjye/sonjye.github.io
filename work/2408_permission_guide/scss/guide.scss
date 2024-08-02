@@ -1145,11 +1145,11 @@ Date   : 2024.08.02
                         display: block;
                         width: 100%;
                         max-width: 240px;
-                        background-position: 0 0;
-                        width: 100%;
+                        width: calc(100% - 40px);
+                        height: auto;
                         margin: 20px 0px 0 0;
                         aspect-ratio: 3/2;
-                        height: auto;
+                        background-position: 0 0;
                       }
                     }
                   }
@@ -1171,11 +1171,11 @@ Date   : 2024.08.02
                         display: block;
                         width: 100%;
                         max-width: 240px;
-                        background-position: 0 0;
-                        width: 100%;
+                        width: calc(100% - 40px);
+                        height: auto;
                         margin: 20px 0px 0 0;
                         aspect-ratio: 1/1;
-                        height: auto;
+                        background-position: 0 0;
                       }
                     }
                   }

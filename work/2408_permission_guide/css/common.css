@@ -1319,6 +1319,7 @@ Date   : 2024.08.02
 .wrap.pm_guideQuiz footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
   -webkit-box-flex: 1;
@@ -1797,11 +1798,11 @@ Date   : 2024.08.02
   display: block;
   width: 100%;
   max-width: 240px;
-  background-position: 0 0;
-  width: 100%;
+  width: calc(100% - 40px);
+  height: auto;
   margin: 20px 0px 0 0;
   aspect-ratio: 3/2;
-  height: auto;
+  background-position: 0 0;
 }
 
 .wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(5):before {
@@ -1827,11 +1828,11 @@ Date   : 2024.08.02
   display: block;
   width: 100%;
   max-width: 240px;
-  background-position: 0 0;
-  width: 100%;
+  width: calc(100% - 40px);
+  height: auto;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
-  height: auto;
+  background-position: 0 0;
 }
 
 .wrap.pm_guideGift footer {
@@ -1884,6 +1885,7 @@ Date   : 2024.08.02
 .wrap.pm_guideGift footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
   -webkit-box-flex: 1;
