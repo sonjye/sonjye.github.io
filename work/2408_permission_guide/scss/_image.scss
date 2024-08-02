@@ -2,7 +2,7 @@
 
 /*
 File   : image.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 
 @mixin image($folder, $name, $path: "../image/", $format: "png", $bgXY:center, $width:null, $height: null, $bgSize:null) {
@@ -51,20 +51,60 @@ Date   : 2024.07.31
   @include image($folder:'component', $name: '/ico_reward', $width:40px, $height: 40px, $bgSize: contain);
 }
 
+@mixin ico_shop {
+  @include image($folder:'component', $name: '/ico_shop', $width:24px, $height: 24px, $bgSize: contain);
+}
+
+@mixin ico_gift {
+  @include image($folder:'component', $name: '/ico_gift', $width:100px, $height: 100px, $bgSize: contain);
+}
+
+@mixin ico_shopping {
+  @include image($folder:'component', $name: '/ico_shopping', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+@mixin ico_qna {
+  @include image($folder:'component', $name: '/ico_qna', $width:40px, $height: 40px, $bgSize: contain);
+}
+
+@mixin ico_answer {
+  @include image($folder:'component', $name: '/ico_answer', $width:40px, $height: 40px, $bgSize: contain);
+}
+
 
 //* example */
-// @mixin img_ex1 {
-//   @include image($folder:'example', $name: '/img_ex1', $width:267px, $height: 67px, $bgSize: contain);
-// }
+@mixin img_ex1 {
+  @include image($folder:'example', $name: '/img_ex1', $width:267px, $height: 67px, $bgSize: contain);
+}
 
-// @mixin img_ex2 {
-//   @include image($folder:'example', $name: '/img_ex2', $width:null, $height: null);
-// }
+@mixin img_ex2 {
+  @include image($folder:'example', $name: '/img_ex2', $width:240px, $height: 240px, $bgSize: contain);
+}
 
-// @mixin img_ex3 {
-//   @include image($folder:'example', $name: '/img_ex3', $width:null, $height: null);
-// }
+@mixin img_ex3 {
+  @include image($folder:'example', $name: '/img_ex3', $width:240px, $height: 160px, $bgSize: contain);
+}
 
-// @mixin img_ex4 {
-//   @include image($folder:'example', $name: '/img_ex4', $width:null, $height: null);
-// }
+@mixin img_ex4 {
+  @include image($folder:'example', $name: '/img_ex4', $width:240px, $height: 200px, $bgSize: contain);
+}
+
+@mixin img_ex5 {
+  @include image($folder:'example', $name: '/img_ex5', $width:240px, $height: 200px, $bgSize: contain);
+}
+
+@mixin img_ex6 {
+  @include image($folder:'example', $name: '/img_ex6', $width:240px, $height: 200px, $bgSize: contain);
+}
+
+@mixin img_ex7 {
+  @include image($folder:'example', $name: '/img_ex7', $width:240px, $height: 200px, $bgSize: contain);
+}
+
+@mixin img_ex8 {
+  @include image($folder:'example', $name: '/img_ex8', $width:240px, $height: 200px, $bgSize: contain);
+}
+
+@mixin img_ex9 {
+  @include image($folder:'example', $name: '/img_ex9', $width:240px, $height: 200px, $bgSize: contain);
+}

@@ -1,7 +1,7 @@
 @charset 'utf-8';
 /*
 File   : mixin.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 
 
@@ -127,4 +127,39 @@ Date   : 2024.07.31
   // &:disabled {
   //   @include btn_disabled;
   // }
+}
+
+
+//* input */
+@mixin inputSave($w:null, $h:null) {
+  @include flexBox($g:0);
+  position: relative;
+  width: $w;
+  height: $h;
+  border: 2px solid $pointColor;
+  border-radius: 24px;
+  font-size: 15px;
+
+  input {
+    @include fontR;
+    padding: 10px 16px;
+    font-size: 15px;
+    flex-grow: 1;
+    border: none;
+    border-radius: inherit;
+
+    &::placeholder {
+      color: $ipFtColor_ph;
+    }
+  }
+
+  button {
+    @include btn_main;
+    @include fontR;
+    min-width: 84px;
+    height: $h;
+    padding: 10px 12px;
+    border-radius: 24px;
+    font-size: 15px;
+  }
 }

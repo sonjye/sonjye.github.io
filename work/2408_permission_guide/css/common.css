@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2024.07.31
-Version : 1.1.01
+Date : 2024.08.02
+Version : 1.1.02
 */
 /*
 z-index 순서
@@ -241,15 +241,15 @@ input:-webkit-autofill {
 
 /*
 File   : color.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 /*
 File   : image.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 /*
 File   : mixin.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 @-webkit-keyframes fadeIn {
   from {
@@ -336,16 +336,16 @@ Date   : 2024.07.31
 
 /*
 File   : guide.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
-.wrap.pm_guide .title {
+.wrap.pm_guidePlace .title {
   position: relative;
   min-height: 130px;
   padding: 10px 20px;
   background-color: #2f84fc;
 }
 
-.wrap.pm_guide .title p {
+.wrap.pm_guidePlace .title p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -367,7 +367,7 @@ Date   : 2024.07.31
   word-break: auto-phrase;
 }
 
-.wrap.pm_guide .title p:after {
+.wrap.pm_guidePlace .title p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -384,20 +384,20 @@ Date   : 2024.07.31
   display: inline-block;
 }
 
-.wrap.pm_guide .content section {
+.wrap.pm_guidePlace .content section {
   padding: 30px 20px;
   background-color: #ffffff;
 }
 
-.wrap.pm_guide .content section:nth-child(n+2) {
+.wrap.pm_guidePlace .content section:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guide .content section.sec_guide .tit {
+.wrap.pm_guidePlace .content section.sec_guide .tit {
   text-align: center;
 }
 
-.wrap.pm_guide .content section.sec_guide .tit p:nth-child(1) {
+.wrap.pm_guidePlace .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -416,7 +416,7 @@ Date   : 2024.07.31
   font-size: 20px;
 }
 
-.wrap.pm_guide .content section.sec_guide .tit p:nth-child(1):before {
+.wrap.pm_guidePlace .content section.sec_guide .tit p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -431,24 +431,24 @@ Date   : 2024.07.31
   content: "";
 }
 
-.wrap.pm_guide .content section.sec_guide .tit p:nth-child(n+2) {
+.wrap.pm_guidePlace .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guide .content section.sec_guide .tit p:nth-child(2) {
+.wrap.pm_guidePlace .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont {
+.wrap.pm_guidePlace .content section.sec_guide .cont {
   margin: 20px 0 0 0;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
   position: relative;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:before {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -459,11 +459,11 @@ Date   : 2024.07.31
   margin: 0 20px 0 0;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(n+2) {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 20px 0 0 0;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:not(:last-child):after {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:not(:last-child):after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -474,42 +474,42 @@ Date   : 2024.07.31
   background-color: #e1e6eb;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(1):before {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:nth-child(1):before {
   background: url("../image/component/ico_place.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(2):before {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:nth-child(2):before {
   background: url("../image/component/ico_capture.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(3):before {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:nth-child(3):before {
   background: url("../image/component/ico_image.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont ul li:nth-child(4):before {
+.wrap.pm_guidePlace .content section.sec_guide .cont ul li:nth-child(4):before {
   background: url("../image/component/ico_reward.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont > p {
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p {
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
   line-height: 1.2;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont > p:before {
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -527,15 +527,15 @@ Date   : 2024.07.31
   left: 0;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont > p span {
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p span {
   color: #2f84fc;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont .btnArea {
+.wrap.pm_guidePlace .content section.sec_guide .cont .btnArea {
   margin: 30px 0 0 0;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont .btnArea button {
+.wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
   font-size: 16px;
@@ -545,38 +545,38 @@ Date   : 2024.07.31
   height: 44px;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont .btnArea button.copy {
+.wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button.copy {
   color: #2f84fc;
   border: 1px solid #eaf2fe;
   background-color: #eaf2fe;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont .btnArea button.move {
+.wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button.move {
   color: #ffffff;
   border: 1px solid #2f84fc;
   background-color: #2f84fc;
 }
 
-.wrap.pm_guide .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
+.wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guide .content section.sec_example .tit {
+.wrap.pm_guidePlace .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
   font-size: 20px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont {
+.wrap.pm_guidePlace .content section.sec_example .cont {
   margin: 30px 0 0 0;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li {
   position: relative;
   padding: 0 0px 0 40px;
   word-break: auto-phrase;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -604,101 +604,148 @@ Date   : 2024.07.31
   background-color: #f1f4f6;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li p {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li p {
   text-align: left;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li p:nth-child(1) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li p:nth-child(1) {
   font-family: "Pretendard_Bold";
   font-size: 16px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li img {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li img {
   position: relative;
   width: calc(100% - 40px);
   max-width: 240px;
   margin: 20px 0px 0 0;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(n+2) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(n+2) {
   margin-top: 30px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1):before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(1):before {
   content: "1";
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
   margin: 4px 0 0 0;
   color: #7d838d;
   font-size: 15px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(2) {
   line-height: 22px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2):before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(2):before {
   content: "2";
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) p:nth-child(2) {
-  text-align: center;
-}
-
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(2) img {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
   width: calc(100% - 13px);
   max-width: 267px;
   left: -13px;
+  margin: 10px 0px 0 0;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) {
   line-height: 22px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3):before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3):before {
   content: "3";
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) p {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p {
   font-family: "Pretendard_Bold";
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(3) p:nth-of-type(2) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex2.png") no-repeat center;
+  width: 240px;
+  height: 240px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
   width: calc(100% - 40px);
   text-align: center;
-  -webkit-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
   max-width: 240px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4):before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4):before {
   content: "4";
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p {
   position: relative;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(2) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p:nth-child(2) {
   margin: 4px 0 0 0;
   color: #7d838d;
   font-size: 15px;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3) {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p:nth-child(3) {
   margin: 12px 0 0 0;
   padding: 0 0 0 22px;
   word-break: auto-phrase;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3):before {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p:nth-child(3):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -717,12 +764,34 @@ Date   : 2024.07.31
   vertical-align: middle;
 }
 
-.wrap.pm_guide .content section.sec_example .cont ul li:nth-child(4) p:nth-of-type(3) span {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p:nth-child(3) span {
   color: #2f84fc;
   line-height: 22px;
 }
 
-.wrap footer {
+.wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(4) p:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex4.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: calc(100% - 22px);
+  margin: 20px 0px 0 -22px;
+  aspect-ratio: 6/5;
+  height: auto;
+}
+
+.wrap.pm_guidePlace footer {
   position: -webkit-sticky;
   position: sticky;
   width: 100%;
@@ -730,22 +799,22 @@ Date   : 2024.07.31
   background-color: #f1f4f6;
 }
 
-.wrap footer .guide {
+.wrap.pm_guidePlace footer .guide {
   position: relative;
   padding: 12px;
   text-align: center;
 }
 
-.wrap footer .guide p {
+.wrap.pm_guidePlace footer .guide p {
   line-height: 22px;
   word-break: auto-phrase;
 }
 
-.wrap footer .guide p b {
+.wrap.pm_guidePlace footer .guide p b {
   font-family: "Pretendard_Bold";
 }
 
-.wrap footer button.upload {
+.wrap.pm_guidePlace footer button.upload {
   color: #ffffff;
   border: 1px solid #2f84fc;
   background-color: #2f84fc;
@@ -754,4 +823,1101 @@ Date   : 2024.07.31
   width: 100%;
   min-height: 52px;
   font-size: 16px;
+}
+
+.wrap.pm_guideQuiz .title {
+  position: relative;
+  min-height: 130px;
+  padding: 10px 20px;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guideQuiz .title p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideQuiz .title p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mapBox.png") no-repeat center;
+  width: 120px;
+  height: 111px;
+  background-size: contain;
+  content: "";
+  position: relative;
+  display: inline-block;
+}
+
+.wrap.pm_guideQuiz .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+
+.wrap.pm_guideQuiz .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .tit {
+  text-align: center;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .tit p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  font-size: 20px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .tit p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_map.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  content: "";
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .tit p:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .tit p:nth-child(2) {
+  color: #7d838d;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li {
+  font-family: "Pretendard_Bold";
+  position: relative;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  margin: 0 20px 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(n+2) {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:not(:last-child):after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  top: 44px;
+  left: 20px;
+  background-color: #e1e6eb;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(1):before {
+  background: url("../image/component/ico_place.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(2):before {
+  background: url("../image/component/ico_capture.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(3):before {
+  background: url("../image/component/ico_image.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(4):before {
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .guide {
+  position: relative;
+  margin: 20px 0 0 0;
+  padding: 13px 23px 13px 36px;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .guide p {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  line-height: 23px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .guide p:nth-child(1):before {
+  font-family: "Pretendard_Bold";
+  content: "Q";
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  color: #2f84fc;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p {
+  position: relative;
+  margin: 30px 0 0 0;
+  padding: 0 0 0 20px;
+  line-height: 1.2;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p span {
+  color: #2f84fc;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button.copy {
+  color: #2f84fc;
+  border: 1px solid #eaf2fe;
+  background-color: #eaf2fe;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button.move {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li p {
+  text-align: left;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 16px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(1):before {
+  content: "1";
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  margin: 4px 0 0 0;
+  color: #7d838d;
+  font-size: 15px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
+  font-family: "Pretendard_Bold";
+  margin: 8px 0 0 0;
+  color: #2f84fc;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(2) {
+  line-height: 22px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(2):before {
+  content: "2";
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) {
+  line-height: 22px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3):before {
+  content: "3";
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p {
+  font-family: "Pretendard_Bold";
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex2.png") no-repeat center;
+  width: 240px;
+  height: 240px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  max-width: 240px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(4):before {
+  content: "4";
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(4) p {
+  position: relative;
+}
+
+.wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(4) p:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex5.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
+.wrap.pm_guideQuiz footer {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  -webkit-box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+}
+
+.wrap.pm_guideQuiz footer .guide {
+  position: relative;
+  padding: 12px;
+  text-align: left;
+}
+
+.wrap.pm_guideQuiz footer .guide p {
+  line-height: 22px;
+  word-break: auto-phrase;
+  color: #7d838d;
+  font-size: 13px;
+}
+
+.wrap.pm_guideQuiz footer .inputSave {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  border: 2px solid #2f84fc;
+  border-radius: 24px;
+  font-size: 15px;
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideQuiz footer .inputSave input {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  padding: 10px 16px;
+  font-size: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: none;
+  border-radius: inherit;
+}
+
+.wrap.pm_guideQuiz footer .inputSave input::-webkit-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideQuiz footer .inputSave input:-ms-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideQuiz footer .inputSave input::-ms-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideQuiz footer .inputSave input::placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideQuiz footer .inputSave button {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  min-width: 84px;
+  height: 44px;
+  padding: 10px 12px;
+  border-radius: 24px;
+  font-size: 15px;
+}
+
+.wrap.pm_guideGift .title {
+  position: relative;
+  min-height: 130px;
+  padding: 10px 20px;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guideGift .title p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideGift .title p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_gift.png") no-repeat center;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  content: "";
+  position: relative;
+  display: inline-block;
+}
+
+.wrap.pm_guideGift .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+
+.wrap.pm_guideGift .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .tit {
+  text-align: center;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .tit p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  font-size: 20px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .tit p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_shop.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  content: "";
+}
+
+.wrap.pm_guideGift .content section.sec_guide .tit p:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .tit p:nth-child(2) {
+  color: #7d838d;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li {
+  font-family: "Pretendard_Bold";
+  position: relative;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  margin: 0 20px 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(n+2) {
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:not(:last-child):after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  top: 44px;
+  left: 20px;
+  background-color: #e1e6eb;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1):before {
+  background: url("../image/component/ico_shopping.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2):before {
+  background: url("../image/component/ico_qna.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(3):before {
+  background: url("../image/component/ico_answer.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(4):before {
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .guide {
+  position: relative;
+  margin: 20px 0 0 0;
+  padding: 13px 23px 13px 36px;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .guide p {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  line-height: 23px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .guide p:nth-child(1):before {
+  font-family: "Pretendard_Bold";
+  content: "Q";
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  color: #2f84fc;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .guide p:last-child {
+  color: #2f84fc;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .alarm p {
+  position: relative;
+  margin: 30px 0 0 0;
+  padding: 0 0 0 20px;
+  line-height: 1.2;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .alarm p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .alarm p span {
+  color: #2f84fc;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .btnArea {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .btnArea button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .btnArea button.copy {
+  color: #2f84fc;
+  border: 1px solid #eaf2fe;
+  background-color: #eaf2fe;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .btnArea button.move {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
+  margin-top: 8px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li p {
+  text-align: left;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 16px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(1):before {
+  content: "1";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  margin: 4px 0 0 0;
+  color: #7d838d;
+  font-size: 15px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
+  font-family: "Pretendard_Bold";
+  margin: 8px 0 0 0;
+  color: #2f84fc;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(2) {
+  line-height: 22px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(2):before {
+  content: "2";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) {
+  line-height: 22px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3):before {
+  content: "3";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p {
+  font-family: "Pretendard_Bold";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex7.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  max-width: 240px;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(4):before {
+  content: "4";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(4) p {
+  position: relative;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(4) p:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex8.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+  height: auto;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(5):before {
+  content: "5";
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(5) p {
+  position: relative;
+}
+
+.wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(5) p:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex9.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
+.wrap.pm_guideGift footer {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  -webkit-box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+}
+
+.wrap.pm_guideGift footer .guide {
+  position: relative;
+  text-align: left;
+}
+
+.wrap.pm_guideGift footer .guide p {
+  line-height: 22px;
+  word-break: auto-phrase;
+  color: #7d838d;
+  font-size: 13px;
+}
+
+.wrap.pm_guideGift footer .inputSave {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  border: 2px solid #2f84fc;
+  border-radius: 24px;
+  font-size: 15px;
+  margin: 20px 0 0 0;
+}
+
+.wrap.pm_guideGift footer .inputSave input {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  padding: 10px 16px;
+  font-size: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: none;
+  border-radius: inherit;
+}
+
+.wrap.pm_guideGift footer .inputSave input::-webkit-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideGift footer .inputSave input:-ms-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideGift footer .inputSave input::-ms-input-placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideGift footer .inputSave input::placeholder {
+  color: #97c1fd;
+}
+
+.wrap.pm_guideGift footer .inputSave button {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  min-width: 84px;
+  height: 44px;
+  padding: 10px 12px;
+  border-radius: 24px;
+  font-size: 15px;
 }

@@ -2,7 +2,7 @@
 
 /*
 File   : color.scss
-Date   : 2024.07.31
+Date   : 2024.08.02
 */
 
 
@@ -19,11 +19,13 @@ $bgColor: #f1f4f6;
 
 // point 
 $pointColor: $mainColor;
+// $pointColor2: #eaf2fe;
 
 //* Font */
 $ftColor2: $pointColor;
 $ftColor3: #000000;
 $ftColor4: #ffffff;
+
 
 // borderColor
 $borderColor: #e1e6eb;
@@ -39,6 +41,9 @@ $btn1_bgColor: $pointColor;
 $btn2_ftColor: $pointColor;
 $btn2_bgColor: #eaf2fe;
 
+
+//* input */
+$ipFtColor_ph: #97c1fd;
 
 //* Etc */
 $etcColor1: #f1f4f6;
