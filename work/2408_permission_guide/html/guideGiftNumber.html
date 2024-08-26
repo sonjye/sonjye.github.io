@@ -15,9 +15,9 @@
 
 <body>
     <!-- 미션 참여 -->
-    <!-- pm_guideQuiz 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+    <!-- pm_guideGiftNumber 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
      다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
-    <div class="wrap pm_guideQuiz">
+    <div class="wrap pm_guideGiftNumber">
         <section class="contents">
             <div class="title">
                 <p>미션 참여하고<br> 포인트 받기</p>
@@ -25,12 +25,12 @@
             <div class="content">
                 <section class="sec_guide">
                     <div class="tit">
-                        <p>서울특별시청</p>
-                        <p>네이버 플레이스 검색 후 저장하기</p>
+                        <p>국민알뜰폰</p>
+                        <p>네이버 쇼핑 상품 검색 후 정답 확인</p>
                     </div>
                     <div class="cont">
                         <ul>
-                            <li>플레이스 검색 후 클릭
+                            <li>쇼핑 검색 후 상품 클릭
                                 <!-- 이미지 추가 -->
                                 <!-- border 없어도 되는 경우 brdNone 클래스 추가-->
                                 <!-- <div class="prodDetail brdNone"> -->
@@ -38,13 +38,24 @@
                                     <img src="../image/example/img_ex3.png" alt="">
                                 </div>
                             </li>
+                            <li>해당 판매처를 찾아서 클릭
+                                <!-- 이미지 추가 -->
+                                <!-- border 없어도 되는 경우 brdNone 클래스 추가-->
+                                <!-- <div class="prodDetail brdNone"> -->
+                                <div class="prodDetail">
+                                    <img src="../image/example/img_ex11.jpg" alt="">
+                                </div>
+                            </li>
                             <li>질문 및 정답확인</li>
                             <li>정답입력</li>
                             <li>리워드 지급</li>
                         </ul>
                         <div class="guide">
-                            <p>플레이스 방문 후 [주변] 탭으로 이동하여 [명소] 탭 클릭 후 [1번째]를 입력해주세요.</p>
-                            <!-- <p>업체 전화번호를 입력해주세요.</p> -->
+                            <p>업체명: 국민알뜰폰</p>
+                            <p>상품명 : SK,LG,KT 삼성 갤럭시 S24</p>
+                            <p>울트라 미개봉 새상품 5G</p>
+                            <p>데이터 무제한 신입생 입학선물</p>
+                            <p>상품번호를 복사하여 입력해주세요.</p>
                         </div>
                         <div class="alarm">
                             <p><span>30초 동안</span> 구경해야 포인트가 지급됩니다.</p>
@@ -64,17 +75,22 @@
                             <li>
                                 <p>검색어를 복사해주세요.</p>
                                 <p>(복사 안될 시 아래 텍스트 복사)</p>
-                                <p>서울특별시청</p>
+                                <p>삼성 갤럭시 S24</p>
                             </li>
                             <li>
                                 <p>복사한 검색어를 네이버 검색창에 <br>입력하고 검색하기</p>
                             </li>
                             <li>
-                                <p>검색어와 동일한 플레이스 클릭</p>
-                                <p>또는</p>
+                                <p>쇼핑 더보기 클릭 상품 찾아서 클릭 후<br> 30초 동안 둘러보면서 정답 찾기</p>
                             </li>
                             <li>
-                                <p>질문 확인 후 정답 찾기</p>
+                                <p>상품 찾아서 클릭</p>
+                            </li>
+                            <li>
+                                <p>30초 동안 둘러보면서 정답 찾기</p>
+                            </li>
+                            <li>
+                                <p>정답 힌트</p>
                             </li>
                         </ul>
                     </div>
@@ -88,11 +104,11 @@
         <!--// contnets end -->
         <footer>
             <div class="guide">
-                <p>* 저장 취소 시 서비스 이용에 제한이 있습니다.</p>
-                <!-- <p>정답 공유 시 서비스 이용에 제한이 있습니다.</p> -->
+                <!-- <p>* 저장 취소 시 서비스 이용에 제한이 있습니다.</p> -->
+                <p>* 정답 공유 시 서비스 이용에 제한이 있습니다.</p>
             </div>
             <div class="inputSave">
-                <input type="text" placeholder="질문 확인 후 정답을 입력해 주세요.">
+                <input type="text" placeholder="상품번호 앞 6자리를 입력해주세요">
                 <button type="button" class="save">적립받기</button>
             </div>
         </footer>
