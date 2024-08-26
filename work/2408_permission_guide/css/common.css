@@ -1738,11 +1738,22 @@ Date   : 2024.08.20
   height: auto;
   margin: 10px 0 0 20px;
   padding: 0 0 5px 20px;
-  border-left: 2px solid #e1e6eb;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(n+2), .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 10px 0 0 0;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:not(:last-child):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:not(:last-child):before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2px;
+  min-height: 12px;
+  height: calc(100% - 40px);
+  top: 44px;
+  left: 20px;
+  background-color: #e1e6eb;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) p:before {
