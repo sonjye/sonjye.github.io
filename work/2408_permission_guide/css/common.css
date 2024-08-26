@@ -1733,12 +1733,16 @@ Date   : 2024.08.20
   margin: 0 20px 0 0;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(n+2), .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(n+2) {
-  margin: 10px 0 0 0;
+.wrap.pm_guideGift .content section.sec_guide .cont ul li > div, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li > div {
+  min-height: 12px;
+  height: auto;
+  margin: 10px 0 0 20px;
+  padding: 0 0 5px 20px;
+  border-left: 2px solid #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:last-child p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:last-child p:before {
-  display: none;
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(n+2), .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(n+2) {
+  margin: 10px 0 0 0;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) p:before {
@@ -1746,15 +1750,6 @@ Date   : 2024.08.20
   width: 40px;
   height: 40px;
   background-size: contain;
-}
-
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
-  padding: 0 0 5px 0;
-  height: -webkit-fill-available;
-  height: auto;
-  border-left: 2px solid #f00;
-  margin: 10px 0 0 20px;
-  padding: 0 0 5px 20px;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
@@ -1770,7 +1765,7 @@ Date   : 2024.08.20
   border: 1px solid #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2):before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) p:before {
   background: url("../image/component/ico_store.png") no-repeat center;
   width: 40px;
   height: 40px;
@@ -1796,21 +1791,21 @@ Date   : 2024.08.20
   border: 1px solid #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(3):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(3):before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(3) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(3) p:before {
   background: url("../image/component/ico_qna.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(2):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(2):before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(2) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(2) p:before {
   background: url("../image/component/ico_answer.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(1):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(1):before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(1) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(1) p:before {
   background: url("../image/component/ico_reward.png") no-repeat center;
   width: 40px;
   height: 40px;
