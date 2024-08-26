@@ -1751,6 +1751,7 @@ Date   : 2024.08.20
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
   padding: 0 0 5px 0;
   height: -webkit-fill-available;
+  height: auto;
   border-left: 2px solid #f00;
   margin: 10px 0 0 20px;
   padding: 0 0 5px 20px;
