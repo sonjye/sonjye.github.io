@@ -1780,7 +1780,7 @@ Date   : 2024.08.20
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) .prodDetail img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) .prodDetail img {
   width: 260px;
   max-width: 80%;
-  height: 100%;
+  height: auto;
   border-radius: 8px;
   border: 1px solid #e1e6eb;
 }
