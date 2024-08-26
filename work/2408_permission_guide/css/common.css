@@ -1709,20 +1709,9 @@ Date   : 2024.08.20
   position: relative;
   min-height: 50px;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li p, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li p {
-  display: inline-block;
-}
-
-.wrap.pm_guideGift .content section.sec_guide .cont ul li p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -1733,18 +1722,11 @@ Date   : 2024.08.20
   margin: 0 20px 0 0;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li > div, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li > div {
-  min-height: 12px;
-  height: auto;
-  margin: 10px 0 0 20px;
-  padding: 0 0 5px 20px;
-}
-
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(n+2), .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 10px 0 0 0;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:not(:last-child):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:not(:last-child):before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:not(:last-child):after, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:not(:last-child):after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -1756,11 +1738,18 @@ Date   : 2024.08.20
   background-color: #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1):before {
   background: url("../image/component/ico_shopping.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
+  min-height: 12px;
+  height: auto;
+  margin: 10px 0 0 20px;
+  padding: 0 0 5px 40px;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
@@ -1776,11 +1765,18 @@ Date   : 2024.08.20
   border: 1px solid #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2):before {
   background: url("../image/component/ico_store.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
+}
+
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) .prodDetail {
+  min-height: 12px;
+  height: auto;
+  margin: 10px 0 0 20px;
+  padding: 0 0 5px 40px;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) .prodDetail.brdNone img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) .prodDetail.brdNone img {
@@ -1796,21 +1792,21 @@ Date   : 2024.08.20
   border: 1px solid #e1e6eb;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(3) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(3) p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(3):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(3):before {
   background: url("../image/component/ico_qna.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(2) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(2) p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(2):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(2):before {
   background: url("../image/component/ico_answer.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(1) p:before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(1) p:before {
+.wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-last-child(1):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-last-child(1):before {
   background: url("../image/component/ico_reward.png") no-repeat center;
   width: 40px;
   height: 40px;
