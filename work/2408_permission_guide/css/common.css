@@ -1110,6 +1110,7 @@ Date   : 2024.08.20
 
 .wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
   padding: 0 0 5px 0;
+  height: -webkit-fill-available;
 }
 
 .wrap.pm_guideQuiz .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
@@ -1730,7 +1731,7 @@ Date   : 2024.08.20
   display: inline-block;
   width: 2px;
   min-height: 12px;
-  height: -webkit-fill-available;
+  height: calc(100% - 40px);
   top: 44px;
   left: 20px;
   background-color: #e1e6eb;
@@ -1745,6 +1746,7 @@ Date   : 2024.08.20
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
   padding: 0 0 5px 0;
+  height: -webkit-fill-available;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
@@ -1770,6 +1772,7 @@ Date   : 2024.08.20
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) .prodDetail, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) .prodDetail {
   padding: 0 0 5px 0;
+  height: -webkit-fill-available;
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont ul li:nth-child(2) .prodDetail.brdNone img, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li:nth-child(2) .prodDetail.brdNone img {
