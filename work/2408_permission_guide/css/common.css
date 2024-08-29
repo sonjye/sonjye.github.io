@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2024.08.27
-Version : 1.1.11
+Date : 2024.08.29
+Version : 1.1.12
 */
 /*
 z-index 순서
@@ -361,7 +361,7 @@ select {
 
 /*
 File   : guide.scss
-Date   : 2024.08.27
+Date   : 2024.08.29
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -1148,6 +1148,10 @@ Date   : 2024.08.27
 }
 
 .wrap.pm_guideQuiz .content section.sec_guide .cont .guide {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: relative;
   margin: 20px 0 0 0;
   padding: 13px 23px 13px 36px;
@@ -1808,6 +1812,10 @@ Date   : 2024.08.27
 }
 
 .wrap.pm_guideGift .content section.sec_guide .cont .guide, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .guide {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: relative;
   margin: 20px 0 0 0;
   padding: 13px 23px 13px 36px;
@@ -2300,7 +2308,7 @@ Date   : 2024.08.27
 
 /*
 File   : report.scss
-Date   : 2024.08.21
+Date   : 2024.08.27
 */
 .wrap.pm_report {
   min-height: -webkit-fill-available;
@@ -2519,7 +2527,7 @@ Date   : 2024.08.21
   position: fixed;
   display: none;
   width: 100%;
-  height: 380px;
+  height: 300px;
   left: 0;
   bottom: 0;
   padding: 28px 10px 28px 20px;
