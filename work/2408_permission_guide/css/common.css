@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.4
+text : 1.8
 */
 /*
 z-index 순서
@@ -2427,7 +2427,6 @@ Date   : 2024.08.29
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(n+2) {
   font-family: "Pretendard_Bold";
-  display: block;
   margin-top: 8px;
   font-size: 16px;
   -webkit-text-size-adjust: none;
@@ -2525,7 +2524,21 @@ Date   : 2024.08.29
   background-size: contain;
 }
 
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm {
+  font-size: 16px;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+}
+
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p {
+  font-size: 16px;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  font-size: green;
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
