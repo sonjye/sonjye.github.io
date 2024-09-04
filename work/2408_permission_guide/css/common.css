@@ -161,6 +161,11 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
+  font-size: clamp(100%, 16px, 120%);
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
   vertical-align: baseline;
 }
 
@@ -279,15 +284,6 @@ Date   : 2024.07.31
 html {
   min-height: -webkit-fill-available;
   color: #333333;
-  font-size: clamp(100%, 1vw, 120%);
-  -webkit-text-size-adjust: none;
-  /*Chrome, Safari, newer versions of Opera*/
-  -moz-text-size-adjust: none;
-  /*Firefox*/
-  -ms-text-size-adjust: none;
-  /*Ie*/
-  -o-text-size-adjust: none;
-  /*old versions of Opera*/
 }
 
 .wrap {
