@@ -2,9 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2024.08.29
-Version : 1.1.12
-text : 1.19
+Date : 2024.09.04
+Version : 1.1.13
 */
 /*
 z-index 순서
@@ -279,7 +278,6 @@ Date   : 2024.07.31
 html {
   min-height: -webkit-fill-available;
   color: #333333;
-  font-size: 10px;
 }
 
 html body {
@@ -2396,10 +2394,6 @@ Date   : 2024.08.29
   text-align: center;
 }
 
-.wrap.pm_guideRewardBM .content section.sec_guide .tit p, .wrap.pm_guideRewardCE .content section.sec_guide .tit p {
-  font-size: 1.6rem;
-}
-
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
@@ -2435,7 +2429,6 @@ Date   : 2024.08.29
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(n+2) {
-  font-family: "Pretendard_Bold";
   margin-top: 8px;
 }
 
@@ -2528,8 +2521,6 @@ Date   : 2024.08.29
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p {
-  color: pink;
-  font-size: 1.6rem;
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
