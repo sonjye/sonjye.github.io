@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.17
+text : 1.19
 */
 /*
 z-index 순서
@@ -161,11 +161,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  -o-text-size-adjust: none;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
@@ -284,16 +280,14 @@ Date   : 2024.07.31
 html {
   min-height: -webkit-fill-available;
   color: #333333;
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 .wrap {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.6rem;
   color: #333333;
   background-color: #f1f4f6;
 }
@@ -2395,7 +2389,7 @@ Date   : 2024.08.29
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p, .wrap.pm_guideRewardCE .content section.sec_guide .tit p {
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(1) {
@@ -2527,6 +2521,7 @@ Date   : 2024.08.29
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p {
   color: pink;
+  font-size: 1.6rem;
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
