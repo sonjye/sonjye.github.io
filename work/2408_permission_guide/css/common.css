@@ -281,6 +281,7 @@ html {
 }
 
 html body {
+  font-size: clamp(100%, 16px, 120%);
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
