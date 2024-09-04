@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.13
+text : 1.14
 */
 /*
 z-index 순서
@@ -2448,6 +2448,20 @@ Date   : 2024.08.29
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
   font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont, .wrap.pm_guideRewardCE .content section.sec_guide .cont {
