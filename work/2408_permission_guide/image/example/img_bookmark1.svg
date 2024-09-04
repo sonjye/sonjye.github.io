@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="264" height="64" viewBox="0 0 264 64">
+    <defs>
+        <filter id="1zwgu0qnba" x="0" y="0" width="264" height="64" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feFlood flood-opacity=".078"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="j86w45ok6b" x="33.821" y="5" width="191.679" height="54" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="4" result="blur-2"/>
+            <feFlood flood-opacity=".078"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g style="filter:url(#1zwgu0qnba)" data-name="그룹 28">
+        <rect data-name="사각형 758" width="240" height="40" rx="20" transform="translate(11.999 12)" style="fill:#fff"/>
+    </g>
+    <g style="filter:url(#j86w45ok6b)" data-name="그룹 157">
+        <rect data-name="사각형 758" width="167.679" height="30" rx="15" transform="translate(45.82 17)" style="fill:#fff"/>
+    </g>
+    <g data-name="그룹 160">
+        <path data-name="패스 6823" d="m202.287 1014.667-4.956 4.957 4.956 4.956" transform="translate(-172.31 -986.705)" style="stroke-linejoin:round;stroke-linecap:round;stroke:#000;stroke-width:2px;fill:none"/>
+        <path data-name="패스 6824" d="M209.458 1020.084h-11.625" transform="translate(-172.392 -987.166)" style="stroke-linecap:round;stroke:#000;stroke-width:2px;fill:none"/>
+    </g>
+    <text data-name="검색어를 입력해주세요." transform="translate(63.821 36)" style="fill:#808284;font-size:12px;font-family:Pretendard-Medium,Pretendard;font-weight:500"><tspan x="0" y="0">검색어를 입력해주세요.</tspan></text>
+    <g data-name="그룹 184">
+        <g data-name="타원 8" transform="translate(226.36 25.563)" style="stroke:#000;stroke-width:2px;fill:none">
+            <circle cx="6.088" cy="6.088" style="stroke:none" r="6.088"/>
+            <circle cx="6.088" cy="6.088" style="fill:none" r="5.088"/>
+        </g>
+        <path data-name="패스 6826" d="m240.75 1022.125 2.918 3.09" transform="translate(-3.747 -986.778)" style="stroke-linecap:round;stroke:#000;stroke-width:2px;fill:none"/>
+    </g>
+    <path data-name="선 8" transform="translate(61.821 24)" style="stroke:#01afff;fill:none" d="M0 0v16"/>
+</svg>
