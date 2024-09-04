@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.11
+text : 1.12
 */
 /*
 z-index 순서
@@ -162,7 +162,8 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-size: clamp(16px);
+  font-size: 16px;
+  font-size: clamp(100%, 16px, 120%);
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
@@ -2538,7 +2539,7 @@ Date   : 2024.08.29
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -o-text-size-adjust: none;
-  color: green;
+  color: red;
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
