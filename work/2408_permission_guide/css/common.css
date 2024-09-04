@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.1
+text : 1.2
 */
 /*
 z-index 순서
@@ -2426,6 +2426,8 @@ Date   : 2024.08.29
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(n+2) {
+  font-family: "Pretendard_Bold";
+  display: block;
   margin-top: 8px;
   font-size: 16px;
   font-size: clamp(100%, 16px, 120%);
@@ -2437,6 +2439,7 @@ Date   : 2024.08.29
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
+  color: red;
   font-size: 16px;
 }
 
