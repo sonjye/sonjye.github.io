@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.12
+text : 1.13
 */
 /*
 z-index 순서
@@ -286,6 +286,15 @@ Date   : 2024.07.31
 html {
   min-height: -webkit-fill-available;
   color: #333333;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  font-size: clamp(100%, 16px, 120%);
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  vertical-align: baseline;
 }
 
 .wrap {
