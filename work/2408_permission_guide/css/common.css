@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.10
+text : 1.11
 */
 /*
 z-index 순서
@@ -2391,6 +2391,10 @@ Date   : 2024.08.29
   text-align: center;
 }
 
+.wrap.pm_guideRewardBM .content section.sec_guide .tit p, .wrap.pm_guideRewardCE .content section.sec_guide .tit p {
+  font-size: 16px;
+}
+
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
@@ -2429,15 +2433,11 @@ Date   : 2024.08.29
   font-family: "Pretendard_Bold";
   margin-top: 8px;
   font-size: 16px;
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  -o-text-size-adjust: none;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
-  color: blue;
+  font-size: 16px;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont, .wrap.pm_guideRewardCE .content section.sec_guide .cont {
@@ -2538,7 +2538,7 @@ Date   : 2024.08.29
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -o-text-size-adjust: none;
-  font-size: green;
+  color: green;
   position: relative;
   margin: 30px 0 0 0;
   padding: 0 0 0 20px;
