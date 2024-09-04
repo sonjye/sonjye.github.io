@@ -4,7 +4,7 @@ Explain : permission
 File : common.scss 
 Date : 2024.08.29
 Version : 1.1.12
-text : 1.15
+text : 1.16
 */
 /*
 z-index 순서
@@ -168,6 +168,7 @@ video {
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -o-text-size-adjust: none;
+  text-size-adjust: none;
   vertical-align: baseline;
 }
 
