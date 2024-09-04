@@ -2428,10 +2428,16 @@ Date   : 2024.08.29
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
   font-size: 16px;
+  font-size: clamp(100%, 16px, 120%);
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(2), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
+  font-size: 16px;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont, .wrap.pm_guideRewardCE .content section.sec_guide .cont {
