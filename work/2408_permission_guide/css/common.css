@@ -281,7 +281,7 @@ html {
 }
 
 html body {
-  font-size: clamp(100%, 16px, 120%);
+  font-size: clamp(100%, 16px, 100%);
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -294,7 +294,6 @@ html body {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  font-size: 1.6rem;
   color: #333333;
   background-color: #f1f4f6;
 }
