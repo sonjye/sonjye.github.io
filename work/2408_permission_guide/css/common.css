@@ -3747,8 +3747,7 @@ Date   : 2024.09.09
   background-size: contain;
   display: block;
   width: 100%;
-  width: calc(100% - 37px);
-  max-width: 267px;
+  max-width: 258px;
   background-position: 0 0;
   width: 100%;
   margin: 20px 0px 0 0;
