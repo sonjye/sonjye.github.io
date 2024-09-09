@@ -243,11 +243,11 @@ input:-webkit-autofill {
 
 /*
 File   : color.scss
-Date   : 2024.08.21
+Date   : 2024.09.09
 */
 /*
 File   : image.scss
-Date   : 2024.09.03
+Date   : 2024.09.09
 */
 /*
 File   : mixin.scss
@@ -370,7 +370,7 @@ select {
 
 /*
 File   : modalLayout.scss
-Date   : 2024.06.24
+Date   : 2024.09.09
 */
 .modalDim {
   position: fixed;
@@ -385,7 +385,7 @@ Date   : 2024.06.24
 
 /*
 File   : modal.scss
-Date   : 2023.07.29
+Date   : 2024.09.09
 */
 .wrap .modalWrap.md_alert {
   display: none;
@@ -418,9 +418,7 @@ Date   : 2023.07.29
       -ms-flex-align: center;
           align-items: center;
   gap: 20px;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 3px 12px 0 rgba(21, 21, 21, 0.5);
-          box-shadow: 3px 3px 12px 0 rgba(21, 21, 21, 0.5);
+  border-radius: 20px;
   background-color: #ffffff;
   z-index: 999;
 }
@@ -482,14 +480,16 @@ Date   : 2023.07.29
   margin: 0px 10px 0 10px;
   padding: 0px 15px 0px 15px;
   border-radius: 15px;
+  line-height: 23px;
   overflow-y: scroll;
 }
 
 .wrap .modalWrap.md_alert .modalContainer .modalFooter {
-  margin: 0px 0 25px 0;
-  min-height: 40px;
   width: 100%;
+  min-height: 50px;
+  margin: 0;
   text-align: center;
+  min-height: 50px;
 }
 
 .wrap .modalWrap.md_alert .modalContainer .modalFooter button {
@@ -522,6 +522,12 @@ Date   : 2023.07.29
   background-color: #e6e8ea;
 }
 
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
 .wrap .modalWrap.md_alert .modalDim {
   position: fixed;
   top: 0;
@@ -534,31 +540,27 @@ Date   : 2023.07.29
 }
 
 .wrap .modalWrap.md_alert .modalContainer {
-  width: 460px;
-  height: 220px;
+  width: 320px;
+  height: 194px;
+  gap: 10px;
 }
 
 .wrap .modalWrap.md_alert .modalContainer .modalContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: initial;
-  -webkit-box-direction: initial;
-      -ms-flex-direction: initial;
-          flex-direction: initial;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  margin-top: 10px;
 }
 
 .wrap .modalWrap.md_alert .modalContainer .modalContent > div {
@@ -579,7 +581,7 @@ Date   : 2023.07.29
 
 /*
 File   : guide.scss
-Date   : 2024.08.29
+Date   : 2024.09.09
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -782,14 +784,20 @@ Date   : 2024.08.29
   background-size: contain;
 }
 
-.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p {
-  position: relative;
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm {
   margin: 30px 0 0 0;
-  padding: 0 0 0 20px;
-  line-height: 1.2;
 }
 
-.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p:before {
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p {
+  line-height: 1.5;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -807,8 +815,16 @@ Date   : 2024.08.29
   left: 0;
 }
 
-.wrap.pm_guidePlace .content section.sec_guide .cont .alarm > p span {
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p:nth-child(1) span {
   color: #2f84fc;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p.fc1 {
+  color: #ff0000;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm p:nth-child(n+2) {
+  text-indent: 20px;
 }
 
 .wrap.pm_guidePlace .content section.sec_guide .cont .btnArea {
@@ -845,6 +861,16 @@ Date   : 2024.08.29
 
 .wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
   margin-top: 8px;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm2 {
+  margin: 10px 0;
+}
+
+.wrap.pm_guidePlace .content section.sec_guide .cont .alarm2 p {
+  color: #ff0000;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .wrap.pm_guidePlace .content section.sec_example .tit {
@@ -1395,14 +1421,20 @@ Date   : 2024.08.29
   margin-right: 4px;
 }
 
-.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p {
-  position: relative;
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm {
   margin: 30px 0 0 0;
-  padding: 0 0 0 20px;
-  line-height: 1.2;
 }
 
-.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:before {
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p {
+  line-height: 1.5;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -1420,8 +1452,16 @@ Date   : 2024.08.29
   left: 0;
 }
 
-.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p span {
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:nth-child(1) span {
   color: #2f84fc;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p.fc1 {
+  color: #ff0000;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm p:nth-child(n+2) {
+  text-indent: 20px;
 }
 
 .wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea {
@@ -1458,6 +1498,16 @@ Date   : 2024.08.29
 
 .wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
   margin-top: 8px;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm2 {
+  margin: 10px 0;
+}
+
+.wrap.pm_guideQuiz .content section.sec_guide .cont .alarm2 p {
+  color: #ff0000;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .wrap.pm_guideQuiz .content section.sec_example .tit {
@@ -2098,7 +2148,7 @@ Date   : 2024.08.29
   color: #2f84fc;
 }
 
-.wrap.pm_guideGift .content section.sec_guide .cont .alarm p.ftColor1, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .alarm p.ftColor1 {
+.wrap.pm_guideGift .content section.sec_guide .cont .alarm p.fc1, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .alarm p.fc1 {
   color: #ff0000;
 }
 
@@ -2602,16 +2652,16 @@ Date   : 2024.08.29
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/component/ico_reward2.png") no-repeat center;
-  width: 184px;
-  height: 163px;
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
   background-size: contain;
   content: "";
   position: relative;
   display: inline-block;
   width: 100px;
   height: 100px;
-  background-size: 140px auto;
+  background-size: 100px auto;
 }
 
 .wrap.pm_guideRewardBM .content section, .wrap.pm_guideRewardCE .content section {
@@ -2753,14 +2803,20 @@ Date   : 2024.08.29
   background-size: contain;
 }
 
-.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p {
-  position: relative;
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm {
   margin: 30px 0 0 0;
-  padding: 0 0 0 20px;
-  line-height: 1.2;
 }
 
-.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p:before, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p:before {
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p {
+  line-height: 1.5;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p:nth-child(1):before, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -2778,8 +2834,16 @@ Date   : 2024.08.29
   left: 0;
 }
 
-.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm > p span, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm > p span {
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p:nth-child(1) span, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p:nth-child(1) span {
   color: #2f84fc;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p.fc1, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p.fc1 {
+  color: #ff0000;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm p:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm p:nth-child(n+2) {
+  text-indent: 20px;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .btnArea, .wrap.pm_guideRewardCE .content section.sec_guide .cont .btnArea {
@@ -2816,6 +2880,16 @@ Date   : 2024.08.29
 
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .btnArea button:nth-child(n+2), .wrap.pm_guideRewardCE .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
   margin-top: 8px;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm2, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm2 {
+  margin: 10px 0;
+}
+
+.wrap.pm_guideRewardBM .content section.sec_guide .cont .alarm2 p, .wrap.pm_guideRewardCE .content section.sec_guide .cont .alarm2 p {
+  color: #ff0000;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .wrap.pm_guideRewardBM .content section.sec_example .tit, .wrap.pm_guideRewardCE .content section.sec_example .tit {
@@ -3150,7 +3224,7 @@ Date   : 2024.08.29
   background-position: 0 0;
 }
 
-.wrap.pm_guideQuizURL .title {
+.wrap.pm_guidePlaceURL .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3171,7 +3245,7 @@ Date   : 2024.08.29
   background-color: #2f84fc;
 }
 
-.wrap.pm_guideQuizURL .title p {
+.wrap.pm_guidePlaceURL .title p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3196,7 +3270,7 @@ Date   : 2024.08.29
   word-break: auto-phrase;
 }
 
-.wrap.pm_guideQuizURL .title p:after {
+.wrap.pm_guidePlaceURL .title p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -3204,29 +3278,32 @@ Date   : 2024.08.29
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/component/ico_mapBox.png") no-repeat center;
-  width: 120px;
-  height: 111px;
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
   background-size: contain;
   content: "";
   position: relative;
   display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-size: 100px auto;
 }
 
-.wrap.pm_guideQuizURL .content section {
+.wrap.pm_guidePlaceURL .content section {
   padding: 30px 20px;
   background-color: #ffffff;
 }
 
-.wrap.pm_guideQuizURL .content section:nth-child(n+2) {
+.wrap.pm_guidePlaceURL .content section:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .tit {
+.wrap.pm_guidePlaceURL .content section.sec_guide .tit {
   text-align: center;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .tit p:nth-child(1) {
+.wrap.pm_guidePlaceURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3245,7 +3322,7 @@ Date   : 2024.08.29
   font-size: 20px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .tit p:nth-child(1):before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .tit p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -3260,24 +3337,24 @@ Date   : 2024.08.29
   content: "";
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .tit p:nth-child(n+2) {
+.wrap.pm_guidePlaceURL .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .tit p:nth-child(2) {
+.wrap.pm_guidePlaceURL .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont {
   margin: 20px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
   position: relative;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -3288,11 +3365,11 @@ Date   : 2024.08.29
   margin: 0 20px 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(n+2) {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 20px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:not(:last-child):after {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:not(:last-child):after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -3304,25 +3381,25 @@ Date   : 2024.08.29
   background-color: #e1e6eb;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(1):before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(1):before {
   background: url("../image/component/ico_place.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail {
   height: auto;
   margin: 10px 0 0 20px;
   padding: 0 0 5px 40px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail.brdNone img {
   border: none;
   border-radius: 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail img {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(1) .prodDetail img {
   width: 260px;
   max-width: 100%;
   height: auto;
@@ -3330,28 +3407,28 @@ Date   : 2024.08.29
   border: 1px solid #e1e6eb;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(2):before {
-  background: url("../image/component/ico_capture.png") no-repeat center;
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(2):before {
+  background: url("../image/component/ico_myplace.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(3):before {
-  background: url("../image/component/ico_image.png") no-repeat center;
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(3):before {
+  background: url("../image/component/ico_url.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont ul li:nth-child(4):before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:nth-child(4):before {
   background: url("../image/component/ico_reward.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .guide {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .guide {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3363,14 +3440,14 @@ Date   : 2024.08.29
   border-radius: 8px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .guide p {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
   line-height: 23px;
   word-break: auto-phrase;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .guide p:nth-child(1):before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
   content: "Q";
   position: absolute;
@@ -3381,14 +3458,20 @@ Date   : 2024.08.29
   margin-right: 4px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .alarm p {
-  position: relative;
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm {
   margin: 30px 0 0 0;
-  padding: 0 0 0 20px;
-  line-height: 1.2;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .alarm p:before {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p {
+  line-height: 1.5;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p:nth-child(1):before {
   content: "";
   position: relative;
   display: inline-block;
@@ -3406,15 +3489,23 @@ Date   : 2024.08.29
   left: 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .alarm p span {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p:nth-child(1) span {
   color: #2f84fc;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p.fc1 {
+  color: #ff0000;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm p:nth-child(n+2) {
+  text-indent: 20px;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea {
   margin: 30px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea button {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
   font-size: 16px;
@@ -3424,58 +3515,69 @@ Date   : 2024.08.29
   height: 44px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea button.copy {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button.copy {
   color: #2f84fc;
   border: 1px solid #eaf2fe;
   background-color: #eaf2fe;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea button.move {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button.move {
   color: #ffffff;
   border: 1px solid #2f84fc;
   background-color: #2f84fc;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea button.move:disabled {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button.move:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button:nth-child(n+2) {
   margin-top: 8px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .tit {
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm2 {
+  margin: 10px 0;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_guide .cont .alarm2 p {
+  color: #ff0000;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
   font-size: 20px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont {
   margin: 30px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul {
   counter-reset: index;
   list-style-type: none;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li {
   list-style-type: none;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:before {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:before {
   counter-increment: index;
   content: counters(index, ".");
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li {
   position: relative;
   padding: 0 0px 0 40px;
   word-break: auto-phrase;
+  line-height: 22px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:before {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3502,30 +3604,30 @@ Date   : 2024.08.29
   background-color: #f1f4f6;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li p {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li > p {
   text-align: left;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li p:nth-child(1) {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
   font-size: 16px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li img {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li img {
   position: relative;
   width: calc(100% - 40px);
   max-width: 240px;
   margin: 20px 0px 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li .noti {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li .noti {
   position: relative;
   margin: 12px 0 0 0;
   padding: 0 0 0 22px;
   word-break: auto-phrase;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li .noti:before {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li .noti:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -3544,44 +3646,36 @@ Date   : 2024.08.29
   vertical-align: middle;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li .noti p {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li .noti p {
   line-height: 23px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li .noti p span {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li .noti p span {
   color: #2f84fc;
   line-height: 22px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(n+2) {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(n+2) {
   margin-top: 30px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(1):before {
-  content: "1";
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
   margin: 4px 0 0 0;
   color: #7d838d;
   font-size: 15px;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(2) {
-  line-height: 22px;
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(2) {
+  margin: 30px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(2):before {
-  content: "2";
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(2) p:after {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(2) p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -3600,19 +3694,7 @@ Date   : 2024.08.29
   margin: 10px 0px 0 0;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3) {
-  line-height: 22px;
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3):before {
-  content: "3";
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3) p {
-  font-family: "Pretendard_Bold";
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(3) p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -3620,7 +3702,7 @@ Date   : 2024.08.29
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex2.png") no-repeat center;
+  background: url("../image/example/img_ex12.png") no-repeat center;
   width: 240px;
   height: 240px;
   background-size: contain;
@@ -3632,13 +3714,7 @@ Date   : 2024.08.29
   aspect-ratio: 1/1;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
-  width: calc(100% - 40px);
-  text-align: center;
-  max-width: 240px;
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(4) p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -3646,31 +3722,18 @@ Date   : 2024.08.29
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex3.png") no-repeat center;
-  width: 240px;
-  height: 160px;
+  background: url("../image/example/img_ex13.png") no-repeat center;
+  width: 262px;
+  height: 252px;
   background-size: contain;
   display: block;
-  width: calc(100% - 40px);
-  width: 100%;
+  max-width: 262px;
   height: auto;
   margin: 20px 0px 0 0;
-  aspect-ratio: 3/2;
+  aspect-ratio: 1/1;
 }
 
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(4):before {
-  content: "4";
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(4) p {
-  position: relative;
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(4) p:last-child {
-  width: calc(100% - 40px);
-}
-
-.wrap.pm_guideQuizURL .content section.sec_example .cont ul li:nth-child(4) p:last-child:after {
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(5) p:after {
   content: "";
   position: relative;
   display: inline-block;
@@ -3678,9 +3741,37 @@ Date   : 2024.08.29
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex5.png") no-repeat center;
+  background: url("../image/example/img_ex14.png") no-repeat center;
+  width: 267px;
+  height: 99px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  width: calc(100% - 37px);
+  max-width: 267px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 27/10;
+  background-position-x: -9px;
+  height: auto;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(6) {
+  margin-top: 20px;
+}
+
+.wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(6):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex15.png") no-repeat center;
   width: 240px;
-  height: 200px;
+  height: 240px;
   background-size: contain;
   display: block;
   width: 100%;
@@ -3692,7 +3783,7 @@ Date   : 2024.08.29
   height: auto;
 }
 
-.wrap.pm_guideQuizURL footer {
+.wrap.pm_guidePlaceURL footer {
   position: -webkit-sticky;
   position: sticky;
   width: 100%;
@@ -3703,7 +3794,7 @@ Date   : 2024.08.29
   background-color: #fff;
 }
 
-.wrap.pm_guideQuizURL footer .guide {
+.wrap.pm_guidePlaceURL footer .guide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3722,7 +3813,7 @@ Date   : 2024.08.29
   text-align: left;
 }
 
-.wrap.pm_guideQuizURL footer .guide p {
+.wrap.pm_guidePlaceURL footer .guide p {
   margin: 0 0 0 10px;
   line-height: 18px;
   font-size: 13px;
@@ -3731,7 +3822,7 @@ Date   : 2024.08.29
   word-break: auto-phrase;
 }
 
-.wrap.pm_guideQuizURL footer .guide button.report {
+.wrap.pm_guidePlaceURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
   font-size: 16px;
@@ -3762,7 +3853,7 @@ Date   : 2024.08.29
   border-radius: 14px;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave {
+.wrap.pm_guidePlaceURL footer .inputSave {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3786,7 +3877,7 @@ Date   : 2024.08.29
   margin: 20px 0 0 0;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave input {
+.wrap.pm_guidePlaceURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
   width: calc(100% - 84px);
@@ -3799,23 +3890,23 @@ Date   : 2024.08.29
   border-radius: inherit;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave input::-webkit-input-placeholder {
+.wrap.pm_guidePlaceURL footer .inputSave input::-webkit-input-placeholder {
   color: #97c1fd;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave input:-ms-input-placeholder {
+.wrap.pm_guidePlaceURL footer .inputSave input:-ms-input-placeholder {
   color: #97c1fd;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave input::-ms-input-placeholder {
+.wrap.pm_guidePlaceURL footer .inputSave input::-ms-input-placeholder {
   color: #97c1fd;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave input::placeholder {
+.wrap.pm_guidePlaceURL footer .inputSave input::placeholder {
   color: #97c1fd;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave button {
+.wrap.pm_guidePlaceURL footer .inputSave button {
   color: #ffffff;
   border: 1px solid #2f84fc;
   background-color: #2f84fc;
@@ -3828,7 +3919,7 @@ Date   : 2024.08.29
   font-size: 15px;
 }
 
-.wrap.pm_guideQuizURL footer .inputSave button:disabled {
+.wrap.pm_guidePlaceURL footer .inputSave button:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
