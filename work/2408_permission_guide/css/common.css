@@ -3046,6 +3046,10 @@ Date   : 2024.09.09
   background-color: #fff;
 }
 
+.wrap.pm_guideRewardBM footer > div, .wrap.pm_guideRewardCE footer > div {
+  width: 100%;
+}
+
 .wrap.pm_guideRewardBM footer .guide, .wrap.pm_guideRewardCE footer .guide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3063,7 +3067,7 @@ Date   : 2024.09.09
   gap: 30px;
   position: relative;
   text-align: left;
-  padding: 18px 20px;
+  padding: 20px 20px 0px 20px;
 }
 
 .wrap.pm_guideRewardBM footer .guide p, .wrap.pm_guideRewardCE footer .guide p {
@@ -4123,14 +4127,14 @@ Date   : 2024.09.09
 }
 
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont ul li:nth-child(2):before {
-  background: url("../image/component/ico_capture.png") no-repeat center;
+  background: url("../image/component/ico_qna.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
 }
 
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont ul li:nth-child(3):before {
-  background: url("../image/component/ico_answer.png") no-repeat center;
+  background: url("../image/component/ico_capture.png") no-repeat center;
   width: 40px;
   height: 40px;
   background-size: contain;
@@ -4487,7 +4491,7 @@ Date   : 2024.09.09
   height: auto;
 }
 
-.wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li:nth-child(5) p:after {
+.wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li:nth-child(5):after {
   content: "";
   position: relative;
   display: inline-block;
@@ -4495,7 +4499,7 @@ Date   : 2024.09.09
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex5.png") no-repeat center;
+  background: url("../image/example/img_ex4.png") no-repeat center;
   width: 240px;
   height: 200px;
   background-size: contain;
@@ -4505,7 +4509,7 @@ Date   : 2024.09.09
   background-position: 0 0;
   width: 100%;
   margin: 20px 0px 0 0;
-  aspect-ratio: 1/1;
+  aspect-ratio: 6/5;
   height: auto;
 }
 
