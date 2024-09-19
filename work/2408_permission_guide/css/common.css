@@ -4478,7 +4478,7 @@ Date   : 2024.09.09
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex4.png") no-repeat center;
+  background: url("../image/example/img_ex5.png") no-repeat center;
   width: 240px;
   height: 200px;
   background-size: contain;
@@ -4487,7 +4487,7 @@ Date   : 2024.09.09
   max-width: 240px;
   background-position: 0 0;
   margin: 20px 0px 0 0px;
-  aspect-ratio: 6/5;
+  aspect-ratio: 1/1;
   height: auto;
 }
 
