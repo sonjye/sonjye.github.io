@@ -438,16 +438,17 @@ Date   : 2024.10.15
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):before {
   content: "[";
-  position: relative;
+  position: absolute;
   display: inline-block;
   margin: 0 2px 0 -4px;
+  right: 50px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):after {
   content: "]";
-  position: absolute;
+  position: relative;
   display: inline-block;
   margin: 0 2px;
-  right: 20px;
+  right: 30px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont {
   margin: 25px 0 0 0;
