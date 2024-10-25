@@ -338,7 +338,7 @@ Date   : 2024.10.15
   background-color: #eaf2fe;
 }
 .wrap.pm_missionVideo .content {
-  min-height: -webkit-fill-available;
+  padding: 0 0 60px 0;
 }
 .wrap.pm_missionVideo .content section.sec_mission {
   padding: 30px 20px;
@@ -547,7 +547,7 @@ Date   : 2024.10.15
   font-family: "Pretendard_Bold";
 }
 .wrap.pm_missionVideo footer {
-  position: sticky;
+  position: absolute;
   width: 100%;
   bottom: 0;
 }
