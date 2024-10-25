@@ -335,8 +335,10 @@ Date   : 2024.10.15
 */
 .wrap.pm_missionVideo {
   min-height: -webkit-fill-available;
-  padding-bottom: 60px;
   background-color: #eaf2fe;
+}
+.wrap.pm_missionVideo .content {
+  min-height: -webkit-fill-available;
 }
 .wrap.pm_missionVideo .content section.sec_mission {
   padding: 30px 20px;
@@ -439,6 +441,7 @@ Date   : 2024.10.15
   font-family: "Pretendard_Medium";
   font-weight: normal;
   position: relative;
+  max-width: 250px;
   min-width: 118px;
   height: 30px;
   margin: 15px 0 0 0;
@@ -544,7 +547,7 @@ Date   : 2024.10.15
   font-family: "Pretendard_Bold";
 }
 .wrap.pm_missionVideo footer {
-  position: fixed;
+  position: sticky;
   width: 100%;
   bottom: 0;
 }
