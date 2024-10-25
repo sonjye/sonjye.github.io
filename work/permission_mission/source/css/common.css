@@ -429,8 +429,9 @@ Date   : 2024.10.15
   min-width: 118px;
   height: 30px;
   margin: 15px 0 0 0;
-  padding: 0 30px 0 26px;
+  padding: 0 26px 0 26px;
   font-size: 14px;
+  text-align: center;
   line-height: 2.2;
   color: #ffffff;
   border-radius: 20px;
@@ -441,14 +442,14 @@ Date   : 2024.10.15
   position: absolute;
   display: inline-block;
   margin: 0 2px 0 -4px;
-  right: 50px;
+  left: 24px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):after {
   content: "]";
-  position: relative;
+  position: absolute;
   display: inline-block;
   margin: 0 2px;
-  right: 30px;
+  right: 18px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont {
   margin: 25px 0 0 0;
