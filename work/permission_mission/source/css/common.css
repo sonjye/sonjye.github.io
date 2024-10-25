@@ -395,6 +395,10 @@ Date   : 2024.10.15
   left: 10px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit:after {
+  background: url("../image/component/ico_coin2.png") no-repeat center;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
   position: absolute;
   bottom: -10px;
   right: 10px;
@@ -418,24 +422,41 @@ Date   : 2024.10.15
   margin: 5px 0 0 0;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  position: relative;
+  min-width: 118px;
+  height: 30px;
+  margin: 15px 0 0 0;
+  padding: 0 26px 0 26px;
+  border-radius: 20px;
+  color: #ffffff;
+  background-color: #161a40;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3) span {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   display: block;
   max-width: 250px;
-  min-width: 118px;
-  height: 30px;
-  margin: 15px 0 0 0;
-  padding: 0 26px 0 26px;
   font-size: 14px;
   text-align: center;
   line-height: 2.2;
-  color: #ffffff;
-  border-radius: 20px;
-  background-color: #161a40;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):before {
   content: "[";
@@ -443,6 +464,7 @@ Date   : 2024.10.15
   display: inline-block;
   margin: 0 2px 0 -4px;
   left: 24px;
+  color: #ffffff;
 }
 .wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):after {
   content: "]";
@@ -450,6 +472,7 @@ Date   : 2024.10.15
   display: inline-block;
   margin: 0 2px;
   right: 18px;
+  color: #ffffff;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont {
   margin: 25px 0 0 0;
