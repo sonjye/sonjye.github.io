@@ -457,6 +457,7 @@ Date   : 2024.10.15
   margin: 25px 0 0 0;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox {
+  position: relative;
   text-align: center;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox video {
