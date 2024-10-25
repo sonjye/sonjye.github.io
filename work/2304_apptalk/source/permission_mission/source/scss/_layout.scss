@@ -1,0 +1,68 @@
+@charset 'utf-8';
+
+/*
+File   : layout.scss
+Date   : 2024.07.31
+*/
+
+
+//* html */
+html {
+  min-height: -webkit-fill-available;
+  color: $ftColor;
+
+  // ::-webkit-scrollbar {
+  //   @include scrollbar;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   @include scrollbar_thumb;
+  // }
+
+  // font-size: clamp(100%, 16px, 120%);
+  body {
+    font-size: clamp(100%, 16px, 100%);
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    vertical-align: baseline;
+  }
+}
+
+
+//* wrap */
+.wrap {
+  position: relative;
+  width: 100%;
+  //min-width: 1920px; 
+  // min-width: 1900px;
+  // max-width: 768px;
+  margin: 0 auto;
+  // font-size: 1.6rem;
+  color: $ftColor;
+  background-color: $bgColor;
+}
+
+
+
+//* contents */
+.contents {
+  @include transition();
+  // width: calc(100% - 250px);
+  // min-height: 1000px;
+  // margin: 0 0 45px 250px;
+  // padding: 30px;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    clear: both;
+  }
+}
+
+//* footer */
+footer {}

@@ -1,0 +1,134 @@
+@charset 'utf-8';
+
+/*
+File   : modalTest.scss
+Date   : 2024.09.09
+*/
+/* 퍼블 확인용  CSS  */
+
+
+
+//* modal */
+.wrap {
+  background-color: white;
+  // background-color: #666666;
+  padding: 40px 0 0 60px;
+}
+
+//* modalTest 모달 테스트 */
+.modalTest {
+  // background-color: white;
+
+  .contents {
+    .content {
+
+      >strong,
+      >p {
+        display: none;
+      }
+    }
+  }
+
+  .modalTestWrap {
+    width: calc(100% - 50px);
+
+    .modalTestContainer {
+      margin-top: 40px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .title {
+        strong {
+          font-family: "NotoSansR";
+          position: relative;
+          display: block;
+          width: 100%;
+          font-weight: bold;
+          font-size: 24px;
+        }
+
+        p {
+          font-family: "NotoSansR";
+          position: relative;
+          display: block;
+          width: 100%;
+          margin: 20px 0 0 0;
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+
+      .buttonBox {
+        margin-top: 10px;
+
+        button {
+          position: relative;
+          display: inline-block;
+          min-width: 100px;
+          height: 40px;
+          margin: 10px 5px 0 5px;
+          padding: 0 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          color: #222;
+          border: 1px solid #222;
+        }
+      }
+    }
+  }
+}
+
+
+//* modalView 모달 미리보기 */
+.modalView {
+  .modal {
+
+    >strong {
+      font-family: "NotoSansR";
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 40px auto 0;
+      font-weight: bold;
+      font-size: 24px;
+      // color: #fff;
+    }
+
+    >p {
+      font-family: "NotoSansR";
+      position: relative;
+      display: block;
+      width: 100%;
+      top: 10px;
+      margin: 10px auto 0;
+      font-weight: bold;
+      font-size: 16px;
+
+      // color: #fff;
+      &:nth-child(1) {
+        margin: 20px auto 0;
+      }
+    }
+
+    .modalWrap {
+      position: relative !important;
+      display: block !important;
+      margin: 50px 0 50px 0;
+      margin: 40px auto 100px auto;
+
+      .modalContainer {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        border: 1px solid #666;
+      }
+
+      .modalDim {
+        display: none;
+      }
+    }
+  }
+}

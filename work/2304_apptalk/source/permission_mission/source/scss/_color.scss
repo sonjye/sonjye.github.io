@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/*
+File   : color.scss
+Date   : 2024.09.09
+*/
+
+
+$white: #ffffff;
+$black: #000000;
+$red: #ff0000;
+
+//* basic */
+$mainColor: #2f84fc;
+$ftColor: #333333;
+$subFtColor: #7d838d;
+// $borderColor: #e3e3e3;
+$bgColor: #eaf2fe;
+
+// point 
+$pointColor: $mainColor;
+// $pointColor2: #eaf2fe;
+
+// scroll 
+$scrollbarBgColor: transparent;
+$scrollThumbColor: $pointColor;
+
+//* Font */
+$ftColor2: $pointColor;
+$ftColor3: #000000;
+$ftColor4: #ffffff;
+$ftColor5: #333d4b;
+$ftColor6: #7d838d;
+
+// borderColor
+$borderColor: #e1e6eb;
+$borderColor2: #f1f4f6;
+
+// bgColor 
+$bgColor2: #ffffff;
+$bgColor3: #f9fafb;
+
+//* input */
+$ipFtColor_ph: #97c1fd;
+$ipFtColor_disabled: #7d838d;
+$ipBorderColor_disabled:#e6e8ea;
+$ipBgColor_disabled: #e6e8ea;
+
+//* button */
+// main 1 - on (main)
+$btn1_ftColor: $ftColor4;
+$btn1_bgColor: $pointColor;
+
+$color: #161a40;

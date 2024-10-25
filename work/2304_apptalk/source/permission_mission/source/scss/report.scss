@@ -1,0 +1,167 @@
+@charset 'utf-8';
+
+/*
+File   : report.scss
+Date   : 2024.08.27
+*/
+
+.wrap {
+
+  //* 신고하기 */
+  &.pm_report {
+    min-height: -webkit-fill-available;
+
+    .title {
+      @include flexBox($j:center);
+      // position: relative;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 40px;
+      padding: 10px 20px;
+      background-color: $white;
+      border-bottom: 1px solid $borderColor2;
+      z-index: 900;
+
+      p {
+        @include fontB;
+        flex-grow: 1;
+        font-size: 18px;
+        line-height: 31px;
+        text-align: center;
+        word-break: auto-phrase;
+      }
+
+      button {
+        position: absolute;
+        @include flexBox;
+        left: 20px;
+        padding: 10px;
+
+        &.back {
+          @include iBtn;
+          @include ico_back;
+        }
+      }
+    }
+
+    .content {
+      position: relative;
+      padding: 40px 0 0 0;
+
+      .dim {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: -webkit-fill-available;
+        background: #000000;
+        opacity: 0.5;
+        z-index: 901;
+      }
+
+      section {
+        padding: 30px 20px;
+        background-color: $bgColor2;
+
+        &.sec_list {
+          margin: 0px 0 0 0;
+
+          >ul {
+            >li {
+              @include flexBox($g:30px);
+              padding: 10px 20px;
+              min-height: 60px;
+              border-radius: 16px;
+              background-color: $bgColor3;
+
+              &:nth-child(n+2) {
+                margin: 8px 0 0 0;
+              }
+
+              p {
+                min-width: 80px;
+                color: $ftColor5;
+
+                &.em {
+                  &:after {
+                    content: "＊";
+                    position: relative;
+                    display: inline-block;
+                    top: -10px;
+                    font-size: 13px;
+                    color: $red;
+                  }
+                }
+              }
+
+              input[type="text"],
+              select {
+                @include fontM;
+                flex-grow: 1;
+                text-align: left;
+                font-size: 16px;
+                border: none;
+                background-color: transparent;
+                padding-left: 0;
+              }
+
+              .selectDiv {
+                @include selectDiv;
+              }
+            }
+          }
+        }
+
+        &.sec_guide {
+          background-color: $bgColor3;
+          padding: 30px 20px 100px 20px;
+
+          .tit {
+            @include fontB;
+            font-size: 16px;
+          }
+
+          .cont {
+            margin: 14px 0 0 0;
+
+            ul {
+              li {
+                padding: 0 0 0 10px;
+                font-size: 14px;
+                line-height: 22px;
+                color: $ftColor6;
+
+                &:nth-child(n+2) {
+                  margin: 12px 0 0 0;
+                }
+
+                &:before {
+                  content: "-";
+                  position: rleative;
+                  display: inline-block;
+                  text-indent: -10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+
+      button {
+        @include btnLayout;
+        @include btn_main;
+        width: 100%;
+        height: 52px;
+        font-size: 16px;
+        border-radius: 0;
+      }
+    }
+  }
+}

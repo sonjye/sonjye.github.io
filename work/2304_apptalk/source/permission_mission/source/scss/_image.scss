@@ -1,0 +1,49 @@
+@charset 'utf-8';
+
+/*
+File   : image.scss
+Date   : 2024.10.25
+*/
+
+@mixin image($folder, $name, $path: "../image/", $format: "png", $bgXY:center, $width:null, $height: null, $bgSize:null) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+  width: $width;
+  height: $height;
+  background-size: $bgSize;
+}
+
+@mixin imageMask($path:"../image/", $folder:null, $name:null, $format:"svg", $bgXY:center, $width:null, $height: null, $color:null) {
+  mask: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  width: $width;
+  height: $height;
+  background: $color;
+}
+
+
+
+//* header */
+
+//* common */
+@mixin ico_i {
+  @include image($folder:'component', $name: '/ico_i', $format:"svg", $width:16px, $height: 16px, $bgSize: contain);
+}
+
+
+//* each */
+//* mission */
+@mixin ico_coin {
+  @include image($folder:'component', $name: '/ico_coin', $width:30px, $height: 30px, $bgSize: contain);
+}
+
+@mixin ico_coin2 {
+  @include image($folder:'component', $name: '/ico_coin2', $width:50px, $height: 50px, $bgSize: contain);
+}
+
+@mixin ico_bgCircle {
+  @include image($folder:'component', $name: '/ico_bgCircle', $format:"svg", $width:185px, $height: 185px, $bgSize: contain);
+}
+
+@mixin ico_txtPointSave {
+  @include image($folder:'component', $name: '/ico_txtPointSave', $width:210px, $height: 27px, $bgSize: contain);
+}

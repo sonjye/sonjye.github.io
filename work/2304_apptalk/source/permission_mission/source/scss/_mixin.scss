@@ -1,0 +1,331 @@
+@charset 'utf-8';
+/*
+File   : mixin.scss
+Date   : 2024.10.25
+*/
+
+
+//* font */
+@mixin fontR {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+}
+
+@mixin fontM {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+}
+
+@mixin fontB {
+  font-family: "Pretendard_Bold";
+}
+
+//* scroll  */
+// ::-webkit-scrollbar 
+@mixin scrollbar($w: 6px, $h: 4px, $bg:$scrollbarBgColor) {
+  width: $w;
+  height: $h;
+  background: $bg;
+}
+
+//::-webkit-scrollbar-thumb 
+@mixin scrollbar_thumb($h: 15px, $br:3px, $bg:$scrollThumbColor) {
+  height: $h;
+  border-radius: $br;
+  background: $bg;
+}
+
+//* text */
+// hide 
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+// 드래그 방지
+@mixin dragBlock {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//* text ellipsis */
+// display 있어야 나타남
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin ellipsis2($wlc:2) {
+  display: -webkit-box;
+  //width: 100px;
+  //height: 100px;
+  //line-height: 22px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: $wlc;
+  -webkit-box-orient: vertical;
+}
+
+
+//* display*/
+//* inline-block */
+@mixin dpLayout {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin inflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+
+//* animation */
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+@mixin iMarkHover($w:200px, $t:null, $r:null, $b:45px, $l:50%, $ta:center) {
+  @include fontR;
+  // display: none;
+  position: absolute;
+  width: $w;
+  height: auto;
+  min-height: 30px;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  padding: 6px 12px;
+  color: $pointColor;
+  font-size: 13px;
+  text-align: $ta;
+  font-style: normal;
+  line-height: 1.5;
+  white-space: normal;
+  border-radius: 4px;
+  border: 1px solid $pointColor;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, 0%);
+  background-color: $white;
+  cursor: default;
+  z-index: 3;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 12%;
+    border: solid transparent;
+    pointer-events: none;
+    left: calc(50% - 1px);
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: $white;
+    border-width: 10px;
+    // margin-left: -10px;
+    margin: -1px 0 0 -10px;
+  }
+
+  &:before {
+    border-color: rgba(133, 183, 78, 0);
+    border-top-color: $pointColor;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+
+  // &:after,
+  // &:before {
+  //   left: calc(50% - 1px);
+  //   border-top: none;
+  //   border-bottom-color: var(--bubbleBorderColor);
+  // }
+
+  // &:before {
+  //   top: -12px;
+  //   border-bottom-color: var(--pointColor);
+
+  // }
+
+  // &:after {
+  //   top: -10px;
+  //   border-width: 11px;
+  //   margin-left: -10px;
+  // }
+}
+
+@mixin iMarkHover_TC {
+  top: 28px;
+  right: auto;
+  bottom: auto;
+  left: auto;
+
+  &:after,
+  &:before {
+    left: calc(50% - 1px);
+    border-top: none;
+    border-bottom-color: $pointColor;
+  }
+
+  &:before {
+    top: -12px;
+    border-bottom-color: $pointColor;
+
+  }
+
+  &:after {
+    top: -10px;
+    border-width: 11px;
+    margin-left: -10px;
+  }
+}
+
+
+//* ico */
+@mixin iLayout($p:relative, $a:middle) {
+  content: "";
+  position: $p;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+}
+
+@mixin iBtn($w:null, $minW:null, $h:null, $ftSize: 0) {
+  @include fontR;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  margin: 0;
+  font-size: $ftSize;
+  text-align: center;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+@mixin btnLayout {
+  @include fontR;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+@mixin btnS($w: 80px, $minW:80px, $h:36px, $br:4px, $fs:14px, $pd:0 15px) {
+  @include fontM;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+}
+
+
+// ON > bg: pointColor
+@mixin btn_main {
+  color: $btn1_ftColor;
+  border: 1px solid $btn1_bgColor;
+  background-color: $btn1_bgColor;
+}
+
+
+//* title */
+@mixin title($pd:8px 20px) {
+  @include flexBox;
+  position: relative;
+  min-height: 130px;
+  padding: $pd;
+  background-color: $pointColor;
+
+  p {
+    @include flexBox();
+    @include fontB;
+    flex-grow: 1;
+    font-size: 24px;
+    line-height: 31px;
+    color: $ftColor4;
+    word-break: auto-phrase;
+  }
+}
+
+
+
+@mixin noti {
+  position: relative;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  word-break: auto-phrase;
+
+  &:before {
+    @include iLayout;
+    @include ico_i;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    margin: 0 8px 0 0;
+    vertical-align: middle;
+  }
+
+  p {
+    line-height: 23px;
+
+    span {
+      color: $pointColor;
+      line-height: 22px;
+    }
+  }
+}
+
+@mixin footerLayout($pd:20px, $g:20px, $d:column, $j:start) {
+  @include flexBox($g:$g, $d:$d, $j:$j);
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: $pd;
+  box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+}

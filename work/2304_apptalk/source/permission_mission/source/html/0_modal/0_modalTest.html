@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- modal 테스트 페이지 입니다. 모달 확인은 modalView 를 확인해 주시기 바랍니다. 
+    해당 페이지에는 없는 모달이 있을 수 있습니다. -->
+    <div class="wrap modalTest">
+        <!-- modal 위치 >> wrap과 contents 클래스 사이-->
+        <div class="modal">
+            <div class="modalWrap md_alert" id="md_alert">
+                <div class="modalContainer">
+                    <div class="modalContent">
+                        <div>
+                            <p>저장 하시겠습니까?</p>
+                            <p>저장 하시겠습니까?</p>
+                            <p>저장 하시겠습니까?</p>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="confirm">확인</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!-- // modalWrap end-->
+        </div>
+        <section class="contents">
+            <div class="title">
+            </div>
+            <div class="content">
+            </div>
+            <div class="modalTestWrap">
+                <div class="modalTestContainer">
+                    <div class="title">
+                        <strong> ## 모달 작업시 확인사항 ## </strong>
+                        <p>1. 닫기 버튼에 modalClose 클래스 추가시 모달이 닫히게 됩니다.</p>
+                    </div>
+                    <div class="buttonBox">
+                        <button type="button" class="modalOpen" data-popname="md_alert">alert</button>
+                    </div>
+                </div>
+            </div>
+            <!--// modalTestWrap end -->
+        </section>
+        <footer>
+            <!-- footer 영역 -->
+        </footer>
+        <!--// footer end -->
+    </div>
+</body>
+
+</html>

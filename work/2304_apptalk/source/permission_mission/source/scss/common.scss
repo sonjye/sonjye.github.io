@@ -1,0 +1,35 @@
+/*
+Explain : permission(mission) 
+File : common.scss 
+Date : 2024.10.25
+Version : 1.1.1
+*/
+
+/*
+z-index 순서
+# title(report.html) : 900
+# selectDim : 901
+# selectDiv : 902
+*/
+
+//***** 공통 CSS *****/
+@import "_font";
+@import "_base";
+@import "_color";
+@import "_image";
+// @import "calendar";
+@import "_mixin";
+@import "_layout";
+@import "_content";
+// @import "_content";
+
+
+
+//***** 개별 CSS *****/
+// 미션
+@import "mission";
+
+//* bakup */
+// @import "bak";
+//* 제작 */
+// @import "test";

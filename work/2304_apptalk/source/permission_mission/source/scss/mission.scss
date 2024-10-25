@@ -1,0 +1,189 @@
+@charset 'utf-8';
+
+/*
+File   : guide.scss
+Date   : 2024.10.15
+*/
+
+//* 미션 > 동영상 */
+.wrap {
+  &.pm_missionVideo {
+    min-height: -webkit-fill-available;
+    padding-bottom: 60px;
+    background-color: $bgColor;
+
+    .content {
+      section {
+
+        &.sec_mission {
+          padding: 30px 20px;
+
+          &:before {
+            @include iLayout($p:absolute);
+            @include ico_bgCircle;
+            top: -20px;
+            left: 50%;
+            transform: translate(-50%, 0);
+          }
+
+          .tit {
+            @include flexBox($d:column, $j:center, $g:5px);
+            position: relative;
+            text-align: center;
+
+            &:before,
+            &:after {
+              @include iLayout;
+            }
+
+            &:before {
+              @include ico_coin;
+              position: absolute;
+              top: -15px;
+              left: 10px;
+            }
+
+            &:after {
+              @include ico_coin2;
+              position: absolute;
+              bottom: -10px;
+              right: 10px;
+            }
+
+            p {
+              &:nth-child(1) {
+                @include fontB;
+                font-size: 16px;
+              }
+
+              &:nth-child(2) {
+                @include iLayout;
+                @include ico_txtPointSave;
+                margin: 5px 0 0 0;
+              }
+
+              &:nth-child(n+3) {
+                @include fontM;
+                // @include inflexBox($a:center, $g:0, $j:center);
+                @include ellipsis;
+                position: relative;
+                display: block;
+                max-width: 250px;
+                min-width: 118px;
+                height: 30px;
+                margin: 15px 0 0 0;
+                padding: 0 30px 0 26px;
+                font-size: 14px;
+                line-height: 2.2;
+                color: $ftColor4;
+                border-radius: 20px;
+                background-color: $color;
+
+                &:before {
+                  content: "[";
+                  position: relative;
+                  display: inline-block;
+                  margin: 0 2px 0 -4px
+                }
+
+                &:after {
+                  content: "]";
+                  position: absolute;
+                  display: inline-block;
+                  margin: 0 2px;
+                  right: 20px;
+                }
+              }
+            }
+          }
+
+          .cont {
+            margin: 25px 0 0 0;
+
+            .vidioBox {
+              text-align: center;
+
+              video {
+                width: 100%;
+                min-height: 200px;
+              }
+
+              p {
+                margin: 15px 0 0 0;
+                @include fontM;
+                font-size: 14px;
+                line-height: 22px;
+              }
+            }
+
+            .guide {
+              position: relative;
+              margin: 20px 0 0 0;
+              padding: 15px;
+              border-radius: 8px;
+              background-color: $white;
+
+              p {
+                line-height: 1.5;
+
+                &:nth-child(1) {
+                  position: relative;
+                  padding: 0 0 0 20px;
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_i;
+                    margin: 0 0px 0 0;
+                    position: absolute;
+                    top: 4px;
+                    left: 0;
+                  }
+
+                  span {
+                    color: $pointColor;
+                  }
+                }
+
+                &:nth-child(n+2) {
+                  text-indent: 20px;
+                }
+              }
+            }
+
+            .alarm {
+              position: relative;
+              margin: 10px 0 0 0;
+              text-align: center;
+
+              p {
+                font-size: 13px;
+                color: $subFtColor;
+                line-height: 18px;
+
+                span {
+                  @include fontB;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+
+      button {
+        &.moveVideo {
+          @include btn_main;
+          @include fontR;
+          width: 100%;
+          min-height: 52px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

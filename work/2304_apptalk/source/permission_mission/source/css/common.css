@@ -1,0 +1,537 @@
+@charset "UTF-8";
+/*
+Explain : permission(mission) 
+File : common.scss 
+Date : 2024.10.25
+Version : 1.1.1
+*/
+/*
+z-index 순서
+# title(report.html) : 900
+# selectDim : 901
+# selectDiv : 902
+*/
+/*
+File   : font.scss
+Date   : 2024.06.31
+*/
+@font-face {
+  font-family: "Pretendard_Thin";
+  src: url("../font/Pretendard-Thin.eot");
+  src: url("../font/Pretendard-Thin.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Thin.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Light";
+  src: url("../font/Pretendard-Light.eot");
+  src: url("../font/Pretendard-Light.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Medium";
+  src: url("../font/Pretendard-Medium.eot");
+  src: url("../font/Pretendard-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_SemiBold";
+  src: url("../font/Pretendard-SemiBold.eot");
+  src: url("../font/Pretendard-SemiBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Bold";
+  src: url("../font/Pretendard-Bold.eot");
+  src: url("../font/Pretendard-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_ExtraBold";
+  src: url("../font/Pretendard-ExtraBold.eot");
+  src: url("../font/Pretendard-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-ExtraBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Black";
+  src: url("../font/Pretendard-Black.eot");
+  src: url("../font/Pretendard-Black.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Black.woff") format("woff");
+}
+/*
+File   : base.scss
+Date   : 2024.07.31
+*/
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Pretendard_Light";
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+input::-ms-clear {
+  display: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/*
+File   : color.scss
+Date   : 2024.09.09
+*/
+/*
+File   : image.scss
+Date   : 2024.10.25
+*/
+/*
+File   : mixin.scss
+Date   : 2024.10.25
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+File   : layout.scss
+Date   : 2024.07.31
+*/
+html {
+  min-height: -webkit-fill-available;
+  color: #333333;
+}
+html body {
+  font-size: clamp(100%, 16px, 100%);
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  vertical-align: baseline;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  color: #333333;
+  background-color: #eaf2fe;
+}
+
+.contents {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+.contents:after {
+  display: block;
+  content: "";
+  width: 100%;
+  clear: both;
+}
+
+/*
+File   : content.scss
+Date   : 2024.10.25
+*/
+::-moz-selection {
+  color: #ffffff;
+  background: #2f84fc;
+}
+::selection {
+  color: #ffffff;
+  background: #2f84fc;
+}
+
+.hide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone {
+  display: none !important;
+}
+
+/*
+File   : guide.scss
+Date   : 2024.10.15
+*/
+.wrap.pm_missionVideo {
+  min-height: -webkit-fill-available;
+  padding-bottom: 60px;
+  background-color: #eaf2fe;
+}
+.wrap.pm_missionVideo .content section.sec_mission {
+  padding: 30px 20px;
+}
+.wrap.pm_missionVideo .content section.sec_mission:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_bgCircle.svg") no-repeat center;
+  width: 185px;
+  height: 185px;
+  background-size: contain;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  position: relative;
+  text-align: center;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit:before, .wrap.pm_missionVideo .content section.sec_mission .tit:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit:before {
+  background: url("../image/component/ico_coin.png") no-repeat center;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit:after {
+  background: url("../image/component/ico_coin2.png") no-repeat center;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 16px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(2) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_txtPointSave.png") no-repeat center;
+  width: 210px;
+  height: 27px;
+  background-size: contain;
+  margin: 5px 0 0 0;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3) {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: block;
+  max-width: 250px;
+  min-width: 118px;
+  height: 30px;
+  margin: 15px 0 0 0;
+  padding: 0 30px 0 26px;
+  font-size: 14px;
+  line-height: 2.2;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #161a40;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):before {
+  content: "[";
+  position: relative;
+  display: inline-block;
+  margin: 0 2px 0 -4px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .tit p:nth-child(n+3):after {
+  content: "]";
+  position: absolute;
+  display: inline-block;
+  margin: 0 2px;
+  right: 20px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont {
+  margin: 25px 0 0 0;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox {
+  text-align: center;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox video {
+  width: 100%;
+  min-height: 200px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox p {
+  margin: 15px 0 0 0;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide {
+  position: relative;
+  margin: 20px 0 0 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide p {
+  line-height: 1.5;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide p:nth-child(1) span {
+  color: #2f84fc;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .guide p:nth-child(n+2) {
+  text-indent: 20px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .alarm {
+  position: relative;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .alarm p {
+  font-size: 13px;
+  color: #7d838d;
+  line-height: 18px;
+}
+.wrap.pm_missionVideo .content section.sec_mission .cont .alarm p span {
+  font-family: "Pretendard_Bold";
+}
+.wrap.pm_missionVideo footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.wrap.pm_missionVideo footer button.moveVideo {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  width: 100%;
+  min-height: 52px;
+  font-size: 16px;
+}

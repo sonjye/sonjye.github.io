@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/*
+File   : modalTest.scss
+Date   : 2024.09.09
+*/
+/* 퍼블 확인용  CSS  */
+.wrap {
+  background-color: white;
+  padding: 40px 0 0 60px;
+}
+
+.modalTest .contents .content > strong,
+.modalTest .contents .content > p {
+  display: none;
+}
+.modalTest .modalTestWrap {
+  width: calc(100% - 50px);
+}
+.modalTest .modalTestWrap .modalTestContainer {
+  margin-top: 40px;
+}
+.modalTest .modalTestWrap .modalTestContainer:first-child {
+  margin-top: 0;
+}
+.modalTest .modalTestWrap .modalTestContainer .title strong {
+  font-family: "NotoSansR";
+  position: relative;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 24px;
+}
+.modalTest .modalTestWrap .modalTestContainer .title p {
+  font-family: "NotoSansR";
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 20px 0 0 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+.modalTest .modalTestWrap .modalTestContainer .buttonBox {
+  margin-top: 10px;
+}
+.modalTest .modalTestWrap .modalTestContainer .buttonBox button {
+  position: relative;
+  display: inline-block;
+  min-width: 100px;
+  height: 40px;
+  margin: 10px 5px 0 5px;
+  padding: 0 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #222;
+  border: 1px solid #222;
+}
+
+.modalView .modal > strong {
+  font-family: "NotoSansR";
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 40px auto 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+.modalView .modal > p {
+  font-family: "NotoSansR";
+  position: relative;
+  display: block;
+  width: 100%;
+  top: 10px;
+  margin: 10px auto 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+.modalView .modal > p:nth-child(1) {
+  margin: 20px auto 0;
+}
+.modalView .modal .modalWrap {
+  position: relative !important;
+  display: block !important;
+  margin: 50px 0 50px 0;
+  margin: 40px auto 100px auto;
+}
+.modalView .modal .modalWrap .modalContainer {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  -webkit-transform: none !important;
+          transform: none !important;
+  border: 1px solid #666;
+}
+.modalView .modal .modalWrap .modalDim {
+  display: none;
+}
