@@ -464,9 +464,10 @@ Date   : 2024.10.15
   min-height: 200px;
 }
 .wrap.pm_missionVideo .content section.sec_mission .cont .vidioBox p {
-  margin: 15px 0 0 0;
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  margin: 15px 0 0 0;
+  padding: 0 35px;
   font-size: 14px;
   line-height: 22px;
 }
