@@ -5669,6 +5669,7 @@ Date   : 2024.10.15
   width: 280px;
   height: 56px;
   background-size: contain;
+  max-width: 280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5683,7 +5684,7 @@ Date   : 2024.10.15
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  padding: 10px 53px 10px 46px;
+  padding: 10px 43px 10px 46px;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont ul li:nth-child(2) .searchBox p {
   font-family: "Pretendard_Bold";
