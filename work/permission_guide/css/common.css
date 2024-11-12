@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2024.10.15
-Version : 1.1.15
+Date : 2024.11.12
+Version : 1.1.17
 */
 /*
 z-index 순서
@@ -241,7 +241,7 @@ Date   : 2024.11.06
 */
 /*
 File   : mixin.scss
-Date   : 2024.08.22
+Date   : 2024.11.12
 */
 @-webkit-keyframes fadeIn {
   from {
@@ -549,7 +549,7 @@ Date   : 2024.09.09
 
 /*
 File   : guide.scss
-Date   : 2024.10.15
+Date   : 2024.11.12
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -5687,6 +5687,11 @@ Date   : 2024.10.15
   padding: 10px 42px 10px 42px;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont ul li:nth-child(2) .searchBox p {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
   font-family: "Pretendard_Bold";
   font-size: 14px;
   line-height: 20px;
