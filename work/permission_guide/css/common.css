@@ -4252,7 +4252,7 @@ Date   : 2024.11.12
   font-family: "Pretendard_Bold";
   position: relative;
   min-height: 40px;
-  padding-left: 60px;
+  padding: 10px 0 10px 60px;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li:before {
   content: "";
@@ -4263,6 +4263,7 @@ Date   : 2024.11.12
   font-style: normal;
   vertical-align: middle;
   margin: 0 20px 0 0;
+  top: 0;
   left: 0;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li:nth-child(n+2) {
@@ -4321,9 +4322,6 @@ Date   : 2024.11.12
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li p {
   line-height: 20px;
-}
-.wrap.pm_blogURL .content section.sec_guide .cont ul li p:nth-child(1) {
-  padding: 10px 0 0 0;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li p:nth-child(n+2) {
   margin: 5px 0 0 0;
@@ -4882,6 +4880,7 @@ Date   : 2024.11.12
 .wrap.pm_placeURL .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
   word-break: auto-phrase;
+  line-height: 20px;
 }
 .wrap.pm_placeURL .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
@@ -4893,7 +4892,7 @@ Date   : 2024.11.12
   font-family: "Pretendard_Bold";
   position: relative;
   min-height: 40px;
-  padding-left: 60px;
+  padding: 10px 0 10px 60px;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li:before {
   content: "";
@@ -4904,6 +4903,7 @@ Date   : 2024.11.12
   font-style: normal;
   vertical-align: middle;
   margin: 0 20px 0 0;
+  top: 0;
   left: 0;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li:nth-child(n+2) {
@@ -4962,9 +4962,6 @@ Date   : 2024.11.12
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li p {
   line-height: 20px;
-}
-.wrap.pm_placeURL .content section.sec_guide .cont ul li p:nth-child(1) {
-  padding: 10px 0 0 0;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li p:nth-child(n+2) {
   margin: 5px 0 0 0;
