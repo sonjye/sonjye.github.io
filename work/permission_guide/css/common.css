@@ -4240,6 +4240,7 @@ Date   : 2024.11.12
 }
 .wrap.pm_blogURL .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
+  word-break: auto-phrase;
 }
 .wrap.pm_blogURL .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
@@ -4250,16 +4251,19 @@ Date   : 2024.11.12
 .wrap.pm_blogURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
   position: relative;
+  min-height: 40px;
+  padding-left: 60px;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li:before {
   content: "";
-  position: relative;
+  position: absolute;
   display: inline-block;
   background-position: 0px 0px;
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
   margin: 0 20px 0 0;
+  left: 0;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 20px 0 0 0;
@@ -4315,12 +4319,25 @@ Date   : 2024.11.12
   height: 40px;
   background-size: contain;
 }
-.wrap.pm_blogURL .content section.sec_guide .cont ul li .em {
+.wrap.pm_blogURL .content section.sec_guide .cont ul li p {
+  line-height: 20px;
+}
+.wrap.pm_blogURL .content section.sec_guide .cont ul li p:nth-child(1) {
+  padding: 10px 0 0 0;
+}
+.wrap.pm_blogURL .content section.sec_guide .cont ul li p:nth-child(n+2) {
+  margin: 5px 0 0 0;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  color: #7d838d;
+  font-size: 15px;
+  line-height: 20px;
+}
+.wrap.pm_blogURL .content section.sec_guide .cont ul li p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
   color: #ff0000;
   font-size: 15px;
-  text-indent: 60px;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont .guide {
   -webkit-user-select: none;
@@ -4864,6 +4881,7 @@ Date   : 2024.11.12
 }
 .wrap.pm_placeURL .content section.sec_guide .tit p:nth-child(n+2) {
   margin-top: 8px;
+  word-break: auto-phrase;
 }
 .wrap.pm_placeURL .content section.sec_guide .tit p:nth-child(2) {
   color: #7d838d;
@@ -4874,16 +4892,19 @@ Date   : 2024.11.12
 .wrap.pm_placeURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
   position: relative;
+  min-height: 40px;
+  padding-left: 60px;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li:before {
   content: "";
-  position: relative;
+  position: absolute;
   display: inline-block;
   background-position: 0px 0px;
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
   margin: 0 20px 0 0;
+  left: 0;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li:nth-child(n+2) {
   margin: 20px 0 0 0;
@@ -4939,20 +4960,25 @@ Date   : 2024.11.12
   height: 40px;
   background-size: contain;
 }
+.wrap.pm_placeURL .content section.sec_guide .cont ul li p {
+  line-height: 20px;
+}
+.wrap.pm_placeURL .content section.sec_guide .cont ul li p:nth-child(1) {
+  padding: 10px 0 0 0;
+}
+.wrap.pm_placeURL .content section.sec_guide .cont ul li p:nth-child(n+2) {
+  margin: 5px 0 0 0;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  color: #7d838d;
+  font-size: 15px;
+  line-height: 20px;
+}
 .wrap.pm_placeURL .content section.sec_guide .cont ul li p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
   color: #ff0000;
   font-size: 15px;
-  text-indent: 60px;
-}
-.wrap.pm_placeURL .content section.sec_guide .cont ul li p.sub {
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  color: #7d838d;
-  font-size: 15px;
-  text-indent: 60px;
-  line-height: 20px;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont .guide {
   -webkit-user-select: none;
