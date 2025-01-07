@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 미션 참여 > 블로그 내 업체 클릭 후 순서대로 메뉴 이동 후 URL 복사 -->
+    <!-- pm_placeURL 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap pm_placeURL">
+        <!-- modal 위치 >> wrap과 contents 클래스 사이-->
+        <!-- 예시로 하단 적립하기 버튼 클릭시 모달 나타나게 제작하였습니다.-->
+        <div class="modal">
+            <div class="modalWrap md_alert" id="md_alert">
+                <div class="modalContainer">
+                    <div class="modalContent">
+                        <div>
+                            <p>저장 하시겠습니까?</p>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="confirm modalClose">확인</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!-- // modalWrap end-->
+        </div>
+        <!--// modal End -->
+        <section class="contents">
+            <div class="title">
+                <p>미션 참여하고<br> 리워드 받기</p>
+            </div>
+            <div class="content">
+                <section class="sec_guide">
+                    <div class="tit">
+                        <p>서울특별시청</p>
+                        <p>플레이스 방문 후 순서대로 메뉴이동 후 URL 복사</p>
+                    </div>
+                    <div class="cont">
+                        <ul>
+                            <li>복사한 키워드로 검색 후 플레이스 클릭 </li>
+                            <li>지도 → 사진 → 홈 탭 순으로 클릭 <p class="em">*순서대로 클릭해야 정답이 됩니다.</p>
+                            </li>
+                            <li>지도 → 주변 정류장 탭 순으로 클릭 <p class="sub">정답은 검색해서 플레이스 진입시 홈 탭 URL 카테고리별로 확인 부탁드려요.</p>
+                            </li>
+                            <li>리워드 지급 </li>
+                        </ul>
+                        <div class="guide">
+                            <p>복사한 키워드로 검색하여 플레이스 클릭 후 [지도 → 사진 → 홈 탭] 순으로 클릭 후 주소창 링크 입력</p>
+                        </div>
+                        <div class="alarm">
+                            <p><span>30초 동안</span> 구경해야 리워드가 지급됩니다.</p>
+                            <p class="fc1">'주의' 광고클릭시 포인트회수 처리</p>
+                        </div>
+                        <div class="btnArea">
+                            <button type="button" class="copy">검색어 복사</button>
+                            <button type="button" class="move">미션하러 가기</button>
+                        </div>
+                        <div class="alarm2">
+                            <p>네이버앱을 꼭 설치해주셔야 참여가능합니다.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec_example">
+                    <div class="tit">
+                        <p>미션 참여 방법</p>
+                    </div>
+                    <div class="cont">
+                        <ul>
+                            <li>
+                                <p>검색어 복사하기</p>
+                                <p>(복사 안될 시 아래 텍스트 복사)</p>
+                            </li>
+                            <li>
+                                <p>복사한 검색어를 네이버 검색창에 입력하고 검색하기</p>
+                            </li>
+                            <li>
+                                <p>검색어와 동일한 플레이스 클릭</p>
+                                <p>또는</p>
+                            </li>
+                            <li>
+                                <p>지도 → 사진 → 홈 탭 순으로 클릭</p>
+                                <p class="em">*순서대로 클릭해야 정답이 됩니다.</p>
+                            </li>
+                            <li>
+                                <p>URL 복사 </p>
+                                <p>정답은 검색해서 플레이스 진입시 홈 탭URL 카테고리별로 확인 부탁드려요.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!--// contnets end -->
+        <footer>
+            <div class="guide">
+                <p>※ 정답 공유 시 서비스 이용에 제한이 있습니다.</p>
+                <button type="button" class="report">오류 접수</button>
+            </div>
+            <div class="inputSave">
+                <input type="text" placeholder="상품번호 앞 6자리를 입력해주세요">
+                <button type="button" data-popname="md_alert" class="save modalOpen">적립받기</button>
+            </div>
+        </footer>
+        <!--// footer end -->
+    </div>
+</body>
+
+</html>
