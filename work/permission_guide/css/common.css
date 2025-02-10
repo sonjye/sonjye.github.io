@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2024.12.13
-Version : 1.1.18
+Date : 2025.01.07
+Version : 1.1.19
 */
 /*
 z-index 순서
@@ -237,7 +237,7 @@ Date   : 2024.09.09
 */
 /*
 File   : image.scss
-Date   : 2024.11.06
+Date   : 2025.01.07
 */
 /*
 File   : mixin.scss
@@ -550,7 +550,7 @@ Date   : 2024.09.09
 
 /*
 File   : guide.scss
-Date   : 2024.11.12
+Date   : 2025.01.07
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -3325,7 +3325,8 @@ Date   : 2024.11.12
   height: 252px;
   background-size: contain;
   display: block;
-  max-width: 262px;
+  width: calc(100% - 40px);
+  max-width: 240px;
   height: auto;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
@@ -3345,8 +3346,8 @@ Date   : 2024.11.12
   display: block;
   width: 100%;
   max-width: 240px;
+  width: calc(100% - 40px);
   background-position: 0 0;
-  width: 100%;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
   height: auto;
@@ -3369,8 +3370,8 @@ Date   : 2024.11.12
   display: block;
   width: 100%;
   max-width: 240px;
+  width: calc(100% - 40px);
   background-position: 0 0;
-  width: 100%;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
   height: auto;
@@ -3950,7 +3951,8 @@ Date   : 2024.11.12
   height: 252px;
   background-size: contain;
   display: block;
-  max-width: 262px;
+  width: calc(100% - 40px);
+  max-width: 240px;
   height: auto;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
@@ -3970,6 +3972,7 @@ Date   : 2024.11.12
   display: block;
   width: 100%;
   max-width: 258px;
+  max-width: 240px;
   background-position: 0 0;
   width: 100%;
   margin: 20px 0px 0 0;
@@ -3993,10 +3996,9 @@ Date   : 2024.11.12
   height: 240px;
   background-size: contain;
   display: block;
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 240px;
   background-position: 0 0;
-  width: 100%;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
   height: auto;
@@ -5896,7 +5898,8 @@ Date   : 2024.11.12
   height: 252px;
   background-size: contain;
   display: block;
-  max-width: 262px;
+  width: calc(100% - 40px);
+  max-width: 240px;
   height: auto;
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
@@ -5917,7 +5920,7 @@ Date   : 2024.11.12
   width: 100%;
   max-width: 240px;
   background-position: 0 0;
-  width: 100%;
+  width: calc(100% - 40px);
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
   height: auto;
@@ -5938,10 +5941,9 @@ Date   : 2024.11.12
   height: 240px;
   background-size: contain;
   display: block;
-  width: 100%;
   max-width: 240px;
   background-position: 0 0;
-  width: 100%;
+  width: calc(100% - 40px);
   margin: 20px 0px 0 0;
   aspect-ratio: 1/1;
   height: auto;
@@ -7416,6 +7418,560 @@ Date   : 2024.11.12
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
+}
+.wrap.pm_missionReward .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: relative;
+  min-height: 130px;
+  padding: 8px 20px;
+  background-color: #2f84fc;
+}
+.wrap.pm_missionReward .title p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+  word-break: auto-phrase;
+}
+.wrap.pm_missionReward .title p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_reward.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-size: 100px auto;
+}
+.wrap.pm_missionReward .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_missionReward .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_missionReward .content section.sec_reward .tit {
+  text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_reward .tit img {
+  position: relative;
+  display: block;
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto;
+  aspect-ratio: 1/1;
+}
+.wrap.pm_missionReward .content section.sec_reward .tit p:nth-of-type(1) {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .tit p:nth-of-type(n+2) {
+  margin-top: 10px;
+  color: #2f84fc;
+  line-height: 1.2;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont {
+  margin: 20px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 6px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  position: relative;
+  min-width: 42px;
+  width: calc(25% - 6px);
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li p {
+  position: relative;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li p:nth-child(2) {
+  letter-spacing: -0.2px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_point_run.svg") no-repeat center;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(1) {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 42px;
+  top: 0;
+  color: #ffffff;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(2) {
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(2):after {
+  content: "실행";
+  display: block;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_point_fail.svg") no-repeat center;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(1) {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  top: 0;
+  width: 100%;
+  height: 42px;
+  color: #515151;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(2) {
+  color: #b0b0b0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(2):after {
+  content: "실패";
+  display: block;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_point_complete.svg") no-repeat center;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_pointCheck.svg") no-repeat center;
+  width: 12px;
+  height: 10px;
+  background-size: contain;
+  width: 100%;
+  top: 9px;
+  left: 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p {
+  color: #ff7700;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p:nth-child(1) {
+  position: absolute;
+  top: 18px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p:nth-child(2):after {
+  content: "완료";
+  display: block;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .guide {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  margin: 20px 0 0 0;
+  padding: 13px 23px 13px 36px;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .guide p {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  line-height: 23px;
+  word-break: auto-phrase;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .guide p:nth-child(1):before {
+  font-family: "Pretendard_Bold";
+  content: "Q";
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  color: #2f84fc;
+  font-size: 16px;
+  margin-right: 4px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p {
+  line-height: 1.5;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p:nth-child(1) span {
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p.fc1 {
+  color: #ff0000;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm p:nth-child(n+2) {
+  text-indent: 20px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea button.copy {
+  color: #2f84fc;
+  border: 1px solid #eaf2fe;
+  background-color: #eaf2fe;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea button.move {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea button.move:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .btnArea button:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm2 {
+  margin: 10px 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .alarm2 p {
+  color: #ff0000;
+  line-height: 1.5;
+  text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+}
+.wrap.pm_missionReward .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li {
+  list-style-type: none;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+  line-height: 22px;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li > p {
+  text-align: left;
+}
+.wrap.pm_missionReward .content section.sec_example .cont ul li > p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 16px;
+}
+.wrap.pm_missionReward .content section.sec_example .cont .alarm {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_example .cont .alarm p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  line-height: 1.5;
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_example .cont .alarm p:nth-child(1) {
+  position: relative;
+  padding: 0 0 0 20px;
+}
+.wrap.pm_missionReward .content section.sec_example .cont .alarm p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.wrap.pm_missionReward .content section.sec_example .cont .alarm p:nth-child(1) span {
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_saveGuide .tit {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+}
+.wrap.pm_missionReward .content section.sec_saveGuide .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_saveGuide .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+}
+.wrap.pm_missionReward .content section.sec_saveGuide .cont ul li > p {
+  text-indent: -999999px;
+  font-size: 0;
+  text-align: left;
+}
+.wrap.pm_missionReward .content section.sec_saveGuide .cont ul li > p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_pointAdd.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  aspect-ratio: 5/4;
+}
+.wrap.pm_missionReward footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  -webkit-box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+}
+.wrap.pm_missionReward footer .buttonBox button.install, .wrap.pm_missionReward footer .buttonBox button.run {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+  width: 100%;
+  height: 44px;
+}
+.wrap.pm_missionReward footer .buttonBox button.install:disabled, .wrap.pm_missionReward footer .buttonBox button.run:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_missionReward footer .buttonBox button.install:nth-child(n+2), .wrap.pm_missionReward footer .buttonBox button.run:nth-child(n+2) {
+  margin: 20px 0 0 0;
 }
 
 /*
