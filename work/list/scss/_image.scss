@@ -1,0 +1,34 @@
+@charset 'utf-8';
+
+/*
+File   : image.scss
+Date   : 2025.01.10
+*/
+
+@mixin image($folder, $name, $path: "../image/", $format: "png", $bgXY:center, $width:null, $height: null, $bgSize:null) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+  width: $width;
+  height: $height;
+  background-size: $bgSize;
+}
+
+@mixin imageMask($path:"../image/", $folder:null, $name:null, $format:"svg", $bgXY:center, $width:null, $height: null, $color:null) {
+  mask: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  width: $width;
+  height: $height;
+  background: $color;
+}
+
+//* list */
+@mixin ico_point_run {
+  @include image($folder:'component', $name: '/ico_point_run', $format:'svg', $width:42px, $height: 42px, $bgSize: contain);
+}
+
+@mixin ico_point_complete {
+  @include image($folder:'component', $name: '/ico_point_complete', $format:'svg', $width:42px, $height: 42px, $bgSize: contain);
+}
+
+@mixin ico_point_fail {
+  @include image($folder:'component', $name: '/ico_point_fail', $format:'svg', $width:42px, $height: 42px, $bgSize: contain);
+}

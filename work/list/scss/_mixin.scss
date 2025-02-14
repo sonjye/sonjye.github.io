@@ -1,0 +1,135 @@
+@charset 'utf-8';
+/*
+File   : mixin.scss
+Date   : 2025.12.13
+*/
+
+
+// Breakpoints
+$breakpoint-tablet: 1400px;
+$breakpoint-mobile: 420px;
+$breakpoint-mobile2: 360px;
+
+/********** common  **********/
+$mainFontRegular: "SpoqaHanSansNeoR";
+$mainFontMedium: "SpoqaHanSansNeoM";
+$mainFontBold: "SpoqaHanSansNeoB";
+
+$mainRedColor: #f6464b;
+$mainGradiant: linear-gradient(90deg, #e7535b 0%, #de6c3f 100%);
+$mainFontColor: #333;
+$mainFontBoldColor: #000;
+$mainFontGrayColor: #666;
+
+//* font */
+@mixin fontR {
+  font-family: "SpoqaHanSansNeoR";
+  font-weight: normal;
+}
+
+@mixin fontM {
+  font-family: "SpoqaHanSansNeoM";
+  font-weight: normal;
+}
+
+@mixin fontB {
+  font-family: "SpoqaHanSansNeoB";
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile2 {
+  @media (max-width: #{$breakpoint-mobile2}) {
+    @content;
+  }
+}
+
+@mixin clearBoth {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+@mixin Txthide {
+  text-indent: -9999px;
+  font-size: 0px;
+}
+
+
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin inflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+
+//* ico */
+@mixin iLayout($a:middle, $p:relative) {
+  content: "";
+  position: $p;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+}
+
+
+
+//* button */
+@mixin btnLayout($pd:null) {
+  @include fontR;
+  padding: $pd;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+// disabled
+@mixin btn_disabled {
+  color: $btnDis_ftColor;
+  border: 1px solid $btnDis_bgColor;
+  background-color: $btnDis_bgColor;
+}
+
+//  BG : white
+@mixin btn2 {
+  color: $btn2_ftColor;
+  border: 1px solid $btn2_bgColor;
+  background-color: $btn2_bgColor;
+
+  // &:disabled {
+  //   @include btn_disabled;
+  // }
+}
+
+//  BG : white
+@mixin btn3 {
+  color: $btn3_ftColor;
+  border: 1px solid $btn3_borderColor;
+  background-color: $btn3_bgColor;
+}

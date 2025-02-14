@@ -1,0 +1,256 @@
+
+.top_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 52px 0 52px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.top_box p {
+  font-family: "SpoqaHanSansNeoR";
+  font-size: 20px;
+}
+.top_box strong {
+  font-family: "SpoqaHanSansNeoB";
+  font-size: 22px;
+  color: #f6464b;
+  margin: 10px 0 0 0;
+}
+.top_box strong span {
+  font-family: "SpoqaHanSansNeoB";
+}
+
+.contents .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 15px auto 0;
+  padding: 0 20px 0 20px;
+}
+.contents .menu .swiper-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.contents .menu .swiper-wrapper li {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  font-size: 14px;
+  color: #000;
+  padding: 0px 0 14px;
+  margin: 0 20px 0 0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+.contents .menu .swiper-wrapper li.active {
+  font-family: "SpoqaHanSansNeoB";
+  color: #f6464b;
+}
+.contents .menu .swiper-wrapper li.active:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #f6464b;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10;
+}
+.contents .menu .swiper-wrapper li:last-child {
+  margin: 0 !important;
+}
+.contents .tab_contents {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 15px auto 0;
+}
+.contents .tab_contents > strong {
+  display: block;
+  font-family: "SpoqaHanSansNeoR";
+  color: #727272;
+  font-size: 12px;
+  padding: 8px 0px 8px 0px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  text-align: center;
+}
+.contents .tab_contents > ul {
+  padding: 0 0 20px 0;
+}
+.contents .tab_contents > ul > li {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-top: 8px;
+  padding: 14px 12px 14px 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fafbfc;
+}
+.contents .icon_nodata {
+  text-align: center;
+}
+.contents .list_wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 58px;
+}
+.contents .img_box {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 58px;
+  height: 58px;
+  background: url("../image/img_noimg.png") no-repeat center center/contain;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+.contents .text_box {
+  width: 100%;
+  padding: 0 90px 0 68px;
+}
+.contents .text_box strong {
+  width: 100%;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: -0.03px;
+  -webkit-line-clamp: 2;
+  font-family: "SpoqaHanSansNeoB";
+  color: #000;
+}
+.contents .text_box p:nth-child(2) {
+  font-size: 13px;
+  color: #676977;
+  margin: 6px 0 0 0;
+}
+.contents .text_box p:nth-child(3) {
+  font-size: 12px;
+  margin: 6px 0 0 0;
+}
+.contents .text_box p:nth-child(3) span:nth-child(2) {
+  color: #f6464b;
+}
+
+/********** common  **********/
+.point_box {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  padding: 6px 6px 6px 6px;
+  font-size: 12px;
+  color: #fcd54e;
+  background: -webkit-gradient(linear, left top, right top, from(#e7535b), to(#de6c3f));
+  background: linear-gradient(90deg, #e7535b 0%, #de6c3f 100%);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.09);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.09);
+  border-radius: 40px;
+  padding: 8px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+.point_box p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  color: #d47414;
+  border-radius: 100%;
+  background: linear-gradient(144.21deg, #fbd54d 41.38%, #e8c54c 88.57%);
+  -webkit-box-shadow: 0px 1.14286px 1.14286px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 1.14286px 1.14286px rgba(0, 0, 0, 0.08);
+}
+.point_box .box_point {
+  font-family: "SpoqaHanSansNeoB";
+  font-size: 12px;
+  color: #fff;
+  margin-left: 4px;
+}
+
+@media (max-width: 1400px) {
+  .index_container .info_tabs .wrap_txtthumb {
+    max-width: 70%;
+    min-width: 156px;
+  }
+}
+@media (max-width: 420px) {
+  .index_container .info_tabs .wrap_txtthumb {
+    max-width: 156px;
+  }
+}
+@media (max-width: 360px) {
+  .index_wrap {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+  }
+  .index_wrap .index_container {
+    min-width: 280px;
+  }
+}

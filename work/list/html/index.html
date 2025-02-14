@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <script src="../js/swiper.js"></script>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/gs.css" />
+</head>
+
+<body>
+  <div class="wrap pm_list">
+    <div class="top_box">
+      <p>열심히 적립 하면</p>
+      <strong>
+        <span>2,394</span><span>P 적립 가능</span>
+      </strong>
+    </div>
+    <div class="contents">
+      <div class="menu swiper">
+        <ul class="swiper-wrapper">
+          <li class="tab-item swiper-slide active">전체</li>
+          <li class="tab-item swiper-slide">참여형</li>
+          <li class="tab-item swiper-slide">플레이스</li>
+          <li class="tab-item swiper-slide">상품퀴즈</li>
+          <li class="tab-item swiper-slide">참여형</li>
+          <li class="tab-item swiper-slide">클릭형</li>
+          <li class="tab-item swiper-slide">액션형</li>
+          <li class="tab-item swiper-slide">참여 완료</li>
+        </ul>
+      </div>
+      <div class="tab_contents">
+        <strong>적립내역 반영되기까지 시간이 조금 걸릴 수 있어요.</strong>
+        <ul>
+          <li>
+            <p class="icon_nodata">적립 가능한 포인트가 없습니다.</p>
+          </li>
+          <li>
+            <div class="list_wrap">
+              <div class="img_box"></div>
+              <div class="text_box">
+                <strong>예담정 통오리화덕구이예담정 통오리화덕구이예담정 통오리화덕구이예담정 통오리화덕구이</strong>
+                <p>플레이스 저장</p>
+              </div>
+              <div class="point_box">
+                <p>P</p>
+                <span class="box_point">+1,000P</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list_wrap">
+              <div class="img_box"></div>
+              <div class="text_box">
+                <strong>예담정 통오리화덕구이예담정 통오리화덕구이예담정 통오리화덕구이예담정 통오리화덕구이</strong>
+                <p>플레이스 저장</p>
+              </div>
+              <div class="point_box">
+                <p>P</p>
+                <span class="box_point">+1,000P</span>
+              </div>
+            </div>
+            <div class="buttonBox">
+              <button type="button">7일동안 매일 앱을 실행하면 추가 포인트 지급</button>
+            </div>
+            <div class="pointBox">
+              <!-- t1 > 실행가능(파랑), t2 > 실패(회색), t3 > 완료(노랑) -->
+              <span class="t2">10P</span>
+              <span class="t2">10P</span>
+              <span class="t2">50P</span>
+              <span class="t2">100P</span>
+              <span class="t3">10P</span>
+              <span class="t3">10P</span>
+              <span class="t1">10P</span>
+            </div>
+          </li>
+          <li>
+            <div class="list_wrap">
+              <div class="img_box"></div>
+              <div class="text_box">
+                <strong>무쇠곱창</strong>
+                <p>플레이스 저장</p>
+              </div>
+              <div class="point_box">
+                <p>P</p>
+                <span class="box_point">+10P</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list_wrap">
+              <div class="img_box"></div>
+              <div class="text_box">
+                <strong>무쇠곱창</strong>
+                <p>플레이스 저장</p>
+              </div>
+              <div class="point_box">
+                <p>P</p>
+                <span class="box_point">+800P</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    let delay = 300;
+    let timer = null;
+    var swiper;
+    const menu = document.querySelector(".menu");
+    var menuWidth = menu.offsetWidth;
+    window.onload = function () {
+      function swiperStart() {
+        console.log('swiperStart');
+        swiper = new Swiper(".menu", {
+          slidesPerView: "auto",
+        });
+      }
+      setTimeout(function () {
+        swiperStart();
+      }, 200);
+      window.addEventListener('resize', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          if (window.innerWidth != menuWidth) {
+            menuWidth = window.innerWidth;
+            swiper.destroy();
+            setTimeout(function () {
+              swiperStart();
+            }, 200);
+          }
+        }, delay);
+      });
+    };
+  </script>
+  <script src="../js/gs.js"></script>
+</body>
+
+</html>

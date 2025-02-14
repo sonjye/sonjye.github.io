@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/*
+File   : color.scss
+Date   : 2025.02.10
+*/
+
+
+$white: #ffffff;
+$black: #000000;
+$red: #ff0000;
+
+//* basic */
+$mainColor: #2f84fc;
+$ftColor: #333333;
+$subFtColor: #7d838d;
+// $borderColor: #e3e3e3;
+$bgColor: #f1f4f6;
+
+// point 
+$pointColor: $mainColor;
+// $pointColor2: #eaf2fe;
+
+// scroll 
+$scrollbarBgColor: transparent;
+$scrollThumbColor: $pointColor;
+
+//* Font */
+$ftColor2: $pointColor;
+$ftColor3: #000000;
+$ftColor4: #ffffff;
+$ftColor5: #333d4b;
+$ftColor6: #7d838d;
+$ftColor7: #ff7700;
+$ftColor8: #b0b0b0;
+$ftColor9: #515151;
+
+// borderColor
+$borderColor: #e1e6eb;
+$borderColor2: #f1f4f6;
+
+// bgColor 
+$bgColor2: #ffffff;
+$bgColor3: #f9fafb;
+
+//* input */
+$ipFtColor_ph: #97c1fd;
+$ipFtColor_disabled: #7d838d;
+$ipBorderColor_disabled:#e6e8ea;
+$ipBgColor_disabled: #e6e8ea;
+
+//* button */
+// main 1 - on (main)
+$btn1_ftColor: $ftColor4;
+$btn1_bgColor: $pointColor;
+// main 2 - on (sub)
+$btn2_ftColor: $pointColor;
+$btn2_bgColor: #eaf2fe;
+// main 2 - on (sub)
+$btnDis_ftColor: #7d838d;
+$btnDis_bgColor: #e6e8ea;
+// btn 3 - ft:point, bg:white
+$btn3_ftColor: $pointColor;
+$btn3_borderColor: $pointColor;
+$btn3_bgColor: #ffffff;
+
+
+//* modal */
+// $ico_closeColor: #2d5a7d;
+// $modalBorderColor: transparent;
+// $modalShadow: 3px 3px 12px 0 rgba(21, 21, 21, 0.5);
+$modalBgColor: #ffffff;
+
+
+//* Etc */
+$etcColor1: #f1f4f6;

@@ -1,0 +1,23 @@
+/*
+Explain : 포미션 리스트 
+File : common.scss 
+Date : 2025.02.14
+Version : 1.1.1
+*/
+
+/*
+z-index
+100: header
+10: menu
+*/
+
+//***** 공통 CSS *****/
+@import "_color";
+@import "_image";
+@import "_mixin";
+@import "_content";
+@import "_media";
+
+
+//***** 개별 CSS *****/
+@import "_list";
