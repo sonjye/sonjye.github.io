@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2025.01.07
-Version : 1.1.19
+Date : 2025.01.10
+Version : 1.1.20
 */
 /*
 z-index 순서
@@ -233,11 +233,11 @@ input:-webkit-autofill {
 
 /*
 File   : color.scss
-Date   : 2024.09.09
+Date   : 2025.02.10
 */
 /*
 File   : image.scss
-Date   : 2025.01.07
+Date   : 2025.01.10
 */
 /*
 File   : mixin.scss
@@ -550,7 +550,7 @@ Date   : 2024.09.09
 
 /*
 File   : guide.scss
-Date   : 2025.01.07
+Date   : 2025.01.10
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -6676,6 +6676,7 @@ Date   : 2025.01.07
   font-weight: normal;
   position: absolute;
   width: 290px;
+  min-width: auto;
   height: auto;
   min-height: 30px;
   top: 20px;
@@ -6721,19 +6722,18 @@ Date   : 2025.01.07
   left: 12%;
   border: solid transparent;
   pointer-events: none;
-  left: calc(50% - 1px);
-}
-.wrap.pm_guideSaveQuiz footer .bubbleBox:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-top-color: #ffffff;
-  border-width: 10px;
-  margin: -1px 0 0 -10px;
 }
 .wrap.pm_guideSaveQuiz footer .bubbleBox:before {
   border-color: rgba(133, 183, 78, 0);
   border-top-color: #2f84fc;
   border-width: 10px;
   margin-left: -10px;
+}
+.wrap.pm_guideSaveQuiz footer .bubbleBox:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+  margin: -1px 0 0 -10px;
+  border-width: 10px;
 }
 .wrap.pm_guideSaveQuiz footer .bubbleBox button.close {
   font-family: "Pretendard_Light";
@@ -7524,13 +7524,14 @@ Date   : 2025.01.07
   color: #2f84fc;
   line-height: 1.2;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont {
-  margin: 20px 0 0 0;
-}
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox {
   position: relative;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox :has(.ptMore) li {
+  margin-top: 30px;
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul {
   display: -webkit-inline-box;
@@ -7571,7 +7572,7 @@ Date   : 2025.01.07
   font-weight: normal;
   position: relative;
   min-width: 42px;
-  width: calc(25% - 6px);
+  width: 42px;
   font-size: 12px;
   line-height: 15px;
   text-align: center;
@@ -7581,6 +7582,67 @@ Date   : 2025.01.07
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li p:nth-child(2) {
   letter-spacing: -0.2px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  position: absolute;
+  width: auto;
+  min-width: 37px;
+  height: auto;
+  min-height: auto;
+  left: 50%;
+  bottom: 45px;
+  padding: 2px 6px;
+  color: #ffffff;
+  font-size: 10px;
+  text-align: center;
+  font-style: normal;
+  line-height: 1.5;
+  white-space: normal;
+  border-radius: 10px;
+  border: 1px solid red;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  background-color: red;
+  cursor: default;
+  z-index: 3;
+  text-wrap: nowrap;
+  bottom: auto;
+  top: -25px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:after, .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 12%;
+  border: solid transparent;
+  pointer-events: none;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:before {
+  border-color: rgba(133, 183, 78, 0);
+  border-top-color: red;
+  border-width: 6px;
+  margin-left: -10px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: red;
+  margin: -1px 0 0 -10px;
+  border-width: 6px;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:before {
+  left: 50%;
+  margin-left: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore:after {
+  display: none;
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1:before {
   content: "";
@@ -7595,7 +7657,7 @@ Date   : 2025.01.07
   height: 42px;
   background-size: contain;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(1) {
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-of-type(1) {
   position: absolute;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -7616,13 +7678,6 @@ Date   : 2025.01.07
   top: 0;
   color: #ffffff;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(2) {
-  color: #2f84fc;
-}
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t1 p:nth-child(2):after {
-  content: "실행";
-  display: block;
-}
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2:before {
   content: "";
   position: relative;
@@ -7631,12 +7686,12 @@ Date   : 2025.01.07
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/component/ico_point_fail.svg") no-repeat center;
+  background: url("../image/component/ico_point_fail.png") no-repeat center;
   width: 42px;
   height: 42px;
   background-size: contain;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(1) {
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-of-type(1) {
   position: absolute;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -7657,12 +7712,8 @@ Date   : 2025.01.07
   height: 42px;
   color: #515151;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(2) {
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-of-type(2) {
   color: #b0b0b0;
-}
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t2 p:nth-child(2):after {
-  content: "실패";
-  display: block;
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3:before {
   content: "";
@@ -7696,13 +7747,34 @@ Date   : 2025.01.07
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p {
   color: #ff7700;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p:nth-child(1) {
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p:nth-of-type(1) {
   position: absolute;
   top: 18px;
 }
-.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 p:nth-child(2):after {
-  content: "완료";
-  display: block;
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li.t3 .ptMore {
+  bottom: 36px;
+  bottom: auto;
+  top: -25px;
+}
+@media (max-width: 480px) {
+  .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul {
+    width: 200px;
+  }
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  color: #2f84fc;
+  border: 1px solid #eaf2fe;
+  background-color: #eaf2fe;
+  width: 100%;
+  margin: 15px auto 0;
+}
+.wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul {
+  margin: 20px 0 0 0;
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .guide {
   -webkit-user-select: none;
@@ -7804,6 +7876,36 @@ Date   : 2025.01.07
   color: #ff0000;
   line-height: 1.5;
   text-align: center;
+}
+.wrap.pm_missionReward .content section.sec_mission .tit p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  font-size: 20px;
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_mission .tit p:nth-child(2) {
+  margin: 10px 0 0 0;
+}
+.wrap.pm_missionReward .content section.sec_mission .tit p:nth-child(n+2) {
+  line-height: 24px;
+}
+.wrap.pm_missionReward .content section.sec_mission .tit p:nth-child(n+2) span {
+  color: #2f84fc;
+}
+.wrap.pm_missionReward .content section.sec_mission .cont .imgBox {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 30px 0 0 0;
+  border: 2px solid #2f84fc;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #e9f2ff;
+}
+.wrap.pm_missionReward .content section.sec_mission .cont .imgBox img {
+  width: auto;
+  height: auto;
+  height: 100%;
+  aspect-ratio: 6/5;
 }
 .wrap.pm_missionReward .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
