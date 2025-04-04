@@ -1129,6 +1129,7 @@ Date   : 2024.09.09
   padding: 15px 40px 15px 2px;
   font-size: 16px;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid var(--ipBorderColor);
 }
 .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-webkit-input-placeholder {
@@ -10185,6 +10186,7 @@ Date   : 2025.03.27
   padding: 15px 40px 15px 2px;
   font-size: 16px;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid var(--ipBorderColor);
 }
 .wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-webkit-input-placeholder {
