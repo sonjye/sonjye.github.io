@@ -987,6 +987,7 @@ Date   : 2024.09.09
   overflow: hidden;
   z-index: 999;
   width: 100%;
+  max-width: 690px;
 }
 .wrap .modalWrap.tB.md_currectEntry .modalContainer ::-webkit-scrollbar {
   width: 6px;
@@ -1244,6 +1245,7 @@ Date   : 2024.09.09
   overflow: hidden;
   z-index: 999;
   width: 100%;
+  max-width: 690px;
 }
 .wrap .modalWrap.tB.md_attach .modalContainer ::-webkit-scrollbar {
   width: 6px;
