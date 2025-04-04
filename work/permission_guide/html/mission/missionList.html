@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- OK캐시백 > 미션 참여 > 퀴즈 정답 입력 -->
+    <!-- pm_missionList 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap tB pm_missionList">
+        <div class="modal">
+            <div class="modalWrap tB md_currectEntry" id="md_currectEntry">
+                <div class="modalContainer">
+                    <div class="modalTitle">
+                        <p>정답 입력</p>
+                        <button type="button" class="close">닫기</button>
+                    </div>
+                    <div class="modalContent">
+                        <div class="inputBox">
+                            <div class="input">
+                                <input type="text" placeholder="정답을 입력해 주세요.">
+                                <button type="button" class="close">닫기</button>
+                            </div>
+                            <div class="noti">
+                                <p>정답이 아닙니다. 다시 확인해주세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="confirm modalClose">정답 확인</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+        </div>
+        <section class="contents">
+            <div class="title">
+                <p><span>OK캐시백</span>을 통해 경유</p>
+                <strong>포인트 플러스 적립</strong>
+            </div>
+            <div class="content">
+                <section class="sec_banner">
+                    <div class="banner">
+                        <p>배너영역</p>
+                        <!-- <img src="../../image/test/img_text.png" alt=""> -->
+                    </div>
+                </section>
+                <!-- complete 클래스 추가시 completeBox 가 나타남-->
+                <!-- <section class="sec_list complete"> -->
+                <section class="sec_list">
+                    <div class="completeBox">
+                        <strong>모든 미션을 완료했어요.</strong>
+                        <p>미션 목록을 업데이트 중입니다. </p>
+                        <p>잠시 후 다시 시도해 주세요.</p>
+                    </div>
+                    <div class="tab">
+                        <ul>
+                            <li class="on"><a href="#">전체</a></li>
+                            <li><a href="#">스크린샷형</a></li>
+                            <li><a href="#">정답형</a></li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../../image/component/ico_mini.png" alt="">
+                                    <div class="text">
+                                        <p>제목</p>
+                                        <p>플레이스 저장</p>
+                                    </div>
+                                    <div class="point">+8P</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../../image/component/ico_mini.png" alt="">
+                                    <div class="text">
+                                        <p>제목</p>
+                                        <p>플레이스 저장</p>
+                                    </div>
+                                    <div class="point">+8P</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../../image/component/ico_mini.png" alt="">
+                                    <div class="text">
+                                        <p>제목</p>
+                                        <p>플레이스 저장</p>
+                                    </div>
+                                    <div class="point">+8P</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../../image/component/ico_mini.png" alt="">
+                                    <div class="text">
+                                        <p>제목</p>
+                                        <p>플레이스 저장</p>
+                                    </div>
+                                    <div class="point">+8P</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="more">
+                            <button type="button" class="more modalOpen" data-popname="md_currectEntry">미션 더보기</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec_banner">
+                    <div class="banner">
+                        <p>배너영역</p>
+                        <!-- <img src="../../image/test/img_text.png" alt=""> -->
+                    </div>
+                </section>
+                <section class="sec_notice">
+                    <div class="box_notice">
+                        <div class="tit">
+                            <p>유의사항 </p>
+                        </div>
+                        <div class="cont">
+                            <p>30초 동안 구경해야 포인트가 지급됩니다. </p>
+                            <p>광고클릭시 포인트회수 처리될 수 있습니다.</p>
+                            <p>스크린샷형은 저장 후 30일을 유지하지 않고 취소하면 서비스 이용에 제한이 있습니다.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!--// contnets end -->
+    </div>
+</body>
+
+</html>

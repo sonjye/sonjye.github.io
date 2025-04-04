@@ -51,11 +51,23 @@ var bubbleBox = function() {
   });
 };
 
+var tab = function () {
+    $(".tab li").click(function (e) {
+    $(this).closest("section").find(".tab li").removeClass("on");
+    var tabIndex = $(this).addClass("on").index();
+    // var tabListIndex = $(this).closest("section").find(".tabView > .tabViewList");
+    // $(tabListIndex).removeClass("show");
+    // $(tabListIndex).eq(tabIndex).addClass("show");
+    });
+};
+
+
 
 //* common */
 $(function () {
   modalOpen();
   clickOff();
   bubbleBox();
+  tab();
 });
 

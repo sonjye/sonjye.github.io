@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- 모달 -->
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap tB modalView">
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <section class="contents">
+            <div class="modal">
+                <p>공통 > alert</p>
+                <p>(모달의 border는 확인을 위해 추가하였습니다.)</p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalContent">
+                            <div>
+                                <strong>정답이 아닙니다.</strong>
+                                <p>저장 하시겠습니까?</p>
+                                <p>저장 하시겠습니까?</p>
+                                <p>저장 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <strong>OK캐시백</strong>
+                <p>공통 > alert</p>
+                <p>(모달의 border는 확인을 위해 추가하였습니다.)</p>
+                <div class="modalWrap tB md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalContent">
+                            <div>
+                                <strong>정답이 아닙니다.</strong>
+                                <p>정답 재확인 후 참여해 주세요.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <div class="modalWrap tB md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalContent">
+                            <div>
+                                <strong>리워드가 지급되었습니다.</strong>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <div class="modalWrap tB md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalContent">
+                            <div>
+                                <strong>다른 매체에서 참여하셨거나<br> 기참여 유저입니다.</strong>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <!-- <strong>OK캐시백</strong> -->
+                <p>미션 제출 완료 (md_missionComplete)</p>
+                <div class="modalWrap tB md_missionComplete" id="md_missionComplete">
+                    <div class="modalContainer">
+                        <div class="modalContent">
+                            <div>
+                                <strong>미션 제출 완료</strong>
+                                <!-- <p>정답 확인 후 리워드가 지급됩니다.</p> -->
+                                <p>첨부 이미지를 확인 후 리워드가 지급됩니다.</p>
+                                <p>정답이 아니면 리워드는 지급되지 않습니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>정답입력 (md_currectEntry)</p>
+                <div class="modalWrap tB md_currectEntry" id="md_currectEntry">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>정답 입력</p>
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="inputBox">
+                                <div class="input">
+                                    <input type="text" placeholder="정답을 입력해 주세요.">
+                                    <button type="button" class="close">닫기</button>
+                                </div>
+                                <div class="noti">
+                                    <p>정답이 아닙니다. 다시 확인해주세요.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm modalClose">정답 확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>미션 첨부하기 (md_attach)</p>
+                <div class="modalWrap tB md_attach" id="md_attach">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>미션 첨부하기</p>
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="attachBox">
+                                <button type="button" class="attach">미션장소 저장 캡쳐 첨부</button>
+                                <button type="button" class="attach">미션장소 저장 캡쳐 첨부</button>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="cancel modalClose">이전</button>
+                            <button type="button" class="confirm modalClose">변경하기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+            </div>
+            <!--// modal End -->
+            <div class="title">
+                <p>모달</p>
+            </div>
+            <div class="content">
+            </div>
+            <footer>
+                <!-- 생략 > layout.html 확인 -->
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

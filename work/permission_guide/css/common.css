@@ -2,12 +2,13 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2025.01.10
-Version : 1.1.20
+Date : 2025.03.17
+Version : 1.1.21
 */
 /*
 z-index 순서
 # title(report.html) : 900
+# footer : 800
 # selectDim : 901
 # selectDiv : 902
 */
@@ -233,11 +234,58 @@ input:-webkit-autofill {
 
 /*
 File   : color.scss
-Date   : 2025.02.10
+Date   : 2025.03.17
 */
+.tB {
+  --red: #fe0909;
+  --mainColor: #fe0955;
+  --pointColor: var(--mainColor);
+  --scrollbarBgColor: transparent;
+  --scrollThumbColor: var(--pointColor);
+  --ftColor2: --pointColor;
+  --ftColor3: #000000;
+  --ftColor4: #ffffff;
+  --ftColor5: #222222;
+  --ftColor6: #666666;
+  --ftColor7: #999999;
+  --ftColor8: #fe0909;
+  --ftColor9: #bbbbbb;
+  --borderColor: #eeeeee;
+  --borderColor2: #efefef;
+  --bgColor: #ffffff;
+  --bgColor2: #f3f3f3;
+  --bgColor3: #f6f6f7;
+  --bgColor4: #d2d2d2;
+  --bgColor5: #f6f7f8;
+  --ipBorderColor: #e4e4e4;
+  --ipBorderColor2: #222222;
+  --ipFtColor_ph: #97c1fd;
+  --ipFtColor_disabled: #7d838d;
+  --ipBorderColor_disabled: #e6e8ea;
+  --ipBorderColor_active: #222222;
+  --ipBgColor_disabled: #e6e8ea;
+  --btn_ftColor: var(--ftColor4);
+  --btn_bgColor: var(--pointColor);
+  --btn_ftColor2: var(--pointColor);
+  --btn_brdColor2: var(--pointColor);
+  --btn_bgColor2: #ffffff;
+  --btn_ftColor3: #1d1f30;
+  --btn_bgColor3: #ecedf2;
+  --btnDis_ftColor: #7d838d;
+  --btnDis_bgColor: #e6e8ea;
+  --btn_ftColor4: #ffffff;
+  --btn_bgColor4: #5e5854;
+  --btn_ftColor5: #666666;
+  --btn_brdColor5: #dddddd;
+  --btn_bgColor5: #ffffff;
+  --icoColor: var(--pointColor);
+  --modalBgColor: #ffffff;
+  --etcColor1: #f1f4f6;
+}
+
 /*
 File   : image.scss
-Date   : 2025.01.10
+Date   : 2025.03.17
 */
 /*
 File   : mixin.scss
@@ -262,7 +310,7 @@ Date   : 2024.11.12
 /* select */
 /*
 File   : layout.scss
-Date   : 2024.12.13
+Date   : 2025.03.17
 */
 html {
   min-height: -webkit-fill-available;
@@ -286,6 +334,9 @@ html body {
   color: #333333;
   background-color: #f1f4f6;
 }
+.wrap.tB {
+  background-color: var(--bgColor);
+}
 
 .contents {
   -webkit-transition: all 0.2s ease-in-out;
@@ -297,6 +348,10 @@ html body {
   content: "";
   width: 100%;
   clear: both;
+}
+
+footer {
+  z-index: 800;
 }
 
 /*
@@ -336,6 +391,7 @@ select {
   background-size: 11px 7px;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 150px;
   height: 32px;
   padding: 4px 30px 4px 15px;
@@ -356,6 +412,11 @@ select {
   color: var(--pointColor);
 }
 
+/*
+File : _theme.scss
+Date   : 2025.03.31
+DISCRIPTION: OK 캐시백
+*/
 /*
 File   : modalLayout.scss
 Date   : 2024.09.09
@@ -416,7 +477,7 @@ Date   : 2024.09.09
 .wrap .modalWrap.md_alert .modalContainer ::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 3px;
-  background: #2f84fc;
+  background: var(--pointColor);
 }
 .wrap .modalWrap.md_alert .modalContainer .modalTitle {
   display: -webkit-box;
@@ -474,11 +535,13 @@ Date   : 2024.09.09
 .wrap .modalWrap.md_alert .modalContainer .modalFooter button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 120px;
   height: 40px;
   border-radius: 6px;
@@ -543,14 +606,822 @@ Date   : 2024.09.09
 }
 .wrap .modalWrap.md_alert .modalContainer .modalContent > div strong {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
   line-height: 1.5;
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_alert {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_alert.modalOn {
+  display: block;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer ::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: transparent;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: var(--pointColor);
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 46px;
+  min-height: 46px;
+  font-size: 16px;
+  padding: 0 20px;
+  color: #ffffff;
+  background-color: #2f84fc;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  max-height: 650px;
+  margin: 24px 10px 0 10px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 16px;
+  line-height: 23px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter {
+  width: 100%;
+  min-height: 40px;
+  margin: 15px 0 28px 0;
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 148px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button:nth-child(n+2) {
+  margin-left: 4px;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.confirm {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.confirm:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_alert .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer {
+  width: 320px;
+  min-height: 140px;
+  height: auto;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div {
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  line-height: 26px;
+}
+.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_missionComplete {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_missionComplete.modalOn {
+  display: block;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer ::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: transparent;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: var(--pointColor);
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 46px;
+  min-height: 46px;
+  font-size: 16px;
+  padding: 0 20px;
+  color: #ffffff;
+  background-color: #2f84fc;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  max-height: 650px;
+  margin: 24px 10px 0 10px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 16px;
+  line-height: 23px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter {
+  width: 100%;
+  min-height: 40px;
+  margin: 15px 0 28px 0;
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 148px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button:nth-child(n+2) {
+  margin-left: 4px;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.confirm {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.confirm:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer {
+  width: 286px;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent {
+  width: 100%;
+  margin: 24px 0 0 0;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div {
+  text-align: center;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-bottom: 19px;
+}
+.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div strong:before {
+  content: "";
+  position: relative;
+  display: block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_dart.svg") no-repeat center;
+  width: 77px;
+  height: 68px;
+  background-size: contain;
+  margin: 0 auto 17px;
+}
+.wrap .modalWrap.tB.md_currectEntry {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_currectEntry.modalOn {
+  display: block;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  border-radius: 20px 20px 0 0;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 999;
+  width: 100%;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer ::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: transparent;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: var(--pointColor);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  width: 100%;
+  height: 76px;
+  min-height: 46px;
+  padding: 0 25px;
+  background-color: var(--white);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_close2.svg") no-repeat center;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 16px;
+  line-height: 23px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter {
+  width: 100%;
+  min-height: 56px;
+  margin: 15px 0 0 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 148px;
+  height: 56px;
+  padding: 0 15px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.confirm {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.confirm:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.cancel {
+  color: var(--btn_ftColor4);
+  border: 1px solid var(--btn_bgColor4);
+  background-color: var(--btn_bgColor4);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.cancel:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 15px 40px 15px 2px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid var(--ipBorderColor);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-webkit-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-moz-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:-ms-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-ms-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:active, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:focus {
+  border-color: var(--ipBorderColor2);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox button {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_x.svg") no-repeat center;
+  width: 11px;
+  height: 11px;
+  background-size: contain;
+  right: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-size: 11px 11px;
+  background-color: var(--bgColor4);
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input {
+  width: 100%;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .noti {
+  margin: 5px 0 0 0;
+}
+.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .noti p {
+  font-size: 12px;
+  color: var(--pointColor);
+  text-align: left;
+}
+.wrap .modalWrap.tB.md_attach {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.tB.md_attach.modalOn {
+  display: block;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  border-radius: 20px 20px 0 0;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 999;
+  width: 100%;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer ::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: transparent;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: var(--pointColor);
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  width: 100%;
+  height: 76px;
+  min-height: 46px;
+  padding: 0 25px;
+  background-color: var(--white);
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_close2.svg") no-repeat center;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 16px;
+  line-height: 23px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter {
+  width: 100%;
+  min-height: 56px;
+  margin: 15px 0 0 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 148px;
+  height: 56px;
+  padding: 0 15px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.confirm {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.confirm:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.cancel {
+  color: var(--btn_ftColor4);
+  border: 1px solid var(--btn_bgColor4);
+  background-color: var(--btn_bgColor4);
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.cancel:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_attach .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 100%;
+  min-width: 80px;
+  height: 54px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox button:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap .modalWrap.tB.md_attach .modalContainer .modalContent > div {
   text-align: center;
 }
 
 /*
 File   : guide.scss
-Date   : 2025.01.10
+Date   : 2025.03.17
 */
 .wrap.pm_guidePlace .title {
   display: -webkit-box;
@@ -588,6 +1459,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -624,6 +1497,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -665,6 +1540,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guidePlace .content section.sec_guide .cont ul li:before {
@@ -773,6 +1650,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlace .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -807,6 +1685,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guidePlace .content section.sec_example .cont {
@@ -819,6 +1699,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -849,6 +1731,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li img {
@@ -870,6 +1754,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -905,6 +1791,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
 }
 .wrap.pm_guidePlace .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
   content: "";
@@ -1046,6 +1934,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlace footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -1079,6 +1968,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: 100%;
   min-height: 52px;
   font-size: 16px;
@@ -1124,6 +2014,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1160,6 +2052,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1201,6 +2095,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guideQuiz .content section.sec_guide .cont ul li:before {
@@ -1281,11 +2177,14 @@ Date   : 2025.01.10
 .wrap.pm_guideQuiz .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guideQuiz .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -1336,6 +2235,7 @@ Date   : 2025.01.10
 .wrap.pm_guideQuiz .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -1370,6 +2270,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont {
@@ -1382,6 +2284,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1412,6 +2316,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li img {
@@ -1433,6 +2339,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -1468,6 +2376,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
 }
 .wrap.pm_guideQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
   content: "";
@@ -1580,6 +2490,7 @@ Date   : 2025.01.10
 .wrap.pm_guideQuiz footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -1633,6 +2544,7 @@ Date   : 2025.01.10
 .wrap.pm_guideQuiz footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -1663,6 +2575,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -1710,6 +2623,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1746,6 +2661,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_guide .tit p:nth-child(1), .wrap.pm_guideGiftNumber .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1787,6 +2704,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_guide .cont ul li, .wrap.pm_guideGiftNumber .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   min-height: 50px;
   height: auto;
@@ -1891,11 +2810,14 @@ Date   : 2025.01.10
 .wrap.pm_guideGift .content section.sec_guide .cont .guide p, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guideGift .content section.sec_guide .cont .guide p:nth-child(1):before, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -1949,6 +2871,7 @@ Date   : 2025.01.10
 .wrap.pm_guideGift .content section.sec_guide .cont .btnArea button, .wrap.pm_guideGiftNumber .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -1983,6 +2906,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_example .tit, .wrap.pm_guideGiftNumber .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guideGift .content section.sec_example .cont, .wrap.pm_guideGiftNumber .content section.sec_example .cont {
@@ -1995,6 +2920,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li:before, .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2025,6 +2952,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li p:nth-child(1), .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li img, .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li img {
@@ -2046,6 +2975,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3), .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -2081,6 +3012,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p, .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li:nth-child(3) p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
 }
 .wrap.pm_guideGift .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after, .wrap.pm_guideGiftNumber .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
   content: "";
@@ -2244,6 +3177,7 @@ Date   : 2025.01.10
 .wrap.pm_guideGift footer .guide button.report, .wrap.pm_guideGiftNumber footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -2297,6 +3231,7 @@ Date   : 2025.01.10
 .wrap.pm_guideGift footer .inputSave input, .wrap.pm_guideGiftNumber footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -2327,6 +3262,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -2374,6 +3310,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -2413,6 +3351,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideRewardBM .content section.sec_guide .tit p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2454,6 +3394,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideRewardBM .content section.sec_guide .cont ul li, .wrap.pm_guideRewardCE .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   font-size: 16px;
 }
@@ -2563,6 +3505,7 @@ Date   : 2025.01.10
 .wrap.pm_guideRewardBM .content section.sec_guide .cont .btnArea button, .wrap.pm_guideRewardCE .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -2597,6 +3540,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideRewardBM .content section.sec_example .tit, .wrap.pm_guideRewardCE .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guideRewardBM .content section.sec_example .cont, .wrap.pm_guideRewardCE .content section.sec_example .cont {
@@ -2609,6 +3554,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideRewardBM .content section.sec_example .cont ul li:before, .wrap.pm_guideRewardCE .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2639,6 +3586,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideRewardBM .content section.sec_example .cont ul li > p:nth-child(1), .wrap.pm_guideRewardCE .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guideRewardBM .content section.sec_example .cont ul li img, .wrap.pm_guideRewardCE .content section.sec_example .cont ul li img {
@@ -2764,6 +3713,7 @@ Date   : 2025.01.10
 .wrap.pm_guideRewardBM footer .guide button.report, .wrap.pm_guideRewardCE footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -2797,6 +3747,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: 100%;
   min-height: 52px;
   font-size: 16px;
@@ -2814,6 +3765,8 @@ Date   : 2025.01.10
 .wrap.pm_guideRewardBM .content section.sec_example .cont ul li:nth-child(2) > p:nth-of-type(n+3):nth-of-type(-n+4):after {
   content: "또는";
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   display: block;
   margin: 28px 0 0 0;
@@ -2949,6 +3902,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -2988,6 +3943,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3029,6 +3986,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .cont ul li:before {
@@ -3109,11 +4068,14 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -3164,6 +4126,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceSaveURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -3198,6 +4161,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_example .cont {
@@ -3222,6 +4187,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3251,6 +4218,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guidePlaceSaveURL .content section.sec_example .cont ul li img {
@@ -3414,6 +4383,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceSaveURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -3467,6 +4437,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceSaveURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -3497,6 +4468,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -3544,6 +4516,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -3583,6 +4557,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3624,6 +4600,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guidePlaceURL .content section.sec_guide .cont ul li:before {
@@ -3704,11 +4682,14 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guidePlaceURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -3759,6 +4740,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -3793,6 +4775,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .cont {
@@ -3817,6 +4801,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3846,6 +4832,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .cont ul li img {
@@ -3895,6 +4883,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guidePlaceURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -4041,6 +5031,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -4094,6 +5085,7 @@ Date   : 2025.01.10
 .wrap.pm_guidePlaceURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -4124,6 +5116,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -4171,6 +5164,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -4210,6 +5205,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_blogURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4252,6 +5249,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_blogURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   min-height: 40px;
   padding: 10px 0 10px 60px;
@@ -4329,6 +5328,7 @@ Date   : 2025.01.10
   margin: 5px 0 0 0;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #7d838d;
   font-size: 15px;
   line-height: 20px;
@@ -4336,6 +5336,7 @@ Date   : 2025.01.10
 .wrap.pm_blogURL .content section.sec_guide .cont ul li p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #ff0000;
   font-size: 15px;
 }
@@ -4353,11 +5354,14 @@ Date   : 2025.01.10
 .wrap.pm_blogURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_blogURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -4408,6 +5412,7 @@ Date   : 2025.01.10
 .wrap.pm_blogURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -4442,6 +5447,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_blogURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_blogURL .content section.sec_example .cont {
@@ -4466,6 +5473,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_blogURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4495,6 +5504,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_blogURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_blogURL .content section.sec_example .cont ul li img {
@@ -4619,6 +5630,7 @@ Date   : 2025.01.10
 .wrap.pm_blogURL .content section.sec_example .cont ul li:nth-child(4) p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #ff0000;
   font-size: 15px;
 }
@@ -4684,6 +5696,7 @@ Date   : 2025.01.10
 .wrap.pm_blogURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -4737,6 +5750,7 @@ Date   : 2025.01.10
 .wrap.pm_blogURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -4767,6 +5781,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -4814,6 +5829,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -4853,6 +5870,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4896,6 +5915,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   min-height: 40px;
   padding: 10px 0 10px 60px;
@@ -4973,6 +5994,7 @@ Date   : 2025.01.10
   margin: 5px 0 0 0;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #7d838d;
   font-size: 15px;
   line-height: 20px;
@@ -4980,6 +6002,7 @@ Date   : 2025.01.10
 .wrap.pm_placeURL .content section.sec_guide .cont ul li p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #ff0000;
   font-size: 15px;
 }
@@ -4997,11 +6020,14 @@ Date   : 2025.01.10
 .wrap.pm_placeURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_placeURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -5052,6 +6078,7 @@ Date   : 2025.01.10
 .wrap.pm_placeURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -5086,6 +6113,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_placeURL .content section.sec_example .cont {
@@ -5110,6 +6139,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5139,6 +6170,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_placeURL .content section.sec_example .cont ul li img {
@@ -5208,6 +6241,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeURL .content section.sec_example .cont ul li:nth-child(3) p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
 }
 .wrap.pm_placeURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
   content: "";
@@ -5274,6 +6309,7 @@ Date   : 2025.01.10
 .wrap.pm_placeURL .content section.sec_example .cont ul li:nth-child(4) p.em {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   color: #ff0000;
   font-size: 15px;
 }
@@ -5361,6 +6397,7 @@ Date   : 2025.01.10
 .wrap.pm_placeURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -5414,6 +6451,7 @@ Date   : 2025.01.10
 .wrap.pm_placeURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -5444,6 +6482,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -5491,6 +6530,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -5530,6 +6571,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5571,6 +6614,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .cont ul li:before {
@@ -5651,11 +6696,14 @@ Date   : 2025.01.10
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -5706,6 +6754,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSurroundPlaceURL .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -5740,6 +6789,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .cont {
@@ -5764,6 +6815,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5793,6 +6846,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .cont ul li img {
@@ -5842,6 +6897,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSurroundPlaceURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -5986,6 +7043,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSurroundPlaceURL footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -6039,6 +7097,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSurroundPlaceURL footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -6069,6 +7128,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -6116,6 +7176,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -6155,6 +7217,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6196,6 +7260,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont ul li:before {
@@ -6276,11 +7342,14 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -6331,6 +7400,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -6365,6 +7435,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont {
@@ -6389,6 +7461,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6418,6 +7492,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li img {
@@ -6467,6 +7543,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(3) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   margin: 8px 0 0 0;
   color: #2f84fc;
 }
@@ -6516,6 +7594,8 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz .content section.sec_example .cont ul li:nth-child(3) > p:nth-child(2):before {
   content: "또는";
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
   display: block;
   margin: 28px 0 0 0;
@@ -6644,6 +7724,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -6674,6 +7755,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz footer .bubbleBox {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   position: absolute;
   width: 290px;
   min-width: auto;
@@ -6738,13 +7820,14 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz footer .bubbleBox button.close {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   margin: 0;
   font-size: 0;
   text-align: center;
   cursor: pointer;
   background: url("../image/component/ico_close.svg") no-repeat center;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background-size: contain;
 }
 .wrap.pm_guideSaveQuiz footer .bubbleBox button.close:disabled {
@@ -6756,6 +7839,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: 100%;
   min-height: 52px;
   font-size: 16px;
@@ -6791,6 +7875,7 @@ Date   : 2025.01.10
 .wrap.pm_guideSaveQuiz footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -6821,6 +7906,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -6868,6 +7954,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -6907,6 +7995,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6948,6 +8038,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont ul li {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   position: relative;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont ul li:before {
@@ -7016,6 +8108,8 @@ Date   : 2025.01.10
   user-select: none;
   pointer-events: none;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 14px;
   line-height: 20px;
 }
@@ -7045,11 +8139,14 @@ Date   : 2025.01.10
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -7100,6 +8197,7 @@ Date   : 2025.01.10
 .wrap.pm_placeSearchQuiz .content section.sec_guide .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -7134,6 +8232,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeSearchQuiz .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_example .cont {
@@ -7158,6 +8258,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeSearchQuiz .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7187,6 +8289,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_placeSearchQuiz .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_placeSearchQuiz .content section.sec_example .cont ul li img {
@@ -7325,6 +8429,7 @@ Date   : 2025.01.10
 .wrap.pm_placeSearchQuiz footer .guide button.report {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -7378,6 +8483,7 @@ Date   : 2025.01.10
 .wrap.pm_placeSearchQuiz footer .inputSave input {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: calc(100% - 84px);
   padding: 10px 16px;
   font-size: 15px;
@@ -7408,6 +8514,7 @@ Date   : 2025.01.10
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   min-width: 84px;
   height: 44px;
   padding: 10px 12px;
@@ -7455,6 +8562,8 @@ Date   : 2025.01.10
           align-items: center;
   gap: 10px;
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -7502,6 +8611,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_reward .tit p:nth-of-type(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7570,6 +8681,7 @@ Date   : 2025.01.10
   gap: 6px;
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   position: relative;
   min-width: 42px;
   width: 42px;
@@ -7586,6 +8698,7 @@ Date   : 2025.01.10
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox ul li .ptMore {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   position: absolute;
   width: auto;
   min-width: 37px;
@@ -7764,6 +8877,7 @@ Date   : 2025.01.10
 .wrap.pm_missionReward .content section.sec_reward .cont .pointBox button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -7790,11 +8904,14 @@ Date   : 2025.01.10
 .wrap.pm_missionReward .content section.sec_reward .cont .guide p {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   line-height: 23px;
   word-break: auto-phrase;
 }
 .wrap.pm_missionReward .content section.sec_reward .cont .guide p:nth-child(1):before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   content: "Q";
   position: absolute;
   top: 13px;
@@ -7845,6 +8962,7 @@ Date   : 2025.01.10
 .wrap.pm_missionReward .content section.sec_reward .cont .btnArea button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -7879,6 +8997,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_mission .tit p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
   color: #2f84fc;
 }
@@ -7909,6 +9029,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_example .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_missionReward .content section.sec_example .cont {
@@ -7933,6 +9055,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_example .cont ul li:before {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7965,6 +9089,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_example .cont ul li > p:nth-child(1) {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_missionReward .content section.sec_example .cont .alarm {
@@ -8014,6 +9140,8 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward .content section.sec_saveGuide .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 20px;
 }
 .wrap.pm_missionReward .content section.sec_saveGuide .cont {
@@ -8058,6 +9186,7 @@ Date   : 2025.01.10
 .wrap.pm_missionReward footer .buttonBox button.install, .wrap.pm_missionReward footer .buttonBox button.run {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -8074,6 +9203,2327 @@ Date   : 2025.01.10
 }
 .wrap.pm_missionReward footer .buttonBox button.install:nth-child(n+2), .wrap.pm_missionReward footer .buttonBox button.run:nth-child(n+2) {
   margin: 20px 0 0 0;
+}
+
+/*
+File   : mission.scss
+Date   : 2025.03.27
+*/
+.wrap.pm_placeSaveURL .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  min-height: 110px;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeSaveURL .title strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeSaveURL .title p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+.wrap.pm_placeSaveURL .title p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeSaveURL .title button.nextQuiz {
+  width: 80px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+.wrap.pm_placeSaveURL .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_placeSaveURL .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_placeSaveURL .content section.sec_place {
+  position: relative;
+  padding: 16px 20px 36px 20px;
+  border-radius: 0;
+  background-color: var(--bgColor2);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .box_place {
+  position: relative;
+  padding: 24px 16px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid var(--borderColor);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .tit:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mini.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at center);
+          clip-path: circle(50% at center);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .tit p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .tit p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont {
+  margin: 16px 0 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .explainBox ul li {
+  counter-reset: index;
+  list-style-type: none;
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .explainBox ul li li {
+  list-style-type: none;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .explainBox ul li li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .explainBox ul li p {
+  text-indent: 15px;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .placeBox {
+  margin: 24px 0 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .placeBox p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .placeBox .imgBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  max-height: 200px;
+  margin: 20px 0 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--borderColor2);
+  background-color: var(--bgColor4);
+}
+.wrap.pm_placeSaveURL .content section.sec_place .cont .placeBox .imgBox img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 20px;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li {
+  list-style-type: none;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+  line-height: 22px;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li > p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li .noti {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  line-height: 26px;
+  word-break: auto-phrase;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li .noti:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/icoB_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li .noti span {
+  color: var(--red);
+  font-weight: normal;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(1) p {
+  line-height: 26px;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(2) {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex2.png") no-repeat center;
+  width: 240px;
+  height: 240px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  max-width: 240px;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(4) p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeSaveURL .content section.sec_example .cont ul li:nth-child(4) p:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex4.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: calc(100% - 22px);
+  margin: 20px 0px 0 -22px;
+  aspect-ratio: 6/5;
+  height: auto;
+}
+.wrap.pm_placeSaveURL footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 24px 16px;
+  border-top: 1px solid var(--borderColor);
+  background-color: #fff;
+}
+.wrap.pm_placeSaveURL footer .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.wrap.pm_placeSaveURL footer .buttonBox button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 80px;
+  height: 48px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_placeSaveURL footer .buttonBox button.start {
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap.pm_placeSaveURL footer .buttonBox button.start:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeSaveURL footer .buttonBox button.submit {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap.pm_placeSaveURL footer .buttonBox button.submit:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeQuiz .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  min-height: 110px;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeQuiz .title strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeQuiz .title p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+.wrap.pm_placeQuiz .title p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeQuiz .title button.nextQuiz {
+  width: 80px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+.wrap.pm_placeQuiz .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_placeQuiz .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_placeQuiz .content section.sec_place {
+  position: relative;
+  padding: 16px 20px 36px 20px;
+  border-radius: 0;
+  background-color: var(--bgColor2);
+}
+.wrap.pm_placeQuiz .content section.sec_place .box_place {
+  position: relative;
+  padding: 24px 16px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeQuiz .content section.sec_place .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid var(--borderColor);
+}
+.wrap.pm_placeQuiz .content section.sec_place .tit:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mini.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at center);
+          clip-path: circle(50% at center);
+}
+.wrap.pm_placeQuiz .content section.sec_place .tit p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeQuiz .content section.sec_place .tit p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont {
+  margin: 16px 0 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .explainBox ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .explainBox ul li {
+  list-style-type: none;
+  counter-increment: index;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .explainBox ul li::before {
+  content: counter(index) ".";
+  margin: 0 5px 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .explainBox ul li {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .explainBox ul li p {
+  text-indent: 15px;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .placeBox {
+  margin: 24px 0 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .placeBox p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .placeBox .imgBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  max-height: 200px;
+  margin: 20px 0 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--borderColor2);
+  background-color: var(--bgColor4);
+}
+.wrap.pm_placeQuiz .content section.sec_place .cont .placeBox .imgBox img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrap.pm_placeQuiz .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 20px;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li {
+  list-style-type: none;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+  line-height: 22px;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li > p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li .noti {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  line-height: 26px;
+  word-break: auto-phrase;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li .noti:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/icoB_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li .noti p:nth-child(1) {
+  color: var(--red);
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(1) p {
+  line-height: 26px;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(2) {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex2.png") no-repeat center;
+  width: 240px;
+  height: 240px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  max-width: 240px;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(4) > p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(4) .noti:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex4.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: calc(100% - 22px);
+  margin: 20px 0px 0 -22px;
+  aspect-ratio: 6/5;
+  height: auto;
+}
+.wrap.pm_placeQuiz .content section.sec_example .cont ul li:nth-child(5) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex5.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+.wrap.pm_placeQuiz footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 24px 16px;
+  border-top: 1px solid var(--borderColor);
+  background-color: #fff;
+}
+.wrap.pm_placeQuiz footer .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.wrap.pm_placeQuiz footer .buttonBox button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 80px;
+  height: 48px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_placeQuiz footer .buttonBox button.start {
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap.pm_placeQuiz footer .buttonBox button.start:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeQuiz footer .buttonBox button.submit {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap.pm_placeQuiz footer .buttonBox button.submit:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeQuiz footer .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 76px;
+  min-height: 46px;
+  background-color: var(--white);
+}
+.wrap.pm_placeQuiz footer .title p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeQuiz footer .title button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_close2.svg") no-repeat center;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 15px 40px 15px 2px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid var(--ipBorderColor);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-webkit-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-moz-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:-ms-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-ms-input-placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::placeholder {
+  color: var(--ftColor7);
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  border-color: var(--ipBorderColor_ph);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:active, .wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:focus {
+  border-color: var(--ipBorderColor2);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox button {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_x.svg") no-repeat center;
+  width: 11px;
+  height: 11px;
+  background-size: contain;
+  right: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-size: 11px 11px;
+  background-color: var(--bgColor4);
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input {
+  width: 100%;
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .noti {
+  margin: 5px 0 0 0;
+}
+.wrap.pm_placeQuiz footer .currectEntryBox .noti p {
+  font-size: 12px;
+  color: var(--pointColor);
+  text-align: left;
+}
+.wrap.pm_placeQuiz footer .attachBox .cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+.wrap.pm_placeQuiz footer .attachBox .cont button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 100%;
+  min-width: 80px;
+  height: 54px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap.pm_placeQuiz footer .attachBox .cont button:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeSaveQuiz .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  min-height: 110px;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeSaveQuiz .title strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeSaveQuiz .title p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+.wrap.pm_placeSaveQuiz .title p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeSaveQuiz .title button.nextQuiz {
+  width: 80px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+.wrap.pm_placeSaveQuiz .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_placeSaveQuiz .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place {
+  position: relative;
+  padding: 16px 20px 36px 20px;
+  border-radius: 0;
+  background-color: var(--bgColor2);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .box_place {
+  position: relative;
+  padding: 24px 16px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--bgColor);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid var(--borderColor);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .tit:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mini.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at center);
+          clip-path: circle(50% at center);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .tit p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .tit p span {
+  color: var(--pointColor);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont {
+  margin: 16px 0 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .explainBox ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .explainBox ul li {
+  list-style-type: none;
+  counter-increment: index;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .explainBox ul li::before {
+  content: counter(index) ".";
+  margin: 0 5px 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .explainBox ul li {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .explainBox ul li p {
+  text-indent: 15px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .placeBox {
+  margin: 24px 0 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .placeBox p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .placeBox .imgBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  max-height: 200px;
+  margin: 20px 0 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--borderColor2);
+  background-color: var(--bgColor4);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_place .cont .placeBox .imgBox img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 20px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li {
+  list-style-type: none;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+  line-height: 22px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li > p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li .noti {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  line-height: 26px;
+  word-break: auto-phrase;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li .noti:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/icoB_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li .noti p:nth-child(1) {
+  color: var(--red);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(2) {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(2) p {
+  line-height: 26px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(1):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex2.png") no-repeat center;
+  width: 240px;
+  height: 240px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2) {
+  width: calc(100% - 40px);
+  text-align: center;
+  max-width: 240px;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(3) p:nth-child(2):after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex3.png") no-repeat center;
+  width: 240px;
+  height: 160px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(4) > p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(4) .noti:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex4.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: calc(100% - 22px);
+  margin: 20px 0px 0 -22px;
+  aspect-ratio: 6/5;
+  height: auto;
+}
+.wrap.pm_placeSaveQuiz .content section.sec_example .cont ul li:nth-child(5) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex5.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  background-position: 0 0;
+  width: 100%;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+.wrap.pm_placeSaveQuiz footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 24px 16px;
+  border-top: 1px solid var(--borderColor);
+  background-color: #fff;
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 80px;
+  height: 48px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox button.start {
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox button.start:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox button.submit {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap.pm_placeSaveQuiz footer .buttonBox button.submit:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_prodQuiz .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  min-height: 110px;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--bgColor);
+}
+.wrap.pm_prodQuiz .title strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_prodQuiz .title p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+.wrap.pm_prodQuiz .title p span {
+  color: var(--pointColor);
+}
+.wrap.pm_prodQuiz .title button.nextQuiz {
+  width: 80px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+.wrap.pm_prodQuiz .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_prodQuiz .content section:nth-child(n+2) {
+  margin-top: 8px;
+}
+.wrap.pm_prodQuiz .content section.sec_place {
+  position: relative;
+  padding: 16px 20px 36px 20px;
+  border-radius: 0;
+  background-color: var(--bgColor2);
+}
+.wrap.pm_prodQuiz .content section.sec_place .box_place {
+  position: relative;
+  padding: 24px 16px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--bgColor);
+}
+.wrap.pm_prodQuiz .content section.sec_place .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid var(--borderColor);
+}
+.wrap.pm_prodQuiz .content section.sec_place .tit:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_mini.png") no-repeat center;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at center);
+          clip-path: circle(50% at center);
+}
+.wrap.pm_prodQuiz .content section.sec_place .tit p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_prodQuiz .content section.sec_place .tit p span {
+  color: var(--pointColor);
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont {
+  margin: 16px 0 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .explainBox ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .explainBox ul li {
+  list-style-type: none;
+  counter-increment: index;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .explainBox ul li::before {
+  content: counter(index) ".";
+  margin: 0 5px 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .explainBox ul li {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .explainBox ul li p {
+  text-indent: 15px;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .placeBox {
+  margin: 24px 0 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .placeBox p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .placeBox .imgBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  position: relative;
+  max-height: 200px;
+  margin: 20px 0 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--borderColor2);
+  background-color: var(--bgColor4);
+}
+.wrap.pm_prodQuiz .content section.sec_place .cont .placeBox .imgBox img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrap.pm_prodQuiz .content section.sec_example .tit {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 20px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li {
+  list-style-type: none;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:before {
+  counter-increment: index;
+  content: counters(index, ".");
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li {
+  position: relative;
+  padding: 0 0px 0 40px;
+  word-break: auto-phrase;
+  line-height: 22px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:before {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -5px;
+  left: 0px;
+  margin-right: 12px;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #f1f4f6;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li > p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li img {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  margin: 20px 0px 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li .noti {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 22px;
+  line-height: 26px;
+  word-break: auto-phrase;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li .noti:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/icoB_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li .noti p:nth-child(1) {
+  color: var(--red);
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(n+2) {
+  margin-top: 30px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(1) p {
+  line-height: 26px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(1) p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(2) {
+  margin: 30px 0 0 0;
+  line-height: 26px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(2) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/img_ex1.png") no-repeat center;
+  width: 267px;
+  height: 67px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 13px);
+  max-width: 267px;
+  left: -13px;
+  margin: 10px 0px 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(3):before {
+  top: 0;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(3) p {
+  line-height: 26px;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(3) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex7.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 240px;
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(4) > p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex8.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  width: calc(100% - 40px);
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 3/2;
+  background-position: 0 0;
+}
+.wrap.pm_prodQuiz .content section.sec_example .cont ul li:nth-child(5) p:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/example/imgB_ex9.png") no-repeat center;
+  width: 240px;
+  height: 200px;
+  background-size: contain;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  width: calc(100% - 40px);
+  height: auto;
+  margin: 20px 0px 0 0;
+  aspect-ratio: 1/1;
+  background-position: 0 0;
+}
+.wrap.pm_prodQuiz footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 24px 16px;
+  border-top: 1px solid var(--borderColor);
+  background-color: #fff;
+}
+.wrap.pm_prodQuiz footer .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.wrap.pm_prodQuiz footer .buttonBox button {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  width: 80px;
+  min-width: 80px;
+  height: 48px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_prodQuiz footer .buttonBox button.start {
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor2);
+  background-color: var(--btn_bgColor2);
+}
+.wrap.pm_prodQuiz footer .buttonBox button.start:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_prodQuiz footer .buttonBox button.submit {
+  color: var(--btn_ftColor);
+  border: 1px solid var(--btn_bgColor);
+  background-color: var(--btn_bgColor);
+}
+.wrap.pm_prodQuiz footer .buttonBox button.submit:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_missionList .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 4px;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  position: relative;
+  min-height: 110px;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--bgColor);
+}
+.wrap.pm_missionList .title strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_missionList .title p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+.wrap.pm_missionList .title p span {
+  color: var(--pointColor);
+}
+.wrap.pm_missionList .content section {
+  background-color: #ffffff;
+}
+.wrap.pm_missionList .content section.sec_banner {
+  color: var(--ftColor9);
+  background-color: var(--bgColor5);
+  text-align: center;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap.pm_missionList .content section.sec_banner img {
+  max-height: 80px;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox {
+  display: none;
+}
+.wrap.pm_missionList .content section.sec_list.complete .tab,
+.wrap.pm_missionList .content section.sec_list.complete .list {
+  display: none;
+}
+.wrap.pm_missionList .content section.sec_list.complete .completeBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox {
+  padding: 32px 0;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox strong {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox strong:before {
+  content: "";
+  position: relative;
+  display: block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_dart.svg") no-repeat center;
+  width: 77px;
+  height: 68px;
+  background-size: contain;
+  width: 99px;
+  height: 88px;
+  margin: 0 auto 30px;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox p {
+  line-height: 26px;
+}
+.wrap.pm_missionList .content section.sec_list .completeBox p:nth-of-type(1) {
+  margin: 20px 0 0 0;
+}
+.wrap.pm_missionList .content section.sec_list .tab ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+.wrap.pm_missionList .content section.sec_list .tab ul li {
+  -webkit-box-flex: 33%;
+      -ms-flex: 33% 1 1;
+          flex: 33% 1 1;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  display: inline-block;
+  padding: 16px 10px;
+  border-bottom: 1px solid var(--borderColor);
+  cursor: pointer;
+}
+.wrap.pm_missionList .content section.sec_list .tab ul li.on {
+  border-color: var(--pointColor);
+}
+.wrap.pm_missionList .content section.sec_list .list {
+  margin: 20px 0 30px 0;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li {
+  padding: 20px 24px;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li .text {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li .text p:nth-child(1) {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+}
+.wrap.pm_missionList .content section.sec_list .list ul li .text p:nth-child(2) {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_missionList .content section.sec_list .list ul li .point {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 26px;
+  min-width: 60px;
+  height: 34px;
+  border-radius: 10px;
+  background-color: var(--pointColor);
+  text-align: center;
+  color: var(--ftColor4);
+}
+.wrap.pm_missionList .content section.sec_list .list .more {
+  margin: 17px 0 0 0;
+  text-align: center;
+}
+.wrap.pm_missionList .content section.sec_list .list .more button.more {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  color: var(--btn_ftColor5);
+  border: 1px solid var(--btn_brdColor5);
+  background-color: var(--btn_bgColor5);
+  font-size: 14px;
+  min-width: 104px;
+  height: 38px;
+  border-radius: 50px;
+}
+.wrap.pm_missionList .content section.sec_list .list .more button.more:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_missionList .content section.sec_notice {
+  position: relative;
+  padding: 36px 20px;
+  border-radius: 0;
+  background-color: var(--bgColor2);
+}
+.wrap.pm_missionList .content section.sec_notice .box_notice .tit p {
+  font-family: "Pretendard_Bold";
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--ftColor6);
+}
+.wrap.pm_missionList .content section.sec_notice .box_notice .cont {
+  margin: 20px 0 0 0;
+}
+.wrap.pm_missionList .content section.sec_notice .box_notice .cont p {
+  font-family: "Pretendard_Light";
+  position: relative;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  line-height: 26px;
+  color: var(--ftColor6);
+}
+.wrap.pm_missionList .content section.sec_notice .box_notice .cont p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  top: -3px;
+  margin-right: 4px;
+  border-radius: 100%;
+  background-color: var(--ftColor6);
 }
 
 /*
@@ -8109,6 +11559,8 @@ Date   : 2024.08.27
 }
 .wrap.pm_report .title p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -8139,6 +11591,7 @@ Date   : 2024.08.27
 .wrap.pm_report .title button.back {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   margin: 0;
   font-size: 0;
   text-align: center;
@@ -8211,6 +11664,7 @@ Date   : 2024.08.27
 .wrap.pm_report .content section.sec_list > ul > li select {
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -8241,6 +11695,7 @@ Date   : 2024.08.27
   gap: 10px;
   font-family: "Pretendard_Medium";
   font-weight: normal;
+  letter-spacing: -0.3px;
   position: relative;
   width: 100%;
   min-width: auto;
@@ -8306,6 +11761,8 @@ Date   : 2024.08.27
 }
 .wrap.pm_report .content section.sec_list > ul > li .selectDiv + .selectList .list > p {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   width: 100%;
   font-size: 18px;
 }
@@ -8328,7 +11785,7 @@ Date   : 2024.08.27
 .wrap.pm_report .content section.sec_list > ul > li .selectDiv + .selectList .list ul::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 4px;
-  background: #2f84fc;
+  background: var(--pointColor);
 }
 .wrap.pm_report .content section.sec_list > ul > li .selectDiv + .selectList .list ul li {
   display: -webkit-box;
@@ -8389,6 +11846,7 @@ Date   : 2024.08.27
 .wrap.pm_report .content section.sec_list > ul > li .selectDiv + .selectList .list button.submit {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
@@ -8397,6 +11855,7 @@ Date   : 2024.08.27
   background-color: #2f84fc;
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   width: 100%;
   height: 52px;
   margin: 0px 0 0 0;
@@ -8413,6 +11872,8 @@ Date   : 2024.08.27
 }
 .wrap.pm_report .content section.sec_guide .tit {
   font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
   font-size: 16px;
 }
 .wrap.pm_report .content section.sec_guide .cont {
@@ -8441,6 +11902,7 @@ Date   : 2024.08.27
 .wrap.pm_report footer button {
   font-family: "Pretendard_Light";
   font-weight: normal;
+  letter-spacing: -0.3px;
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
