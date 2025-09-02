@@ -20,6 +20,23 @@
     <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
     <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
 </head>
+<script>
+    // text 효과
+    document.addEventListener("DOMContentLoaded", function () {
+        const text = "안녕하세요. 가칭미디어 홍길동입니다.아래 내역으로 제안 요청 드립니다. 글자 이벤트 테스트 입니다. 타자 효과!";
+        const typingEl = document.querySelector(".txtEffect");
+        let i = 0;
+
+        function typing() {
+            if (i < text.length) {
+                typingEl.innerHTML = text.slice(0, i + 1);
+                i++;
+                setTimeout(typing, 80);
+            }
+        }
+        typing();
+    });
+</script>
 
 <body>
     <!-- 캠페인 모달 -->
@@ -78,10 +95,16 @@
                                     <div class="talkBox">
                                         <div class="Qbox">
                                             <div class="box">
-                                                <p>안녕하세요. 가칭미디어 홍길동입니다. <br>아래 내역으로 제안 요청 드립니다.<br> 바쁘시겠지만, 제안은 오늘 내
-                                                    부탁드립니다.<br> 광고주 : 종근당 <br>기간 : 1개월 <br>타겟팅 : 30~50대 남여, 건강에 관심이 많은
-                                                    사람<br> KPI : CPC<br> 금액 : 300만원 (VAT별도) <br>오늘 바로 제안이 필요하여 회신 부탁
-                                                    드리겠습니다!<br> 감사합니다. </p>
+                                                <p>안녕하세요. 가칭미디어 홍길동입니다.</p>
+                                                <p> 아래 내역으로 제안 요청 드립니다. </p>
+                                                <p>바쁘시겠지만, 제안은 오늘 내 부탁드립니다.</p>
+                                                <p>광고주 : 종근당</p>
+                                                <p>기간 : 1개월</p>
+                                                <p> 타겟팅 : 30~50대 남여, 건강에 관심이 많은 사람</p>
+                                                <p> KPI : CPC</p>
+                                                <p> 금액 : 300만원 (VAT별도) </p>
+                                                <p>오늘 바로 제안이 필요하여 회신 부탁 드리겠습니다!</p>
+                                                <p>감사합니다. </p>
                                             </div>
                                         </div>
                                         <div class="Abox">
@@ -584,10 +607,21 @@
                                     <div class="talkBox">
                                         <div class="Qbox">
                                             <div class="box">
-                                                <p>안녕하세요. 가칭미디어 홍길동입니다. <br>아래 내역으로 제안 요청 드립니다.<br> 바쁘시겠지만, 제안은 오늘 내
-                                                    부탁드립니다.<br> 광고주 : 종근당 <br>기간 : 1개월 <br>타겟팅 : 30~50대 남여, 건강에 관심이 많은
-                                                    사람<br> KPI : CPC<br> 금액 : 300만원 (VAT별도) <br>오늘 바로 제안이 필요하여 회신 부탁
-                                                    드리겠습니다!<br> 감사합니다. </p>
+                                                <p class="txtEffect"></p>
+                                            </div>
+                                        </div>
+                                        <div class="Qbox">
+                                            <div class="box">
+                                                <p>안녕하세요. 가칭미디어 홍길동입니다. </p>
+                                                <p>아래 내역으로 제안 요청 드립니다.</p>
+                                                <p>바쁘시겠지만, 제안은 오늘 내 부탁드립니다.</p>
+                                                <p>광고주 : 종근당</p>
+                                                <p>기간 : 1개월</p>
+                                                <p>타겟팅 : 30~50대 남여, 건강에 관심이 많은 사람</p>
+                                                <p> KPI : CPC</p>
+                                                <p> 금액 : 300만원 (VAT별도)</p>
+                                                <p>오늘 바로 제안이 필요하여 회신 부탁 드리겠습니다!</p>
+                                                <p>감사합니다. </p>
                                             </div>
                                         </div>
                                         <div class="Abox">

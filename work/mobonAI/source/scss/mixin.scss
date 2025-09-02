@@ -40,6 +40,32 @@ Date   : 2024.11.13
   background: $bg;
 }
 
+@mixin effect {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+
+// 
+@mixin for {
+  @for $i from 1 through 100 {
+    p:nth-of-type(#{$i}) {
+      animation-delay: ($i - 1) * 0.3s;
+    }
+  }
+}
+
+// fadeUp
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+
 @mixin mini() {
   width: 250px;
   transition: all 0.3s;

@@ -201,6 +201,20 @@ var clickOff = function (){
 };
 
 
+var txtEffect = function(){
+  const text = "안녕하세요. 가칭미디어 홍길동입니다.아래 내역으로 제안 요청 드립니다. 글자 이벤트 테스트 입니다.";
+  let i = 0;
+  const typingEl = document.querySelector(".txtEffect");
+
+  function typing() {
+      if (i < text.length) {
+          typingEl.innerHTML = text.slice(0, i + 1);
+          i++;
+          setTimeout(typing, 80);
+      }
+  }
+  typing();
+};
 
 /* chechbox all */
 /* 아이디 값이 all또는 All이 포함되어 있으면 같은 name값을 가진 체크박스들 제어 가능하게 */

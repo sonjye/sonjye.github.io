@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="sample" />
+    <meta name="keywords" content="sample" />
+    <meta name="author" content="sample" />
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/ico">
+    <title>sample</title>
+    <!-- 기본 CSS, JS -->
+    <link type="text/css" href="../css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../js/ui.js"></script>
+    <!--날짜선택관련-->
+    <link type="text/css" href="../css/lib/daterangepicker_popup.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../js/datapicker_custorm.js"></script>
+    <!--//날짜선택관련-->
+    <style>
+        .chat-bubble {
+            display: inline-block;
+            background: #f1f1f1;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-family: "Pretendard", sans-serif;
+            font-size: 1rem;
+            color: #333;
+            max-width: 250px;
+        }
+
+        /* .typing::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+        } */
+        /* @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="Wrap">
+        <div class="chat-bubble">
+            <p class="typing"></p>
+        </div>
+    </div>
+    <script>
+        const text = "안녕하세요! 타이포 텍스트입니다. 😊";
+        let i = 0;
+        const typingEl = document.querySelector(".typing");
+
+        function typing() {
+            if (i < text.length) {
+                typingEl.innerHTML = text.slice(0, i + 1);
+                i++;
+                setTimeout(typing, 80);
+            }
+        }
+        typing();
+    </script>
+</body>
+
+</html>
