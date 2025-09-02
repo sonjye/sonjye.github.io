@@ -1,0 +1,142 @@
+@charset 'utf-8';
+
+/*
+File   : content.scss
+Date   : 2024.07.30
+*/
+
+//* text */
+::selection {
+  color: $ftColor4;
+  background: $pointColor;
+}
+
+.hide {
+  @include txtHide();
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone {
+  display: none !important;
+}
+
+//* pointColor*/
+.pointColor {
+  color: var(--pointColor);
+}
+
+//* ellipsis */
+// .elHvrVsbl,
+// .elHvrVsbl2,
+// .elHvrVsbl3,
+// .elHvrVsbl4 {
+//   &:hover {
+//     @include txtHover;
+//   }
+// }
+
+.txtOver {
+  @include txtOver;
+}
+
+// .elHvrVsbl2 {
+//   @include txtOver2;
+// }
+
+
+//* loading  */
+.loadingBg {
+  @include loadingBg;
+}
+
+.dimCircle {
+  @include loadingCircle;
+}
+
+// .dimDot {
+//   @include loadingDot;
+// }
+.dataNoneText {
+  display: none;
+}
+
+.dimText {
+  @include loadingText;
+}
+
+// dataNoneArea, dataNone 은 한 세트 구조
+// 안맞는 경우에는 개별 css 추가 
+.dataNoneArea {
+  @include dataNoneArea($d1:block, $d2:none);
+}
+
+.dataNone {
+  display: none;
+}
+
+
+
+//* input */
+input {
+  @include input;
+}
+
+// textarea {
+//   @include textarea;
+// }
+
+//* select */
+select {
+  @include select;
+}
+
+//* checkbox */
+// input[type="checkbox"] {
+//   @include checkbox;
+// }
+
+//* radio */
+input[type="radio"] {
+  @include radio;
+}
+
+input[type="text"] {
+  &[id^='datePickerS'] {
+    @include calendar_single2;
+  }
+}
+
+/* daterangepicker */
+.daterangepicker {
+  @include daterangepicker;
+}
+
+// timepicker lib
+// .ui-timepicker-container {
+//   @include timepicker;
+// }
+
+//* paging */
+// .paging {
+//   @include paging;
+// }
+
+//* btnArea */
+.btnArea {
+  @include btnArea;
+}
+
+//* timepicker */
+.ui-timepicker-container {
+  // modal 에서 안나옴 
+  z-index: 999 !important;
+}

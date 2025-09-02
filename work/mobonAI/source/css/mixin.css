@@ -1,0 +1,20 @@
+/*
+File   : mixin.scss
+Date   : 2024.11.13
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=mixin.css.map */

@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON AI</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- 캠페인 모달 -->
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap">
+        <!-- 빠른 소스 확인을 위해 header, navigation 상세내용 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">비디오애드</a></h1>
+        </header>
+        <nav class="navigation">
+            <!-- 생략 > layout.html 확인-->
+        </nav>
+        <section class="contents">
+            <button type="button" class="quickAI">AI바로가기</button>
+            <div class="modal">
+                <strong>광고등록</strong>
+                <p>공통 > alert</p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>확인</p>
+                            <button class="close modalClose">닫기</button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>저장 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>AI비서 시작하기 (md_aiStart)</p>
+                <div class="modalWrap md_aiStart" id="md_aiStart">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <!-- <p>종근당 광고주 미디어믹스 작성 요청</p> -->
+                            <button class="close modalClose">닫기</button>
+                        </div>
+                        <div class="modalContent">
+                            <!-- AI 비서 시작하기 -->
+                            <section class="sec_talk">
+                                <div class="box_guide">
+                                    <div class="guideBox">
+                                        <p><span> AI 비서가 </span>당신의 비즈니스 지원 중</p>
+                                        <p>오늘 어떤 업무를 지원해 드릴까요?</p>
+                                    </div>
+                                </div>
+                                <div class="box_talk disNone">
+                                    <div class="talkBox">
+                                        <div class="Qbox">
+                                            <div class="box">
+                                                <p>안녕하세요. 가칭미디어 홍길동입니다. <br>아래 내역으로 제안 요청 드립니다.<br> 바쁘시겠지만, 제안은 오늘 내
+                                                    부탁드립니다.<br> 광고주 : 종근당 <br>기간 : 1개월 <br>타겟팅 : 30~50대 남여, 건강에 관심이 많은
+                                                    사람<br> KPI : CPC<br> 금액 : 300만원 (VAT별도) <br>오늘 바로 제안이 필요하여 회신 부탁
+                                                    드리겠습니다!<br> 감사합니다. </p>
+                                            </div>
+                                        </div>
+                                        <div class="Abox">
+                                            <div class="tit">
+                                                <p>AI비서</p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="answer">
+                                                    <p>전달주신 내용을 바탕으로 광고 캠페인 정보를 자동 정리하고, 발송 가능한 메일과 미디어믹스 초안을 생성하였습니다.
+                                                    </p>
+                                                    <br><br>
+                                                    <p>안녕하세요. 모비온 홍길동입니다. 종근당 신규 광고주 제안 감사드리며, 하기 운영 방안 및 미디어믹스 전달드립니다.
+                                                        예상되는 주요 고객층은 20~30대 여성으로 타겟팅하여 캠페인 제안 전달드립니다.</p>
+                                                </div>
+                                                <hr>
+                                                <!-- 캠페인 개요 -->
+                                                <div class="answer_summaryCampaign">
+                                                    <b>캠페인 개요</b>
+                                                    <p>· 광고주 : 종근당</p>
+                                                    <p>· 대행사 : 인라이플미디어</p>
+                                                    <p>· 캠페인기간 : 2025.08.01~2025.09.01 </p>
+                                                    <p>· 목표 : CPC 60원 이하 </p>
+                                                    <p>· 타겟 : 20~30대 여성 · 예산 : 100,000원(VAT 별도)</p>
+                                                </div>
+                                                <!-- 상품 소개 -->
+                                                <div class="answer_prdProduce">
+                                                    <b>상품소개</b>
+                                                    <p>· 타겟팅</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>타겟팅 형태</th>
+                                                                        <th>타겟팅 상세</th>
+                                                                        <th>상세 설명</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="7"> 리타겟팅 </td>
+                                                                        <td>휴먼유저</td>
+                                                                        <td>30일간 앱, 사이트를 실행-접속하지 않은 유저</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문</td>
+                                                                        <td>스크립트가 삽입된 사이트 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회 </td>
+                                                                        <td>스크립트가 삽입된 사이트 상품 조회자 타겟팅 </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>장바구니</td>
+                                                                        <td>스크립트가 삽입된 사이트 장바구니 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>구매</td>
+                                                                        <td>스크립트가 삽입된 사이트 구매-전환 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문</td>
+                                                                        <td>HTML 공지사항이 게시된 스마트스토어 홈 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회</td>
+                                                                        <td>HTML 공지사항에 게시된 스마트스토어 상품 페이지 조회자 타겟팅 </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">User View<p>(유저타겟팅)</p>
+                                                                        </td>
+                                                                        <td>관심사</td>
+                                                                        <td>동종/유사 업종 카테고리 사이트 이용 유저 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>키워드</td>
+                                                                        <td>설정된 키워드 리스트를 기반으로 유저의 검색 키워드와 매칭시켜 광고 송출
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <p>· 노출형태</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>타겟팅 형태</th>
+                                                                        <th>타겟팅 상세</th>
+                                                                        <th>상세 설명</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="7">리타겟팅</td>
+                                                                        <td>휴먼유저</td>
+                                                                        <td>30일간 앱, 사이트를 실행-접속하지 않은 유저</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문(사이트)</td>
+                                                                        <td>스크립트가 삽입된 사이트 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회(사이트)</td>
+                                                                        <td>스크립트가 삽입된 사이트 상품 조회자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>장바구니</td>
+                                                                        <td>스크립트가 삽입된 사이트 장바구니 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>구매</td>
+                                                                        <td>스크립트가 삽입된 사이트 구매-전환 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문(스마트스토어)</td>
+                                                                        <td>HTML 공지사항이 게시된 스마트스토어 홈 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회(스마트스토어)</td>
+                                                                        <td>HTML 공지사항에 게시된 스마트스토어 상품 페이지 조회자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">User View <p>(유저타겟팅)</p>
+                                                                        </td>
+                                                                        <td>관심사</td>
+                                                                        <td>동종/유사 업종 카테고리 사이트 이용 유저 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>키워드</td>
+                                                                        <td>설정된 키워드 리스트를 기반으로 유저의 검색 키워드와 매칭시켜 광고 송출
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 운영 제안 -->
+                                                <div class="answer_proposeManage">
+                                                    <b>운영 제안 전략</b>
+                                                    <p>8월 한 달간 36~64세 남녀 타겟으로 배너·아이커버 활용을 제안드립니다. </p>
+                                                    <p>CPC 100원 이하 목표로 타겟 세분화와 입찰가 최적화 하여, A/B 테스트를 통해 효율 높은 소재 선별 운영
+                                                        계획입니다. </p>
+                                                    <p>랜딩페이지 최적화로 방문 전환 극대화를 목표로 운영 제안드립니다.</p>
+                                                    <br><br>
+                                                    <p>· 운영안</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>KPI (캠페인 목적)</th>
+                                                                        <th>캠페인 구분</th>
+                                                                        <th>노출 형태</th>
+                                                                        <th>디바이스</th>
+                                                                        <th>예산 (vat미포함)</th>
+                                                                        <th>예산 (vat포함)</th>
+                                                                        <th>예상 imps</th>
+                                                                        <th>CTR </th>
+                                                                        <th>Click</th>
+                                                                        <th>평균 CPC</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="14">
+                                                                            <p>이벤트 응모</p>(DB 수집)
+                                                                        </td>
+                                                                        <td rowspan="6">리타겟팅</td>
+                                                                        <td rowspan="2">고정 배너</td>
+                                                                        <td>PC</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>130</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">아이커버</td>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total2">
+                                                                        <td colspan="3">중계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>22,000,000</td>
+                                                                        <td>954,545</td>
+                                                                        <td>100.00%</td>
+                                                                        <td>954,545</td>
+                                                                        <td>21</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="6">User View</td>
+                                                                        <td rowspan="2">고정 배너</td>
+                                                                        <td>PC</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>130</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">아이커버</td>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total2">
+                                                                        <td colspan="3">중계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>22,000,000</td>
+                                                                        <td>954,545</td>
+                                                                        <td>100.00%</td>
+                                                                        <td>954,545</td>
+                                                                        <td>21</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th colspan="4">합계</th>
+                                                                        <th>60,000,000</th>
+                                                                        <th>66,000,000</th>
+                                                                        <th>44,327,023</th>
+                                                                        <th>2.76%</th>
+                                                                        <th>1,223,625</th>
+                                                                        <th>107</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 타사 레퍼런스 -->
+                                                <div class="answer_reference">
+                                                    <b>타사 레퍼런스</b>
+                                                    <p> 5-1) 레퍼런스 </p>
+                                                    <p>1 · 카테고리 : 000 </p>
+                                                    <p>· 캠페인 : 000</p>
+                                                    <p> · KPI : 000 </p>
+                                                    <p>· 노출형태 : 배너, 아이커버</p>
+                                                    <br>
+                                                    <p>(표)</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>기간</th>
+                                                                        <th>노출수</th>
+                                                                        <th>클릭수</th>
+                                                                        <th>클릭율</th>
+                                                                        <th>소진금액</th>
+                                                                        <th>평균소진</th>
+                                                                        <th>총 전환율</th>
+                                                                        <th>총 ROAS</th>
+                                                                        <th>총 ROAS</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>25년 07월</td>
+                                                                        <td>8,328,578</td>
+                                                                        <td>118,164</td>
+                                                                        <td>1.42%</td>
+                                                                        <td>5,084,304</td>
+                                                                        <td>43</td>
+                                                                        <td>1,261</td>
+                                                                        <td>1%</td>
+                                                                        <td>1310%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 08월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 09월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <p>5-2) 레퍼런스 2</p>
+                                                    <p> · 카테고리 : 000 </p>
+                                                    <p>· 캠페인 : 000 </p>
+                                                    <p>· KPI : 000</p>
+                                                    <p>· 노출형태 : 배너, 아이커버</p>
+                                                    <br>
+                                                    <p>(표)</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>기간</th>
+                                                                        <th>노출수</th>
+                                                                        <th>클릭수</th>
+                                                                        <th>클릭율</th>
+                                                                        <th>소진금액</th>
+                                                                        <th>평균소진</th>
+                                                                        <th>총 전환율</th>
+                                                                        <th>총 ROAS</th>
+                                                                        <th>총 ROAS</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>25년 07월</td>
+                                                                        <td>8,328,578</td>
+                                                                        <td>118,164</td>
+                                                                        <td>1.42%</td>
+                                                                        <td>5,084,304</td>
+                                                                        <td>43</td>
+                                                                        <td>1,261</td>
+                                                                        <td>1%</td>
+                                                                        <td>1310%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 08월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 09월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="answer">
+                                                    <p>기타 궁금하신 문의사항은 편하게 회신 부탁드립니다. </p><br>
+                                                    <p>감사합니다. </p>
+                                                    <p>홍길동 드림</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="optionBox">
+                                            <div class="buttonBox">
+                                                <button type="button" class="copy" title="복사">복사</button>
+                                                <button type="button" class="set" title="맞춤 설정하기">설정</button>
+                                            </div>
+                                            <div class="fileDownload">
+                                                <i class="excel">엑셀</i>
+                                                <input type="file" name="" id="">
+                                                <label for="">[종근당]미디어믹스미디어믹스미디어믹스미디어믹스미디어믹스</label>
+                                                <button class="download">다운로드</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box_ask">
+                                    <div class="askBox">
+                                        <button type="button" class="fileAdd">파일추가</button>
+                                        <input type="text" placeholder="작성할 문서의 내용을 입력해주세요.">
+                                        <button type="button" class="search">검색</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 대화하기 -->
+                        </div>
+                        <!-- <div class="modalFooter">
+                            <button type="button" class="cancel">닫기</button>
+                        </div> -->
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>AI비서 시작하기 (md_aiStart) >> 미리보기용 (위의 모달과 내용 동일)</p>
+                <div class="modalWrap md_aiStart" id="md_aiStart">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>종근당 광고주 미디어믹스 작성 요청</p>
+                            <button class="close modalClose">닫기</button>
+                        </div>
+                        <div class="modalContent">
+                            <!-- AI 비서 시작하기 -->
+                            <section class="sec_talk">
+                                <div class="box_guide disNone">
+                                    <div class="guideBox">
+                                        <p><span> AI 비서가 </span>당신의 비즈니스 지원 중</p>
+                                        <p>오늘 어떤 업무를 지원해 드릴까요?</p>
+                                    </div>
+                                </div>
+                                <div class="box_talk">
+                                    <div class="talkBox">
+                                        <div class="Qbox">
+                                            <div class="box">
+                                                <p>안녕하세요. 가칭미디어 홍길동입니다. <br>아래 내역으로 제안 요청 드립니다.<br> 바쁘시겠지만, 제안은 오늘 내
+                                                    부탁드립니다.<br> 광고주 : 종근당 <br>기간 : 1개월 <br>타겟팅 : 30~50대 남여, 건강에 관심이 많은
+                                                    사람<br> KPI : CPC<br> 금액 : 300만원 (VAT별도) <br>오늘 바로 제안이 필요하여 회신 부탁
+                                                    드리겠습니다!<br> 감사합니다. </p>
+                                            </div>
+                                        </div>
+                                        <div class="Abox">
+                                            <div class="tit">
+                                                <p>AI비서</p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="answer">
+                                                    <p>전달주신 내용을 바탕으로 광고 캠페인 정보를 자동 정리하고, 발송 가능한 메일과 미디어믹스 초안을 생성하였습니다.
+                                                    </p>
+                                                    <br><br>
+                                                    <p>안녕하세요. 모비온 홍길동입니다. 종근당 신규 광고주 제안 감사드리며, 하기 운영 방안 및 미디어믹스 전달드립니다.
+                                                        예상되는 주요 고객층은 20~30대 여성으로 타겟팅하여 캠페인 제안 전달드립니다.</p>
+                                                </div>
+                                                <hr>
+                                                <!-- 캠페인 개요 -->
+                                                <div class="answer_summaryCampaign">
+                                                    <b>캠페인 개요</b>
+                                                    <p>· 광고주 : 종근당</p>
+                                                    <p>· 대행사 : 인라이플미디어</p>
+                                                    <p>· 캠페인기간 : 2025.08.01~2025.09.01 </p>
+                                                    <p>· 목표 : CPC 60원 이하 </p>
+                                                    <p>· 타겟 : 20~30대 여성 · 예산 : 100,000원(VAT 별도)</p>
+                                                </div>
+                                                <!-- 상품 소개 -->
+                                                <div class="answer_prdProduce">
+                                                    <b>상품소개</b>
+                                                    <p>· 타겟팅</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>타겟팅 형태</th>
+                                                                        <th>타겟팅 상세</th>
+                                                                        <th>상세 설명</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="7"> 리타겟팅 </td>
+                                                                        <td>휴먼유저</td>
+                                                                        <td>30일간 앱, 사이트를 실행-접속하지 않은 유저</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문</td>
+                                                                        <td>스크립트가 삽입된 사이트 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회 </td>
+                                                                        <td>스크립트가 삽입된 사이트 상품 조회자 타겟팅 </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>장바구니</td>
+                                                                        <td>스크립트가 삽입된 사이트 장바구니 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>구매</td>
+                                                                        <td>스크립트가 삽입된 사이트 구매-전환 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문</td>
+                                                                        <td>HTML 공지사항이 게시된 스마트스토어 홈 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회</td>
+                                                                        <td>HTML 공지사항에 게시된 스마트스토어 상품 페이지 조회자 타겟팅 </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">User View<p>(유저타겟팅)</p>
+                                                                        </td>
+                                                                        <td>관심사</td>
+                                                                        <td>동종/유사 업종 카테고리 사이트 이용 유저 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>키워드</td>
+                                                                        <td>설정된 키워드 리스트를 기반으로 유저의 검색 키워드와 매칭시켜 광고 송출
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <p>· 노출형태</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>타겟팅 형태</th>
+                                                                        <th>타겟팅 상세</th>
+                                                                        <th>상세 설명</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="7">리타겟팅</td>
+                                                                        <td>휴먼유저</td>
+                                                                        <td>30일간 앱, 사이트를 실행-접속하지 않은 유저</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문(사이트)</td>
+                                                                        <td>스크립트가 삽입된 사이트 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회(사이트)</td>
+                                                                        <td>스크립트가 삽입된 사이트 상품 조회자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>장바구니</td>
+                                                                        <td>스크립트가 삽입된 사이트 장바구니 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>구매</td>
+                                                                        <td>스크립트가 삽입된 사이트 구매-전환 이용자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>방문(스마트스토어)</td>
+                                                                        <td>HTML 공지사항이 게시된 스마트스토어 홈 방문자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>조회(스마트스토어)</td>
+                                                                        <td>HTML 공지사항에 게시된 스마트스토어 상품 페이지 조회자 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">User View <p>(유저타겟팅)</p>
+                                                                        </td>
+                                                                        <td>관심사</td>
+                                                                        <td>동종/유사 업종 카테고리 사이트 이용 유저 타겟팅</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>키워드</td>
+                                                                        <td>설정된 키워드 리스트를 기반으로 유저의 검색 키워드와 매칭시켜 광고 송출
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 운영 제안 -->
+                                                <div class="answer_proposeManage">
+                                                    <b>운영 제안 전략</b>
+                                                    <p>8월 한 달간 36~64세 남녀 타겟으로 배너·아이커버 활용을 제안드립니다. </p>
+                                                    <p>CPC 100원 이하 목표로 타겟 세분화와 입찰가 최적화 하여, A/B 테스트를 통해 효율 높은 소재 선별 운영
+                                                        계획입니다. </p>
+                                                    <p>랜딩페이지 최적화로 방문 전환 극대화를 목표로 운영 제안드립니다.</p>
+                                                    <br><br>
+                                                    <p>· 운영안</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>KPI (캠페인 목적)</th>
+                                                                        <th>캠페인 구분</th>
+                                                                        <th>노출 형태</th>
+                                                                        <th>디바이스</th>
+                                                                        <th>예산 (vat미포함)</th>
+                                                                        <th>예산 (vat포함)</th>
+                                                                        <th>예상 imps</th>
+                                                                        <th>CTR </th>
+                                                                        <th>Click</th>
+                                                                        <th>평균 CPC</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td rowspan="14">
+                                                                            <p>이벤트 응모</p>(DB 수집)
+                                                                        </td>
+                                                                        <td rowspan="6">리타겟팅</td>
+                                                                        <td rowspan="2">고정 배너</td>
+                                                                        <td>PC</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>130</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">아이커버</td>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total2">
+                                                                        <td colspan="3">중계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>22,000,000</td>
+                                                                        <td>954,545</td>
+                                                                        <td>100.00%</td>
+                                                                        <td>954,545</td>
+                                                                        <td>21</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="6">User View</td>
+                                                                        <td rowspan="2">고정 배너</td>
+                                                                        <td>PC</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>130</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">아이커버</td>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MO</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total">
+                                                                        <td colspan="2">소계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>11,000,000</td>
+                                                                        <td>15,384,615</td>
+                                                                        <td>0.50%</td>
+                                                                        <td>76,923</td>
+                                                                        <td>150</td>
+                                                                    </tr>
+                                                                    <tr class="total2">
+                                                                        <td colspan="3">중계</td>
+                                                                        <td>20,000,000</td>
+                                                                        <td>22,000,000</td>
+                                                                        <td>954,545</td>
+                                                                        <td>100.00%</td>
+                                                                        <td>954,545</td>
+                                                                        <td>21</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th colspan="4">합계</th>
+                                                                        <th>60,000,000</th>
+                                                                        <th>66,000,000</th>
+                                                                        <th>44,327,023</th>
+                                                                        <th>2.76%</th>
+                                                                        <th>1,223,625</th>
+                                                                        <th>107</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 타사 레퍼런스 -->
+                                                <div class="answer_reference">
+                                                    <b>타사 레퍼런스</b>
+                                                    <p> 5-1) 레퍼런스 </p>
+                                                    <p>1 · 카테고리 : 000 </p>
+                                                    <p>· 캠페인 : 000</p>
+                                                    <p> · KPI : 000 </p>
+                                                    <p>· 노출형태 : 배너, 아이커버</p>
+                                                    <br>
+                                                    <p>(표)</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>기간</th>
+                                                                        <th>노출수</th>
+                                                                        <th>클릭수</th>
+                                                                        <th>클릭율</th>
+                                                                        <th>소진금액</th>
+                                                                        <th>평균소진</th>
+                                                                        <th>총 전환율</th>
+                                                                        <th>총 ROAS</th>
+                                                                        <th>총 ROAS</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>25년 07월</td>
+                                                                        <td>8,328,578</td>
+                                                                        <td>118,164</td>
+                                                                        <td>1.42%</td>
+                                                                        <td>5,084,304</td>
+                                                                        <td>43</td>
+                                                                        <td>1,261</td>
+                                                                        <td>1%</td>
+                                                                        <td>1310%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 08월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 09월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <p>5-2) 레퍼런스 2</p>
+                                                    <p> · 카테고리 : 000 </p>
+                                                    <p>· 캠페인 : 000 </p>
+                                                    <p>· KPI : 000</p>
+                                                    <p>· 노출형태 : 배너, 아이커버</p>
+                                                    <br>
+                                                    <p>(표)</p>
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>기간</th>
+                                                                        <th>노출수</th>
+                                                                        <th>클릭수</th>
+                                                                        <th>클릭율</th>
+                                                                        <th>소진금액</th>
+                                                                        <th>평균소진</th>
+                                                                        <th>총 전환율</th>
+                                                                        <th>총 ROAS</th>
+                                                                        <th>총 ROAS</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>25년 07월</td>
+                                                                        <td>8,328,578</td>
+                                                                        <td>118,164</td>
+                                                                        <td>1.42%</td>
+                                                                        <td>5,084,304</td>
+                                                                        <td>43</td>
+                                                                        <td>1,261</td>
+                                                                        <td>1%</td>
+                                                                        <td>1310%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 08월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>25년 09월</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="answer">
+                                                    <p>기타 궁금하신 문의사항은 편하게 회신 부탁드립니다. </p><br>
+                                                    <p>감사합니다. </p>
+                                                    <p>홍길동 드림</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="optionBox">
+                                            <div class="buttonBox">
+                                                <button type="button" class="copy" title="복사">복사</button>
+                                                <button type="button" class="set" title="맞춤 설정하기">설정</button>
+                                            </div>
+                                            <div class="fileDownload">
+                                                <i class="excel">엑셀</i>
+                                                <input type="file" name="" id="">
+                                                <label for="">[종근당]미디어믹스미디어믹스미디어믹스미디어믹스미디어믹스</label>
+                                                <button class="download">다운로드</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box_ask">
+                                    <div class="askBox">
+                                        <button type="button" class="fileAdd">파일추가</button>
+                                        <input type="text" placeholder="작성할 문서의 내용을 입력해주세요.">
+                                        <button type="button" class="search">검색</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 대화하기 -->
+                        </div>
+                        <!-- <div class="modalFooter">
+                            <button type="button" class="cancel">닫기</button>
+                        </div> -->
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>AI비서 > 맞춤 설정하기 (md_aiCustomSet)</p>
+                <div class="modalWrap md_aiCustomSet" id="md_aiCustomSet">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>맞춤 설정하기</p>
+                            <p><span class="em">*</span>표시된 항목은 필수 입력값입니다.</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_set">
+                                <div class="box_set">
+                                    <!-- <div class="tit">
+                                        <p>맞춤 설정하기</p>
+                                        <p>표시된 항목은 필수 입력값입니다.</p>
+                                    </div> -->
+                                    <div class="cont">
+                                        <ul>
+                                            <li>
+                                                <p>광고주<span class="em">*</span></p>
+                                                <div><input type="text"></div>
+                                            </li>
+                                            <li>
+                                                <p>업종<span class="em">*</span></p>
+                                                <div>
+                                                    <div class="selectBox">
+                                                        <select name="" id="">
+                                                            <option value="" selected disabled>1차 업종</option>
+                                                        </select>
+                                                        <select name="" id="">
+                                                            <option value="">2차 업종</option>
+                                                        </select>
+                                                        <select name="" id="">
+                                                            <option value="">3차 업종</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>예산<span class="em">*</span></p>
+                                                <div>
+                                                    <div class="inputBox"><input type="text"><span>원</span></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>KPI<span class="em">*</span></p>
+                                                <div>
+                                                    <input type="text">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>스마트스토어<span class="em">*</span></p>
+                                                <div>
+                                                    <div class="radioBox">
+                                                        <input type="radio" name="" id="" checked>
+                                                        <label for="">사용</label>
+                                                        <input type="radio" name="" id="">
+                                                        <label for="">미사용</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>기간</p>
+                                                <div>
+                                                    <div class="calendarBox">
+                                                        <div class="calendar">
+                                                            <input type="text" id="datePickerS1" name="Date" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box_option">
+                                    <div class="tit">
+                                        <p>예외 옵션</p>
+                                    </div>
+                                    <div class="cont">
+                                        <ul>
+                                            <li>
+                                                <p>타겟팅</p>
+                                                <div>
+                                                    <select name="" id="">
+                                                        <option value="" disabled selected>선택안함</option>
+                                                        <option value="">타겟팅1</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>소재</p>
+                                                <div>
+                                                    <select name="" id="">
+                                                        <option value="" disabled selected>선택안함</option>
+                                                        <option value="">소재1</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="create">생성</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+            </div>
+            <div class="title">
+                <p>모달 </p>
+            </div>
+            <div class="contents">
+            </div>
+            <footer class="footer">
+                <!-- 생략 > layout.html 확인 -->
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

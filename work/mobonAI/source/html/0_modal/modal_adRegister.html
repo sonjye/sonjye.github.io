@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick.css">
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- 캠페인 모달 -->
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap">
+        <!-- 빠른 소스 확인을 위해 header, navigation 상세내용 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">비디오애드</a></h1>
+        </header>
+        <nav class="navigation">
+            <!-- 생략 > layout.html 확인-->
+        </nav>
+        <section class="contents">
+            <div class="modal">
+                <strong>광고등록</strong>
+                <p>공통 > alert</p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>확인</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>저장 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>캠페인등록 미리보기-CPC (md_preview)</p>
+                <div class="modalWrap md_preview" id="md_preview">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>미리보기</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section>
+                                <div class="tabButton">
+                                    <input type="radio" name="rd_preview1" id="rd_1" checked>
+                                    <label for="rd_1">숏폼</label>
+                                    <input type="radio" name="rd_preview1" id="rd_2">
+                                    <label for="rd_2">롱폼</label>
+                                    <input type="radio" name="rd_preview1" id="rd_3">
+                                    <label for="rd_3">이미지</label>
+                                </div>
+                                <div class="previewArea">
+                                    <!-- 숏폼 -->
+                                    <div class="previewList slide show">
+                                        <div class="box">
+                                            <div class="preview">
+                                                <video controls>
+                                                    <source src="../../image/test/video.mp4" type="video/mp4"> </video>
+                                                <!-- <button type="button" class="play">재생</button> -->
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk1" id="chk1_1">
+                                                <label for="chk1_1">소재선택1-1</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="preview">
+                                                <video controls>
+                                                    <source src="../../image/test/shorts.mp4" type="video/mp4"> </video>
+                                                <!-- <button type="button" class="play">재생</button> -->
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk1" id="chk1_2">
+                                                <label for="chk1_2">소재선택1-2</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="preview">
+                                                <video controls>
+                                                    <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                </video>
+                                                <!-- <button type="button" class="play">재생</button> -->
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk1" id="chk1_2">
+                                                <label for="chk1_2">소재선택1-3</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 롱폼 -->
+                                    <div class="previewList slide">
+                                        <div class="box">
+                                            <div class="preview">
+                                                <video controls>
+                                                    <source src="../../image/test/video.mp4" type="video/mp4"> </video>
+                                                <!-- <button type="button" class="play">재생</button> -->
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk1" id="chk2_1">
+                                                <label for="chk2_1">소재선택2-1</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="preview">
+                                                <video controls>
+                                                    <source src="../../image/test/shorts.mp4" type="video/mp4"> </video>
+                                                <!-- <button type="button" class="play">재생</button> -->
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk1" id="chk2_2">
+                                                <label for="chk2_2">소재선택2-2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 이미지 -->
+                                    <div class="previewList slide">
+                                        <div class="box">
+                                            <div class="preview">
+                                                <img src="../../image/test/1.png" alt="">
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk3" id="chk3_1">
+                                                <label for="chk3_1">소재선택3-1</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="preview">
+                                                <img src="../../image/test/2.png" alt="">
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk3" id="chk3_2">
+                                                <label for="chk3_2">소재선택3-2</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="preview">
+                                                <img src="../../image/test/3.png" alt="">
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="chk3" id="chk3_3">
+                                                <label for="chk3_3">소재선택3-3</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- <div class="modalFooter">
+                            <button type="button" class="cancel">닫기</button>
+                        </div> -->
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <script>
+                    // Slick 슬라이더 초기화 >> 모달 확인을 위해서 추가하였고
+                    // 실제사용되는 소스는 ui.js 에 들어있음
+                    var slick = $('.md_preview .slide');
+                    $(document).ready(function () {
+                        $(slick).slick({
+                            dots: true,
+                            // variableWidth: true,
+                            customPaging: function (slider, i) {
+                                var totalSlides = slider.slideCount; // 전체 슬라이드 수
+                                return (i + 1) + '/' + totalSlides; // "현재 슬라이드/전체 슬라이드"
+                            },
+                            vertical: false,
+                        });
+                    });
+                </script>
+                <!-- // modalWrap end-->
+                <p>캠페인등록 미리보기-CPV > 썸네일 업로드 (md_uploadTN)</p>
+                <div class="modalWrap md_uploadTN" id="md_uploadTN">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>썸네일 등록</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section>
+                                <!-- 업로드 영역 -->
+                                <div class="uploadArea">
+                                    <div class="guideBox">
+                                        <p>동영상의 내용을 알려주는 썸네일 사진을 업로드 하세요. </p>
+                                        <p>사로잡을 만한 이미지를 사용하면 광고 효율이 올라갑니다.</p>
+                                    </div>
+                                    <div class="previewArea">
+                                        <div class="fileBox">
+                                            <input type="file" name="fileUpload" id="fileUpload" accept="image/*">
+                                            <label for="fileUpload" class="fileUpload">
+                                                <p>이미지 업로드</p>
+                                                <span>jpg,png 파일형식</span>
+                                            </label>
+                                            <label for="filePreview" class="filePreview">
+                                                <img id="filePreviewImage" src="" alt="" style="display: none;">
+                                                <button class="close">닫기</button>
+                                            </label>
+                                        </div>
+                                        <!-- <div class="preview">
+                                            <img src="../../image/test/product_01.png" alt="">
+                                            <button class="close">닫기</button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <!-- 썸네일 미리보기 영역 -->
+                                <div class="previewBox">
+                                    <div class="box">
+                                        <video controls>
+                                            <source src="../../image/test/video.mp4" type="video/mp4"> </video>
+                                        <button type="button" class="play">재생</button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="cancel">취소</button>
+                            <button type="button" class="confirm">저장</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>캠페인등록 미리보기-CPV > 영상 미리보기 (md_previewVideo)</p>
+                <div class="modalWrap md_previewVideo" id="md_previewVideo">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>영상 미리보기</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section>
+                                <div class="preview">
+                                    <video controls>
+                                        <source src="../../image/test/video.mp4" type="video/mp4"> </video>
+                                    <button type="button" class="play">재생</button>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- <div class="modalFooter">
+                            <button type="button" class="cancel">닫기</button>
+                        </div> -->
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+            </div>
+            <div class="title">
+                <p>모달 </p>
+            </div>
+            <div class="contents">
+            </div>
+            <footer class="footer">
+                <!-- 생략 > layout.html 확인 -->
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

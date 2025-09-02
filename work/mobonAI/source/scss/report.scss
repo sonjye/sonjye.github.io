@@ -1,0 +1,1052 @@
+@charset 'utf-8';
+
+/*
+File   : report.scss
+Date   : 2025.03.12
+*/
+
+//* 일자별 보고서 */
+.mva_reportDay {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        // CPC
+        &.t1 {
+
+          .tableArea .tableBox {
+            table {
+
+              thead,
+              tbody {
+
+                tr th,
+                td {
+
+                  &:nth-last-child(1),
+                  &:nth-last-child(2) {
+                    color: $ftColor13;
+                  }
+
+                  &:nth-last-child(3) {
+                    color: $ftColor12;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // CPV
+        &.t2 {
+          .tableArea .tableBox {
+            table {
+
+              thead,
+              tbody {
+
+                tr th,
+                td {
+                  &:nth-last-child(1) {
+                    color: $ftColor12;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+
+          button {
+            &.search {
+              @include btnS;
+              @include btn_main;
+            }
+          }
+        }
+
+        .tableHeader {
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+          border-top: 1px solid $borderColor;
+          text-align: right;
+
+          button {
+            &.excelDown {
+              @include btn_excel;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    @include table_total;
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+
+                  th,
+                  td {
+
+                    // background-color: $tblBgColor2;
+                    &.sat {
+                      color: $downColor;
+                    }
+
+                    &.sun {
+                      color: $upColor;
+                    }
+                  }
+                }
+              }
+            }
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 캠페인별 보고서 */
+.mva_reportKPI {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        // CPC
+        &.t1 {
+
+          .tableArea .tableBox {
+            table {
+
+              thead,
+              tbody {
+
+                tr {
+                  th,
+                  td {
+
+                    &:nth-last-child(1),
+                    &:nth-last-child(2) {
+                      color: $ftColor13;
+                    }
+
+                    &:nth-last-child(3) { 
+                      color: $ftColor12;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // CPV
+        &.t2 {
+          .tableArea .tableBox {
+            table {
+
+              thead,
+              tbody {
+
+                tr th,
+                td {
+                  &:nth-last-child(1) {
+                    color: $ftColor12;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+
+          button {
+            &.search {
+              @include btnS;
+              @include btn_main;
+            }
+          }
+        }
+
+        .tableHeader {
+          @include flexBox($g:10px);
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+          border-top: 1px solid $borderColor;
+          text-align: right;
+
+          .searchBox {
+            @include searchBox($w:380px);
+            margin: 0 0 0 auto;
+          }
+
+          button {
+            &.excelDown {
+              @include btn_excel;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    @include table_total;
+
+                    th {
+                      &:first-child {
+                        padding-right: 10px;
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+
+                  td {
+
+                    // background-color: $tblBgColor2;
+                    &:nth-child(1) {
+                      width: 250px;
+
+                      p {
+                        @include ellipsis;
+                        width: 180px;
+                        display: inline-block;
+                        vertical-align: middle;
+                      }
+
+                      button {
+                        &.set {
+                          @include iBtn($w:30px, $h:30px);
+                          @include ico_set;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 상품별 보고서 */
+.mva_reportProduct {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+
+          button {
+            &.search {
+              @include btnS;
+              @include btn_main;
+            }
+          }
+        }
+
+        .tableHeader {
+          @include flexBox($g:10px);
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+          border-top: 1px solid $borderColor;
+          text-align: right;
+
+          .searchBox {
+            @include searchBox($w:380px);
+          }
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          button {
+            &.listType {
+              @include btnS;
+              @include btn6;
+              margin: 0 0 0 auto;
+            }
+
+            &.excelDown {
+              @include btn_excel;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+
+              thead,
+              tbody {
+
+                tr th,
+                td {
+
+                  &:nth-last-child(1),
+                  &:nth-last-child(2) {
+                    color: $ftColor13;
+                  }
+
+                  &:nth-last-child(3) {
+                    color: $ftColor12;
+                  }
+                }
+              }
+
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    @include table_total;
+
+                    th {
+                      text-align: right;
+
+                      &:nth-child(1) {
+                        padding-right: 15px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+
+                  th,
+                  td {
+                    &:nth-child(n+2) {
+                      text-align: right;
+                    }
+                  }
+
+                  td {
+                    &:nth-child(1) {
+                      width: 250px;
+
+                      p {
+                        @include ellipsis;
+                        width: 200px;
+                        display: inline-block;
+                        vertical-align: middle;
+                      }
+
+                      button {
+                        &.set {
+                          @include iBtn($w:30px, $h:30px);
+                          @include ico_set;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+
+        .albumArea {
+          margin-top: 20px;
+
+          .albumBox {
+            @include flexBox($fw:wrap, $j:start);
+
+            .list {
+              @include boxLayout2($pd:10px);
+              @include flexBox($j:start, $g:20px, $a:center);
+              width: calc(33.333% - 8px);
+              height: 260px;
+
+              img {
+                width: 170px;
+                height: 100%;
+              }
+
+              .prodInfo {
+                @include flexBox($g:20px, $d:column, $a:start);
+                height: 100%;
+
+                .prodName {
+                  >div {
+                    @include flexBox($j:start);
+                  }
+
+                  p {
+                    @include flexBox($j:start);
+                    line-height: 1.2;
+
+                    span {
+                      @include ellipsis;
+                      display: inline-block;
+                      width: 180px;
+                    }
+                  }
+
+                  button {
+                    &.set {
+                      @include iBtn($w:30px, $h:30px);
+                      @include ico_set;
+                    }
+                  }
+                }
+
+                .prodDetail {
+                  @include flexBox($fw:wrap, $g:6px, $j:start);
+
+                  span {
+                    @include inflexBox;
+                    padding: 4px 10px;
+                    height: 24px;
+                    font-size: 12px;
+                    color: $subFtColor;
+                    border-radius: 4px;
+                    background-color: #f4f4f4;
+                  }
+                }
+
+                .prodLogo {
+                  @include inflexBox($g:4px, $j:start);
+
+                  span {
+                    @include iLayout;
+
+                    &.t1 {
+                      @include ico_youtube;
+                      width: 24px;
+                      height: 24px;
+                    }
+
+                    &.t2 {
+                      @include ico_instagram;
+                      width: 24px;
+                      height: 24px;
+                    }
+
+                    &.t3 {
+                      @include ico_tiktok;
+                      width: 24px;
+                      height: 24px;
+                    }
+
+                    &.t4 {
+                      @include ico_naver;
+                      width: 24px;
+                      height: 24px;
+                    }
+
+                    &.t5 {
+                      @include ico_facebook;
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // list display
+        .tableArea,
+        .albumArea {
+          display: none;
+
+          &.show {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 소재별 보고서 */
+.mva_reportType {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        // CPC
+        &.t1 {
+
+          .tableArea .tableBox {
+            table {
+              thead {
+                tr {
+                  th {
+                    &:nth-child(n+3):nth-child(-n+5) {
+                      width: 250px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // CPV
+        &.t2 {}
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+
+          button {
+            &.search {
+              @include btnS;
+              @include btn_main;
+            }
+          }
+        }
+
+        .tableHeader {
+          @include flexBox($g:10px);
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+          border-top: 1px solid $borderColor;
+          text-align: right;
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .searchBox {
+            @include searchBox($w:380px);
+            margin: 0 auto 0 0;
+          }
+
+          button {
+            &.excelDown {
+              @include btn_excel;
+              @include btn_excel;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+
+              thead,
+              tbody {
+
+                tr th,
+                td {
+
+                  &:nth-last-child(1) {
+                    color: $ftColor12;
+                  }
+                }
+              }
+
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    @include table_total;
+
+                    th {
+                      text-align: right;
+
+                      &:nth-child(1) {
+                        padding-right: 15px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  td {
+                    &:nth-child(1) {
+                      width: 250px;
+
+                      img {
+                        width: 120px;
+                        height: 120px;
+                      }
+
+                      p {
+                        @include ellipsis;
+                        width: 200px;
+                        display: inline-block;
+                        vertical-align: middle;
+                      }
+
+                      button {
+                        &.set {
+                          @include iBtn($w:30px, $h:30px);
+                          @include ico_set;
+                        }
+                      }
+                    }
+
+                    a {
+                      color: $ftColor11;
+                      text-decoration: underline;
+                    }
+
+                    .graphBox {
+                      .graph {
+                        margin: 0 auto;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 플랫폼 보고서 */
+.mva_reportPlatform {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+        }
+
+        .listArea {
+          @include flexBox($g:30px, $fw:wrap);
+          row-gap: 30px;
+          position: relative;
+          margin: 30px 0 0 0;
+
+          // [class^="list"] {
+          >section {
+
+            position: relative;
+            width: calc(50% - 15px);
+
+            .tit {
+              @include title3;
+            }
+
+            .cont {
+              margin: 10px 0 0 0;
+
+              .tab {
+                @include tabLi_t3;
+                position: absolute;
+                top: 1px;
+                right: 0;
+              }
+
+              .tabView {
+                @include boxLayout2($br:5px 0 5px 5px);
+                height: 560px;
+
+                .tabViewList {
+                  @include tabViewList;
+
+                  .totalBox {
+                    @include flexBox;
+
+                    p {
+                      @include title4;
+
+                      span {
+                        @include fontB;
+                        font-size: 22px;
+                        margin: 0 0 0 10px;
+                      }
+                    }
+
+                    a {
+                      @include more;
+                    }
+                  }
+
+                  .graphBox {
+                    margin: 20px 0 0 0;
+                    flex-grow: 1;
+
+                    .labelBox {
+                      @include flexBox($j:end, $g:30px);
+
+                      p {
+                        &:first-child:before {
+                          @include label($bgColor:$labelColor3);
+                        }
+
+                        &:nth-child(2):before {
+                          @include label($bgColor:$labelColor4);
+                        }
+                      }
+                    }
+
+                    .graph {
+                      margin: 15px 0 0 0;
+                    }
+                  }
+
+                  .countBox {
+                    @include flexBox($fw:wrap);
+                    margin: 20px 0 0 0;
+
+                    >div {
+                      @include boxLayout_t3($pd:15px 30px);
+                      @include flexBox($g:20px, $j:start);
+                      width: calc(50% - 5px);
+                      height: 60px;
+
+                      span {
+                        @include fontB;
+                        font-size: 22px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            // 유튭
+            &.list1 {
+
+              .tit {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_youtube;
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+
+            // 인스타그램
+            &.list2 {
+              .tit {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_instagram;
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+
+            // 틱톡
+            &.list3 {
+              .tit {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_tiktok;
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+
+            // 네이버클립
+            &.list4 {
+              .tit {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_naver;
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+
+            // 페이스북
+            &.list5 {
+              .tit {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_facebook;
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

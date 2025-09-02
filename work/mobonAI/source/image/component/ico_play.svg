@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
+    <g transform="translate(-365 -455)">
+        <circle data-name="타원 370" cx="27" cy="27" r="27" transform="translate(365 455)" style="opacity:.5"/>
+        <g data-name="다각형 53" style="fill:none">
+            <path d="M16.056 3.435a3 3 0 0 1 4.889 0l12.683 17.826A3 3 0 0 1 31.183 26H5.817a3 3 0 0 1-2.444-4.739z" style="stroke:none" transform="rotate(90 -27.667 436.334)"/>
+            <path d="M18.5 6.9 7.755 22h21.49L18.5 6.9m0-4.725c.923 0 1.846.42 2.444 1.26l12.684 17.826C35.04 23.247 33.62 26 31.183 26H5.817c-2.438 0-3.858-2.753-2.445-4.74L16.056 3.436a2.98 2.98 0 0 1 2.444-1.26z" style="fill:#fff;stroke:none" transform="rotate(90 -27.667 436.334)"/>
+        </g>
+    </g>
+</svg>

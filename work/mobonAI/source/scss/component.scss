@@ -1,0 +1,320 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : test.scss
+    Date  : 2023.04.12
+    menu  : 테스트
+/*---------------------------------*/
+@import "_font";
+@import "_base";
+@import "_color";
+@import "image";
+// @import "calendar";
+@import "mixin";
+@import "_layout";
+@import "_content";
+
+//* component */
+.mtb_component {
+  .title {
+    @include titleLayout;
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      margin-top: 20px;
+
+      strong {
+        @include fontB;
+        font-size: 24px;
+
+        &:before {
+          content: "[";
+          position: relative;
+          display: inline-block;
+          margin: 0 2px;
+        }
+
+        &:after {
+          content: "]";
+          position: relative;
+          display: inline-block;
+          margin: 0 2px;
+        }
+      }
+
+      b {
+        @include fontM;
+        font-size: 16px;
+        display: block;
+        margin-top: 20px;
+        color: $pointColor3;
+
+        &:before {
+          content: "※";
+          position: relative;
+          display: inline-block;
+          margin: 0 2px;
+        }
+      }
+
+      &.sec_ico {
+        
+      }
+
+      &.sec_mixin {
+        >div {
+          margin: 10px 0 20px 0;
+        }
+
+        .checkBox {
+          @include flexBox($j:start);
+
+          &:nth-of-type(1) {
+            input[type="checkbox"] {
+              @include checkbox($m:0 20px 0 0);
+            }
+          }
+
+          &:nth-of-type(2) {
+            input[type="checkbox"] {
+              @include checkbox2($m:0 20px 0 0);
+            }
+          }
+        }
+
+        .calendarBox {
+          @include calendar_single($width: 140px);
+          display: inline-block;
+
+          &.off {
+            &:before {
+              @include inputOff;
+            }
+          }
+        }
+
+        .timeBox {
+          @include timeBox;
+          display: inline-block;
+
+          &.off {
+            &:before {
+              @include inputOff;
+            }
+          }
+        }
+
+        .selectDiv {
+          @include selectDiv;
+          @include flexBox($f:inline-flex, $g:8px);
+
+          .selectList {
+            ul {
+              li {
+                &.wait {
+                  &:before {
+                    @include ico_check2;
+                    content: "모비온 대기";
+                    color: $ftColor6;
+                    background-color: $bgColor4;
+                  }
+                }
+
+                &.retune {
+                  &:before {
+                    @include ico_close2;
+                    content: "모비온 반려";
+                    color: $ftColor7;
+                    background-color: $bgColor5;
+                  }
+                }
+
+                &.wait,
+                &.retune {
+                  &:before {
+                    @include flexBox($f:inline-flex, $j:start, $a:center, $g:8px);
+                    position: relative;
+                    // display: inline-block;
+                    min-height: 20px;
+                    min-width: fit-content;
+                    padding: 0 8px 0 20px;
+                    margin-right: 8px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    border-radius: 10px;
+                    background-position: 4px 4px;
+                  }
+                }
+              }
+            }
+          }
+
+          >button {
+            &.connect {
+              @include btnLayout($w:80px, $h:36px);
+              @include btn_main;
+            }
+          }
+        }
+
+        .selectChkBox {
+          @include selectDiv($w:230px, $h:220px);
+
+          .selected {
+            &.active {
+              border-radius: 5px 5px 0 0;
+              color: $white;
+              border: 1px solid $pointColor;
+              background-color: $pointColor;
+
+              // transform: rotate(180deg);
+              &:after {
+                @include ico_select2;
+                content: "";
+                position: absolute;
+                display: inline-block;
+                width: 9px;
+                height: 6px;
+                right: 15px;
+              }
+
+              input[type="checkbox"]+label {
+                font-size: 13px;
+
+                &:before {
+                  display: none;
+                }
+              }
+
+              +.selectList {
+                display: block;
+              }
+            }
+
+            .checkbox {
+              input[type="checkbox"]+label {
+                font-size: 13px;
+              }
+            }
+          }
+
+          .selectList {
+            padding: 12px 15px;
+            border-radius: 0 0 5px 5px;
+
+            .checkBox {
+              input[type="checkbox"]:checked+label:before {
+                @include ico_checkbox2_on;
+              }
+            }
+
+            >.searchBox {
+              // font-size: 13px;
+              margin: 0;
+            }
+
+            >ul {
+              height: 120px;
+              margin-top: 6px;
+              // padding-top: 10px;
+              // border-top: 1px solid $borderColor;
+
+              li {
+                padding: 5px 12px 5px 0;
+                font-size: 13px;
+
+                .checkBox {
+                  font-size: 13px;
+                }
+              }
+            }
+
+            .buttonBox {
+              margin-top: 10px;
+              padding-top: 8px;
+              text-align: center;
+              border-top: 1px solid $borderColor;
+
+              button {
+
+                &.cancel,
+                &.confirm {
+                  @include btnLayout;
+                  min-width: 60px;
+                  height: 24px;
+                  font-size: 13px;
+                }
+
+                &:nth-child(n+2) {
+                  margin-left: 5px;
+                }
+
+                &.cancel {
+                  @include btn3;
+                }
+
+                &.confirm {
+                  @include btn_main;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.sec_list {
+        @include boxLayout;
+
+        .tableHeader {
+          @include flexBox($j:end, $g:10px);
+
+          .searchBox {
+            @include searchBox($w:380px);
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}

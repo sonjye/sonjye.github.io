@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick.css">
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css">
+</head>
+
+<body>
+    <!-- 대시보드 -->
+    <div class="wrap">
+        <!-- loadingBg 추가 -->
+        <!-- loadingBg 클래스와 complete 클래스를 함께 사용시 loadingBg 보이지 않음 -->
+        <!--container 내용에는 loadingCircle 클래스를 사용 -->
+        <!-- <div class="loadingBg"> -->
+        <div class="loadingBg complete">
+            <p><b>Loading</b>잠시만 기다려 주세요.</p>
+        </div>
+        <header class="header">
+            <h1>
+                <a href="javascript:void(0);">비디오애드</a>
+            </h1>
+            <button type="button" class="menuToggle"><span>메뉴접기버튼</span><i></i><i></i><i></i></button>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">타임애드</a></li>
+                <li><a href="#">TUNE720</a></li>
+            </ul>
+            <div class="sideNav">
+                <ul>
+                    <li>
+                        <button type="button" class="menuMore">TUNE720</button>
+                        <ul>
+                            <li><a href="#" target="_blank">CDP</a></li>
+                            <li><a href="#" target="_blank">스크립트 관리</a></li>
+                            <li><a href="#" target="_blank">키워드센터</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="alert">알림</button>
+                    </li>
+                    <li>
+                        <button class="userInfo">정보수정</button>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="auth_title">
+                <h2>비디오애드 센터</h2>
+                <button type="button" class="logout">로그아웃</button>
+            </div>
+            <div class="gubun_box_wrap">
+                <div class="gubun_box">
+                    <button type="button" class="color_admin" title="관리자">관리자</button>
+                    <button type="button" class="color_agency" title="대행사">대행사</button>
+                    <button type="button" class="color_adver" title="광고주">광고주</button>
+                </div>
+                <ul>
+                    <li class="userName"><span class="modalOpen">담당자명</span>님</li>
+                    <li>담당자 : </li>
+                    <li>운영관리자 : </li>
+                    <li>담당 연락처 :<span>등록없음</span> </li>
+                </ul>
+            </div>
+            <div class="menu_search">
+                <div>
+                    <input type="text" id="searchLeftMenuGrid" placeholder="메뉴명 검색">
+                    <button type="button">검색</button>
+                </div>
+            </div>
+            <div>
+                <ul class="menu_list">
+                    <li class="home">
+                        <a class="on" href="#"><span class="menuName">대시보드</span></a>
+                    </li>
+                    <li class="campaign">
+                        <a href="#"><span class="menuName">캠페인 관리</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">캠페인 현황</a></li>
+                            <li><a href="javascript:void(0);">캠페인 등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="material">
+                        <a href="#"><span class="menuName">소재 관리</span></a>
+                    </li>
+                    <li class="report">
+                        <a href="#"><span class="menuName">보고서</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">일자별 보고서</a></li>
+                            <li><a href="javascript:void(0);">KPI별 보고서</a></li>
+                            <li><a href="javascript:void(0);">상품별 보고서</a></li>
+                            <li><a href="javascript:void(0);">소재별 보고서</a></li>
+                            <li><a href="javascript:void(0);">플랫폼별 보고서</a></li>
+                        </ul>
+                    </li>
+                    <li class="payment">
+                        <a href="#"><span class="menuName">결제</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="contents">
+            <!-- mva_dashboard 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+             다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+            <div class="mva_dashboard">
+                <div class="title">
+                    <div class="location">
+                        <span>Home</span>
+                    </div>
+                    <p>대시보드</p>
+                    <p>다양한 위젯을 조합하여 원하는 데이터를 한 눈에 보실 수 있습니다.</p>
+                </div>
+                <div class="content">
+                    <section class="grid_setting_Wrap">
+                        <button type="button" class="gs_btn"><i></i></button>
+                        <div class="gs_floating">
+                            <div class="title">
+                                <span>광고주센터 Dashboard</span>
+                            </div>
+                            <div class="gs_conts">
+                                <div class="top">
+                                    <div class="btn_wrap">
+                                        <button type="button" class="btn-l-m-br btn-darkgray">레이아웃 초기화</button>
+                                    </div>
+                                    <div class="radio_wrap">
+                                        <input type="radio" name="widget-onoff" id="widget-All" value="00" checked=""
+                                            hidden="">
+                                        <label for="widget-All">ALL</label>
+                                        <input type="radio" name="widget-onoff" id="widget-on" value="01" hidden="">
+                                        <label for="widget-on">ON</label>
+                                        <input type="radio" name="widget-onoff" id="widget-off" value="02" hidden="">
+                                        <label for="widget-off">OFF</label>
+                                    </div>
+                                </div>
+                                <div class="bottom">
+                                    <div class="checkBox">
+                                        <input type="checkbox" name="widget-check" id="widget-check00" value="00"
+                                            hidden="">
+                                        <label for="widget-check00">알림</label>
+                                        <input type="checkbox" name="widget-check" id="widget-check01" value="01"
+                                            hidden="">
+                                        <label for="widget-check01">실시간 데이터</label>
+                                        <input type="checkbox" name="widget-check" id="widget-check02" value="02"
+                                            hidden="">
+                                        <label for="widget-check02">캠페인 성과요약</label>
+                                        <input type="checkbox" name="widget-check" id="widget-check03" value="03"
+                                            hidden="">
+                                        <label for="widget-check03">캠페인 요약보기</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="grid_contents_wrap">
+                        <div class="grid-stack" id="grid-stack">
+                            <div class="grid-stack-item" gs-w="2" gs-h="3" gs-max-h="3">
+                                <div class="grid-stack-item-content">
+                                    <!-- dimCircle 추가 위치 -->
+                                    <section class="sec_operateStatus">
+                                        <!-- dataNoneArea 추가 위치 -->
+                                        <!-- <div class="box_operateStatus dataNoneArea"> -->
+                                        <div class="box_operateStatus dataNoneArea">
+                                            <div class="tit">
+                                                <p>캠페인 운영현황</p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="dataNone">
+                                                    <strong> 비디오애드를 시작하세요!</strong>
+                                                    <p>인플루언서 연계까지 한 번에 끝내는 쉬운 동영상 광고</p>
+                                                    <button>VA 신청</button>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>당월 캠페인 운영 건수</th>
+                                                                    <th>당월 캠페인 종료 건수</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <span>512</span>건 </td>
+                                                                    <td>
+                                                                        <span>512</span>건 </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>전월 캠페인 운영 건수</th>
+                                                                    <th>전월 캠페인 종료 건수</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <span>51</span>건 </td>
+                                                                    <td>
+                                                                        <span>52</span>건 </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- box-->
+                            <div class="grid-stack-item" gs-w="2" gs-h="3" gs-max-h="3">
+                                <div class="grid-stack-item-content">
+                                    <!-- dimCircle 추가 위치 -->
+                                    <section class="sec_platform">
+                                        <!-- dataNoneArea 추가 위치 -->
+                                        <!-- <div class="box_platform dataNoneArea"> -->
+                                        <div class="box_platform">
+                                            <div class="tit">
+                                                <p>이번달 플랫폼 게시현황</p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="dataNone">
+                                                    <p>운영중인 캠페인이 없습니다.</p>
+                                                    <button type="button">캠페인 생성</button>
+                                                </div>
+                                                <div class="graphArea">
+                                                    <div class="graphBox">
+                                                        <div class="graphTitle">
+                                                            <p>총 게시글<span>200</span></p>
+                                                        </div>
+                                                        <div class="graph"
+                                                            style="border:1px solid #000; width: 200px; height:200px">
+                                                            #f65859, #874bce, #2ec470, #38e9e5, #f7c868 </div>
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p><span>유튜브</span><span>6,255,000</span></p>
+                                                        <p><span>인스타그램</span><span>6,255,000,000,000,123,455</span>
+                                                        </p>
+                                                        <p><span>네이버클립</span><span>6,255</span>
+                                                        </p>
+                                                        <p><span>틱톡</span><span>6,255</span>
+                                                        </p>
+                                                        <p><span>기타</span><span>6,255</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- box-->
+                            <div class="grid-stack-item" gs-w="2" gs-h="3" gs-max-h="3">
+                                <div class="grid-stack-item-content">
+                                    <!--// box end -->
+                                    <section class="sec_summaryResult">
+                                        <div class="box_summaryResult">
+                                            <div class="tit">
+                                                <p>성과 요약</p>
+                                            </div>
+                                            <!-- dataNoneArea 추가 위치 -->
+                                            <!-- <div class="cont dataNoneArea"> -->
+                                            <div class="cont">
+                                                <div class="dataNone">
+                                                    <p>데이터가 없습니다.</p>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>당월 소진금액</th>
+                                                                    <th>당월 유입</th>
+                                                                    <th>당월 전환</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <span>512,123</span>원</td>
+                                                                    <td><span>10</span>건</td>
+                                                                    <td><span>10</span>건</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>전월 소진금액</th>
+                                                                    <th>전월 유입</th>
+                                                                    <th>전월 전환</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <span>512,123</span>원</td>
+                                                                    <td><span>10</span>건</td>
+                                                                    <td><span>10</span>건</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- box-->
+                            <!-- 데이터 없을 때 하단 h값을 6 > 3으로 변경해야함 -->
+                            <!-- <div class="grid-stack-item" gs-w="6" gs-h="3" gs-max-h="3"> -->
+                            <div class="grid-stack-item" gs-w="6" gs-h="6" gs-max-h="6">
+                                <div class="grid-stack-item-content">
+                                    <!-- dimCircle 추가 위치 -->
+                                    <section class="sec_vedioType">
+                                        <!-- dataNoneArea 추가 위치 -->
+                                        <!-- <div class="box_list dataNoneArea"> -->
+                                        <div class=" box_list">
+                                            <div class="tit">
+                                                <p>소재별 현황</p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="dataNone">
+                                                    <div>
+                                                        <p>운영 가능한 소재가 없습니다.</p>
+                                                        <button type="button">소재 생성</button>
+                                                    </div>
+                                                    <div class="guideBox">
+                                                        <p>1. 상품수집상품수집</p>
+                                                        <p>VA 신청 후 상품정보를 수집합니다. </p>
+                                                        <p>2. 소재 영상화 작업</p>
+                                                        <p>수집된 상품정보를 기반으로 영상에 사용될 소재들을 제작합니다.</p>
+                                                        <p>3. 영상 소재 제작</p>
+                                                        <p>소재들을 기반으로 상품별 영상 소재를 제작합니다.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="listArea">
+                                                    <div class="list">
+                                                        <div class="previewList slide show">
+                                                            <div class="box">
+                                                                <img src="../../image/test/product_01.png" alt="">
+                                                            </div>
+                                                            <div class="box">
+                                                                <img src="../../image/test/product_01.png" alt="">
+                                                            </div>
+                                                            <div class="box">
+                                                                <img src="../../image/test/product_01.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <div class="previewList slide show">
+                                                            <div class="box">
+                                                                <video controls>
+                                                                    <source src="../../image/test/video.mp4"
+                                                                        type="video/mp4">
+                                                                </video>
+                                                            </div>
+                                                            <div class="box">
+                                                                <video controls>
+                                                                    <source src="../../image/test/video.mp4"
+                                                                        type="video/mp4">
+                                                                </video>
+                                                            </div>
+                                                            <!-- <div class="box">
+                                                                <video controls>
+                                                                    <source src="../../image/test/shorts.mp4"
+                                                                        type="video/mp4">
+                                                                </video>
+                                                            </div> -->
+                                                        </div>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <!-- <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <video controls>
+                                                            <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                        </video>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <video controls>
+                                                            <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                        </video>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <video controls>
+                                                            <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                        </video>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <video controls>
+                                                            <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                        </video>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list">
+                                                        <video controls>
+                                                            <source src="../../image/test/shorts.mp4" type="video/mp4">
+                                                        </video>
+                                                        <div class="prodInfo">
+                                                            <div class="prodName">
+                                                                <p>캠페인:<span>캠페인명을 가져와 주세요.</span></p>
+                                                                <p>상품명:<span>상품명을 가져오기 넘어가면 어떻게 나올까요.</span></p>
+                                                            </div>
+                                                            <div class="prodDetail">
+                                                                <span>게시건수 : 45건</span>
+                                                                <span>조회수 : 60,123건</span>
+                                                                <span>클릭수 : 60,123건</span>
+                                                                <span>전환수 : 521</span>
+                                                                <span>전환율 : 0.04%</span>
+                                                                <span>총매출 : 0.04%</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- box-->
+                            <!-- 소재별 보고서 -->
+                            <!-- 데이터 없을 때 하단 h값을 6 > 2으로 변경해야함 -->
+                            <div class="grid-stack-item" gs-w="6" gs-h="6" gs-max-h="6">
+                                <div class="grid-stack-item-content">
+                                    <!-- dimCircle 추가 위치 -->
+                                    <section class="sec_listType">
+                                        <!-- <div class="box_list dataNoneArea"> -->
+                                        <div class="box_list">
+                                            <div class="tit">
+                                                <p>운영중 소재 리포트</p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <!-- dataNoneArea 추가 위치 -->
+                                            <!-- dimCircle 클래스 추가 위치 -->
+                                            <div class="cont">
+                                                <!-- dataNone 태그는 제일 앞쪽에 위치해야함 dataNone 기준으로 뒤에 태그들이 display:none 됌  -->
+                                                <div class="dataNone">
+                                                    <p>운영중인 캠페인이 없습니다.</p>
+                                                    <!-- <button type="button">캠페인 생성</button> -->
+                                                </div>
+                                                <div class="optionBox">
+                                                    <div class="radioBox">
+                                                        <p>유형</p>
+                                                        <input type="radio" name="rd_type" id="rd_type2" checked>
+                                                        <label for="rd_type2">CPC</label>
+                                                        <input type="radio" name="rd_type" id="rd_type3">
+                                                        <label for="rd_type3">CPV</label>
+                                                    </div>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <!-- table 스크롤 생기게 하고 싶을 때 tableBox 에 높이값(max-height) 추가-->
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="sort">소재</th>
+                                                                    <th class="sort">캠페인</th>
+                                                                    <th class="sort">조회</th>
+                                                                    <th class="sort">유입</th>
+                                                                    <th class="sortUp">전환수</th>
+                                                                    <th class="sortDown">전환수</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>전체소재<span>00개</span></th>
+                                                                    <th>10,999,888</th>
+                                                                    <th>1,999,888</th>
+                                                                    <th>7%</th>
+                                                                    <th>521</th>
+                                                                    <th>0.229%</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="../../image/test/product_01.png"
+                                                                            alt="">
+                                                                        <p>캠페인_20241109캠페인_20241109캠페인_20241109</p>
+                                                                        <button type="button" class="set">설정</button>
+                                                                    </td>
+                                                                    <td><a href="#">상품캠페인_202408261450</a></td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #ff5d6d, #1795e1 </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #84b64d </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #38a6e9 </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>0.3%</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="../../image/test/product_01.png"
+                                                                            alt="">
+                                                                        <p>캠페인_20241109캠페인_20241109캠페인_20241109</p>
+                                                                        <button type="button" class="set">설정</button>
+                                                                    </td>
+                                                                    <td><a href="#">상품캠페인_202408261450</a></td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #ff5d6d, #1795e1 </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #84b64d </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="graphBox">
+                                                                            <div class="graph"
+                                                                                style="width: 230px; height: 100px; border:1px solid #eee">
+                                                                                #38a6e9 </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>0.3%</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>&nbsp;</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="tableDataNone">
+                                                        <div>
+                                                            <p>보고서가 없습니다.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="paging">
+                                                        <ul>
+                                                            <!-- <li class="prev-list"><a href="javascript:pageLink(0);"></a></li> -->
+                                                            <li class="prev"><a href="javascript:pageLink(0);"></a>
+                                                            </li>
+                                                            <li class="on"><a href="javascript:pageLink(1);">1</a>
+                                                            </li>
+                                                            <li><a href="javascript:pageLink(2);">2</a></li>
+                                                            <li><a href="javascript:pageLink(3);">3</a></li>
+                                                            <li><a href="javascript:pageLink(4);">4</a></li>
+                                                            <li><a href="javascript:pageLink(5);">5</a></li>
+                                                            <li><a href="javascript:pageLink(6);">6</a></li>
+                                                            <li><a href="javascript:pageLink(7);">7</a></li>
+                                                            <li><a href="javascript:pageLink(8);">8</a></li>
+                                                            <li><a href="javascript:pageLink(9);">9</a></li>
+                                                            <li><a href="javascript:pageLink(10);">10</a></li>
+                                                            <li class="next"><a href="javascript:pageLink(10+1);"></a>
+                                                            </li>
+                                                            <!-- <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li> -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 일자별 리포트 -->
+                            <!-- 데이터 없을 때 하단 h값을 6 > 2으로 변경해야함 -->
+                            <div class="grid-stack-item" gs-w="6" gs-h="6" gs-max-h="6">
+                                <div class="grid-stack-item-content">
+                                    <!-- dimCircle 추가 위치 -->
+                                    <section class="sec_listDay">
+                                        <!-- <div class="box_list dataNoneArea"> -->
+                                        <div class="box_list">
+                                            <div class="tit">
+                                                <p>일자별 보고서</p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <!-- dataNoneArea 추가 위치 -->
+                                            <!-- dimCircle 클래스 추가 위치 -->
+                                            <div class="cont">
+                                                <!-- dataNone 태그는 제일 앞쪽에 위치해야함 dataNone 기준으로 뒤에 태그들이 display:none 됌  -->
+                                                <div class="dataNone">
+                                                    <p>운영중인 캠페인이 없습니다.</p>
+                                                    <!-- <button type="button">캠페인 생성</button> -->
+                                                </div>
+                                                <div class="optionBox">
+                                                    <div class="radioBox">
+                                                        <p>유형</p>
+                                                        <input type="radio" name="rd_type" id="rd_type2" checked>
+                                                        <label for="rd_type2">CPC</label>
+                                                        <input type="radio" name="rd_type" id="rd_type3">
+                                                        <label for="rd_type3">CPV</label>
+                                                    </div>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <!-- table 스크롤 생기게 하고 싶을 때 tableBox 에 높이값(max-height) 추가-->
+                                                    <div class="tableBox">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="sort">일자</th>
+                                                                    <th class="sort">노출</th>
+                                                                    <th class="sort">클릭수</th>
+                                                                    <th class="sort">전환수</th>
+                                                                    <th class="sort">전환율</th>
+                                                                    <th class="sort">상품수</th>
+                                                                    <th class="sort">직접매출</th>
+                                                                    <th class="sort">소진금액</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>08-01</td>
+                                                                    <td>4,123</td>
+                                                                    <td>3,223</td>
+                                                                    <td>40</td>
+                                                                    <td>0.08%</td>
+                                                                    <td>44</td>
+                                                                    <td>88,001</td>
+                                                                    <td>11,999</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sat">08-02</td>
+                                                                    <td>4,123</td>
+                                                                    <td>3,223</td>
+                                                                    <td>40</td>
+                                                                    <td>0.08%</td>
+                                                                    <td>44</td>
+                                                                    <td>88,001</td>
+                                                                    <td>11,999</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="sun">08-02</td>
+                                                                    <td>4,123</td>
+                                                                    <td>3,223</td>
+                                                                    <td>40</td>
+                                                                    <td>0.08%</td>
+                                                                    <td>44</td>
+                                                                    <td>88,001</td>
+                                                                    <td>11,999</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="tableDataNone">
+                                                        <div>
+                                                            <p>보고서가 없습니다.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="paging">
+                                                        <ul>
+                                                            <!-- <li class="prev-list"><a href="javascript:pageLink(0);"></a></li> -->
+                                                            <li class="prev"><a href="javascript:pageLink(0);"></a>
+                                                            </li>
+                                                            <li class="on"><a href="javascript:pageLink(1);">1</a>
+                                                            </li>
+                                                            <li><a href="javascript:pageLink(2);">2</a></li>
+                                                            <li><a href="javascript:pageLink(3);">3</a></li>
+                                                            <li><a href="javascript:pageLink(4);">4</a></li>
+                                                            <li><a href="javascript:pageLink(5);">5</a></li>
+                                                            <li><a href="javascript:pageLink(6);">6</a></li>
+                                                            <li><a href="javascript:pageLink(7);">7</a></li>
+                                                            <li><a href="javascript:pageLink(8);">8</a></li>
+                                                            <li><a href="javascript:pageLink(9);">9</a></li>
+                                                            <li><a href="javascript:pageLink(10);">10</a></li>
+                                                            <li class="next"><a href="javascript:pageLink(10+1);"></a>
+                                                            </li>
+                                                            <!-- <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li> -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trash ui-droppable"></div>
+                    </section>
+                    <!--// section end -->
+                </div>
+            </div>
+        </section>
+        <!--// contnets end -->
+        <footer>
+            <ul>
+                <li>(주)인라이플</li>
+                <li>사업자번호:113-86-60934</li>
+                <li>사업자:한경훈</li>
+                <li>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</li>
+            </ul>
+            <ul>
+                <li><a href="tel:070-4672-2303">TEL .070-4672-2303</a></li>
+                <li>FAX .02-865-6845</li>
+                <li><a href="mail:mobon@enliple.com">E-mail : mobon@enliple.com</a></li>
+            </ul>
+            <p>Copyright(c) 2012 모비온 All rights reserved. </p>
+        </footer>
+    </div>
+    <!--// wrap end -->
+    <!-- 위젯 -->
+    <script type="text/javascript">
+        let option = {
+            column: 6,
+            minRow: 3,
+            cellHeight: '130px',
+            placeholderClass: 'placeholder-content',
+            removable: '.trash',
+            disableOneColumnMode: true,
+            float: false,
+            resizable: {
+                handles: 'none'
+            }
+        };
+        let grid = GridStack.init(option);
+        let trash = document.querySelector('.trash');
+        grid.on('dragstart', function () {
+            trash.classList.add('on');
+            gridArea.classList.add('ani');
+        });
+        grid.on('dragstop', function () {
+            trash.classList.remove('on');
+            gridArea.classList.remove('ani');
+        });
+        grid.on('removed', function () {
+            if ($('.grid-stack-item').length == 1) {
+                $('.no_layout').css('display', 'flex');
+            }
+        });
+        let gsSettingBtn = document.querySelector('.gs_btn');
+        let gsSettingUl = document.querySelector('.gs_floating');
+        gsSettingBtn.addEventListener('click', function () {
+            gsSettingUl.classList.toggle('on');
+        });
+        let gridArea = document.querySelector('.grid-stack');
+        let gridTrash = document.querySelector('.trash');
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                $('.trash').css('bottom', '100px')
+            } else {
+                $('.trash').css('bottom', '0')
+            }
+        });
+    </script>
+</body>
+
+</html>

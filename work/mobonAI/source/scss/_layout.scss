@@ -1,0 +1,863 @@
+@charset 'utf-8';
+
+/*
+File   : layout.scss
+Date   : 2024.07.25
+*/
+
+
+//* html */
+html {
+  min-height: -webkit-fill-available;
+  color: $ftColor;
+
+  // ::-webkit-scrollbar {
+  //   @include scrollbar;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   @include scrollbar_thumb;
+  // }
+}
+
+
+//* wrap */
+.wrap {
+  position: relative;
+  width: 100%;
+  //min-width: 1920px; 
+  min-width: 1900px;
+  color: $ftColor;
+  background-color: $bgColor;
+}
+
+
+//* header */
+.header {
+  @include flex($j:left, $g:16px);
+  position: realtive;
+  width: 100%;
+  height: 70px;
+  padding: 0 30px 0 0;
+  border-bottom: 1px solid $gray_f;
+  color: $color_main_txt;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: all 0.4s;
+  z-index: 9999;
+
+  h1 {
+    width: 250px;
+    height: 100%;
+    padding: 23px 0 0 20px;
+    box-shadow: 2px -1px 8px 0 rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: all 0.3s;
+
+    // .minimization & {
+    //   width: 70px;
+    //   overflow: hidden;
+    // }
+
+    a {
+      @include txtHide;
+      // @include flex($g:8px, $j:left);
+      // @include ftb;
+      width: 200px;
+      // font-size: 18px;
+      word-break: keep-all;
+      transition: all 0.3s;
+
+      &:before {
+        @include ico;
+        // @include logo_videoAD;
+        // max-width: 112px;
+      }
+    }
+  }
+
+  // hamberger
+  button {
+    &.menuToggle {
+      @include flex($d:column, $g:auto);
+      width: 20px;
+      height: 14px;
+      padding: 0;
+      margin-left: 18px;
+      cursor: pointer;
+
+      span {
+        display: none;
+        @include txtHide();
+      }
+
+      i {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 1px;
+        background: #272727;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  // home, 모비온
+  >ul {
+    @include flex($g:60px);
+
+    >li {
+      position: relative;
+      font-size: 16px;
+      @include ftm;
+    }
+  }
+
+  // header 우측 네비
+  .sideNav {
+    margin-left: auto;
+
+    >ul {
+      @include flex($g:20px);
+
+      >li {
+        position: relative;
+
+        a,
+        button {
+          font-size: 16px;
+          @include ftm;
+
+          // 튠720
+          &.menuMore {
+            line-height: 1;
+
+            &+ul {
+              position: absolute;
+              top: 30px;
+              left: 0;
+              z-index: 999;
+              width: 130px;
+              max-height: 0;
+              background: #fff;
+              border: 1px solid transparent;
+              border-radius: 4px;
+              overflow: hidden;
+              transition: all 0.3s;
+
+              li {
+                padding: 10px;
+                box-sizing: border-box;
+
+                a {
+                  display: block;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            &.on+ul {
+              max-height: 1000px;
+              border-color: $brdColor;
+            }
+          }
+
+          // 알림, 유저정보
+          &.alert,
+          &.userInfo {
+            @include ico;
+          }
+
+          &.alert {
+            // @include ico_alarm;
+          }
+
+          &.userInfo {
+            // @include userinfo;
+          }
+        }
+
+        .headeralert,
+        .userinfo {
+          display: inline-block;
+          width: 21px;
+          height: 21px;
+          vertical-align: middle;
+          @include txtHide();
+
+          &~div {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            border: solid 1px #eee;
+            border-radius: 5px;
+            background-color: #fff;
+            overflow: hidden;
+
+            &.on {
+              display: block;
+            }
+          }
+        }
+
+        .headeralert {
+          &+span {
+            position: absolute;
+            top: 3px;
+            right: -8px;
+            text-align: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            color: $ftColor4;
+            line-height: 16px;
+            font-size: 8px;
+            background-color: $pointColor;
+          }
+
+          &~div {
+            width: 775px;
+            max-height: 537px;
+            padding: 25px 30px;
+            box-sizing: border-box;
+            color: #333;
+            z-index: 850;
+
+            h5 {
+              @include ftm;
+              font-size: 18px;
+              font-weight: normal;
+            }
+
+            .setTypeBox {
+              overflow: hidden;
+              margin: 20px 0;
+
+              >div {
+                display: inline-block;
+              }
+
+              .setType {
+                @include flex($a:center, $j:start, $g:16px);
+                border-radius: 5px;
+                height: 36px;
+                padding: 0 20px 0 0;
+                border: 1px solid $pointColor;
+                background-color: $white;
+
+                h4 {
+                  @include flex($f:inline-flex);
+                  height: 100%;
+                  padding: 0 15px;
+                  color: $ftColor4;
+                  border-radius: 5px 0 0 5px;
+                  background-color: $pointColor;
+                }
+
+                // 유형설정 
+                input[type="radio"] {
+                  @include radio($m:0 10px 0 0);
+                }
+              }
+
+              &+div {
+                label {
+                  float: none;
+                  display: inline-block;
+                  margin: 0 7px 0 0;
+                  vertical-align: middle;
+                  font-size: 13px;
+                }
+
+                button {
+                  margin: 0 0 0 3px;
+                  padding: 6px 14px;
+                  border: 1px solid #eee;
+                  color: #333;
+                  font-size: 13px;
+                  vertical-align: middle;
+                  box-shadow: none;
+                  background-color: #fff;
+
+                  &:nth-of-type(1) {
+                    @include ico;
+                    // @include ico_reset;
+                    width: 30px;
+                    height: 30px;
+                    padding: 0;
+                    margin: 0 0 0 10px;
+                    // text-indent: -5000000000000px;
+                    overflow: hidden;
+                    // background: url("../images/common/history-solid02.png") center no-repeat;
+                    // cursor: pointer;
+                  }
+                }
+              }
+            }
+
+            ul {
+              max-height: 280px;
+              margin: 30px 0;
+              overflow: hidden;
+              overflow-y: auto;
+
+              &::-webkit-scrollbar {
+                width: 5px;
+                /*스크롤바의 너비*/
+              }
+
+              li {
+                position: relative;
+                padding: 0 0 25px 35px;
+
+                &::before {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 9px;
+                  width: 4px;
+                  height: 100%;
+                  background-color: #ececec;
+                }
+
+                &:last-child {
+                  padding: 0 0 0 35px;
+
+                  &::before {
+                    height: 50px;
+                  }
+                }
+
+                span {
+                  position: relative;
+                  display: block;
+
+                  &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: -33px;
+                    width: 18px;
+                    height: 18px;
+                    background-color: $pointColor;
+                    border-radius: 50%;
+                  }
+
+                  &:nth-child(1) {
+                    @include ftm;
+                    margin: 0 0 20px 0;
+                    font-size: 14px;
+                  }
+
+                  &:nth-child(2) {
+                    padding: 10px 20px 10px 16px;
+                    background-color: #f3f3f3;
+                    border: 1px solid #ececec;
+                    font-size: 14px;
+                    cursor: pointer;
+
+                    &::before {
+                      top: 11px;
+                      left: -36px;
+                      background-color: #fff;
+                      border: 2px solid #ececec;
+                    }
+
+                    &::after {
+                      content: '';
+                      display: block;
+                      clear: both;
+                    }
+
+                    i {
+                      display: inline-block;
+                      vertical-align: middle;
+                      max-width: 115px;
+                      min-width: 70px;
+                      padding: 6px 15px;
+                      color: $ftColor4;
+                      border-radius: 50px;
+                      margin-right: 12px;
+                      font-style: normal;
+                      font-size: 12px;
+                      text-align: center;
+                      box-sizing: border-box;
+                      background-color: $pointColor;
+                    }
+
+                    p {
+                      display: inline-block;
+                      vertical-align: middle;
+                      max-width: 475px;
+                      margin: 1px 0 0;
+                      line-height: 1.5;
+                    }
+
+                    button {
+                      // @include ico_searchClose;
+                      position: absolute;
+                      right: 20px;
+                      top: calc(50% - 7px);
+                      margin: 0;
+                      width: 14px;
+                      height: 14px;
+                      padding: 0;
+                      margin: 0px 0 0;
+                      text-indent: -5000000000000px;
+                      overflow: hidden;
+                      // background: url("../images/common/icon-close-x.png") center no-repeat;
+                      box-shadow: none;
+                      cursor: pointer;
+                    }
+
+                    &:hover {
+                      p {
+                        text-decoration: underline;
+                      }
+                    }
+                  }
+                }
+
+                &.no {
+                  padding: 0;
+
+                  &::before {
+                    display: none;
+                  }
+
+                  span {
+                    &:nth-child(1) {
+                      display: none;
+                    }
+
+                    &:nth-child(2) {
+                      i {
+                        padding: 6px 15px;
+                        background-color: #707070;
+                      }
+                    }
+
+                    &::before {
+                      display: none;
+                    }
+                  }
+
+                  button {
+                    display: none;
+                  }
+                }
+
+                &.read {
+                  span {
+                    &:nth-child(2) {
+                      i {
+                        background-color: #ccc;
+                      }
+
+                      p {
+                        color: #777;
+                      }
+                    }
+                  }
+                }
+              }
+
+              +p {
+                max-width: 577px;
+                padding: 9px 0 8px;
+                margin: 0 auto;
+                background-color: #f3f3f3;
+                border-radius: 23px;
+                font-size: 12px;
+                color: #707070;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// minimization
+.wrap {
+  &.minimization {
+    header {
+      h1 {
+        width: 70px;
+
+        a {
+          @include ico;
+          width: 70px;
+
+          &:before {
+            // @include logo_mobonM;
+          }
+        }
+      }
+    }
+
+    nav {
+      width: 70px;
+      transition: all 0.3s;
+
+      .auth_title {
+        justify-content: center;
+        border-bottom: none;
+
+        h2 {
+          display: none;
+        }
+      }
+
+      .gubun_box_wrap {
+        display: none;
+      }
+
+      .menu_search {
+        @include bgimg();
+        // @include ico_search_gry;
+        border-top: none;
+        padding: 25px 0;
+        // background-image: url(../image/common/ico_search_gry.svg);
+        // background-size: 17px auto;
+        background-position: center top 20px;
+
+        >div {
+          display: none;
+        }
+      }
+
+      .menu_list {
+        >li {
+          >a {
+            justify-content: center;
+            padding: 15px;
+            color: $color_main_txt;
+            border: none;
+
+            .menuName {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .contents {
+      width: calc(100% - 70px);
+      margin-left: 70px;
+    }
+  }
+}
+
+
+
+
+//* navigation */
+.navigation {
+  @include mini();
+  position: absolute;
+  top: 70px;
+  left: 0;
+  min-height: calc(100vh - 70px);
+  height: -webkit-fill-available;
+  // color: $gray_a;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+
+  .auth_title {
+    @include flex();
+    height: 50px;
+    padding: 0 20px;
+    border-bottom: solid 1px $headerBorderColor;
+    color: $headerFtColor;
+
+    h2 {
+      @include ftm;
+      font-size: 14px;
+    }
+
+    .logout {
+      @include txtHide();
+      // @include ico_logout;
+      cursor: pointer;
+    }
+  }
+
+  .gubun_box_wrap {
+    position: relative;
+    padding: 18px 0 17px 20px;
+
+    .gubun_box {
+      position: absolute;
+      right: 20px;
+      width: 10px;
+
+      button {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 0 5px 0;
+        @include txtHide();
+        overflow: hidden;
+
+        &.color_agency {
+          background-color: $color_agency;
+        }
+
+        &.color_admin {
+          background-color: $color_admin;
+        }
+
+        &.color_adver {
+          background-color: $color_adver;
+        }
+      }
+    }
+
+    ul {
+      color: $ftColor;
+      line-height: 20px;
+
+      .userName {
+        margin-bottom: 8px;
+
+        >span {
+          // color: $pointColor;
+          @include ftm;
+        }
+      }
+
+      .userMoney {
+        margin-bottom: 10px;
+
+        >span {
+          @include ftb;
+          // color: #feee68;
+        }
+      }
+    }
+  }
+
+  .menu_search {
+    position: relative;
+    padding: 12px 0 12px 20px;
+    border-top: solid 1px $gray_f;
+
+    >div {
+      position: relative;
+      width: 210px;
+      background-color: #fff;
+      border-radius: 6px;
+      border: 1px solid $gray_d;
+      color: $color_main_txt;
+      transition: all 0.3s;
+
+      input {
+        width: 175px;
+        min-width: 175px;
+        padding: 8px 20px 7px;
+        border: none;
+        background-color: transparent;
+        color: $ftColor;
+        font-size: 14px;
+
+        &::placeholder {
+          color: $gray_a;
+        }
+      }
+
+      button {
+        // @include bgimg();
+        // @include txtHide();
+        @include ico;
+        // @include ico_search_gry;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        // margin-top: -5px;
+        vertical-align: middle;
+        // background: url("../images/common/icon-search-gray.svg");
+
+        &.on {
+          // @include ico_searchClose;
+          // background: url("../images/common/icon-x-gray.png");
+        }
+      }
+
+      .searchLeftMenuGridListWarp {
+        position: absolute;
+        display: none;
+        top: 33px;
+        left: -1px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 6px;
+        border: 1px solid $gray_b;
+        color: $color_main_txt;
+        z-index: 999;
+
+        &.on {
+          display: block;
+        }
+
+        ul {
+          li {
+            padding: 0 15px 10px;
+            font-size: 14px;
+            line-height: 1.25;
+
+            &:first-child {
+              padding-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu_list {
+    >li {
+      &:last-child {
+        border-bottom: 1px solid $navBorder;
+      }
+
+      >a {
+        @include flex($j:left);
+        @include transition;
+        padding: 15px 10px 15px 20px;
+        font-size: 16px;
+        border-top: 1px solid $navBorder;
+        border-right: 5px solid transparent;
+        color: $gray_a;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 22px;
+          height: 22px;
+          @include bgimg();
+        }
+
+        &:after {
+          @include ico($p:absolute);
+          // @include ico_navArrow_off;
+          right: 20px;
+        }
+
+        &.on {
+          color: $navFtColor_on;
+          border-right-color: $pointColor;
+
+          // background-color: $color_bg;
+          &:after {
+            @include ico($p:absolute);
+            // @include ico_navArrow_on;
+            right: 20px;
+          }
+        }
+      }
+
+      // 2deps 
+      >ul {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+
+        >li {
+          >a {
+            @include transition;
+            display: block;
+            padding: 15px 10px 15px 50px;
+            font-size: 14px;
+            color: $navFtColor2;
+            background-color: $navBgColor3;
+
+            &.on {
+              color: $navFtColor_on;
+              background-color: $navBgColor_on2;
+            }
+
+            &:hover {
+              color: $navFtColor_on;
+            }
+          }
+        }
+      }
+    }
+
+    //메뉴추가시 아래 리스트에 li클래스명 추가 및 이미지 파일명 양식 맞춰주시면 됩니다.
+    $menuList : ('home', 'campaign', 'material', 'report', 'payment');
+
+    @each $menu in $menuList {
+      .#{$menu} {
+        a::before {
+          background-image: url("../image/menu/menu_#{$menu}.svg");
+        }
+      }
+    }
+  }
+}
+
+
+//* contents */
+.contents {
+  @include transition();
+  width: calc(100% - 250px);
+  min-height: 1000px;
+  margin: 0 0 45px 250px;
+  padding: 30px;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    clear: both;
+  }
+
+  ::-webkit-scrollbar {
+    @include scrollbar;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include scrollbar_thumb;
+  }
+}
+
+//* footer */
+footer {
+  @include maxLayout();
+  padding: 25px 0;
+  position: relative;
+  font-size: 13px;
+  color: $gray_4;
+  line-height: 1.5;
+  text-align: center;
+  box-sizing: border-box;
+
+  ul {
+    li {
+      display: inline-block;
+      font-size: 13px;
+
+      &:not(:last-child)::after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 10px;
+        margin: 0 8px;
+        background: $gray_4;
+      }
+    }
+  }
+}

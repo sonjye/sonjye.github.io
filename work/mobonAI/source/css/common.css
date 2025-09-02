@@ -1,0 +1,3321 @@
+@charset "UTF-8";
+/*
+Explain : MOBON VIDEO AD
+File : common.scss 
+Date : 2025.03.13
+Version : 1.1.28
+*/
+/*
+z-index 순서
+# timepicker : 999
+# herder > menuMore  : 999
+# modal, modalDim: 999, 998
+# dashboard > setting icon : 980
+# header>sideNav>div hover(layoutNoticeLog) :850
+# tooltipHover, userMenu : 800,801
+# dimDot, dimCircle : 701
+# dimText : 700 // dimCircle, dimDot과 동일 z-index면 dimCircle 안먹음
+# selectDiv : 600
+# 캠페인리스트 : 500-1
+# 날짜(dateList) : 10
+*/
+/*
+File   : font.scss
+Date   : 2024.06.13
+*/
+@font-face {
+  font-family: "Pretendard_Thin";
+  src: url("../font/Pretendard-Thin.eot");
+  src: url("../font/Pretendard-Thin.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Thin.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Light";
+  src: url("../font/Pretendard-Light.eot");
+  src: url("../font/Pretendard-Light.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Medium";
+  src: url("../font/Pretendard-Medium.eot");
+  src: url("../font/Pretendard-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_SemiBold";
+  src: url("../font/Pretendard-SemiBold.eot");
+  src: url("../font/Pretendard-SemiBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Bold";
+  src: url("../font/Pretendard-Bold.eot");
+  src: url("../font/Pretendard-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_ExtraBold";
+  src: url("../font/Pretendard-ExtraBold.eot");
+  src: url("../font/Pretendard-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-ExtraBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Black";
+  src: url("../font/Pretendard-Black.eot");
+  src: url("../font/Pretendard-Black.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Black.woff") format("woff");
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  font-family: "Pretendard_Light";
+}
+
+button {
+  font-family: inherit;
+}
+
+/*
+File   : color.scss
+Date   : 2025.02.27
+*/
+/* 광고주센터 공통 색상 */
+/* 광고주 */
+/* 대행사 */
+/* 관리자 */
+/* 추가 색상 */
+/*
+File   : image.scss
+Date   : 2025.01.15
+*/
+/*
+File   : mixin.scss
+Date   : 2024.11.13
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+File   : layout.scss
+Date   : 2024.07.25
+*/
+html {
+  min-height: -webkit-fill-available;
+  color: #000000;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  min-width: 1900px;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  position: realtive;
+  width: 100%;
+  height: 70px;
+  padding: 0 30px 0 0;
+  border-bottom: 1px solid #f3f2f2;
+  color: #1e1e1e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  z-index: 9999;
+}
+.header h1 {
+  width: 250px;
+  height: 100%;
+  padding: 23px 0 0 20px;
+  -webkit-box-shadow: 2px -1px 8px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 2px -1px 8px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.header h1 a {
+  text-indent: -999999px;
+  font-size: 0;
+  width: 200px;
+  word-break: keep-all;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.header h1 a:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+}
+.header button.menuToggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: auto;
+  width: 20px;
+  height: 14px;
+  padding: 0;
+  margin-left: 18px;
+  cursor: pointer;
+}
+.header button.menuToggle span {
+  display: none;
+  text-indent: -999999px;
+  font-size: 0;
+}
+.header button.menuToggle i {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background: #272727;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.header > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 60px;
+}
+.header > ul > li {
+  position: relative;
+  font-size: 16px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+.header .sideNav {
+  margin-left: auto;
+}
+.header .sideNav > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.header .sideNav > ul > li {
+  position: relative;
+}
+.header .sideNav > ul > li a,
+.header .sideNav > ul > li button {
+  font-size: 16px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+.header .sideNav > ul > li a.menuMore,
+.header .sideNav > ul > li button.menuMore {
+  line-height: 1;
+}
+.header .sideNav > ul > li a.menuMore + ul,
+.header .sideNav > ul > li button.menuMore + ul {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+  width: 130px;
+  max-height: 0;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.header .sideNav > ul > li a.menuMore + ul li,
+.header .sideNav > ul > li button.menuMore + ul li {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.header .sideNav > ul > li a.menuMore + ul li a,
+.header .sideNav > ul > li button.menuMore + ul li a {
+  display: block;
+  font-size: 14px;
+}
+.header .sideNav > ul > li a.menuMore.on + ul,
+.header .sideNav > ul > li button.menuMore.on + ul {
+  max-height: 1000px;
+  border-color: #c6c6c6;
+}
+.header .sideNav > ul > li a.alert, .header .sideNav > ul > li a.userInfo,
+.header .sideNav > ul > li button.alert,
+.header .sideNav > ul > li button.userInfo {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+}
+.header .sideNav > ul > li .headeralert,
+.header .sideNav > ul > li .userinfo {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  vertical-align: middle;
+  text-indent: -999999px;
+  font-size: 0;
+}
+.header .sideNav > ul > li .headeralert ~ div,
+.header .sideNav > ul > li .userinfo ~ div {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #eee;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+}
+.header .sideNav > ul > li .headeralert ~ div.on,
+.header .sideNav > ul > li .userinfo ~ div.on {
+  display: block;
+}
+.header .sideNav > ul > li .headeralert + span {
+  position: absolute;
+  top: 3px;
+  right: -8px;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: #aaaaaa;
+  line-height: 16px;
+  font-size: 8px;
+  background-color: #4696ff;
+}
+.header .sideNav > ul > li .headeralert ~ div {
+  width: 775px;
+  max-height: 537px;
+  padding: 25px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #333;
+  z-index: 850;
+}
+.header .sideNav > ul > li .headeralert ~ div h5 {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox {
+  overflow: hidden;
+  margin: 20px 0;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox > div {
+  display: inline-block;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  border-radius: 5px;
+  height: 36px;
+  padding: 0 20px 0 0;
+  border: 1px solid #4696ff;
+  background-color: #ffffff;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType h4 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 0 15px;
+  color: #aaaaaa;
+  border-radius: 5px 0 0 5px;
+  background-color: #4696ff;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio] {
+  display: none;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio] + label {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio] + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_off.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  content: "";
+  vertical-align: middle;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio]:not(:last-of-type) + label {
+  margin: 0 10px 0 0;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio]:checked + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_on.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  vertical-align: middle;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio]:disabled + label {
+  color: #cbcbcb;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox .setType input[type=radio]:disabled + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_disabled.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-size: auto;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox + div label {
+  float: none;
+  display: inline-block;
+  margin: 0 7px 0 0;
+  vertical-align: middle;
+  font-size: 13px;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox + div button {
+  margin: 0 0 0 3px;
+  padding: 6px 14px;
+  border: 1px solid #eee;
+  color: #333;
+  font-size: 13px;
+  vertical-align: middle;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #fff;
+}
+.header .sideNav > ul > li .headeralert ~ div .setTypeBox + div button:nth-of-type(1) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0 0 0 10px;
+  overflow: hidden;
+}
+.header .sideNav > ul > li .headeralert ~ div ul {
+  max-height: 280px;
+  margin: 30px 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.header .sideNav > ul > li .headeralert ~ div ul::-webkit-scrollbar {
+  width: 5px;
+  /*스크롤바의 너비*/
+}
+.header .sideNav > ul > li .headeralert ~ div ul li {
+  position: relative;
+  padding: 0 0 25px 35px;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 9px;
+  width: 4px;
+  height: 100%;
+  background-color: #ececec;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li:last-child {
+  padding: 0 0 0 35px;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li:last-child::before {
+  height: 50px;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span {
+  position: relative;
+  display: block;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -33px;
+  width: 18px;
+  height: 18px;
+  background-color: #4696ff;
+  border-radius: 50%;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(1) {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2) {
+  padding: 10px 20px 10px 16px;
+  background-color: #f3f3f3;
+  border: 1px solid #ececec;
+  font-size: 14px;
+  cursor: pointer;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2)::before {
+  top: 11px;
+  left: -36px;
+  background-color: #fff;
+  border: 2px solid #ececec;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2)::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2) i {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 115px;
+  min-width: 70px;
+  padding: 6px 15px;
+  color: #aaaaaa;
+  border-radius: 50px;
+  margin-right: 12px;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #4696ff;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2) p {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 475px;
+  margin: 1px 0 0;
+  line-height: 1.5;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2) button {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 7px);
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin: 0px 0 0;
+  text-indent: -5000000000000px;
+  overflow: hidden;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: pointer;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li span:nth-child(2):hover p {
+  text-decoration: underline;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no {
+  padding: 0;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no::before {
+  display: none;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no span:nth-child(1) {
+  display: none;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no span:nth-child(2) i {
+  padding: 6px 15px;
+  background-color: #707070;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no span::before {
+  display: none;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.no button {
+  display: none;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.read span:nth-child(2) i {
+  background-color: #ccc;
+}
+.header .sideNav > ul > li .headeralert ~ div ul li.read span:nth-child(2) p {
+  color: #777;
+}
+.header .sideNav > ul > li .headeralert ~ div ul + p {
+  max-width: 577px;
+  padding: 9px 0 8px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  border-radius: 23px;
+  font-size: 12px;
+  color: #707070;
+  text-align: center;
+}
+
+.wrap.minimization header h1 {
+  width: 70px;
+}
+.wrap.minimization header h1 a {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  width: 70px;
+}
+.wrap.minimization nav {
+  width: 70px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.wrap.minimization nav .auth_title {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: none;
+}
+.wrap.minimization nav .auth_title h2 {
+  display: none;
+}
+.wrap.minimization nav .gubun_box_wrap {
+  display: none;
+}
+.wrap.minimization nav .menu_search {
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  border-top: none;
+  padding: 25px 0;
+  background-position: center top 20px;
+}
+.wrap.minimization nav .menu_search > div {
+  display: none;
+}
+.wrap.minimization nav .menu_list > li > a {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px;
+  color: #1e1e1e;
+  border: none;
+}
+.wrap.minimization nav .menu_list > li > a .menuName {
+  display: none;
+}
+.wrap.minimization .contents {
+  width: calc(100% - 70px);
+  margin-left: 70px;
+}
+
+.navigation {
+  width: 250px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  min-height: calc(100vh - 70px);
+  height: -webkit-fill-available;
+  -webkit-box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+.minimization .navigation {
+  width: 70px;
+  overflow: hidden;
+}
+.navigation .auth_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 20px;
+  border-bottom: solid 1px #f3f2f2;
+  color: #1e1e1e;
+}
+.navigation .auth_title h2 {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 14px;
+}
+.navigation .auth_title .logout {
+  text-indent: -999999px;
+  font-size: 0;
+  cursor: pointer;
+}
+.navigation .gubun_box_wrap {
+  position: relative;
+  padding: 18px 0 17px 20px;
+}
+.navigation .gubun_box_wrap .gubun_box {
+  position: absolute;
+  right: 20px;
+  width: 10px;
+}
+.navigation .gubun_box_wrap .gubun_box button {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 0 5px 0;
+  text-indent: -999999px;
+  font-size: 0;
+  overflow: hidden;
+}
+.navigation .gubun_box_wrap .gubun_box button.color_agency {
+  background-color: #ffc000;
+}
+.navigation .gubun_box_wrap .gubun_box button.color_admin {
+  background-color: #5bb9f3;
+}
+.navigation .gubun_box_wrap .gubun_box button.color_adver {
+  background-color: #84b64d;
+}
+.navigation .gubun_box_wrap ul {
+  color: #000000;
+  line-height: 20px;
+}
+.navigation .gubun_box_wrap ul .userName {
+  margin-bottom: 8px;
+}
+.navigation .gubun_box_wrap ul .userName > span {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+.navigation .gubun_box_wrap ul .userMoney {
+  margin-bottom: 10px;
+}
+.navigation .gubun_box_wrap ul .userMoney > span {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+.navigation .menu_search {
+  position: relative;
+  padding: 12px 0 12px 20px;
+  border-top: solid 1px #f3f2f2;
+}
+.navigation .menu_search > div {
+  position: relative;
+  width: 210px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #dadada;
+  color: #1e1e1e;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.navigation .menu_search > div input {
+  width: 175px;
+  min-width: 175px;
+  padding: 8px 20px 7px;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  font-size: 14px;
+}
+.navigation .menu_search > div input::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+.navigation .menu_search > div input::-moz-placeholder {
+  color: #aaaaaa;
+}
+.navigation .menu_search > div input:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+.navigation .menu_search > div input::-ms-input-placeholder {
+  color: #aaaaaa;
+}
+.navigation .menu_search > div input::placeholder {
+  color: #aaaaaa;
+}
+.navigation .menu_search > div button {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+.navigation .menu_search > div .searchLeftMenuGridListWarp {
+  position: absolute;
+  display: none;
+  top: 33px;
+  left: -1px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #bfbfbf;
+  color: #1e1e1e;
+  z-index: 999;
+}
+.navigation .menu_search > div .searchLeftMenuGridListWarp.on {
+  display: block;
+}
+.navigation .menu_search > div .searchLeftMenuGridListWarp ul li {
+  padding: 0 15px 10px;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.navigation .menu_search > div .searchLeftMenuGridListWarp ul li:first-child {
+  padding-top: 10px;
+}
+.navigation .menu_list > li:last-child {
+  border-bottom: 1px solid #f3f2f2;
+}
+.navigation .menu_list > li > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  padding: 15px 10px 15px 20px;
+  font-size: 16px;
+  border-top: 1px solid #f3f2f2;
+  border-right: 5px solid transparent;
+  color: #aaaaaa;
+}
+.navigation .menu_list > li > a::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+.navigation .menu_list > li > a:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  right: 20px;
+}
+.navigation .menu_list > li > a.on {
+  color: #1e1e1e;
+  border-right-color: #4696ff;
+}
+.navigation .menu_list > li > a.on:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  right: 20px;
+}
+.navigation .menu_list > li > ul {
+  display: none;
+}
+.navigation .menu_list > li > ul.active {
+  display: block;
+}
+.navigation .menu_list > li > ul > li > a {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  padding: 15px 10px 15px 50px;
+  font-size: 14px;
+  color: #aaaaaa;
+  background-color: #f9f9f9;
+}
+.navigation .menu_list > li > ul > li > a.on {
+  color: #1e1e1e;
+  background-color: #f5f9ff;
+}
+.navigation .menu_list > li > ul > li > a:hover {
+  color: #1e1e1e;
+}
+.navigation .menu_list .home a::before {
+  background-image: url("../image/menu/menu_home.svg");
+}
+.navigation .menu_list .campaign a::before {
+  background-image: url("../image/menu/menu_campaign.svg");
+}
+.navigation .menu_list .material a::before {
+  background-image: url("../image/menu/menu_material.svg");
+}
+.navigation .menu_list .report a::before {
+  background-image: url("../image/menu/menu_report.svg");
+}
+.navigation .menu_list .payment a::before {
+  background-image: url("../image/menu/menu_payment.svg");
+}
+
+.contents {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: calc(100% - 250px);
+  min-height: 1000px;
+  margin: 0 0 45px 250px;
+  padding: 30px;
+  position: relative;
+}
+.contents:after {
+  display: block;
+  content: "";
+  width: 100%;
+  clear: both;
+}
+.contents ::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: transparent;
+}
+.contents ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+
+footer {
+  width: calc(100% - 250px);
+  margin: 0 0 0 250px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 25px 0;
+  position: relative;
+  font-size: 13px;
+  color: #4d4d4d;
+  line-height: 1.5;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.minimization footer {
+  width: calc(100% - 70px);
+  margin: 0 0 0 70px;
+}
+footer ul li {
+  display: inline-block;
+  font-size: 13px;
+}
+footer ul li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  margin: 0 8px;
+  background: #4d4d4d;
+}
+
+/*
+File   : content.scss
+Date   : 2024.07.30
+*/
+::-moz-selection {
+  color: #aaaaaa;
+  background: #4696ff;
+}
+::selection {
+  color: #aaaaaa;
+  background: #4696ff;
+}
+
+.hide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone {
+  display: none !important;
+}
+
+.pointColor {
+  color: var(--pointColor);
+}
+
+.txtOver {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.loadingBg {
+  position: fixed;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+.loadingBg p {
+  position: absolute;
+  top: calc(50% - 70px);
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4696ff;
+  z-index: 9999;
+}
+.loadingBg p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/loading/ico_loading.gif") no-repeat center;
+  content: "";
+  display: block;
+  width: 100px;
+  height: 80px;
+  margin: 0 auto 40px;
+  background-size: 100px 80px;
+  -webkit-animation: rotationLoading 1.2s infinite steps(9);
+          animation: rotationLoading 1.2s infinite steps(9);
+}
+.loadingBg p b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.loadingBg.complete {
+  display: none;
+  opacity: 0;
+  z-index: -999;
+}
+
+.dimCircle {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 701;
+}
+.dimCircle:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/loading/ico_loadingCircle.gif") no-repeat center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: inherit;
+  background-size: 50px 50px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  opacity: 0.8;
+  z-index: 701;
+}
+
+.dataNoneText {
+  display: none;
+}
+
+.dimText {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: 700;
+}
+.dimText > .dataNoneText {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  color: #000000;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  opacity: 0.8;
+  z-index: 700;
+}
+.dimText ul:not(.dataNoneText),
+.dimText div:not(.dataNoneText) {
+  display: none !important;
+}
+
+.dataNoneArea {
+  display: block;
+  height: -webkit-fill-available;
+}
+.dataNoneArea .dataNone {
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.dataNoneArea .dataNone ~ div,
+.dataNoneArea .dataNone ul {
+  display: none;
+}
+.dataNoneArea .dataNone > p {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dataNone {
+  display: none;
+}
+
+input {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 200px;
+  height: 40px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #000000;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
+}
+input:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background: #f3f3f3;
+}
+input:focus {
+  outline: none;
+}
+input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+input::-moz-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+input:-ms-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+input::-ms-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+input::placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+select {
+  background: url("../image/component2/ico_select.svg") no-repeat center;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 150px;
+  height: 40px;
+  padding: 4px 30px 4px 15px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #ffffff;
+  background-position-x: calc(100% - 15px);
+  outline: none;
+  cursor: pointer;
+}
+select option {
+  background-color: #ffffff;
+}
+select:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  opacity: 1;
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio] + label {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+input[type=radio] + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_off.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  content: "";
+  vertical-align: middle;
+}
+input[type=radio]:checked + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_on.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  vertical-align: middle;
+}
+input[type=radio]:disabled + label {
+  color: #cbcbcb;
+}
+input[type=radio]:disabled + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_radio_disabled.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-size: auto;
+}
+
+input[type=text][id^=datePickerS] {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  background: url("../image/component2/ico_calendar.svg") no-repeat center;
+  position: relative;
+  display: inline-block;
+  width: 230px;
+  height: 40px;
+  margin: auto 0;
+  padding: 0 18px;
+  border-radius: 5px;
+  vertical-align: middle;
+  text-align: left;
+  font-size: 14px;
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
+  background-position: calc(100% - 12px) 10px;
+  z-index: 2;
+  cursor: pointer;
+}
+input[type=text][id^=datePickerS]:disabled {
+  background-color: #f3f3f3;
+  color: #cbcbcb;
+  border-color: #eeeeee;
+}
+
+/* daterangepicker */
+.daterangepicker {
+  padding: 4px 4px 4px 4px;
+  border: 1px solid #d6d6d6;
+  background-color: #ffffff;
+  right: 65px !important;
+}
+.daterangepicker ::-webkit-scrollbar {
+  width: 10px;
+}
+.daterangepicker ::-moz-selection {
+  color: #ffffff;
+  background-color: #4696ff;
+}
+.daterangepicker ::selection {
+  color: #ffffff;
+  background-color: #4696ff;
+}
+.daterangepicker:before, .daterangepicker:after {
+  display: none;
+}
+.daterangepicker.show-ranges .drp-calendar.left {
+  padding: 4px;
+  border-left: none;
+}
+.daterangepicker.show-ranges .drp-calendar.right {
+  padding: 4px;
+}
+.daterangepicker .calendar-table {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.daterangepicker .calendar-table .prev span,
+.daterangepicker .calendar-table .next span {
+  border-color: #4696ff;
+}
+.daterangepicker .calendar-table table thead tr th.available:hover {
+  border: none;
+  background-color: transparent;
+}
+.daterangepicker .calendar-table table thead tr:nth-child(1) th {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  padding: 0px 0 5px 0px;
+  font-weight: normal;
+  font-size: 13px;
+  color: #222222;
+}
+.daterangepicker .calendar-table table thead tr:nth-child(2) th {
+  color: #222222;
+  border-bottom: none;
+}
+.daterangepicker .calendar-table table tbody td {
+  position: relative;
+  height: 26px;
+  color: #222222;
+  font-size: 12px;
+  border: none;
+}
+.daterangepicker .calendar-table table tbody td.off,
+.daterangepicker .calendar-table table tbody td .ui-state-disabled {
+  color: #e5e5e5;
+  background-color: transparent;
+}
+.daterangepicker .calendar-table table tbody td:hover {
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #4696ff;
+}
+.daterangepicker .calendar-table table tbody td.in-range {
+  color: #000000;
+  background-color: #f5f9ff;
+}
+.daterangepicker .calendar-table table tbody td.in-range:hover {
+  border-radius: 0;
+  background-color: #eeeeee;
+}
+.daterangepicker .calendar-table table tbody td.start-date:hover {
+  border-radius: 4px 0 0 4px;
+}
+.daterangepicker .calendar-table table tbody td.active, .daterangepicker .calendar-table table tbody td.end-date {
+  color: #ffffff;
+  background-color: #4696ff;
+}
+.daterangepicker .calendar-table table tbody td.active:hover, .daterangepicker .calendar-table table tbody td.end-date:hover {
+  color: #ffffff;
+  background-color: #4696ff;
+}
+.daterangepicker .calendar-table table tbody td.end-date:hover {
+  border-radius: 0 4px 4px 0;
+}
+.daterangepicker .calendar-time {
+  text-align: right;
+}
+.daterangepicker .calendar-time select.hourselect, .daterangepicker .calendar-time select.minuteselect, .daterangepicker .calendar-time select.ampmselect, .daterangepicker .calendar-time select.secondselect {
+  min-width: 50px;
+  height: 26px;
+  padding: 2px 6px;
+  border: 1px solid #d6d6d6;
+  background-color: #ffffff;
+}
+.daterangepicker .ranges {
+  padding-left: 6px;
+  overflow-x: hidden !important;
+}
+.daterangepicker .ranges ul li {
+  color: #222222;
+}
+.daterangepicker .ranges ul li:hover {
+  color: #000000;
+  background-color: #eeeeee;
+}
+.daterangepicker .ranges ul li.active {
+  color: #ffffff;
+  background-color: #4696ff;
+}
+.daterangepicker .drp-buttons {
+  border-color: #d6d6d6;
+}
+.daterangepicker .drp-buttons button.cancelBtn, .daterangepicker .drp-buttons button.applyBtn {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  border: 2px solid #4696ff;
+  border-radius: 2px;
+  background-color: #4696ff;
+  cursor: pointer;
+}
+.daterangepicker.single {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.daterangepicker.single .ranges {
+  display: none;
+}
+
+.btnArea {
+  margin: 40px 0 0 0;
+  font-size: 0;
+  text-align: center;
+}
+.btnArea button {
+  position: relative;
+  min-width: 140px;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ffffff;
+  border: 1px solid #4696ff;
+  background-color: #4696ff;
+  display: inline-block;
+  min-width: 140px;
+  height: 44px;
+  font-size: 15px;
+}
+.btnArea button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.btnArea button:nth-child(n+2) {
+  margin: 0 0 0 10px;
+}
+
+.ui-timepicker-container {
+  z-index: 999 !important;
+}
+
+/*
+File   : modalLayout.scss
+Date   : 2025.02.10
+*/
+.modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+/*
+File   : modal.scss
+Date   : 2025.02.11
+*/
+.wrap button.quickAI {
+  content: "";
+  position: fixed;
+  display: inline-block;
+  padding: 10px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  cursor: pointer;
+  background: url("../image/component2/ico_quickAI.svg") no-repeat center;
+  width: 130px;
+  height: 130px;
+  background-size: contain;
+  width: 130px;
+  height: 130px;
+  background-size: 130px 130px;
+  bottom: 50px;
+  right: 50px;
+  z-index: 900;
+}
+.wrap .modalWrap.md_alert {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.md_alert.modalOn {
+  display: block;
+}
+.wrap .modalWrap.md_alert .modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  z-index: 999;
+}
+.wrap .modalWrap.md_alert .modalContainer ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+.wrap .modalWrap.md_alert .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  width: calc(100% - 60px);
+  height: 90px;
+  min-height: 90px;
+  font-size: 24px;
+  padding: 0 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_close.svg") no-repeat center;
+  width: 15px;
+  height: 15px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 70px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 15px 0px 15px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter {
+  margin: 0px 0 25px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 10px;
+  min-height: 70px;
+  width: 100%;
+  text-align: center;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+  min-width: 120px;
+  height: 46px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button:nth-child(n+2) {
+  margin-left: 8px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button.create, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.modify, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.confirm:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_alert .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.md_alert .modalContainer {
+  width: 460px;
+  height: 300px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div {
+  text-align: center;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div strong {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+.wrap .modalWrap.md_aiStart {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.md_aiStart.modalOn {
+  display: block;
+}
+.wrap .modalWrap.md_aiStart .modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  z-index: 999;
+}
+.wrap .modalWrap.md_aiStart .modalContainer ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  width: calc(100% - 60px);
+  height: 90px;
+  min-height: 90px;
+  font-size: 24px;
+  padding: 0 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_close.svg") no-repeat center;
+  width: 15px;
+  height: 15px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 70px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 15px 0px 15px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter {
+  margin: 0px 0 25px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 10px;
+  min-height: 70px;
+  width: 100%;
+  text-align: center;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+  min-width: 120px;
+  height: 46px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button:nth-child(n+2) {
+  margin-left: 8px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.create, .wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.modify, .wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.md_aiStart .modalContainer .modalFooter button.confirm:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_aiStart .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.md_aiStart .modalContainer {
+  width: 540px;
+  height: 600px;
+  width: calc(100% - 250px);
+  min-height: 950px;
+  gap: 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalTitle {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 24px;
+  text-align: center;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalTitle p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent {
+  max-height: -webkit-fill-available;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk {
+  position: relative;
+  text-align: center;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk.t2 .box_guide {
+  display: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_guide {
+  margin: 200px 0 80px 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_guide .guideBox p span {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  display: block;
+  color: #4696ff;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_guide .guideBox p:nth-child(1) {
+  font-size: 60px;
+  line-height: 1.3;
+  letter-spacing: -1.2px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_guide .guideBox p:nth-child(2) {
+  margin: 40px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_guide .guideBox p:nth-child(n+2) {
+  color: #858585;
+  font-size: 32px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk {
+  position: relative;
+  height: calc(100vh - 240px);
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  min-width: 1000px;
+  margin: 0 auto;
+  padding: 0 calc(15% - 0px) 80px calc(15% + 10px);
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Qbox,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox {
+  word-break: normal;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Qbox {
+  margin: 10px 0 0 0;
+  text-align: right;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Qbox .box {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: left;
+  background-color: #f5f9ff;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Qbox .box p {
+  min-width: 360px;
+  width: 50%;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox {
+  text-align: left;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .tit p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+  color: #4696ff;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont {
+  margin: 15px 0 0 0;
+  text-align: left;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont [class^=answer]:nth-child(n+2) {
+  margin: 50px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont .answer {
+  padding-bottom: 50px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont hr {
+  border: none;
+  border-bottom: 1px solid #c6c6c6;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont .answer_summaryCampaign b {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 22px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont .answer_summaryCampaign b + p {
+  margin: 20px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .Abox .cont .answer_summaryCampaign p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage {
+  margin: 50px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce b,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage b {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 22px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce b + p,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage b + p {
+  margin: 24px 0 0 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea {
+  margin: 10px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea + b,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea + b {
+  margin: 50px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea + p,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea + p {
+  margin: 30px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox {
+  overflow: overlay;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox::-webkit-scrollbar,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background: #f4f4f4;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox::-webkit-scrollbar-thumb,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table {
+  width: auto;
+  min-width: 100%;
+  background: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table .dimCircle:before,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table .dimCircle:before {
+  background-size: 30px 30px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #000000;
+  border: 1px solid #999999;
+  line-height: 1.5;
+  word-break: auto-phrase;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th {
+  position: relative;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sort, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sortUp, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sortDown,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sort,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sortUp,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sortDown {
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sort:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sortUp:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead th.sortDown:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sort:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sortUp:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead th.sortDown:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 13px;
+  top: calc(50% - 6px);
+  right: 8px;
+  vertical-align: middle;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead:before,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead:before {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead tr th {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  padding: 12px 15px;
+  color: #ffffff;
+  background-color: #00c170;
+  border: 1px solid #00c170;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table thead tr th:nth-child(n+2),
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table thead tr th:nth-child(n+2) {
+  border-left: 1px solid #ffffff;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr.total td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr.total td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr.total td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr.total td {
+  background-color: #f1f1f1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr.total2 td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr.total2 td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr.total2 td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr.total2 td {
+  color: #ffffff;
+  background-color: #666666;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr:last-child {
+  border-bottom: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr td {
+  padding: 15px 15px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody tr td:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr td:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tbody tr td:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr td:last-child {
+  padding-right: 10px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th {
+  position: relative;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sort, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sortUp, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sortDown,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sort,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sortUp,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sortDown {
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sort:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sortUp:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot th.sortDown:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sort:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sortUp:after,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot th.sortDown:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 13px;
+  top: calc(50% - 6px);
+  right: 8px;
+  vertical-align: middle;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot:before,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot:before {
+  content: "";
+  position: absolute;
+  display: table-footer-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tfoot tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_proposeManage .tableArea .tableBox table tfoot tr td {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #333333;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce {
+  margin: 50px 0 0 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce b {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 22px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce b + p {
+  margin: 24px 0 0 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_prdProduce .tableArea .tableBox table tbody td:last-of-type {
+  text-align: left;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference b {
+  font-size: 22px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference p:nth-of-type(1) {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+  margin: 20px 0 0 0;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox {
+  overflow: overlay;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background: #f4f4f4;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table {
+  width: auto;
+  min-width: 100%;
+  background: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table .dimCircle:before {
+  background-size: 30px 30px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #000000;
+  border: 1px solid #999999;
+  line-height: 1.5;
+  word-break: auto-phrase;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th {
+  position: relative;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sort, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sortUp, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sortDown {
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sort:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sortUp:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead th.sortDown:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 13px;
+  top: calc(50% - 6px);
+  right: 8px;
+  vertical-align: middle;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead:before {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead tr th {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  padding: 12px 15px;
+  color: #ffffff;
+  background-color: #666666;
+  border: 1px solid #666666;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead tr th:nth-child(n+2) {
+  border-left: 1px solid #ffffff;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr.total td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr.total th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr.total td {
+  background-color: #f1f1f1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr.total2 td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr.total2 th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr.total2 td {
+  color: #ffffff;
+  background-color: #666666;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr:last-child {
+  border-bottom: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr td,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr td {
+  padding: 15px 15px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tbody tr td:last-child,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr td:last-child {
+  padding-right: 10px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th {
+  position: relative;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sort, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sortUp, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sortDown {
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sort:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sortUp:after, .wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot th.sortDown:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 13px;
+  top: calc(50% - 6px);
+  right: 8px;
+  vertical-align: middle;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot:before {
+  content: "";
+  position: absolute;
+  display: table-footer-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr th,
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table tfoot tr td {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #333333;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea .tableBox table thead tr th:nth-child(1) {
+  width: 120px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .answer_reference .tableArea + p {
+  margin: 30px 0 0 0;
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox {
+  padding: 30px 0 0 0;
+  border-top: 1px solid #c6c6c6;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .buttonBox {
+  text-align: left;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .buttonBox button {
+  content: "";
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  cursor: pointer;
+  padding: 10px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .buttonBox button.copy {
+  background: url("../image/component2/ico_copy.svg") no-repeat center;
+  width: 30px;
+  height: 30px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .buttonBox button.set {
+  background: url("../image/component2/ico_set.svg") no-repeat center;
+  width: 30px;
+  height: 30px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 200px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #000000;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 280px;
+  height: 46px;
+  margin: 60px 0 0 0;
+  text-align: left;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background: #f3f3f3;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload:focus {
+  outline: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload::-moz-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload:-ms-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload::-ms-input-placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload::placeholder {
+  font-size: 14px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload input[type=file] {
+  display: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload input[type=file] + label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  -webkit-box-flex: 0.8;
+      -ms-flex-positive: 0.8;
+          flex-grow: 0.8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload input[type=text] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload button.btnFileCancel {
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  padding: 13px;
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload i.excel {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_excel.png") no-repeat center;
+  width: 30px;
+  height: 30px;
+  background-size: 26px 25px;
+  min-width: 30px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_talk .talkBox .optionBox .fileDownload button.download {
+  content: "";
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  cursor: pointer;
+  background: url("../image/component2/ico_download.svg") no-repeat center;
+  width: 30px;
+  height: 30px;
+  background-size: 15px 14px;
+  padding: 10px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask {
+  position: sticky;
+  height: auto;
+  bottom: 100px;
+  margin: 0 auto 0;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: inline-flex;
+          flex-direction: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 800px;
+  height: 80px;
+  border: 1px solid #c9c9c9;
+  padding: 6px 20px;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  margin: 0 auto 0 auto;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox button {
+  content: "";
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  cursor: pointer;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox button:first-of-type {
+  background: url("../image/component2/ico_plus.svg") no-repeat center;
+  width: 23px;
+  height: 23px;
+  background-size: 23px 23px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox button:last-of-type {
+  background: url("../image/component2/ico_quickAI.svg") no-repeat center;
+  width: 130px;
+  height: 130px;
+  background-size: contain;
+  width: 42px;
+  height: 42px;
+  background-size: 42px 42px;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 20px;
+  border: none;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input::-webkit-input-placeholder {
+  font-size: 20px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input::-moz-placeholder {
+  font-size: 20px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input:-ms-input-placeholder {
+  font-size: 20px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input::-ms-input-placeholder {
+  font-size: 20px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiStart .modalContainer .modalContent section.sec_talk .box_ask .askBox input::placeholder {
+  font-size: 20px;
+  color: #d8d8d8;
+}
+.wrap .modalWrap.md_aiCustomSet {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.md_aiCustomSet.modalOn {
+  display: block;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  z-index: 999;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer ::-webkit-scrollbar-thumb {
+  height: 15px;
+  border-radius: 3px;
+  background: #dedede;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  width: calc(100% - 60px);
+  height: 90px;
+  min-height: 90px;
+  font-size: 24px;
+  padding: 0 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalTitle button.close {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background-position: 0px 0px;
+  background: url("../image/component2/ico_close.svg") no-repeat center;
+  width: 15px;
+  height: 15px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 70px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 15px 0px 15px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter {
+  margin: 0px 0 25px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 10px;
+  min-height: 70px;
+  width: 100%;
+  text-align: center;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+  min-width: 120px;
+  height: 46px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button:nth-child(n+2) {
+  margin-left: 8px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.create, .wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.modify, .wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #333333;
+  background-color: #333333;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.md_aiCustomSet .modalContainer .modalFooter button.confirm:disabled {
+  color: #cbcbcb;
+  border: 1px solid #eeeeee;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.wrap .modalWrap.md_aiCustomSet .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer {
+  width: 550px;
+  height: 600px;
+  gap: 0;
+  border-radius: 15px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalTitle p:nth-of-type(2) {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #858585;
+  bottom: 10px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalTitle p:nth-of-type(2) span.em {
+  color: #4696ff;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent {
+  padding: 0 30px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .tit,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .tit {
+  position: relative;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .tit p,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .tit p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 24px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .tit p span.em,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .tit p span.em {
+  color: #4696ff;
+  margin: 0 2px 0 0;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont {
+  margin: 30px 0 0 0;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  min-height: 40px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li:nth-child(n+2),
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li:nth-child(n+2) {
+  margin: 15px 0 0 0;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > p,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > p {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 120px;
+  font-size: 15px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > p span.em,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > p span.em {
+  color: #4696ff;
+  margin: 0 0 0 2px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div input,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div input {
+  width: 100%;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .selectBox,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .selectBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .selectBox select,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .selectBox select {
+  min-width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .calendarBox,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .calendarBox {
+  width: 170px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .radioBox,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .radioBox {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 20px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .radioBox input[type=radio] + label:before,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .radioBox input[type=radio] + label:before {
+  margin: 0 10px 0 0;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .inputBox,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .inputBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_set .cont ul li > div .inputBox input,
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option .cont ul li > div .inputBox input {
+  min-width: 170px;
+  width: 60%;
+}
+.wrap .modalWrap.md_aiCustomSet .modalContainer .modalContent .sec_set .box_option {
+  margin: 40px 0 0 0;
+}/*# sourceMappingURL=common.css.map */

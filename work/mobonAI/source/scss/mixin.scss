@@ -1,0 +1,1974 @@
+@charset 'utf-8';
+/*
+File   : mixin.scss
+Date   : 2024.11.13
+*/
+
+
+//* font */
+@mixin ftr {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+@mixin ftm {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+@mixin ftb {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+
+//* scroll  */
+// ::-webkit-scrollbar 
+@mixin scrollbar($w: 6px, $h: 4px, $bg:$scrollbarBgColor) {
+  width: $w;
+  height: $h;
+  background: $bg;
+}
+
+//::-webkit-scrollbar-thumb 
+@mixin scrollbar_thumb($h: 15px, $br:3px, $bg:$scrollThumbColor) {
+  height: $h;
+  border-radius: $br;
+  background: $bg;
+}
+
+@mixin mini() {
+  width: 250px;
+  transition: all 0.3s;
+
+  .minimization & {
+    width: 70px;
+    overflow: hidden;
+  }
+}
+
+@mixin maxLayout() {
+  width: calc(100% - 250px);
+  margin: 0 0 0 250px;
+  transition: all 0.3s;
+
+  .minimization & {
+    width: calc(100% - 70px);
+    margin: 0 0 0 70px;
+
+  }
+}
+
+@mixin bgimg($p:center, $s:auto) {
+  background-position: $p;
+  background-size: $s;
+  background-repeat: no-repeat;
+}
+
+
+//* text */
+// hide 
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+
+
+//* ellipsis */
+//* hover visible */
+@mixin txtHover {
+  white-space: normal !important;
+  overflow: visible !important;
+  word-break: break-all !important;
+}
+
+//* text ellipsis */
+// display 있어야 나타남
+@mixin txtOver {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin txtOver2($wlc:2) {
+  display: -webkit-box;
+  //width: 100px;
+  //height: 100px;
+  //line-height: 22px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: $wlc;
+  -webkit-box-orient: vertical;
+}
+
+
+//* display*/
+//* inline-block */
+@mixin dpLayout {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//* grid */
+@mixin gridBox($d:grid, $g:10px, $c:null, $r:null) {
+  display: $d;
+  grid-template-columns: $c;
+  // grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+  grid-template-rows: $r;
+  gap: $g;
+}
+
+
+//* flex */
+@mixin flex($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin iflex($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin flex_column($f:flex, $fw:null, $d:column, $j:center, $a:center, $g:null) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+;
+
+//* animation */
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+//* ico */
+@mixin ico($p:relative, $a:middle, $d:inline-block) {
+  content: "";
+  position: $p;
+  display: $d;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+  background-position: 0px 0px;
+}
+
+
+@mixin iMarkHover($w:200px, $t:null, $r:null, $b:28px, $l:-26px) {
+  @include ftr;
+  display: none;
+  position: absolute;
+  width: $w;
+  height: auto;
+  min-height: 30px;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  padding: 6px 12px;
+  color: $ftColor;
+  font-size: 12px;
+  text-align: left;
+  font-style: normal;
+  line-height: 1.5;
+  white-space: normal;
+  border-radius: 4px;
+  border: 1px solid $red;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  cursor: default;
+  z-index: 3;
+}
+
+@mixin iMarkHover_TL($t:28px, $r:auto, $b:auto, $l:0) {
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}
+
+@mixin iMarkHover_L($t:-20px, $r:0, $b:auto, $l:50px) {
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+
+//* 페이지 로딩 -2 > 큐브 로딩 */
+@mixin loadingBg {
+  position: fixed;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+
+  p {
+    position: absolute;
+    top: calc(50% - 70px);
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+    color: $mainColor;
+    z-index: 9999;
+
+    &:before {
+      @include ico;
+      @include ico_loading;
+      content: "";
+      display: block;
+      width: 100px;
+      height: 80px;
+      margin: 0 auto 40px;
+      background-size: 100px 80px;
+      animation: rotationLoading 1.2s infinite steps(9);
+    }
+
+    b {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+
+  &.complete {
+    display: none;
+    opacity: 0;
+    z-index: -999;
+  }
+}
+
+@mixin loadingCircle($zIndex:701) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  &:before {
+    @include ico;
+    @include ico_loadingCircle;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: inherit;
+    background-size: 50px 50px;
+    transform: translate(-50%, -50%);
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: $white;
+    opacity: 0.8;
+    z-index: $zIndex;
+  }
+}
+
+
+
+@mixin loadingText($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  >.dataNoneText {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    color: $ftColor;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    opacity: 0.8;
+    z-index: $zIndex;
+  }
+
+  ul,
+  div {
+    &:not(.dataNoneText) {
+      display: none !important;
+    }
+  }
+}
+
+//* .location */
+@mixin location {
+  position: absolute;
+  top: 20px;
+
+  span {
+    display: inline-block;
+    font-size: 12px;
+    color: $ftColor9;
+
+    &:nth-child(n+2) {
+      &:before {
+        content: ">";
+        position: relative;
+        display: inline-block;
+        margin: 0 3px;
+      }
+    }
+
+    // &:last-child {
+    //   color: $pointColor;
+    // }
+  }
+}
+
+
+
+//* title */
+@mixin title($fs: 20px) {
+  @include ftm;
+  font-size: $fs;
+  color: $ftColor;
+}
+
+
+@mixin titleSub {
+  @include ftm;
+  margin-top: 5px;
+  font-size: 13px;
+  color: $subFtColor;
+}
+
+@mixin titleLayout {
+  p {
+    &:nth-of-type(1) {
+      @include title;
+    }
+
+    &:nth-of-type(n+2) {
+      @include titleSub();
+    }
+  }
+}
+
+//* title 하단 선 */
+@mixin titleLayout_t2($pd: 0 0 20px 0) {
+  padding: $pd;
+  border-bottom: 1px solid $borderColor3;
+
+  p {
+    &:nth-of-type(1) {
+      @include title;
+    }
+
+    &:nth-of-type(n+2) {
+      @include titleSub();
+    }
+  }
+}
+
+
+//* txtDot */
+//* before */
+@mixin txtDot($width:3px, $height: 3px) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  top: -3px;
+  margin-right: 4px;
+  border-radius: 100%;
+  background-color: $ftColor;
+}
+
+
+
+//* dim */
+@mixin dimBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 990;
+}
+
+
+@mixin btn_disabled {
+  color: $ipFtColor_disabled;
+  border: 1px solid $ipBorderColor_disabled;
+  background-color: $ipBgColor_disabled;
+  box-shadow: none
+}
+
+@mixin iBtn($p:relative, $w:null, $minW:null, $h:null, $a:middle, $d:inline-block, $pd:10px) {
+  content: "";
+  position: $p;
+  display: $d;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  padding: $pd;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+  background-position: 0px 0px;
+  cursor: pointer;
+}
+
+//* normal */
+@mixin btnLayout_normal($width:140px) {
+  position: relative;
+  min-width: $width;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+@mixin btnS($w: null, $minW:80px, $h:40px, $br:4px, $fs:14px, $pd:0 15px) {
+  @include ftm;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+
+  &:disabled {
+    @include btn_disabled;
+    cursor: default;
+  }
+}
+
+
+// ON > bg: pointColor
+@mixin btn_main {
+  color: $btnMain_ftColor;
+  border: 1px solid $btnMain_bgColor;
+  background-color: $btnMain_bgColor;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+//  BG : white, Border: ftColor
+@mixin btn2 {
+  color: $btnftColor2;
+  border: 1px solid $btnBrdColor2;
+  background-color: $btnBgColor2;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+@mixin btn_off {
+  color: $btnOff_ftColor;
+  border: 1px solid $btnOff_brdColor;
+  background-color: $btnOff_bgColor;
+  box-shadow: none
+}
+
+
+//  bgColor
+@mixin btn_excel($w:70px, $minW:70px, $h:40px) {
+  @include btnLayout();
+  @include btn_main();
+  min-width: $minW;
+  width: $w;
+  height: $h;
+  vertical-align: middle;
+
+  &:before {
+    @include ico;
+    @include ico_excel;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+}
+
+@mixin btn_close($w:null, $minW:80px, $h:40px) {
+  @include btnLayout();
+  @include inflexBox();
+  // @include btn_main();
+  min-width: $minW;
+  // padding-right: 35px;
+  width: $w;
+  height: $h;
+  vertical-align: middle;
+
+  &:after {
+    @include ico;
+    @include ico_closeX3;
+    width: 12px;
+    height: 12px;
+    // margin-left: 10px;
+    vertical-align: middle;
+  }
+}
+
+
+
+@mixin btnLayout($w:null, $h:null, $br:4px, $pd:null, $fs:null, $minW:null) {
+  @include ftr;
+  position: relative;
+  min-width: $minW;
+  width: $w;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+
+  &:disabled {
+    @include btn_disabled;
+    cursor: default;
+  }
+}
+
+
+
+
+//* btnArea */
+@mixin btnArea($margin:40px 0 0 0, $m2:0 0 0 10px) {
+  margin: $margin;
+  font-size: 0;
+  text-align: center;
+
+  button {
+    @include btnLayout_normal;
+    @include btn_main;
+    display: inline-block;
+    min-width: 140px;
+    height: 44px;
+    font-size: 15px;
+
+    &:nth-child(n+2) {
+      margin: $m2;
+    }
+  }
+}
+
+
+//* input */
+//* option title */
+@mixin ip_title($d:inline-block, $w:null, $fs: 16px) {
+  // @include fontM();
+  min-width: $w;
+  display: $d;
+  font-size: $fs;
+}
+
+//* input */
+@mixin input($w:200px, $h:40px, $pd: 6px 10px) {
+  @include dpLayout;
+  @include ftr;
+  min-width: $w;
+  height: $h;
+  padding: $pd;
+  font-size: 14px;
+  color: $ftColor;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid $ipBrdColor;
+  background-color: $ipBgColor;
+
+  &:disabled {
+    color: $ipFtColor_disabled;
+    border: 1px solid $ipBorderColor_disabled;
+    background: $ipBgColor_disabled;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-size: 14px;
+    color: $ipFtColor_placeholder;
+  }
+}
+
+//* select */
+@mixin select($w:150px, $h: 40px) {
+  @include ico_select;
+  @include ftr;
+  min-width: $w;
+  height: $h;
+  padding: 4px 30px 4px 15px;
+  appearance: none;
+  font-size: 14px;
+  color: $ftColor;
+  line-height: 1;
+  border-radius: 5px;
+  border: 1px solid $ipBrdColor;
+  box-shadow: none;
+  background-color: $ipBgColor;
+  background-position-x: calc(100% - 15px);
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background-color: $ipBgColor;
+  }
+
+  &:disabled {
+    color: $ipFtColor_disabled;
+    border: 1px solid $ipBorderColor_disabled;
+    background-color: $ipBgColor_disabled;
+    opacity: 1;
+  }
+}
+
+//* raio */
+@mixin radio($m:null) {
+  display: none;
+
+  +label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:before {
+      @include ico;
+      @include ico_radio_off;
+      @include imgSize(18px, 18px, 18px, 18px);
+      content: "";
+      // width: 16px;
+      // height: 16px;
+      vertical-align: middle;
+      // background-size: auto;
+    }
+  }
+
+  &:not(:last-of-type) {
+    +label {
+      margin: $m;
+    }
+  }
+
+  &:checked {
+    +label {
+      &:before {
+        @include ico;
+        @include ico_radio_on;
+        @include imgSize(18px, 18px, 18px, 18px);
+        // width: 16px;
+        // height: 16px;
+        vertical-align: middle;
+        // background-size: auto;
+      }
+    }
+  }
+
+  &:disabled {
+    +label {
+      color: $ipFtColor_disabled;
+
+      &:before {
+        @include ico;
+        @include ico_radio_disabled;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background-size: auto;
+      }
+    }
+  }
+}
+
+@mixin radioSize($d: inline-flex, $g: 20px, $m:0 10px 0 0) {
+  display: $d;
+  gap: $g;
+
+  input[type="radio"] {
+    +label {
+      &:before {
+        margin: $m;
+      }
+    }
+  }
+}
+
+// radioBox, checkBox
+@mixin inputBox ($w:null, $h:40px, $d:flex, $a:center, $j:start, $g:16px, $pd: 0 20px 0 0) {
+  display: $d;
+  flex-align: $a;
+  justify-content: $j;
+  gap: $g;
+  width: $w;
+  height: $h;
+  border-radius: 5px;
+  padding: $pd;
+  border: 1px solid $borderColor;
+  background-color: $white;
+
+  >p {
+    @include flexBox($f:inline-flex);
+    height: 100%;
+    padding: 0 15px;
+    color: $ftColor4;
+    border-radius: 5px 0 0 5px;
+    background-color: $pointColor;
+  }
+
+  input {
+    &+label {
+      margin: 0;
+    }
+  }
+}
+
+
+//* daterangepicker */
+@mixin daterangepicker {
+  padding: 4px 4px 4px 4px;
+  // box-shadow: $dateShadow;
+  border: 1px solid $dateBorderColor;
+  background-color: $dateBgColor;
+  right: 65px !important;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::selection {
+    color: #ffffff;
+    background-color: $mainColor;
+  }
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  &.show-ranges {
+    .drp-calendar {
+
+      // 왼쪽 달력 
+      &.left {
+        padding: 4px;
+        border-left: none;
+      }
+
+      // 오른쪽 달력 
+      &.right {
+        padding: 4px;
+      }
+    }
+  }
+
+  //* datepicker */
+  .calendar-table {
+    background-color: transparent;
+    border: 1px solid transparent;
+
+    //* 이전 & 다음 아이콘 */
+    .prev,
+    .next {
+      span {
+        border-color: $mainColor;
+      }
+    }
+
+    table {
+      thead {
+        tr {
+          th {
+            &.available {
+              &:hover {
+                border: none;
+                background-color: transparent;
+              }
+            }
+          }
+
+          // year 
+          &:nth-child(1) {
+            th {
+              @include ftm;
+              padding: 0px 0 5px 0px;
+              font-weight: normal;
+              font-size: 13px;
+              color: $dateFtColor5;
+            }
+          }
+
+          // day 
+          &:nth-child(2) {
+            th {
+              color: $dateFtColor2;
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+      tbody {
+        td {
+          // @include RobotoR;
+          position: relative;
+          height: 26px;
+          color: $dateFtColor5;
+          font-size: 12px;
+          border: none;
+
+          &.off,
+          .ui-state-disabled {
+            color: $dateFtColor3;
+            background-color: transparent;
+          }
+
+          &:hover {
+            color: $dateFtColor4;
+            // border-radius: 100%;
+            border-radius: 5px;
+            background-color: $mainColor;
+          }
+
+          //* 기간 선택 */
+          &.in-range {
+            color: $ftColor;
+            background-color: $dateBgColor2;
+
+            &:hover {
+              border-radius: 0;
+              background-color: $dateBgColor3;
+            }
+          }
+
+          &.start-date {
+            &:hover {
+              border-radius: 4px 0 0 4px;
+            }
+          }
+
+          &.active,
+          &.end-date {
+            color: $dateFtColor6;
+            background-color: $mainColor;
+
+            &:hover {
+              color: $dateFtColor6;
+              background-color: $mainColor;
+            }
+          }
+
+          &.end-date {
+            &:hover {
+              border-radius: 0 4px 4px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* time */
+  .calendar-time {
+    text-align: right;
+
+    select {
+
+      &.hourselect,
+      &.minuteselect,
+      &.ampmselect,
+      &.secondselect {
+        min-width: 50px;
+        height: 26px;
+        padding: 2px 6px;
+        border: 1px solid $dateIpBrdColor;
+        background-color: $dateIpBgColor;
+      }
+    }
+  }
+
+  .ranges {
+    // display: none;
+    padding-left: 6px;
+    overflow-x: hidden !important;
+
+    ul {
+
+      li {
+        color: $dateFtColor5;
+
+        &:hover {
+          color: $ftColor;
+          background-color: $dateBgColor3;
+        }
+
+        &.active {
+          color: $dateFtColor6;
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
+
+  //* 확인, 취소 버튼 */
+  .drp-buttons {
+    border-color: $dateBorderColor;
+
+    button {
+
+      &.cancelBtn,
+      &.applyBtn {
+        @include ftr;
+        // font-family: "NotoSansR";
+        position: relative;
+        text-align: center;
+        color: $dateFtColor7;
+        border: 2px solid $mainColor;
+        border-radius: 2px;
+        background-color: $mainColor;
+        cursor: pointer;
+      }
+    }
+  }
+
+  // single 
+  &.single {
+    width: fit-content;
+
+    .ranges {
+      display: none;
+    }
+  }
+}
+
+
+//* calendarBox */
+// calendar 에 추가
+@mixin calendar($w: 230px, $minW:230px, $h:40px, $bgColor: transparent) {
+  @include flexBox($g:0);
+  position: relative;
+  width: $w;
+  min-width: $minW;
+  // height: calc($height - 2px);
+  // padding: 0 18px;
+  padding: 0;
+  border-radius: 5px;
+  vertical-align: middle;
+  border: 1px solid $ipBrdColor;
+  background-color: $ipBgColor;
+
+  &:before {
+    @include ico;
+    @include ico_calendar;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    min-width: 40px;
+    height: $h;
+    border-radius: 3px 0px 0px 3px;
+    background-color: $pointColor;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  input {
+    flex-grow: 1;
+    @include fontR();
+    position: relative;
+    width: calc(100% - 40px);
+    height: $h;
+    margin: auto 0;
+    padding: 0 18px;
+    text-align: left;
+    font-size: 13px;
+    color: $ftColor;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+@mixin calendar_single($w: 140px, $h:40px, $bgColor: transparent) {
+  position: relative;
+  display: inline-block;
+  width: $w;
+  // height: calc($height - 2px);
+  // padding: 0 18px;
+  padding: 0;
+  border-radius: 4px;
+  vertical-align: middle;
+  border: 1px solid $mainColor;
+  background-color: $ipBgColor;
+
+  &:before {
+    @include ico;
+    @include ico_calendar;
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 100%;
+    border-radius: 3px 0px 0px 3px;
+    background-color: $pointColor;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  input {
+    @include ftr();
+    position: relative;
+    width: calc(100% - 40px);
+    min-width: auto;
+    height: $h;
+    margin: auto 0;
+    left: 40px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 14px;
+    color: $ftColor;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    background-color: $ipBgColor_disabled;
+
+    input {
+      color: $ipFtColor_disabled;
+    }
+  }
+}
+
+@mixin calendar_single2($w: 230px, $h:40px, $bgColor: transparent) {
+
+  @include ftr();
+  @include ico_calendar;
+  position: relative;
+  display: inline-block;
+  width: $w;
+  height: $h;
+  margin: auto 0;
+  padding: 0 18px;
+  border-radius: 5px;
+  vertical-align: middle;
+  text-align: left;
+  font-size: 14px;
+  // color: var(--ftColor);
+  border: 1px solid $ipBrdColor;
+  background-color: $ipBgColor;
+  // background-position-x: calc(100% - 12px);
+  background-position: calc(100% - 12px) 10px;
+  z-index: 2;
+  cursor: pointer;
+
+  &:disabled {
+    // @include ico_calendar_disabled;
+    background-color: $ipBgColor_disabled;
+    color: $ipFtColor_disabled;
+    border-color: $ipBorderColor_disabled;
+  }
+}
+
+
+@mixin calendarBox($minW: 230px, $height:40px) {
+  position: relative;
+  display: inline-flex;
+  gap: 10px;
+  width: fit-content;
+  cursor: pointer;
+
+  p {
+    display: inline-block;
+    padding-right: 12px;
+    font-size: 14px;
+  }
+
+  .calendar {
+    @include calendar;
+    width: $minW;
+
+    input {
+      height: $height;
+    }
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_main;
+    width: 84px;
+    height: $height;
+    font-size: 14px;
+    // border-radius: 20px;
+  }
+}
+
+
+
+
+//* searchBox */
+//* input 안에 검색 */
+@mixin searchBox($w:220px, $h:40px) {
+  display: inline-flex;
+  justify-content: space-between;
+  width: $w;
+  height: $h;
+  font-size: 0;
+  vertical-align: middle;
+  border-radius: 5px;
+  border: 1px solid $ipBrdColor;
+  background-color: $ipBgColor;
+
+  input,
+  button {
+    @include dpLayout;
+  }
+
+  input {
+    flex-grow: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px 0px 10px;
+    text-align: left;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+  }
+
+  button {
+    @include ico;
+    @include ico_search;
+    min-width: 40px;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+// 파일추가버튼 + input + 검색버튼
+@mixin searchBox_t2($w:800px, $h:80px, $pd: 6px 20px) {
+  @include flex($d:inline-flex);
+  width: $w;
+  height: $h;
+  border: 1px solid $ipBrdColor;
+  padding: $pd;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: $ipBgColor;
+  // padding: 6px 10px;
+
+  button {
+    @include iBtn($pd: 15px);
+
+    &:first-of-type {
+      @include ico_plus;
+      @include imgSize(23px, 23px, 23px, 23px);
+    }
+
+    &:last-of-type {
+      @include ico_quickAI();
+      @include imgSize(42px, 42px, 42px, 42px);
+
+    }
+  }
+
+  input {
+    flex-grow: 1;
+    font-size: 20px;
+    border: none;
+
+    &::placeholder {
+      font-size: 20px;
+      color: $ipFtColor_placeholder;
+    }
+  }
+}
+
+
+// input[type="file"]이 포함된 div에 추가
+// input안에 닫기 버튼이 있는 경우 >> 파일업로드버튼, input, 닫기버튼 구조에서 input+닫기버튼 div에 추가
+@mixin file_downloadBox($w:280px, $h:46px, $ipw:auto, $d:flex, $j:space-between, $a:center, $g:10px, $pd: 0 10px) {
+  @include input($pd: $pd);
+  position: relative;
+  display: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+  width: $w;
+  height: $h;
+
+  input[type="file"] {
+    display: none;
+
+    +label {
+      @include txtOver;
+      text-align: left;
+      flex-grow: 0.8;
+      // flex-grow:1;
+    }
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  button.btnFileCancel {
+    // @include iLayout;
+    // @include ico_closeS2;
+    font-size: 0;
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    padding: 13px;
+    cursor: pointer;
+  }
+}
+
+
+@mixin tabLi($w:80px, $h:38px) {
+  ul {
+    li {
+      display: inline-block;
+      min-width: $w;
+      height: $h;
+      margin-left: 5px;
+      padding: 6px 10px;
+      text-align: center;
+      color: $btnOff_ftColor;
+      vertical-align: middle;
+      border-radius: 15px;
+      border: 2px solid $btn_brdColor6;
+      background-color: $btnOff_bgColor;
+      cursor: pointer;
+
+      &.on,
+      &:hover {
+        color: $btnMain_ftColor2;
+        border: $btnMain_border2;
+        background-color: $btnMain_bgColor2;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+
+//* dataNone */
+@mixin dataNoneContent {
+  @include flex_center_column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10% 0;
+}
+
+
+@mixin dataNoneBorder($color: $tblBorderColor) {
+  border-top: 1px solid $color;
+  border-bottom: 1px solid $color;
+}
+
+@mixin dataNone {
+  @include dataNoneContent;
+  @include dataNoneText;
+}
+
+
+//* 테이블이 아닌 태그에서 데이터가 없음이 필요할 떄 */
+// dataNoneArea 커스텀 > dataNone과 형제인 div,ul은 display: none
+//  $ipt2:'!important'
+@mixin dataNoneArea($d1:null, $d2:null, $ipt1: null,
+  $ipt2: null, $h:100%, $theadHeight:40px, $minh: 300px) {
+  $imp1: if($ipt1 !=null, ' !important', '');
+  $imp2: if($ipt2 !=null, ' !important', '');
+  // display: block;
+  display: $d1 #{$ipt1};
+  height: -webkit-fill-available;
+
+  .dataNone {
+
+    ~div,
+    ul {
+      display: $d2 #{$ipt2};
+    }
+
+    position: relative;
+    height: $h;
+    min-height: $minh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    >p {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+}
+
+
+//* table */
+//* tableDataNone */
+//* tableArap에 추가 */
+// thead가 없는 tableDataNone
+@mixin tableDataNone($height:100%, $theadHeight:40px, $minHeight: 300px) {
+  &.tableAreaDataNone {
+    height: auto;
+    border-bottom: none;
+
+    .tableDataNone {
+      display: block;
+      height: $height;
+      min-height: $minHeight;
+
+      >div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        min-height: $minHeight;
+
+        p {
+          display: block;
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+
+      +.paging {
+        display: none;
+      }
+    }
+
+    .tableBox {
+      display: none;
+    }
+  }
+
+  .tableDataNone {
+    display: none;
+  }
+}
+
+// thead 가 있는 tableDataNone
+@mixin tableDataNone2($height:100%, $theadHeight:40px, $minHeight: 300px) {
+  &.tableAreaDataNone {
+    height: auto;
+    border-bottom: none;
+
+    .tableDataNone {
+      display: block;
+      height: calc(#{$height} - #{$theadHeight});
+      min-height: $minHeight;
+      border-bottom: 1px solid $borderColor;
+
+      >div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        min-height: $minHeight;
+
+        p {
+          display: block;
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+
+      .tableBox {
+        overflow-y: clip;
+      }
+    }
+
+    .tableBox {
+      overflow: clip;
+
+      tbody,
+      tfoot {
+        display: none;
+      }
+    }
+  }
+
+  +.tableDataNone {
+    display: none;
+  }
+}
+
+
+//* thead fixed */
+@mixin tableHeaderFixed {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@mixin tableFootFixed {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+
+//* thead before add */
+@mixin tableHeaderBeforeFixed {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid $tblBorderColor;
+  border-bottom: 1px solid $tblBorderColor;
+  background-color: $tblBorderColor; // thead border
+  z-index: -1;
+}
+
+@mixin tableFootBeforeFixed {
+  content: "";
+  position: absolute;
+  display: table-footer-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  border-top: 1px solid $tblBorderColor;
+  border-bottom: 1px solid $tblBorderColor;
+  background-color: $tblBorderColor; // thead border
+  z-index: -1;
+}
+
+//* thead */
+@mixin tableHeaderFixedLayout {
+  @include tableHeaderFixed;
+
+  &:before {
+    @include tableHeaderBeforeFixed;
+  }
+}
+
+//* tfoot */
+@mixin tableFootFixedLayout {
+  @include tableFootFixed;
+
+  &:before {
+    @include tableFootBeforeFixed;
+  }
+}
+
+//* thead에 추가 */
+@mixin tableHeader_sort {
+  th {
+    position: relative;
+
+    &.sort,
+    &.sortUp,
+    &.sortDown {
+      // padding-right: 22px;
+      cursor: pointer;
+
+      &:after {
+        content: "";
+        // position: relative;
+        position: absolute;
+        display: inline-block;
+        width: 15px;
+        height: 13px;
+        // top: -2px;
+        top: calc(50% - 6px);
+        right: 8px;
+        // margin-left: 5px;
+        // margin: 0;
+        vertical-align: middle;
+
+      }
+    }
+
+    // &.sort {
+    //   &:after {
+    //     @include ico_sort;
+    //     background-size: 100%;
+    //   }
+    // }
+
+    // &.sortUp {
+    //   &:after {
+    //     @include ico_sortUp;
+    //     background-size: 100%;
+    //   }
+    // }
+
+    // &.sortDown {
+    //   &:after {
+    //     @include ico_sortDown;
+    //     background-size: 100%;
+    //   }
+    // }
+  }
+}
+
+// th, td 첫번째 checkbox margin
+@mixin tableCheck($d:block, $m:0) {
+  input[type="checkbox"] {
+    +label {
+      &:before {
+        margin: $m;
+      }
+    }
+  }
+}
+
+
+@mixin tableWrap {
+  overflow: overlay;
+  border: 1px solid $tblBorderColor;
+
+  &::-webkit-scrollbar {
+    @include scrollbar($w:10px, $h:8px, $bg:$scrollbarBgColor2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include scrollbar_thumb;
+  }
+}
+
+
+//* 세로형 -1 */
+@mixin tableLayout {
+  @include tableWrap;
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      tr {
+        border-bottom: 1px solid $tblBorderColor;
+
+        th,
+        td {
+          padding: 10px 6px;
+          vertical-align: middle;
+          text-align: center;
+          line-height: 20px;
+          font-weight: normal;
+          color: $tblFtColor;
+        }
+      }
+    }
+
+    thead {
+      @include tableHeaderFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableHeaderBeforeFixed;
+      }
+
+      tr {
+        th {
+          @include ftr;
+          padding: 10px 22px; // sort 때문에 th 좌우 패딩 추가
+          font-size: 14px;
+          color: $tblTheaderFtColor;
+          background-color: $tblTheadBgColor;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $tblBorderColor;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: $tblRowHover;
+        }
+      }
+    }
+
+    tfoot {
+      @include tableFootFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableFootBeforeFixed;
+      }
+
+      tr {
+        border-top: 1px solid $tblBorderColor;
+        border-bottom: none;
+
+        th,
+        td {
+          @include ftr;
+          font-size: 14px;
+          color: $tblTheaderFtColor;
+          background: $tblTheadBgColor;
+        }
+      }
+    }
+  }
+}
+
+//* tableLayout_t2, thead bg 변경 div에 추가 */
+@mixin tableLayout_t2 {
+  @include tableWrap;
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      tr {
+
+        th,
+        td {
+
+          vertical-align: middle;
+          text-align: center;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: normal;
+          color: $tblFtColor;
+          border: 1px solid $tblBrdColor;
+          line-height: 1.5;
+          word-break: auto-phrase;
+        }
+      }
+    }
+
+    thead {
+      @include tableHeaderFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableHeaderBeforeFixed;
+      }
+
+      tr {
+        th {
+          @include ftr;
+          // padding: 10px 22px; // sort 때문에 th 좌우 패딩 추가
+          // font-size: 14px;
+          padding: 12px 15px;
+          color: $ftColor3;
+          // border-color: $tblBrdColor3;
+
+          background-color: $tblTeadBgColor2;
+          border: 1px solid $tblBrdColor4;
+
+          &:nth-child(n+2) {
+            border-left: 1px solid $tblBrdColor3;
+          }
+        }
+      }
+    }
+
+    tbody,
+    tfoot {
+      tr {
+        border-bottom: 1px solid $tblBorderColor;
+
+        &.total {
+
+
+          th,
+          td {
+            background-color: #f1f1f1;
+          }
+
+        }
+
+        &.total2 {
+
+          th,
+          td {
+            color: #ffffff;
+            background-color: #666666;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        // &:hover {
+        //   background-color: $tblRowHover;
+        // }
+
+        th,
+        td {
+          // padding: 10px 6px;
+          // font-size: 13px;
+          padding: 15px 15px;
+        }
+
+        td {
+
+          &:last-child {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+
+    tfoot {
+      @include tableFootFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableFootBeforeFixed;
+      }
+
+      tr {
+        border-top: 1px solid $tblBorderColor;
+        border-bottom: none;
+
+        th,
+        td {
+          @include ftr;
+          font-size: 14px;
+          color: #ffffff;
+          background: #333333;
+        }
+      }
+    }
+  }
+}
+
+@mixin tableLayout_t3 {
+  @include tableWrap;
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      tr {
+
+        th,
+        td {
+
+          vertical-align: middle;
+          text-align: center;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: normal;
+          color: $tblFtColor;
+          border: 1px solid $tblBrdColor;
+          line-height: 1.5;
+          word-break: auto-phrase;
+        }
+      }
+    }
+
+    thead {
+      @include tableHeaderFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableHeaderBeforeFixed;
+      }
+
+      tr {
+        th {
+          @include ftr;
+          // padding: 10px 22px; // sort 때문에 th 좌우 패딩 추가
+          // font-size: 14px;
+          padding: 12px 15px;
+          color: $ftColor3;
+          // border-color: $tblBrdColor3;
+
+          background-color: #666666;
+          border: 1px solid #666666;
+
+          &:nth-child(n+2) {
+            border-left: 1px solid #ffffff;
+          }
+        }
+      }
+    }
+
+    tbody,
+    tfoot {
+      tr {
+        border-bottom: 1px solid $tblBorderColor;
+
+        &.total {
+
+
+          th,
+          td {
+            background-color: #f1f1f1;
+          }
+
+        }
+
+        &.total2 {
+
+          th,
+          td {
+            color: #ffffff;
+            background-color: #666666;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        // &:hover {
+        //   background-color: $tblRowHover;
+        // }
+
+        th,
+        td {
+          // padding: 10px 6px;
+          // font-size: 13px;
+          padding: 15px 15px;
+        }
+
+        td {
+
+          &:last-child {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+
+    tfoot {
+      @include tableFootFixed;
+      @include tableHeader_sort;
+
+      &:before {
+        @include tableFootBeforeFixed;
+      }
+
+      tr {
+        border-top: 1px solid $tblBorderColor;
+        border-bottom: none;
+
+        th,
+        td {
+          @include ftr;
+          font-size: 14px;
+          color: #ffffff;
+          background: #333333;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+//기본 박스(2) B : 그라데이션 있는 박스
+@mixin boxLayout($pd:30px 30px 30px 30px) {
+  position: relative;
+  padding: $pd;
+  // border: 1px solid $boxBorderColor;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  overflow: hidden;
+
+  // &.dimDot {
+  //   @include loadingDot;
+  // }
+
+  // &.dimCircle {
+  //   @include loadingCircle;
+  // }
+}

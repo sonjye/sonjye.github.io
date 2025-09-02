@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/*
+File   : mixin.scss
+Date   : 2024.02.20
+*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* 광고주 */
+/* 대행사 */
+/* 관리자 *//*# sourceMappingURL=mixin.bak(240626).css.map */

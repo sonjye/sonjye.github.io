@@ -1,0 +1,1565 @@
+@charset 'utf-8';
+
+/*
+File   : campaign.scss
+Date   : 2025.02.11
+*/
+
+
+//* 캠페인 현황 */
+.mva_campaignList {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        .optionBox {
+          @include flexBox($j:start, $g:10px);
+
+          .searchBox {
+            @include searchBox($w:380px);
+          }
+
+          .radioBox {
+            @include inputBox;
+          }
+
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+
+          button {
+            &.search {
+              @include btnS;
+              @include btn_main;
+            }
+          }
+        }
+
+        .tableHeader {
+          @include flexBox;
+          border-top: 1px solid $borderColor;
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+
+          button {
+            &.campaignCreate {
+              @include btnS($minW:110px);
+              @include btn_main;
+
+              &:before {
+                content: "+";
+                position: rleative;
+                display: inline-block;
+                margin: 0 4px 0 0;
+              }
+            }
+
+            &.delete {
+              @include btn2;
+              @include btnS;
+            }
+
+            &.excelDown {
+              @include btn_excel;
+              margin: 0 0 0 auto;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+
+              thead,
+              tbody {
+                tr {
+
+                  th,
+                  td {
+                    // border: 1px solid #eee;
+
+                    &:first-child {
+                      @include tableCheck;
+                    }
+
+                    &:nth-child(5) {
+                      width: 120px;
+                    }
+
+                    &:nth-child(6) {
+                      width: 180px;
+                    }
+                  }
+                }
+              }
+
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    @include table_total;
+
+                    th {
+                      &:nth-child(n+2):nth-child(-n+4) {
+                        text-align: left;
+                      }
+
+                      &:nth-child(n+5) {
+                        text-align: right;
+                      }
+                    }
+                  }
+
+                  th {
+                    &:nth-child(2) {
+                      width: 300px;
+                      text-align: left;
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  td {
+                    &:nth-child(n+2):nth-child(-n+4) {
+                      text-align: left;
+                    }
+
+                    &:nth-child(n+5) {
+                      text-align: right;
+                    }
+
+                    //slide 
+                    .campaignBox {
+                      @include inflexBox($j:start);
+                      position: relative;
+
+                      .previewList {
+                        // display: none;
+                        // overflow: hidden;
+                      }
+
+                      .slide {
+                        width: 80px;
+                        height: 100px;
+
+                        .box {
+                          @include inflexBox($j:center, $a:center, $g:0);
+                          position: relative;
+                          width: 80px;
+                          height: 100px;
+
+                          .preview {
+                            @include inflexBox($j:center, $a:center, $g:0);
+                            flex-grow: 1;
+                          }
+
+                          img,
+                          video {
+                            max-width: 80px;
+                            max-height: 100px;
+                            margin: 0 auto;
+                            // aspect-ratio: 1/1;
+                          }
+
+                          button {
+                            &.play {
+                              @include iBtn;
+                              @include ico_play;
+                              position: absolute;
+                              z-index: 1;
+                              // top: 50%;
+                              // left: 50%;
+                              // transform: translate(-50%, -50%);
+                            }
+                          }
+                        }
+                      }
+
+                      img,
+                      video {
+                        width: 80px;
+                      }
+
+                      p {
+                        @include ellipsis;
+                        width: 180px;
+                        margin: 5px 0 0 0;
+                      }
+                    }
+
+                    a {
+                      text-decoration: underline;
+                      color: $ftColor10;
+                    }
+
+                    button {
+                      &.set {
+                        @include iBtn($w:30px, $h:30px);
+                        @include ico_set;
+                        margin: 5px 0 0 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            button {
+              @include btnLayout($w:100px, $h:26px);
+
+              &.material {
+                @include btn2;
+              }
+
+              &.detail {
+                @include btn_main;
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 캠페인 선택 */
+.mva_campaignStart {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+
+      // KPI 목표
+      &.sec_target {
+        margin-top: 20px;
+
+        .box_target {
+          @include boxLayout;
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            @include flexBox($j:start, $a:start, $g:20px);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            >p {
+              @include title5;
+              margin: 10px 0 0 0;
+            }
+
+            >div {
+              flex-grow: 1;
+            }
+
+            .guideBox {
+              @include boxLayout_t3;
+              @include flexBox($j:center, $g:10px, $d:column);
+              min-height: 140px;
+              border: 1px solid $pointColor;
+
+              p {}
+
+              button {
+                @include btnS;
+                @include btn_main;
+                padding-bottom: 1px;
+              }
+            }
+
+            .radioBox {
+              @include flexBox;
+              margin: 10px 0 0 0;
+
+              input[type="radio"] {
+                +label {
+                  @include flexBox($d:column, $j:center);
+                  @include btnLayout;
+                  @include fontM;
+                  flex-grow: 1;
+                  width: 50%;
+                  font-size: 16px;
+                  height: 190px;
+                  border: 1px solid $borderColor;
+
+                  &:first-of-type {
+                    &:before {
+                      @include iLayout;
+                      @include ico_adProd;
+                    }
+                  }
+
+                  &:nth-of-type(2) {
+                    &:before {
+                      @include iLayout;
+                      @include ico_adBrand;
+                    }
+                  }
+
+                  span {
+                    @include fontR;
+                    font-size: 14px;
+                  }
+                }
+
+                &:checked {
+                  +label {
+                    border-color: $pointColor;
+                  }
+                }
+              }
+            }
+
+            // .buttonBox {
+            //   @include flexBox;
+            //   margin: 10px 0 0 0;
+
+            //   button {
+            //     @include flexBox($d:column, $j:center);
+            //     @include btnLayout;
+            //     @include fontM;
+            //     flex-grow: 1;
+            //     width: 50%;
+            //     font-size: 16px;
+            //     height: 190px;
+            //     border: 1px solid $borderColor;
+
+            //     &:hover {
+            //       border-color: $pointColor;
+            //     }
+
+            //     &:first-child {
+            //       &:before {
+            //         @include iLayout;
+            //         @include ico_adProd;
+            //       }
+            //     }
+
+            //     &:nth-child(2) {
+            //       &:before {
+            //         @include iLayout;
+            //         @include ico_adBrand;
+            //       }
+            //     }
+
+            //     span {
+            //       @include fontR;
+            //       font-size: 14px;
+            //     }
+            //   }
+            // }
+          }
+
+          .buttonArea {
+            @include btnArea;
+            position: relative;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid $borderColor;
+            text-align: center;
+
+            button {
+              @include btnM($w:auto);
+
+              &.save {
+                @include btn_main;
+              }
+
+              &.cancel {
+                @include btn2;
+              }
+            }
+          }
+        }
+      }
+
+      // 캠페인 명
+      &.sec_campaignName {
+        margin-top: 20px;
+
+        .box_campaignName {
+          @include boxLayout($pd:15px 30px);
+          @include flexBox($fw:wrap, $j:start, $g:20px);
+          min-height: 80px;
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            flex-grow: 1;
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* (공통) 캠페인 등록(CPC), 캠페인 등록(CPV) */
+.mva_campaignRegisterCPC,
+.mva_campaignRegisterCPV {
+  .content {
+    section {
+
+      // 영상 소재 설정
+      &.sec_videoSet {
+        margin-top: 20px;
+
+        .box_videoSet {
+          @include boxLayout;
+
+          &.dataNoneArea {
+            @include dataNoneArea($ipt2:null, $d2:block, $minh:100px);
+
+            .cont {
+              .list {
+                >div {
+
+                  &.videoBox,
+                  &.videoSelectBox {
+                    display: none;
+                  }
+
+                  // &:not(.videoBox):not(.videoSelectBox) {
+                  //   display: block !important;
+                  // }
+                }
+              }
+            }
+          }
+
+          >.tit {
+            @include title3;
+          }
+
+          >.cont {
+            @include flexBox($j:start, $a:start, $g:6px);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            .optionBox {
+              @include boxLayout2($pd:15px);
+
+              >p {
+                span {
+                  &:before {
+                    content: "(";
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 0 0 4px;
+                    vertical-align: middle;
+                  }
+
+                  &:after {
+                    content: ")";
+                    position: relative;
+                    display: inline-block;
+                  }
+                }
+              }
+
+              >div {
+                @include flexBox($j:start);
+                margin: 15px 0 0 0;
+
+                .selectBox {
+                  select {
+                    width: 200px;
+                  }
+                }
+
+                .searchBox {
+                  @include searchBox_t2($ip_w:240px);
+                }
+              }
+            }
+
+            // title
+            >p {
+              @include title5;
+              min-width: 100px;
+              margin: 10px 0 0 0;
+            }
+
+            // cont 2
+            >div {
+              flex-grow: 1;
+
+              >p {
+                margin: 6px 0 0 0;
+              }
+
+              // cont 3
+              >div {
+                &:nth-child(n+2) {
+                  margin: 10px 0 0 0;
+                }
+              }
+
+              .guideBox {
+                @include boxLayout_t3;
+              }
+
+              .buttonBox {
+                text-align: right;
+
+                button {
+                  &.register {
+                    @include btnS;
+                    @include btn_main;
+                    // text-align:right;
+                  }
+                }
+              }
+
+              .videoBox {
+                @include boxLayout_t4($pd:15px 6px 15px 20px);
+
+                .tit {
+                  @include title5;
+                  @include flexBox;
+                  padding-right: 20px;
+
+                  // .searchBox {
+                  //   @include searchBox($w:400px);
+                  // }                  
+                  .checkBox {
+                    @include btn_check;
+                    @include fontR;
+                  }
+                }
+
+                .cont {
+                  // @include flexBox($fw:wrap, $j:start, $a:start, $g:6px);
+                  // height: 640px;
+                  height: 400px;
+                  margin: 15px 0 0 0;
+                  padding: 0 6px 0 0;
+                  overflow-y: scroll;
+
+                  .box {
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 4px 6px 0;
+
+                    input[type="checkbox"] {
+                      @include checkbox($m:0);
+
+                      &:checked+label:before,
+                      &:disabled+label:before,
+                      +label:before {
+                        position: absolute;
+                        top: 6px;
+                        left: 6px;
+                        z-index: 1;
+                      }
+                    }
+
+                    img,
+                    video {
+                      width: 130px;
+                      height: 130px;
+                    }
+
+                    button {
+                      &.close {
+                        @include iBtn($pd:8px);
+                        @include ico_closeX4;
+                        position: absolute;
+                        top: 6px;
+                        right: 8px;
+                      }
+                    }
+
+                    &.dimReset {
+                      @include dimReset($c:"변환중", $fs:14px, $z:2, $lh:7, $bgS:22px 22px, $bgP:50% 60%);
+                    }
+                  }
+                }
+              }
+
+              .videoSelectBox {
+                @include boxLayout_t4($pd:20px 10px 15px 20px);
+
+                .tit {
+                  @include title5;
+                  // @include flexBox;
+
+                  p {
+                    display: inline-block;
+
+                    &:nth-child(2) {
+                      &:before {
+                        content: "/";
+                        position: relative;
+                        display: inline-block;
+                        margin: 0 4px;
+                      }
+                    }
+                  }
+
+                  .searchBox {
+                    @include searchBox($w:400px);
+                  }
+                }
+
+                .cont {
+                  @include flexBox($fw:wrap, $j:start, $a:start);
+                  height: 160px;
+                  margin: 15px 0 0 0;
+                  padding: 0 10px 0 0;
+                  overflow-y: scroll;
+
+                  .box {
+                    position: relative;
+
+                    img {
+                      width: 150px;
+                      height: 150px;
+                    }
+
+                    button {
+                      &.close {
+                        @include iBtn;
+                        @include ico_closeX4;
+                        position: absolute;
+                        top: 6px;
+                        right: 6px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+//* (each) 캠페인 등록(CPC) */
+.mva_campaignRegisterCPC {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    @include flexBox($a:start, $g:25px);
+    margin: 20px 0 0 0;
+
+    >section {
+      &:first-child {
+        max-width: calc(100% - 425px);
+        flex-grow: 1;
+      }
+    }
+
+    section {
+
+      // left > 캠페인 등록
+      // KPI 목표
+      &.sec_target {
+        margin-top: 20px;
+
+        .box_target {
+          @include boxLayout;
+          @include flexBox($fw:wrap, $j:start, $g:20px);
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            @include flexBox;
+            flex-grow: 1;
+
+            p {
+              @include title4;
+              font-size: 14px;
+            }
+
+            button {
+              margin: 0 0 0 auto;
+
+              &.back {
+                @include iBtn;
+                @include ico_arrowDown2;
+                transform: rotate(90deg);
+              }
+            }
+          }
+        }
+      }
+
+      // 캠페인 명
+      &.sec_campaignName {
+        margin-top: 20px;
+
+        .box_campaignName {
+          @include boxLayout($pd:15px 30px);
+          @include flexBox($fw:wrap, $j:start);
+          min-height: 80px;
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            flex-grow: 1;
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      // 캠페인 기본 설정
+      &.sec_basicSet {
+        margin-top: 20px;
+
+        .box_basicSet {
+          @include boxLayout;
+
+          >.tit {
+            @include title3;
+          }
+
+          >.cont {
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // li 
+            >div {
+              @include flexBox($j:start, $a:start);
+
+              &:nth-child(n+2) {
+                margin: 20px 0 0 0;
+              }
+
+              &.listAdGoal,
+              &.listRecruitPeriod,
+              &.listPostPeriod {
+                >p {
+                  margin: 10px 0 0 0;
+                }
+              }
+
+              &.listType {
+                >p {
+                  margin: 2px 0 0 0;
+                }
+              }
+
+              // title
+              >p {
+                @include title5;
+                min-width: 100px;
+              }
+
+              // cont
+              >div {
+                flex-grow: 1;
+
+                .radioBox {
+                  input[type="radio"] {
+                    @include radio($m:0 20px 0 0);
+                  }
+                }
+
+                .calendarBox {
+                  .calendar {
+                    @include calendar_single;
+
+                    &:nth-child(2) {
+                      margin-left: 30px;
+
+                      &:after {
+                        content: "~";
+                        position: absolute;
+                        display: inline-block;
+                        left: -22px;
+                        top: 12px;
+                      }
+                    }
+                  }
+                }
+
+                .guideBox {
+                  @include boxLayout_t3;
+                  width: 100%;
+                  margin: 10px 0 0 0;
+
+                  p {
+                    font-size: 13px;
+                    line-height: 21px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // 영상소재 설정 > 상단 공통 영역에서 확인 (sec_videoSet)
+
+      // 키워드 설정   
+      &.sec_keywordSet {
+        margin-top: 20px;
+
+        .box_keywordSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // li 
+            >div {
+              @include flexBox($j:start, $a:start);
+
+              &:first-child {
+                >p {
+                  margin: 6px 0 0 0;
+                }
+              }
+
+              &:nth-child(n+2) {
+                margin: 20px 0 0 0;
+
+                >p {
+                  margin: 10px 0 0 0;
+                }
+              }
+
+              // title
+              >p {
+                @include title5;
+                min-width: 100px;
+              }
+
+              // cont 
+              >div {
+                flex-grow: 1;
+
+                >div {
+                  &:nth-child(n+2) {
+                    margin: 10px 0 0 0;
+                  }
+                }
+              }
+
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .inputBox {
+                input {
+                  width: 100%;
+                }
+              }
+
+              .buttonBox {
+                @include flexBox($j:start, $g:6px);
+
+                button {
+                  @include btnS;
+                  @include btn5;
+                  margin: 0 0px 6px 0;
+
+                  &.btnClose {
+                    @include btn_close;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // 운영 채널 설정   
+      &.sec_channelSet {
+        margin-top: 20px;
+
+        .box_channelSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            @include flexBox($j:start, $a:start);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // title
+            >p {
+              @include title5;
+              min-width: 100px;
+              margin: 10px 0 0 0;
+            }
+
+            // cont 
+            >div {
+              flex-grow: 1;
+
+              &:nth-child(n+2) {
+                margin: 10px 0 0 0;
+              }
+            }
+
+            // li 
+            >div {
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+                margin: 10px 0 0 0;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .checkBox {
+                @include inflexBox($g:30px);
+              }
+            }
+          }
+        }
+      }
+
+      // CPC 단가 설정   
+      &.sec_priceSet {
+        margin-top: 20px;
+
+        .box_priceSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            @include flexBox($j:start, $a:start);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // title
+            >p {
+              @include title5;
+              min-width: 100px;
+              margin: 10px 0 0 0;
+            }
+
+            // li 
+            >div {
+              flex-grow: 1;
+
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+                margin: 10px 0 0 0;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .checkBox {
+                @include inflexBox($g:30px);
+              }
+            }
+          }
+
+          .buttonArea {
+            @include btnArea;
+            position: relative;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid $borderColor;
+            text-align: center;
+
+            button {
+              @include btnM($w:auto);
+
+              &.save {
+                @include btn_main;
+              }
+
+              &.cancel {
+                @include btn2;
+              }
+            }
+          }
+        }
+      }
+
+      // right > 기본설정
+      &.sec_campaignSet {
+        @include boxLayout($pd:30px);
+        position: sticky;
+        min-width: 400px;
+        height: min-content;
+        top: 10px;
+        margin-top: 20px;
+
+        >div {
+          &:nth-child(n+2) {
+            margin-top: 20px;
+            padding: 20px 0 0 0;
+            border-top: 1px solid $borderColor3;
+          }
+
+          &:last-child {
+            padding: 20px 0 20px 0;
+            border-bottom: 1px solid $borderColor3;
+          }
+        }
+
+        .tit {
+          @include title3;
+        }
+
+        .cont {
+          margin-top: 20px;
+
+          >div {
+            &:nth-child(n+2) {
+              margin: 20px 0 0 0;
+            }
+
+            p {
+              &:first-child {
+                color: $subFtColor;
+              }
+
+              &:nth-child(2) {
+                @include fontM;
+                margin: 4px 0 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* (each) 캠페인 등록(CPV) */
+.mva_campaignRegisterCPV {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    @include flexBox($a:start, $g:25px);
+    margin: 20px 0 0 0;
+
+    >section {
+      &:first-child {
+        max-width: calc(100% - 425px);
+        flex-grow: 1;
+      }
+    }
+
+    section {
+
+      // left > 캠페인 등록
+      // KPI 목표
+      &.sec_target {
+        margin-top: 20px;
+
+        .box_target {
+          @include boxLayout;
+          @include flexBox($fw:wrap, $j:start, $g:20px);
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            @include flexBox;
+            flex-grow: 1;
+
+            p {
+              @include title4;
+              font-size: 14px;
+            }
+
+            button {
+              margin: 0 0 0 auto;
+
+              &.back {
+                @include iBtn;
+                @include ico_arrowDown2;
+                transform: rotate(90deg);
+              }
+            }
+          }
+        }
+      }
+
+      // 캠페인 명
+      &.sec_campaignName {
+        margin-top: 20px;
+
+        .box_campaignName {
+          @include boxLayout($pd:15px 30px);
+          @include flexBox($fw:wrap, $j:start);
+          min-height: 80px;
+
+          .tit {
+            @include title4;
+            min-width: 100px;
+          }
+
+          .cont {
+            flex-grow: 1;
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      // 캠페인 기본 설정
+      &.sec_basicSet {
+        margin-top: 20px;
+
+        .box_basicSet {
+          @include boxLayout;
+
+          >.tit {
+            @include title3;
+          }
+
+          >.cont {
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // li 
+            >div {
+              @include flexBox($j:start, $a:start);
+
+              &:nth-child(n+2) {
+                margin: 20px 0 0 0;
+              }
+
+              &.listRecruitPeriod,
+              &.listPostPeriod {
+                >p {
+                  margin: 10px 0 0 0;
+                }
+              }
+
+              &.listType {
+                >p {
+                  margin: 2px 0 0 0;
+                }
+              }
+
+              // title
+              >p {
+                @include title5;
+                min-width: 100px;
+              }
+
+              // cont
+              >div {
+                flex-grow: 1;
+
+                .radioBox {
+                  input[type="radio"] {
+                    @include radio($m:0 20px 0 0);
+                  }
+                }
+
+                .calendarBox {
+                  .calendar {
+                    @include calendar_single;
+
+                    &:nth-child(2) {
+                      margin-left: 30px;
+
+                      &:after {
+                        content: "~";
+                        position: absolute;
+                        display: inline-block;
+                        left: -22px;
+                        top: 12px;
+                      }
+                    }
+                  }
+                }
+
+                .guideBox {
+                  @include boxLayout_t3;
+                  width: 100%;
+                  margin: 10px 0 0 0;
+
+                  p {
+                    font-size: 13px;
+                    line-height: 21px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // 영상소재 설정 > 상단 공통 영역에서 확인 (sec_videoSet)
+
+      // 키워드 설정   
+      &.sec_keywordSet {
+        margin-top: 20px;
+
+        .box_keywordSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // li 
+            >div {
+              @include flexBox($j:start, $a:start);
+
+              &:first-child {
+                >p {
+                  margin: 6px 0 0 0;
+                }
+              }
+
+              &:nth-child(n+2) {
+                margin: 20px 0 0 0;
+
+                >p {
+                  margin: 10px 0 0 0;
+                }
+              }
+
+              // title
+              >p {
+                @include title5;
+                min-width: 100px;
+              }
+
+              // cont 
+              >div {
+                flex-grow: 1;
+
+                >div {
+                  &:nth-child(n+2) {
+                    margin: 10px 0 0 0;
+                  }
+                }
+              }
+
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .inputBox {
+                input {
+                  width: 100%;
+                }
+              }
+
+              .buttonBox {
+                @include flexBox($j:start, $g:6px);
+
+                button {
+                  @include btnS;
+                  @include btn5;
+                  margin: 0 0px 6px 0;
+
+                  &.btnClose {
+                    @include btn_close;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // 운영 플랫폼 설정   
+      &.sec_channelSet {
+        margin-top: 20px;
+
+        .box_channelSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            @include flexBox($j:start, $a:start);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // title
+            >p {
+              @include title5;
+              min-width: 100px;
+              margin: 10px 0 0 0;
+            }
+
+            // cont 
+            >div {
+              flex-grow: 1;
+
+              &:nth-child(n+2) {
+                margin: 10px 0 0 0;
+              }
+            }
+
+            // li 
+            >div {
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+                margin: 10px 0 0 0;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .checkBox {
+                @include inflexBox($g:30px);
+              }
+            }
+          }
+        }
+      }
+
+      // CPC 단가 설정   
+      &.sec_priceSet {
+        margin-top: 20px;
+
+        .box_priceSet {
+          @include boxLayout;
+
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            @include flexBox($j:start, $a:start);
+            border-top: 1px solid $borderColor;
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+
+            // title
+            >p {
+              @include title5;
+              min-width: 100px;
+              margin: 10px 0 0 0;
+            }
+
+            // li 
+            >div {
+              flex-grow: 1;
+
+              .guideBox {
+                @include boxLayout_t3;
+                width: 100%;
+                margin: 10px 0 0 0;
+
+                p {
+                  font-size: 13px;
+                  line-height: 21px;
+                }
+              }
+
+              .checkBox {
+                @include inflexBox($g:30px);
+              }
+            }
+          }
+
+          .buttonArea {
+            @include btnArea;
+            position: relative;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid $borderColor;
+            text-align: center;
+
+            button {
+              @include btnM($w:auto);
+
+              &.save {
+                @include btn_main;
+              }
+
+              &.cancel {
+                @include btn2;
+              }
+            }
+          }
+        }
+      }
+
+      // right > 기본설정
+      &.sec_campaignSet {
+        @include boxLayout($pd:30px);
+        position: sticky;
+        min-width: 400px;
+        height: min-content;
+        top: 10px;
+        margin-top: 20px;
+
+        >div {
+          &:nth-child(n+2) {
+            margin-top: 20px;
+            padding: 20px 0 0 0;
+            border-top: 1px solid $borderColor3;
+          }
+
+          &:last-child {
+            padding: 20px 0 20px 0;
+            border-bottom: 1px solid $borderColor3;
+          }
+        }
+
+        .tit {
+          @include title3;
+        }
+
+        .cont {
+          margin-top: 20px;
+
+          >div {
+            &:nth-child(n+2) {
+              margin: 20px 0 0 0;
+            }
+
+            p {
+              &:first-child {
+                color: $subFtColor;
+              }
+
+              &:nth-child(2) {
+                @include fontM;
+                margin: 4px 0 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

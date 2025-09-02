@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 보고서 > 플랫폼별 보고서 -->
+    <div class="wrap">
+        <header class="header">
+            <h1>
+                <a href="javascript:void(0);">비디오애드</a>
+            </h1>
+            <button type="button" class="menuToggle"><span>메뉴접기버튼</span><i></i><i></i><i></i></button>
+            <!-- 생략 -->
+            <div class="sideNav">
+                <!-- 생략 -->
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="auth_title">
+                <h2>비디오애드 센터</h2>
+                <button type="button" class="logout">로그아웃</button>
+            </div>
+            <div class="gubun_box_wrap">
+                <div class="gubun_box">
+                    <button type="button" class="color_admin" title="관리자">관리자</button>
+                    <button type="button" class="color_agency" title="대행사">대행사</button>
+                    <button type="button" class="color_adver" title="광고주">광고주</button>
+                </div>
+                <ul>
+                    <li class="userName"><span class="modalOpen">담당자명</span>님</li>
+                    <li>담당자 : </li>
+                    <li>운영관리자 : </li>
+                    <li>담당 연락처 :<span>등록없음</span> </li>
+                </ul>
+            </div>
+            <div class="menu_search">
+                <div>
+                    <input type="text" id="searchLeftMenuGrid" placeholder="메뉴명 검색">
+                    <button type="button">검색</button>
+                </div>
+            </div>
+            <div>
+                <ul class="menu_list">
+                    <li class="home">
+                        <a href="#"><span class="menuName">대시보드</span></a>
+                    </li>
+                    <li class="campaign">
+                        <a href="#"><span class="menuName">캠페인 관리</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">캠페인 현황</a></li>
+                            <li><a href="javascript:void(0);">캠페인 등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="material">
+                        <a href="#"><span class="menuName">소재 관리</span></a>
+                    </li>
+                    <li class="report">
+                        <a class="on" href="#"><span class="menuName">보고서</span></a>
+                        <ul class="active">
+                            <li><a href="javascript:void(0);">일자별 보고서</a></li>
+                            <li><a href="javascript:void(0);">캠페인별 보고서</a></li>
+                            <li><a href="javascript:void(0);">상품별 보고서</a></li>
+                            <li><a href="javascript:void(0);">소재별 보고서</a></li>
+                            <li><a class="on" href="javascript:void(0);">플랫폼별 보고서</a></li>
+                        </ul>
+                    </li>
+                    <li class="payment">
+                        <a href="#"><span class="menuName">결제</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="contents">
+            <!-- mva_reportPlatform 클래스는 비디오애드에서 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+             다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+            <div class="mva_reportPlatform">
+                <div class="title">
+                    <div class="location">
+                        <span>Home</span><span>보고서</span>
+                    </div>
+                    <p>플랫폼별 보고서</p>
+                    <p>상품별 보고서를 확인하실수 있습니다</p>
+                </div>
+                <div class="content">
+                    <section class="sec_list">
+                        <div class="optionBox">
+                            <div class="calendarBox">
+                                <div class="calendar">
+                                    <input type="text" id="dateInput" name="dateInput" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listArea">
+                            <!-- 유튭 -->
+                            <section class="list1">
+                                <div class="tit">
+                                    <p>YOUTUBE</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tab">
+                                        <ul>
+                                            <li class="on"><a href="javascript:void(0);">일자별</a></li>
+                                            <li><a href="javascript:void(0);">주차별</a></li>
+                                            <li><a href="javascript:void(0);">월별</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabView">
+                                        <!-- tabViewList 1 -->
+                                        <div class="tabViewList show">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>12,222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 2 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 3 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>2</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 인스타 -->
+                            <section class="list2">
+                                <div class="tit">
+                                    <p>INSTAGRAM</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tab">
+                                        <ul>
+                                            <li class="on"><a href="javascript:void(0);">일자별</a></li>
+                                            <li><a href="javascript:void(0);">주차별</a></li>
+                                            <li><a href="javascript:void(0);">월별</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabView">
+                                        <!-- tabViewList 1 -->
+                                        <div class="tabViewList show">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>12,222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 2 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 3 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>2</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 틱톡 -->
+                            <section class="list3">
+                                <div class="tit">
+                                    <p>틱톡</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tab">
+                                        <ul>
+                                            <li class="on"><a href="javascript:void(0);">일자별</a></li>
+                                            <li><a href="javascript:void(0);">주차별</a></li>
+                                            <li><a href="javascript:void(0);">월별</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabView">
+                                        <!-- tabViewList 1 -->
+                                        <div class="tabViewList show">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>12,222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 2 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 3 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>2</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 네이버클립 -->
+                            <section class="list4">
+                                <div class="tit">
+                                    <p>네이버클립</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tab">
+                                        <ul>
+                                            <li class="on"><a href="javascript:void(0);">일자별</a></li>
+                                            <li><a href="javascript:void(0);">주차별</a></li>
+                                            <li><a href="javascript:void(0);">월별</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabView">
+                                        <!-- tabViewList 1 -->
+                                        <div class="tabViewList show">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>12,222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 2 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 3 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>2</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 페이스북 -->
+                            <section class="list5">
+                                <div class="tit">
+                                    <p>FACEBOOK</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tab">
+                                        <ul>
+                                            <li class="on"><a href="javascript:void(0);">일자별</a></li>
+                                            <li><a href="javascript:void(0);">주차별</a></li>
+                                            <li><a href="javascript:void(0);">월별</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabView">
+                                        <!-- tabViewList 1 -->
+                                        <div class="tabViewList show">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>12,222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 2 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>222</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- tabViewList 3 -->
+                                        <div class="tabViewList">
+                                            <div class="totalBox">
+                                                <p>소진금액 <span>2</span></p>
+                                                <a href="#" class="more">MORE</a>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="labelBox">
+                                                    <p>클릭수</p>
+                                                    <p>전환수</p>
+                                                </div>
+                                                <div class="graph"
+                                                    style="width: 100%; height: 290px; border:1px solid #eee"> #ff4759,
+                                                    #399edb </div>
+                                            </div>
+                                            <div class="countBox">
+                                                <div>조회수<span>98,134</span></div>
+                                                <div>클릭수<span>98,134</span></div>
+                                                <div>캠페인수<span>98,134</span></div>
+                                                <div>게시글수<span>98,134</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <!--// contnets end -->
+        <footer>
+            <ul>
+                <li>(주)인라이플</li>
+                <li>사업자번호:113-86-60934</li>
+                <li>사업자:한경훈</li>
+                <li>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</li>
+            </ul>
+            <ul>
+                <li><a href="tel:070-4672-2303">TEL .070-4672-2303</a></li>
+                <li>FAX .02-865-6845</li>
+                <li><a href="mail:mobon@enliple.com">E-mail : mobon@enliple.com</a></li>
+            </ul>
+            <p>Copyright(c) 2012 모비온 All rights reserved. </p>
+        </footer>
+    </div>
+</body>
+
+</html>

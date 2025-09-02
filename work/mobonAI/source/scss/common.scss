@@ -1,0 +1,47 @@
+/*
+Explain : MOBON VIDEO AD
+File : common.scss 
+Date : 2025.03.13
+Version : 1.1.28
+*/
+
+// 수정내용 : 대시보드, 캠페인등록 데이터 없음 영역 수정
+
+/*
+z-index 순서
+# timepicker : 999
+# herder > menuMore  : 999
+# modal, modalDim: 999, 998
+# dashboard > setting icon : 980
+# header>sideNav>div hover(layoutNoticeLog) :850
+# tooltipHover, userMenu : 800,801
+# dimDot, dimCircle : 701
+# dimText : 700 // dimCircle, dimDot과 동일 z-index면 dimCircle 안먹음
+# selectDiv : 600
+# 캠페인리스트 : 500-1
+# 날짜(dateList) : 10
+*/
+
+//***** 공통 CSS *****/
+@import "_font";
+@import "_base";
+@import "_color";
+@import "image";
+// @import "calendar";
+@import "mixin";
+@import "_layout";
+@import "_content";
+
+
+//***** 개별 CSS *****/
+// 모달 
+@import "_modalLayout";
+// @import "modal";
+// WORK 
+@import "work";
+
+//* bakup */
+// @import "bak";
+//* 제작 */
+// @import "test";
+// @import "modal_work";s

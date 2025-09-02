@@ -1,0 +1,1808 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : bak.scss
+    Date  : 2023.04.12
+    menu  : 테스트
+/*---------------------------------*/
+
+
+/* 모달 */
+.modalWrap {
+
+
+  // 240701 
+  //* 결제  */
+  &.md_payment {
+    @include modalLayout;
+
+    .modalContainer {
+      width: 580px;
+      height: 670px;
+
+      .modalContent {
+
+        >ul {
+
+          // common 
+          >li {
+
+            // title 
+            >p {
+              @include fontM;
+              min-width: 100px;
+              font-size: 16px;
+            }
+
+            &:nth-child(n+2) {
+              margin-top: 20px;
+            }
+          }
+
+          // ul(1) > li 
+          // 결제유형, 결제자정보
+          &:nth-child(1) {
+            li {
+
+              // ul(1) > li(1) 결제 유형
+              &:nth-child(1) {
+                @include flexBox($j:start);
+
+                // cont
+                >div {
+                  @include flexBox($j:start);
+
+                  button {
+                    @include btnLayout;
+                    width: 120px;
+                    height: 60px;
+                    line-height: 18px;
+
+                    &.card {
+                      @include btn_main;
+                    }
+
+                    &.bankbook {
+                      @include btn2;
+
+                      span {
+                        display: block;
+                      }
+                    }
+                  }
+
+                  input[type="text"] {
+                    width: 240px;
+                  }
+                }
+              }
+
+              // ul(1) > li(2) 결제자 정보
+              &:nth-child(2) {
+                >div {
+                  margin-top: 20px;
+
+                  ul {
+                    li {
+                      @include flexBox($j:start, $g:10px);
+
+                      &:nth-child(n+2) {
+                        margin-top: 10px;
+                      }
+
+                      p {
+                        min-width: 100px;
+                      }
+                    }
+
+                    +p {
+                      margin-top: 15px;
+                      font-size: 13px;
+                      color: $subFtColor;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // 총 주문 내용
+          &:nth-child(2) {
+            border-top: 1px solid $borderColor;
+            margin-top: 20px;
+            padding-top: 20px;
+
+            li {
+
+              >div {
+                margin-top: 20px;
+
+                ul {
+                  li {
+                    @include flexBox;
+
+                    &:nth-child(n+2) {
+                      margin-top: 10px;
+                    }
+
+                  }
+
+                  &:nth-child(1) {
+                    li {
+                      &:last-child {
+
+                        span {
+                          &:nth-child(2) {
+                            color: $subFtColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    @include fontM;
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 1px solid $borderColor;
+                    color: $pointColor;
+                    font-size: 16px;
+                    text-align: right;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 240708 > url 탭 삭제하기 전 
+  //* 광고 등록 */
+  .mtb_adRegister {
+    margin-top: 20px;
+
+    .title {
+      @include titleLayout_t2;
+    }
+
+    .content {
+      @include flexBox($a:start, $g:25px);
+      margin: 20px 0 0 0;
+
+      >section {
+        &:first-child {
+          max-width: calc(100% - 425px);
+        }
+      }
+
+      section {
+
+        // left > 광고설정 
+        &.sec_adPicker {
+          @include flexBox($fw:wrap, $a:start, $g:25px);
+
+          b {
+            @include title2;
+            @include fontR;
+            width: 100%;
+          }
+
+          // 달력, 시간 선택 및 예약 확인 
+          .box_adPicker {
+            @include boxLayout;
+            @include flexBox($fw:wrap, $a:start, $g:20px);
+            flex-grow: 1;
+
+            // 달력
+            .calendarBox {
+              @include boxLayout2();
+              @include daterangepicker_t2;
+              padding: 0 20px;
+              width: 450px;
+              height: 450px;
+            }
+
+            // 타임보드 광고 예정 
+            .timeListBox {
+              @include boxLayout2($pd:25px 10px 0 20px);
+              max-width: calc(100% - 470px);
+              height: 450px;
+              flex-grow: 1;
+
+              ::-webkit-scrollbar {
+                @include scrollbar;
+              }
+
+              ::-webkit-scrollbar-thumb {
+                @include scrollbar_thumb;
+              }
+
+              .tit {
+                @include title3;
+              }
+
+              .timeList {
+                position: relative;
+                height: -webkit-fill-available;
+                margin-top: 30px;
+                padding: 0 0px 0 5px;
+                overflow-y: auto;
+
+                ul {
+                  position: relative;
+                  padding: 0 0 30px 15px;
+                  border-left: 1px solid $borderColor;
+
+                  li {
+                    position: relative;
+                    padding-right: 65px;
+
+                    &:nth-child(n+2) {
+                      margin-top: 20px;
+                    }
+
+                    &.live {
+                      >p {
+                        &:before {
+                          background-color: $red;
+                        }
+
+                        span {
+                          &:nth-child(1) {
+                            @include fontB;
+                            color: $red;
+                          }
+                        }
+                      }
+                    }
+
+                    >p {
+                      &:before {
+                        content: "";
+                        position: relative;
+                        position: absolute;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        left: -20px;
+                        border-radius: 100%;
+                        vertical-align: middle;
+                        background-color: $pointColor;
+                      }
+
+                      span {
+                        @include fontM;
+                        font-size: 14px;
+
+                        &:nth-child(n+2) {
+                          margin-left: 10px;
+                        }
+                      }
+                    }
+
+                    >div {
+                      @include flexBox($j:start, $g:12px);
+                      width: 100%;
+                      min-height: 46px;
+                      border-radius: 4px;
+                      padding: 10px 15px;
+                      border-color: 1px solid $borderColor;
+                      background-color: #f3f3f3;
+
+                      &:nth-child(n+2) {
+                        margin-top: 8px;
+                      }
+
+                      span {
+                        @include flexBox($f:inline-flex, $j:center);
+                        position: relative;
+                        min-width: 73px;
+                        height: 26px;
+                        word-break: keep-all;
+                        font-size: 12px;
+                        padding: 4px 15px;
+                        color: $ftColor4;
+                        border-radius: 50px;
+                        background-color: $pointColor;
+                      }
+
+                      p {
+                        @include ellipsis;
+                        display: inline-block;
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            //가능시간, 구좌 
+            .timePickerBox {
+              width: 100%;
+              margin-top: 10px;
+
+              .tit {
+                @include title3;
+                @include flexBox($j:start, $g:8px);
+
+                button {
+                  &.refresh {
+                    @include iLayout;
+                    @include ico_refresh;
+                    // vertical-align: middle;
+
+                    &:hover {
+                      @include ico_refresh_hover;
+                    }
+                  }
+                }
+              }
+
+              .timePicker {
+                @include flexBox($f:inline-flex, $fw:wrap, $j:start, $g:10px);
+                margin-top: 20px;
+
+                input[type="checkbox"] {
+                  @include checkboxBtn;
+                }
+              }
+
+              // 구좌 
+              .cost {
+                @include flexBox($fw:wrap, $j:start, $g:10px);
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid $borderColor;
+
+                input[type="checkbox"] {
+                  @include checkboxBtn2($width: 120px, $height:64px);
+
+                  +label {
+                    @include flexBox($d:column, $j:center, $a:start, $g:4px, );
+
+                    >p {
+                      &:nth-child(1) {
+                        color: $subFtColor;
+                        font-size: 14px;
+                      }
+
+                      &:nth-child(2) {
+                        @include fontB;
+                        font-size: 16px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // 예약 확인
+          .box_reserveConfirm {
+            @include boxLayout;
+            min-width: 400px;
+            flex-grow: 1;
+          }
+        }
+
+        // 소재, 랜딩 URL 설정
+        &.sec_set {
+          margin-top: 40px;
+
+          >b {
+            @include title2;
+            width: 100%;
+          }
+
+          .box_set {
+            @include boxLayout;
+            margin-top: 20px;
+
+            .tab {
+              @include tabLi_t3;
+
+              +.checkBox {
+                @include fontM;
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                font-size: 16px;
+              }
+            }
+
+            .tabView {
+              @include tabViewBox;
+
+
+              .tabViewList {
+                @include tabViewList;
+                // min-height: 630px;
+                padding-top: 20px;
+
+                // tit common 
+                .tit {
+                  @include flexBox();
+
+                  b {
+                    @include title3;
+                    position: relative;
+                    display: block;
+                  }
+
+                  button {
+                    @include btnLayout($h:36px, $fs:16px);
+                    @include btn_main;
+
+                    &.register {
+                      min-width: 200px;
+
+                      &:after {
+                        content: "+";
+                        position: relative;
+                        display: inline-block;
+                        margin-left: 4px;
+                        font-size: 16px;
+                      }
+                    }
+                  }
+                }
+
+                // cont common
+                .cont {
+                  margin-top: 20px;
+
+                  >div {
+                    &:nth-child(n+2) {
+                      margin-top: 12px;
+                    }
+                  }
+                }
+
+                // tabViewList >이미지 소재
+                &:nth-child(1) {
+                  .tit {
+                    @include flexBox($a:flex-start);
+                  }
+
+                  .cont {
+                    margin-top: 1px;
+
+                    >div {
+                      // &:nth-child(1) {
+                      //   @include fontM;
+                      //   font-size: 16px;
+                      // }
+
+                      &:nth-child(2) {
+                        @include flexBox($g:30px);
+
+                        p {
+                          @include ip_title;
+                          @include fontM;
+
+                          +input {
+                            margin-left: 8px;
+                          }
+                        }
+
+                        a {
+                          @include fontM;
+                          flex-grow: 1;
+                          text-align: right;
+                          color: $mainColor;
+                          text-decoration: underline;
+                        }
+                      }
+
+                      .selectDiv {
+                        @include selectDiv;
+                        @include flexBox($f:inline-flex, $g:8px);
+
+                        .selectList {
+                          ul {
+                            li {
+                              &.wait {
+                                &:before {
+                                  @include ico_check2;
+                                  content: "모비온 대기";
+                                  color: $ftColor6;
+                                  background-color: $bgColor4;
+                                }
+                              }
+
+                              &.retune {
+                                &:before {
+                                  @include ico_close2;
+                                  content: "모비온 반려";
+                                  color: $ftColor7;
+                                  background-color: $bgColor5;
+                                }
+                              }
+
+                              &.wait,
+                              &.retune {
+                                &:before {
+                                  @include flexBox($f:inline-flex, $j:start, $a:center, $g:8px);
+                                  position: relative;
+                                  // display: inline-block;
+                                  min-height: 20px;
+                                  min-width: fit-content;
+                                  padding: 0 8px 0 20px;
+                                  margin-right: 8px;
+                                  font-size: 12px;
+                                  vertical-align: middle;
+                                  border-radius: 10px;
+                                  background-position: 4px 4px;
+                                }
+                              }
+                            }
+                          }
+                        }
+
+                        >button {
+                          &.connect {
+                            @include btnLayout($w:80px, $h:36px);
+                            @include btn_main;
+                          }
+                        }
+                      }
+
+                      input[type="text"] {
+                        min-width: 400px;
+                      }
+
+                      &.previewArea {
+                        .previewBox {
+                          @include flexBox($j:center, $a:start, $g:20px);
+                          position: relative;
+                          margin-top: 20px;
+                          padding-top: 20px;
+                          border-top: 1px solid $borderColor;
+                          overflow: hidden;
+
+                          // slick dot custom
+                          .slick {
+                            .slick-dots {
+                              bottom: 55px;
+                              @include slick_dot;
+                            }
+
+                            .slick-arrow {
+                              @include slick_arrow;
+
+                              &.slick-prev {
+                                // left: 15px;
+
+                                &:before {
+                                  top: calc(50% - 25px);
+                                }
+                              }
+
+                              &.slick-next {
+                                // right: 15px;
+
+                                &:before {
+                                  top: calc(50% - 25px);
+                                }
+                              }
+
+                            }
+
+                            .slick-dotted {
+                              &.slick-slider {
+                                margin: 0;
+                              }
+                            }
+                          }
+
+                          .box {
+                            // @include flexBox($d:column, $a:center, $g:12px);
+                            position: relative;
+                            flex: 0 1 25%;
+                            text-align: center;
+
+                            // slick
+                            >div {
+                              position: realtive;
+                              width: 180px;
+                              margin: 0 auto;
+                            }
+
+                            .list {
+
+                              // 이미지 없음 
+                              &.empty {
+                                .imgBox {
+                                  &:before {
+                                    // @include flexBox($j:center, $g:0px);
+                                    @include iLayout;
+                                    @include ico_emptyImg;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                  }
+
+                                  img {
+                                    display: none;
+                                  }
+                                }
+                              }
+                            }
+
+                            .imgBox {
+                              position: relative;
+                              width: 180px;
+                              height: 180px;
+                              margin: 0 auto;
+                              border-radius: 5px;
+                              border: 1px solid #dadada;
+                              background-color: #f5f5f5;
+
+                              img {
+                                max-width: 178px;
+                                max-height: 178px;
+                                border-radius: 4px;
+                                object-fit: contain;
+                                object-position: center center;
+                              }
+                            }
+
+                            p {
+                              margin-top: 12px;
+                              text-align: center;
+
+                              &:nth-last-child(2) {
+                                color: $subFtColor;
+                                font-size: 12px;
+                              }
+
+                              &:nth-last-child(1) {
+                                font-size: 14px;
+                                margin-top: 4px;
+                              }
+
+                              &:only-of-type {
+                                margin-top: 12px;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                // tabViewList1 카피 소재
+                &:nth-child(2) {
+
+                  // cont 
+                  .cont {
+
+                    // list
+                    >div {
+
+                      // common 
+                      &.checkBox {
+                        font-size: 16px;
+
+                        >p {
+                          @include ip_title;
+                        }
+                      }
+
+                      .calendarBox {
+                        @include calendar_single($width: 140px);
+                        display: inline-block;
+
+                        &.off {
+                          &:before {
+                            @include inputOff;
+                          }
+                        }
+                      }
+
+                      .timeBox {
+                        @include timeBox;
+                        display: inline-block;
+                        margin-left: 10px;
+
+                        &.off {
+                          &:before {
+                            @include inputOff;
+                          }
+                        }
+                      }
+
+                      &:nth-child(n+2) {
+                        margin-top: 30px;
+                      }
+
+                      // // 카피 추후적용 체크박스 
+                      // &:nth-child(1) {
+                      //   @include fontM;
+                      // }
+
+                      // 적용항목 체크박스 
+                      &:nth-child(1) {
+                        @include flexBox($j:start, $g:20px);
+                        margin-top: 20px;
+
+                        >p {
+                          @include ip_title;
+                        }
+                      }
+
+                      // 상단타이틀
+                      &:nth-child(2) {
+                        @include flexBox($j:start, $g:10px);
+
+                        b {
+                          @include title3;
+                          position: relative;
+                          display: inline-block;
+                          min-width: 120px;
+                        }
+
+                        >div {
+                          display: inline-block;
+
+                          input {
+                            min-width: 260px;
+
+                            &:nth-child(n+2) {
+                              margin-left: 8px;
+                            }
+                          }
+                        }
+                      }
+
+                      // 상품정보
+                      &:nth-child(3) {
+                        >b {
+                          @include title3;
+                          position: relative;
+                          display: block;
+                        }
+
+                        ul {
+                          margin-top: 20px;
+
+                          li {
+                            @include flexBox($j:start, $g:8px);
+
+                            &:nth-child(n+2) {
+                              margin-top: 12px;
+                            }
+
+                            &:nth-child(1) {
+                              input {
+                                width: 530px;
+                              }
+                            }
+
+                            &:nth-child(n+2):nth-child(-n+4) {
+                              input {
+                                text-align: right;
+                              }
+                            }
+
+                            >p {
+                              @include ip_title;
+                              min-width: 120px;
+                            }
+
+                            input {
+                              min-width: 260px;
+                            }
+                          }
+                        }
+                      }
+
+                      // 일자 및 시간
+                      &:nth-child(4) {
+                        @include flexBox($j:start, $g:10px);
+
+                        b {
+                          @include title3;
+                          position: relative;
+                          display: inline-block;
+                          min-width: 120px;
+                        }
+
+                        >div {
+                          display: inline-block;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                // tabViewList1 URL 
+                &:nth-child(3) {
+
+                  // cont 
+                  .cont {
+                    margin-top: 20px;
+
+                    // list 
+                    >div {
+                      @include flexBox($j:start, $g:15px);
+
+                      &:nth-child(1) {
+                        @include fontM;
+                        font-size: 16px;
+                      }
+
+                      &:nth-child(4) {
+                        input {
+                          width: 438px;
+                        }
+                      }
+
+                      >p {
+                        @include ip_title($w:80px);
+                      }
+
+                      input {
+                        width: 500px;
+                      }
+
+                      button {
+                        @include btnLayout;
+                        @include btn_main;
+                        width: 100px;
+                        height: 36px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 프레임 선택
+        &.sec_frame {
+          margin-top: 40px;
+
+          >b {
+            @include title2;
+            width: 100%;
+          }
+
+          .box_frame {
+            @include boxLayout;
+            margin-top: 20px;
+
+            .frameList {
+              @include flexBox($j:start, $g:20px);
+              position: relative;
+
+              .box {
+                @include flexBox($d:column, $j:start, $g:10px);
+                flex: 0 1 25%;
+                width: 180px;
+
+                // slick dot custom
+                .slick-dots {
+                  bottom: 10px;
+                  @include slick_dot;
+                }
+
+                .slick-arrow {
+                  @include slick_arrow;
+                }
+
+                .slick-dotted {
+                  &.slick-slider {
+                    margin: 0;
+                  }
+                }
+
+                .checkBox {
+                  @include fontM;
+                }
+
+                .imgBox {
+                  position: relative;
+                  width: 180px;
+                  height: 180px;
+                  border-radius: 5px;
+                  border: 1px solid #dadada;
+                  background-color: #f5f5f5;
+
+                  img {
+                    max-width: 178px;
+                    max-height: 178px;
+                    object-fit: none;
+                    background-size: contain;
+                    object-fit: contain;
+                    object-position: center center;
+                  }
+
+                  // 이미지 없음 
+                  &.empty {
+                    .imgBox {
+                      &:before {
+                        // @include flexBox($j:center, $g:0px);
+                        @include iLayout;
+                        @include ico_emptyImg;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                      }
+
+                      img {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+
+                .buttonBox {
+                  position: relative;
+                  width: 180px;
+
+                  button {
+                    @include flexBox($j:center, $g:4px);
+                    @include btnLayout($w:100%, $h:36px);
+                    @include btn2;
+
+                    &:before {
+                      @include iLayout;
+                      @include ico_search;
+                    }
+
+                    &:hover {
+                      @include btn_main;
+
+                      &:before {
+                        @include iLayout;
+                        @include ico_search2;
+                      }
+                    }
+                  }
+                }
+
+                p {
+                  text-align: center;
+
+                  &:nth-of-type(1) {
+                    margin-top: 12px;
+                    color: $subFtColor;
+                    font-size: 12px;
+                  }
+
+                  &:nth-of-type(2) {
+                    font-size: 14px;
+                    margin-top: 4px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // right > 예약확인
+        &.sec_reserveConfirm {
+          @include boxLayout($pd:30px);
+          position: sticky;
+          min-width: 400px;
+          height: min-content;
+          top: 10px;
+          margin-top: 40px;
+
+          .tit {
+            @include title3;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid $borderColor3;
+          }
+
+          .cont {
+            margin-top: 20px;
+
+            .adInfo {
+              >div {
+                @include flexBox($j:start, $g:20px);
+
+                &:nth-child(n+2) {
+                  margin-top: 10px;
+                }
+
+                >p {
+                  &:nth-child(1) {
+                    min-width: 110px;
+                    font-size: 16px;
+                  }
+
+                  &:nth-child(2) {
+                    @include fontM;
+                  }
+                }
+              }
+            }
+
+            .info {
+              margin-top: 20px;
+              border-top: 1px solid $borderColor;
+
+              ul {
+                margin-top: 20px;
+
+                &:last-child {
+                  li {
+                    @include flexBox();
+
+                    &:nth-child(2) {
+                      span {
+                        @include fontM;
+                      }
+                    }
+                  }
+                }
+
+                li {
+                  &:nth-child(1) {
+                    @include fontM;
+                    margin-bottom: 8px;
+                    font-size: 16px;
+                  }
+
+                  &:nth-child(n+2) {
+                    line-height: 23px;
+                  }
+                }
+              }
+            }
+
+            .btnArea {
+              margin-top: 20px;
+              padding-top: 20px;
+              border-top: 1px solid $borderColor;
+
+              button {
+                &.adRegister {
+                  @include btnLayout($w:100%, $h:48px);
+                  @include btn_main;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 241029 */
+  // //* 프레임 1set 자세히 보기  */
+  &.md_frameDetail {
+    @include modalLayout;
+
+    .modalContainer {
+      width: 1400px;
+      // height: 800px;
+      height: 830px;
+      // height: 1400px;
+
+      .modalContent {
+        // max-height: 1240px;
+        max-height: 680px;
+
+        .box_frameDetail {
+          @include flexBox($fw:wrap, $a:start, $g:30px);
+          // display: grid;
+          // grid-template-columns: 1fr 1fr;
+          // grid-row: auto/span 3;
+          gap: 30px;
+          row-gap: 0;
+          column-gap: 30px;
+          // grid-template-rows: 3fr;
+          // grid-auto-rows: minmax(50px, auto);
+          // grid-auto-columns: minmax(55px, auto);
+
+          // (common) list 클래스가 포함된 1~5까지 모두
+          [class*="list"] {
+            @include flexBox($j:start, $fw:wrap, $a:start);
+            position: relative;
+            padding-top: 30px;
+
+            &:not(:last-child) {
+              margin-bottom: 30px;
+            }
+
+            p {
+              @include fontM;
+              position: absolute;
+              top: 0;
+              left: 0;
+              font-size: 14px;
+            }
+
+            .box {
+              span {
+                @include inflexBox($j:center);
+                position: relative;
+                min-width: 64px;
+                padding: 2px 4px;
+                height: 30px;
+                font-size: 14px;
+                text-align: center;
+                border-radius: 5px;
+              }
+
+              &:nth-of-type(1) {
+                span {
+                  color: $pointColor;
+                  border: 1px solid $pointColor;
+                  background-color: $btn_bgColor3;
+
+                }
+              }
+
+              &:nth-of-type(2) {
+                span {
+                  color: $ftColor4;
+                  border: 1px solid $pointColor;
+                  background-color: $pointColor;
+
+                }
+              }
+
+              .imgBox {
+                margin: 10px 0 0 0;
+                outline: 1px solid $borderColor;
+                border-radius: 5px;
+                background-color: $bgColor3;
+
+                img {
+                  border-radius: 5px;
+                  background-size: contain;
+                  object-fit: contain;
+                  object-position: center center;
+                }
+
+                // 이미지 없음 
+                &.empty {
+                  &:before {
+                    // @include flexBox($j:center, $g:0px);
+                    @include iLayout;
+                    @include ico_emptyImg;
+                    // position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                  }
+
+                  img {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+
+          // (each) list 
+          .list {
+            .imgBox {
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            // 320*480
+            // &.t1 {
+            //   grid-column: 1/span 1;
+            //   grid-row: 1/span 11;
+
+            //   // color: red;
+            //   .imgBox {
+            //     // width: 320px;
+            //     // height: 480px;
+
+            //     img {
+            //       // width: 320px;
+            //       // height: 480px;
+            //     }
+            //   }
+            // }
+
+            // // 320*600
+            // &.t2 {
+            //   grid-column: 2/span 1;
+            //   grid-row: 1/span 13;
+
+            //   .imgBox {
+            //     width: 320px;
+            //     height: 600px;
+
+            //     img {
+            //       width: 320px;
+            //       height: 600px;
+            //     }
+            //   }
+            // }
+
+            // // 250*250
+            // &.t3 {
+            //   grid-column: 1/span 1;
+            //   grid-row: 12/span 6;
+
+            //   .imgBox {
+            //     width: 250px;
+            //     height: 250px;
+
+            //     img {
+            //       width: 250px;
+            //       height: 250px;
+            //     }
+            //   }
+            // }
+
+            // // 320*100
+            // &.t4 {
+            //   grid-column: 2/span 1;
+            //   grid-row: 15/span 3;
+
+            //   .imgBox {
+            //     width: 320px;
+            //     height: 100px;
+
+            //     img {
+            //       width: 320px;
+            //       height: 100px;
+            //     }
+            //   }
+            // }
+
+            // // 970*90
+            // &.t5 {
+            //   grid-column: 1/span 2;
+            //   grid-row: 18/span 3;
+
+            //   .box {
+            //     @include flexBox($a:top);
+
+            //     .imgBox {
+            //       width: 970px;
+            //       height: 90px;
+            //       margin: 0;
+
+            //       img {
+            //         width: 970px;
+            //         height: 90px;
+            //       }
+            //     }
+            //   }
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrap {
+
+  //* 대시보드 250102 > 소재현황 포함되어 있는 부분 */
+  .mva_dashboard {
+    height: 100%;
+    // min-height: calc(100vh - 175px);
+    margin-top: 20px;
+
+    .title {
+      @include titleLayout;
+
+      .location {
+        @include location;
+      }
+    }
+
+    .content {
+      height: 100%;
+      // min-height: calc(100vh - 175px);
+
+      .grid_contents_wrap {
+        position: relative;
+
+        .grid-stack {
+          .no_layout {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            @include flexBox($d:column, $j:center);
+
+            p {
+              text-align: center;
+              font-size: 16px;
+              color: $color_main_txt;
+              line-height: 1.63;
+            }
+
+            button {
+              margin-top: 30px;
+              padding: 15px 52px;
+              border-radius: 8px;
+              background-color: $gray_a;
+              color: #fff;
+
+              &:hover {
+                background-color: $color_main;
+              }
+            }
+          }
+        }
+      }
+
+      section {
+        &.sec_widget {
+          position: relative;
+
+          .widget {
+            margin: 0 0 0 auto;
+
+            button {
+              &.widget {
+                @include btnLayout;
+                @include ico_widget;
+                width: 40px;
+                height: 40px;
+                vertical-align: middle;
+                font-size: 0;
+              }
+            }
+          }
+        }
+
+        // 실시간 데이터, 캠페인 성과 요약, 실시간LIVE
+        &.sec_typeStats,
+        &.sec_platform,
+        &.sec_summaryResult,
+        &.sec_vedioType,
+        &.sec_list {
+          height: 100%;
+
+          >div {
+            width: 100%;
+            height: 100%;
+          }
+
+          // 공통 
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            margin: 20px 0 0 0;
+
+            &.dataNoneArea {
+              .dataNone {
+                p {
+                  +button {
+                    @include btnS($minW:110px);
+                    @include btn_main;
+                    margin: 20px 0 0 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 소재현황 */
+        &.sec_typeStats {
+          .box_typeStats {
+            @include boxLayout;
+
+            .cont {
+              @include flexBox($d:column, $j:space-around);
+              position: relative;
+              height: calc(100% - 40px);
+
+              .graphArea {
+                position: relative;
+                width: 100%;
+
+                .graphBox {
+                  .graphTitle {
+                    p {
+                      @include title4;
+
+                      span {}
+                    }
+                  }
+
+                  .labelBox {
+                    @include inflexBox($j:end, $g:30px);
+                    position: absolute;
+                    top: 2px;
+                    right: 0;
+
+                    p {
+                      &:nth-child(1):before {
+                        @include label;
+                        background-color: linear-gradient(to bottom, #fd572d, #f21469);
+                      }
+
+                      &:nth-child(2):before {
+                        @include label($bgColor: #e9e9e9);
+                      }
+                    }
+                  }
+
+                  .graph {
+                    margin: 10px 0 0 0;
+                    @include flexBox($g:0, $j:start);
+                    height: 40px;
+
+                    >div {
+                      @include inflexBox($j:center);
+                      @include title4;
+                      height: 100%;
+
+                      &:first-child {
+                        color: $ftColor4;
+                        background-color: $pointColor;
+                        background-color: linear-gradient(to bottom, #fd572d, #f21469);
+                      }
+
+                      &:nth-child(2) {
+                        flex-grow: 1;
+                        background-color: $graphColor2;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 플랫폼별 운영현황 */
+        &.sec_platform {
+          .box_platform {
+            @include boxLayout;
+
+            .cont {
+              position: relative;
+              height: calc(100% - 30px);
+
+              .graphArea {
+                @include flexBox();
+                height: 100%;
+
+                .graphBox {
+                  @include flexBox($j:center);
+
+                  .graphTitle {
+                    position: absolute;
+
+                    p {
+                      @include fontM;
+                      font-size: 14px;
+                      text-align: center;
+
+                      span {
+                        @include fontB;
+                        display: block;
+                        margin: 4px 0 0 0;
+                        font-size: 26px;
+
+                        &:after {
+                          @include fontM;
+                          content: "건";
+                          position: relative;
+                          display: inline-block;
+                          font-size: 14px;
+                        }
+                      }
+                    }
+                  }
+
+                }
+
+                .labelBox {
+                  position: relative;
+
+
+                  p {
+                    @include flexBox($g:0);
+
+                    &:nth-child(n+2) {
+                      margin: 12px 0 0 0;
+                    }
+
+                    $labelColor: ($labelColor5, $labelColor6, $labelColor8, $labelColor7, $labelColor9);
+
+                    // 반복문을 통해 각 클래스에 색상 적용
+                    @for $i from 1 through 5 {
+                      &.t#{$i}:before {
+                        @include label($bgColor: nth($labelColor, $i)); // 색상 리스트에서 해당 색상 선택
+                      }
+                    }
+
+                    span {
+                      display: inline-block;
+
+                      &:nth-child(1) {
+                        min-width: 80px;
+                      }
+
+                      &:nth-child(2) {
+                        @include ellipsis;
+                        text-align: right;
+                        flex-grow: 1;
+                        width: 100px;
+                        margin-left: 10px;
+                        padding-right: 15px;
+
+                        &:after {
+                          content: "건";
+                          position: absolute;
+                          display: inline-block;
+                          right: 0;
+                        }
+                      }
+                    }
+                  }
+
+                  @for $i from 1 through 5 {}
+                }
+              }
+            }
+          }
+        }
+
+        //* 성과 요약 */
+        &.sec_summaryResult {
+          .box_summaryResult {
+            @include boxLayout;
+
+            .cont {
+              height: calc(100% - 30px);
+              @include flexBox($j:space-evenly, $d:column);
+
+              .tableArea {
+                @include tableDataNone($height:540px);
+                width: 100%;
+                margin-top: 20px;
+
+                .tableBox {
+                  @include tableLayout_t2;
+                  max-height: 600px;
+                }
+              }
+            }
+          }
+        }
+
+        //* 운영 가능 소재 */
+        &.sec_vedioType {
+          @include boxLayout;
+          height: 100%;
+
+          .box_list {
+
+            .cont {
+              &.dataNoneArea {
+                .dataNone {
+                  @include flexBox($j:space-evenly);
+
+                  p {
+                    +button {
+                      @include btnS($minW:110px);
+                      @include btn_main;
+                      margin: 20px 0 0 0;
+                    }
+                  }
+
+                  >div {
+                    &:first-child {
+                      flex-grow: 1;
+                      text-align: center;
+                    }
+                  }
+
+                  .guideBox {
+                    padding-right: 100px;
+
+                    p {
+                      position: relative;
+                      padding-left: 100px;
+
+                      &:nth-child(odd) {
+                        @include fontM;
+                        font-size: 15px;
+
+                        &:before {
+                          @include iLayout($p:absolute);
+                          width: 50px;
+                          height: 50px;
+                          top: -5px;
+                          left: 20px;
+                          z-index: 1;
+                        }
+
+                        &:after {
+                          content: "";
+                          position: absolute;
+                          display: inline-block;
+                          top: -15px;
+                          left: 0;
+                          width: 64px;
+                          height: 64px;
+                          border-radius: 100%;
+                          background-color: $pointColor7;
+                        }
+                      }
+
+                      &:nth-child(odd):not(:nth-child(1)) {
+                        margin: 46px 0 0 0;
+                      }
+
+                      &:nth-child(even) {
+                        margin: 4px 0 0 0;
+                        font-size: 13px;
+                      }
+
+                      &:nth-child(1) {
+                        &:before {
+                          @include ico_search2;
+                        }
+                      }
+
+                      &:nth-child(3) {
+                        &:before {
+                          @include ico_video;
+                        }
+                      }
+
+                      &:nth-child(5) {
+                        &:before {
+                          @include ico_video2;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .listArea {
+                @include flexBox($fw:wrap, $j:start, $a:start);
+                height: 660px;
+                margin: 15px 0 0 0;
+                padding: 0 10px 0 0;
+                overflow-y: scroll;
+
+                img {
+                  width: 240px;
+                  height: 430px;
+                }
+              }
+            }
+          }
+        }
+
+        //* 운영중 소재 리포트 */
+        &.sec_list {
+          @include boxLayout;
+          height: 100%;
+
+          .box_list {
+            .tit {
+              @include title3;
+            }
+
+            .cont {
+              .tableArea {
+                @include tableDataNone($height:540px);
+                margin-top: 20px;
+
+                .tableBox {
+                  @include tableLayout;
+                  max-height: 600px;
+
+                  table {
+                    thead {
+                      tr {
+                        &:nth-child(2) {
+                          @include table_total;
+
+                          th {
+                            text-align: right;
+
+                            &:nth-child(1) {
+                              padding-right: 15px;
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {
+                          &:nth-child(1) {
+                            width: 250px;
+
+                            img {
+                              width: 120px;
+                              height: 120px;
+                            }
+
+                            p {
+                              @include ellipsis;
+                              width: 200px;
+                              display: inline-block;
+                              vertical-align: middle;
+                            }
+
+                            button {
+                              &.set {
+                                @include iBtn($w:30px, $h:30px);
+                                @include ico_set;
+                              }
+                            }
+                          }
+
+                          &:nth-child(n+3):nth-child(-n+6) {
+                            width: 250px;
+                          }
+
+                          a {
+                            color: $ftColor11;
+                            text-decoration: underline;
+                          }
+
+                          .graphBox {
+                            .graph {
+                              margin: 0 auto;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  button {
+                    @include btnLayout($w:100px, $h:26px);
+
+                    &.material {
+                      @include btn2;
+                    }
+
+                    &.detail {
+                      @include btn_main;
+                    }
+                  }
+                }
+              }
+
+              .tableDataNone {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_error;
+                    display: block;
+                    margin: 0 auto 10px;
+                  }
+                }
+
+                button {
+                  @include btnLayout($h:48px, $w:210px);
+                  @include btn_main;
+                  margin: 30px auto 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

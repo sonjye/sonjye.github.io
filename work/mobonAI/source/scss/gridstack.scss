@@ -1,0 +1,279 @@
+@charset 'utf-8';
+
+/*
+File   : gridstack.scss
+Date   : 2025.02.04
+*/
+
+//* color */
+//* basic */
+$mainColor: #fe4a4e;
+$ftColor: #333333;
+$subFtColor: #777777;
+$borderColor: #e3e3e3;
+$bgColor: #f8f8f8;
+
+//* image */
+@mixin image($folder, $name, $path: "../image/", $format: "svg", $bgXY:center, $width:null, $height: null, $bgSize:null) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+  width: $width;
+  height: $height;
+  background-size: $bgSize;
+}
+
+//* widget */
+@mixin ico_widget {
+  @include image($folder:'component', $name: '/ico_widget', $width:50px, $height: 50px);
+}
+
+@mixin ico_widget_trash {
+  @include image($folder:'component', $name: '/ico_widget_trash', $format:"png", $width:62px, $height: 82px);
+}
+
+//* mixin.scss */
+@mixin fontR {
+  font-family: "NotoSansR";
+  font-weight: normal;
+}
+
+@mixin fontM {
+  font-family: "NotoSansM";
+  font-weight: normal;
+}
+
+@mixin fontB {
+  font-family: "NotoSansB";
+}
+
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+//* 위젯 아이콘 영역 */
+.grid_setting_Wrap {
+  position: fixed;
+  right: 35px;
+  width: 50px;
+  height: 50px;
+  top: 80px;
+  z-index: 980;
+
+  .gs_btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+
+    i {
+      @include ico_widget;
+      display: block;
+      width: 50px;
+      height: 50px;
+      // background-image: url('../image/common/ico_widget.svg');
+      background-position: center;
+      background-size: 125%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .gs_floating {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: -30px;
+    width: 359px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.3);
+    z-index: 980;
+
+    .title {
+      @include flexBox($j:center);
+      width: 100%;
+      height: 60px;
+      background: #dadada;
+      border-bottom: 1px solid #dadada;
+      cursor: pointer;
+
+      span {
+        font-size: 18px;
+        color: #1e1e1e;
+      }
+
+      i {
+        margin-left: 15px;
+      }
+
+      &.open {
+        i {
+          &::before {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+
+    .gs_conts {
+      padding: 20px;
+
+      .top {
+        border-bottom: 1px solid #dadada;
+
+        .btn_wrap {
+          @include flexBox($j:center);
+
+          button {
+            @include fontM();
+            width: 100%;
+            height: 48px;
+            border-radius: 8px;
+            font-size: 18px;
+            padding: 0;
+            background-color: #aaaaaa;
+            color: #fff;
+
+            &:hover {
+              background-color: $mainColor;
+            }
+          }
+        }
+
+        .radio_wrap {
+          @include flexBox($f:flex-start);
+          margin: 24px 0 16px;
+
+          label {
+            font-size: 13px;
+            margin-right: 32px;
+          }
+        }
+      }
+
+      .bottom {
+        position: relative;
+        width: 100%;
+        margin-top: 22px;
+        height: 532px;
+        overflow-y: auto;
+
+        input[type="checkbox"]+label {
+          @include flexBox($j:start);
+          // display: block;
+          margin-bottom: 10px;
+          font-size: 15px;
+          padding: 0;
+
+          &::before {
+            position: inherit;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 0px 0px 0 0;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    &.on {
+      display: block;
+    }
+  }
+}
+
+//*  위젯 영역 */
+.grid_contents_wrap {
+  margin-top: 20px;
+  padding-bottom: 120px;
+
+  .grid-stack {
+
+    >.grid-stack-item {
+      min-height: 250px;
+      height: 250px;
+
+      // 6 column width, left 값
+      @for $i from 1 through 6 {
+
+        // 각 gs-w에 맞는 width 계산
+        &[gs-w="#{$i}"] {
+          width: (100% / 6) * $i;
+        }
+
+        // 각 gs-x에 맞는 left 계산
+        &[gs-x="#{$i}"] {
+          left: (100% / 6) * $i;
+        }
+      }
+
+      @for $i from 1 through 20 {
+
+        // $i 값이 증가할 때마다 height 값이 130px 증가
+        &[gs-h="#{$i}"] {
+          height: 130px * $i;
+        }
+
+        // $i 값이 증가할 때마다 top 값이 200px씩 증가
+        &[gs-y="#{$i}"] {
+          top: 130px * $i;
+        }
+      }
+
+      .grid-stack-item-content {
+        // @include boxLayout;
+        padding: 0;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.08);
+        inset: 10px;
+        background-color: #fff;
+      }
+    }
+  }
+
+
+  .trash {
+    display: block;
+    position: fixed;
+    bottom: 0%;
+    left: calc(50% + 100px);
+    transform: translate(-50%, 0%);
+    width: 200px;
+    height: 200px;
+    line-height: 2;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 1;
+
+    &.on {
+      display: block;
+
+      &:after {
+        @include ico_widget_trash;
+        content: "";
+        position: absolute;
+        bottom: 0%;
+        left: calc(50% - 50px);
+        display: block;
+        width: 100px;
+        height: 150px;
+        // background-image: url(../../image/component/ico_widget_trash.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+      }
+    }
+
+    &.left {
+      width: 100px;
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- 결제 모달 -->
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap">
+        <!-- 빠른 소스 확인을 위해 header, navigation 상세내용 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">비디오애드</a></h1>
+        </header>
+        <nav class="navigation">
+            <!-- 생략 > layout.html 확인-->
+        </nav>
+        <section class="contents">
+            <div class="modal">
+                <strong>광고등록</strong>
+                <p>공통 > alert</p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>확인</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>저장 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>결제 설정 (md_paymentSet)</p>
+                <div class="modalWrap md_paymentSet" id="md_paymentSet">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 설정</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_paySet">
+                                <ul>
+                                    <li>
+                                        <p>카드 등록</p>
+                                        <div>
+                                            <button type="button">카드 등록하기</button>
+                                            <!-- <p>KB 국민카드<span>**** **** **** 5678</span></p> -->
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>자동 결제일</p>
+                                        <select name="" id="">
+                                            <option value="">1일</option>
+                                            <option value="">2일</option>
+                                            <option value="">3일</option>
+                                            <option value="">4일</option>
+                                            <option value="">5일</option>
+                                            <option value="">6일</option>
+                                            <option value="">7일</option>
+                                            <option value="">8일</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                </secti>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="cancel">취소</button>
+                            <button type="button" class="confirm">저장</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <p>결제 요청 완료 (md_paymentRequest)</p>
+                <div class="modalWrap md_paymentRequest" id="md_paymentRequest">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 요청 완료</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>YYYY-MM-DD 00:00:00</p>
+                                <p>결제가 완료되었습니다.<br> 담당자 확인 후 연락드리겠습니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>결제 오류 (md_paymentError)</p>
+                <div class="modalWrap md_paymentError" id="md_paymentError">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 오류</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>결제 오류로 결제가 불가합니다. <br> 다시 시도해주세요.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>결제 완료 (md_completeComplete)</p>
+                <div class="modalWrap md_completeComplete" id="md_completeComplete">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 완료</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>YYYY-MM-DD 00:00:00</p>
+                                <p>결제가 완료되었습니다. <br> 담당자 확인 후 연락드리겠습니다</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>결제 취소 요청알림 (md_errorAlarm)</p>
+                <div class="modalWrap md_errorAlarm" id="md_errorAlarm">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 취소 요청</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>광고 취소 요청 완료되었습니다.<br>영업일 기준<span>N</span>일 이내 환불 예정입니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm">확인</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>결제 > 결제 이용동의 (md_termAgree)</p>
+                <div class="modalWrap md_termAgree" id="md_termAgree">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>결제 설정</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_info">
+                                <div class="infoBox">
+                                    <div class="tit">
+                                        <p>정기결제 서비스 이용 동의</p>
+                                    </div>
+                                    <div class="cont">
+                                        <ul>
+                                            <li>정기결제 서비스는 최초 설정한 자동 결제일을 기준으로 매월 동일한 날짜에 자동 결제가 이루어집니다 </li>
+                                            <li> 자동 결제일은 최초 설정 후 수정이 불가합니다 </li>
+                                            <li> 회사(한국디지털페이먼츠)는 매월 서비스 이용계약의 자동 갱신 및 이용요금 청구를 위해 이용 기간 및 이용 종료 후 일정 기간
+                                                동안 회원의 결제 관련 정보를 보유할 수 있습니다</li>
+                                            <li> 타인의 결제 정보를 동의 없이 사용할 경우 민형사상의 책임을 지게 되며 관계 법령에 의해 처벌될 수 있습니다</li>
+                                            <li>결제를 등록한 신용카드의 분실 및 도난, 한도 초과, 잔액 부족, 유효기간 만료 등의 사유로 결제가 이루어지지 않을 경우 진행중
+                                                인 캠페인은 자동으로 중단되며 문제 해결 시 재개됩니다 </li>
+                                            <li>정기결제 서비스 이용 중 해지를 원하는 경우 contact@kcpcorp.co.kr 로 문의하시기 바랍니다</li>
+                                            <li> 정기결제 서비스 해지 시 회원은 마지막 정기결제일 익월에 카드 등록 삭제가 가능합니다 </li>
+                                            <li>회원의 이용요금 미납 등 귀책사유로 인한 정기결제 중지 및 이에 따른 서비스 이용정지로 인한 손해에 대해 회사는 책임을 지지
+                                                않습니다 </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="cancel">취소</button>
+                            <button type="button" class="confirm">정기결제 서비스 이용안내를 확인 하고 동의합니다.</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+            </div>
+            <div class="title">
+                <p>모달 </p>
+            </div>
+            <div class="contents">
+            </div>
+            <footer class="footer">
+                <!-- 생략 > layout.html 확인 -->
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

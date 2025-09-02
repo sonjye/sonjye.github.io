@@ -1,0 +1,247 @@
+@charset 'utf-8';
+
+/*
+File   : payment.scss
+Date   : 2024.11.18
+*/
+
+//* 결제 */
+.mva_payment {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        .box_cardRegister {
+          .tit {
+            @include flexBox;
+
+            p {
+              @include title3;
+            }
+
+            button {
+              &.modify {
+                @include btnS;
+                @include btn_main;
+              }
+            }
+          }
+
+          .cont {
+            @include flexBox($j:start);
+            margin: 20px 0 0 0;
+
+            >div {
+              @include flexBox($d:column, $j:center);
+              min-width: 250px;
+              height: 100px;
+
+              &:first-child {
+                @include boxLayout_t3;
+                border-color: $pointColor;
+              }
+
+              &:nth-child(n+2) {
+                @include boxLayout2;
+              }
+
+              p {
+                &:nth-child(1) {
+                  @include fontB;
+                  font-size: 16px;
+                }
+
+                &:nth-child(2) {
+                  font-size: 16px;
+                }
+              }
+
+              button {
+                font-size: 14px;
+                text-decoration: underline;
+                color: $ftColor10;
+              }
+            }
+          }
+        }
+
+        .box_list {
+
+          .tableHeader {
+            @include flexBox($g:10px);
+            margin: 20px 0 0 0;
+            padding: 20px 0 0 0;
+            border-top: 1px solid $borderColor;
+
+            p {
+              @include title3;
+            }
+
+            button {
+              &.excelDown {
+                @include btn_excel;
+              }
+            }
+          }
+
+          .tableArea {
+            @include tableDataNone($height:540px);
+            margin-top: 20px;
+
+            .tableBox {
+              @include tableLayout;
+              max-height: 600px;
+
+              table {
+
+                thead,
+                tbody {
+                  tr {
+
+                    th,
+                    td {
+                      input[type="checkbox"] {
+                        @include checkbox_txtNone;
+                      }
+                    }
+                  }
+                }
+
+                thead {
+                  tr {
+                    &:nth-child(2) {
+                      th {
+
+
+                        &:nth-child(n+2) {
+                          text-align: right;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .tableDataNone {
+            p {
+              &:before {
+                @include iLayout;
+                @include ico_error;
+                display: block;
+                margin: 0 auto 10px;
+              }
+            }
+
+            button {
+              @include btnLayout($h:48px, $w:210px);
+              @include btn_main;
+              margin: 30px auto 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 결제내역 */
+.mva_paymentList {
+  margin-top: 20px;
+
+  .title {
+    @include titleLayout;
+
+    .location {
+      @include location;
+    }
+  }
+
+  .content {
+    margin: 20px 0 0 0;
+
+    section {
+      &.sec_list {
+        @include boxLayout;
+
+        .optionBox {
+          .calendarBox {
+            .calendar {
+              @include calendar;
+            }
+          }
+        }
+
+        .tableHeader {
+          @include flexBox($g:10px);
+          margin: 20px 0 0 0;
+          padding: 20px 0 0 0;
+          border-top: 1px solid $borderColor;
+
+          p {
+            @include title3;
+          }
+
+          button {
+            &.excelDown {
+              @include btn_excel;
+            }
+          }
+        }
+
+        .tableArea {
+          @include tableDataNone($height:540px);
+          margin-top: 20px;
+
+          .tableBox {
+            @include tableLayout;
+            max-height: 600px;
+
+            table {
+              thead {
+                tr {
+                  &:nth-child(2) {
+                    th {
+                      text-align: right;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .tableDataNone {
+          p {
+            &:before {
+              @include iLayout;
+              @include ico_error;
+              display: block;
+              margin: 0 auto 10px;
+            }
+          }
+
+          button {
+            @include btnLayout($h:48px, $w:210px);
+            @include btn_main;
+            margin: 30px auto 0;
+          }
+        }
+      }
+    }
+  }
+}

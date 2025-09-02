@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 보고서 > 캠페인별 보고서 -->
+    <div class="wrap">
+        <header class="header">
+            <h1>
+                <a href="javascript:void(0);">비디오애드</a>
+            </h1>
+            <button type="button" class="menuToggle"><span>메뉴접기버튼</span><i></i><i></i><i></i></button>
+            <!-- 생략 -->
+            <div class="sideNav">
+                <!-- 생략 -->
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="auth_title">
+                <h2>비디오애드 센터</h2>
+                <button type="button" class="logout">로그아웃</button>
+            </div>
+            <div class="gubun_box_wrap">
+                <div class="gubun_box">
+                    <button type="button" class="color_admin" title="관리자">관리자</button>
+                    <button type="button" class="color_agency" title="대행사">대행사</button>
+                    <button type="button" class="color_adver" title="광고주">광고주</button>
+                </div>
+                <ul>
+                    <li class="userName"><span class="modalOpen">담당자명</span>님</li>
+                    <li>담당자 : </li>
+                    <li>운영관리자 : </li>
+                    <li>담당 연락처 :<span>등록없음</span> </li>
+                </ul>
+            </div>
+            <div class="menu_search">
+                <div>
+                    <input type="text" id="searchLeftMenuGrid" placeholder="메뉴명 검색">
+                    <button type="button">검색</button>
+                </div>
+            </div>
+            <div>
+                <ul class="menu_list">
+                    <li class="home">
+                        <a href="#"><span class="menuName">대시보드</span></a>
+                    </li>
+                    <li class="campaign">
+                        <a href="#"><span class="menuName">캠페인 관리</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">캠페인 현황</a></li>
+                            <li><a href="javascript:void(0);">캠페인 등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="material">
+                        <a href="#"><span class="menuName">소재 관리</span></a>
+                    </li>
+                    <li class="report">
+                        <a class="on" href="#"><span class="menuName">보고서</span></a>
+                        <ul class="active">
+                            <li><a href="javascript:void(0);">일자별 보고서</a></li>
+                            <li><a class="on" href="javascript:void(0);">캠페인별 보고서</a></li>
+                            <li><a href="javascript:void(0);">상품별 보고서</a></li>
+                            <li><a href="javascript:void(0);">소재별 보고서</a></li>
+                            <li><a href="javascript:void(0);">플랫폼별 보고서</a></li>
+                        </ul>
+                    </li>
+                    <li class="payment">
+                        <a href="#"><span class="menuName">결제</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="contents">
+            <!-- mva_reportKPI 클래스는 비디오애드에서 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+             다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+            <div class="mva_reportKPI">
+                <div class="title">
+                    <div class="location">
+                        <span>Home</span><span>보고서</span>
+                    </div>
+                    <p>캠페인별 보고서</p>
+                    <p>캠페인별 보고서를 확인하실수 있습니다</p>
+                </div>
+                <div class="content">
+                    <!-- sec_list_t1 > cpc, sec_list_t2 > cpv -->
+                    <section class="sec_list t1">
+                        <div class="optionBox">
+                            <div class="calendarBox">
+                                <div class="calendar">
+                                    <input type="text" id="dateInput" name="dateInput" value="">
+                                </div>
+                            </div>
+                            <div class="radioBox">
+                                <p>유형</p>
+                                <!-- <input type="radio" name="rd_type" id="rd_type1" checked>
+                                <label for="rd_type1">전체</label> -->
+                                <input type="radio" name="rd_type" id="rd_type2" checked>
+                                <label for="rd_type2">CPC</label>
+                                <input type="radio" name="rd_type" id="rd_type3">
+                                <label for="rd_type3">CPV</label>
+                            </div>
+                            <div class="radioBox">
+                                <p>소재</p>
+                                <input type="radio" name="rd_material" id="rd_material1" checked>
+                                <label for="rd_material1">비디오형</label>
+                                <input type="radio" name="rd_material" id="rd_material2" disabled>
+                                <label for="rd_material2">이미지형</label>
+                            </div>
+                            <div class="radioBox">
+                                <p>플랫폼</p>
+                                <input type="radio" name="rd_platform" id="rd_platform1" checked>
+                                <label for="rd_platform1">전체</label>
+                                <input type="radio" name="rd_platform" id="rd_platform2">
+                                <label for="rd_platform2">유튜브</label>
+                                <input type="radio" name="rd_platform" id="rd_platform3">
+                                <label for="rd_platform3">인스타그램</label>
+                                <input type="radio" name="rd_platform" id="rd_platform4">
+                                <label for="rd_platform4">틱톡</label>
+                                <input type="radio" name="rd_platform" id="rd_platform5">
+                                <label for="rd_platform5">네이버클립</label>
+                            </div>
+                            <button type="button" class="search">검색</button>
+                        </div>
+                        <div class="tableHeader">
+                            <!-- 하단 guideBox를 클래스 추가해서 삭제하려면 disNone 클래스를 추가하면 됩니다.-->
+                            <!--  <div class="guideBox disNone">-->
+                            <div class="guideBox">
+                                <p>※ 이미지형 소재는 플랫폼에서 노출(조회수)를 제공하지 않습니다.</p>
+                            </div>
+                            <div class="searchBox">
+                                <input type="text" placeholder="검색어를 입력하세요.">
+                                <button type="button" class="search">검색</button>
+                            </div>
+                            <button type="button" class="excelDown">엑셀</button>
+                        </div>
+                        <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                        <!-- <div class="tableArea tableAreaDataNone"> -->
+                        <div class="tableArea">
+                            <!-- table 스크롤 생기게 하고 싶을 때 tableBox 에 높이값(max-height) 추가-->
+                            <div class="tableBox">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="sort">캠페인명</th>
+                                            <th class="sort">게시건수</th>
+                                            <th class="sort">노출수</th>
+                                            <th class="sort">클릭수</th>
+                                            <th class="sortDown">전환수</th>
+                                            <th class="sortDown">전환율</th>
+                                            <th class="sort">소진금액</th>
+                                            <th class="sort">총매출</th>
+                                            <th class="sort">총ROAS</th>
+                                        </tr>
+                                        <tr>
+                                            <th>전체 캠페인 00개</th>
+                                            <th>10,999,888</th>
+                                            <th>1,999,888</th>
+                                            <th>521</th>
+                                            <th>88,999</th>
+                                            <th>0.229%</th>
+                                            <th>11,111</th>
+                                            <th>1</th>
+                                            <th>0.229%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>캠페인_20241109캠페인_20241109캠페인_20241109</p>
+                                                <button type="button" class="set">설정</button>
+                                            </td>
+                                            <td>10,999,777</td>
+                                            <td>10,999,777</td>
+                                            <td>0.112%</td>
+                                            <td>55</td>
+                                            <td>88,888</td>
+                                            <td>88,888</td>
+                                            <td>88,888</td>
+                                            <td>0.112%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- 화면 확인을 위해 하단의 tableBox 중복으로 넣었음 > 개발시 tableBox 하나만 추가하여 사용 -->
+                            <p style="margin:20px 0 10px 0"> # 하단 테이블은 상단 검색유형의 CPV가 선택되었을때 보여지는 테이블 화면 테스트입니다.</p>
+                            <p style="margin:10px 0 10px 0"># 화면 확인을 위해 하단에 tableBox를 하나 더 추가하였으며 > 개발 시 tableBox 하나만 사용
+                                바랍니다. (tableBox를 cpc,cpv 각각 두개를 사용하고 싶으시면 연락 부탁드립니다.) </p>
+                            <p style="margin:10px 0 10px 0"># 테이블은 상단 검색 유형(cpc,cpv) 선택 여부에 따라 section에 t1/t2 클래스가 추가된
+                                기준으로 css가 적용된 화면이 보여집니다. </p>
+                            <div class="tableBox">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="sort">캠페인명</th>
+                                            <th class="sort">게시건수</th>
+                                            <th class="sort">조회수</th>
+                                            <th class="sort">CPV단가</th>
+                                            <th class="sortDown">소진금액</th>
+                                        </tr>
+                                        <tr>
+                                            <th>전체 캠페인 00개</th>
+                                            <th>10,999,888</th>
+                                            <th>1,999,888</th>
+                                            <th>521</th>
+                                            <th>88,999</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>캠페인_20241109캠페인_20241109캠페인_20241109</p>
+                                                <button type="button" class="set">설정</button>
+                                            </td>
+                                            <td>10,999,777</td>
+                                            <td>10,999,777</td>
+                                            <td>0.112%</td>
+                                            <td>55</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tableDataNone">
+                                <div>
+                                    <p>보고서가 없습니다. </p>
+                                </div>
+                            </div>
+                            <div class="paging">
+                                <ul>
+                                    <!-- <li class="prev-list"><a href="javascript:pageLink(0);"></a></li> -->
+                                    <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                    <li><a href="javascript:pageLink(2);">2</a></li>
+                                    <li><a href="javascript:pageLink(3);">3</a></li>
+                                    <li><a href="javascript:pageLink(4);">4</a></li>
+                                    <li><a href="javascript:pageLink(5);">5</a></li>
+                                    <li><a href="javascript:pageLink(6);">6</a></li>
+                                    <li><a href="javascript:pageLink(7);">7</a></li>
+                                    <li><a href="javascript:pageLink(8);">8</a></li>
+                                    <li><a href="javascript:pageLink(9);">9</a></li>
+                                    <li><a href="javascript:pageLink(10);">10</a></li>
+                                    <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                    <!-- <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <!--// contnets end -->
+        <footer>
+            <ul>
+                <li>(주)인라이플</li>
+                <li>사업자번호:113-86-60934</li>
+                <li>사업자:한경훈</li>
+                <li>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</li>
+            </ul>
+            <ul>
+                <li><a href="tel:070-4672-2303">TEL .070-4672-2303</a></li>
+                <li>FAX .02-865-6845</li>
+                <li><a href="mail:mobon@enliple.com">E-mail : mobon@enliple.com</a></li>
+            </ul>
+            <p>Copyright(c) 2012 모비온 All rights reserved. </p>
+        </footer>
+    </div>
+</body>
+
+</html>

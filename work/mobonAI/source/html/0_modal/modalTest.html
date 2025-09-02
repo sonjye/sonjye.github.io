@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON TIMEBOARD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick.css">
+    <link type="text/css" rel="stylesheet" href="../../css/lib/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- modal 테스트 페이지 입니다. 모달 확인은 modalView 를 확인해 주시기 바랍니다. 
+    해당 페이지에는 없는 모달이 있을 수 있습니다. -->
+    <div class="wrap">
+        <!-- 빠른 소스 확인을 위해 header, navigation 태그 제거하였음 -->
+        <header class="header">
+            <!-- 생략 -->
+        </header>
+        <nav class="navigation">
+            <!-- 생략 -->
+        </nav>
+        <section class="contents">
+            <div class="content modalTest">
+                <div class="modalTestWrap">
+                    <div class="modalTestContainer">
+                        <div class="title">
+                            <strong> ## 모달 작업시 확인사항 ## </strong>
+                            <p>1. 닫기 버튼에 modalClose 클래스 추가시 모달이 닫히게 됩니다.</p>
+                        </div>
+                        <div class="buttonBox">
+                            <button type="button" class="modalOpen" data-popname="md_alert">alert</button>
+                        </div>
+                    </div>
+                    <div class="modalTestContainer">
+                        <div class="title">
+                            <strong> 버튼 모음 </strong>
+                            <p>공통 > 버튼 하나 모달</p>
+                        </div>
+                        <div class="buttonBox">
+                            <button type="button" class="modalOpen" data-popname="md_alert">alert</button>
+                        </div>
+                    </div>
+                    <div class="modalTestContainer">
+                        <div class="title">
+                            <strong> </strong>
+                            <p></p>
+                        </div>
+                        <div class="buttonBox">
+                            <button type="button" class="modalOpen" data-popname="md_interlinkChannel">연동가능 채널</button>
+                        </div>
+                    </div>
+                </div>
+                <!--// modalTestWrap end -->
+                <strong>COMMON</strong>
+                <p>공통 > alert </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>확인</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>저장 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <div class="title">
+                </div>
+                <div class="content">
+                </div>
+            </div>
+            <footer class="footer">
+                <h2 class="hide"> 하단 회사 정보 영역 </h2>
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved. </p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

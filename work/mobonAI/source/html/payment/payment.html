@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON VIDEO AD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 결제 > 결제 -->
+    <div class="wrap">
+        <!-- 모달 테스트를 위해 추가한 모달이며 추후 최종 모달 확인은 modal~.html에서 확인하시기 바랍니다. -->
+        <div class="modal">
+            <!-- <p>결제 설정 (md_paymentSet)</p> -->
+            <div class="modalWrap md_paymentSet" id="md_paymentSet">
+                <div class="modalContainer">
+                    <div class="modalTitle">
+                        <p>결제 설정</p>
+                        <button class="close modalClose"></button>
+                    </div>
+                    <div class="modalContent">
+                        <section class="sec_paySet">
+                            <ul>
+                                <li>
+                                    <p>카드 등록</p>
+                                    <div>
+                                        <button type="button">카드 등록하기</button>
+                                        <!-- <p>KB 국민카드<span>**** **** **** 5678</span></p> -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>자동 결제일</p>
+                                    <select name="" id="">
+                                        <option value="">1일</option>
+                                        <option value="">2일</option>
+                                        <option value="">3일</option>
+                                        <option value="">4일</option>
+                                        <option value="">5일</option>
+                                        <option value="">6일</option>
+                                        <option value="">7일</option>
+                                        <option value="">8일</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            </secti>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="cancel">취소</button>
+                        <button type="button" class="confirm">저장</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+        </div>
+        <header class="header">
+            <h1>
+                <a href="javascript:void(0);">비디오애드</a>
+            </h1>
+            <button type="button" class="menuToggle"><span>메뉴접기버튼</span><i></i><i></i><i></i></button>
+            <!-- 생략 -->
+            <div class="sideNav">
+                <!-- 생략 -->
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="auth_title">
+                <h2>비디오애드 센터</h2>
+                <button type="button" class="logout">로그아웃</button>
+            </div>
+            <div class="gubun_box_wrap">
+                <div class="gubun_box">
+                    <button type="button" class="color_admin" title="관리자">관리자</button>
+                    <button type="button" class="color_agency" title="대행사">대행사</button>
+                    <button type="button" class="color_adver" title="광고주">광고주</button>
+                </div>
+                <ul>
+                    <li class="userName"><span class="modalOpen">담당자명</span>님</li>
+                    <li>담당자 : </li>
+                    <li>운영관리자 : </li>
+                    <li>담당 연락처 :<span>등록없음</span> </li>
+                </ul>
+            </div>
+            <div class="menu_search">
+                <div>
+                    <input type="text" id="searchLeftMenuGrid" placeholder="메뉴명 검색">
+                    <button type="button">검색</button>
+                </div>
+            </div>
+            <div>
+                <ul class="menu_list">
+                    <li class="home">
+                        <a href="#"><span class="menuName">대시보드</span></a>
+                    </li>
+                    <li class="campaign">
+                        <a href="#"><span class="menuName">캠페인 관리</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">캠페인 현황</a></li>
+                            <li><a href="javascript:void(0);">캠페인 등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="material">
+                        <a href="#"><span class="menuName">소재 관리</span></a>
+                    </li>
+                    <li class="report">
+                        <a href="#"><span class="menuName">보고서</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0);">일자별 보고서</a></li>
+                            <li><a href="javascript:void(0);">KPI별 보고서</a></li>
+                            <li><a href="javascript:void(0);">상품별 보고서</a></li>
+                            <li><a href="javascript:void(0);">소재별 보고서</a></li>
+                            <li><a href="javascript:void(0);">플랫폼별 보고서</a></li>
+                        </ul>
+                    </li>
+                    <li class="payment">
+                        <a class="on" href="#"><span class="menuName">결제</span></a>
+                        <ul class="active">
+                            <li><a class="on" href="javascript:void(0);">결제</a></li>
+                            <li><a href="javascript:void(0);">결제 내역</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="contents">
+            <!-- mva_payment 클래스는 비디오애드에서 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+             다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+            <div class="mva_payment">
+                <div class="title">
+                    <div class="location">
+                        <span>Home</span><span>보고서</span>
+                    </div>
+                    <p>결제관리</p>
+                    <p>결제관리 및 결제를 진행할 수 있습니다</p>
+                </div>
+                <div class="content">
+                    <section class="sec_list">
+                        <div class="box_cardRegister">
+                            <div class="tit">
+                                <p>자동결제 카드 등록</p>
+                                <button type="button" class="modify">결제정보 수정</button>
+                            </div>
+                            <div class="cont">
+                                <div>
+                                    <!-- <p>KB 국민카드</p> -->
+                                    <p>등록된 카드가 없습니다</p>
+                                    <!-- <p>**** **** **** 5678</p> -->
+                                    <button type="button" class="modalOpen" data-popname="md_paymentSet">카드를 등록해주시기
+                                        바랍니다</button>
+                                </div>
+                                <div>
+                                    <p>자동 결제일</p>
+                                    <p>매월 15일</p>
+                                </div>
+                                <div>
+                                    <p>마지막 결제일</p>
+                                    <p>2024.12.15</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_list">
+                            <div class="tableHeader">
+                                <p>결제대기 현황</p>
+                                <button type="button" class="excelDown">엑셀</button>
+                            </div>
+                            <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                            <!-- <div class="tableArea tableAreaDataNone"> -->
+                            <div class="tableArea">
+                                <!-- table 스크롤 생기게 하고 싶을 때 tableBox 에 높이값(max-height) 추가-->
+                                <div class="tableBox">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>선택</th>
+                                                <th>정산종료일</th>
+                                                <th>캠페인명</th>
+                                                <th>청구금액</th>
+                                                <th>부가세</th>
+                                                <th>최종결제금액</th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" name="chk1" id="chk_all">
+                                                    <label for="chk_all">전체</label>
+                                                </th>
+                                                <th>-</th>
+                                                <th>-</th>
+                                                <th>3,000,000</th>
+                                                <th>3,000,000</th>
+                                                <th>3,300,000</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" name="chk1" id="chk1_1">
+                                                    <label for="chk1_1"></label></td>
+                                                <td>2024-12-01</td>
+                                                <td>상품캠페인_202411</td>
+                                                <td>1,000,000</td>
+                                                <td>100,000</td>
+                                                <td>1,100,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tableDataNone">
+                                    <div>
+                                        <p>내용이 없습니다.</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="paging">
+                                <ul>
+                                    <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                    <li><a href="javascript:pageLink(2);">2</a></li>
+                                    <li><a href="javascript:pageLink(3);">3</a></li>
+                                    <li><a href="javascript:pageLink(4);">4</a></li>
+                                    <li><a href="javascript:pageLink(5);">5</a></li>
+                                    <li><a href="javascript:pageLink(6);">6</a></li>
+                                    <li><a href="javascript:pageLink(7);">7</a></li>
+                                    <li><a href="javascript:pageLink(8);">8</a></li>
+                                    <li><a href="javascript:pageLink(9);">9</a></li>
+                                    <li><a href="javascript:pageLink(10);">10</a></li>
+                                    <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                </ul>
+                            </div> -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <!--// contnets end -->
+        <footer>
+            <ul>
+                <li>(주)인라이플</li>
+                <li>사업자번호:113-86-60934</li>
+                <li>사업자:한경훈</li>
+                <li>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</li>
+            </ul>
+            <ul>
+                <li><a href="tel:070-4672-2303">TEL .070-4672-2303</a></li>
+                <li>FAX .02-865-6845</li>
+                <li><a href="mail:mobon@enliple.com">E-mail : mobon@enliple.com</a></li>
+            </ul>
+            <p>Copyright(c) 2012 모비온 All rights reserved. </p>
+        </footer>
+    </div>
+</body>
+
+</html>

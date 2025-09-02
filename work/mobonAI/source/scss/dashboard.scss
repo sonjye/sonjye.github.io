@@ -1,0 +1,840 @@
+@charset 'utf-8';
+
+/*
+File   : dashboard.scss
+Date   : 2025.01.14
+*/
+
+//* 대시보드 */
+.wrap {
+  .mva_dashboard {
+    height: 100%;
+    // min-height: calc(100vh - 175px);
+    margin-top: 20px;
+
+    .title {
+      @include titleLayout;
+
+      .location {
+        @include location;
+      }
+    }
+
+    .content {
+      height: 100%;
+      // min-height: calc(100vh - 175px);
+
+      .grid_contents_wrap {
+        position: relative;
+
+        .grid-stack {
+          .no_layout {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            @include flexBox($d:column, $j:center);
+
+            p {
+              text-align: center;
+              font-size: 16px;
+              color: $color_main_txt;
+              line-height: 1.63;
+            }
+
+            button {
+              margin-top: 30px;
+              padding: 15px 52px;
+              border-radius: 8px;
+              background-color: $gray_a;
+              color: #fff;
+
+              &:hover {
+                background-color: $color_main;
+              }
+            }
+          }
+        }
+      }
+
+      section {
+        &.sec_widget {
+          position: relative;
+
+          .widget {
+            margin: 0 0 0 auto;
+
+            button {
+              &.widget {
+                @include btnLayout;
+                @include ico_widget;
+                width: 40px;
+                height: 40px;
+                vertical-align: middle;
+                font-size: 0;
+              }
+            }
+          }
+        }
+
+        // 캠페인 운영현황, 플랫폼별 운영현황, 캠페인 성과 요약, 실시간LIVE
+        &.sec_operateStatus,
+        &.sec_platform,
+        &.sec_summaryResult,
+        &.sec_vedioType,
+        &.sec_list {
+          height: 100%;
+
+          >div {
+            width: 100%;
+            height: 100%;
+          }
+
+          // 공통 
+          .tit {
+            @include title3;
+          }
+
+          .cont {
+            margin: 20px 0 0 0;
+
+            &.dataNoneArea {
+              .dataNone {
+                p {
+                  +button {
+                    @include btnS($minW:110px);
+                    @include btn_main;
+                    margin: 20px 0 0 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 캠페인 운영현황, 성과 요약 */
+        &.sec_operateStatus,
+        &.sec_summaryResult {
+
+          .box_operateStatus,
+          .box_summaryResult {
+            @include boxLayout;
+
+            &.dataNoneArea {
+              @include dataNoneArea($ipt2:null);
+
+              .tit {
+                a {
+                  display: none;
+                }
+              }
+
+              .cont {
+                .dataNone {
+                  padding-bottom: 20px;
+
+                  strong {
+                    @include fontM;
+                    font-size: 16px;
+                    line-height: 24px;
+                  }
+
+                  p {
+                    +button {
+                      @include btnS($minW:110px);
+                      @include btn_main;
+                      margin: 20px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .tit {
+              @include flexBox;
+
+              a.more {
+                @include more;
+              }
+            }
+
+            .cont {
+              height: -webkit-fill-available;
+              @include flexBox($j:center, $d:column, $fw:wrap);
+
+              .tableArea {
+                @include tableDataNone($height:540px);
+                width: 100%;
+                // margin-top: 20px;
+
+                .tableBox {
+                  @include tableLayout_t2;
+                  max-height: 600px;
+
+                  table {
+                    tbody {
+                      tr {
+                        td {
+                          padding: 20px 10px;
+
+                          &:nth-child(1) {
+                            span {
+                              color: $upColor;
+                            }
+                          }
+
+                          span {
+                            @include fontM;
+
+                            // &:after {
+                            //   content: '건';
+                            //   @include fontR;
+                            //   position: relative;
+                            //   display: inline-block;
+                            // }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 플랫폼별 운영현황 */
+        &.sec_platform {
+          .box_platform {
+            @include boxLayout;
+
+            &.dataNoneArea {
+              @include dataNoneArea($ipt2:null);
+
+              .cont {
+                .dataNone {
+                  height: calc(100% - 20px);
+
+                  strong {
+                    @include fontM;
+                    font-size: 16px;
+                    line-height: 24px;
+                  }
+
+                  p {
+                    +button {
+                      @include btnS($minW:110px);
+                      @include btn_main;
+                      margin: 20px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .cont {
+              position: relative;
+              height: calc(100% - 30px);
+
+              .graphArea {
+                @include flexBox($j:center, $g:40px);
+                height: 100%;
+
+                .graphBox {
+                  @include flexBox($j:center);
+
+                  .graphTitle {
+                    position: absolute;
+
+                    p {
+                      @include fontM;
+                      font-size: 14px;
+                      text-align: center;
+
+                      span {
+                        @include fontB;
+                        display: block;
+                        margin: 4px 0 0 0;
+                        font-size: 26px;
+
+                        &:after {
+                          @include fontM;
+                          content: "건";
+                          position: relative;
+                          display: inline-block;
+                          font-size: 14px;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .labelBox {
+                  position: relative;
+
+                  p {
+                    @include flexBox($g:0);
+
+                    &:nth-child(n+2) {
+                      margin: 12px 0 0 0;
+                    }
+
+                    $labelColor: ($labelColor5, $labelColor6, $labelColor8, $labelColor7, $labelColor9);
+
+                    // 반복문을 통해 각 클래스에 색상 적용
+                    @for $i from 1 through 5 {
+                      &.t#{$i}:before {
+                        @include label($bgColor: nth($labelColor, $i)); // 색상 리스트에서 해당 색상 선택
+                      }
+                    }
+
+                    span {
+                      display: inline-block;
+
+                      &:nth-child(1) {
+                        min-width: 80px;
+                      }
+
+                      &:nth-child(2) {
+                        @include ellipsis;
+                        text-align: right;
+                        flex-grow: 1;
+                        width: 100px;
+                        margin-left: 10px;
+                        padding-right: 15px;
+
+                        &:after {
+                          content: "건";
+                          position: absolute;
+                          display: inline-block;
+                          right: 0;
+                        }
+                      }
+                    }
+                  }
+
+                  @for $i from 1 through 5 {}
+                }
+              }
+            }
+          }
+        }
+
+        //* 운영 가능 소재 */
+        &.sec_vedioType {
+          @include boxLayout;
+          height: 100%;
+
+          .box_list {
+            &.dataNoneArea {
+              .tit {
+                a {
+                  display: none;
+                }
+              }
+
+              .dataNone {
+                @include flexBox($j:space-evenly);
+                height: calc(100% - 30px);
+
+                p {
+                  +button {
+                    @include btnS($minW:110px);
+                    @include btn_main;
+                    margin: 20px 0 0 0;
+                  }
+                }
+
+                >div {
+                  &:first-child {
+                    flex-grow: 1;
+                    text-align: center;
+                  }
+                }
+
+                .guideBox {
+                  padding-right: 100px;
+
+                  p {
+                    position: relative;
+                    padding-left: 100px;
+
+                    &:nth-child(odd) {
+                      @include fontM;
+                      font-size: 15px;
+
+                      &:before {
+                        @include iLayout($p:absolute);
+                        width: 50px;
+                        height: 50px;
+                        top: -5px;
+                        left: 20px;
+                        z-index: 1;
+                      }
+
+                      &:after {
+                        content: "";
+                        position: absolute;
+                        display: inline-block;
+                        top: -15px;
+                        left: 0;
+                        width: 64px;
+                        height: 64px;
+                        border-radius: 100%;
+                        background-color: $pointColor7;
+                      }
+                    }
+
+                    &:nth-child(odd):not(:nth-child(1)) {
+                      margin: 46px 0 0 0;
+                    }
+
+                    &:nth-child(even) {
+                      margin: 4px 0 0 0;
+                      font-size: 13px;
+                    }
+
+                    &:nth-child(1) {
+                      &:before {
+                        @include ico_search2;
+                      }
+                    }
+
+                    &:nth-child(3) {
+                      &:before {
+                        @include ico_video;
+                      }
+                    }
+
+                    &:nth-child(5) {
+                      &:before {
+                        @include ico_video2;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .tit {
+              @include titleLayout_t3;
+            }
+
+            .cont {
+              height: -webkit-fill-available;
+
+              .listArea {
+                @include flexBox($fw:wrap, $j:start, $a:start, $g:10px);
+                height: 660px;
+                margin: 15px 0 0 0;
+                padding: 0 10px 0 0;
+                overflow-y: scroll;
+
+                .list {
+                  // @include boxLayout2($pd:10px);
+                  // @include flexBox($j:start, $g:20px, $a:center);
+                  width: calc(16.666% - 10px);
+                  min-width: 240px;
+                  margin: 0 0 20px 0;
+
+                  // height: 260px;
+                  .previewList {
+                    background-color: black;
+                    // background-color:pink;
+
+                    .box {
+                      height: 427px;
+                    }
+                  }
+
+                  img,
+                  video {
+                    // 9?16 비율
+                    width: 240px;
+                    max-height: 427px;
+                    height: -webkit-fill-available;
+                    margin: auto 0;
+                    object-fit: contain
+                  }
+
+                  .prodInfo {
+                    @include flexBox($g:20px, $d:column, $a:start);
+                    margin: 20px 0 0 0;
+
+                    .prodName {
+                      >div {
+                        @include flexBox($j:start);
+                      }
+
+                      p {
+                        @include flexBox($j:start);
+                        line-height: 1.5;
+                        @include fontM;
+
+                        span {
+                          @include fontR;
+                          @include ellipsis;
+                          display: inline-block;
+                          width: 180px;
+                        }
+                      }
+
+                      button {
+                        &.set {
+                          @include iBtn($w:30px, $h:30px);
+                          @include ico_set;
+                        }
+                      }
+                    }
+
+                    .prodDetail {
+                      @include flexBox($fw:wrap, $g:6px, $j:start);
+
+                      span {
+                        @include inflexBox;
+                        padding: 4px 10px;
+                        height: 24px;
+                        font-size: 12px;
+                        color: $subFtColor;
+                        border-radius: 4px;
+                        background-color: #f4f4f4;
+                      }
+                    }
+
+                    .prodLogo {
+                      @include inflexBox($g:4px, $j:start);
+
+                      span {
+                        @include iLayout;
+
+                        &.t1 {
+                          @include ico_youtube;
+                          width: 24px;
+                          height: 24px;
+                        }
+
+                        &.t2 {
+                          @include ico_instagram;
+                          width: 24px;
+                          height: 24px;
+                        }
+
+                        &.t3 {
+                          @include ico_tiktok;
+                          width: 24px;
+                          height: 24px;
+                        }
+
+                        &.t4 {
+                          @include ico_naver;
+                          width: 24px;
+                          height: 24px;
+                        }
+
+                        &.t5 {
+                          @include ico_facebook;
+                          width: 24px;
+                          height: 24px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 운영중 소재 리포트 */
+        &.sec_listType {
+          @include boxLayout;
+          height: 100%;
+
+          .box_list {
+            &.dataNoneArea {
+                 @include dataNoneArea($d2:none, $minh:auto);
+
+              .tit {
+                a {
+                  display: none;
+                }
+              }
+
+              .cont {
+                height: 100%;
+
+                .dataNone {
+                  height: calc(100% - 30px);
+
+                  strong {
+                    @include fontM;
+                    font-size: 16px;
+                    line-height: 24px;
+                  }
+
+                  p {
+                    +button {
+                      @include btnS($minW:110px);
+                      @include btn_main;
+                      margin: 20px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .tit {
+              @include titleLayout_t3;
+              @include title3;
+            }
+
+            .cont {
+              .optionBox {
+                @include flexBox($j:start, $g:10px);
+                margin: 20px 0 0 0;
+                padding: 20px 0 0 0;
+                border-top: 1px solid $borderColor;
+
+                .radioBox {
+                  @include inputBox;
+                }
+
+                .calendarBox {
+                  .calendar {
+                    @include calendar;
+                  }
+                }
+
+                button {
+                  &.search {
+                    @include btnS;
+                    @include btn_main;
+                  }
+                }
+              }
+
+              .tableArea {
+                @include tableDataNone($height:540px);
+                margin-top: 20px;
+
+                .tableBox {
+                  @include tableLayout;
+                  max-height: 520px;
+
+                  table {
+                    thead {
+                      tr {
+                        &:nth-child(2) {
+                          @include table_total;
+
+                          th {
+                            text-align: right;
+
+                            &:nth-child(1) {
+                              padding-right: 15px;
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {
+                          &:nth-child(1) {
+                            width: 250px;
+
+                            img {
+                              width: 120px;
+                              height: 120px;
+                            }
+
+                            p {
+                              @include ellipsis;
+                              width: 200px;
+                              display: inline-block;
+                              vertical-align: middle;
+                            }
+
+                            button {
+                              &.set {
+                                @include iBtn($w:30px, $h:30px);
+                                @include ico_set;
+                              }
+                            }
+                          }
+
+                          &:nth-child(n+3):nth-child(-n+6) {
+                            width: 250px;
+                          }
+
+                          a {
+                            color: $ftColor11;
+                            text-decoration: underline;
+                          }
+
+                          .graphBox {
+                            .graph {
+                              margin: 0 auto;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  button {
+                    @include btnLayout($w:100px, $h:26px);
+
+                    &.material {
+                      @include btn2;
+                    }
+
+                    &.detail {
+                      @include btn_main;
+                    }
+                  }
+                }
+              }
+
+              .tableDataNone {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_error;
+                    display: block;
+                    margin: 0 auto 10px;
+                  }
+                }
+
+                button {
+                  @include btnLayout($h:48px, $w:210px);
+                  @include btn_main;
+                  margin: 30px auto 0;
+                }
+              }
+            }
+          }
+        }
+
+        //* 일자별 리포트 */
+        &.sec_listDay {
+          @include boxLayout;
+          height: 100%;
+
+          .box_list {
+            position: relative;
+            height: -webkit-fill-available;
+
+            &.dataNoneArea {
+                 @include dataNoneArea($d2:none, $minh:auto);
+
+              .tit {
+                a {
+                  display: none;
+                }
+              }
+
+              .cont {
+                height: 100%;
+
+                .dataNone {
+                  height: calc(100% - 30px);
+
+                  strong {
+                    @include fontM;
+                    font-size: 16px;
+                    line-height: 24px;
+                  }
+
+                  p {
+                    +button {
+                      @include btnS($minW:110px);
+                      @include btn_main;
+                      margin: 20px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .tit {
+              @include titleLayout_t3;
+              @include title3;
+            }
+
+            .cont {
+              .optionBox {
+                @include flexBox($j:start, $g:10px);
+                margin: 20px 0 0 0;
+                padding: 20px 0 0 0;
+                border-top: 1px solid $borderColor;
+
+                .radioBox {
+                  @include inputBox;
+                }
+
+                .calendarBox {
+                  .calendar {
+                    @include calendar;
+                  }
+                }
+
+                button {
+                  &.search {
+                    @include btnS;
+                    @include btn_main;
+                  }
+                }
+              }
+
+              .tableArea {
+                @include tableDataNone($height:540px);
+                margin-top: 20px;
+
+                .tableBox {
+                  @include tableLayout;
+                  max-height: 520px;
+
+                  table {
+                    thead {
+                      tr {
+                        th {
+                          &:nth-child(1) {
+                            width: 120px;
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {}
+                      }
+                    }
+                  }
+                }
+              }
+
+              .tableDataNone {
+                p {
+                  &:before {
+                    @include iLayout;
+                    @include ico_error;
+                    display: block;
+                    margin: 0 auto 10px;
+                  }
+                }
+
+                button {
+                  @include btnLayout($h:48px, $w:210px);
+                  @include btn_main;
+                  margin: 30px auto 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

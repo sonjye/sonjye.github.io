@@ -1,0 +1,240 @@
+@charset 'utf-8';
+
+/*
+File   : modalLayout.scss
+Date   : 2025.02.10
+*/
+
+
+//* dim */
+@mixin modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+.modalDim {
+  @include modalDim;
+}
+
+//* modal  */
+@mixin modal {
+  display: none;
+  z-index: 999;
+
+  &.modalOn {
+    display: block;
+  }
+}
+
+//*  layout */
+@mixin modalPosition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // border-radius: 5px;
+  // box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  // background-color: #ffffff;
+  overflow: hidden;
+  z-index: 999;
+}
+
+
+//* box */
+@mixin modalBox {
+  @include flex($d:column, $j:start, $g:20px);
+  // position: absolute;
+  border-radius: 20px;
+  // border: 1px solid var(--mdBrdColor);
+  box-shadow: $mdShadow;
+  background-color: $mdBgColor;
+  z-index: 999;
+
+  ::-webkit-scrollbar {
+    @include scrollbar($w: 8px, $h: 8px);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include scrollbar_thumb;
+  }
+}
+
+
+// title 기본 
+@mixin modalTitle($pd:0 10px) {
+  @include flex();
+  @include ftb;
+  position: relative;
+  // @include ftm;
+  width: calc(100% - 60px);
+  height: 90px;
+  min-height: 90px;
+  font-size: 24px;
+  padding: $pd;
+  // color: $white;
+  // background-color: $pointColor;
+  border-bottom: 1px solid $mdBrdColor2;
+
+  button {
+    &.close {
+      @include ico;
+      @include ico_close;
+      @include imgSize(15px, 15px);
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 20px;
+      right: 0px;
+    }
+  }
+}
+
+// title 제목없음, 버튼 회색, 배경색 흰색
+@mixin modalTitle2($pd:0 30px 0 30px) {
+  @include flex();
+  @include txtHide;
+  position: relative;
+  width: 100%;
+  height: 90px;
+  min-height: 90px;
+  // font-size: 16px;
+  padding: $pd;
+  // color: $white;
+  background-color: $white;
+
+  button {
+    &.close {
+      @include ico;
+      @include ico_close;
+      @include imgSize(22px, 22px);
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+//* content */
+@mixin modalContent($pd: 0 15px 0 15px) {
+  flex-grow: 1;
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 70px);
+  max-height: 650px;
+  margin: 0px 10px 0 10px;
+  padding: 0px 15px 0px 15px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+
+//* modalFooter - border none  */
+@mixin modalFooter($m:0px 0 25px 0) {
+  margin: $m;
+  @include flex($a:end, $j:center);
+  min-height: 70px;
+  width: 100%;
+  text-align: center;
+
+  button {
+    @include btnLayout($pd:0 10px);
+    @include ftm;
+    @include btn2;
+    min-width: 120px;
+    height: 46px;
+    border-radius: 6px;
+    font-size: 18px;
+
+    &:nth-child(n+2) {
+      margin-left: 8px;
+    }
+
+    &:nth-child(2) {
+      // @include btn3;
+    }
+
+    &.create,
+    &.modify,
+    &.confirm {
+      @include btn2;
+    }
+
+    &.cancel {
+      // @include btn3;
+    }
+
+    &.delete {
+      // @include btn_delete;
+    }
+  }
+}
+
+// border-top 
+@mixin modalFooter2 {
+  @include modalFooter;
+  min-height: 70px;
+  padding-top: 20px;
+  border-top: 1px solid $borderColor;
+}
+
+
+// title 있는경우
+@mixin modalLayout {
+  @include modal;
+
+  .modalContainer {
+    @include modalPosition();
+    @include modalBox;
+    // margin: 10px 0 0 0;
+
+    .modalTitle {
+      @include modalTitle;
+      // padding: 0 30px;
+    }
+
+    .modalContent {
+      @include modalContent;
+    }
+
+    .modalFooter {
+      @include modalFooter;
+    }
+  }
+
+  .modalDim {
+    @include modalDim;
+  }
+}
+
+// title 없고 footer 에 border 있음
+@mixin modalLayout2 {
+  @include modal;
+
+  .modalContainer {
+    @include modalPosition();
+    @include modalBox;
+
+    .modalTitle {
+      @include modalTitle2;
+    }
+
+    .modalContent {
+      @include modalContent;
+      height: calc(100% - 70px);
+      margin: 10px 0 0 0;
+    }
+
+    .modalFooter {
+      @include modalFooter;
+    }
+  }
+
+  .modalDim {
+    @include modalDim;
+  }
+}

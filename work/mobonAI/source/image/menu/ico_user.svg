@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="24" viewBox="0 0 20 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #9c9c9c;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4159" data-name="Rectangle 4159" class="cls-1" width="20" height="24" transform="translate(-1 -1)"/>
+    </clipPath>
+  </defs>
+  <g id="ico_gnb_user" transform="translate(1 1)">
+    <g id="Group_6384" data-name="Group 6384" class="cls-2">
+      <path id="Path_11852" data-name="Path 11852" class="cls-3" d="M8.695,10.136A5.068,5.068,0,1,0,5.109,8.652a5.068,5.068,0,0,0,3.586,1.484" transform="translate(0.308 0.866)"/>
+      <path id="Path_11853" data-name="Path 11853" class="cls-3" d="M12.169,11.585h-.376a7,7,0,0,1-6.2,0H5.215A5.217,5.217,0,0,0,0,16.8v1.3a2.173,2.173,0,0,0,2.173,2.173H15.211a2.173,2.173,0,0,0,2.173-2.173V16.8a5.217,5.217,0,0,0-5.215-5.211Z" transform="translate(0.308 0.866)"/>
+    </g>
+  </g>
+</svg>

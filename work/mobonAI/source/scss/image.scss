@@ -1,0 +1,111 @@
+@charset 'utf-8';
+
+/*
+File   : image.scss
+Date   : 2025.01.15
+*/
+
+// 공통 이미지 경로 (이미지 지정 전용)
+@mixin img($folder, $name, $format:"svg", $bgXY:center, $path:"../image/", ) {
+  background: url("#{$path}#{$folder}/#{$name}.#{$format}") no-repeat $bgXY;
+}
+
+// 사이즈 및 background-size 조절 전용
+@mixin imgSize($w:null, $h:null, $bgw:null, $bgh:null, $bgs:null) {
+  @if $w !=null {
+    width: $w;
+  }
+
+  @if $h !=null {
+    height: $h;
+  }
+
+  @if $bgw !=null and $bgh !=null {
+    background-size: $bgw $bgh;
+  }
+
+  @else if $bgs !=null {
+    background-size: $bgs;
+  }
+}
+
+
+//* loading */
+@mixin ico_loading {
+  @include img('loading', 'ico_loading', "gif");
+}
+
+@mixin ico_loadingCircle {
+  @include img('loading', 'ico_loadingCircle', "gif");
+}
+
+
+// AI 바로가기
+@mixin ico_quickAI() {
+  @include img("component2", "ico_quickAI");
+  @include imgSize(130px, 130px, $bgs:contain);
+}
+
+// 모달 닫기
+@mixin ico_close() {
+  @include img("component2", "ico_close");
+  // @include imgSize(160px, 160px);
+}
+
+// 다운로드
+@mixin ico_download() {
+  @include img("component2", "ico_download");
+  // @include imgSize(160px, 160px);
+}
+
+// 새로
+@mixin ico_copy() {
+  @include img("component2", "ico_copy");
+  // @include imgSize(160px, 160px);
+}
+
+// 옵션설정
+@mixin ico_set() {
+  @include img("component2", "ico_set");
+  // @include imgSize(160px, 160px);
+}
+
+// 라디오(on)
+@mixin ico_radio_on() {
+  @include img("component2", "ico_radio_on");
+  // @include imgSize(160px, 160px);
+}
+
+// 라디오(off)
+@mixin ico_radio_off() {
+  @include img("component2", "ico_radio_off");
+  // @include imgSize(160px, 160px);
+}
+
+// 라디오(disabled)
+@mixin ico_radio_disabled() {
+  @include img("component2", "ico_radio_disabled");
+  // @include imgSize(160px, 160px);
+}
+
+// selectbox
+@mixin ico_select() {
+  @include img("component2", "ico_select");
+}
+
+// calendar
+@mixin ico_calendar() {
+  @include img("component2", "ico_calendar");
+}
+
+// 엑셀
+@mixin ico_excel() {
+  @include img("component2", "ico_excel", "png");
+  // @include imgSize(160px, 160px);
+}
+
+// + 
+@mixin ico_plus() {
+  @include img("component2", "ico_plus");
+  // @include imgSize(160px, 160px);
+}

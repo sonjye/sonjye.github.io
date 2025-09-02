@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>MOBON TIMEBOARD</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <!-- <script type="text/javascript" src="../../js/lib/moment.min.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/lib/slick.min.js"></script> -->
+    <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script>
+    <!-- <script type="text/javascript" src="../../js/ui.js"></script> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/slick.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/slick-theme.css"> -->
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.css">
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/common.css"> -->
+    <link type="text/css" rel="stylesheet" href="../../css/common_style.css">
+    <!--//gridstack-->
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1 class="logo_area">
+                <a href="/autoset">
+                    <img src="../images/logo/logo.png" alt="모비온">
+                    <img src="../images/logo/logo_m.png" alt="모비온">
+                    <span>타임보드</span>
+                </a>
+            </h1>
+            <button type="button" class="menu_mini_btn"><span>메뉴접기버튼</span><i></i><i></i><i></i></button>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">모비온</a></li>
+            </ul>
+            <div class="right_area">
+                <ul>
+                    <li>
+                        <button type="button" class="memu_more_btn">TUNE720</button>
+                        <ul>
+                            <li><a href="#" class="navMenuList" target="_blank">CDP</a></li>
+                            <li><a href="#" class="navMenuList" target="_blank">스크립트 관리</a></li>
+                            <li><a href="#" class="navMenuList" target="_blank">키워드센터</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="headeralert resetNoticeLogCount">알림</button>
+                    </li>
+                    <li>
+                        <button class="headermemo type03 " data-type="1">계정 중요사항</button>
+                    </li>
+                    <li>
+                        <button class="headermemo type02 " data-type="2">계정 중요사항</button>
+                    </li>
+                    <li><a href="#" class="userinfo">정보수정</a></li>
+                </ul>
+            </div>
+        </header>
+        <nav>
+            <div class="auth_title">
+                <h2>타임보드 센터</h2>
+                <a href="#"><button type="button" class="logout_btn">로그아웃</button></a>
+            </div>
+            <div class="gubun_box_wrap">
+                <div class="gubun_box">
+                    <button type="button" class="color_admin" title="관리자">관리자</button>
+                    <button type="button" class="color_agency" title="대행사">대행사</button>
+                    <button type="button" class="color_adver" title="광고주">광고주</button>
+                </div>
+                <ul>
+                    <li class="userName"><span class="modalOpen">담당자명</span>님</li>
+                    <li>담당자 : </li>
+                    <li>운영관리자 : </li>
+                    <li>담당 연락처 : </li>
+                </ul>
+            </div>
+            <div class="menu_search">
+                <div>
+                    <input type="text" id="searchLeftMenuGrid" placeholder="메뉴명 검색">
+                    <button>검색</button>
+                    <div class="searchLeftMenuGridListWarp">
+                        <ul class="searchLeftMenuGridList">
+                            <li><a href="#">광고 등록 &gt; 광고등록</a>
+                                <div class="hidden">광고등록광고등록</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="menu_list">
+                    <li class="list">
+                        <a class="" href="#"><span class="menuName">광고 목록</span></a>
+                    </li>
+                    <li class="campaign">
+                        <a href="#"><span class="menuName">광고 등록</span></a>
+                    </li>
+                    <li class="report">
+                        <a href="#"><span class="menuName">광고 보고서</span></a>
+                    </li>
+                    <li class="management">
+                        <a href="#"><span class="menuName">결제관리</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="contents">
+            <section class="grid_setting_Wrap">
+                <button type="button" class="gs_btn"><i></i></button>
+                <div class="gs_floating">
+                    <div class="title">
+                        <span>광고주센터 Dashboard</span>
+                    </div>
+                    <div class="gs_conts">
+                        <div class="top">
+                            <div class="btn_wrap">
+                                <button type="button" class="btn-l-m-br btn-darkgray">레이아웃 초기화</button>
+                            </div>
+                            <div class="radio_wrap">
+                                <input type="radio" name="widget-onoff" id="widget-All" value="00" checked="" hidden="">
+                                <label for="widget-All">ALL</label>
+                                <input type="radio" name="widget-onoff" id="widget-on" value="01" hidden="">
+                                <label for="widget-on">ON</label>
+                                <input type="radio" name="widget-onoff" id="widget-off" value="02" hidden="">
+                                <label for="widget-off">OFF</label>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="checkBox">
+                                <input type="checkbox" name="widget-check" id="widget-check00" value="00" hidden="">
+                                <label for="widget-check00">알림</label>
+                                <input type="checkbox" name="widget-check" id="widget-check01" value="01" hidden="">
+                                <label for="widget-check01">실시간 데이터</label>
+                                <input type="checkbox" name="widget-check" id="widget-check02" value="02" hidden="">
+                                <label for="widget-check02">캠페인 성과요약</label>
+                                <input type="checkbox" name="widget-check" id="widget-check03" value="03" hidden="">
+                                <label for="widget-check03">캠페인 요약보기</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="grid_contents_wrap">
+                <div class="grid-stack" id="grid-stack">
+                    <div class="no_layout" style="display:none">
+                        <p> 설정된 위젯이 없습니다.<br> 설정창에서 위젯을 선택하여 활성화 하세요!<br><br> 아래 레이아웃에서 초기화 버튼 클릭 시 초기 디폴트 화면으로
+                            제공됩니다.<br>
+                        </p>
+                        <button type="button">레이아웃 초기화</button>
+                    </div>
+                    <!-- 위젯 -->
+                    <div class="grid-stack-item" gs-max-h="3" gs-w="1" gs-h="2">
+                        <div class="grid-stack-item-content">
+                            <!-- 달력 -->
+                            <div class="datepicker_fixed">
+                                <div class="widget_calendar"> </div>
+                            </div>
+                            <!-- 달력 -->
+                        </div>
+                    </div>
+                    <div class="grid-stack-item" gs-max-h="3" gs-w="2" gs-h="3">
+                        <div class="grid-stack-item-content">
+                            <!-- 달력 -->
+                            <div class="datepicker_fixed">
+                                <div class="widget_calendar"> </div>
+                            </div>
+                            <!-- 달력 -->
+                        </div>
+                    </div>
+                    <div class="grid-stack-item" gs-max-h="3" gs-w="1" gs-h="2">
+                        <div class="grid-stack-item-content">
+                            <!-- 달력 -->
+                            <div class="datepicker_fixed">
+                                <div class="widget_calendar"> </div>
+                            </div>
+                            <!-- 달력 -->
+                        </div>
+                    </div>
+                    <!-- 위젯 -->
+                </div>
+                <div class="trash ui-droppable"></div>
+            </section>
+        </div>
+        <footer>
+            <ul>
+                <li>(주)인라이플</li>
+                <li>사업자번호:113-86-60934</li>
+                <li>사업자:한경훈</li>
+                <li>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</li>
+            </ul>
+            <ul>
+                <li><a href="tel:070-4672-2303">TEL .070-4672-2303</a></li>
+                <li>FAX .02-865-6845</li>
+                <li><a href="mail:mobon@enliple.com">E-mail : mobon@enliple.com</a></li>
+            </ul>
+            <p>Copyright(c) 2012 모비온 All rights reserved. </p>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        let option = {
+            column: 3,
+            minRow: 3,
+            cellHeight: '255px',
+            placeholderClass: 'placeholder-content',
+            removable: '.trash',
+            disableOneColumnMode: true,
+            float: false,
+            resizable: {
+                handles: 'none'
+            }
+        };
+        let grid = GridStack.init(option);
+        let trash = document.querySelector('.trash');
+        grid.on('dragstart', function () {
+            trash.classList.add('on');
+            gridArea.classList.add('ani');
+        });
+        grid.on('dragstop', function () {
+            trash.classList.remove('on');
+            gridArea.classList.remove('ani');
+        });
+        grid.on('removed', function () {
+            if ($('.grid-stack-item').length == 1) {
+                $('.no_layout').css('display', 'flex');
+            }
+        });
+        let gsSettingBtn = document.querySelector('.gs_btn');
+        let gsSettingUl = document.querySelector('.gs_floating');
+        gsSettingBtn.addEventListener('click', function () {
+            gsSettingUl.classList.toggle('on');
+        });
+        let gridArea = document.querySelector('.grid-stack');
+        let gridTrash = document.querySelector('.trash');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".widget_calendar").datepicker({
+                dateFormat: "yy",
+                monthNames: ['1월(JAN)', '2월(FEB)', '3월(MAR)', '4월(APR)', '5월(MAY)', '6월(JUN)',
+                    '7월(JUL)', '8월(AUG)', '9월(SEP)', '10월(OCT)', '11월(NOV)', '12월(DEC)'
+                ],
+                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월',
+                    '12월'
+                ],
+                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                dayNamesShot: ['일', '월', '화', '수', '목', '금', '토'],
+                //dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+            });
+        });
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                $('.trash').css('bottom', '100px')
+            } else {
+                $('.trash').css('bottom', '0')
+            }
+        });
+    </script>
+</body>
+
+</html>

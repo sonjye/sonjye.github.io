@@ -1,0 +1,605 @@
+@charset 'utf-8';
+
+/*
+File   : modal.scss
+Date   : 2025.02.11
+*/
+
+.wrap {
+
+  //* 공통 */
+  .modalWrap {
+
+    //* 공통 - alert  */
+    &.md_alert {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 220px;
+
+        .modalContent {
+          @include flex($d:column, $j:center);
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+            }
+
+            strong {
+              @include ftb;
+              font-size: 16px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 캠페인 */
+  .modalWrap {
+
+    //* 미리보기  */
+    &.md_preview {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 540px;
+        height: 600px;
+        gap: 0;
+        border-radius: 15px;
+
+        .modalTitle {
+          @include modalTitle_t2;
+
+          p {
+            @include txtHide;
+          }
+        }
+
+        .modalContent {
+          width: 100%;
+          margin: 0;
+          padding: 0 0 0 10px;
+          height: calc(100% - 60px);
+          overflow-y: hidden;
+
+          .tabButton {
+            @include flex($j:center);
+
+            input[type="radio"] {
+              // @include tabButton_ip
+            }
+          }
+
+          .previewArea {
+            margin: 15px 0 0 0;
+            padding: 0 20px;
+
+            .previewList {
+              // display: none;
+              // overflow: hidden;
+            }
+
+            .slide {
+              .slick-arrow {
+                @include slick_arrow;
+                padding-bottom: 80px;
+
+                &.slick-prev {
+                  left: 0px;
+                }
+
+                &.slick-next {
+                  right: 0px;
+                }
+              }
+
+              .slick-dots {
+                @include slick_dot2;
+              }
+
+              .box {
+                @include inflexBox($j:space-between, $d:column, $a:center, $fw:wrap);
+                position: relative;
+                width: 380px;
+                height: 430px;
+                padding: 0 30px;
+
+                .preview {
+                  @include inflexBox($j:center, $a:center);
+                  flex-grow: 1;
+                }
+
+                img,
+                video {
+                  max-width: 380px;
+                  max-height: 380px;
+                  margin: 0 auto;
+                  // aspect-ratio: 1/1;
+                }
+
+                button {
+                  &.play {
+                    @include iBtn;
+                    @include ico_play;
+                    position: absolute;
+                    z-index: 1;
+                    // top: 50%;
+                    // left: 50%;
+                    // transform: translate(-50%, -50%);
+                  }
+                }
+
+                .checkBox {
+                  width: 100%;
+                  display: none;
+                }
+              }
+            }
+          }
+
+          .checkBox {
+            @include fontM;
+            margin: 20px 0 0 0;
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    //* 썸네일 업로드  */
+    &.md_uploadTN {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 660px;
+        height: 440px;
+
+        .modalContent {
+          // overflow-y: hidden;
+
+          >section {
+            @include flexBox($g:30px);
+            height: 100%;
+
+            // left : 이미지 업로드
+            .uploadArea {
+              @include flexBox($d:column, $j:space-around, $a:start);
+              height: 100%;
+
+              .guideBox {
+                p {
+                  @include title5;
+                  line-height: 20px;
+                }
+              }
+
+              .previewArea {
+                .fileBox {
+                  @include flexBox($g:14px, $j:start);
+
+                  input {
+                    display: none;
+                  }
+
+                  label {
+                    @include boxLayout2($pd:0);
+                    width: 160px;
+                    height: 160px;
+
+                    &.fileUpload {
+                      @include flexBox($d:column, $g:0px, $j:center);
+                      // height: 100%;
+                      border: 1px solid $pointColor;
+                      cursor: pointer;
+
+                      &:before {
+                        @include iLayout($d:block);
+                        @include ico_image;
+                      }
+
+                      p {
+                        @include title5;
+                        margin: 20px 0 0 0;
+                      }
+
+                      span {
+                        display: block;
+                        color: $subFtColor;
+                        font-size: 11px;
+                        margin: 4px 0 0 0;
+                      }
+                    }
+
+                    &.filePreview {
+                      display: none; // 기본적으로 숨김
+                      position: relative;
+                      margin: 0 auto;
+
+                      img,
+                      video {
+                        max-width: 100%; // 이미지가 너무 커지지 않도록 설정
+                        height: auto;
+                        max-height: 100%;
+                        margin: 0 auto;
+                        border-radius: 5px;
+                        object-fit: contain;
+                        object-position: center center;
+                      }
+
+                      button {
+                        &.close {
+                          @include iBtn;
+                          @include ico_closeX4;
+                          position: absolute;
+                          top: 6px;
+                          right: 6px;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .preview {
+                  position: relative;
+                  width: 160px;
+                  height: 160px;
+                  margin: 0 auto;
+                  border-radius: 5px;
+                  border: 1px solid $borderColor;
+
+                  img {
+                    width: 100%;
+                    max-width: 158px;
+                    max-height: 158px;
+                    border-radius: 5px;
+                    object-fit: contain;
+                    object-position: center center;
+                  }
+
+                  button {
+                    &.close {
+                      @include iBtn;
+                      @include ico_closeX4;
+                      position: absolute;
+                      top: 6px;
+                      right: 6px;
+                    }
+                  }
+                }
+              }
+            }
+
+            // right : 썸네일 미리보기 
+            .previewBox {
+              margin: 18px 0 0 0;
+
+              .box {
+                @include flexBox($j:center);
+                position: relative;
+                width: 230px;
+                height: 230px;
+                background-color: #e3e3e3;
+                border: 1px solid $borderColor;
+                border-radius: 5px;
+
+                video,
+                img {
+                  width: 100%;
+                  max-height: 100%;
+                  object-fit: contain;
+                  object-position: center center;
+                }
+
+                button {
+                  &.play {
+                    @include iBtn;
+                    @include ico_play;
+                    position: absolute;
+                    z-index: 1;
+                    // top: 50%;
+                    // left: 50%;
+                    // transform: translate(-50%, -50%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 영상 미리보기  */
+    &.md_previewVideo {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 420px;
+        height: 480px;
+        gap: 0;
+        border-radius: 15px;
+
+        .modalTitle {
+          @include modalTitle_t2;
+
+          p {
+            @include txtHide;
+          }
+        }
+
+        .modalContent {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          height: calc(100% - 60px);
+          overflow-y: hidden;
+
+          .preview {
+            @include flexBox($j:center);
+            // margin: 25px 0 0 0;
+            padding: 0 20px;
+            // width: 214px;
+            width: 100%;
+            height: 380px;
+            margin: 0 auto;
+
+            img,
+            video {
+              max-width: 100%; // 이미지가 너무 커지지 않도록 설정
+              height: auto;
+              max-height: 100%;
+              margin: 0 auto;
+              border-radius: 5px;
+              object-fit: contain;
+              object-position: center center;
+            }
+
+            button {
+              &.play {
+                @include iBtn;
+                @include ico_play;
+                position: absolute;
+                z-index: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 결제 */
+  .modalWrap {
+
+    //* 결제 설정  */
+    &.md_paymentSet {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 300px;
+
+        .modalContent {
+          .sec_paySet {
+            ul {
+              li {
+                @include flexBox($j:start, $g:10px);
+
+                &:nth-child(1) {
+                  >p {
+                    margin: 12px 0 auto 0;
+                  }
+                }
+
+                &:nth-child(n+2) {
+                  margin-top: 20px;
+                }
+
+                // tit
+                >p {
+                  @include title4;
+                  min-width: 100px;
+                }
+
+                // cont
+                >div {
+                  p {
+                    margin: 10px 0 0 0;
+                  }
+                }
+
+                button {
+                  @include btnS;
+                  @include btn_main;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* (공통) 결제 요청 완료, 결제 오류, 결제 완료*/
+    &.md_paymentRequest,
+    &.md_paymentError,
+    &.md_completeComplete {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 250px;
+
+        .modalContent {
+          @include flexBox();
+
+          >div {
+            text-align: left;
+            margin-left: 64px;
+            padding-left: 84px;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              &:nth-child(1) {
+                color: $ftColor5;
+              }
+
+              &:only-child {
+                color: $ftColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별) 결제 요청 완료  */
+    &.md_paymentRequest {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_paymentComplete;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별) 결제 오류  */
+    &.md_paymentError {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_paymentError;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    //* (개별)결제 완료  */
+    &.md_completeComplete {
+      .modalContainer {
+        .modalContent {
+          >div {
+            &:before {
+              @include iLayout;
+              @include ico_check;
+              position: absolute;
+              margin-left: -84px;
+            }
+          }
+        }
+      }
+    }
+
+    /* 결제 취소 요청 */
+    &.md_errorAlarm {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 250px;
+
+        .modalContent {
+          @include flexBox();
+
+          >div {
+            @include flexBox($j:start);
+            text-align: left;
+            margin-left: 64px;
+            padding-left: 30px;
+
+            &:before {
+              @include iLayout;
+              @include ico_error2;
+              position: absolute;
+              margin-left: -84px;
+            }
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              &:nth-child(1) {
+                color: $ftColor5;
+              }
+
+              &:only-child {
+                color: $ftColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* 결제 이용동의  */
+    &.md_termAgree {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 660px;
+        height: 440px;
+
+        .modalContent {
+          // overflow-y: hidden;
+          // padding:0
+          padding-right: 0;
+
+          section {
+            &.sec_info {
+              .infoBox {
+                .tit {}
+                .cont {
+                  @include boxLayout2($pd:25px 10px 25px 25px);
+                  margin:20px 0 0 0;
+
+                }
+
+                // border-bottom: 1px solid $borderColor;
+                p {
+                  @include title4;
+                }
+
+                ul {
+                  @include counterLi;
+                  // background-color: gray;
+                  // margin: 15px 0 0 0;
+                  padding: 0px 15px 0px 0;
+                  // padding: 10px 15px 15px 15px;
+                  overflow-y: auto;
+                  height: 200px;
+                  // height: 100%;
+
+                  li {
+                    line-height: 20px;
+                    padding-left: 15px;
+text-indent: -15px;
+                    p {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

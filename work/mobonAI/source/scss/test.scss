@@ -1,0 +1,103 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : test.scss
+    Date  : 2023.04.12
+    menu  : 테스트
+/*---------------------------------*/
+
+
+/* 대시보드 */
+.typeB {
+
+  /* 앱 보고서 */
+  /* 데이터 수집 관리 */
+  .tune_dataCollect {}
+
+
+  .modalWrap {}
+
+  .modalWrap {
+
+    // 240710
+    //* 프레임 1set 자세히 보기  */
+    &.md_frameDetail {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 1400px;
+        height: 800px;
+
+        .modalContent {
+          .box_frameDetail {
+            @include flexBox($j:start, $fw:wrap, $a:start, $g:16px);
+
+            .list {
+              @include flexBox($j:start, $fw:wrap, $a:start);
+              border: 1px solid blue;
+
+              &:not(:last-child) {
+                margin-bottom: 30px;
+              }
+
+              p {
+                @include fontM;
+                width: 100%;
+                font-size: 14px;
+              }
+
+              .box {
+                border: 1px solid #f00;
+
+                span {
+                  @include inflexBox($j:center);
+                  position: relative;
+                  min-width: 64px;
+                  padding: 2px 4px;
+                  height: 30px;
+                  font-size: 14px;
+                  text-align: center;
+                  border-radius: 5px;
+                }
+
+                &:nth-of-type(1) {
+                  span {
+                    color: $pointColor;
+                    border: 1px solid $pointColor;
+                    background-color: $btn_bgColor3;
+
+                  }
+                }
+
+                &:nth-of-type(2) {
+                  span {
+                    color: $ftColor4;
+                    border: 1px solid $pointColor;
+                    background-color: $pointColor;
+
+                  }
+                }
+
+                span {}
+
+                .imgBox {
+                  margin: 10px 0 0 0;
+                  outline: 1px solid $borderColor;
+                  border-radius: 5px;
+                  background-color: $bgColor3;
+
+                  img {
+                    border-radius: 5px;
+                    background-size: contain;
+                    object-fit: contain;
+                    object-position: center center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

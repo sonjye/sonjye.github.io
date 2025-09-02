@@ -1,0 +1,335 @@
+*{
+    margin:0;
+    padding:0;
+}
+@font-face {
+    font-family: 's-core_dream1';
+    src:url('/content/font/scdream1.woff2') format('woff2'),
+       url('/content/font/scdream1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream2';
+    src:url('/content/font/scdream2.woff2') format('woff2'),
+       url('/content/font/scdream2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream3';
+    src:url('/content/font/scdream3.woff2') format('woff2'),
+       url('/content/font/scdream3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream4';
+    src:url('/content/font/scdream4.woff2') format('woff2'),
+       url('/content/font/scdream4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream5';
+    src:url('/content/font/scdream5.woff2') format('woff2'),
+       url('/content/font/scdream5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream6';
+    src:url('/content/font/scdream6.woff2') format('woff2'),
+       url('/content/font/scdream6.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream7';
+    src:url('/content/font/scdream7.woff2') format('woff2'),
+       url('/content/font/scdream7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream8';
+    src:url('/content/font/scdream8.woff2') format('woff2'),
+       url('/content/font/scdream8.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 's-core_dream9';
+    src:url('/content/font/scdream9.woff2') format('woff2'),
+       url('/content/font/scdream9.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'hggothic20';
+    src:url('/content/font/HGGGOTHICSSI_PRO_20G.woff2') format('woff2'),
+       url('/content/font/HGGGOTHICSSI_PRO_20G.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'hggothic80';
+    src:url('/content/font/HGGGOTHICSSI_PRO_80G.woff2') format('woff2'),
+       url('/content/font/HGGGOTHICSSI_PRO_80G.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'hggothic99';
+    src:url('/content/font/HGGGOTHICSSI_PRO_99G.woff2') format('woff2'),
+       url('/content/font/HGGGOTHICSSI_PRO_99G.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+input {
+    padding:8px
+}
+#mobon_banner {
+    float: left;
+    position: fixed;
+    margin:10px;
+
+}
+.setting-container {
+    float: left;
+    position: absolute;
+    left: 650px;
+    margin:10px;
+}
+.background-image {
+    position: relative;
+    width: 580px;
+    height: 329px;
+    background-color: #eee;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#text-container {
+    position: absolute;
+    text-align:center;
+    white-space: nowrap;
+    vertical-align: middle;
+    color:#fff;
+    font-family: 's-core_dream1';
+    z-index:3;
+}
+#text-container h1 {
+    opacity: 0;
+}
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+.top-right {
+    top: 20px;
+    right: 20px;
+}
+.top-middle {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.middle-left {
+    top:50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+.middle-right {
+    top:50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.middle-middle {
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom-left {
+    bottom:20px;
+    left: 20px;
+}
+.bottom-right {
+    bottom:20px;
+    right: 20px;
+}
+.bottom-middle {
+    bottom:20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.form-group {
+    width: 550px;
+    padding: 1%;
+}
+.form-group > div.forms {
+    display: inline-block;
+}
+button {
+    padding: 5px 0;
+    margin:3px 0;
+    width: 31.6%;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: pointer;
+    background-color:#d2d2d2;
+}
+button.pressed, button.press, button.clicked, button.click, button.checked, button.active{
+    background-color: #85b74e !important;
+    color:#fff;
+    outline: none;
+    border-radius: 3px;
+}
+.copy {
+    margin: 4px;
+    width: 92%;
+    outline: none;
+    display: none;
+}
+.animate-text {
+    opacity: 0;
+    padding: 2px 0;
+}
+#font-setting, #bgm-setting, #font-size, #voice-setting{
+    height: 35px;
+    padding: 0 4px;
+    vertical-align: middle;
+}
+.ads-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+.positions {
+    display: none;
+}
+.positions input {
+    display: inline-block;
+}
+.positions .copy {
+    width: 67%;
+}
+.positions > div {
+    display: inline-block;
+}
+.load-container {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height:38px;
+    vertical-align: middle;
+}
+.load {
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:1;
+    width: 30px;
+    height: 30px;
+    margin: -16px 0 0 -16px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+.loader {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 56px;
+    height: 56px;
+    background-image: url(/content/images/common/reload.png);
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+.play-bgm, .play-voice, .play-voice-data {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background-image: url(/content/images/common/play.png);
+    background-size: 100%;
+    background-repeat: repeat;
+}
+.sec {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    z-index: 9;
+}
+.sec_load {
+    display:none;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.logo {
+    display:none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    z-index: 9;
+}
+.logo img {
+	width:100%
+	
+}
+@media (min-width: 100px) and (max-width: 520px){
+	#mobon_couple_banner {
+		width:100%;
+		height:calc(100% - 50px);
+	}
+	.sec {
+	    position: absolute;
+	    right: 10px;
+	    top: 10px;
+	    width: 18px;
+	    height: 18px;
+	    z-index: 9;
+	}
+	.logo {
+	    position: absolute;
+	    left: 10px;
+	    top: 10px;
+	    width: 70px;
+	    height: 70px;
+	    z-index: 9;
+	}
+}
+@-webkit-keyframes spin {
+    0%{-webkit-transform: rotate(0deg);}
+    100%{-webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}

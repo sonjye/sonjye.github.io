@@ -1,0 +1,578 @@
+@charset 'utf-8';
+
+/*
+File   : modal.scss
+Date   : 2025.02.11
+*/
+
+
+
+.wrap {
+
+  // ai동동이버튼
+  button.quickAI {
+    @include iBtn($p:fixed);
+    @include ico_quickAI;
+    @include imgSize(130px, 130px, 130px, 130px);
+    bottom: 50px;
+    right: 50px;
+    z-index: 900;
+  }
+
+  //* AI 비서 */
+  .modalWrap {
+
+    //* 공통 - alert  */
+    &.md_alert {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 460px;
+        height: 300px;
+
+        .modalContent {
+          @include flex($j:center, $d:column);
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+            }
+
+            strong {
+              @include ftb;
+              font-size: 16px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    // AI 시작하기
+    &.md_aiStart {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 540px;
+        height: 600px;
+        width: calc(100% - 250px);
+        min-height: 950px;
+        gap: 0;
+        // border-radius: 6px;
+
+        .modalTitle {
+          // @include modalTitle2;
+          @include ftr;
+          font-size: 24px;
+          text-align: center;
+
+          p {
+            // @include txtHide;
+            flex-grow: 1;
+          }
+        }
+
+        .modalContent {
+          max-height: -webkit-fill-available;
+
+          section {
+
+            // 시작하기
+            &.sec_talk {
+              position: relative;
+              // @include flex_column;
+              // height: calc(100% - 80px);
+              // @include flex();
+              text-align: center;
+
+              &.t2 {
+                .box_guide {
+                  display: none;
+                }
+              }
+
+              // >div {
+              //   border: 1px solid #f00;
+              // }
+
+              .box_guide {
+                // height: calc(100vh - 250px);
+                margin: 200px 0 80px 0;
+
+
+                // @include flex_column();
+
+                .guideBox {
+
+                  p {
+                    span {
+                      @include ftm;
+                      display: block;
+                      color: $pointColor;
+                    }
+
+                    &:nth-child(1) {
+                      font-size: 60px;
+                      line-height: 1.3;
+                      letter-spacing: -1.2px;
+                    }
+
+                    &:nth-child(2) {
+                      margin: 40px 0 0 0;
+                    }
+
+                    &:nth-child(n+2) {
+                      color: $subFtColor;
+                      font-size: 32px;
+                    }
+                  }
+                }
+              }
+
+              .box_talk {
+                position: relative;
+                height: calc(100vh - 240px);
+                // overflow: hidden;
+
+                .talkBox {
+                  overflow-y: auto;
+                  // width: 60%;
+                  width: 100%;
+                  height: 100%;
+                  overflow-x: hidden;
+                  min-width: 1000px;
+                  margin: 0 auto;
+                  padding: 0 calc(15% - 0px) 80px calc(15% + 10px);
+
+                  .tit {}
+
+                  .cont {}
+
+                  .Qbox,
+                  .Abox {
+                    word-break: normal;
+                  }
+
+                  .Qbox {
+                    margin: 10px 0 0 0;
+                    text-align: right;
+
+                    .box {
+
+
+                      display: inline-block;
+                      padding: 20px;
+                      border-radius: 20px;
+                      text-align: left;
+
+                      background-color: $color1;
+
+                      p {
+                        min-width: 360px;
+                        width: 50%;
+                        font-size: 16px;
+                        line-height: 1.5;
+                      }
+                    }
+                  }
+
+                  .Abox {
+                    // margin: 40px 0 0 0;
+                    text-align: left;
+
+
+
+                    .tit {
+                      p {
+                        @include ftb;
+                        font-size: 18px;
+                        color: $pointColor;
+
+                      }
+                    }
+
+                    .cont {
+                      margin: 15px 0 0 0;
+                      text-align: left;
+
+                      p {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        // min-width: 490px;
+                        // width: 60%;
+
+                      }
+
+                      [class^='answer'] {
+                        &:nth-child(n+2) {
+                          margin: 50px 0 0 0;
+                        }
+                      }
+
+                      .answer {
+                        padding-bottom: 50px;
+                      }
+
+                      hr {
+                        border: none;
+                        border-bottom: 1px solid $brdColor;
+                      }
+
+                      // 캠페인 개요
+                      .answer_summaryCampaign {
+                        b {
+                          @include ftb;
+                          font-size: 22px;
+                          line-height: 1.5;
+
+                          +p {
+                            margin: 20px 0 0 0;
+                          }
+                        }
+
+                        p {
+                          font-size: 18px;
+                          line-height: 1.8;
+                        }
+                      }
+                    }
+                  }
+
+                  // 상품 소개, 운영 제안 전략
+                  .answer_prdProduce,
+                  .answer_proposeManage {
+                    margin: 50px 0 0 0;
+
+                    b {
+                      @include ftb;
+                      font-size: 22px;
+
+                      +p {
+                        margin: 24px 0 0 0;
+                        font-size: 18px;
+                        line-height: 1.5;
+                      }
+
+                    }
+
+                    .tableArea {
+                      margin: 10px 0 0 0;
+
+                      +b {
+                        margin: 50px 0 0 0;
+                      }
+
+                      +p {
+                        margin: 30px 0 0 0;
+                      }
+
+                      .tableBox {
+                        @include tableLayout_t2;
+                        // max-height: 400px;
+
+                        table {
+
+                          // table-layout: fixed;
+                          // width: 100%;
+                          thead {
+                            tr {
+                              th {
+                                &:nth-child(1) {
+                                  // width: 120px;
+                                  // width: 10%;
+                                }
+                              }
+                            }
+                          }
+
+                        
+                        }
+
+                      }
+                    }
+                  }
+
+                  .answer_prdProduce {
+                    margin: 50px 0 0 0;
+
+                    b {
+                      @include ftb;
+                      font-size: 22px;
+
+                      +p {
+                        margin: 24px 0 0 0;
+                        font-size: 18px;
+                        line-height: 1.5;
+                      }
+
+                    }
+
+                    .tableArea {
+                   
+
+                      .tableBox {
+
+                        table {
+
+
+                          tbody {
+                            td {
+                              &:last-of-type {
+                                text-align: left;
+                              }
+                            }
+                          }
+                        }
+
+                      }
+                    }
+                  }
+
+                  // 타사 레퍼런스 
+                  .answer_reference {
+                    b {
+                      font-size: 22px;
+                    }
+
+                    p {
+                      &:nth-of-type(1) {
+                        @include ftb;
+                        font-size: 18px;
+                        margin: 20px 0 0 0;
+                        line-height: 1.5;
+                      }
+                    }
+
+                    .tableArea {
+                      .tableBox {
+                        @include tableLayout_t3;
+
+                        table {
+                          thead {
+                            tr {
+                              th {
+                                &:nth-child(1) {
+                                  width: 120px;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      +p {
+                        margin: 30px 0 0 0;
+                        @include ftb;
+                        font-size: 18px;
+                      }
+                    }
+                  }
+
+                  .tableArea {
+                    &.t1 {}
+                  }
+
+                  .optionBox {
+                    padding: 30px 0 0 0;
+                    border-top: 1px solid $brdColor;
+
+                    .buttonBox {
+                      text-align: left;
+
+                      button {
+                        @include iBtn;
+                        padding: 10px;
+
+                        &.copy {
+                          @include ico_copy;
+                          @include imgSize(30px, 30px);
+                        }
+
+                        &.set {
+                          @include ico_set;
+                          @include imgSize(30px, 30px);
+
+                        }
+                      }
+                    }
+
+                    .fileDownload {
+                      @include file_downloadBox($pd:0 15px);
+                      // display: inline-flex;
+                      margin: 60px 0 0 0;
+                      text-align: left;
+
+                      i.excel {
+                        @include ico;
+                        @include ico_excel;
+                        @include imgSize(30px, 30px, 26px, 25px);
+                        min-width: 30px;
+                      }
+
+                      button {
+                        &.download {
+                          @include iBtn;
+                          @include ico_download;
+                          @include imgSize(30px, 30px, 15px, 14px);
+                          padding: 10px;
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+
+              .box_ask {
+                position: sticky;
+                // width: 80%;
+                height: auto;
+                bottom: 100px;
+                margin: 0 auto 0;
+
+                .askBox {
+                  @include searchBox_t2;
+                  margin: 0 auto 0 auto;
+                }
+              }
+            }
+
+            // 대화하기 
+            &.sec_talk {}
+          }
+        }
+      }
+    }
+
+    //* 맞춤 설정하기  */
+    &.md_aiCustomSet {
+      @include modalLayout;
+
+      .modalContainer {
+        width: 550px;
+        height: 600px;
+        gap: 0;
+        border-radius: 15px;
+
+        .modalTitle {
+          p {
+
+            &:nth-of-type(2) {
+              @include ftr;
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+              font-size: 12px;
+              color: $subFtColor;
+              bottom: 10px;
+
+              span {
+                &.em {
+                  color: $pointColor;
+                }
+              }
+            }
+          }
+        }
+
+        .modalContent {
+          padding: 0 30px;
+
+          .sec_set {
+
+            .box_set,
+            .box_option {
+              .tit {
+                position: relative;
+                padding-bottom: 20px;
+                border-bottom: 1px solid $mdBrdColor2;
+
+                p {
+                  @include ftb;
+                  font-size: 24px;
+
+                  span {
+                    &.em {
+                      color: $pointColor;
+                      margin: 0 2px 0 0;
+                    }
+                  }
+                }
+              }
+
+              .cont {
+                margin: 30px 0 0 0;
+
+                ul {
+                  li {
+                    @include flex;
+                    min-height: 40px;
+
+                    &:nth-child(n+2) {
+                      margin: 15px 0 0 0;
+                    }
+
+                    >p {
+                      @include ftm;
+                      min-width: 120px;
+                      font-size: 15px;
+
+                      span {
+                        &.em {
+                          color: $pointColor;
+                          margin: 0 0 0 2px;
+                        }
+                      }
+                    }
+
+                    >div {
+                      flex-grow: 1;
+
+                      input {
+                        width: 100%;
+                      }
+
+                      .selectBox {
+                        @include flex;
+
+                        select {
+                          min-width: auto;
+                          flex-grow: 1;
+                        }
+                      }
+
+                      .calendarBox {
+                        width: 170px;
+                      }
+
+                      .radioBox {
+                        @include radioSize;
+                      }
+
+                      .inputBox {
+                        @include flex($j:start);
+
+                        input {
+                          min-width: 170px;
+                          width: 60%;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .box_option {
+              margin: 40px 0 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

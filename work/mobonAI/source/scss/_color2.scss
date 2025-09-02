@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/*
+File   : color.scss
+Date   : 2025.02.27
+*/
+
+/* 광고주센터 공통 색상 */
+$color_main: #85b74e;
+$color_bg: #f5f9f1;
+$color_main_txt: #1e1e1e;
+$gray_f : #f3f2f2;
+$gray_e : #eeeeee;
+$gray_d : #dadada;
+$gray_b : #bfbfbf;
+$gray_a : #aaaaaa;
+$gray_4 : #4d4d4d;
+$gray_3 : #3e3e3e;
+
+/* 광고주 */
+$color_adver: #84b64d;
+/* 대행사 */
+$color_agency: #ffc000;
+/* 관리자 */
+$color_admin: #5bb9f3;
+
+
+/* 추가 색상 */
+$white: #ffffff;
+$black: #000000;
+$red: #ff0000;
+
+
+// scroll 
+$scrollbarBgColor: transparent;
+$scrollbarBgColor2: #f4f4f4; //table scroll bg
+$scrollThumbColor: #dedede;
+$scrollThumbColor2: $pointColor;
+
+
+//* daterangepicker */
+$dateFtColor2: #222222; // 요일
+$dateFtColor3: #e5e5e5; // off
+$dateFtColor4: #ffffff; // hover
+$dateFtColor5: #222222; // 
+$dateFtColor6: #ffffff;
+$dateFtColor7: #ffffff; // 
+
+$dateBorderColor: #d6d6d6;
+$dateShadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+$dateBgColor: #ffffff;
+// 기간선택
+$dateBgColor2: $pointColor2;
+$dateBgColor3: #eeeeee;
+// disabled 
+$dageDisFtColor: #cbcbcb;
+$dageDisBgColor: #f3f3f2;
+// input 
+$dateIpBorderColor: #d6d6d6;
+$dateIpBgColor: #ffffff;
+
+//* basic */
+$mainColor: #4696ff;
+$ftColor: #000000;
+$subFtColor: #858585;
+$borderColor: #c6c6c6;
+$bgColor: #ffffff;
+
+
+// point 
+$pointColor: $mainColor;
+
+// point - etc
+$issueColor: #ffcf31;
+$waitColor: #f3b115;
+$errorColor: #ff6767;
+
+// font
+$ftColor2: $pointColor;
+$ftColor3: #ffffff;
+$ftColor4: #aaaaaa;
+
+// up & down 
+$upColor: #ff6767;
+$downColor: #5ab7ff;
+
+// input 
+$ftColor_dis: #b3b3b3;
+$brdColor_dis: #eceff1;
+$bgColor_dis: #eceff1;
+
+// border
+$border2: none;
+
+// shadow 
+$shadow: 0 0 20px 0 $pointColor; // B: point, C: point
+
+
+//* header */
+$headerFtColor: #1e1e1e;
+$headerBorderColor: #f3f2f2;
+
+//* navigation */
+$ico_navColor_on: $pointColor; //ico on
+$ico_navColor_off: $white; //ico off
+$navFtColor: $ftColor;
+$navFtColor2: #aaaaaa; // nav 하위 폰트 색상
+$navFtColor3: $pointColor; // nav 하위 폰트 on 색상 
+$navOnFtColor: $pointColor;
+$navBorderGradient: $gradient;
+$navShadow: 0 2px 0 0 rgba(0, 0, 0, 0.5),
+inset 0 0 15px 0 rgba(255, 255, 255, 0.05);
+$navCloseBorderColor: #48527a;
+$navCloseBgColor: #182152;
+$navBorder: #f3f2f2;
+$navBgColor2: #161e48; // 1depth active
+$navBgColor3: #f9f9f9; // 2depth
+$navBgColor4: #e6f0db; // 2depth active
+// on 
+$navFtColor_on: #1e1e1e;
+$navBgColor_on: #ffffff;
+$navBgColor_on2: $pointColor2; // 2depth on
+
+//* input */
+//* input */
+$ipBorderColor: #eeeeee;
+$ipBgColor: #ffffff; // checkBox bg
+// placeholder
+$ipFtColor_placeholder: #9ba0a2;
+// disabled
+$ipFtColor_disabled: #cbcbcb;
+$ipBorderColor_disabled: #eeeeee;
+$ipBgColor_disabled: #f3f3f3;
+
+//* button */
+// main 1 - on (main)
+$btnMain_ftColor: #ffffff;
+$btnMain_bgColor: $pointColor;
+// main 1 - on (main)
+$btnOn_ftColor: #ffffff;
+$btnOn_BorderColor: $pointColor;
+$btnOn_bgColor: $pointColor;
+// off
+$btnOff_ftColor: #1e1e1e;
+$btnOff_brdColor: #dadada;
+$btnOff_bgColor: #ffffff;
+// disabled
+$btnDis_ftColor: $dis_ftColor;
+$btnDis_brdColor: $dis_brdColor;
+$btnDis_bgColor: $dis_bgColor;
+
+
+//* Table */
+// table - thead, tbody 
+$tblBorderColor: #e0e0e0;
+$tblFtColor: #000000;
+$tblBgColor: #ffffff;
+// total 
+$tblTotalBg: #f6f6f9;
+$tblTotalBorder: #bfcace;
+// row over
+$tblRowHover: #f6f6f9;
+// table - thead */
+$tblTheaderFtColor: #77787d;
+$tblTheadBgColor: #f4f4f4;
+// border
+$tblBorderColor2: #ececec;
+// bg
+$tblBgColor2: #fffacd;
+
+//* modal */
+$ico_closeColor: #2d5a7d;
+$modalBorderColor: transparent;
+$modalShadow: 3px 3px 12px 0 rgba(21, 21, 21, 0.5);
+$modalBgColor: #ffffff;
