@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="TUNE720" />
+    <meta name="keywords" content="TUNE720" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/t720.png">
+    <link type="text/css" rel="stylesheet" href="../../css/idcm_aiJoinVP.css">
+</head>
+
+<body>
+    <!-- AI스튜디오 > 가입 및 체험 신청-2 > 부대표님 지시사항 (tune_aijoinEP) -->
+    <!-- tune_aiJoin 클래스 사용 >> video, header 수정건으로 인해 wrap과 함께 추가함 -->
+    <div class="wrap typeB tune_aiJoinEP">
+        <!-- <video autoplay loop muted playsinline class="bg_video">
+            <source src="../../image_v3/etc/bg_ai.mp4" type="video/mp4">
+        </video>
+        <video autoplay loop muted playsinline class="bg_video">
+            <source src="../../image_v3/etc/bgB_ai.mp4" type="video/mp4">
+        </video> -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">튠720</a> </h1>
+            <img src="../../image_v3/etc/img_aiBT2.png" alt="">
+            <div class="videoBox">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7YOPuuSwRDk?si=w4Mpq2sRP42xFKdE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <img src="../../image_v3/etc/img_aiBT3.png" alt="">
+            <p>모집기간: 9.18~9/24</p>
+            <p>AI 어드바이저로 마케팅 플랜을 <span>처음 경험해볼수 있는기회</span></p>
+            <p><span>TUNY 베타서비스</span> 지금 바로 신청하세요!</p>
+            <!-- <p>AI 어드바이저로 마케팅 플랜을<wbr> 처음 경험해볼수 있는기회</p>
+                <p> TUNY 베타서비스<wbr> 지금 바로 신청하세요! </p> -->
+        </header>
+        <section class="container">
+            <!-- t1, t2 클래스에 따라 display변경, 둘다 사용하지 않아도 무관함 -->
+            <div class="tune_aiJoinEP t1">
+                <div class="title">
+                    <p>AI 스튜디오</p>
+                </div>
+                <div class="content">
+                    <section class="sec_aiJoin">
+                        <!-- <div class="box_circle"><i class="ai_circle"></i></div> -->
+                        <div class="box_input">
+                            <ul>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p><span class="star">어느 쪽</span>에서 오셨나요?</p>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="radioBox">
+                                            <input type="radio" name="rd_1" id="rd_1" checked>
+                                            <label for="rd_1">광고주</label>
+                                            <input type="radio" name="rd_1" id="rd_2">
+                                            <label for="rd_2">대행사</label>
+                                            <input type="radio" name="rd_1" id="rd_3">
+                                            <label for="rd_3">미디어랩</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p><span class="star">TUNE720 ID</span>를 입력해주세요.</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="TUNE720 ID">
+                                        <p class="alarm">정보를 입력해주세요.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p><span class="star">담당자분</span>이름을 입력해주세요.</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="담당자 성함">
+                                        <!-- <p class="alarm">정보를 입력해주세요.</p> -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p><span class="star">연락처</span>를 남겨 주세요.</p>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="telBox">
+                                            <input type="tel" placeholder="휴대폰 번호" inputmode="numeric" pattern="[0-9]*"
+                                                maxlength="13" oninput="autoHyphen(this)">
+                                            <button type="button" class="">인증받기</button>
+                                        </div>
+                                        <p class="alarm">정보를 입력해주세요.</p>
+                                        <div class="telBox">
+                                            <input type="tel" placeholder="인증번호 입력" inputmode="numeric" pattern="[0-9]*"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                            <button type="button" class="">확인</button>
+                                        </div>
+                                        <!-- <p class="alarm">정보를 입력해주세요.</p> -->
+                                    </div>
+                                    <script>
+                                        // 휴대폰 번호 '-' 추가 
+                                        function autoHyphen(el) {
+                                            el.value = el.value.replace(/[^0-9]/g, '') // 숫자만 남김
+                                                .replace(/^(\d{3})(\d{0,4})(\d{0,4})$/, function (_, p1, p2, p3) {
+                                                    let result = p1;
+                                                    if (p2) result += '-' + p2;
+                                                    if (p3) result += '-' + p3;
+                                                    return result;
+                                                });
+                                        }
+                                    </script>
+                                </li>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p><span class="star">이메일 주소</span>도 남겨주세요.</p>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="emailBox">
+                                            <input type="text" placeholder="이메일주소">
+                                            <span>@</span>
+                                            <select name="" id="" required>
+                                                <option value="" disabled selected>도메인 선택</option>
+                                                <option value="">naver.com</option>
+                                            </select>
+                                        </div>
+                                        <!-- <p class="alarm">정보를 입력해주세요.</p> -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tit">
+                                        <!-- <p>튜니</p> -->
+                                        <p>베타테스트 관련 문의사항을 남겨주세요.</p>
+                                    </div>
+                                    <div class="cont">
+                                        <textarea name="" id=""
+                                            placeholder="궁금하신 사항이 있으시면 남겨주세요.&#10;예) 연락가능 시간등"></textarea>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box_apply">
+                            <div class="checkBox">
+                                <input type="checkbox" name="chk_1" id="chk_1">
+                                <label for="chk_1">입력하신 정보는 (주)인라이플 담당자가 상담만을 위해 사용되며 개인정보 수신에 동의합니다.</label>
+                            </div>
+                            <div class="buttonBox">
+                                <button type="button" class="apply on">신청하기</button>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="sec_complete">
+                        <div class="box_complete">
+                            <div class="tit">
+                                <!-- <p>튜니</p> -->
+                            </div>
+                            <div class="cont">
+                                <div class="readyBox">
+                                    <p>“곧 연락드릴게요! <br> AI가 함께할 준비 완료 😎”</p>
+                                </div>
+                                <div class="contactBox">
+                                    <p>혹시 직접 컨택을 원하시나요?</p>
+                                    <div class="emailBox">
+                                        <p>AI 어드바이저 공식 이메일</p>
+                                        <div class="emailForm">
+                                            <a href="mailto:tune720@enliple.com">tune720@enliple.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <!-- <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer> -->
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>
