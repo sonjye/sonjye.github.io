@@ -2,8 +2,8 @@
 /*
 Explain : permission 
 File : common.scss 
-Date : 2025.03.17
-Version : 1.1.21
+Date : 2025.09.15
+Version : 1.1.23
 */
 /*
 z-index 순서
@@ -291,6 +291,22 @@ Date   : 2025.03.17
 File   : mixin.scss
 Date   : 2024.11.12
 */
+@-webkit-keyframes compare {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+@keyframes compare {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -434,7 +450,7 @@ Date   : 2024.09.09
 
 /*
 File   : modal.scss
-Date   : 2024.09.09
+Date   : 2025.04.04
 */
 .wrap .modalWrap.md_alert {
   display: none;
@@ -612,14 +628,14 @@ Date   : 2024.09.09
   line-height: 1.5;
   text-align: center;
 }
-.wrap .modalWrap.tB.md_alert {
+.wrap.tB .modalWrap.md_alert {
   display: none;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_alert.modalOn {
+.wrap.tB .modalWrap.md_alert.modalOn {
   display: block;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer {
+.wrap.tB .modalWrap.md_alert .modalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -644,17 +660,17 @@ Date   : 2024.09.09
   overflow: hidden;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer ::-webkit-scrollbar {
+.wrap.tB .modalWrap.md_alert .modalContainer ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
   background: transparent;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer ::-webkit-scrollbar-thumb {
+.wrap.tB .modalWrap.md_alert .modalContainer ::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 3px;
   background: var(--pointColor);
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalTitle {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -677,7 +693,7 @@ Date   : 2024.09.09
   color: #ffffff;
   background-color: #2f84fc;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalTitle button.close {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalTitle button.close {
   content: "";
   position: relative;
   display: inline-block;
@@ -686,7 +702,7 @@ Date   : 2024.09.09
   font-style: normal;
   vertical-align: middle;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalContent {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -700,13 +716,13 @@ Date   : 2024.09.09
   line-height: 23px;
   overflow-y: scroll;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalFooter {
   width: 100%;
   min-height: 40px;
   margin: 15px 0 28px 0;
   text-align: center;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -721,20 +737,20 @@ Date   : 2024.09.09
   border-radius: 20px;
   cursor: pointer;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button:nth-child(n+2) {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button:nth-child(n+2) {
   margin-left: 4px;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.confirm {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.create, .wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.modify, .wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.confirm {
   color: var(--btn_ftColor);
   border: 1px solid var(--btn_bgColor);
   background-color: var(--btn_bgColor);
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_alert .modalContainer .modalFooter button.confirm:disabled {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.create:disabled, .wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.modify:disabled, .wrap.tB .modalWrap.md_alert .modalContainer .modalFooter button.confirm:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_alert .modalDim {
+.wrap.tB .modalWrap.md_alert .modalDim {
   position: fixed;
   top: 0;
   left: 0;
@@ -744,12 +760,12 @@ Date   : 2024.09.09
   opacity: 0.5;
   z-index: 998;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer {
+.wrap.tB .modalWrap.md_alert .modalContainer {
   width: 320px;
   min-height: 140px;
   height: auto;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -765,10 +781,10 @@ Date   : 2024.09.09
           align-items: center;
   gap: 10px;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalContent > div {
   text-align: center;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div p {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalContent > div p {
   font-family: "Pretendard_Light";
   position: relative;
   font-weight: normal;
@@ -776,7 +792,7 @@ Date   : 2024.09.09
   line-height: 26px;
   line-height: 26px;
 }
-.wrap .modalWrap.tB.md_alert .modalContainer .modalContent > div strong {
+.wrap.tB .modalWrap.md_alert .modalContainer .modalContent > div strong {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -784,14 +800,14 @@ Date   : 2024.09.09
   line-height: 21px;
   text-align: center;
 }
-.wrap .modalWrap.tB.md_missionComplete {
+.wrap.tB .modalWrap.md_missionComplete {
   display: none;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_missionComplete.modalOn {
+.wrap.tB .modalWrap.md_missionComplete.modalOn {
   display: block;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -816,17 +832,17 @@ Date   : 2024.09.09
   overflow: hidden;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer ::-webkit-scrollbar {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
   background: transparent;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer ::-webkit-scrollbar-thumb {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer ::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 3px;
   background: var(--pointColor);
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalTitle {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -849,7 +865,7 @@ Date   : 2024.09.09
   color: #ffffff;
   background-color: #2f84fc;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalTitle button.close {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalTitle button.close {
   content: "";
   position: relative;
   display: inline-block;
@@ -858,7 +874,7 @@ Date   : 2024.09.09
   font-style: normal;
   vertical-align: middle;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -872,13 +888,13 @@ Date   : 2024.09.09
   line-height: 23px;
   overflow-y: scroll;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter {
   width: 100%;
   min-height: 40px;
   margin: 15px 0 28px 0;
   text-align: center;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -893,20 +909,20 @@ Date   : 2024.09.09
   border-radius: 20px;
   cursor: pointer;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button:nth-child(n+2) {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button:nth-child(n+2) {
   margin-left: 4px;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.confirm {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.create, .wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.modify, .wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.confirm {
   color: var(--btn_ftColor);
   border: 1px solid var(--btn_bgColor);
   background-color: var(--btn_bgColor);
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_missionComplete .modalContainer .modalFooter button.confirm:disabled {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.create:disabled, .wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.modify:disabled, .wrap.tB .modalWrap.md_missionComplete .modalContainer .modalFooter button.confirm:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalDim {
+.wrap.tB .modalWrap.md_missionComplete .modalDim {
   position: fixed;
   top: 0;
   left: 0;
@@ -916,24 +932,24 @@ Date   : 2024.09.09
   opacity: 0.5;
   z-index: 998;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer {
   width: 286px;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent {
   width: 100%;
   margin: 24px 0 0 0;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent > div {
   text-align: center;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div p {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent > div p {
   font-family: "Pretendard_Light";
   position: relative;
   font-weight: normal;
   font-size: 15px;
   line-height: 26px;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div strong {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent > div strong {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -944,7 +960,7 @@ Date   : 2024.09.09
   text-align: center;
   margin-bottom: 19px;
 }
-.wrap .modalWrap.tB.md_missionComplete .modalContainer .modalContent > div strong:before {
+.wrap.tB .modalWrap.md_missionComplete .modalContainer .modalContent > div strong:before {
   content: "";
   position: relative;
   display: block;
@@ -958,14 +974,14 @@ Date   : 2024.09.09
   background-size: contain;
   margin: 0 auto 17px;
 }
-.wrap .modalWrap.tB.md_currectEntry {
+.wrap.tB .modalWrap.md_currectEntry {
   display: none;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_currectEntry.modalOn {
+.wrap.tB .modalWrap.md_currectEntry.modalOn {
   display: block;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -989,17 +1005,17 @@ Date   : 2024.09.09
   width: 100%;
   max-width: 690px;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer ::-webkit-scrollbar {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
   background: transparent;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer ::-webkit-scrollbar-thumb {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer ::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 3px;
   background: var(--pointColor);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalTitle {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1025,7 +1041,7 @@ Date   : 2024.09.09
   padding: 0 25px;
   background-color: var(--white);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalTitle button.close {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalTitle button.close {
   content: "";
   position: relative;
   display: inline-block;
@@ -1038,7 +1054,7 @@ Date   : 2024.09.09
   height: 14px;
   background-size: contain;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1052,7 +1068,7 @@ Date   : 2024.09.09
   line-height: 23px;
   overflow-y: scroll;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter {
   width: 100%;
   min-height: 56px;
   margin: 15px 0 0 0;
@@ -1072,7 +1088,7 @@ Date   : 2024.09.09
           align-items: center;
   gap: 0;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -1090,27 +1106,27 @@ Date   : 2024.09.09
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.confirm {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.create, .wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.modify, .wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.confirm {
   color: var(--btn_ftColor);
   border: 1px solid var(--btn_bgColor);
   background-color: var(--btn_bgColor);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.confirm:disabled {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.create:disabled, .wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.modify:disabled, .wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.confirm:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.cancel {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.cancel {
   color: var(--btn_ftColor4);
   border: 1px solid var(--btn_bgColor4);
   background-color: var(--btn_bgColor4);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalFooter button.cancel:disabled {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalFooter button.cancel:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalDim {
+.wrap.tB .modalWrap.md_currectEntry .modalDim {
   position: fixed;
   top: 0;
   left: 0;
@@ -1120,7 +1136,7 @@ Date   : 2024.09.09
   opacity: 0.5;
   z-index: 998;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -1132,45 +1148,45 @@ Date   : 2024.09.09
   border-radius: 0;
   border-bottom: 1px solid var(--ipBorderColor);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-webkit-input-placeholder {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input::-webkit-input-placeholder {
   color: var(--ftColor7);
   font-family: "Pretendard_Light";
   font-weight: normal;
   letter-spacing: -0.3px;
   border-color: var(--ipBorderColor_ph);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-moz-placeholder {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input::-moz-placeholder {
   color: var(--ftColor7);
   font-family: "Pretendard_Light";
   font-weight: normal;
   letter-spacing: -0.3px;
   border-color: var(--ipBorderColor_ph);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:-ms-input-placeholder {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input:-ms-input-placeholder {
   color: var(--ftColor7);
   font-family: "Pretendard_Light";
   font-weight: normal;
   letter-spacing: -0.3px;
   border-color: var(--ipBorderColor_ph);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::-ms-input-placeholder {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input::-ms-input-placeholder {
   color: var(--ftColor7);
   font-family: "Pretendard_Light";
   font-weight: normal;
   letter-spacing: -0.3px;
   border-color: var(--ipBorderColor_ph);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input::placeholder {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input::placeholder {
   color: var(--ftColor7);
   font-family: "Pretendard_Light";
   font-weight: normal;
   letter-spacing: -0.3px;
   border-color: var(--ipBorderColor_ph);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:active, .wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input:focus {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input:active, .wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input:focus {
   border-color: var(--ipBorderColor2);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox button {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox button {
   content: "";
   position: absolute;
   display: inline-block;
@@ -1189,7 +1205,7 @@ Date   : 2024.09.09
   background-size: 11px 11px;
   background-color: var(--bgColor4);
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox .input {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox .input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1206,25 +1222,25 @@ Date   : 2024.09.09
   gap: 10px;
   position: relative;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .inputBox input {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .inputBox input {
   width: 100%;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .noti {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .noti {
   margin: 5px 0 0 0;
 }
-.wrap .modalWrap.tB.md_currectEntry .modalContainer .modalContent .noti p {
+.wrap.tB .modalWrap.md_currectEntry .modalContainer .modalContent .noti p {
   font-size: 12px;
   color: var(--pointColor);
   text-align: left;
 }
-.wrap .modalWrap.tB.md_attach {
+.wrap.tB .modalWrap.md_attach {
   display: none;
   z-index: 999;
 }
-.wrap .modalWrap.tB.md_attach.modalOn {
+.wrap.tB .modalWrap.md_attach.modalOn {
   display: block;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer {
+.wrap.tB .modalWrap.md_attach .modalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1248,17 +1264,17 @@ Date   : 2024.09.09
   width: 100%;
   max-width: 690px;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer ::-webkit-scrollbar {
+.wrap.tB .modalWrap.md_attach .modalContainer ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
   background: transparent;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer ::-webkit-scrollbar-thumb {
+.wrap.tB .modalWrap.md_attach .modalContainer ::-webkit-scrollbar-thumb {
   height: 15px;
   border-radius: 3px;
   background: var(--pointColor);
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalTitle {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1284,7 +1300,7 @@ Date   : 2024.09.09
   padding: 0 25px;
   background-color: var(--white);
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalTitle button.close {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalTitle button.close {
   content: "";
   position: relative;
   display: inline-block;
@@ -1297,7 +1313,7 @@ Date   : 2024.09.09
   height: 14px;
   background-size: contain;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalContent {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalContent {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1311,7 +1327,7 @@ Date   : 2024.09.09
   line-height: 23px;
   overflow-y: scroll;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter {
   width: 100%;
   min-height: 56px;
   margin: 15px 0 0 0;
@@ -1331,7 +1347,7 @@ Date   : 2024.09.09
           align-items: center;
   gap: 0;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -1349,27 +1365,27 @@ Date   : 2024.09.09
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.create, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.modify, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.confirm {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.create, .wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.modify, .wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.confirm {
   color: var(--btn_ftColor);
   border: 1px solid var(--btn_bgColor);
   background-color: var(--btn_bgColor);
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.create:disabled, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.modify:disabled, .wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.confirm:disabled {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.create:disabled, .wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.modify:disabled, .wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.confirm:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.cancel {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.cancel {
   color: var(--btn_ftColor4);
   border: 1px solid var(--btn_bgColor4);
   background-color: var(--btn_bgColor4);
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalFooter button.cancel:disabled {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalFooter button.cancel:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_attach .modalDim {
+.wrap.tB .modalWrap.md_attach .modalDim {
   position: fixed;
   top: 0;
   left: 0;
@@ -1379,7 +1395,7 @@ Date   : 2024.09.09
   opacity: 0.5;
   z-index: 998;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalContent .attachBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1395,7 +1411,7 @@ Date   : 2024.09.09
           align-items: center;
   gap: 15px;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox button {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalContent .attachBox button {
   font-family: "Pretendard_Bold";
   position: relative;
   font-weight: bold;
@@ -1413,15 +1429,14 @@ Date   : 2024.09.09
   border: 1px solid var(--btn_brdColor2);
   background-color: var(--btn_bgColor2);
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalContent .attachBox button:disabled {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalContent .attachBox button:disabled {
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap .modalWrap.tB.md_attach .modalContainer .modalContent > div {
+.wrap.tB .modalWrap.md_attach .modalContainer .modalContent > div {
   text-align: center;
 }
-
 /*
 File   : guide.scss
 Date   : 2025.03.17
@@ -9316,8 +9331,7 @@ Date   : 2025.03.27
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
+  clip-path: circle(50% at center);
 }
 .wrap.pm_placeSaveURL .content section.sec_place .tit p {
   font-family: "Pretendard_Bold";
@@ -9767,8 +9781,7 @@ Date   : 2025.03.27
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
+  clip-path: circle(50% at center);
 }
 .wrap.pm_placeQuiz .content section.sec_place .tit p {
   font-family: "Pretendard_Bold";
@@ -10137,182 +10150,6 @@ Date   : 2025.03.27
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
 }
-.wrap.pm_placeQuiz footer .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: initial;
-  -webkit-box-direction: initial;
-      -ms-flex-direction: initial;
-          flex-direction: initial;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-  width: 100%;
-  height: 76px;
-  min-height: 46px;
-  background-color: var(--white);
-}
-.wrap.pm_placeQuiz footer .title p {
-  font-family: "Pretendard_Bold";
-  position: relative;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
-}
-.wrap.pm_placeQuiz footer .title button.close {
-  content: "";
-  position: relative;
-  display: inline-block;
-  background-position: 0px 0px;
-  font-size: 0;
-  font-style: normal;
-  vertical-align: middle;
-  background: url("../image/component/ico_close2.svg") no-repeat center;
-  width: 14px;
-  height: 14px;
-  background-size: contain;
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input {
-  font-family: "Pretendard_Bold";
-  position: relative;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 15px 40px 15px 2px;
-  font-size: 16px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid var(--ipBorderColor);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-webkit-input-placeholder {
-  color: var(--ftColor7);
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  letter-spacing: -0.3px;
-  border-color: var(--ipBorderColor_ph);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-moz-placeholder {
-  color: var(--ftColor7);
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  letter-spacing: -0.3px;
-  border-color: var(--ipBorderColor_ph);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:-ms-input-placeholder {
-  color: var(--ftColor7);
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  letter-spacing: -0.3px;
-  border-color: var(--ipBorderColor_ph);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::-ms-input-placeholder {
-  color: var(--ftColor7);
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  letter-spacing: -0.3px;
-  border-color: var(--ipBorderColor_ph);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input::placeholder {
-  color: var(--ftColor7);
-  font-family: "Pretendard_Light";
-  font-weight: normal;
-  letter-spacing: -0.3px;
-  border-color: var(--ipBorderColor_ph);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:active, .wrap.pm_placeQuiz footer .currectEntryBox .inputBox input:focus {
-  border-color: var(--ipBorderColor2);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox button {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  background-position: 0px 0px;
-  font-size: 0;
-  font-style: normal;
-  vertical-align: middle;
-  background: url("../image/component/ico_x.svg") no-repeat center;
-  width: 11px;
-  height: 11px;
-  background-size: contain;
-  right: 2px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-size: 11px 11px;
-  background-color: var(--bgColor4);
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox .input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: initial;
-  -webkit-box-direction: initial;
-      -ms-flex-direction: initial;
-          flex-direction: initial;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-  position: relative;
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .inputBox input {
-  width: 100%;
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .noti {
-  margin: 5px 0 0 0;
-}
-.wrap.pm_placeQuiz footer .currectEntryBox .noti p {
-  font-size: 12px;
-  color: var(--pointColor);
-  text-align: left;
-}
-.wrap.pm_placeQuiz footer .attachBox .cont {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 15px;
-}
-.wrap.pm_placeQuiz footer .attachBox .cont button {
-  font-family: "Pretendard_Bold";
-  position: relative;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  width: 100%;
-  min-width: 80px;
-  height: 54px;
-  padding: 0 10px;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 10px;
-  cursor: pointer;
-  color: var(--btn_ftColor2);
-  border: 1px solid var(--btn_brdColor2);
-  background-color: var(--btn_bgColor2);
-}
-.wrap.pm_placeQuiz footer .attachBox .cont button:disabled {
-  color: #7d838d;
-  border: 1px solid #e6e8ea;
-  background-color: #e6e8ea;
-}
 .wrap.pm_placeSaveQuiz .title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10417,8 +10254,7 @@ Date   : 2025.03.27
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
+  clip-path: circle(50% at center);
 }
 .wrap.pm_placeSaveQuiz .content section.sec_place .tit p {
   font-family: "Pretendard_Bold";
@@ -10891,8 +10727,7 @@ Date   : 2025.03.27
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
+  clip-path: circle(50% at center);
 }
 .wrap.pm_prodQuiz .content section.sec_place .tit p {
   font-family: "Pretendard_Bold";
@@ -11092,8 +10927,8 @@ Date   : 2025.03.27
   font-size: 0;
   font-style: normal;
   vertical-align: middle;
-  background: url("../image/example/img_ex1.png") no-repeat center;
-  width: 267px;
+  background: url("../image/example/img_ex6.png") no-repeat center;
+  width: 240px;
   height: 67px;
   background-size: contain;
   display: block;
@@ -11555,6 +11390,7 @@ Date   : 2024.08.27
   position: fixed;
   top: 0;
   width: 100%;
+  max-width: 690px;
   height: 40px;
   padding: 10px 20px;
   background-color: #ffffff;
@@ -11901,7 +11737,9 @@ Date   : 2024.08.27
 .wrap.pm_report footer {
   position: fixed;
   width: 100%;
+  left: 0;
   bottom: 0;
+  text-align: center;
 }
 .wrap.pm_report footer button {
   font-family: "Pretendard_Light";
@@ -11914,6 +11752,8 @@ Date   : 2024.08.27
   border: 1px solid #2f84fc;
   background-color: #2f84fc;
   width: 100%;
+  max-width: 690px;
+  margin: 0 auto;
   height: 52px;
   font-size: 16px;
   border-radius: 0;
@@ -11922,4 +11762,938 @@ Date   : 2024.08.27
   color: #7d838d;
   border: 1px solid #e6e8ea;
   background-color: #e6e8ea;
+}
+
+/*
+File   : loading.scss
+Date   : 2025.09.15
+*/
+.wrap.pm_bridgeVisit {
+  min-height: -webkit-fill-available;
+  background-color: #ffffff;
+}
+.wrap.pm_bridgeVisit .content {
+  position: relative;
+  padding: 40px 0 0 0;
+}
+.wrap.pm_bridgeVisit .content section {
+  padding: 30px 20px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading {
+  margin: 0px 0 0 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .tit {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.5;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont {
+  margin: 60px 0 0 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .loadingBox p {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  text-align: center;
+  font-size: 18px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .loadingBox .loadingBar {
+  margin: 25px 0 0 0;
+  padding: 0 45px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .loadingBox .loadingBar .bg {
+  width: 100%;
+  height: 8px;
+  border-radius: 12px;
+  background-color: #f2f4f6;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .loadingBox .loadingBar .bg .bar {
+  -webkit-animation: barFill 1.5s ease-in-out forwards;
+          animation: barFill 1.5s ease-in-out forwards;
+  height: -webkit-fill-available;
+  position: relative;
+  border-radius: 12px;
+  background-color: #2f84fc;
+}
+@-webkit-keyframes barFill {
+  0% {
+    width: 0;
+    background-color: #2f84fc;
+  }
+  100% {
+    width: 50%;
+    background-color: #2f84fc;
+  }
+}
+@keyframes barFill {
+  0% {
+    width: 0;
+    background-color: #2f84fc;
+  }
+  100% {
+    width: 50%;
+    background-color: #2f84fc;
+  }
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin: 30px 0 0 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .buttonBox button {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  min-width: 110px;
+  height: 40px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .buttonBox button.stop {
+  color: #333333;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .buttonBox button.move {
+  color: #ffffff;
+  border: 1px solid #2f84fc;
+  background-color: #2f84fc;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .buttonBox button.move:disabled {
+  color: #7d838d;
+  border: 1px solid #e6e8ea;
+  background-color: #e6e8ea;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox {
+  margin: 30px 0 0 0;
+  padding: 30px 20px;
+  border-radius: 12px;
+  background-color: #f9fafb;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox.t1 ul {
+  counter-reset: index;
+  list-style-type: none;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox.t1 ul li {
+  list-style-type: none;
+  counter-increment: index;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox.t1 ul li::before {
+  content: counter(index) ".";
+  margin: 0 5px 0 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox.t1 ul li {
+  padding-left: 15px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox.t1 ul li:before {
+  position: absolute;
+  left: 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox > p {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox > p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i2.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  top: -1px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox ul {
+  position: relative;
+  margin: 20px 0 0 0;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox ul li {
+  color: #7d838d;
+  font-size: 14px;
+  line-height: 20px;
+}
+.wrap.pm_bridgeVisit .content section.sec_loading .cont .guideBox ul li:nth-child(n+2) {
+  margin: 12px 0 0 0;
+}
+
+/*
+File   : guide.scss
+Date   : 2025.03.17
+*/
+.wrap.pm_listVisit .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  min-height: 130px;
+  background-color: #2f84fc;
+}
+.wrap.pm_listVisit .title p {
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+  text-align: center;
+}
+.wrap.pm_listVisit .title p b {
+  display: block;
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 22px;
+}
+.wrap.pm_listVisit .title p b:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_coin.svg") no-repeat center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  top: -2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.wrap.pm_listVisit .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul::-webkit-scrollbar, .wrap.pm_listVisit .content section.sec_list .tab ul::-webkit-scrollbar-thumb {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li {
+  display: inline-block;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio] {
+  display: none;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio] + label {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  width: auto;
+  min-width: 50px;
+  height: 35px;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 100px;
+  border: 1px solid #e0e8f2;
+  color: #777777;
+  background-color: #fff;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio] + label:nth-of-type(n+2) {
+  margin: 0 0 0 8px;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio] + label:before {
+  display: none;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio].on + label, .wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio]:hover + label {
+  color: #2f84fc;
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio]:checked + label {
+  color: #fff;
+  background: linear-gradient(130deg, #2fa3fc 9%, #4086ff 89%);
+}
+.wrap.pm_listVisit .content section.sec_list .tab ul li input[type=radio]:checked + label:before {
+  display: none;
+}
+.wrap.pm_listVisit .content section.sec_list .alarm {
+  min-height: 40px;
+  margin: 30px 0 0 0;
+  padding: 10px;
+  text-align: center;
+  color: #555555;
+  font-size: 12px;
+  background-color: #f4f9ff;
+}
+.wrap.pm_listVisit .content section.sec_list .alarm p {
+  line-height: 1.5;
+  text-align: center;
+}
+.wrap.pm_listVisit .content section.sec_list .alarm p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  top: -1px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.wrap.pm_listVisit .content section.sec_list .tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin: 30px 0 0 0;
+}
+.wrap.pm_listVisit .content section.sec_list .tit p {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+}
+.wrap.pm_listVisit .content section.sec_list .tit a {
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 14px;
+  color: #999;
+}
+.wrap.pm_listVisit .content section.sec_list .tit a:after {
+  content: ">";
+  position: relative;
+  margin-left: 4px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList {
+  display: none;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList.show {
+  display: block;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) {
+  width: 100%;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul::-webkit-scrollbar, .wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul::-webkit-scrollbar-thumb {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 10px;
+  position: relative;
+  width: 130px;
+  height: 178px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li:nth-child(n+2) {
+  margin-left: 10px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li img {
+  width: 56px;
+  height: 56px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li > div:nth-of-type(1) {
+  margin: 10px 0 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li > div:nth-of-type(1) p:nth-of-type(1) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  width: calc(100% - 16px);
+  font-size: 14px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li > div:nth-of-type(1) p:nth-of-type(2) {
+  margin: 6px 0 0 0;
+  font-size: 12px;
+  color: #666;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li .point {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 68px;
+  height: 30px;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 100px;
+  background: linear-gradient(111deg, #2fa3fc -1%, #4086ff 92%);
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(1) ul li .point:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_coin.svg") no-repeat center;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) {
+  margin: 10px 0 0 0;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(1) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  min-width: 52px;
+  width: 52px;
+  height: 52px;
+  font-size: 0;
+  border-radius: 100px;
+  background-color: #eaf2fe;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(1).t1:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_place.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(1).t2:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_shopping.png") no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(2) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 5px;
+  max-width: calc(100% - 150px);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 5px;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(2) p:nth-child(1) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  width: 100%;
+  font-size: 15px;
+  color: #454545;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(2) p:nth-child(2) {
+  font-size: 13px;
+  color: #ababab;
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(3) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 68px;
+  height: 30px;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 100px;
+  background: linear-gradient(111deg, #2fa3fc -1%, #4086ff 92%);
+}
+.wrap.pm_listVisit .content section.sec_list .cont .tabView .tabList .listBox:nth-child(2) ul li > div:nth-child(3):before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_coin.svg") no-repeat center;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+}
+.wrap.pm_listVisitDetail .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  min-height: 130px;
+  background-color: #2f84fc;
+}
+.wrap.pm_listVisitDetail .title p {
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+  text-align: center;
+}
+.wrap.pm_listVisitDetail .title p b {
+  display: block;
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 22px;
+}
+.wrap.pm_listVisitDetail .title p b:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_coin.svg") no-repeat center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  top: -2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.wrap.pm_listVisitDetail .content section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .alarm {
+  min-height: 40px;
+  padding: 10px;
+  text-align: center;
+  color: #555555;
+  font-size: 12px;
+  background-color: #f4f9ff;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .alarm p {
+  line-height: 1.5;
+  text-align: center;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .alarm p:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: middle;
+  background: url("../image/component/ico_i.svg") no-repeat center;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  top: -1px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .tit {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .tit p {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 18px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont {
+  margin: 20px 0 0 0;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul::-webkit-scrollbar, .wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul::-webkit-scrollbar-thumb {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li {
+  display: inline-block;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio] {
+  display: none;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio] + label {
+  font-family: "Pretendard_Light";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  width: auto;
+  min-width: 50px;
+  height: 35px;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 100px;
+  border: 1px solid #e0e8f2;
+  color: #777777;
+  background-color: #fff;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio] + label:nth-of-type(n+2) {
+  margin: 0 0 0 8px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio] + label:before {
+  display: none;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio].on + label, .wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio]:hover + label {
+  color: #2f84fc;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio]:checked + label {
+  color: #fff;
+  background: linear-gradient(130deg, #2fa3fc 9%, #4086ff 89%);
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tab ul li input[type=radio]:checked + label:before {
+  display: none;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView {
+  margin: 30px 0 0 0;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList {
+  display: none;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList.show {
+  display: block;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul {
+  /* 화면 높이에서 헤더/여백만큼 뺀 값 */
+  /* iOS 부드러운 스크롤 */
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 90px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li:nth-child(n+2) {
+  margin: 15px 0 0 0;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li img {
+  width: 60px;
+  height: 60px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span {
+  position: relative;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(1) {
+  font-family: "Pretendard_Bold";
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  font-size: 14px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-family: "Pretendard_Medium";
+  font-weight: normal;
+  letter-spacing: -0.3px;
+  min-width: 36px;
+  height: 15px;
+  padding: 0px 4px 2px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 20px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2).t1 {
+  background-color: #3d8afe;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2).t2 {
+  background-color: #333;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2).t3 {
+  background-color: #ff006f;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2).t4 {
+  background-color: #0019ff;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(1) span:nth-of-type(2).t5 {
+  background-color: #ff9100;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(2) {
+  margin: 6px 0 0 0;
+  font-size: 13px;
+  color: #2f84fc;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(3) {
+  margin: 4px 0 0 0;
+  color: #777;
+  font-size: 12px;
+}
+.wrap.pm_listVisitDetail .content section.sec_list .cont .tabView .tabList ul li > div p:nth-child(3) span {
+  color: #f00;
 }/*# sourceMappingURL=common.css.map */

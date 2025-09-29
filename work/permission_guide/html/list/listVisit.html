@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 방문형 리스트 -->
+    <!-- pm_listVisit 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap pm_listVisit">
+        <!-- modal 위치 >> wrap과 contents 클래스 사이-->
+        <!-- 예시로 하단 적립하기 버튼 클릭시 모달 나타나게 제작하였습니다.-->
+        <div class="modal">
+            <div class="modalWrap md_alert" id="md_alert">
+                <div class="modalContainer">
+                    <div class="modalContent">
+                        <div>
+                            <p>저장 하시겠습니까?</p>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="confirm modalClose">확인</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!-- // modalWrap end-->
+        </div>
+        <!--// modal End -->
+        <section class="contents">
+            <div class="title">
+                <p>열심히 적립하면 <b>3,333P 적립 가능</b></p>
+            </div>
+            <div class="content">
+                <section class="sec_list">
+                    <div class="cont">
+                        <div class="tab">
+                            <ul>
+                                <li><input type="radio" name="rd_tab" id="rd_tab1" checked><label
+                                        for="rd_tab1">전체</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab2"><label for="rd_tab2">참여형</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab3"><label for="rd_tab3">클릭형</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">액션형</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab5"><label for="rd_tab5">적립내역</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab6"><label for="rd_tab6">리스트</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="alarm">
+                            <p>포인트 적립 내역에 반영되기까지 시간이 조금 걸릴 수 있어요.</p>
+                        </div>
+                        <div class="tit">
+                            <p>바로가기 추가하고 적립받자!</p>
+                            <a href="javascript:void(0);">더보기</a>
+                        </div>
+                        <div class="tabView">
+                            <div class="tabList show">
+                                <!-- 가로형 리스트 -->
+                                <div class="listBox">
+                                    <ul>
+                                        <li> <img src="../../image/custom/ico_halfclub.png" alt="">
+                                            <div>
+                                                <p>하프클럽</p>
+                                                <p>설치하고 적립받기</p>
+                                            </div>
+                                            <div class="point">+5P</div>
+                                        </li>
+                                        <li> <img src="../../image/custom/ico_coupang.png" alt="">
+                                            <div>
+                                                <p>쿠팡</p>
+                                                <p>설치하고 적립받기</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                        <li> <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p>다바걸</p>
+                                                <p>설치하고 적립받기</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                        <li> <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p>일이삼사오육칠팔구십</p>
+                                                <p>설치하고 적립받기</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 세로형 리스트 -->
+                                <div class="listBox">
+                                    <ul>
+                                        <li>
+                                            <div class="t1">플레이스 지도 URL</div>
+                                            <div>
+                                                <p>더채움 치과 의원</p>
+                                                <p>플레이스 지도 URL</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                        <li>
+                                            <div class="t2">상품번호 복사</div>
+                                            <div>
+                                                <p>닥터디엣 하이프로틴</p>
+                                                <p>상품번호 복사</p>
+                                            </div>
+                                            <div>+10P</div>
+                                        </li>
+                                        <li>
+                                            <div class="t2">상품번호 복사</div>
+                                            <div>
+                                                <p>samsungkorea X(트위트위트위트위..)</p>
+                                                <p>상품번호 복사</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                        <li>
+                                            <div class="t1">플레이스 지도 URL</div>
+                                            <div>
+                                                <p>더채움 치과 의원</p>
+                                                <p>플레이스 지도 URL</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                        <li>
+                                            <div class="t1">테스트</div>
+                                            <div>
+                                                <p>더채움 치과 의원</p>
+                                                <p>플레이스 지도 URL</p>
+                                            </div>
+                                            <div class="point">+10P</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tabList">tab2</div>
+                            <div class="tabList">tab3</div>
+                            <div class="tabList">tab4</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!--// contnets end -->
+    </div>
+</body>
+
+</html>

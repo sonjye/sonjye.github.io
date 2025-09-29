@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+    <!-- 방문형 리스트 상세 -->
+    <!-- pm_listVisitDetail 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap pm_listVisitDetail">
+        <!-- modal 위치 >> wrap과 contents 클래스 사이-->
+        <!-- 예시로 하단 적립하기 버튼 클릭시 모달 나타나게 제작하였습니다.-->
+        <div class="modal">
+            <div class="modalWrap md_alert" id="md_alert">
+                <div class="modalContainer">
+                    <div class="modalContent">
+                        <div>
+                            <p>저장 하시겠습니까?</p>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="confirm modalClose">확인</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!-- // modalWrap end-->
+        </div>
+        <!--// modal End -->
+        <section class="contents">
+            <div class="title">
+                <p>바로가기 설치 후 매일 방문만해도 <b>2P 지급</b>이보다 쉬울 순 없다!</p>
+            </div>
+            <div class="content">
+                <section class="sec_list">
+                    <div class="alarm">
+                        <p>네이버앱을 꼭 설치해주셔야 참여가능합니다.</p>
+                    </div>
+                    <div class="tit">
+                        <p>바로가기 추가하고 적립받자!</p>
+                    </div>
+                    <div class="cont">
+                        <div class="tab">
+                            <ul>
+                                <li><input type="radio" name="rd_tab" id="rd_tab1" checked>
+                                    <label for="rd_tab1">추천</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab2"><label for="rd_tab2">종합</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab3"><label for="rd_tab3">여성</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">남성</label></li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">기타</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">테스트1</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">테스트2</label>
+                                </li>
+                                <li><input type="radio" name="rd_tab" id="rd_tab4"><label for="rd_tab4">테스트3</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tabView">
+                            <div class="tabList show">
+                                <div class="listBox">
+                                    <ul>
+                                        <li>
+                                            <img src="../../image/custom/ico_coupang.png" alt="">
+                                            <div>
+                                                <p><span>쿠팡</span><span class="t1">추천</span></p>
+                                                <p>쿠팡 1일 특가로 역대급 득템하세요.</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_halfclub.png" alt="">
+                                            <div>
+                                                <p><span>하프클럽</span><span class="t2">종합</span></p>
+                                                <p>가을 신상특가 하프 세일절</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>다바걸</span><span class="t3">여성</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>테스트1</span><span class="t4">남성</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>테스트2</span><span class="t5">기타</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>테스트3</span><span class="t3">여성</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>테스트4</span><span class="t3">여성</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="../../image/custom/ico_dabagirl.png" alt="">
+                                            <div>
+                                                <p><span>테스트5</span><span class="t3">여성</span></p>
+                                                <p>모든것을 담은 페미닌 오피스룩 브랜드</p>
+                                                <p>추가 즉시 <span>50P</span> 지급/매일 방문 시 <span>2P</span> 추가 지급</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tabList">tab2</div>
+                            <div class="tabList">tab3</div>
+                            <div class="tabList">tab4</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!--// contnets end -->
+    </div>
+</body>
+
+</html>
