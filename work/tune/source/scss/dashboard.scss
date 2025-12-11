@@ -1,0 +1,523 @@
+@charset 'utf-8';
+
+/*
+File   : dashboard.scss
+Date   : 2024.01.18
+*/
+
+.wrap {
+  .tune_dashboard {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      .noticeBox {
+        display: flex;
+        flex-grow: 1;
+
+        >div {
+          &:first-child {
+            width: auto;
+            max-width: calc(100% - 350px);
+            flex-grow: 1;
+
+            dl {
+              @include boxLayout;
+              display: inline-flex;
+              justify-content: space-between;
+              width: 100%;
+              height: 90px;
+              padding: 0;
+
+              dt,
+              dd {
+                display: inline-block;
+              }
+
+              dt {
+                @include ftMedium;
+                min-width: 244px;
+                height: 100%;
+                padding-top: 36px;
+                font-size: 18px;
+                text-align: center;
+                color: var(--white);
+                vertical-align: top;
+                border-radius: 5px 0 0 5px;
+                background-color: var(--bgColor3);
+              }
+
+              dd {
+                position: relative;
+                width: calc(50% - 122px);
+                height: 100%;
+                padding: 30px 30px 12PX 30PX;
+                font-size: 16px;
+                line-height: 15px;
+
+                &:last-child {
+                  &:after {
+                    display: none;
+                  }
+                }
+
+                &:after {
+                  content: "";
+                  position: absolute;
+                  display: inline-block;
+                  top: 20px;
+                  right: 0;
+                  height: 40px;
+                  border-right: 1px solid var(--borderColor);
+                }
+
+                p {
+                  @include ellipsis;
+                }
+
+                span {
+                  position: relative;
+                  display: block;
+                  margin-top: 4px;
+                  font-size: 14px;
+                  color: var(--subFtColor);
+                }
+              }
+            }
+          }
+
+          &:last-child {
+            @include boxLayout;
+            margin-left: 30px;
+            min-width: 320px;
+            height: 90px;
+
+            p {
+              @include flex_center;
+              @include flex_item;
+              height: 100%;
+              margin: auto 0;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+      .userInfoBox {
+        display: flex;
+        margin-top: 30px;
+
+        >div {
+          @include boxLayout;
+          height: 270px;
+          margin-left: 30px;
+
+          //유저 정보 .box1
+          &:nth-child(1) {
+            min-width: 780px;
+            flex-grow: 1;
+            margin-left: 0;
+
+            .tit {
+              @include title;
+
+              p {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid var(--borderColor3);
+              }
+            }
+
+            .cont {
+              @include flex_between;
+
+              .leftBox {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex-grow: 1;
+
+                dl {
+                  display: flex;
+
+                  dt,
+                  dd {
+                    font-size: 16px;
+                    line-height: 2.5;
+                    flex-grow: 1;
+                  }
+
+                  dt {
+                    width: 110px;
+
+                    &:before {
+                      @include txtDot;
+                    }
+                  }
+
+                  dd {
+                    @include ftMedium;
+                    @include ellipsis;
+                    text-align: right;
+                    flex-basis: calc(50% - 60px);
+
+                    &:last-child {
+                      padding-left: 12px;
+                      text-align: left;
+                    }
+
+                    span {
+                      &.up {
+                        color: var(--upColor);
+                      }
+
+                      &.down {
+                        color: var(--downColor);
+                      }
+                    }
+                  }
+                }
+              }
+
+              .rightBox {
+                flex-grow: 1;
+                min-width: 320px;
+                margin-left: 10px;
+
+                dl {
+                  height: 158px;
+                  padding: 46px 15px 15px 15px;
+                  text-align: center;
+                  border-radius: 5px;
+                  background-color: var(--bgColor);
+
+                  dt {
+                    @include ftMedium;
+                    font-size: 16px;
+                  }
+
+                  dd {
+                    @include ftBold;
+                    margin-top: 15px;
+                    font-size: 34px;
+                    color: var(--pointColor);
+                  }
+                }
+              }
+            }
+          }
+
+          //우리 사이트 방문자들
+          &:nth-child(2) {
+            width: 410px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding-left: 30px;
+
+            p {
+              margin: auto 0;
+              font-size: 18px;
+              line-height: 28px;
+
+              strong {
+                @include ftMedium;
+
+                &:nth-child(3) {
+                  font-size: 20px;
+                }
+
+                span {
+                  &:nth-child(1) {
+                    color: var(--downColor);
+                  }
+
+                  &:nth-child(2) {
+                    color: var(--upColor);
+                  }
+                }
+              }
+            }
+          }
+
+          // 캠페인
+          &:nth-child(3) {
+            min-width: 360px;
+
+            .tit {
+              padding-bottom: 20px;
+              border-bottom: 1px solid var(--borderColor3);
+
+              p {
+                @include title;
+              }
+            }
+
+            ul {
+              margin-top: 25px;
+
+              li {
+                padding: 29px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                background-color: var(--bgColor);
+
+                &:nth-child(2) {
+                  margin-top: 10px;
+                }
+
+                span {
+                  @include ftMedium;
+                  @include ellipsis;
+                  position: relative;
+                  float: right;
+                  right: 0;
+                  max-width: 60%;
+                  bottom: 2px;
+                  font-size: 24px;
+                  vertical-align: middle;
+                  text-align: right;
+                  color: var(--pointColor);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /* 전환 키워드 추이 */
+      .keywordChartBox {
+        @include boxLayout;
+        margin-top: 30px;
+
+        .tit {
+          @include titleLayout;
+        }
+
+        .mainTopchart {
+          margin: 30px 0 0 0;
+
+          .chartsInfo {
+            position: relative;
+            display: inline-block;
+            width: 293px;
+            height: 80px;
+            border-radius: 5px;
+            text-align: left;
+
+            &:nth-of-type(1) {
+              background: var(--pointColor);
+            }
+
+            &:nth-of-type(2) {
+              margin-left: 20px;
+              background: var(--pointColor2);
+            }
+
+            dl {
+              font-size: 10px;
+              color: var(--ftColor3);
+
+              dt {
+                position: relative;
+                margin: 14px 0 0 14px;
+              }
+
+              dt::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 1px;
+                top: 16px;
+                left: 0;
+                background: var(--borderColor);
+              }
+
+              dd>p {
+                float: left;
+              }
+
+              dd>p:first-child {
+                padding: 6px 8px 0 0;
+              }
+
+              dd>p:last-child {
+                @include ftMedium;
+                font-size: 18px;
+              }
+
+              dd {
+                margin: 24px 0 0 14px;
+              }
+
+              dd:last-child>p:first-child {
+                padding-left: 67px;
+              }
+            }
+          }
+
+          .key_chartSection01 {
+            .chartBox {
+              clear: both;
+              height: 210px;
+              margin: 20px 0 0 0;
+            }
+          }
+        }
+      }
+
+      /* 전환 키워드 분석 */
+      .keywordAnalyseBox {
+        @include boxLayout;
+        height: 600px;
+        margin-top: 30px;
+
+        .tit {
+          @include titleLayout;
+        }
+
+        .chartArea {
+          position: relative;
+          display: block;
+          height: 530px;
+          margin: 30px 0 0 0;
+        }
+      }
+
+      /* 추천 타겟팅 현황*/
+      .recommendChartBox {
+        display: flex;
+
+        >div {
+          @include boxLayout;
+          margin: 30px 0 0 0;
+          height: 480px;
+
+          .tit {
+            @include titleLayout_t2;
+          }
+
+          &.leftBox {
+            width: 840px;
+
+            .tableBox {
+              margin-top: 30px;
+
+              .tableWrap {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 350px;
+              }
+
+              // table {
+              //   width: 100%;
+
+              //   tbody {
+              //     tr {
+              //       td {
+              //         &:nth-child(2) {
+              //           color: var(--white);
+              //         }
+
+              //         &.LS {
+              //           background-color: #a9a9a9;
+              //         }
+
+              //         &.CR,
+              //         &.CT {
+              //           background-color: #3cb371;
+              //         }
+
+              //         &.VT {
+              //           background-color: #9932cc;
+              //         }
+
+              //         &.I_C,
+              //         &.IC,
+              //         &.CB,
+              //         &.I_S,
+              //         &.IS,
+              //         &.UB {
+              //           background-color: #87cefa;
+              //         }
+
+              //         &.GA,
+              //         &.SS,
+              //         &.CC,
+              //         &.AR {
+              //           background-color: #ffa500;
+              //         }
+              //       }
+              //     }
+              //   }
+              // }
+            }
+          }
+
+          &.rightBox {
+            flex-grow: 1;
+            margin-left: 30px;
+
+            .tit {
+              @include titleLayout_t2;
+              @include flex_between;
+            }
+
+            .contBox {
+              min-height: 410px;
+              margin: 30px 0 0 0;
+
+              .tab {
+                @include tabLi_t3($width:130px);
+              }
+
+              strong {
+                @include ftMedium;
+                text-align: center;
+              }
+
+              .tabView {
+                @include boxLayout2;
+                @include tabViewBox;
+                height: 310px;
+
+                .tabViewList {
+                  @include tabViewList($display:flex);
+                  justify-content: space-around;
+
+                  >div {
+                    text-align: center;
+                  }
+                }
+
+                .chartArea {
+                  flex-grow: 1;
+                  margin: 10px auto;
+
+                  .chartBox {
+                    position: relative;
+                    margin: 20px auto;
+                    text-align: center;
+                    color: var(--white);
+                    opacity: 0.7;
+                    background: var(--black);
+                  }
+
+                  p {
+                    margin-top: 20px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

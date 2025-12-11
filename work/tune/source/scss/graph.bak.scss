@@ -1,0 +1,927 @@
+@charset 'utf-8';
+
+/*
+File   : graph.scss
+Date   : 2025.09.18
+*/
+
+// CDP 대시보드 > 유저퍼널분석영역 그래프와 동일함 css 두개임 
+// AI스튜디오 > 답변영역에 추가되어있음 
+@mixin graph {
+  @include flexBox($g:0);
+  position: relative;
+  min-height: 310px;
+  max-height: 620px;
+  margin: 10px 0 0 0;
+  overflow: hidden;
+
+  $bgColor: (#0e369e, #406ad9, #638af2, #3ca3fd, #3cc2fd, #57dbdf);
+  $bgColor2: (#5369a2, #7994dc, #94adf1, #73baf8, #7acff5, #57dbdf);
+  $h: (100%, 260px, 210px, 160px, 120px, 90px);
+  $z: (6, 5, 4, 3, 2, 1);
+  // $h: (300px, 300px, 300px, 300px, 300px, 300px);
+
+  @for $i from 1 through length($bgColor) {
+
+    // 차트가 한줄일때
+    .box:nth-child(#{$i}) .chartBlock:only-child {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          &:last-child {
+            background-color: nth($bgColor, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+
+    // 차트가 두줄일때 첫번째 줄
+    .box:nth-child(#{$i}) .chartBlock:nth-last-child(2) {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          &:last-child {
+            background-color: nth($bgColor2, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+  }
+
+  // 차트가 두줄일때 두번째 줄
+  @for $i from 1 through length($bgColor2) {
+    .box:nth-child(#{$i}) .chartBlock:nth-child(2) {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          position: absolute;
+
+          &:last-child {
+            background-color: nth($bgColor, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+  }
+
+  // 회색 박스
+  .box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // padding:5px;
+    height: -webkit-fill-available;
+
+    &:nth-child(n+2) {
+      .bg {
+        margin: 0 0 0 5px;
+      }
+    }
+
+    .bg {
+      @include flexBox($d:column, $g:0);
+      position: relative;
+      height: -webkit-fill-available;
+      // margin: 0px 5px 0px 0;
+      padding: 15px;
+      border: 1px solid var(--borderColor);
+      background-color: var(--bgColor);
+       transform: skewX(15deg);
+      // bubbleOpen 되었을때 on 클래스 추가
+      &.on {
+        background-color: var(--ftColor);
+      }
+
+      >div {
+        @include flexBox;
+        position: relative;
+        width: 100%;
+        height: 310px;
+        color: var(--subFtColor);
+
+        &:first-child {
+          align-items: start;
+        }
+
+        &:nth-child(2) {
+          align-items: end;
+        }
+      }
+    }
+
+    .chartBox {
+      @include flexBox($d:column, $g:0, $a:start);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+
+      .chartBlock {
+        @include flexBox($d:column, $a:end, $j:end, $g:0);
+        position: relative;
+        flex-grow: 1;
+        width: 100%;
+        height: 50%;
+        height: 300px;
+
+        &:only-child {
+          height: 100%;
+        }
+      }
+
+      .chartGroup {
+        @include flexBox($d:column, $a:end, $j:end, $g:0);
+        width: 100%;
+        width: -webkit-fill-available;
+        min-height: 100px;
+        height: 50%;
+
+        .chart {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 15px 20px;
+
+          .info {
+            @include flexBox($d:column, $g:0, $a:start);
+            height: 100%;
+          }
+
+          .txt {
+            width: 100%;
+
+            p {
+              @include ftM;
+              font-size: 20px;
+              color: #ffffff;
+
+              span {
+                font-size: 12px;
+
+                &.up,
+                &.down {
+                  @include iflexBox($j:center, $g:2px);
+                  vertical-align: top;
+                  margin-left: 4px;
+                }
+
+                &.up {
+                  min-width: 60px;
+                  min-height: 20px;
+                  font-size: 12px;
+                  color: #ff3636;
+                  border: 1px solid #ff3636;
+                  border-radius: 20px;
+                  background-color: #ffb5b5;
+
+                  &:before {
+                    content: "▲";
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 2px 0 0;
+                  }
+                }
+
+                &.down {
+                  min-width: 60px;
+                  min-height: 20px;
+                  font-size: 12px;
+                  color: #0038ce;
+                  border: 1px solid #0038ce;
+                  border-radius: 20px;
+                  background-color: #bdcae9;
+
+                  &:before {
+                    content: "▼";
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 2px 0 0;
+                  }
+                }
+              }
+            }
+          }
+
+          .txt2 {
+            width: 100%;
+            @include flexBox();
+
+            p {
+              &:nth-child(1) {
+                @include ftM;
+                font-size: 18px;
+
+                span {
+                  @include ftR;
+                  font-size: 12px;
+                  margin: 0 0 0 2px;
+                }
+              }
+            }
+          }
+
+          .txt2:only-child {
+            align-items: end;
+            height: 100%;
+          }
+        }
+
+        // 차트가 하나일 떄
+        &:only-child {
+          position: absolute;
+          bottom: 0;
+          transform: skewX(15deg);
+
+          .chart {
+            bottom: 0;
+          }
+
+          p {
+            transform: skew(-15deg);
+            color: var(--ftColor4);
+            transform: skewX(-15deg);
+            /* 역보정 */
+          }
+        }
+      }
+    }
+
+    // 차트 하나일때 > 첫번째 자식의 텍스트
+    &:first-child {
+      .chartBlock {
+
+        .chartGroup {
+          position: absolute;
+          width: 120%;
+
+          .chart {
+            .info {
+              position: relative;
+              width: 90%;
+              left: 20%;
+
+              p {
+                transform: skew(0deg);
+              }
+
+              .txt {
+                width: 75%;
+              }
+            }
+          }
+        }
+
+        &:only-child,
+        &:nth-last-child(2) {
+          .chartGroup {
+            .chart {
+              align-items: end;
+
+              .info {
+                transform: skew(-15deg);
+              }
+
+              .txt,
+              .txt2 {
+                padding: 0;
+                margin: 0;
+                justify-content: space-between;
+                align-items: end;
+              }
+
+              .txt {
+                width: 75%;
+              }
+            }
+          }
+        }
+
+        &:nth-child(2) {
+
+          .chartGroup {
+            .chart {
+              .info {
+                transform: skew(15deg);
+
+                .txt {
+                  width: 90%;
+                }
+
+                .txt2 {
+                  width: 75%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .chartBlock {
+        .chartGroup {
+          .chart {
+            .txt {
+              justify-content: space-between;
+              width: 65%;
+              right: 0;
+              margin: 0;
+              padding: 0;
+            }
+
+            .txt2 {
+              width: 90%;
+              padding: 0;
+            }
+
+          }
+        }
+      }
+    }
+
+    // 5번째 
+    &:last-child {
+      .bg {
+        width: 94%;
+        margin-right: 0;
+      }
+
+      .chartBox {
+        .chartBlock {
+          .chartGroup {
+            position: absolute;
+            width: 94%;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    // 그래프 두개씩 나오는 거
+    .chartBox {
+      .chartBlock {
+
+        // 첫번째 줄
+        &:nth-last-child(2),
+        &:nth-child(2) {
+          height: 50%;
+
+          .chart {}
+        }
+
+        // 첫번째 줄
+        &:nth-last-child(2) {
+
+          .chart {
+            .info {
+              .txt {
+                p {
+                  &:nth-child(2) {
+                    margin: 10px 0 0 0;
+                    font-size: 18px;
+
+                    span {
+                      @include ftR;
+                      font-size: 12px;
+                    }
+                  }
+                }
+              }
+            }
+
+            .txt2 {
+              @include flexBox();
+            }
+          }
+        }
+
+        // 두번째줄 
+        &:nth-child(2) {
+          .chartGroup {
+            position: absolute;
+            top: 0;
+            -webkit-transform: skew(-15deg);
+            transform: skew(-15deg);
+
+            .chart {
+              .info {
+                .txt {
+                  @include flexBox();
+                  // width: 90%;
+                  // width: 90%;
+
+                  p {
+                    &:nth-child(1) {
+                      @include ftR;
+                      font-size: 12px;
+                    }
+
+                    &:nth-child(2) {
+                      // margin: 10px 0 0 0;
+                      font-size: 14px;
+                    }
+                  }
+                }
+
+                .txt2 {
+                  @include ftM;
+                  display: block;
+                  font-size: 20px;
+
+                  p {
+                    &:nth-child(2) {
+                      margin: 10px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            p {
+              transform: skew(15deg);
+              color: var(--ftColor4);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin graph_bak {
+  @include flexBox($g:0);
+  position: relative;
+  min-height: 310px;
+  max-height: 620px;
+  margin: 10px 0 0 0;
+  overflow: hidden;
+
+  $bgColor: (#0e369e, #406ad9, #638af2, #3ca3fd, #3cc2fd, #57dbdf);
+  $bgColor2: (#5369a2, #7994dc, #94adf1, #73baf8, #7acff5, #57dbdf);
+  $h: (100%, 260px, 210px, 160px, 120px, 90px);
+  $z: (6, 5, 4, 3, 2, 1);
+  // $h: (300px, 300px, 300px, 300px, 300px, 300px);
+
+  @for $i from 1 through length($bgColor) {
+
+    // 차트가 한줄일때
+    .box:nth-child(#{$i}) .chartBlock:only-child {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          &:last-child {
+            background-color: nth($bgColor, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+
+    // 차트가 두줄일때 첫번째 줄
+    .box:nth-child(#{$i}) .chartBlock:nth-last-child(2) {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          &:last-child {
+            background-color: nth($bgColor2, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+  }
+
+  // 차트가 두줄일때 두번째 줄
+  @for $i from 1 through length($bgColor2) {
+    .box:nth-child(#{$i}) .chartBlock:nth-child(2) {
+      .chartGroup {
+        position: relative;
+        height: nth($h, $i);
+        z-index: nth($z, $i);
+
+        .chart {
+          position: absolute;
+
+          &:last-child {
+            background-color: nth($bgColor, $i);
+          }
+
+          &:nth-last-child(2) {
+            background-color: #9e83f8;
+          }
+        }
+      }
+    }
+  }
+
+  // 회색 박스
+  .box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // padding:5px;
+    height: -webkit-fill-available;
+
+    &:nth-child(n+2) {
+      .bg {
+        margin: 0 0 0 5px;
+      }
+    }
+
+    .bg {
+      @include flexBox($d:column, $g:0);
+      position: relative;
+      height: -webkit-fill-available;
+      // margin: 0px 5px 0px 0;
+      padding: 15px;
+      border: 1px solid var(--borderColor);
+      background-color: var(--bgColor);
+
+      // bubbleOpen 되었을때 on 클래스 추가
+      &.on {
+        background-color: var(--ftColor);
+      }
+
+      >div {
+        @include flexBox;
+        position: relative;
+        width: 100%;
+        height: 310px;
+        color: var(--subFtColor);
+
+        &:first-child {
+          align-items: start;
+        }
+
+        &:nth-child(2) {
+          align-items: end;
+        }
+      }
+    }
+
+    .chartBox {
+      @include flexBox($d:column, $g:0, $a:start);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+
+      .chartBlock {
+        @include flexBox($d:column, $a:end, $j:end, $g:0);
+        position: relative;
+        flex-grow: 1;
+        width: 100%;
+        height: 50%;
+        height: 300px;
+
+        &:only-child {
+          height: 100%;
+        }
+      }
+
+      .chartGroup {
+        @include flexBox($d:column, $a:end, $j:end, $g:0);
+        width: 100%;
+        width: -webkit-fill-available;
+        min-height: 100px;
+        height: 50%;
+
+        .chart {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 15px 20px;
+
+          .info {
+            @include flexBox($d:column, $g:0, $a:start);
+            height: 100%;
+          }
+
+          .txt {
+            width: 100%;
+
+            p {
+              @include ftM;
+              font-size: 20px;
+              color: #ffffff;
+
+              span {
+                font-size: 12px;
+
+                &.up,
+                &.down {
+                  @include iflexBox($j:center, $g:2px);
+                  vertical-align: top;
+                  margin-left: 4px;
+                }
+
+                &.up {
+                  min-width: 60px;
+                  min-height: 20px;
+                  font-size: 12px;
+                  color: #ff3636;
+                  border: 1px solid #ff3636;
+                  border-radius: 20px;
+                  background-color: #ffb5b5;
+
+                  &:before {
+                    content: "▲";
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 2px 0 0;
+                  }
+                }
+
+                &.down {
+                  min-width: 60px;
+                  min-height: 20px;
+                  font-size: 12px;
+                  color: #0038ce;
+                  border: 1px solid #0038ce;
+                  border-radius: 20px;
+                  background-color: #bdcae9;
+
+                  &:before {
+                    content: "▼";
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 2px 0 0;
+                  }
+                }
+              }
+            }
+          }
+
+          .txt2 {
+            width: 100%;
+            @include flexBox();
+
+            p {
+              &:nth-child(1) {
+                @include ftM;
+                font-size: 18px;
+
+                span {
+                  @include ftR;
+                  font-size: 12px;
+                  margin: 0 0 0 2px;
+                }
+              }
+            }
+          }
+
+          .txt2:only-child {
+            align-items: end;
+            height:100%;
+          }
+        }
+
+        // 차트가 하나일 떄
+        &:only-child {
+          position: absolute;
+          bottom: 0;
+          transform: skewX(15deg);
+
+          .chart {
+            bottom: 0;
+          }
+
+          p {
+            transform: skew(-15deg);
+            color: var(--ftColor4);
+            transform: skewX(-15deg);
+            /* 역보정 */
+          }
+        }
+      }
+    }
+
+    // 차트 하나일때 > 첫번째 자식의 텍스트
+    &:first-child {
+      .chartBlock {
+
+        .chartGroup {
+          position: absolute;
+          width: 120%;
+
+          .chart {
+            .info {
+              position: relative;
+              width: 90%;
+              left: 20%;
+
+              p {
+                transform: skew(0deg);
+              }
+
+              .txt {
+                width: 75%;
+              }
+            }
+          }
+        }
+
+        &:only-child,
+        &:nth-last-child(2) {
+          .chartGroup {
+            .chart {
+              align-items: end;
+
+              .info {
+                transform: skew(-15deg);
+              }
+
+              .txt,
+              .txt2 {
+                padding: 0;
+                margin: 0;
+                justify-content: space-between;
+                align-items: end;
+              }
+
+              .txt {
+                width: 75%;
+              }
+            }
+          }
+        }
+
+        &:nth-child(2) {
+
+          .chartGroup {
+            .chart {
+              .info {
+                transform: skew(15deg);
+
+                .txt {
+                  width: 90%;
+                }
+
+                .txt2 {
+                  width: 75%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .chartBlock {
+        .chartGroup {
+          .chart {
+            .txt {
+              justify-content: space-between;
+              width: 65%;
+              right: 0;
+              margin: 0;
+              padding: 0;
+            }
+
+            .txt2 {
+              width: 90%;
+              padding: 0;
+            }
+
+          }
+        }
+      }
+    }
+
+    // 5번째 
+    &:last-child {
+      .bg {
+        margin-right: 0;
+      }
+
+      .chartBox {
+        .chartBlock {
+          .chartGroup {
+            position: absolute;
+            width: 94%;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    // 그래프 두개씩 나오는 거
+    .chartBox {
+      .chartBlock {
+
+        // 첫번째 줄
+        &:nth-last-child(2),
+        &:nth-child(2) {
+          height: 50%;
+
+          .chart {}
+        }
+
+        // 첫번째 줄
+        &:nth-last-child(2) {
+
+          .chart {
+            .info {
+              .txt {
+                p {
+                  &:nth-child(2) {
+                    margin: 10px 0 0 0;
+                    font-size: 18px;
+
+                    span {
+                      @include ftR;
+                      font-size: 12px;
+                    }
+                  }
+                }
+              }
+            }
+
+            .txt2 {
+              @include flexBox();
+            }
+          }
+        }
+
+        // 두번째줄 
+        &:nth-child(2) {
+          .chartGroup {
+            position: absolute;
+            top: 0;
+            -webkit-transform: skew(-15deg);
+            transform: skew(-15deg);
+
+            .chart {
+              .info {
+                .txt {
+                  @include flexBox();
+                  // width: 90%;
+                  // width: 90%;
+
+                  p {
+                    &:nth-child(1) {
+                      @include ftR;
+                      font-size: 12px;
+                    }
+
+                    &:nth-child(2) {
+                      // margin: 10px 0 0 0;
+                      font-size: 14px;
+                    }
+                  }
+                }
+
+                .txt2 {
+                  @include ftM;
+                  display: block;
+                  font-size: 20px;
+
+                  p {
+                    &:nth-child(2) {
+                      margin: 10px 0 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            p {
+              transform: skew(15deg);
+              color: var(--ftColor4);
+            }
+          }
+        }
+      }
+    }
+  }
+}

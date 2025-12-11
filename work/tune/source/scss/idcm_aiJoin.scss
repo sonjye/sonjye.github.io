@@ -1,0 +1,48 @@
+/*
+Explain : MOBTUNE
+File : idcm_aiJoin.scss 
+Date : 2025.09.23
+Version : 1.1.4
+*/
+
+//* 업무내용 :*/
+// AI스튜디오 베타테스트 신청화면 부대표님 지시사항으로 VER.2 추가
+/*
+z-index 순서
+#. modal, modalDim: 999, 998
+#. iMarkHover, userMenu : 800,801
+#. selectDiv : 701
+#. dimDot, dimCircle : 700
+#. 캠페인리스트 : 500-1
+#. 날짜(dateList) : 10
+*/
+
+//***** 공통 CSS *****/
+@import "_font";
+@import "_base";
+// @import "imagebefore";
+@import "_color";
+// @import "_theme";
+@import "image";
+// @import "calendar";
+@import "mixin";
+@import "_layout";
+@import "_content";
+
+//***** 개별 CSS *****/
+// 모달 
+// @import "_modalLayout";
+// @import "modal";
+// AI 스튜디오
+// @import "ai";
+@import "id_aiJoin";
+
+// TEST 
+// 테마 
+// @import "themeTest";
+// @import "_theme";
+
+//* bakup */
+// @import "bak";
+//* 제작 */
+// @import "test";

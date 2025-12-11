@@ -1,0 +1,256 @@
+@charset 'utf-8';
+
+/*
+File   : bubble.scss
+Date   : 2025.11.13
+*/
+
+@mixin bubbleOpen($p: absolute, $d: block, $w: 100%, $h: 100%) {
+  position: $p;
+  display: $d;
+  width: $w;
+  height: $h;
+  z-index: 1;
+  cursor: pointer;
+}
+
+@mixin bubbleWrap($w:300px, $minw:200px, $l:-26px, $minh:70px, $br: 5px) {
+  position: absolute;
+  display: none;
+
+  .bubbleContainer {
+    @include ftR;
+    position: relative;
+    width: $w;
+    min-width: $minw;
+    height: auto;
+    min-height: $minh;
+    // left: $l;
+    // bottom: 28px;
+    padding: 15px;
+    color: var(--ftColor);
+    font-size: 13px;
+    text-align: left;
+    font-style: normal;
+    line-height: 18px;
+    white-space: normal;
+    border-radius: $br;
+    // border: 1px solid var(--pointColor);
+    border: 1px solid var(--modalBorderColor);
+    background-color: var(--bubbleBgColor);
+    box-shadow: var(--bubbleShadow);
+    z-index: 999;
+
+    .bubbleTitle {
+      // @include box_shadow_b;
+      min-height: 30px;
+      padding: 0;
+      font-size: 18px;
+      // padding: 15px 30px 0 30px;
+      padding: 0;
+
+      p {
+        @include ftB;
+        display: inline-block;
+        padding: 2px 0 0 0;
+        font-size: 13px;
+      }
+
+      button {
+        position: relative;
+        float: right;
+        right: -2px;
+        // padding: 15px;
+        padding: 12px;
+
+        &.close {
+          @include btnLayout;
+          @include ico_closeS;
+          @include maskSize(13px, 13px, 13px, 13px);
+          font-size: 0;
+        }
+      }
+    }
+
+    .bubbleContent {
+      position: relative;
+      width: calc(100% - 20px);
+      width: 100%;
+      height: auto;
+      // max-height: 650px;
+      margin: 10px 10px 0 10px;
+      padding: 10px 10px 20px 20px;
+      margin: 0px 0 0 0;
+      padding: 0 0 0px 0;
+      overflow-y: auto;
+    }
+
+    .bubbleFooter {
+      margin-top: 10px;
+      text-align: center;
+
+      button {
+        @include btnLayout;
+        @include btn_main;
+        min-width: 110px;
+        height: 36px;
+        border-radius: 30px;
+
+        &:only-child {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .bubbleDim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 998;
+  }
+
+  &.pos-top {
+    // 버튼 간격 
+    margin-bottom: 10px;
+  }
+
+  &.pos-bottom {
+    // 버튼 간격 
+    margin-top: 10px;
+  }
+}
+
+@mixin bubbleSize($w:300px, $minw:200px, $minh:70px, $maxh:null, $w2:null, $h2:null, $minh2:null, $maxh2:null) {
+  // width: $w;
+  // height: $h;
+
+  .bubbleContainer {
+    width: $w;
+    min-width: $minw;
+    height: auto;
+    min-height: $minh;
+    max-height: $maxh;
+
+    .bubbleTitle {}
+
+    .bubbleContent {
+      // width: calc(#{$w} - 20px);
+      width: $w2;
+      height: $h2;
+      min-height: $minh2;
+      max-height: $maxh2;
+    }
+
+    .bubbleFooter {}
+  }
+}
+
+.wrap {
+  .bubbleOpen {
+    @include bubbleOpen;
+  }
+
+  .bubbleWrap {
+    @include bubbleWrap;
+  }
+
+  //* modal CDP */
+  .bubbleWrap {
+
+
+    //* 이탈유저  */
+    &.bw_userStats,
+    &.bw_moveAnalysis {
+
+      // @include alertLayout;
+      &.pos-top {
+        transform: translate(-25px, -30px)
+      }
+
+      &.pos-bottom {
+        transform: translate(-25px, -250px)
+      }
+
+      .bubbleContainer {
+        width: 300px;
+        height: 200px;
+
+        .bubbleTitle {}
+
+        .bubbleContent {
+          // @include flex_center_column;
+          height: 90px;
+          // border: 1px solid #f00;
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 13px;
+              line-height: 18px;
+            }
+
+            b {
+              @include ftB;
+            }
+          }
+        }
+      }
+    }
+
+    // CDP > 튜저퍼널영역 그래프 툴팁
+    // AI 스튜디오 > 답변, 홈(답변) > 유저퍼널영역 그래프 툴팁
+    &.bw_userStats {
+      @include bubbleSize($minh:200px, $maxh:270px, $h2:auto, $minh2:90px, $maxh2:160px);
+    }
+  }
+}
+
+.alertToast {
+  position: relative;
+}
+
+.toastWrap {}
+
+@mixin toast {
+  display: none;
+  z-index: 1101;
+
+  &.toastOn {
+    display: block;
+  }
+}
+
+@mixin toastPosition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+@mixin toastWrap {
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--ftColor4);
+  background-color: var(--errorColor);
+  animation: fadeOut 1.0s forwards;
+  animation-delay: 3s;
+  /* 3초 동안 유지 후 사라지기 시작 */
+}
+
+.alertToast {
+  position: relative;
+  // position: absolute;
+}
+
+.toastWrap {
+  @include toast;
+  @include toastPosition;
+  @include toastWrap;
+}

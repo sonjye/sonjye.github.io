@@ -1,0 +1,578 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : fraudReport.scss
+    Date  : 2024.02.15
+    menu  : Fraud 보고서
+/*---------------------------------*/
+
+
+/* fraudReport */
+.wrap {
+
+  //* fraudReport */
+  .tune_fraudReport {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_indexNews {
+          @include flex_between;
+          gap: 25px;
+
+          >div {
+            @include boxLayout;
+            flex-grow: 1;
+            height: 280px;
+
+            .tit {
+              @include title;
+
+              .iBox {
+                .iMarkHover {
+                  @include iMarkHover_TL;
+                }
+              }
+            }
+
+            .cont {
+              margin-top: 20px;
+            }
+
+            //* 최근 30일 Fraud 의심 지수 */
+            &.box_index {
+              min-width: 1000px;
+              @include flex_between_column;
+
+              .cont {
+                @include flex_between;
+                align-items: baseline;
+                gap: 30px;
+
+                >div {
+                  width: 30%;
+
+                  &:first-child {
+                    width: 40%;
+                  }
+                }
+              }
+            }
+
+            //* 뉴스 및 사례 */
+            &.box_news {
+              min-width: 500px;
+              padding-right: 15px;
+
+              .cont {
+                ul {
+                  height: 100%;
+                  max-height: 190px;
+                  padding-right: 10px;
+                  overflow-y: auto;
+
+                  li {
+                    @include flex_between;
+                    padding: 15px 0;
+                    font-size: 14px;
+                    border-bottom: 1px solid var(--borderColor3);
+
+                    span {
+                      &:nth-child(1) {
+                        @include ellipsis;
+                        width: calc(100% - 150px);
+
+                        &:before {
+                          @include txtDot;
+                        }
+                      }
+
+                      &:nth-child(2) {
+                        width: 90px;
+                        color: var(--subFtColor);
+                      }
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+        }
+
+        /* 추정 광고비 */
+        &.sec_adCost {
+          @include boxLayout;
+          @include flex_between;
+          height: 700px;
+          margin-top: 30px;
+          gap: 30px;
+
+          /* 추정 광고비 */
+          .box_adCost {
+            position: relative;
+            width: 60%;
+            @include flex_between_column;
+
+            .tit {
+              @include title;
+              @include flex_start;
+              gap: 30px;
+
+              button {
+                @include btnLayout;
+                @include btn_main;
+                position: relative;
+                min-width: 130px;
+                height: 36px;
+                top: -8px;
+              }
+            }
+
+            .cont {
+              margin-top: 30px;
+
+              .tabButton {
+                position: absolute;
+                top: -20px;
+                right: 0px;
+
+                input[type="radio"] {
+                  @include radioButton();
+
+                  &+label {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 0 10px;
+
+                    &:nth-of-type(n+2) {
+                      margin-left: 10px;
+                    }
+                  }
+                }
+              }
+
+              .graph {}
+            }
+          }
+
+          /* 감지 비율 */
+          .box_senseRate {
+            @include flex_between_column;
+            width: 40%;
+            min-width: 730px;
+            padding-left: 30px;
+            border-left: 1px solid var(--borderColor3);
+
+            .tit {
+              @include title;
+            }
+
+            .cont {
+              @include flex_center2;
+              flex-wrap: wrap;
+              gap: 40px;
+              margin-top: 30px;
+
+              >div {
+                flex-grow: 1;
+                width: 45%;
+                height: 250px;
+              }
+            }
+          }
+        }
+
+        /* 플랫폼별 내역 */
+        &.sec_list {
+          @include boxLayout;
+          height: 700px;
+          margin-top: 30px;
+
+          .tit {
+            @include title;
+          }
+
+          .cont {
+            .tableHeader {
+              @include flex_between;
+              margin-top: 20px;
+              gap: 40px;
+              align-items: center;
+
+              p {
+                @include ip_title($fs:15px);
+
+                &:before {
+                  @include txtDot;
+                }
+              }
+
+              .calendarBox {
+                @include calendarBox;
+
+                p {
+                  @include ip_title($fs:15px);
+                }
+              }
+
+              .radioBox {
+                @include flex_start;
+                align-items: center;
+
+                button {
+                  &.search {
+                    @include btnLayout;
+                    @include btn_search;
+                    margin-left: 40px;
+                  }
+                }
+              }
+
+              .buttonBox {
+                flex-grow: 1;
+                text-align: right;
+
+                button {
+                  @include btnLayout;
+
+                  &.detail {
+                    @include btn_main;
+                    min-width: 100px;
+                    height: 36px;
+                  }
+                }
+              }
+            }
+
+            .tableArea {
+              @include tableDataNone($h:540px);
+              margin-top: 20px;
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 540px;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+                        &:nth-child(2) {
+                          width: 260px;
+                          padding: 10px;
+                        }
+
+                        &:nth-child(6),
+                        &:nth-child(9) {
+                          // color: var(--upColor);
+                          color: var(--white);
+                          background-color: var(--tblEmBgColor);
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      td {
+                        &:nth-child(2) {
+                          padding: 10px;
+                          text-align: left;
+                        }
+
+                        &:nth-child(6),
+                        &:nth-child(9) {
+                          color: var(--upColor);
+                        }
+
+                        .rangeBox {
+                          @include flex_between;
+                          gap: 10px;
+
+                          input[type="range"] {
+                            -webkit-appearance: none;
+                            width: 100%;
+                            max-width: 190px;
+                            height: 18px;
+                            accent-color: #cffaff;
+                            outline: none;
+                            border-radius: 0;
+                            border: none;
+                            transition: background 450ms ease-in;
+                            background: linear-gradient(to right, #65fbd7 0%, #7f00ff 50%, #b81e53 100%);
+
+                            &+label {
+                              font-size: 13px;
+                            }
+                          }
+
+                          input[type="range"]::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            width: 10px;
+                            height: 28px;
+                            border-radius: 5px;
+                            border: 1px solid #a1f6ff;
+                            box-shadow: 0 3px 6px 0 rgba(7, 230, 255, 0.24);
+                            background: #a1f6ff;
+                            cursor: pointer;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* fraud 상세내역 */
+  .tune_fraudList {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_search {
+          @include boxLayout;
+          position: relative;
+
+          .searchBox {
+            >div {
+              &:nth-child(n+2) {
+                margin-top: 20px;
+              }
+            }
+
+            p {
+              @include ip_title($fs:15px);
+
+              &:before {
+                @include txtDot;
+              }
+            }
+
+            .radioBox {
+              @include flex_start;
+              align-items: center;
+            }
+
+            .calendarBox {
+              @include calendarBox($height:36px);
+
+              p {
+                @include ip_title($fs:15px);
+                min-width: 80px;
+              }
+            }
+          }
+        }
+
+        /* 기간 추세 */
+        &.sec_periodTrend {
+          margin-top: 30px;
+          @include boxLayout;
+          height: 540px;
+
+
+          .tit {
+            @include title;
+          }
+
+          .cont {
+            margin-top: 20px;
+
+            .labelBox {
+              @include flex_center;
+              gap: 40px;
+              margin-top: 20px;
+
+              p {
+                &:before {
+                  content: "";
+                  position: relative;
+                  display: inline-block;
+                  width: 20px;
+                  height: 16px;
+                  margin-right: 10px;
+                  vertical-align: middle;
+                }
+
+                &:nth-child(1):before {
+                  // background-color: #ff9e2e;
+                  background-color: var(--labelColor);
+                }
+
+                &:nth-child(2):before {
+                  // background-color: #09fcd3;
+                  background-color: var(--labelColor2);
+                }
+
+                &:nth-child(3):before {
+                  // background-color: #ffacd0;
+                  background-color: var(--labelColor3);
+                }
+              }
+            }
+          }
+        }
+
+
+        /* 광고사별 내역 */
+        &.sec_list {
+          @include boxLayout;
+          max-height: 700px;
+          margin-top: 30px;
+
+          .tit {
+            @include title;
+          }
+
+          .cont {
+            .tableArea {
+              @include tableDataNone($h:540px);
+              margin-top: 20px;
+
+              &.tableAreaDataNone {
+                +.tableDataNone+.buttonBox {
+                  display: none;
+                }
+              }
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 540px;
+
+                table {
+
+                  thead {
+                    tr {
+                      th {
+                        &:nth-child(2) {
+                          width: 260px;
+                        }
+
+                        &:nth-child(6),
+                        &:nth-child(9) {
+                          // color: $upColor;
+                          color: var(--white);
+                          background-color: var(--tblEmBgColor);
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      td {
+                        &:nth-child(2) {
+                          padding: 10px;
+                          text-align: left;
+                        }
+
+                        &:nth-child(1) {
+                          padding: 10px 20px;
+                          text-align: left;
+                        }
+
+                        &:nth-child(6),
+                        &:nth-child(9) {
+                          color: var(--upColor);
+                        }
+
+                        button {
+                          &.date {
+                            @include btnLayout;
+                            @include btn_main2;
+                            float: right;
+                            min-width: 56px;
+                            height: 26px;
+                            border-radius: 13px;
+                          }
+                        }
+
+                        .rangeBox {
+                          @include flex_between;
+                          gap: 10px;
+
+                          input[type="range"] {
+                            -webkit-appearance: none;
+                            width: 100%;
+                            max-width: 190px;
+                            height: 18px;
+                            accent-color: #cffaff;
+                            outline: none;
+                            border-radius: 0;
+                            border: none;
+                            transition: background 450ms ease-in;
+                            background: linear-gradient(to right, #65fbd7 0%, #7f00ff 50%, #b81e53 100%);
+
+                            &+label {
+                              font-size: 13px;
+                            }
+                          }
+
+                          input[type="range"]::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            width: 10px;
+                            height: 28px;
+                            border-radius: 5px;
+                            border: 1px solid #a1f6ff;
+                            box-shadow: 0 3px 6px 0 rgba(7, 230, 255, 0.24);
+                            background: #a1f6ff;
+                            cursor: pointer;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .buttonBox {
+              position: relative;
+              width: 100%;
+              margin: 20px 0;
+              text-align: center;
+
+              button {
+                &.more {
+                  @include btnLayout;
+                  @include ftMedium;
+                  text-align: center;
+                  width: 200px;
+                  height: 40px;
+                  // @include
+                  font-size: 16px;
+                  // color: $fontColor;
+
+                  &:before {
+                    content: "+";
+                    position: relative;
+                    display: inline-block;
+                    margin-right: 4px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

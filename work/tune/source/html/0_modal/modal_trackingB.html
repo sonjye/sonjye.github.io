@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+<!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+
+<body>
+    <div class="wrap typeB">
+        <!-- 빠른 소스 확인을 위해 header, navigation 태그 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+        </header>
+        <nav class="navigation">
+        </nav>
+        <section class="container">
+            <div class="modal">
+                <strong>트래킹</strong>
+                <p>이벤트 전체 (md_eventAll)</p>
+                <div class="modalWrap md_eventAll">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>이벤트 전체</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_eventPick">
+                                <dl>
+                                    <dt>노출 이벤트-1</dt>
+                                    <dd>
+                                        <select>
+                                            <option value="" selected>설치</option>
+                                            <option value="">실행</option>
+                                            <option value="">삭제</option>
+                                            <option value="">매출</option>
+                                            <option value="">유치율</option>
+                                            <option value="">페이지뷰</option>
+                                            <option value="">체류시간</option>
+                                            <option value="">재설치</option>
+                                            <option value="">사용자</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>노출 이벤트-2</dt>
+                                    <dd>
+                                        <select>
+                                            <option value="">설치</option>
+                                            <option value="" selected>실행</option>
+                                            <option value="">삭제</option>
+                                            <option value="">매출</option>
+                                            <option value="">유치율</option>
+                                            <option value="">페이지뷰</option>
+                                            <option value="">체류시간</option>
+                                            <option value="">재설치</option>
+                                            <option value="">사용자</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>노출 이벤트-3</dt>
+                                    <dd>
+                                        <select>
+                                            <option value="">설치</option>
+                                            <option value="">실행</option>
+                                            <option value="" selected>삭제</option>
+                                            <option value="">매출</option>
+                                            <option value="">유치율</option>
+                                            <option value="">페이지뷰</option>
+                                            <option value="">체류시간</option>
+                                            <option value="">재설치</option>
+                                            <option value="">사용자</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>노출 이벤트-4</dt>
+                                    <dd>
+                                        <select>
+                                            <option value="">설치</option>
+                                            <option value="">실행</option>
+                                            <option value="">삭제</option>
+                                            <option value="" selected>매출</option>
+                                            <option value="">유치율</option>
+                                            <option value="">페이지뷰</option>
+                                            <option value="">체류시간</option>
+                                            <option value="">재설치</option>
+                                            <option value="">사용자</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>노출 이벤트-5</dt>
+                                    <dd>
+                                        <select>
+                                            <option value="">설치</option>
+                                            <option value="">실행</option>
+                                            <option value="">삭제</option>
+                                            <option value="">매출</option>
+                                            <option value="" selected>유치율</option>
+                                            <option value="">페이지뷰</option>
+                                            <option value="">체류시간</option>
+                                            <option value="">재설치</option>
+                                            <option value="">사용자</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="save">저장</button>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modal end-->
+                <p>이벤트 전체 (md_eventChange)</p>
+                <div class="modalWrap md_eventChange">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>이벤트 전체</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_eventChange">
+                                <div class="box_eventPick" id="resetArea">
+                                    <div class="titBox">
+                                        <p>노출 이벤트</p>
+                                        <button type="button" class="btn_reset" id="btnReset">초기화</button>
+                                    </div>
+                                    <div class="btnBox">
+                                        <ul id="sortPick" class="connectedSortable">
+                                            <li class="ui-state-default"><span>설치</span></li>
+                                            <li class="ui-state-default"><span>실행</span></li>
+                                            <li class="ui-state-default"><span>삭제</span></li>
+                                            <li class="ui-state-default"><span>매출</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box_eventList">
+                                    <div class="titBox">
+                                        <p>이벤트 항목</p>
+                                    </div>
+                                    <div class="btnBox">
+                                        <ul id="sortList" class="connectedSortable">
+                                            <li class="ui-state-highlight"><span>유지율</span></li>
+                                            <li class="ui-state-highlight"><span>페이지뷰</span></li>
+                                            <li class="ui-state-highlight"><span>체류시간</span></li>
+                                            <li class="ui-state-highlight"><span>재설치</span></li>
+                                            <li class="ui-state-highlight"><span>사용자</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="save">저장</button>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>APP 생성 (md_createApp)</p>
+                <div class="modalWrap md_createApp">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>APP 생성</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_createApp">
+                                <dl>
+                                    <dt>Platform</dt>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform" id="check_flatform_1"
+                                            class="hidden" value="08">
+                                        <label for="check_flatform_1">Android</label>
+                                    </dd>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform" id="check_flatform_2"
+                                            class="hidden" value="08">
+                                        <label for="check_flatform_2">IOS</label></dd>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform" id="check_flatform_3"
+                                            class="hidden" value="08">
+                                        <label for="check_flatform_3">WEB</label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>APP Name</dt>
+                                    <dd><input type="text" class="input_alarm" placeholder="앱 이름을 입력해주세요."><span>*20자 이상
+                                            입력할 수 없습니다.</span></dd>
+                                </dl>
+                                <dl>
+                                    <dt>Category</dt>
+                                    <dd><select name="" id="">
+                                            <option value="">Commerce</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Timezone</dt>
+                                    <dd><select name="" id="">
+                                            <option value="">UTC+9</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="create">생성</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>APP 관리 (md_manageApp)</p>
+                <div class="modalWrap md_manageApp">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>APP 관리</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_createApp">
+                                <dl>
+                                    <dt>Platform</dt>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform2" id="check_flatform2_1"
+                                            class="hidden" value="01">
+                                        <label for="check_flatform2_1">Android</label>
+                                    </dd>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform2" id="check_flatform2_2"
+                                            class="hidden" value="02">
+                                        <label for="check_flatform2_2">IOS</label></dd>
+                                    <dd>
+                                        <input type="checkbox" name="check_flatform2" id="check_flatform2_3"
+                                            class="hidden" value="03">
+                                        <label for="check_flatform2_3">WEB</label></dd>
+                                </dl>
+                                <dl>
+                                    <dt>APP Name</dt>
+                                    <dd><input type="text" class="input_alarm" placeholder="앱 이름을 입력해주세요.">
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Application Key</dt>
+                                    <dd><input type="text" disabled>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Category</dt>
+                                    <dd><select name="" id="">
+                                            <option value="">Commerce</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Timezone</dt>
+                                    <dd><select name="" id="">
+                                            <option value="">UTC+9</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>APP 생성 일자</dt>
+                                    <dd>2021-07-07</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="delete">삭제</button>
+                            <button type="button" class="create">생성</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>APP 삭제 (md_deleteApp)</p>
+                <div class="modalWrap md_deleteApp">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>APP 삭제</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_deleteApp">
+                                <p>정말 삭제하시겠습니까?</p>
+                                <p>APP을 삭제하게 되면 트래킹 데이터를 확인할 수 없습니다.</p>
+                                <p>APP 삭제를 하기 위해서 아래 문장을 입력하세요.</p>
+                                <p>APP을 삭제 하겠습니다.</p>
+                                <input type="text" placeholder="확인을 위해서 위에 문장을 입력해주세요.">
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <p>광고 추적 (md_trackingAd)</p>
+                <div class="modalWrap md_trackingAd">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="tableBox">
+                                <div class="tblHeader">
+                                    <div class="tblTit">
+                                        <p>추적경로</p>
+                                        <ul>
+                                            <li>Kakao</li>
+                                            <li>cpc</li>
+                                            <li>campaign3 </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tableWrap">
+                                    <div class="divTable">
+                                        <div class="divTblHead">
+                                            <div class="divTblTr">
+                                                <div>&nbsp;</div>
+                                                <div>0일</div>
+                                                <div>1일</div>
+                                                <div>2일</div>
+                                                <div>3일</div>
+                                                <div>4일</div>
+                                                <div>5일</div>
+                                                <div>6일</div>
+                                                <div>7일</div>
+                                                <div>8일</div>
+                                                <div>9일</div>
+                                                <div>0일</div>
+                                                <div>11일</div>
+                                                <div>12일</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>총설치<span>20,003건</span></div>
+                                                <div class="bg1">11.04% </div>
+                                                <div class="bg2">22.04% </div>
+                                                <div class="bg3">33.04% </div>
+                                                <div class="bg4">44.04% </div>
+                                                <div class="bg5">55.04% </div>
+                                                <div class="bg6">66.04% </div>
+                                                <div class="bg7">77.04%</div>
+                                                <div class="bg8">88.04%</div>
+                                                <div class="bg9">99.04%</div>
+                                                <div class="bg10">100.04%</div>
+                                                <div>2.04%</div>
+                                                <div>1.04%</div>
+                                                <div>0.04%</div>
+                                            </div>
+                                        </div>
+                                        <div class="divTblBody">
+                                            <div class="divTblTr">
+                                                <div class="sun">2021-07-30 (일)<span>20,003건</span></div>
+                                                <div>100.00%</div>
+                                                <div class="bg2">99.04% </div>
+                                                <div class="bg3">98.04% </div>
+                                                <div class="bg4">97.04% </div>
+                                                <div class="bg1">89.04% </div>
+                                                <div class="bg1">79.04% </div>
+                                                <div class="bg1">6.04% </div>
+                                                <div class="bg1">5.04%</div>
+                                                <div class="bg1">4.04%</div>
+                                                <div class="bg1">3.04%</div>
+                                                <div class="bg1">2.04%</div>
+                                                <div class="bg1">1.04%</div>
+                                                <div class="bg1">0.04%</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div class="sat">2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>100.00%</div>
+                                                <div class="bg2">99.04% </div>
+                                                <div class="bg3">98.04% </div>
+                                                <div class="bg4">97.04% </div>
+                                                <div class="bg1">89.04% </div>
+                                                <div class="bg1">79.04% </div>
+                                                <div class="bg1">6.04% </div>
+                                                <div class="bg1">5.04%</div>
+                                                <div class="bg1">4.04%</div>
+                                                <div class="bg1">3.04%</div>
+                                                <div class="bg1">2.04%</div>
+                                                <div class="bg1">1.04%</div>
+                                                <div class="bg1">0.04%</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblTr">
+                                                <div>2021-07-30 (일) ~ 2021-08-07 (토)<span>20,003건</span></div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// modalContainer end -->
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+            </div>
+            <!-- footer 위치 -->
+        </section>
+    </div>
+</body>
+
+</html>

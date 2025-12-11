@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.003" height="19" viewBox="0 0 15.003 19">
+    <defs>
+        <clipPath id="waw4gxqa6a">
+            <path data-name="사각형 5945" style="fill:none" d="M0 0h15.003v19H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 7426" style="clip-path:url(#waw4gxqa6a)">
+        <path data-name="패스 12668" d="M7.657 17.072a7.658 7.658 0 0 1-2.557-.435l.509-1.368a6.15 6.15 0 0 0 2.048.349 5.939 5.939 0 0 0 6.007-5.853 5.751 5.751 0 0 0-1.63-4.008l1.089-1a7.181 7.181 0 0 1 2.035 5.005 7.416 7.416 0 0 1-7.5 7.308" transform="translate(-.155 -.263)" style="fill:#07e6ff"/>
+        <path data-name="패스 12669" d="M1.951 14.545A7.192 7.192 0 0 1 0 9.628 7.414 7.414 0 0 1 7.5 2.32a7.643 7.643 0 0 1 2.559.436l-.508 1.368a6.138 6.138 0 0 0-2.05-.35 5.939 5.939 0 0 0-6.008 5.854 5.762 5.762 0 0 0 1.563 3.938z" transform="translate(0 -.129)" style="fill:#07e6ff"/>
+        <path data-name="패스 12670" d="m6.866 19.762-2.137-2.889a.716.716 0 0 1 .171-1.017l2.965-2.083.874 1.18-2.362 1.658 1.7 2.3z" transform="translate(-.14 -.762)" style="fill:#07e6ff"/>
+        <path data-name="패스 12671" d="m7.482 5.989-.874-1.18L8.967 3.15l-1.7-2.3L8.477 0l2.138 2.889a.716.716 0 0 1-.168 1.011z" transform="translate(-.201)" style="fill:#07e6ff"/>
+    </g>
+</svg>

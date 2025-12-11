@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.052" height="20.408" viewBox="0 0 20.052 20.408">
+    <defs>
+        <clipPath id="42dx926maa">
+            <path data-name="패스 11228" d="M0 0h20.052v20.408H0z" style="fill:none"/>
+        </clipPath>
+    </defs>
+    <g data-name="ico_user_analysis_off" style="clip-path:url(#42dx926maa)">
+        <path data-name="패스 11226" d="M9.684 4.225A3.476 3.476 0 1 1 6.208.749a3.476 3.476 0 0 1 3.476 3.476z" style="stroke-miterlimit:10;stroke-width:1.5px;stroke:#fff;fill:none"/>
+        <path data-name="패스 11227" d="M.769 14.594a4.266 4.266 0 0 1-.019-.41c0-2.757 2.537-4.992 5.666-4.992a6.364 6.364 0 0 1 1.933.3" transform="translate(0 -.092)" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.5px;stroke:#fff;fill:none"/>
+        <path d="m30.967 3.524-3.013-.439-1.347-2.73a.66.66 0 0 0-1.184 0l-1.347 2.73-3.013.439A.66.66 0 0 0 20.7 4.65l2.18 2.124-.516 3a.659.659 0 0 0 .957.695l2.7-1.417 2.7 1.417a.66.66 0 0 0 .957-.695l-.516-3 2.18-2.124a.66.66 0 0 0-.365-1.126zm-2.877 2.9.489 2.854-2.563-1.343-2.564 1.346.489-2.854-2.074-2.02 2.866-.417 1.283-2.6 1.284 2.6 2.866.417-2.076 2.021z" transform="translate(-11.669 9.112)" style="fill:#fff;stroke-width:.4px;stroke:#fff"/>
+    </g>
+</svg>

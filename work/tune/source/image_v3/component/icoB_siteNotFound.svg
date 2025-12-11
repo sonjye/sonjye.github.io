@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="201.62" height="148.837" viewBox="0 0 201.62 148.837">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-5{fill:#fff}.cls-1,.cls-2{stroke:#d6d6d6;stroke-linecap:round;stroke-linejoin:round;stroke-width:6.4px}.cls-2{stroke:#8c8c8c}
+        </style>
+    </defs>
+    <g id="그룹_2914" data-name="그룹 2914" transform="translate(-466.798 -476.593)">
+        <g id="그룹_2864" data-name="그룹 2864" transform="translate(-854.463 182.618)">
+            <path id="사각형_1728" data-name="사각형 1728" class="cls-1" transform="translate(1324.461 341.354)" d="M0 0h136.928v98.258H0z"/>
+            <path id="사각형_1729" data-name="사각형 1729" class="cls-1" transform="translate(1324.461 325.924)" d="M0 0h136.928v15.43H0z"/>
+            <path id="사각형_1730" data-name="사각형 1730" class="cls-1" transform="translate(1435.146 322.114)" d="M0 0h84.535v83.197H0z"/>
+            <path id="사각형_1731" data-name="사각형 1731" class="cls-1" transform="translate(1435.146 309.822)" d="M0 0h84.535v12.291H0z"/>
+            <path id="사각형_1732" data-name="사각형 1732" class="cls-2" transform="translate(1345.799 297.174)" d="M0 0h149.474v124.994H0z"/>
+            <path id="선_131" data-name="선 131" class="cls-2" transform="translate(1345.799 314.019)" d="M0 0h149.474"/>
+            <path id="선_132" data-name="선 132" class="cls-1" transform="translate(1444.025 391.22)" d="M0 0h31.698"/>
+            <path id="선_133" data-name="선 133" class="cls-1" transform="translate(1444.025 405.311)" d="M0 0h31.698"/>
+        </g>
+        <g id="사각형_1740" data-name="사각형 1740" style="stroke:#dfe3e6;stroke-width:6.4px;fill:#fff">
+            <path style="stroke:none" d="M0 0h124v33H0z" transform="translate(504 521)"/>
+            <path style="fill:none" d="M3.2 3.2h117.6v26.6H3.2z" transform="translate(504 521)"/>
+        </g>
+        <g id="그룹_2913" data-name="그룹 2913">
+            <path id="패스_6969" data-name="패스 6969" d="M259.141 122.137a29.991 29.991 0 1 1-29.991-29.991 29.993 29.993 0 0 1 29.991 29.991" transform="translate(337.458 415.363)" style="fill:#07e6ff"/>
+            <path id="사각형_1738" data-name="사각형 1738" class="cls-5" transform="rotate(-45 914.248 -404.267)" d="M0 0h4.724v31.81H0z"/>
+            <path id="사각형_1739" data-name="사각형 1739" class="cls-5" transform="rotate(-45 937.367 -394.685)" d="M0 0h31.81v4.724H0z"/>
+        </g>
+    </g>
+</svg>

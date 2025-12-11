@@ -1,0 +1,785 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : oneTag.scss
+    Date  : 2025.03.11
+    menu  : 원태그
+    description : 카페 24 APP내 설치하기 페이지에 들어가는 화면(독립페이지)
+/*---------------------------------*/
+
+
+//* COMMON ---------- */
+//*----- FONT -----*/
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  //* IE9 Compat Modes */
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"),
+    //* IE6-IE8 */
+    url("../font/notokr-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"),
+    url("../font/notokr-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"),
+    //* IE6-IE8 */
+    url("../font/notokr-bold.woff") format("woff");
+}
+
+//*----- COLOR -----*/
+// basic 
+$white: #ffffff;
+// point 
+$pointColor: #978eff;
+// font
+$ftColor: #666666;
+$ftColor2: #000000;
+// border 
+$borderColor: #c9c9c9;
+$borderColor2: #e9e9e9;
+// bg
+$bgColor: #f6f6f6;
+// input
+$ipBorder: $borderColor2;
+$ipBorderColor: #d6d6d6;
+$ipBgColor: #ffffff; // checkBox bg
+$ipFtColor_disabled: #c4c4c4;
+$ipBorderColor_disabled: #d6d6d6;
+$ipBgColor_disabled: #eceff1;
+
+// button 
+$btnFtColor: #ffffff;
+$btnBgColor:#262f4a;
+
+//*----- IMAGE -----*/
+@mixin logo_tune_bk {
+  background: url(../image_v3/logo/logo_tune720.svg) no-repeat center center;
+}
+
+@mixin ico_select {
+  background: url(../image_v3/component/ico_select.svg) no-repeat center center;
+  background-size: 11px 5px;
+}
+
+@mixin ico_checkbox_on {
+  background: url(../image_v3/component/ico_checkbox_on.svg) no-repeat center;
+}
+
+@mixin ico_checkbox_off {
+  background: url(../image_v3/component/ico_checkbox_off.svg) no-repeat center;
+}
+
+@mixin ico_checkbox_disabled {
+  background: url(../image_v3/component/ico_checkbox_disabled.svg) no-repeat center;
+}
+
+@mixin ico_closeS {
+  background: url(../image_v3/component/ico_closeS.svg) no-repeat center;
+}
+
+
+
+//*----- MIXIN -----*/
+// FONT
+@mixin ftRegular {
+  font-family: "NotoSansR";
+}
+
+@mixin ftMedium {
+  font-family: "NotoSansM";
+  font-weight: normal;
+}
+
+@mixin ftBold {
+  font-family: "NotoSansB";
+}
+
+
+@mixin dimBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 990;
+}
+
+
+@mixin loadingBg {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+
+  &.complete {
+    display: none;
+    opacity: 0;
+    z-index: -999;
+  }
+
+  $--p-1: #6ef0ff;
+  $--p-2: #0fa5be;
+  $--p-3: #06697b;
+  $--p-4: #3f0684;
+
+  $--b-1: #0fa5be;
+  $--b-2: #06697b;
+  $--b-3: #3f0684;
+  $--b-4: #7f1eed;
+
+  $--g-1: #06697b;
+  $--g-2: #3f0684;
+  $--g-3: #7f1eed;
+  $--g-4: #ac64ff;
+
+  $--y-1: #3f0684;
+  $--y-2: #7f1eed;
+  $--y-3: #ac64ff;
+  $--y-4: #e0c4ff;
+
+  $colors: ($--p-1, $--p-2, $--p-3, $--p-4, $--b-1, $--b-2, $--b-3, $--b-4, $--g-1, $--g-2, $--g-3, $--g-4, $--y-1, $--y-2, $--y-3, $--y-4);
+
+  .loader {
+    --cell-size: 24px;
+    --cell-spacing: 1px;
+    --border-width: 1px;
+    --cells: 4;
+    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--total-size);
+    height: var(--total-size);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    >.cell {
+      --cell-color: white;
+      flex: 0 0 var(--cell-size);
+      margin: var(--cell-spacing);
+      background-color: transparent;
+      box-sizing: border-box;
+      border: var(--border-width) solid var(--cell-color);
+
+      animation: 1.5s ripple ease infinite;
+
+      $delays: (2 * 4) - 2;
+
+      @for $i from 1 through $delays {
+        &.d-#{$i} {
+          animation-delay: $i * 100ms;
+        }
+      }
+
+      @for $i from 1 through length($colors) {
+        &:nth-child(#{$i}) {
+          --cell-color: #{nth($colors, $i)};
+        }
+      }
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      background-color: transparent;
+    }
+
+    30% {
+      background-color: var(--cell-color);
+    }
+
+    60% {
+      background-color: transparent;
+    }
+
+    100% {
+      background-color: transparent;
+    }
+  }
+}
+
+// ICON 
+@mixin iLayout {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+}
+
+//* display */
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin iflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+// Button 
+@mixin btnLayout($br:0px) {
+  @include ftRegular;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+
+  // &:disabled {
+  //   @include btn_disabled;
+  //   cursor: default;
+  // }
+}
+
+@mixin btn_disabled {
+  color: var(--btnDis_ftColor);
+  // border: 2px solid var(--btnDis_borderColor);
+  border-width: inherit;
+  border-color: var(--btnDis_borderColor);
+  background-color: var(--btnDis_bgColor);
+  box-shadow: none;
+  cursor: default;
+}
+
+
+// ON > B: skyblue(bg), C: point
+@mixin btn_main ($w:null, $minw:null, $h:null, $minh:null, $pd:null) {
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  color: var(--btnMain_ftColor);
+  border: 2px solid var(--btnMain_bgColor);
+  background-color: var(--btnMain_bgColor);
+  box-shadow: none;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+@mixin btn_off {
+  color: var(--btnOff_ftColor);
+  border: 2px solid var(--btnOff_BorderColor);
+  background-color: var(--btnOff_BgColor);
+  box-shadow: none;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+@mixin btn_delete {
+  color: var(--btnDlt_ftColor);
+  border: 1px solid var(--btnDlt_BorderColor);
+  box-shadow: var(--btnDlt_shadow);
+  background-color: var(--btnDlt_bgColor);
+}
+
+
+// input
+@mixin input_t2($minw:null, $h:50px, $pd:6px 10px) {
+  min-width: $minw;
+  height: $h;
+  padding: $pd;
+  font-size: 20px;
+  border: 1px solid $borderColor;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #e9e9e9;
+  }
+}
+
+
+// select
+@mixin select($minw:150px, $h:40px, $br:5px, $fs:14px) {
+  @include ico_select;
+  @include ftRegular();
+  min-width: $minw;
+  height: $h;
+  padding: 4px 30px 4px 15px;
+  appearance: none;
+  font-size: $fs;
+  color: $ftColor;
+  line-height: 1;
+  border-radius: $br;
+  border: 1px solid $borderColor;
+  box-shadow: none;
+  background-color: $ipBgColor;
+  background-position-x: calc(100% - 15px);
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background-color: $ipBgColor;
+  }
+
+  &:disabled {
+    color: $ipFtColor_disabled;
+    border: 1px solid $ipBorderColor_disabled;
+    background-color: $ipBgColor_disabled;
+    opacity: 1;
+  }
+}
+
+// checkbox
+//* add input[type="checkbox"] */
+@mixin checkbox($w:16px, $h:16px, $fs:null) {
+  display: none;
+
+  +label {
+    @include iflexBox($g:0);
+    position: relative;
+    // display: block;
+    color: $ftColor;
+    font-size: $fs;
+    cursor: pointer;
+
+    &:before {
+      @include iLayout;
+      @include ico_checkbox_off;
+      content: "";
+      width: $w;
+      height: $h;
+      margin-right: 6px;
+      vertical-align: middle;
+      background-size: contain;
+    }
+  }
+
+  &:checked {
+    +label {
+      &:before {
+        @include iLayout;
+        @include ico_checkbox_on;
+        width: $w;
+        height: $h;
+        vertical-align: middle;
+        background-size: contain;
+      }
+    }
+  }
+
+  &:disabled {
+    +label {
+      &:before {
+        @include iLayout;
+        @include ico_checkbox_disabled;
+        width: $w;
+        height: $h;
+        vertical-align: middle;
+        background-size: contain;
+        cursor: default;
+      }
+    }
+  }
+}
+
+@mixin box_shadow_b() {
+  position: relative;
+  overflow: hidden;
+  border-bottom: var(--border2);
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient);
+  }
+}
+
+
+
+
+//*----- lAYOUT -----*/
+html,
+body {
+  @include ftRegular();
+  font-size: 14px;
+  color: $ftColor;
+}
+
+
+//*----- MODAL lAYOUT -----*/
+@mixin modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+// .modalDim {
+//   @include modalDim;
+// }
+
+@mixin modalPosition($z:999) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  background-color: #ffffff;
+  overflow: hidden;
+  z-index: $z;
+}
+
+//* modal  */
+@mixin modal {
+  display: none;
+  z-index: 999;
+
+  &.modalOn {
+    display: block;
+  }
+}
+
+
+@mixin modalBox {
+  // position: absolute;
+  border-radius: 5px;
+  border: 1px solid var(--modalBorderColor);
+  box-shadow: var(--modalShadow);
+  background-color: var(--modalBgColor);
+  z-index: 999;
+}
+
+//* title */
+@mixin modalTitle($pd:15px 30px 0 30px) {
+  @include box_shadow_b;
+  height: 58px;
+  font-size: 18px;
+  padding: $pd;
+
+  p {
+    display: inline-block;
+    padding: 6px 0 0 0;
+  }
+
+  button {
+    position: relative;
+    float: right;
+    right: -2px;
+    padding: 15px;
+
+    &.close {
+      @include btnLayout;
+      @include ico_closeS;
+      font-size: 0;
+    }
+  }
+}
+
+//* content */
+@mixin modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  max-height: 650px;
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px 20px 20px;
+  overflow-y: auto;
+}
+
+//* modalFooter - border none  */
+@mixin modalFooter_t2($footer_margin:10px 0 0 0) {
+  margin: $footer_margin;
+  text-align: center;
+
+  button {
+    @include btnLayout;
+    @include btn_main;
+    min-width: 140px;
+    height: 44px;
+    margin-left: 14px;
+    border-radius: 22px;
+    font-size: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(2) {
+      @include btn_off;
+    }
+
+    &.create,
+    &.modify,
+    &.confirm {
+      @include btn_main;
+    }
+
+    &.cancel {
+      @include btn_off;
+    }
+
+    &.delete {
+      @include btn_delete;
+    }
+  }
+}
+
+//* footer border none  */
+@mixin modalLayout_t2 {
+  @include modal;
+
+  .modalContainer {
+    @include modalPosition();
+    @include modalBox;
+
+    .modalTitle {
+      @include modalTitle;
+    }
+
+    .modalContent {
+      @include modalContent;
+    }
+
+    .modalFooter {
+      @include modalFooter_t2;
+    }
+  }
+
+  .modalDim {
+    @include modalDim;
+  }
+}
+
+//* modal ----------*/
+.wrap {
+  .modalWrap {
+
+    //* 공통 - alert  */
+    &.md_alert {
+      @include modalLayout_t2;
+
+      .modalContainer {
+        width: 540px;
+        height: 325px;
+
+        .modalContent {
+          @include flexBox($j:center, $d:column);
+          min-height: 175px;
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              .fc1 {
+                color: var(--pointColor);
+              }
+            }
+
+            strong {
+              @include ftBold;
+              font-size: 16px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* EACH ----------*/
+.wrap {
+
+  //* 카페24 APP 설치하기 페이지 */
+  // 스크립트 설치 
+
+  #loadingBg {
+    @include loadingBg;
+  }
+
+  &.tune_scriptKey {
+    @include modalDim;
+
+    .container {
+      @include modalPosition($z:997);
+      // position: relative;
+      // display: inline-block;
+      width: 650px;
+      min-height: 520px;
+      padding: 30px 50px 40px;
+      border: 1px solid $borderColor;
+      background-color: $white;
+    }
+
+    .title {
+      padding-bottom: 30px;
+      border-bottom: 1px solid $borderColor;
+
+      p {
+        @include iLayout;
+        @include logo_tune_bk();
+        width: 228px;
+        height: 39px;
+      }
+    }
+
+    .content {
+      margin-top: 30px;
+
+      section {
+        &.sec_key {
+          >p {
+            font-size: 20px;
+            color: $ftColor;
+            letter-spacing: -0.4;
+          }
+
+          .inputArea {
+            margin: 30px auto 0;
+
+            >div {
+              @include flexBox($g:30px);
+
+              &:nth-child(n+2) {
+                margin: 10px 0 0;
+              }
+
+              >p {
+                @include ftBold;
+                min-width: 120px;
+                font-size: 20px;
+                color: $ftColor2;
+                letter-spacing: -0.4;
+              }
+
+              &.selectBox {
+                select {
+                  @include select($h:50px, $br:0px, $fs:20px);
+                  flex-grow: 1;
+                }
+              }
+
+              &.inputBox {
+                input {
+                  @include input_t2($minw:300px);
+                  flex-grow: 1;
+                }
+              }
+
+              &.checkBox {
+                margin: 10px 0 0 0;
+
+                input[type="checkbox"] {
+                  @include checkbox($w:25px, $h:25px, $fs:18px);
+                }
+              }
+
+              button {
+                width: 120px;
+                height: 50px;
+                font-size: 20px;
+                text-align: center;
+                color: $btnFtColor;
+                background-color: $btnBgColor;
+              }
+            }
+          }
+        }
+
+        .guideBox {
+          position: relative;
+          margin: 30px 0 0 0;
+          padding: 17px 30px;
+          line-height: 20px;
+          background-color: $bgColor;
+
+          >p {
+            line-height: 20px;
+            letter-spacing: -0.4;
+            font-size: 13px;
+
+            &:first-child {
+              @include ftBold();
+              color: $pointColor;
+              font-size: 16px;
+
+              &:after {
+                content: ")";
+                position: relative;
+                display: inline-block;
+              }
+            }
+
+            &:nth-child(n+2) {
+              margin-top: 10px;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                width: 2px;
+                height: 2px;
+                margin-right: 4px;
+                background-color: $ftColor;
+                vertical-align: middle;
+              }
+            }
+          }
+
+          ol {
+            li {
+              letter-spacing: -0.4;
+              font-size: 13px;
+              line-height: 20px;
+
+              @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                  &:before {
+                    content: "#{$i})";
+                    margin-right: 4px;
+                  }
+                }
+              }
+
+              a {
+                color: $pointColor;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

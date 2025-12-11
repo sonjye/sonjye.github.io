@@ -1,0 +1,418 @@
+@charset 'utf-8';
+
+/*
+    File   : script.scss
+    Date   : 2024.03.07
+    menu : 스크립트
+*/
+
+.wrap {
+
+  .tune_script {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      section {
+        &.sec_info {
+          margin-top: 10px;
+
+          .info {
+            p {
+              display: inline-block;
+              font-size: 16px;
+
+              &:first-child:after {
+                content: "";
+                position: relative;
+                display: inline-block;
+                width: 10px;
+                height: 15px;
+                top: 3px;
+                margin-right: 6px;
+                border-right: 1px solid var(--white);
+              }
+            }
+          }
+
+          .call {
+            position: absolute;
+            display: inline-block;
+            top: 34px;
+            right: 30px;
+            width: 200px;
+            height: 40px;
+            padding-top: 12px;
+            border-radius: 5px;
+            border: 1px solid var(--pointColor);
+            background-color: var(--bgColor8);
+
+            p {
+              @include ftMedium;
+              color: var(--ftColor10);
+              font-size: 14px;
+              text-align: center;
+            }
+          }
+        }
+
+        &.sec_solution {
+          @include boxLayout2;
+          margin-top: 30px;
+
+          .tit {
+            @include ftMedium;
+            font-size: 16px;
+          }
+
+          .cont {
+            margin-top: 20px;
+
+            p {
+              @include ip_title;
+              display: inline-block;
+            }
+
+            .selctBox {
+              position: relative;
+              display: inline-block;
+              margin-left: 16px;
+              vertical-align: middle;
+
+              select {
+                width: 300px;
+              }
+            }
+
+            .buttonBox {
+              position: relative;
+              display: inline-block;
+              margin-left: 5px;
+
+              button {
+                @include btn_download_t2($width:170px);
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+
+        &.sec_script {
+          margin-top: 30px;
+
+          .tab {
+            @include tabLi_t3($width:180px);
+          }
+
+          .tabView {
+            @include boxLayout2;
+
+            .tabViewList {
+              display: none;
+              min-height: 500px;
+
+              &.show {
+                display: block;
+              }
+            }
+
+            .tabViewList {
+              .script_empty {
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+
+                p {
+                  min-width: 330px;
+                  height: 200px;
+                  margin-top: 150px;
+                  font-size: 15px;
+                  text-align: center;
+                  color: var(--subFtColor);
+                  line-height: 22.5px;
+                  border-radius: 20px;
+                  background-color: var(--tblBgColor);
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_scriptEmpty;
+                    content: "";
+                    position: relative;
+                    display: block;
+                    margin: 40px auto 15px;
+                    text-align: center;
+                  }
+                }
+              }
+
+              .box_script {
+                .tit {
+                  @include titleLayout_t2;
+
+                  span {
+                    display: inline-block;
+                    margin-left: 10px;
+                    font-size: 13px;
+                    color: var(--subFtColor);
+                  }
+                }
+
+                .optionBox {
+                  position: relative;
+                  margin-top: 30px;
+
+                  .box_radio {
+                    p {
+                      @include ip_title;
+                    }
+                  }
+
+                  .box_button {
+                    button {
+                      @include btn_excel_t2();
+                      position: absolute;
+                      top: -10px;
+                      right: 0;
+                    }
+                  }
+                }
+
+                .tableBox {
+                  padding: 0;
+
+                  .tableWrap {
+                    margin-top: 16px;
+                    padding: 0;
+                    overflow-y: hidden;
+
+                    .tableUlWrap {
+
+                      //* tableUl common  */
+                      .ul_head>ul,
+                      .ul_body>ul {
+                        width: 100%;
+                        font-size: 0;
+                      }
+
+                      .ul_head>ul>li,
+                      .ul_body>ul>li>ul>li {
+                        display: inline-block;
+                        min-height: 40px;
+                        width: 280px;
+                        padding: 6px 16px;
+                        text-align: center;
+                        font-size: 13px;
+                        line-height: 2;
+                        border: 1px solid var(--tblBorderColor);
+                        border-right: none;
+                        border-top: none;
+
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                          width: 280px;
+                        }
+
+                        &:nth-child(3) {
+                          width: 740px;
+                        }
+
+                        &:nth-child(4) {
+                          width: calc(100% - 1300px);
+                        }
+
+                        .i_normal,
+                        .i_issue,
+                        .i_error {
+                          position: relative;
+                          display: inline-block;
+                          min-width: 74px;
+                          height: 26px;
+                          padding: 3px 17px 3px 34px;
+                          color: var(--ftColor11);
+                          font-size: 13px;
+                          text-align: center;
+                          line-height: 1.6;
+                          border-radius: 13px;
+
+                          &:before {
+                            @include iLayout;
+                            position: absolute;
+                            left: 3px;
+                          }
+                        }
+
+                        .i_normal {
+                          background-color: var(--normalColor2);
+
+                          &:before {
+                            @include ico_normal;
+                          }
+                        }
+
+                        .i_issue {
+                          background-color: var(--issueColor);
+
+                          &:before {
+                            @include ico_issue;
+                          }
+                        }
+
+                        .i_error {
+                          background-color: var(--errorColor);
+
+                          &:before {
+                            @include ico_error;
+                          }
+                        }
+                      }
+
+                      //* ul_head */
+                      .ul_head {
+                        ul {
+                          background-color: var(--tblTheadBgColor);
+
+                          li {
+                            color: var(--ftColor4);
+                          }
+                        }
+                      }
+
+                      //* ul_body */
+                      .ul_body {
+                        >ul {
+                          border-right: 1px solid var(--tblBorderColor);
+
+                          >li {
+                            background-color: var(--tblBgColor);
+
+                            &.on {
+                              >ul>li:after {
+                                transform: rotate(-180deg);
+                              }
+                            }
+
+                            >ul {
+                              >li {
+                                position: relative;
+                                width: 280px;
+                                vertical-align: text-top;
+                                cursor: pointer;
+
+                                &:last-child {
+                                  text-align: left;
+                                  width: calc(100% - 560px);
+                                  padding-right: 80px;
+
+                                  &:after {
+                                    @include iLayout;
+                                    @include ico_arrowDown;
+                                    content: "";
+                                    position: absolute;
+                                    display: inline-block;
+                                    // float: right;
+                                    width: 15px;
+                                    height: 9px;
+                                    top: 15px;
+                                    right: 30px;
+                                  }
+                                }
+
+                                >ul {
+                                  >li {
+                                    display: inline-block;
+                                    min-height: 40px;
+                                    padding: 6px 10px;
+                                    border-right: 1px solid var(--borderColor);
+                                    font-size: 13px;
+                                    line-height: 2;
+                                    cursor: pointer;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    .box_tbl {
+                      @include tableWrap;
+                      @include tableLayout_t2;
+                      position: relative;
+                      display: none;
+                      padding: 30px;
+                      border-radius: 0;
+                      border-top: none;
+                      background-color: var(--bgColor);
+
+                      &.show {
+                        display: block;
+                      }
+
+                      table {
+                        width: 90%;
+                        margin: 0 auto;
+
+                        thead {
+                          th {
+                            height: 36px;
+
+                            &:nth-child(1),
+                            &:nth-child(2) {
+                              width: 17%;
+                            }
+                          }
+                        }
+
+                        tbody {
+
+                          tr {
+                            &.bg_issue {
+                              td {
+                                color: var(--issueColor);
+                              }
+                            }
+
+                            &.bg_error {
+                              td {
+                                color: var(--errorColor);
+                              }
+                            }
+                          }
+
+                          td {
+                            height: 40px;
+                            padding: 6px 16px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .box_timeline {
+                margin-top: 30px;
+
+                .tit {
+                  @include titleLayout_t2;
+                }
+
+                .chartWrap {
+                  position: relative;
+                  width: 100%;
+                  padding: 20px;
+                  border: 1px solid var(--borderColor);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

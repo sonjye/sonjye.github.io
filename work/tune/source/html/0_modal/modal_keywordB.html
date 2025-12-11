@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!--키워드센터 모달 -->
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap typeB">
+        <!-- 빠른 소스 확인을 위해 header, navigation 태그 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+        </header>
+        <nav class="navigation">
+        </nav>
+        <section class="container">
+            <div class="modal">
+                <strong>키워드센터 모달</strong>
+                <p>공통 > alert </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>제목</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <strong>중요한 내용입니다.</strong>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>최대 다섯줄까지 사용 권장합니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // md_alert end-->
+                <p>직접등록 키워드 업로드(md_keywordUpload)</p>
+                <div class="modalWrap md_keywordUpload" id="md_keywordUpload">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>직접등록 키워드 업로드</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_keywordNamesetting">
+                                <div>
+                                    <p>키워드팩 명 설정</p>
+                                    <!-- input:text 에 fail 클래스 추가시 빨간선 나타남 -->
+                                    <!-- <input type="text" class="fail"> -->
+                                    <input type="text">
+                                    <button type="button">중복확인</button>
+                                </div>
+                                <p class="success on">사용 가능합니다.</p>
+                                <p class="fail on">중복된 키워드팩명 입니다.</p>
+                            </div>
+                            <div class="box_fileuploadArea">
+                                <input type="file" id="fileupload">
+                                <!-- label 에 on 클래스 추가시 실선으로 변경 -->
+                                <!-- <label for="fileupload" class="on">업로드</label> -->
+                                <label for="fileupload">업로드</label>
+                                <button type="button" class="excelDown">엑셀양식 다운로드</button>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="add">추가</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!--// md_keywordUpload end -->
+                <p>키워드팩 명(md_keywordName)</p>
+                <div class="modalWrap md_keywordName" id="md_keywordName">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>키워드팩 명</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>디바이스</p>
+                                <!-- button 선택되었을때 on 클래스 추가 -->
+                                <button type="button" class="on">PC</button>
+                                <button type="button">MOBILE</button>
+                            </div>
+                            <div>
+                                <p>운영체제</p>
+                                <button type="button" class="on">Windows</button>
+                                <button type="button">Android</button>
+                                <button type="button">MacOS</button>
+                                <button type="button">기타</button>
+                            </div>
+                            <div>
+                                <p>브라우저</p>
+                                <button type="button" class="on">Chrome</button>
+                                <button type="button">IE</button>
+                                <button type="button">Safari</button>
+                                <button type="button">Samsung</button>
+                                <button type="button">Naver</button>
+                                <button type="button">기타</button>
+                            </div>
+                            <div>
+                                <p>성별</p>
+                                <button type="button" class="on">남자</button>
+                                <button type="button">여자</button>
+                            </div>
+                            <div>
+                                <p>연령</p>
+                                <button type="button">10대</button>
+                                <button type="button">20대</button>
+                                <button type="button">30대</button>
+                                <button type="button">40대</button>
+                                <button type="button">50대</button>
+                                <button type="button">기타</button>
+                            </div>
+                            <div>
+                                <p>시간대</p>
+                                <button type="button" class="on">새벽(00:00~05:59)</button>
+                                <button type="button">오전(06:00~12:59)</button>
+                                <button type="button">오후(13:00~18:59)</button>
+                                <button type="button">저녁(19:00~23:59)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!--// md_keywordName end -->
+                <div class="title">
+                    <p>모달 </p>
+                </div>
+                <div class="content">
+                </div>
+                <footer class="footer">
+                    <h2 class="hide"> 하단 회사 정보 영역 </h2>
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved. </p>
+                </footer>
+        </section>
+    </div>
+</body>
+
+</html>

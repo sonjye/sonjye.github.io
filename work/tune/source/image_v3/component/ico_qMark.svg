@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
+    <g data-name="패스 332" style="fill:none;stroke-linecap:round;stroke-miterlimit:10">
+        <path d="M24.367 17.224a7.5 7.5 0 1 1-7.5-7.5 7.5 7.5 0 0 1 7.5 7.5z" style="stroke:none" transform="translate(-9.367 -8.723)"/>
+        <path d="M16.866 23.223c3.31 0 6.001-2.691 6.001-6 0-3.308-2.692-6-6-6-3.309 0-6 2.692-6 6 0 3.309 2.691 6 6 6m0 1.5a7.5 7.5 0 1 1 .001-15 7.5 7.5 0 0 1-.002 15z" style="fill:#fff;stroke:none" transform="translate(-9.367 -8.723)"/>
+    </g>
+    <text data-name="?" transform="translate(5 13)" style="fill:#fff;font-size:11px;font-family:NotoSansCJKkr-Regular,Noto Sans CJK KR"><tspan x="0" y="0">?</tspan></text>
+</svg>

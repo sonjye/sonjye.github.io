@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 상품분석 > 판매예측분석 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li class="on"><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>상품분석</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="coverage"></i><span>추천 커버리지 현황</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="salesForecst"></i><span>판매예측 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="categoryAnalysis"></i><span>카테고리 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="prodAnalysis"></i><span>상품 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="recommendProdList"></i><span>추천 상품 리스트</span></a>
+                    <ul>
+                        <li><a href="javascript:void(0);">대체재 추천</a></li>
+                        <li><a href="javascript:void(0);">키워드 기반 추천</a></li>
+                        <li><a href="javascript:void(0);">보완재 추천</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="recommendEngine"></i><span>추천엔진</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <!-- 위의 부분까진 개발에서 공통으로 사용하고 있음 -->
+            <div class="tune_salesForecast">
+                <div class="title">
+                    <p>판매예측분석</p>
+                    <p>인기 상품에 대한 예측은 최근 일주일의 데이터를 점수화 하여 예측 합니다.</p>
+                    <p>Last updated 2023-05-24 02:00</p>
+                </div>
+                <div class="content">
+                    <section class="sec_numberProduct">
+                        <div>
+                            <p><span>에버블루</span>님의 전체상품 <span>1,120개</span>중 최근 데이터를 점수화하여 오늘 인기 상품을 예측합니다.</p>
+                        </div>
+                    </section>
+                    <section class="sec_list">
+                        <div class="date">
+                            <button type="button" class="prev">이전</button>
+                            <p>Today ~ 2023년 5월 24일(수)</p>
+                            <!-- <p>조회기간 4월 24일(수) ~ 2023년 5월 24일 (수)</p> -->
+                            <button type="button" class="next">다음</button>
+                        </div>
+                        <!--loading에  disNone 은 퍼블 확인을 위해 추가하였음-->
+                        <div class="loading disNone">
+                            <p>데이터가 충분하지 않아 판매 예측 분석을 확인할 수 없습니다.</p>
+                            <p>판매 예측 분석은 최근 일주일의 데이터를 기반으로 데이터를 취합하고<br> 가공하여 제공하므로 데이터가 <span>수집되지 않은 날</span>이 있는
+                                경우,<br> 판매 예측에 영향을 주어 확인이 어려울 수 있습니다. </p>
+                            <p>*수집되지 않은 케이스 : CDP 권한동의 해제</p>
+                        </div>
+                        <div class="tabButton">
+                            <ul>
+                                <li class="on"><a href="javascript:void(0);">전환 기준의 예측<span class="iBox"><i
+                                                class="iMark"></i><i class="iMarkHover">말풍선입니다. </i></span></a></li>
+                                <li><a href="javascript:void(0);">클릭 기준의 예측<span class="iBox"><i class="iMark"></i><i
+                                                class="iMarkHover">말풍선입니다. </i></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="tab">
+                            <ul>
+                                <li class="on"><a href="javascript:void(0);">Today 예측</a></li>
+                                <li><a href="javascript:void(0);">누적 30일 순위</a></li>
+                                <li><a href="javascript:void(0);">TEST</a></li>
+                                <li><a href="javascript:void(0);">TEST</a></li>
+                            </ul>
+                        </div>
+                        <div class="tabView">
+                            <!--  today 예측 -->
+                            <div class="tabViewList show">
+                                <div class="labelBox">
+                                    <p>상품 01</p>
+                                    <p>상품 02</p>
+                                    <p>상품 03</p>
+                                    <p>상품 04</p>
+                                    <p>상품 05</p>
+                                    <p>상품 06</p>
+                                    <p>상품 07</p>
+                                    <p>상품 08</p>
+                                    <p>상품 09</p>
+                                    <p>상품 10</p>
+                                </div>
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>종합랭킹<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                    <th>예측 TOP 100<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                    <th>광고주 카테고리<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                    <th>표준 카테고리<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                    <th>예측 점수<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                    <th>판매 예측 순위<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span>
+                                                        <p>(실제 순위)</p>
+                                                    </th>
+                                                    <th>판매예측지수<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다. </i></span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p>1</p>
+                                                        <p class="up">2</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <!--// pc 클래스 사용시 포인트 해당 테마의 포인트 컬러 추가 -->
+                                                            <p class="up">[블랙라벨]블로스핸드코핸드 한정수량</p>
+                                                            <p class="pc">상품 가격 : 8,9000원</p>
+                                                            <p>누적 30일 전환 데이터 </p>
+                                                            <p>134 건 / 11,926,000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td>
+                                                        <p>1위</p>
+                                                        <p class="up">1위 상승</p>
+                                                        <p>(1위)</p>
+                                                        <p>클릭 : 7,234건</p>
+                                                        <p>전환: 234건</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="graphBox">
+                                                            <div class="graph"
+                                                                style="width: 100%; height: 150px;border:1px solid #fff">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>2</p>
+                                                        <p class="down">2</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 </p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                            <p>누적 30일 전환 데이터 </p>
+                                                            <p>134 건 / 11,926,000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td>
+                                                        <p>1위</p>
+                                                        <p class="down">1위 하락</p>
+                                                        <p>(1위)</p>
+                                                        <p>클릭 : 7,234건</p>
+                                                        <p>전환: 234건</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="graphBox">
+                                                            <div class="graph"
+                                                                style="width: 100%; min-width: 380px; height: 150px;border:1px solid #fff">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>3</p>
+                                                        <p class="default">2</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 </p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                            <p>누적 30일 전환 데이터 </p>
+                                                            <p>134 건 / 11,926,000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td>
+                                                        <p>1위</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="graphBox">
+                                                            <div class="graph"
+                                                                style="width: 100%; min-width: 380px; height: 150px;border:1px solid #fff">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>4</p>
+                                                        <p class="up">2</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 </p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                            <p>누적 30일 전환 데이터 </p>
+                                                            <p>134 건 / 11,926,000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td>
+                                                        <p>1위</p>
+                                                        <p class="default">예측일치</p>
+                                                        <p>(1위)</p>
+                                                        <p>클릭 : 7,234건</p>
+                                                        <p>전환: 234건</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="graphBox">
+                                                            <div class="graph"
+                                                                style="width: 100%; min-width: 380px; height: 150px;border:1px solid #fff">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>5</p>
+                                                        <p class="up">2</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 한정수량 </p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                            <p>누적 30일 전환 데이터 </p>
+                                                            <p>134 건 / 11,926,000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td>
+                                                        <p>1위</p>
+                                                        <p class="default">예측일치</p>
+                                                        <p>(1위)</p>
+                                                        <p>클릭 : 7,234건</p>
+                                                        <p>전환: 234건</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="graphBox">
+                                                            <div class="graph"
+                                                                style="width: 100%; min-width: 380px; height: 150px;border:1px solid #fff">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--//table end-->
+                                    </div>
+                                    <!--//tableBox end-->
+                                </div>
+                                <!--// tableArea end-->
+                            </div>
+                            <!--// tabViewList -1 end -->
+                            <!--  누적 30일 순위 -->
+                            <div class="tabViewList">
+                                <div class="labelBox">
+                                    <p>상품 01</p>
+                                    <p>상품 02</p>
+                                    <p>상품 03</p>
+                                    <p>상품 04</p>
+                                    <p>상품 05</p>
+                                    <p>상품 06</p>
+                                    <p>상품 07</p>
+                                    <p>상품 08</p>
+                                    <p>상품 09</p>
+                                    <p>상품 10</p>
+                                </div>
+                                <div class="graphBox">
+                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                    <div class="graph" style="height: 500px; border:1px solid #fff">그래프 </div>
+                                </div>
+                                <div class="tableHeader">
+                                    <div class="titBox">
+                                        <p>누적 30일 순위</p>
+                                    </div>
+                                </div>
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>랭킹</th>
+                                                    <th>TOP 100</th>
+                                                    <th>광고주 카테고리</th>
+                                                    <th>표준 카테고리</th>
+                                                    <th class="sorting_asc">PV</th>
+                                                    <th class="sorting_desc">사용자 </th>
+                                                    <th class="sorting">전환(건)</th>
+                                                    <th class="sort">전환(매출)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p>1</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량</p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td> 123,434 </td>
+                                                    <td> 124 </td>
+                                                    <td> 123,456,789</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>1</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량</p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td> 123,434 </td>
+                                                    <td> 124 </td>
+                                                    <td> 123,456,789</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>1</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량</p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td> 123,434 </td>
+                                                    <td> 124 </td>
+                                                    <td> 123,456,789</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>4</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/test_1.png" alt="">
+                                                        <div>
+                                                            <p>[블랙라벨]블로스핸드코핸드 한정수량</p>
+                                                            <p>상품 가격 : 8,9000원</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>90% 땡처리</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>패션의류</p>
+                                                        <p>여성의류</p>
+                                                        <p>코트</p>
+                                                    </td>
+                                                    <td> 98 </td>
+                                                    <td> 123,434 </td>
+                                                    <td> 124 </td>
+                                                    <td> 123,456,789</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--//table end-->
+                                    </div>
+                                    <!--//tableBox end-->
+                                </div>
+                                <!--// tableArea end-->
+                                <div class="dataNone">
+                                    <p>제공 되는 데이터가 없습니다.</p>
+                                </div>
+                            </div>
+                            <!--// tabViewList -2 end -->
+                            <!-- 하단 탭뷰리스트는 테스트로 넣어둔 것입니다.-->
+                            <div class="tabViewList">
+                                <div class="dataNone">
+                                    <p>제공 되는 데이터가 없습니다.</p>
+                                </div>
+                            </div>
+                            <!--// tabViewList -3 end -->
+                            <!-- 하단 탭뷰리스트는 테스트로 넣어둔 것입니다.-->
+                            <div class="tabViewList">
+                                <div class="dataNone">
+                                    <p>제공 되는 데이터가 없습니다.</p>
+                                </div>
+                            </div>
+                            <!--// tabViewList -4 end -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <footer class="footer">
+                <h2 class="hide">하단 회사 정보 영역</h2>
+                <p>
+                    <span>(주)인라이플</span><span>사업자번호: 113-86-60934</span>
+                    <span>사업자: 한경훈,이근옥</span>
+                    <span>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2003</span><span>FAX .02-865-6845</span>
+                    <span>E-mail : mobon@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ 모비온 All rights reserved.</p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,2627 @@
+@charset 'utf-8';
+
+/*
+File   : image.scss
+Date   : 2025.10.23
+*/
+
+@mixin image($folder, $name, $path: "../image_v3/", $format: "svg", $bgXY:center, $w:null, $h: null, $bgw:null, $bgh:null, $bgs:null) {
+  background: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  // background: url("../image/logo/logo_u.svg") center center no-repeat;
+  width: $w;
+  height: $h;
+  background-size: $bgw $bgh;
+  background-size: $bgs;
+}
+
+@mixin imageMask($path:"../image_v3/", $folder:null, $name:null, $format:"svg", $bgXY:center, $w:null, $h: null, $bg:null, $color:null, $bgw:null, $bgh:null, $bgs:null) {
+  mask: url("#{$path}#{$folder}#{$name}.#{$format}") no-repeat $bgXY;
+  width: $w;
+  height: $h;
+  // background: $color;
+  background: $bg;
+  background-size: $bgw $bgh;
+  background-size: $bgs;
+  background-color: $color;
+}
+
+// 사이즈 및 background-size 조절 전용
+@mixin imgSize($w:null, $h:null, $bgw:null, $bgh:null, $bgs:null) {
+  @if $w !=null {
+    width: $w;
+  }
+
+  @if $h !=null {
+    height: $h;
+  }
+
+  @if $bgw !=null and $bgh !=null {
+    background-size: $bgw $bgh;
+  }
+
+  @else if $bgs !=null {
+    background-size: $bgs;
+  }
+}
+
+// 마스크 사이즈 전용
+@mixin maskSize($w:null, $h:null, $mw:null, $mh:null, $ms:null) {
+  @if $w !=null {
+    width: $w;
+  }
+
+  @if $h !=null {
+    height: $h;
+  }
+
+  @if $mw !=null and $mh !=null {
+    mask-size: $mw $mh;
+    -webkit-mask-size: $mw $mh;
+  }
+
+  @else if $ms !=null {
+    mask-size: $ms;
+    -webkit-mask-size: $ms;
+  }
+}
+
+
+// @mixin image2($path:"../image_v3/", $folder, $name, $format:"svg", $w:null, $h: null, $x:center, $y: center, $c:null) {
+//   background-image:url("#{$path}#{$folder}#{$name}.#{$format}");
+//   background-repeat: no-repeat;
+//   background-size: $w $h;
+//   background-position: $x $y;
+//   background-color: $c;
+// }
+
+// @include imageMask($folder:'component', $name: '/ico_scriptSDK', $color:var(--ico_navColor_off));
+
+
+//* 테마 이미지 변경 부분 */
+.typeB {
+  //* logo */
+  --logo_tune: url(../image_v3/logo/logoB_tune720.svg) no-repeat center;
+  // etc
+  --logo_isend: url(../image_v3/logo/logo_isend_wht.svg) no-repeat center;
+  --logo_mobon: url(../image_v3/logo/logo_mobon_wht.svg) no-repeat center;
+  --logo_mobwith: url(../image_v3/logo/logo_mobwith_wht.svg) no-repeat center;
+  --logo_items: url(../image_v3/logo/logo_items_wht.svg) no-repeat center;
+  --logo_mobi: url(../image_v3/logo/logo_mobi_wht.svg) no-repeat center;
+  --logo_kakaoPM: url(../image_v3/logo/logo_kakaoPersonalMessage_wht.png) no-repeat center;
+  --logo_makeTApp: url(../image_v3/logo/logo_makeTApp_wht.png) no-repeat center;
+  --logo_ADHub: url(../image_v3/logo/logo_ADHub_wht.png) no-repeat center;
+  --logo_criteo2: url(../image_v3/logo/logo_criteo_wht.png) no-repeat center;
+  --logo_googleAds: url(../image_v3/logo/logo_googleAds_wht.png) no-repeat center;
+  //* header */
+  --header_ai: url(../image_v3/menu/icoB_ai.svg) no-repeat center;
+  //* menu */
+  --nav_reportPlus_on: url(../image_v3/menu/icoB_reportPlus_on.svg) no-repeat center;
+  --nav_reportPlus_off: url(../image_v3/menu/icoB_reportPlus_off.svg) no-repeat center;
+  //* widget */
+  --ico_widget: url(../image_v3/component/icoB_widget.svg) no-repeat center;
+  --ico_widgetAdd2: url(../image_v3/component/icoB_widgetAdd2.svg) no-repeat center;
+  //* input */
+  // checkbox
+  --ico_checkbox_on: url(../image_v3/component/icoB_checkbox_on.svg) no-repeat center;
+  --ico_checkbox_off: url(../image_v3/component/icoB_checkbox_off.svg) no-repeat center;
+  --ico_checkbox_disabled: url(../image_v3/component/icoB_checkbox_disabled.svg) no-repeat center;
+  // radio
+  --ico_radio_on: url(../image_v3/component/icoB_radio_on.svg) no-repeat center;
+  --ico_radio_off: url(../image_v3/component/icoB_radio_off.svg) no-repeat center;
+  --ico_radio_disabled: url(../image_v3/component/icoB_radio_disabled.svg) no-repeat center;
+  // calendar
+  --ico_calendar: url(../image_v3/component/icoB_calendar.svg);
+  --ico_calendar_disabled: url(../image_v3/component/icoB_calendar_disabled.svg);
+  // select
+  --ico_select: url(../image_v3/component/icoB_select.svg) no-repeat center;
+  // search
+  --ico_searchBox: url(../image_v3/component/icoB_searchBox.svg) no-repeat center;
+
+  //* etc */
+  --ico_paperAirplain: url(../image_v3/component/ico_paperAirplain.svg) no-repeat center;
+  --ico_send_on: url(../image_v3/component/icoB_send_on.png) no-repeat center;
+  --ico_send_off: url(../image_v3/component/icoB_send_off.png) no-repeat center;
+  --ico_noty_on: url(../image_v3/component/icoB_noty_on.svg) no-repeat center;
+  --ico_noty_off: url(../image_v3/component/icoB_noty_off.png) no-repeat center;
+  // i
+  --ico_i: url(../image_v3/component/ico_i_wht.svg) no-repeat center;
+  --ico_i_wht: url(../image_v3/component/ico_i_wht.svg) no-repeat center; // B: wht, C: wht
+  --ico_sign: url(../image_v3/component/icoB_sign.svg) no-repeat center;
+  // check 
+  --ico_check: url(../image_v3/component/icoB_check.svg) no-repeat center;
+
+
+  // error 
+  --ico_siteNotFound: url(../image_v3/component/icoB_siteNotFound.svg) no-repeat center;
+
+  //* menu : 광고효과분석 */
+  --ico_inflow: url(../image_v3/component/icoB_inflow.svg) no-repeat center;
+  --ico_inflowMoney: url(../image_v3/component/icoB_inflowMoney.svg) no-repeat center;
+
+  //* menu : CDP */
+  // 캠페인 리스트 
+  --ico_arrowRightS: url(../image_v3/component/icoB_arrowRightS.svg) no-repeat center;
+  --ico_arrowRightS_t2: url(../image_v3/component/ico_arrowRightS_wht.svg) no-repeat center;
+  --ico_star_on: url(../image_v3/component/icoB_star_on.svg) no-repeat center;
+  --ico_star_off: url(../image_v3/component/icoB_star_off.svg) no-repeat center;
+  //B: POINT, 화이트테두리(OFF), C: POINT,
+  --ico_star2_on: url(../image_v3/component/icoB_star2_on.svg) no-repeat center;
+  --ico_star2_off: url(../image_v3/component/icoB_star2_off.svg) no-repeat center;
+  // B: WHITE, C: POINT
+  --ico_star3: url(../image_v3/component/icoB_star3.svg) no-repeat center;
+  // 캠페인 생성
+  --ico_arrowRight: url(../image_v3/component/icoB_arrowRight.svg) no-repeat center;
+  // 고객가치분석
+  --ico_purchaseRate_on: url(../image_v3/component/icoB_purchaseRate.svg) no-repeat center;
+  --ico_purchaseRate_off: url(../image_v3/component/icoB_purchaseRate.svg) no-repeat center;
+  --ico_leaveRate_on: url(../image_v3/component/icoB_leaveRate.svg) no-repeat center;
+  --ico_leaveRate_off: url(../image_v3/component/icoB_leaveRate.svg) no-repeat center;
+  --ico_visitCount_on: url(../image_v3/component/icoB_visitCount.svg) no-repeat center;
+  --ico_visitCount_off: url(../image_v3/component/icoB_visitCount.svg) no-repeat center;
+  --ico_basketSearch_on: url(../image_v3/component/icoB_basketSearch.svg) no-repeat center;
+  --ico_basketSearch_off: url(../image_v3/component/icoB_basketSearch.svg) no-repeat center;
+  --ico_basketPlus_on: url(../image_v3/component/icoB_basketPlus.svg) no-repeat center;
+  --ico_basketPlus_off: url(../image_v3/component/icoB_basketPlus.svg) no-repeat center;
+  --ico_customerPrice_on: url(../image_v3/component/icoB_customerPrice.svg) no-repeat center;
+  --ico_customerPrice_off: url(../image_v3/component/icoB_customerPrice.svg) no-repeat center;
+  --ico_monthPurchase_on: url(../image_v3/component/icoB_monthPurchase.svg) no-repeat center;
+  --ico_monthPurchase_off: url(../image_v3/component/icoB_monthPurchase.svg) no-repeat center;
+  --ico_basketCheck_on: url(../image_v3/component/icoB_basketCheck.svg) no-repeat center;
+  --ico_basketCheck_off: url(../image_v3/component/icoB_basketCheck.svg) no-repeat center;
+  --ico_monthCheck_on: url(../image_v3/component/icoB_monthCheck.svg) no-repeat center;
+  --ico_monthCheck_off: url(../image_v3/component/icoB_monthCheck.svg) no-repeat center;
+  // RFM 분석
+  --ico_visitNumber: url(../image_v3/component/icoB_visitNumber.svg) no-repeat center;
+  --ico_prodInquiry: url(../image_v3/component/icoB_prodInquiry.svg) no-repeat center;
+  --ico_basketNumber: url(../image_v3/component/icoB_basketNumber.svg) no-repeat center;
+  --ico_buyFrequency: url(../image_v3/component/icoB_buyFrequency.svg) no-repeat center;
+  --ico_unitPrice: url(../image_v3/component/icoB_unitPrice.svg) no-repeat center;
+
+  //* menu : 데이터매니저 */
+  // 데이터 매니저 시작하기
+  --ico_dataMonitor: url(../image_v3/etc/icoB_dataMonitor.svg) no-repeat center;
+  // 데이터 수집관리 
+  --ico_provide: url(../image_v3/component/icoB_provide.svg) no-repeat center;
+  // modal 
+  --ico_data: url(../image_v3/etc/icoB_data.svg) no-repeat center;
+  --ico_monitor: url(../image_v3/etc/icoB_monitor.svg) no-repeat center;
+  --ico_calendarChart: url(../image_v3/etc/icoB_calendarChart.svg) no-repeat center;
+  --ico_dataCalendar: url(../image_v3/etc/icoB_dataCalendar.svg) no-repeat center;
+  --ico_calendarMonth: url(../image_v3/etc/icoB_calendarMonth.svg) no-repeat center;
+  --ico_calendarDay: url(../image_v3/etc/icoB_calendarDay.svg) no-repeat center;
+
+  //* menu : 트래킹 */
+  --ico_prepare: url(../image_v3/etc/icoB_prepare.svg) no-repeat center;
+
+  //* menu : 원태그 */
+  --ico_write_off: url(../image_v3/component/icoB_write_off.svg) no-repeat center;
+  --ico_analysis: url(../image_v3/component/icoB_analysis.svg) no-repeat center;
+  --ico_script: url(../image_v3/component/icoB_script.svg) no-repeat center;
+  //* menu : 마이데이터 */
+  --img_myReport: url(../image_v3/etc/img_myReportB.png) no-repeat center;
+  // --ico_refresh4: url(../image_v3/component/icoB_refresh4.svg) no-repeat center;
+  //* menu : AI 스튜디오 */
+  --ico_ai: url(../image_v3/component/icoB_ai.svg) no-repeat center;
+  --ico_mail: url(../image_v3/component/icoB_mail.svg) no-repeat center;
+  --ico_check5: url(../image_v3/component/icoB_check5.svg) no-repeat center;
+
+  //* modal */
+
+}
+
+.typeC {
+  //* logo */
+  --logo_tune: url(../image_v3/logo/logo_tune720.svg) no-repeat center;
+  // etc
+  --logo_isend: url(../image_v3/logo/logo_isend.svg) no-repeat center;
+  --logo_mobon: url(../image_v3/logo/logo_mobon.svg) no-repeat center;
+  --logo_mobwith: url(../image_v3/logo/logo_mobwith.svg) no-repeat center;
+  --logo_items: url(../image_v3/logo/logo_items.svg) no-repeat center;
+  --logo_mobi: url(../image_v3/logo/logo_mobi.svg) no-repeat center;
+  --logo_kakaoPM: url(../image_v3/logo/logo_kakaoPersonalMessage.png) no-repeat center;
+  --logo_makeTApp: url(../image_v3/logo/logo_makeTApp.png) no-repeat center;
+  --logo_ADHub: url(../image_v3/logo/logo_ADHub.png) no-repeat center;
+  --logo_criteo2: url(../image_v3/logo/logo_criteo.png) no-repeat center;
+  --logo_googleAds: url(../image_v3/logo/logo_googleAds.png) no-repeat center;
+  //* header */
+  --header_ai: url(../image_v3/menu/ico_ai.svg) no-repeat center;
+  //* menu */
+  --nav_reportPlus_on: url(../image_v3/menu/ico_reportPlus_on.svg) no-repeat center;
+  --nav_reportPlus_off: url(../image_v3/menu/ico_reportPlus_off.svg) no-repeat center;
+  //* widget */
+  --ico_widget: url(../image_v3/component/ico_widget.svg) no-repeat center;
+  --ico_widgetAdd2: url(../image_v3/component/ico_widgetAdd2.svg) no-repeat center;
+  //* input */
+  // checkbox
+  --ico_checkbox_on: url(../image_v3/component/ico_checkbox_on.svg) no-repeat center;
+  --ico_checkbox_off: url(../image_v3/component/ico_checkbox_off.svg) no-repeat center;
+  --ico_checkbox_disabled: url(../image_v3/component/ico_checkbox_disabled.svg) no-repeat center;
+  // radio
+  --ico_radio_on: url(../image_v3/component/ico_radio_on.svg) no-repeat center;
+  --ico_radio_off: url(../image_v3/component/ico_radio_off.svg) no-repeat center;
+  --ico_radio_disabled: url(../image_v3/component/ico_radio_disabled.svg) no-repeat center;
+  // calendar
+  --ico_calendar: url(../image_v3/component/ico_calendar.svg);
+  --ico_calendar_disabled: url(../image_v3/component/ico_calendar_disabled.svg);
+  // select
+  --ico_select: url(../image_v3/component/ico_select.svg) no-repeat center;
+  // search
+  --ico_searchBox: url(../image_v3/component/ico_searchBox.svg) no-repeat center;
+
+  //* etc */
+  --ico_paperAirplain: url(../image_v3/component/ico_paperAirplain_blue.svg) no-repeat center;
+  --ico_send_on: url(../image_v3/component/ico_send_on.svg) no-repeat center;
+  --ico_send_off: url(../image_v3/component/ico_send_off.svg) no-repeat center;
+  --ico_noty_on: url(../image_v3/component/ico_noty_on.svg) no-repeat center;
+  --ico_noty_off: url(../image_v3/component/ico_noty_off.svg) no-repeat center;
+  // i
+  --ico_i: url(../image_v3/component/ico_i.svg) no-repeat center; // B: wht, C: point
+  --ico_i_wht: url(../image_v3/component/ico_i_wht.svg) no-repeat center; // B: wht, C: wht
+  --ico_sign: url(../image_v3/component/ico_sign.svg) no-repeat center;
+  // check 
+  --ico_check: url(../image_v3/component/ico_check.svg) no-repeat center;
+
+
+  // error 
+  --ico_siteNotFound: url(../image_v3/component/ico_siteNotFound.svg) no-repeat center;
+
+  //* menu : 광고효과분석 */
+  --ico_inflow: url(../image_v3/component/ico_inflow.svg) no-repeat center;
+  --ico_inflowMoney: url(../image_v3/component/ico_inflowMoney.svg) no-repeat center;
+
+  //* menu : CDP */
+  // 캠페인 리스트 
+  --ico_arrowRightS: url(../image_v3/component/ico_arrowRightS.svg) no-repeat center;
+  --ico_arrowRightS_t2: url(../image_v3/component/ico_arrowRightS_gry.svg) no-repeat center;
+  --ico_star_on: url(../image_v3/component/ico_star_on.svg) no-repeat center;
+  --ico_star_off: url(../image_v3/component/ico_star_off.svg) no-repeat center;
+  //B: POINT, 화이트테두리(OFF), C: POINT,
+  --ico_star2_on: url(../image_v3/component/ico_star2_on.svg) no-repeat center;
+  --ico_star2_off: url(../image_v3/component/ico_star2_off.svg) no-repeat center;
+  // B: WHITE, C: POINT
+  --ico_star3: url(../image_v3/component/ico_star3.svg) no-repeat center;
+  // 캠페인 생성
+  --ico_arrowRight: url(../image_v3/component/ico_arrowRight.svg) no-repeat center;
+  // 고객가치분석
+  --ico_purchaseRate_on: url(../image_v3/component/ico_purchaseRate_on.svg) no-repeat center;
+  --ico_purchaseRate_off: url(../image_v3/component/ico_purchaseRate_off.svg) no-repeat center;
+  --ico_leaveRate_on: url(../image_v3/component/ico_leaveRate_on.svg) no-repeat center;
+  --ico_leaveRate_off: url(../image_v3/component/ico_leaveRate_off.svg) no-repeat center;
+  --ico_visitCount_on: url(../image_v3/component/ico_visitCount_on.svg) no-repeat center;
+  --ico_visitCount_off: url(../image_v3/component/ico_visitCount_off.svg) no-repeat center;
+  --ico_basketSearch_on: url(../image_v3/component/ico_basketSearch_on.svg) no-repeat center;
+  --ico_basketSearch_off: url(../image_v3/component/ico_basketSearch_off.svg) no-repeat center;
+  --ico_basketPlus_on: url(../image_v3/component/ico_basketPlus_on.svg) no-repeat center;
+  --ico_basketPlus_off: url(../image_v3/component/ico_basketPlus_off.svg) no-repeat center;
+  --ico_customerPrice_on: url(../image_v3/component/ico_customerPrice_on.svg) no-repeat center;
+  --ico_customerPrice_off: url(../image_v3/component/ico_customerPrice_off.svg) no-repeat center;
+  --ico_monthPurchase_on: url(../image_v3/component/ico_monthPurchase_on.svg) no-repeat center;
+  --ico_monthPurchase_off: url(../image_v3/component/ico_monthPurchase_off.svg) no-repeat center;
+  --ico_basketCheck_on: url(../image_v3/component/ico_basketCheck_on.svg) no-repeat center;
+  --ico_basketCheck_off: url(../image_v3/component/ico_basketCheck_off.svg) no-repeat center;
+  --ico_monthCheck_on: url(../image_v3/component/ico_monthCheck_on.svg) no-repeat center;
+  --ico_monthCheck_off: url(../image_v3/component/ico_monthCheck_off.svg) no-repeat center;
+  // RFM 분석
+  --ico_visitNumber: url(../image_v3/component/ico_visitNumber.svg) no-repeat center;
+  --ico_prodInquiry: url(../image_v3/component/ico_prodInquiry.svg) no-repeat center;
+  --ico_basketNumber: url(../image_v3/component/ico_basketNumber.svg) no-repeat center;
+  --ico_buyFrequency: url(../image_v3/component/ico_buyFrequency.svg) no-repeat center;
+  --ico_unitPrice: url(../image_v3/component/ico_unitPrice.svg) no-repeat center;
+
+  //* menu : 데이터매니저 */
+  // 데이터 매니저 시작하기
+  --ico_dataMonitor: url(../image_v3/etc/ico_dataMonitor.svg) no-repeat center;
+  // 데이터 수집관리 
+  --ico_provide: url(../image_v3/component/ico_provide.svg) no-repeat center;
+  // modal 
+  --ico_data: url(../image_v3/etc/ico_data.svg) no-repeat center;
+  --ico_monitor: url(../image_v3/etc/ico_monitor.svg) no-repeat center;
+  --ico_calendarChart: url(../image_v3/etc/ico_calendarChart.svg) no-repeat center;
+  --ico_dataCalendar: url(../image_v3/etc/ico_dataCalendar.svg) no-repeat center;
+  --ico_calendarMonth: url(../image_v3/etc/ico_calendarMonth.svg) no-repeat center;
+  --ico_calendarDay: url(../image_v3/etc/ico_calendarDay.svg) no-repeat center;
+
+  //* menu : 트래킹 */
+  --ico_prepare: url(../image_v3/etc/ico_prepare.svg) no-repeat center;
+
+  //* menu : 원태그 */
+  --ico_write_off: url(../image_v3/component/ico_write_off.svg) no-repeat center;
+  --ico_analysis: url(../image_v3/component/ico_analysis.svg) no-repeat center;
+  --ico_script: url(../image_v3/component/ico_script.svg) no-repeat center;
+
+  //* menu : 마이데이터 */
+  --img_myReport: url(../image_v3/etc/img_myReportC.png) no-repeat center;
+  // --ico_refresh4: url(../image_v3/component/ico_refresh4.svg) no-repeat center;
+
+
+  //* menu : AI 스튜디오 */
+  --ico_ai: url(../image_v3/component/ico_ai.svg) no-repeat center;
+  --ico_mail: url(../image_v3/component/ico_mail.svg) no-repeat center;
+  --ico_check5: url(../image_v3/component/ico_check5.svg) no-repeat center;
+
+  //* modal */
+
+}
+
+// @mixin nav_engine_off {
+//   background: var(--ico_nav_engine_off);
+// }
+
+//* logo */
+@mixin logo_tune {
+  background: var(--logo_tune);
+}
+
+@mixin logo_mobtune_bk {
+  @include image($folder:'logo', $name: '/logo_mobtune_bk', $format: "png");
+}
+
+@mixin logo_mobtune_wht {
+  @include image($folder:'logo', $name: '/logo_mobtune_wht', $format: "png");
+}
+
+@mixin logo_mobtune_wg {
+  @include image($folder:'logo', $name: '/logo_mobtune_wg', $format: "png");
+}
+
+@mixin logo_tuny {
+  @include imageMask($folder:'logo', $name: '/logo_tuny', $color: var(--ico_color));
+}
+
+
+// @mixin logo_tune {
+//   @include image($folder:'logo', $name: '/logo_tune720', $format: "png");
+// }
+
+
+//* etc */
+@mixin logo_isend {
+  background: var(--logo_isend);
+}
+
+@mixin logo_mobon {
+  // @include image($folder:'logo', $name: '/logo_mobon');
+  background: var(--logo_mobon);
+}
+
+@mixin logo_mobwith {
+  background: var(--logo_mobwith);
+}
+
+@mixin logo_items {
+  background: var(--logo_items);
+}
+
+@mixin logo_ADHub {
+  background: var(--logo_ADHub);
+}
+
+@mixin logo_criteo {
+  @include image($folder:'logo', $name: '/logo_criteo');
+}
+
+@mixin logo_mobi {
+  background: var(--logo_mobi);
+}
+
+@mixin logo_kakaoPM {
+  background: var(--logo_kakaoPM);
+}
+
+@mixin logo_makeTApp {
+  background: var(--logo_makeTApp);
+}
+
+@mixin logo_kakao {
+  @include image($folder:'logo', $name: '/logo_kakao', $format:'png');
+  width: 50px;
+  height: 15px;
+}
+
+@mixin logo_facebook {
+  @include imageMask($folder:'logo', $name: '/logo_facebook', $format:'png', $color:var(--ico_color2));
+  width: 70px;
+  height: 15px;
+}
+
+@mixin logo_naver {
+  @include image($folder:'logo', $name: '/logo_naver', $format:'png');
+  width: 62px;
+  height: 15px;
+}
+
+@mixin logo_moloco {
+  @include imageMask($folder:'logo', $name: '/logo_moloco', $format:'png', $color:var(--ico_color2));
+  width: 58px;
+  height: 15px;
+}
+
+@mixin logo_criteo2 {
+  background: var(--logo_criteo2);
+  width: 55px;
+  height: 15px;
+}
+
+@mixin logo_searchAds {
+  @include imageMask($folder:'logo', $name: '/logo_searchAds', $format:'png', $color:var(--ico_color2));
+  width: 75px;
+  height: 15px;
+}
+
+@mixin logo_googleAds {
+  background: var(--logo_googleAds);
+  width: 76px;
+  height: 15px;
+}
+
+@mixin logo_applovin {
+  @include imageMask($folder:'logo', $name: '/logo_applovin', $format:'png', $color:var(--ico_color2));
+  width: 82px;
+  height: 15px;
+}
+
+@mixin logo_kakaomoment {
+  @include imageMask($folder:'logo', $name: '/logo_kakaomoment', $format:'png', $color:var(--ico_color2));
+  width: 94px;
+  height: 13px;
+}
+
+
+
+// //* header */
+@mixin ico_userInfo {
+  @include imageMask($folder:'component', $name: '/ico_userInfo', $bgXY:right, $color:var(--ico_userInfo));
+}
+
+// dark & white toggle 
+@mixin ico_white {
+  @include image($folder:'component', $name: '/ico_white', $w:16px, $h:16px);
+  background-size: 100%;
+}
+
+@mixin ico_blue {
+  @include image($folder:'component', $name: '/ico_blue', $w:11px, $h:11px);
+  background-size: 100%;
+}
+
+//* loading */
+@mixin icoB_loadingCircle {
+  @include image($folder:'loading', $name: '/icoB_loadingCircle', $format:"gif");
+  background-size: 100px 100px;
+}
+
+@mixin icoB_loadingDot {
+  @include image($folder:'loading', $name: '/icoB_loadingDot', $format:"gif");
+  background-size: 44px 44px;
+}
+
+@mixin ico_loading {
+  @include image($folder:'loading', $name: '/ico_loading', $format:"gif");
+  background-size: 50px 50px;
+}
+
+
+//* widget */
+@mixin ico_widgetAdd {
+  @include imageMask($folder:'component', $name: '/ico_widgetAdd', $color:var(--ico_color11));
+}
+
+@mixin ico_widgetAdd2 {
+  background: var(--ico_widgetAdd2);
+  width: 60px;
+  height: 60px;
+}
+
+@mixin ico_map {
+  @include imageMask($folder:'component', $name: '/ico_map', $color:var(--ico_color));
+}
+
+
+//* menu  */
+//* 대시보드 */
+@mixin nav_dashboard_on {
+  @include imageMask($folder:'menu', $name: '/ico_dashboard', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_dashboard_off {
+  @include imageMask($folder:'menu', $name: '/ico_dashboard', $color:var(--ico_navColor_off));
+}
+
+//* 고객분석 */
+//* vip관리 */
+@mixin nav_vip_on {
+  @include imageMask($folder:'menu', $name: '/ico_vip', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_vip_off {
+  @include imageMask($folder:'menu', $name: '/ico_vip', $color:var(--ico_navColor_off));
+}
+
+//* 가망고객관리 */
+@mixin nav_prospectiveCustomer_on {
+  @include imageMask($folder:'menu', $name: '/ico_prospectiveCustomer', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_prospectiveCustomer_off {
+  @include imageMask($folder:'menu', $name: '/ico_prospectiveCustomer', $color:var(--ico_navColor_off));
+}
+
+//* 환불고객관리 */
+@mixin nav_refundCustomer_on {
+  @include imageMask($folder:'menu', $name: '/ico_refundCustomer', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_refundCustomer_off {
+  @include imageMask($folder:'menu', $name: '/ico_refundCustomer', $color:var(--ico_navColor_off));
+}
+
+//* 리스크고객관리 */
+@mixin nav_riskCustomer_on {
+  @include imageMask($folder:'menu', $name: '/ico_riskCustomer', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_riskCustomer_off {
+  @include imageMask($folder:'menu', $name: '/ico_riskCustomer', $color:var(--ico_navColor_off));
+}
+
+//* 재구매고객관리 */
+@mixin nav_repurchaseCustomer_on {
+  @include imageMask($folder:'menu', $name: '/ico_repurchaseCustomer', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_repurchaseCustomer_off {
+  @include imageMask($folder:'menu', $name: '/ico_repurchaseCustomer', $color:var(--ico_navColor_off));
+}
+
+//* 상품 분석 */
+//* 추천 커버리지 현황 */
+@mixin nav_coverage_on {
+  @include imageMask($folder:'menu', $name: '/ico_coverage', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_coverage_off {
+  @include imageMask($folder:'menu', $name: '/ico_coverage', $color:var(--ico_navColor_off));
+}
+
+//* 판매예측 분석 */
+@mixin nav_salesForecst_on {
+  @include imageMask($folder:'menu', $name: '/ico_salesForecst', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_salesForecst_off {
+  @include imageMask($folder:'menu', $name: '/ico_salesForecst', $color:var(--ico_navColor_off));
+}
+
+//* 카테고리 분석 */
+@mixin nav_category_on {
+  @include imageMask($folder:'menu', $name: '/ico_category', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_category_off {
+  @include imageMask($folder:'menu', $name: '/ico_category', $color:var(--ico_navColor_off));
+}
+
+//* 상품 분석 */
+@mixin nav_product_on {
+  @include imageMask($folder:'menu', $name: '/ico_product', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_product_off {
+  @include imageMask($folder:'menu', $name: '/ico_product', $color:var(--ico_navColor_off));
+}
+
+//* 추천 상품 리스트 */
+@mixin nav_productList_on {
+  @include imageMask($folder:'menu', $name: '/ico_productList', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_productList_off {
+  @include imageMask($folder:'menu', $name: '/ico_productList', $color:var(--ico_navColor_off));
+}
+
+//* 추천엔진 */
+@mixin nav_engine_on {
+  @include imageMask($folder:'menu', $name: '/ico_engine', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_engine_off {
+  @include imageMask($folder:'menu', $name: '/ico_engine', $color:var(--ico_navColor_off));
+}
+
+//* 유저정보 */
+@mixin nav_userInfo_on {
+  @include imageMask($folder:'menu', $name: '/ico_userInfo', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_userInfo_off {
+  @include imageMask($folder:'menu', $name: '/ico_userInfo', $color:var(--ico_navColor_off));
+}
+
+//* 핵심유저분석 */
+@mixin nav_coreUserAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_coreUserAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_coreUserAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_coreUserAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 캠페인리스트 */
+@mixin nav_campaignList_on {
+  @include imageMask($folder:'menu', $name: '/ico_campaignList', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_campaignList_off {
+  @include imageMask($folder:'menu', $name: '/ico_campaignList', $color:var(--ico_navColor_off));
+}
+
+//* 캠페인생성 */
+@mixin nav_campaignCreate_on {
+  @include imageMask($folder:'menu', $name: '/ico_campaignCreate', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_campaignCreate_off {
+  @include imageMask($folder:'menu', $name: '/ico_campaignCreate', $color:var(--ico_navColor_off));
+}
+
+//* 공지사항 */
+@mixin nav_notice_on {
+  @include imageMask($folder:'menu', $name: '/ico_notice', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_notice_off {
+  @include imageMask($folder:'menu', $name: '/ico_notice', $color:var(--ico_navColor_off));
+}
+
+//* 데이터 연동 관리 */
+@mixin nav_dataLink_on {
+  @include imageMask($folder:'menu', $name: '/ico_dataLink', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_dataLink_off {
+  @include imageMask($folder:'menu', $name: '/ico_dataLink', $color:var(--ico_navColor_off));
+}
+
+//* RFM 분석 */
+@mixin nav_rfmAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_rfmAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_rfmAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_rfmAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 고객가치분석 */
+@mixin nav_userValueAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_userValueAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_userValueAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_userValueAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 업황분석 */
+@mixin nav_businessAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_businessAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_businessAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_businessAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 고객외부활동 */
+@mixin nav_userActivity_on {
+  @include imageMask($folder:'menu', $name: '/ico_userActivity', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_userActivity_off {
+  @include imageMask($folder:'menu', $name: '/ico_userActivity', $color:var(--ico_navColor_off));
+}
+
+//* 구매고객 분석 */
+@mixin nav_customerAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_customerAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_customerAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_customerAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 리스크분석 */
+@mixin nav_riskAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_riskAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_riskAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_riskAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 환불고객분석 */
+@mixin nav_refundAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_refundAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_refundAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_refundAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 구매전환율 분석 */
+@mixin nav_userSearch_on {
+  @include imageMask($folder:'menu', $name: '/ico_userSearch', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_userSearch_off {
+  @include imageMask($folder:'menu', $name: '/ico_userSearch', $color:var(--ico_navColor_off));
+}
+
+//*  LAB */
+@mixin nav_rank_on {
+  @include imageMask($folder:'menu', $name: '/ico_rank', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_rank_off {
+  @include imageMask($folder:'menu', $name: '/ico_rank', $color:var(--ico_navColor_off));
+}
+
+//* 상품트렌드 */
+@mixin nav_productTrend_on {
+  @include imageMask($folder:'menu', $name: '/ico_productTrend', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_productTrend_off {
+  @include imageMask($folder:'menu', $name: '/ico_productTrend', $color:var(--ico_navColor_off));
+}
+
+//* 키워드분석 */
+@mixin nav_keywordAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_keywordAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_keywordAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_keywordAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 매체분석 */
+@mixin nav_mediaAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_mediaAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_mediaAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_mediaAnalysis', $color:var(--ico_navColor_off));
+}
+
+//* 여론분석 */
+@mixin nav_opinionAnalysis_on {
+  @include imageMask($folder:'menu', $name: '/ico_opinionAnalysis', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_opinionAnalysis_off {
+  @include imageMask($folder:'menu', $name: '/ico_opinionAnalysis', $color:var(--ico_navColor_off));
+}
+
+
+//* 키워드센터 */
+//* 키워드 통계 */
+@mixin nav_stats_on {
+  @include imageMask($folder:'menu', $name: '/ico_stats', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_stats_off {
+  @include imageMask($folder:'menu', $name: '/ico_stats', $color:var(--ico_navColor_off));
+}
+
+//* 키워드 제안 */
+@mixin nav_proposal_on {
+  @include imageMask($folder:'menu', $name: '/ico_proposal', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_proposal_off {
+  @include imageMask($folder:'menu', $name: '/ico_proposal', $color:var(--ico_navColor_off));
+}
+
+//* 키워드팩관리 */
+@mixin nav_manage_on {
+  @include imageMask($folder:'menu', $name: '/ico_manage', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_manage_off {
+  @include imageMask($folder:'menu', $name: '/ico_manage', $color:var(--ico_navColor_off));
+}
+
+//* 트래킹 */
+//* 트래커 보고서 */
+@mixin nav_report_on {
+  @include imageMask($folder:'menu', $name: '/ico_report', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_report_off {
+  @include imageMask($folder:'menu', $name: '/ico_report', $color:var(--ico_navColor_off));
+}
+
+//* 광고추적 URL 생성 */
+@mixin nav_createURL_on {
+  @include imageMask($folder:'menu', $name: '/ico_createURL', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_createURL_off {
+  @include imageMask($folder:'menu', $name: '/ico_createURL', $color:var(--ico_navColor_off));
+}
+
+//* 광고 추적 보고서 */
+@mixin nav_reportAD_on {
+  @include imageMask($folder:'menu', $name: '/ico_reportAD', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_reportAD_off {
+  @include imageMask($folder:'menu', $name: '/ico_reportAD', $color:var(--ico_navColor_off));
+}
+
+//* 데이터매니저 */
+@mixin nav_setting_on {
+  @include imageMask($folder:'menu', $name: '/ico_setting', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_setting_off {
+  @include imageMask($folder:'menu', $name: '/ico_setting', $color:var(--ico_navColor_off));
+}
+
+
+//* 데이터매니저 */
+//* 데이터매니저 관리 */
+@mixin nav_dataSet_on {
+  @include imageMask($folder:'menu', $name: '/ico_dataSet', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_dataSet_off {
+  @include imageMask($folder:'menu', $name: '/ico_dataSet', $color:var(--ico_navColor_off));
+}
+
+//* 데이터 수집 관리 */
+@mixin nav_folderPlus_on {
+  @include imageMask($folder:'menu', $name: '/ico_folderPlus', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_folderPlus_off {
+  @include imageMask($folder:'menu', $name: '/ico_folderPlus', $color:var(--ico_navColor_off));
+}
+
+//* 스크립트 SDK 관리 */
+@mixin nav_scriptSDK_on {
+  @include imageMask($folder:'menu', $name: '/ico_scriptSDK', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_scriptSDK_off {
+  @include imageMask($folder:'menu', $name: '/ico_scriptSDK', $color:var(--ico_navColor_off));
+}
+
+//* 트래킹 */
+@mixin nav_graph_on {
+  @include imageMask($folder:'menu', $name: '/ico_graph', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_graph_off {
+  @include imageMask($folder:'menu', $name: '/ico_graph', $color:var(--ico_navColor_off));
+}
+
+//* 개인정보 관리 */
+// @mixin navB_user_on {
+//   @include image($folder:'menu', $name: '/icoB_user_on');
+// }
+
+// @mixin nav_user_off {
+//   @include image($folder:'menu', $name: '/ico_user_off');
+// }
+
+@mixin nav_dataMonitor_on {
+  @include imageMask($folder:'menu', $name: '/ico_dataMonitor', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_dataMonitor_off {
+  @include imageMask($folder:'menu', $name: '/ico_dataMonitor', $color:var(--ico_navColor_off));
+}
+
+//* Fraud보고서 */
+@mixin nav_reportPlus_on {
+  // @include imageMask($folder:'menu', $name: '/ico_reportPlus', $color:var(--ico_navColor_on));
+  background: var(--nav_reportPlus_on);
+}
+
+@mixin nav_reportPlus_off {
+  background: var(--nav_reportPlus_off);
+}
+
+@mixin nav_chartDetail_on {
+  @include imageMask($folder:'menu', $name: '/ico_chartDetail', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_chartDetail_off {
+  @include imageMask($folder:'menu', $name: '/ico_chartDetail', $color:var(--ico_navColor_off));
+}
+
+@mixin nav_dataStats_on {
+  @include imageMask($folder:'menu', $name: '/ico_dataStats', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_dataStats_off {
+  @include imageMask($folder:'menu', $name: '/ico_dataStats', $color:var(--ico_navColor_off));
+}
+
+//* 원태그 */
+@mixin nav_site_on {
+  @include imageMask($folder:'menu', $name: '/ico_site', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_site_off {
+  @include imageMask($folder:'menu', $name: '/ico_site', $color:var(--ico_navColor_off));
+}
+
+//* AI 스튜디오 */
+@mixin nav_home_on {
+  @include imageMask($folder:'menu', $name: '/ico_home', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_home_off {
+  @include imageMask($folder:'menu', $name: '/ico_home', $color:var(--ico_navColor_off));
+}
+
+@mixin nav_message_on {
+  @include imageMask($folder:'menu', $name: '/ico_message', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_message_off {
+  @include imageMask($folder:'menu', $name: '/ico_message', $color:var(--ico_navColor_off));
+}
+
+@mixin nav_ai_on {
+  @include imageMask($folder:'menu', $name: '/ico_ai', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_ai_off {
+  @include imageMask($folder:'menu', $name: '/ico_ai', $color:var(--ico_navColor_off));
+}
+
+@mixin nav_storage_on {
+  @include imageMask($folder:'menu', $name: '/ico_storage', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_storage_off {
+  @include imageMask($folder:'menu', $name: '/ico_storage', $color:var(--ico_navColor_off));
+}
+
+// AI 스튜디오 > 리포트 라운지
+@mixin nav_reportLounge_on {
+  @include imageMask($folder:'menu', $name: '/ico_reportLounge', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_reportLounge_off {
+  @include imageMask($folder:'menu', $name: '/ico_reportLounge', $color:var(--ico_navColor_off));
+}
+
+// AI 스튜디오 > 통합연동센터
+@mixin nav_connectHub_on {
+  @include imageMask($folder:'menu', $name: '/ico_connectHub', $color:var(--ico_navColor_on));
+}
+
+@mixin nav_connectHub_off {
+  @include imageMask($folder:'menu', $name: '/ico_connectHub', $color:var(--ico_navColor_off));
+}
+
+//* AI 스튜디오 END */
+
+
+//* icon */
+//* common */
+@mixin ico_nav {
+  @include imageMask($folder:'component', $name: '/ico_nav', $color:var(--ico_color2));
+  width: 7px;
+  height: 11px;
+}
+
+@mixin ico_i {
+  background: var(--ico_i);
+  // ico_sign 참고 
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+}
+
+@mixin ico_i_wht {
+  background: var(--ico_i_wht);
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+}
+
+// B: black, C: white
+@mixin ico_i3 {
+  @include imageMask($folder:'component', $name: '/ico_i3', $bg:var(--ico_color11), $w:15px, $h:15px);
+}
+
+@mixin ico_qMark {
+  @include image($folder:'component', $name: '/ico_qMark');
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+}
+
+@mixin ico_q {
+  @include image($folder:'component', $name: '/ico_q', $w:27px, $h:37px);
+}
+
+
+//* paging */
+@mixin ico_pagingPrev {
+  @include image($folder:'component', $name: '/ico_pagingPrev');
+}
+
+@mixin ico_pagingPrevList {
+  @include image($folder:'component', $name: '/ico_pagingPrevList');
+}
+
+//* input * /
+//* checkbox */
+@mixin ico_checkbox_on {
+  background: var(--ico_checkbox_on);
+  // background-size: 100% 100%;
+}
+
+@mixin ico_checkbox_off {
+  background: var(--ico_checkbox_off);
+  // background-size: 100% 100%;
+}
+
+@mixin ico_checkbox_disabled {
+  background: var(--ico_checkbox_disabled);
+  // background-size: 100% 100%;
+}
+
+//* radio */
+@mixin ico_radio_on {
+  background: var(--ico_radio_on);
+}
+
+@mixin ico_radio_off {
+  background: var(--ico_radio_off);
+}
+
+@mixin ico_radio_disabled {
+  background: var(--ico_radio_disabled);
+}
+
+
+//* select */
+@mixin ico_select {
+  background: var(--ico_select);
+  background-size: 11px 5px;
+}
+
+//* calendar */
+@mixin ico_calendar {
+  @include imageMask($folder:'component', $name: '/ico_calendar', $color:var(--ico_color));
+  background-size: 19px 21px;
+}
+
+@mixin ico_calendar2 {
+  // @include image2($folder:'component', $name: '/ico_calendar', $w:19px, $h:21px);
+  background-image: var(--ico_calendar);
+  background-repeat: no-repeat
+}
+
+@mixin ico_calendar_disabled {
+  // @include image2($folder:'component', $name: '/ico_calendar', $w:19px, $h:21px);
+  background-image: var(--ico_calendar_disabled);
+  background-repeat: no-repeat
+}
+
+
+//* time */
+@mixin ico_time {
+  @include imageMask($folder:'component', $name: '/ico_time', $color:var(--ico_color));
+  background-size: 20px 20px;
+}
+
+//* search */
+@mixin ico_search {
+  @include imageMask($folder:'component', $name: '/ico_search', $color:var(--pointColor));
+}
+
+@mixin ico_searchBox {
+  background: var(--ico_searchBox);
+  width: 28px;
+  height: 28px;
+}
+
+//* button */
+@mixin ico_sign {
+  background: var(--ico_sign);
+}
+
+@mixin ico_check {
+  background: var(--ico_check);
+}
+
+@mixin ico_x {
+  @include imageMask($folder:'component', $name: '/ico_x', $color:var(--ico_color13));
+  width: 9px;
+  height: 9px;
+}
+
+//* copy */
+@mixin ico_copy {
+  @include imageMask($folder:'component', $name: '/ico_copy', $color:var(--ico_color5));
+}
+
+@mixin ico_copy2 {
+  // B: point, C: point
+  @include imageMask($folder:'component', $name: '/ico_copy2', $color:var(--ico_color));
+}
+
+// //* plus, minus */
+@mixin ico_plus {
+  @include image($folder:'component', $name: '/ico_plus', $w:10px, $h:10px);
+}
+
+@mixin ico_minus {
+  @include image($folder:'component', $name: '/ico_minus', $w:10px, $h:2px);
+}
+
+
+//* table */
+@mixin ico_sort {
+  @include image($folder:'component', $name: '/ico_sort');
+  width: 15px;
+  height: 13px;
+}
+
+@mixin ico_sortUp {
+  @include image($folder:'component', $name: '/ico_sortUp', $format:'png');
+  width: 15px;
+  height: 13px;
+}
+
+@mixin ico_sortDown {
+  @include image($folder:'component', $name: '/ico_sortDown', $format:'png');
+  width: 15px;
+  height: 13px;
+}
+
+@mixin ico_sort_gry {
+  @include image($folder:'component', $name: '/ico_sort_gry', $format:'png');
+  width: 15px;
+  height: 13px;
+}
+
+//* etc */
+@mixin ico_refresh {
+  @include imageMask($folder:'component', $name: '/ico_refresh', $color:var(--ico_color));
+  width: 11px;
+  height: 16px;
+}
+
+@mixin ico_refresh2 {
+  // point, point
+  @include imageMask($folder:'component', $name: '/ico_refresh2', $color:var(--ico_color));
+  width: 15px;
+  height: 19px;
+}
+
+@mixin ico_lineRight {
+  // B:white, C: point
+  // @include image($folder:'component', $name: '/ico_lineRight');
+  @include imageMask($folder:'component', $name: '/ico_lineRight', $color:var(--ico_color5));
+  width: 6px;
+  height: 9px;
+}
+
+@mixin ico_lineRight2 {
+  // btnDis_ft
+  @include image($folder:'component', $name: '/ico_lineRight2');
+  @include imageMask($folder:'component', $name: '/ico_lineRight2', $color:var(--ico_color12));
+
+  width: 6px;
+  height: 9px;
+}
+
+@mixin ico_lineRight3 {
+  // B,C: white
+  // @include image($folder:'component', $name: '/ico_lineRight');
+  @include imageMask($folder:'component', $name: '/ico_lineRight', $color:var(--white), $w:6px, $h:9px);
+}
+
+@mixin ico_toggle_normal {
+  @include image($folder:'component', $name: '/ico_toggle_normal');
+  // width: 20px;
+  // height: 20px;
+}
+
+@mixin ico_toggle_issue {
+  @include image($folder:'component', $name: '/ico_toggle_issue');
+}
+
+@mixin ico_toggle_error {
+  @include image($folder:'component', $name: '/ico_toggle_error');
+}
+
+@mixin ico_toggle_wait {
+  @include image($folder:'component', $name: '/ico_toggle_wait');
+}
+
+@mixin ico_toggle_none {
+  @include image($folder:'component', $name: '/ico_toggle_none');
+}
+
+
+@mixin ico_dataNone {
+  @include image($folder:'component', $name: '/ico_dataNone');
+  width: 50px;
+  height: 50px;
+}
+
+@mixin ico_dropUp {
+  @include imageMask($folder:'component', $name: '/ico_dropUp', $color:var(--ico_color2));
+  width: 10px;
+  height: 7px;
+}
+
+@mixin ico_dropDown {
+  @include imageMask($folder:'component', $name: '/ico_dropDown', $color:var(--ico_color2));
+  width: 10px;
+  height: 7px;
+}
+
+@mixin ico_folderParent {
+  @include imageMask($folder:'component', $name: '/ico_folderParent', $color:var(--ico_color));
+  width: 20px;
+  height: 18px;
+}
+
+@mixin ico_folderChild {
+  @include imageMask($folder:'component', $name: '/ico_folderChild', $color:var(--ico_color));
+  width: 20px;
+  height: 18px;
+}
+
+@mixin ico_lineDown {
+  @include image($folder:'component', $name: '/ico_lineDown');
+  width: 12px;
+  height: 7px;
+}
+
+@mixin ico_check_y {
+  @include image($folder:'component', $name: '/ico_check_y');
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_check2 {
+  @include imageMask($folder:'component', $name: '/ico_check_y', $color:var(--issueColor4));
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_check3 {
+  @include imageMask($folder:'component', $name: '/ico_check_y', $color:var(--ico_color));
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_check4 {
+  @include image($folder:'component', $name: '/ico_check4', $bgw: 11px, $bgh: 8px);
+}
+
+@mixin ico_list {
+  @include imageMask($folder:'component', $name: '/ico_list', $color:var(--pointColor));
+  width: 41px;
+  height: 40px;
+}
+
+@mixin ico_listCard {
+  @include imageMask($folder:'component', $name: '/ico_listCard', $color:var(--pointColor));
+  width: 41px;
+  height: 40px;
+}
+
+@mixin ico_provide {
+  background: var(--ico_provide);
+  width: 26px;
+  height: 26px;
+}
+
+@mixin ico_siteNotFound {
+  background: var(--ico_siteNotFound);
+  width: 195px;
+  height: 142px;
+}
+
+@mixin ico_modify {
+  @include imageMask($folder:'component', $name: '/ico_modify', $color:var(--pointColor));
+  width: 18px;
+  height: 18px;
+}
+
+
+//* modal */
+@mixin ico_closeS {
+  @include imageMask($folder:'component', $name: '/ico_closeS', $color:var(--ico_closeColor));
+  width: 16px;
+  height: 16px;
+}
+
+@mixin ico_buy {
+  @include image($folder:'component', $name: '/ico_buy');
+  width: 25px;
+  height: 25px;
+}
+
+@mixin ico_basket {
+  @include image($folder:'component', $name: '/ico_basket');
+  width: 25px;
+  height: 25px;
+}
+
+@mixin icoB_inquiry {
+  @include image($folder:'component', $name: '/icoB_inquiry');
+  width: 25px;
+  height: 25px;
+}
+
+@mixin ico_noCriteria {
+  @include image($folder:'component', $name: '/ico_noCriteria');
+  width: 25px;
+  height: 25px;
+}
+
+@mixin ico_noImage {
+  // @include image($folder:'component', $name: '/ico_noImage');
+  @include imageMask($folder:'component', $name: '/ico_noImage', $color:var(--ico_color7));
+
+  width: 32px;
+  height: 28px;
+}
+
+@mixin ico_excel {
+  //B: POINT, C: WHITE
+  @include imageMask($folder:'component', $name: '/ico_excel', $color:var(--ico_color4));
+  background-size: 16px 16px;
+}
+
+@mixin ico_excel2 {
+  @include imageMask($folder:'component', $name: '/ico_excel', $color:var(--ico_color8));
+  background-size: 16px 16px;
+}
+
+@mixin ico_excel3 {
+  //B: POINT, C: point
+  @include imageMask($folder:'component', $name: '/ico_excel', $color:var(--ico_color));
+  background-size: 16px 16px;
+}
+
+
+@mixin ico_closeS2 {
+  // B: white, C: point
+  // @include image($folder:'component', $name: '/ico_closeS2');
+  @include imageMask($folder:'component', $name: '/ico_closeS2', $color:var(--ico_color5));
+  background-size: 14px 14px;
+}
+
+@mixin ico_closeS3 {
+  // B: bgColor, C: white
+  // @include image($folder:'component', $name: '/ico_closeS2');
+  @include imageMask($folder:'component', $name: '/ico_closeS2', $color:var(--ico_color8));
+  background-size: 14px 14px;
+}
+
+// @mixin ico_message {
+//   @include image($folder:'component', $name: '/ico_message', $format:'png');
+//   background-size: 65px 58px;
+// }
+
+@mixin ico_banner {
+  @include image($folder:'component', $name: '/ico_banner', $format:'png');
+  background-size: 65px 57px;
+}
+
+@mixin ico_keyword {
+  @include image($folder:'component', $name: '/ico_keyword', $format:'png');
+  background-size: 65px 57px;
+}
+
+//* MENU 고객분석 */
+//* 대시보드 */
+@mixin ico_play {
+  @include imageMask($folder:'component', $name: '/ico_play', $color:var(--pointColor));
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_stop {
+  @include image($folder:'component', $name: '/ico_stop');
+  width: 42px;
+  height: 42px;
+}
+
+
+
+//* MENU 상품분석 */
+//* 대시보드 */
+@mixin ico_emoji_good {
+  @include image($folder:'component', $name: '/ico_emoji_good');
+  width: 18px;
+  height: 18px;
+}
+
+@mixin ico_emoji_warning {
+  @include image($folder:'component', $name: '/ico_emoji_warning');
+  width: 18px;
+  height: 18px;
+}
+
+
+//* MENU 상품분석 */
+//* 추천 상품 리스트 */
+@mixin ico_widget {
+  background: var(--ico_widget);
+  width: 30px;
+  height: 30px;
+}
+
+@mixin icoB_crown {
+  @include image($folder:'component', $name: '/icoB_crown', $format:"png");
+  width: 29px;
+  height: 29px;
+}
+
+//* 판매예측 분석 */
+@mixin ico_lineLeft4 {
+  @include imageMask($folder:'component', $name: '/ico_lineLeft2', $color:var(--ico_color));
+  width: 10px;
+  height: 17px;
+}
+
+@mixin ico_lineRight4 {
+  @include imageMask($folder:'component', $name: '/ico_lineLeft2', $color:var(--ico_color));
+  width: 10px;
+  height: 17px;
+  transform: rotate(180deg);
+}
+
+//* MENU CDP 캠페인리스트 */
+@mixin ico_setting {
+  @include image($folder:'component', $name: '/ico_setting');
+}
+
+@mixin ico_arrowRightS {
+  background: var(--ico_arrowRightS); // A,B: point
+  width: 24px;
+  height: 24px;
+}
+
+@mixin ico_arrowRightS_t2 {
+  background: var(--ico_arrowRightS_t2); // B: white, C: gray
+  width: 24px;
+  height: 24px;
+}
+
+@mixin ico_star_on {
+  background: var(--ico_star_on);
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_star_off {
+  background: var(--ico_star_off);
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+}
+
+@mixin ico_close {
+  @include imageMask($folder:'component', $name: '/ico_close', $color:var(--ico_color3));
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_reset {
+  @include imageMask($folder:'component', $name: '/ico_reset', $color:var(--ico_color3));
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_reset2 {
+  //B: darkNavy, C: white
+  @include imageMask($folder:'component', $name: '/ico_reset', $color:var(--ico_color9));
+  width: 22px;
+  height: 22px;
+}
+
+@mixin ico_reset3 {
+  //B: white, C: point
+  @include imageMask($folder:'component', $name: '/ico_reset2', $color:var(--ico_color5));
+  width: 16px;
+  height: 16px;
+}
+
+@mixin ico_gradeTop {
+  @include image($folder:'component', $name: '/ico_gradeTop');
+  width: 20px;
+  height: 20px;
+}
+
+@mixin ico_gradeMiddle {
+  @include image($folder:'component', $name: '/ico_gradeMiddle');
+  width: 20px;
+  height: 20px;
+}
+
+@mixin ico_gradeBottom {
+  @include image($folder:'component', $name: '/ico_gradeBottom');
+  width: 20px;
+  height: 20px;
+}
+
+@mixin ico_group {
+  @include imageMask($folder:'component', $name: '/ico_group', $color:var(--ico_color));
+  width: 18px;
+  height: 18px;
+}
+
+// folder2
+@mixin ico_folder2 {
+  // B: point, C: point
+  @include imageMask($folder:'component', $name: '/ico_folder2', $w: 20px, $h:18px, $color:var(--ico_color));
+}
+
+
+
+//* MENU CDP 캠페인생성 */
+@mixin ico_arrowRight {
+  background: var(--ico_arrowRight);
+  width: 20px;
+  height: 20px;
+}
+
+@mixin ico_arrowRight2 {
+  @include image($folder:'component', $name: '/ico_arrowRight2');
+  width: 20px;
+  height: 20px;
+}
+
+@mixin ico_toggleDown {
+  @include imageMask($folder:'component', $name: '/ico_toggleDown', $color:var(--pointColor));
+  width: 32px;
+  height: 15px;
+}
+
+@mixin ico_toggleDown_gry {
+  @include imageMask($folder:'component', $name: '/ico_toggleDown_gry', $color:var(--ico_color6));
+  width: 32px;
+  height: 15px;
+}
+
+@mixin ico_delete {
+  // @include image($folder:'component', $name: '/ico_delete');
+  @include imageMask($folder:'component', $name: '/ico_delete', $color:var(--pointColor));
+  width: 16px;
+  height: 16px;
+}
+
+@mixin ico_delete2 {
+  // @include image($folder:'component', $name: '/ico_delete2');
+  @include imageMask($folder:'component', $name: '/ico_delete2', $color:var(--pointColor2));
+  width: 16px;
+  height: 16px;
+}
+
+//* MENU 데이터 연동 관리 */
+
+//* MENU RFM 분석 */
+@mixin ico_upCircle {
+  @include image($folder:'component', $name: '/ico_upCircle');
+  width: 20px;
+  height: 18px;
+}
+
+@mixin icoB_downCircle {
+  @include image($folder:'component', $name: '/icoB_downCircle');
+  width: 20px;
+  height: 18px;
+}
+
+@mixin ico_paperAirplain {
+  background: var(--ico_paperAirplain);
+  width: 19px;
+  height: 16px;
+}
+
+@mixin ico_send_on {
+  background: var(--ico_send_on);
+  width: 70px;
+  height: 67px;
+}
+
+@mixin ico_send_off {
+  // @include image($folder:'component', $name: '/ico_send_off', $format:'png');
+  background: var(--ico_send_off);
+  width: 70px;
+  height: 67px;
+}
+
+@mixin ico_noty_on {
+  background: var(--ico_noty_on);
+
+  // @include image($folder:'component', $name: '/ico_noty_on');
+  width: 73px;
+  height: 67px;
+}
+
+@mixin ico_noty_off {
+  background: var(--ico_noty_off);
+
+  // @include image($folder:'component', $name: '/ico_noty_off', $format:'png');
+  width: 73px;
+  height: 67px;
+}
+
+@mixin ico_visitNumber {
+  background: var(--ico_visitNumber);
+  background-size: 41px 41px;
+}
+
+@mixin ico_prodInquiry {
+  background: var(--ico_prodInquiry);
+  background-size: 43px 43px;
+}
+
+@mixin ico_basketNumber {
+  background: var(--ico_basketNumber);
+  background-size: 41px 41px;
+}
+
+@mixin ico_buyFrequency {
+  background: var(--ico_buyFrequency);
+  background-size: 41px 41px;
+}
+
+@mixin ico_unitPrice {
+  background: var(--ico_unitPrice);
+  background-size: 41px 41px;
+}
+
+@mixin ico_buyNumber {
+  @include image($folder:'component', $name: '/ico_buyNumber');
+  background-size: 41px 41px;
+}
+
+//* MENU 고객외부활동 */
+@mixin ico_purchaseRate_on {
+  background: var(--ico_purchaseRate_on);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_purchaseRate_off {
+  background: var(--ico_purchaseRate_off);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_leaveRate_on {
+  background: var(--ico_leaveRate_on);
+  width: 44px;
+  height: 38px;
+}
+
+@mixin ico_leaveRate_off {
+  background: var(--ico_leaveRate_off);
+  width: 44px;
+  height: 38px;
+}
+
+@mixin ico_visitCount_on {
+  background: var(--ico_visitCount_on);
+  width: 52px;
+  height: 52px;
+}
+
+@mixin ico_visitCount_off {
+  background: var(--ico_visitCount_off);
+  width: 52px;
+  height: 52px;
+}
+
+@mixin ico_basketSearch_on {
+  background: var(--ico_basketSearch_on);
+  width: 46px;
+  height: 46px;
+}
+
+@mixin ico_basketSearch_off {
+  background: var(--ico_basketSearch_off);
+  width: 46px;
+  height: 46px;
+}
+
+@mixin ico_basketPlus_on {
+  background: var(--ico_basketPlus_on);
+  width: 46px;
+  height: 46px;
+}
+
+@mixin ico_basketPlus_off {
+  background: var(--ico_basketPlus_off);
+  width: 46px;
+  height: 46px;
+}
+
+@mixin ico_monthPurchase_on {
+  background: var(--ico_monthPurchase_on);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_monthPurchase_off {
+  background: var(--ico_monthPurchase_off);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_customerPrice_on {
+  background: var(--ico_customerPrice_on);
+  width: 39px;
+  height: 42px;
+}
+
+@mixin ico_customerPrice_off {
+  background: var(--ico_customerPrice_off);
+  width: 39px;
+  height: 42px;
+}
+
+@mixin ico_monthCheck_on {
+  background: var(--ico_monthCheck_on);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_monthCheck_off {
+  background: var(--ico_monthCheck_off);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_basketCheck_on {
+  background: var(--ico_basketCheck_on);
+  width: 42px;
+  height: 42px;
+}
+
+@mixin ico_basketCheck_off {
+  background: var(--ico_basketCheck_off);
+  width: 42px;
+  height: 42px;
+}
+
+//* MENU lAB */
+@mixin ico_arrowRight3 {
+  @include imageMask($folder:'component', $name: '/ico_arrowRight3', $w:18px, $h:31px, $color:var(--ico_color10));
+}
+
+@mixin ico_dashboard {
+  @include imageMask($folder:'component', $name: '/ico_dashboard', $color:var(--ico_color));
+  width: 18px;
+  height: 18px;
+}
+
+@mixin ico_folder {
+  @include image($folder:'component', $name: '/ico_folder');
+  width: 17px;
+  height: 14px;
+}
+
+// @mixin ico_message {
+//   @include image($folder:'component', $name: '/ico_message');
+//   width: 17px;
+//   height: 17px;
+// }
+
+@mixin ico_home {
+  @include image($folder:'component', $name: '/ico_home');
+  width: 18px;
+  height: 16px;
+}
+
+@mixin ico_rank {
+  @include image($folder:'component', $name: '/ico_rank', $format:'png');
+  width: 62px;
+  height: 47px;
+  background-size: 100% 100%;
+}
+
+@mixin ico_rank1 {
+  @include image($folder:'component', $name: '/ico_rank1');
+  width: 38px;
+  height: 49px;
+}
+
+@mixin ico_rank2 {
+  @include image($folder:'component', $name: '/ico_rank2');
+  width: 38px;
+  height: 49px;
+}
+
+@mixin ico_rank3 {
+  @include image($folder:'component', $name: '/ico_rank3');
+  width: 38px;
+  height: 49px;
+}
+
+//* MENU 키워드센터 */
+@mixin ico_lineLeft {
+  @include imageMask($folder:'component', $name: '/ico_lineLeft', $color:var(--ico_color2));
+  width: 27px;
+  height: 47px;
+}
+
+
+//* MENU 트래킹 */
+@mixin ico_prepare {
+  background: var(--ico_prepare);
+  width: 111px;
+  height: 105px;
+}
+
+@mixin ico_android {
+  @include imageMask($folder:'etc', $name: '/ico_android', $color:var(--ico_color));
+  width: 46px;
+  height: 55px;
+}
+
+@mixin ico_android_on {
+  @include imageMask($folder:'etc', $name: '/ico_android_on', $color:var(--ico_color4));
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_android_off {
+  @include image($folder:'etc', $name: '/ico_android_off');
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_ios {
+  @include imageMask($folder:'etc', $name: '/ico_ios', $color:var(--ico_color));
+  width: 63px;
+  height: 78px;
+}
+
+@mixin ico_ios_on {
+  @include imageMask($folder:'etc', $name: '/ico_ios_on', $color:var(--ico_color4));
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_ios_off {
+  @include image($folder:'etc', $name: '/ico_ios_off');
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_web {
+  @include imageMask($folder:'etc', $name: '/ico_web', $color:var(--ico_color));
+  width: 50px;
+  height: 50px;
+}
+
+@mixin ico_web_on {
+  @include imageMask($folder:'etc', $name: '/ico_web_on', $color:var(--ico_color4));
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_web_off {
+  @include image($folder:'etc', $name: '/ico_web_off');
+  width: 70px;
+  height: 56px;
+}
+
+@mixin ico_android2_on {
+  @include image($folder:'etc', $name: '/ico_android2_on');
+  width: 15px;
+  height: 18px;
+}
+
+@mixin ico_android3_on {
+  // B: navy, C: white
+  @include imageMask($folder:'etc', $name: '/ico_android2_on', $color:var(--ico_color8));
+  width: 15px;
+  height: 18px;
+}
+
+@mixin ico_android2_off {
+  @include image($folder:'etc', $name: '/ico_android2_off');
+  width: 15px;
+  height: 18px;
+}
+
+@mixin ico_ios2_on {
+  @include image($folder:'etc', $name: '/ico_ios2_on');
+  width: 15px;
+  height: 19px;
+}
+
+@mixin ico_ios3_on {
+  // B: navy, C: white
+  @include imageMask($folder:'etc', $name: '/ico_ios2_on', $color:var(--ico_color8));
+  width: 15px;
+  height: 19px;
+}
+
+@mixin ico_ios2_off {
+  @include image($folder:'etc', $name: '/ico_ios2_off');
+  width: 15px;
+  height: 19px;
+}
+
+@mixin ico_web2_on {
+  @include image($folder:'etc', $name: '/ico_web2_on');
+  width: 15px;
+  height: 16px;
+}
+
+@mixin ico_web3_on {
+  // B: navy, C: white
+  @include imageMask($folder:'etc', $name: '/ico_ios2_on', $color:var(--ico_color8));
+  width: 15px;
+  height: 16px;
+}
+
+@mixin ico_web2_off {
+  @include image($folder:'etc', $name: '/ico_web2_off');
+  width: 15px;
+  height: 16px;
+}
+
+@mixin ico_reset_wht {
+  @include image($folder:'component', $name: '/ico_reset_wht');
+  width: 16px;
+  height: 16px;
+}
+
+@mixin ico_arrowRight4 {
+  @include imageMask($folder:'component', $name: '/ico_arrowRight4', $color:var(--ico_color11));
+  width: 14px;
+  height: 13px;
+}
+
+@mixin ico_mobile {
+  @include imageMask($folder:'etc', $name: '/ico_mobile', $color:var(--ico_color5));
+  width: 16px;
+  height: 25px;
+}
+
+@mixin ico_googleStore {
+  @include imageMask($folder:'etc', $name: '/ico_googleStore', $color:var(--ico_color5));
+  width: 18px;
+  height: 20px;
+}
+
+@mixin ico_pc {
+  @include imageMask($folder:'etc', $name: '/ico_pc', $color:var(--ico_color));
+  width: 24px;
+  height: 22px;
+}
+
+@mixin ico_lineDivide {
+  @include imageMask($folder:'etc', $name: '/ico_lineDivide', $color:var(--ico_color));
+  width: 38px;
+  height: 100px;
+}
+
+
+
+//* MENU  스크립트관리 */
+@mixin ico_download {
+  @include imageMask($folder:'component', $name: '/ico_download', $color:var(--ico_color11));
+  width: 16px;
+  height: 14px;
+}
+
+@mixin ico_scriptEmpty {
+  @include image($folder:'etc', $name: '/ico_scriptEmpty');
+  width: 52px;
+  height: 52px;
+}
+
+@mixin ico_arrowUp {
+  @include imageMask($folder:'component', $name: '/ico_arrowDown', $color:var(--ico_color5));
+  width: 15px;
+  height: 9px;
+  transform: rotate(180deg);
+}
+
+@mixin ico_arrowDown {
+  // white, black
+  @include imageMask($folder:'component', $name: '/ico_arrowDown', $color:var(--ico_color2));
+  width: 15px;
+  height: 9px;
+}
+
+@mixin ico_normal {
+  @include image($folder:'component', $name: '/ico_normal', $format:'png');
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+}
+
+// 원태그 > 초록색 bg, 화이트 check
+@mixin ico_normal2 {
+  @include image($folder:'component', $name: '/ico_normal2');
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+}
+
+@mixin ico_issue {
+  @include image($folder:'component', $name: '/ico_issue');
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+}
+
+@mixin ico_error {
+  @include image($folder:'component', $name: '/ico_error', $format:'png');
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+}
+
+// 원태그 > 빨간색 bg, 화이트 느낌표 
+@mixin ico_error2 {
+  @include image($folder:'component', $name: '/ico_error2');
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+}
+
+
+
+//* MENU 데이터매니저 */
+@mixin ico_dataMonitor {
+  background: var(--ico_dataMonitor);
+  width: 79px;
+  height: 59px;
+}
+
+@mixin ico_data {
+  background: var(--ico_data);
+  width: 34px;
+  height: 30px;
+}
+
+@mixin ico_monitor {
+  background: var(--ico_monitor);
+  width: 43px;
+  height: 37px;
+}
+
+@mixin ico_calendarChart {
+  background: var(--ico_calendarChart);
+  width: 43px;
+  height: 46px;
+}
+
+@mixin ico_dataCalendar {
+  background: var(--ico_dataCalendar);
+  width: 37px;
+  height: 36px;
+}
+
+@mixin ico_calendarMonth {
+  background: var(--ico_calendarMonth);
+  width: 41px;
+  height: 41px;
+}
+
+@mixin ico_calendarDay {
+  background: var(--ico_calendarDay);
+  width: 41px;
+  height: 41px;
+}
+
+@mixin ico_link {
+  @include imageMask($folder:'component', $name: '/ico_link', $color:var(--ico_color));
+  width: 16px;
+  height: 16px;
+}
+
+@mixin ico_report {
+  @include imageMask($folder:'component', $name: '/ico_report', $color:var(--ico_color));
+  width: 13px;
+  height: 13px;
+}
+
+
+//* MENU광고효과분석 */
+@mixin ico_inflow {
+  background: var(--ico_inflow);
+  width: 36px;
+  height: 36px;
+}
+
+@mixin ico_inflowMoney {
+  background: var(--ico_inflowMoney);
+  width: 26px;
+  height: 28px;
+}
+
+@mixin ico_searchEngine {
+  @include imageMask($folder:'component', $name: '/ico_searchEngine', $color:var(--ico_color2));
+  width: 24px;
+  height: 25px;
+}
+
+@mixin ico_display {
+  @include imageMask($folder:'component', $name: '/ico_display', $color:var(--ico_color2));
+  width: 24px;
+  height: 23px;
+}
+
+@mixin ico_shopping {
+  @include imageMask($folder:'component', $name: '/ico_shopping', $color:var(--ico_color2));
+  width: 24px;
+  height: 21px;
+}
+
+@mixin ico_email {
+  @include imageMask($folder:'component', $name: '/ico_email', $color:var(--ico_color2));
+  width: 24px;
+  height: 18px;
+}
+
+@mixin ico_social {
+  @include imageMask($folder:'component', $name: '/ico_social', $color:var(--ico_color2));
+  width: 24px;
+  height: 23px;
+}
+
+@mixin ico_video {
+  @include imageMask($folder:'component', $name: '/ico_video', $color:var(--ico_color2));
+  width: 24px;
+  height: 24px;
+}
+
+@mixin ico_organic {
+  @include imageMask($folder:'component', $name: '/ico_organic', $color:var(--ico_color2));
+  width: 21px;
+  height: 24px;
+}
+
+
+//* MENU 원태그 */
+@mixin ico_write_off {
+  background: var(--ico_write_off);
+}
+
+@mixin ico_analysis {
+  background: var(--ico_analysis);
+}
+
+@mixin ico_star {
+  @include imageMask($folder:'component', $name: '/ico_star', $color:var(--ico_color3));
+  width: 14px;
+  height: 13px;
+}
+
+@mixin ico_script {
+  background: var(--ico_script);
+}
+
+
+//* MENU마이데이터 */
+@mixin img_myReport {
+  background: var(--img_myReport);
+}
+
+
+//* 마이데이터 스튜디오 */
+// @mixin ico_ai {
+//   background: var(--header_ai);
+//   width: 27px;
+//   height: 25px;
+// }
+
+@mixin bg_ai {
+  @include image($folder:'etc', $name: '/bg_ai', $format:"mp4");
+}
+
+@mixin img_ai {
+  @include image($folder:'etc', $name: '/img_ai', $format:"webp");
+}
+
+@mixin ico_plus2 {
+  @include image($folder:'component', $name: '/ico_plus2');
+}
+
+@mixin ico_plus3 {
+  // @include image($folder:'component', $name: '/ico_plus2');
+  @include imageMask($folder:'component', $name: '/ico_plus2', $color:var(--ico_color15));
+}
+
+@mixin ico_search2 {
+  // @include image($folder:'component', $name: '/ico_search2');
+  // background-size: 16px 16px;
+  @include imageMask($folder:'component', $name: '/ico_search2', $bgw:16px, $bgh:16px, $color:var(--ico_color15));
+}
+
+@mixin ico_mic {
+  // @include image($folder:'component', $name: '/ico_mic');
+  background-size: 12px 18px;
+  @include imageMask($folder:'component', $name: '/ico_mic', $bgw:12px, $bgh:18px, $color:var(--ico_color15));
+}
+
+@mixin ico_mic_off {
+  // @include image($folder:'component', $name: '/ico_mic_off');
+  // background-size: 12px 18px;
+  @include imageMask($folder:'component', $name: '/ico_mic_off', $color:var(--ico_color15));
+}
+
+@mixin ico_voiceMode {
+  @include image($folder:'component', $name: '/ico_voiceMode');
+}
+
+@mixin ico_ai {
+  background: var(--ico_ai);
+  // @include image($folder:'component', $name: '/ico_ai');
+  // width: 27px;
+  // height: 25px;
+  // backg
+}
+
+@mixin ico_star2_on {
+  // @include imageMask($folder:'component', $name: '/ico_star2_on', $bgs: contain, $w:14px, $h:13px, $color:var(--ico_color));
+  background: var(--ico_star2_on);
+}
+
+@mixin ico_star2_off {
+  // @include image($folder:'component', $name: '/ico_star2_off', $bgs: contain, $w:14px, $h:13px);
+  background: var(--ico_star2_off);
+}
+
+// B: WHITE, C: POINT
+@mixin ico_star3 {
+  background: var(--ico_star3);
+}
+
+@mixin ico_enter {
+  // @include image($folder:'component', $name: '/ico_enter', $bgw:15px, $bgh:16px);
+  @include imageMask($folder:'component', $name: '/ico_enter', $bgw:15px, $bgh:16px, $color:var(--ico_color15));
+}
+
+@mixin ico_copy3 {
+  // @include image($folder:'component', $name: '/ico_copy3', $w:20px, $h:20px);
+  @include imageMask($folder:'component', $name: '/ico_copy3', $w:20px, $h:20px, $color:var(--ico_color5));
+}
+
+@mixin ico_refresh3 {
+  // @include image($folder:'component', $name: '/ico_refresh3', $w:20px, $h:20px);
+  @include imageMask($folder:'component', $name: '/ico_refresh3', $w:20px, $h:20px, $color:var(--ico_color5));
+}
+
+@mixin ico_sound {
+  @include image($folder:'component', $name: '/ico_sound', $bgw:20px, $bgh:20px);
+}
+
+@mixin ico_sound_on {
+  // @include image($folder:'component', $name: '/ico_sound_on', $bgw:30px, $bgh:20px);
+  @include imageMask($folder:'component', $name: '/ico_sound_on', $w:30px, $h:20px, $color:var(--ico_color5));
+}
+
+@mixin ico_pause {
+  // @include image($folder:'component', $name: '/ico_pause', $bgw:20px, $bgh:20px);
+  @include imageMask($folder:'component', $name: '/ico_pause', $w:20px, $h:20px, $color:var(--ico_color5));
+}
+
+//원태그 > slick 일시정지
+@mixin ico_pause2 {
+  // @include imageMask($folder:'component', $name: '/ico_pause2', $w:9px, $h:10px);
+  @include imageMask($folder:'component', $name: '/ico_pause2', $w:9px, $h:12px, $color:var(--ico_color2));
+}
+
+@mixin ico_photo {
+  @include image($folder:'component', $name: '/ico_photo', $w:20px, $h:20px);
+}
+
+@mixin ico_storage {
+  // @include image($folder:'component', $name: '/ico_storage');
+  @include imageMask($folder:'component', $name: '/ico_storage', $color:var(--ico_color5));
+}
+
+@mixin ico_coin {
+  @include image($folder:'component', $name: '/ico_coin', $w:16px, $h:16px);
+}
+
+@mixin ico_arrow2 {
+  // @include image($folder:'component', $name: '/ico_arrow2', $w:17px, $h:15px);
+  @include imageMask($folder:'component', $name: '/ico_arrow2', $w:17px, $h:15px);
+}
+
+// @mixin ico_arrow2_off {
+//   @include imageMask($folder:'component', $name: '/ico_arrow2', $w:17px, $h:15px, $color:var(--ico_color15));
+// }
+
+
+@mixin ico_more {
+  @include imageMask($folder:'component', $name: '/ico_more', $w:20px, $h:20px, $color: var(--ico_color2));
+}
+
+// 슬라이드 < 표시
+@mixin ico_listPrev {
+  // @include image($folder:'component', $name: '/ico_listPrev', $w:8px, $h:13px);
+  @include imageMask($folder:'component', $name: '/ico_storage', $color:var(--ico_color2));
+}
+
+// 슬라이 > 표시
+@mixin ico_listNext {
+  // @include image($folder:'component', $name: '/ico_listNext', $w:8px, $h:13px);
+  @include imageMask($folder:'component', $name: '/ico_listNext', $color:var(--ico_color2));
+}
+
+
+//* 마이데이터 스튜디오 END */
+
+@mixin ico_updown {
+  @include imageMask($folder:'component', $name: '/ico_updown', $w:20px, $h:20px, $color: var(--ico_color));
+}
+
+@mixin img_website {
+  @include image($folder:'etc', $name: '/img_website', $w:340px, $h:176px);
+}
+
+@mixin ico_kakao {
+  @include image($folder:'component', $name: '/ico_kakao', $format:'png');
+}
+
+@mixin ico_naver {
+  @include image($folder:'component', $name: '/ico_naver', $format:'png');
+}
+
+@mixin ico_mobon {
+  @include image($folder:'component', $name: '/ico_mobon');
+}
+
+@mixin ico_mail {
+  background: var(--ico_mail);
+}
+
+@mixin logo_meta {
+  @include image($folder:'logo', $name: '/logo_meta', $format:'jpg');
+}
+
+@mixin img_pc {
+  @include image($folder:'component', $name: '/img_pc', $format:'png', $w:280px, $h:280px);
+}
+
+@mixin img_homepage {
+  @include image($folder:'component', $name: '/img_homepage', $format:'png', $w:1013px, $h:653px);
+}
+
+// ai > 요금제 1 > free
+@mixin ico_free {
+  @include imageMask($folder:'component', $name: '/ico_free', $w:60px, $h:58px);
+}
+
+// ai > 요금제 2 > starter
+@mixin ico_starter {
+  @include imageMask($folder:'component', $name: '/ico_starter', $w:50px, $h:60px);
+}
+
+// ai > 요금제 3 > basic
+@mixin ico_basic {
+  @include imageMask($folder:'component', $name: '/ico_basic', $w:60px, $h:52px);
+}
+
+// ai > 요금제 4 > pro
+@mixin ico_pro {
+  @include imageMask($folder:'component', $name: '/ico_pro', $w:55px, $h:60px);
+}
+
+// ai > 요금제 5 > biz
+@mixin ico_biz {
+  @include imageMask($folder:'component', $name: '/ico_biz', $w:60px, $h:52px);
+}
+
+@mixin ico_check5 {
+  background: var(--ico_check5);
+}
+
+
+// @mixin ico_check3 {
+//   @include image($folder:'component', $name: '/ico_check3');
+//   @include imgSize(22px, 22px);
+// }
+
+@mixin ico_issue2 {
+  @include imageMask($folder:'component', $name: '/ico_issue2');
+  // @include imgSize(27px, 24px);
+}
+
+@mixin ico_card {
+  @include imageMask($folder:'component', $name: '/ico_card');
+}
+
+@mixin ico_card_ic {
+  @include image($folder:'component', $name: '/ico_card_ic');
+}
+
+@mixin ico_card_master {
+  @include image($folder:'component', $name: '/ico_card_master');
+}
+
+@mixin ico_card_visa {
+  @include image($folder:'component', $name: '/ico_card_visa');
+}
+
+@mixin ico_card_amex {
+  @include image($folder:'component', $name: '/ico_card_amex');
+}
+
+@mixin ico_card_discover {
+  @include image($folder:'component', $name: '/ico_card_discover');
+}
+
+@mixin ico_list2 {
+  @include imageMask($folder:'component', $name: '/ico_list2');
+}
+
+@mixin ico_chart {
+  @include imageMask($folder:'component', $name: '/ico_chart');
+}
+
+@mixin ico_speaker {
+  @include imageMask($folder:'component', $name: '/ico_speaker');
+}
+
+@mixin ico_hacker {
+  @include imageMask($folder:'component', $name: '/ico_hacker');
+}
+
+@mixin ico_alarm {
+  @include image($folder:'component', $name: '/ico_alarm');
+}
+
+@mixin ico_alarm2 {
+  @include image($folder:'component', $name: '/ico_alarm2');
+}
+
+@mixin ico_alarm3 {
+  @include imageMask($folder:'component', $name: '/ico_alarm3');
+}
+
+@mixin ico_calendar3 {
+  @include image($folder:'component', $name: '/ico_calendar3');
+}
+
+@mixin ico_pen {
+  @include imageMask($folder:'component', $name: '/ico_pen', $color: var(--ico_color15));
+}
+
+@mixin ico_refresh4 {
+  // background: var(--ico_refresh4);
+    @include imageMask($folder:'component', $name: '/ico_refresh4');
+}
+
+@mixin ico_write {
+  @include image($folder:'component', $name: '/ico_write');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t1 {
+  @include image($folder:'etc', $name: '/img_tooltip_t1', $format:'png');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t2 {
+  @include image($folder:'etc', $name: '/img_tooltip_t2', $format:'png');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t3 {
+  @include image($folder:'etc', $name: '/img_tooltip_t3', $format:'png');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t4 {
+  @include image($folder:'etc', $name: '/img_tooltip_t4', $format:'png');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t5 {
+  @include image($folder:'etc', $name: '/img_tooltip_t5', $format:'png');
+}
+
+// 원태그 > 사이트성능개선 > 툴팁
+@mixin img_tooltip_t6 {
+  @include image($folder:'etc', $name: '/img_tooltip_t6', $format:'png');
+}
+
+// 번개
+@mixin ico_lightning {
+  @include imageMask($folder:'component', $name: '/ico_lightning');
+}
+
+// 데이터없음
+@mixin ico_nodata {
+  @include image($folder:'component', $name: '/ico_nodata');
+}
+
+// 안전
+@mixin ico_safe {
+  @include image($folder:'component', $name: '/ico_safe');
+}
+
+// 메일 통과
+@mixin ico_mailCheck {
+  @include image($folder:'component', $name: '/ico_mailCheck', $format:'png');
+}
+
+// 메일 실패
+@mixin ico_mailFail {
+  @include image($folder:'component', $name: '/ico_mailFail', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 매출분석
+@mixin ico_coinUp {
+  @include image($folder:'component', $name: '/ico_coinUp', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 고객분석
+@mixin ico_precious {
+  @include image($folder:'component', $name: '/ico_precious', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 유입분석
+@mixin ico_graphUp {
+  @include image($folder:'component', $name: '/ico_graphUp', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 상품분석
+@mixin ico_basket2 {
+  @include image($folder:'component', $name: '/ico_basket2', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 광고성과분석
+@mixin ico_graph2 {
+  @include image($folder:'component', $name: '/ico_graph2', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별 
+// 트렌드분석
+@mixin ico_search3 {
+  @include image($folder:'component', $name: '/ico_search3', $format:'png');
+}
+
+// AI튜니홈 > 라디오버튼 > 메뉴별
+// 기타
+@mixin ico_speaker2 {
+  @include image($folder:'component', $name: '/ico_speaker2', $format:'png');
+}
+
+// 별
+@mixin ico_star4 {
+  @include imageMask($folder:'component', $name: '/ico_star4');
+}
+
+// 별
+@mixin ico_tag {
+  @include imageMask($folder:'component', $name: '/ico_tag');
+}
+
+// 주의
+@mixin ico_warning {
+  @include imageMask($folder:'component', $name: '/ico_warning');
+}

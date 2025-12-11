@@ -1,0 +1,1263 @@
+@charset "UTF-8";
+/*
+File   : color.scss
+Date   : 2025.06.18
+*/
+
+html {
+    --white: #ffffff;
+    --black: #000000;
+    --red: #ff0000;
+    --red2: #e31737;
+    --epColor: #85b74e;
+
+    // 테마 구분 토글 
+    --B_mainColor: #07e6ff;
+    --C_mainColor: #3c71fd;
+
+    &.themeB {
+        --mainColor: #07e6ff;
+        // --titleColor: #ffffff; // 위젯 타이틀 컬러
+    }
+
+    &.themeC {
+        --mainColor: #3c71fd;
+        // --titleColor: #222222; // 위젯 타이틀 컬러
+    }
+
+    //* TYPE B (BLUE) */
+    .typeB {
+        //* basic */
+        --mainColor: #07e6ff;
+        --ftColor: #ffffff;
+        --subFtColor: #91aed5;
+        --borderColor: #3f7197;
+        --bgColor: #0a072b;
+
+        //* dim */
+        --dimFtColor: #ffffff;
+        --dimOpacity: 0.8;
+        --dimShadow: rgba(0, 0, 0, 0.7);
+        --dimBgColor: #000;
+        --dimBgColor2: rgba(0, 0, 0, 0.8);
+        --dimBgColor3: rgba(0, 0, 0, 0.8);
+
+        //* daterangepicker */
+        --dateFtColor2: #778daa; // 요일
+        --dateFtColor3: #778daa; // off
+        --dateFtColor4: #101944; // hover
+        --dateFtColor5: #ffffff; // 
+        --dateFtColor6: #0a072b; // 
+        --dateFtColor7: #ffffff; // 
+
+        --dateBorderColor: #3b6a90;
+        --dateShadow: 0 0 10px 0 rgba(7, 230, 255, 0.5);
+        --dateBgColor: #101944;
+        // 기간선택
+        --dateBgColor2: #133b6d;
+        --dateBgColor3: #133b6d;
+        // input 
+        --dateIpBorderColor: #3f7197;
+        --dateIpBgColor: #192044;
+
+        // point 
+        --pointColor: #07e6ff;
+        --pointColor2: #ae6bfb;
+        --pointColor3: #65fbd7;
+        --pointColor4: #ff6767;
+        --pointColor5: #5ab7ff; // 3 set - 1
+        --pointColor6: #22f486; // 3 set - 2
+        --pointColor7: #ff6767; // 3 set - 3
+        --pointColor8: var(--pointColor); // B: point, C: B_point
+        --pointColor9: #3c71fd; // B: C_point, C: point
+        // point - etc
+        --issueColor: #ffcf31;
+        --issueColor2: transparent; // B: trnasparent, C: issue
+        --issueColor3: var(--issueColor); // B: issue, C: white
+        --issueColor4: #ffcf31; // B: issue, C: black
+        --issueColor5: #fbbe30;
+        --issueColor6: #ffff00;
+        --waitColor: #f5a123;
+        --errorColor: #ff6767;
+        --normalColor: var(--pointColor); // B: point, C: point
+        --normalColor2: var(--pointColor); // B: point, C: B_point
+        --normalColor3: #ffffff; // B: white, C: point
+        --normalColor4: transparent; // B: transparent, C: point
+        --noneColor: var(--btnOff_ftColor);
+        --noneColor2: #3f7197;
+        // --passColor: #40c969;
+        --checkColor: #aaaaaa;
+        // --unknowColor: #aaaaaa;
+
+        //* Font */
+        --ftColor2: var(--pointColor); // B : point, C : black
+        --ftColor3: #000000; // B : black, C : white
+        --ftColor4: #ffffff; // B : white, C : white
+        --ftColor5: #ffffff; // B : white, C : point
+        --ftColor6: #ffffff; // B : white, C : black
+        --ftColor7: #ff6091;
+        --ftColor8: #ff9e2e;
+        --ftColor9: #778daa; // B : white gray, C : white
+        --ftColor10: var(--pointColor); // B : point, C : white
+        --ftColor11: #000000; // B: black, C: black
+        --ftColor12: #4781cc; //B: BLUE,  C: point
+        --ftColor13: #182152;
+        --ftColor14: var(--pointColor); //B,C : B_point
+        --ftColor15: var(--bgColor);
+        --ftColor16: #407faa;
+        --ftColor17: #060f3b; // B:NAVY, C: WHITE
+        --ftColor18: #182152; //B: BLUE(btn ft color,  C: white
+        --ftColor19: var(--pointColor); //B:point C: WHITE
+        --ftColor20: var(--pointColor); // B,C point
+        --ftColor21: var(--pointColor);
+        --ftColor22: #8c6bfb;
+        // up & down 
+        --upColor: #ff6767;
+        --downColor: #5ab7ff;
+
+        // border
+        --border2: none;
+        --borderColor2: #000000; // B: black, C: borderColor
+        --borderColor3: #2e3765; // title bottom  
+        --borderColor4: #3d4a87; // checkboxBtn 
+        --borderColor5: #3d4a87; // box
+        --borderColor6: none; // B: none, C: gray
+        --borderColor7: none; // B: none, C: borderColor
+        --borderColor8: var(--borderColor); // B: borderColor, C: pointColor
+        --borderColor9: #182152; // B: dark navy, C: borderColor
+        --borderColor10: #ffffff; // B: WHITE, C: BLACK
+        --borderColor11: #8441d3;
+        --borderColor12: #2b3671; // B: tblBorder, C: point
+        --borderColor13: transparent; // B: transparent ,C: white gray
+        --borderColor14: #407faa; // B: blue ,C: white gray
+        --borderColor15: rgba(60, 113, 253, 0.8);
+        --borderColor16: #3c71fd; // B,c : pointColor C
+        --borderColor17: rgba(8, 156, 238, 0.2);
+        --brdColor18: var(--pointColor); //B,C :point
+        --brdColor19: #3c71fd; // B : pointColor C: borderColor
+        --brdColor20: #324a67;
+        --brdc21: #0069ef; // AI스튜디오 Qbox색상
+
+        // bgColor 
+        --bgColor2: var(--bgColor); // B: bgColor C: bgColor
+        --bgColor3: #5a55e3; // notice
+        --bgColor4: #2b3468;
+        --bgColor5: #060f3b; // B : dark blue C : white gray
+        --bgColor6: #151c4f; // B : dark blue C : white
+        --bgColor7: transparnet; // B : NONE, C : btnOff
+        --bgColor8: transparnet; // B : NONE C : point
+        --bgColor9: #060f3b; // B : dark blue C : white
+        --bgColor10: transparnet; // B : NONE, C : white
+        --bgColor11: #182152; // B: dark blue, C: white;
+        --bgColor12: #ffffff; // B: white, C: btnOff;
+        --bgColor13: #ffffff; // B: white, C: point;
+        --bgColor14: #0a072b; // B: dark blue, C: white;
+        --bgColor15: #111a46;
+        --bgColor16: #212a58; // B : dark blue C : white gray 
+        --bgColor17: #0f1444;
+        --bgColor18: #070f34; //B: darkBlue, C: white;
+        --bgColor19: transparnet; // B : transparent C : white gray
+        --bgColor20: #192044; //B: darkBlue, C: white;
+        --bgColor21: #204177; //B: darkBlue, C: whitegray;
+        --bgColor22: #0f163d; //B: darkBlue, C: white;
+        --bgColor23: #182152; //B: darkBlue, C: gray;
+        --bgColor24: rgba(0, 10, 42, 0.8);
+        --bgColor25: #000a2a;
+        --bgColor26: #192044; // inputBg 
+        --bgColor27: rgba(7, 230, 255, 0.8); //B: point(0.8), C: point(0.8);
+        --bgColor28: rgba(8, 156, 238, 0.2);
+        --bgColor29: #3c71fd; // B,C: pointColor C 
+        --bgColor30: #002d61;
+        --bgColor31: #324a67;
+        --bgc32: #222222;
+        --bgc33: rgba(8, 69, 238, 0.5); // AI스튜디오 Qbox 색상
+        --bgc34: #778daa;
+        --bgc35: rgba(0, 0, 0, 0.8);
+        --bgc36: var(--bgColor); // bgColor, fff
+        --bgc37: #265a87;
+        --bgc38: #000a2a;
+
+        --brdw: 1px; //1px 2px
+
+
+        // scroll 
+        --scrollbarColor: #ebebeb;
+        --scrollThumbColor: var(--pointColor);
+
+        //* gradient */
+        --gradient: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%); // C: none
+        --gradient2: radial-gradient(ellipse farthest-corner at, rgba(76, 235, 232, 1) 0%, rgba(76, 235, 232, 1) 50%, rgba(28, 190, 248, 0) 70%, rgba(7, 170, 255, 0) 100%); // C: none
+        --gradient3: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(174, 107, 251, 1) 50%, rgba(7, 170, 255, 0) 100%); // C: none
+        --gradient4: linear-gradient(to top, rgba(0, 10, 42, 0.8), rgba(0, 0, 0, 0));
+
+        //* DISPLAY */
+        --display: block;
+
+        // shadow 
+        --shadow: 0 0 20px 0 var(--pointColor); // B: point, C: point
+        --shadow2: 0 0 20px 0 var(--pointColor); // C: none
+        --shadow3: 0 2px 0 0 rgba(0, 0, 0, 0.5),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1); // C : none
+        --shadow4: 0.8px 0px 5px 0 rgba(0, 0, 0, 0.15); // C : none
+        --shadow5: 0 0 20px 0 rgba(0, 0, 0, 0.5),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1); // C: none;
+        --shadow6: 0 0 8px 0 #22bcce; //pointColor
+        --shadow7: 0 0 3px 0 #978eff; // purple
+
+        //* header */
+        // --headerFtColor : #{$headerFtColor};
+        --headerFtColor: #778daa;
+        --headerBorderColor: #0c1439;
+        --headerStoreBorderColor: #48527a;
+        --headerUserBgColor: #182152;
+        --headerBgColor: #0c1439;
+        --ico_userInfo: var(--pointColor);
+
+        //* navigation */
+        --ico_navColor_on: var(--pointColor); //ico on
+        --ico_navColor_off: var(--white); //ico off
+        --navFtColor: var(--ftColor);
+        --navFtColor2: #ffffff; // nav 하위 폰트 색상
+        --navOnFtColor: var(--pointColor);
+        --navBorderGradient: var(--gradient);
+        --navShadow: 0 2px 0 0 rgba(0, 0, 0, 0.5),
+            inset 0 0 15px 0 rgba(255, 255, 255, 0.05);
+        --navCloseBorderColor: #48527a;
+        --navCloseBgColor: #182152;
+        --navBgColor: #0c1439;
+        --navBgColor2: #161e48; // 1depth active
+        --navBgColor3: #161e48; // 2depth
+
+        // iMarkHover 
+        --bubbleBorderColor: #293363;
+        --bubbleBgColor: #182152;
+        --bubbleShadow: 0 0 10px 0 rgba(140, 228, 252, 0.5);
+
+        //* button */
+        // main 1 - on (sky blue)
+        --btnMain_ftColor: #182152;
+        --btnMain_bgColor: var(--pointColor);
+        // main 2 - on (dark blue)
+        --btnMain_ftColor2: var(--pointColor);
+        --btnMain_border2: 2px solid var(--pointColor);
+        --btnMain_shadow2: 0 0 5px 0 var(--pointColor);
+        --btnMain_bgColor2: #111a46;
+        // main 4 - on (dark blue), C: main1
+        --btnMain_ftColor4: var(--pointColor);
+        --btnMain_border4: 2px solid var(--pointColor);
+        --btnMain_shadow4: 0 0 5px 0 var(--pointColor);
+        --btnMain_bgColor4: #111a46;
+        // off
+        --btnOff_ftColor: #80b6d6;
+        --btnOff_BorderColor: #133b6d;
+        --btnOff_BgColor: #133b6d;
+        // off2 // B: off, C: white
+        --btnOff_ftColor2: #80b6d6;
+        --btnOff_BorderColor2: #133b6d;
+        --btnOff_BgColor2: #133b6d;
+        // off3 > b:off, C:main(border:point)
+        --btnOff_ftColor3: var(--btnOff_ftColor);
+        --btnOff_BrdColor3: var(--btnOff_BorderColor);
+        --btnOff_BgColor3: var(--btnOff_BgColor);
+        // off4         
+        --btnOff_ftColor4: #80b6d6;
+        --btnOff_BrdColor4: #133b6d;
+        --btnOff_BgColor4: #133b6d;
+        // disabled
+        --btnDis_ftColor: #7696aa;
+        --btnDis_BorderColor: #466182;
+        --btnDis_BorderColor2: #7696aa;
+        --btnDis_bgColor: #466182;
+        // delete(red) 
+        --btnDlt_ftColor: #ffffff;
+        --btnDlt_BorderColor: #f65a5a;
+        --btnDlt_shadow: 0 0 5px 0 #f65a5a;
+        --btnDlt_bgColor: #f65a5a;
+        // sub on (dark purple)
+        --btnFtColor3: #ae6bfb;
+        --btnBorderColor3: #ae6bfb;
+        --btnBgColor3: #111a46;
+        // sub off (dark purple)
+        --btnFtColor4: #947ead;
+        --btnBorderColor4: #492c6a;
+        --btnShadow4: 0 0 5px 0 #ae6bfb;
+        --btnBgColor4: #492c6a;
+        // white
+        --btnFtColor5: var(--white);
+        --btnBorderColor5: var(--white);
+        --btnBgColor5: transparent;
+        // skyblue - B(point), C: B_point
+        --btnFtColor6: var(--ftColor13);
+        --btnBgColor6: var(--pointColor);
+        // btn2>> B:연보라, C:메인
+        --btn_ftColor2: #ffffff;
+        --btn_brdColor: #978eff;
+        --btn_shadow2: none;
+        --btn_bgColor2: #978eff;
+        // btn5
+        --btn_ftColor5: #ffffff;
+        --btn_brdColor5: #3c71fd;
+        --btn_shadow5: 0 0 10px 0 #978eff;
+        --btn_bgColor5: #000a2a;
+        // btn6 > btn5 (on) 
+        --btn_ftColor6: var(--pointColor);
+        --btn_brdColor6: var(--pointColor);
+        --btn_shadow6: 0 0 10px 0 #978eff;
+        --btn_bgColor6: #000a2a;
+        // btn7 > C:point
+        --btn_ftColor7: var(--ftColor4);
+        --btn_brdColor7: rgba(8, 156, 238, 0.2);
+        --btn_bgColor7: rgba(8, 156, 238, 0.2);
+        // btn8 > B:fff, fff, transparent C:222,222,transparent
+        --btn_ftColor8: #ffffff;
+        --btn_brdColor8: #ffffff;
+        --btn_bgColor8: transparent;
+        --btn_bgColor8: transparent;
+        // btn9 > B: OFF, WHITE / C: 222, fff
+        --btn_ftColor9: #466182;
+        --btn_brdColor9: #ffffff;
+        --btn_bgColor9: #ffffff;
+        // btn10 > B: point, bg / C:  point
+        --btn_ftColor10: #ffffff;
+        --btn_brdColor10: var(--pointColor);
+        --btn_bgColor10: var(--pointColor);
+        //btn11 > 파랑, 회색
+        --btn_ftColor11: #ffffff;
+        --btn_brdColor11: #353d61;
+        --btn_bgColor11: #353d61;
+        //btn12 > 배경색, 포인트 선색
+        --btn_ftColor12: #ffffff;
+        --btn_brdColor12: var(--pointColor);
+        --btn_bgColor12: #353d61;
+        // 라디오(이미지)버튼 
+        --btnOff_bgColor11: #91aed5;
+        --btnOn_shadow11: 0 0 20px 0 var(--pointColor);
+        --btnOn_bgColor11: #ffffff;
+        // 라디오버튼
+        --btn_ftColor12: var(--ftColor);
+        --btnOn_BrdColor12: var(--pointColor);
+        --btn_bgColor12: var(--bgColor);
+        //* Table */
+        // table - thead, tbody 
+        --tblBorderColor: #2b3671;
+        --tblBgColor: #0f163d;
+        // table - thead */
+        --tblTheadBgColor: #4559bb;
+        --tblTheadBgColor2: #7689e5;
+        --tblTheadBgColor3: #0a072b; // B: dark blue, C: white blue
+        --tblTheadBgColor4: #070f34;
+        --tblTheadBgColor5: #212c67;
+        --tblTheadBgColor6: #182152; // B: dark blue, C: white
+        --tblTheadBgColor7: #060f3b;
+        --tblTheadBgColor8: #9eb8ff;
+        --tblTheadBgColor9: #0a072b; // B: dark blue, C: white gray
+        --tblTheadBgColor10: #0f1444; // row thead th
+        --tblTheadBgColor11: #4559bb; // blue, white gray
+        --tblTheadBgColor12: #2e3765;
+        --tblTheadBgColor13: #212a58;
+        --tblTheadBgColor14: #5360c0; // div table thead th
+        --tblTheadBgColor15: #7689e5;
+        --tblTheadBgColor16: #080430;
+
+        // table border
+        --tblBrdColor2: #202c6e; //임의로 제작, C:진파랑(BG,border) >> BC동일
+
+        // important bg
+        --tblEmBgColor: #e15b5b; // B: none, C: deep red
+        --tblEmBgColor2: #ff8585; // B: none, C: deep red
+        // table- bg 
+        --tblBgColor2: #407faa;
+        --tblBgColor3: #3e4aa3;
+        --tblBgColor4: #2e60d1;
+        --tblBgColor5: #4559bb;
+        --tblBgColor6: #0a1133;
+        --tblBgColor7: #192461;
+        --tblBgColor8: #ebf1fe;
+        --tblBgColor9: #abc2ff;
+        --tblBgColor10: #7198ff;
+        --tblBgColor11: #070f34; // 2단테이블 bgColor
+        --tblBgColor12: rgba(0, 10, 42, 0.8); // AI 테이블(반투명)
+
+        //* graph */
+        --graphFtColor: #407faa;
+        --graphBarColor: #407faa;
+        --graphBgColor: #133b6d;
+
+        //* label */
+        --labelColor: var(--pointColor);
+        --labelColor2: var(--pointColor2);
+        --labelColor3: var(--pointColor3);
+        --labelColor4: #1081f6;
+        --labelColor5: #ff9e2e;
+        --labelColor6: #098a78;
+        --labelColor7: #ffacd0;
+        --labelColor8: #ff7a7a;
+        --labelColor9: #fa859c;
+        --labelColor10: #07e6ff;
+        --labelColor11: #34c38f;
+        --labelColor12: #fce56b;
+        --labelColor13: #5d72ff;
+        --labelColor14: #ae6bfb;
+
+        //* input */
+        --ipBorderColor: #3f7197;
+        --ipBgColor: #192044; // checkBox bg
+        --ipBorderColor2: #3c71fd;
+        --ipShadow2: 0 0 10px 0 #978eff;
+        --ipBgColor2: rgba(0, 10, 42, 0.8);
+        // placeholder
+        --ipFtColor_placeholder: #3f7197;
+        --ipFtColor_placeholder2: #ffffff;
+        // disabled
+        --ipFtColor_disabled: #7696aa;
+        --ipBorderColor_disabled: #5e799a;
+        --ipBgColor_disabled: #466182;
+        // toggle 
+        --ipToggleFt_off: #407faa;
+        --ipToggleBorder_off: #407faa;
+        --ipToggleDot_off: #407faa;
+        --ipToggleBg_off: #0a072b;
+        --ipToggleFt_on: #ffffff;
+        --ipToggleBorder_on: var(--pointColor);
+        --ipToggleDot_on: var(--pointColor);
+        --ipToggleBg_on: #111a46;
+        --ipToggleFt_disabled: var(--btnDis_ftColor);
+        --ipToggleBorder_disabled: var(--btnDis_BorderColor);
+        --ipToggleDot_disabled: #7696aa;
+        --ipToggleBg_disabled: var(--btnDis_bgColor);
+
+        //* slick */
+        --slickDot: #ffffff;
+        --slickDot_active: var(--pointColor2);
+        --slickDot_active2: var(--pointColor);
+
+        //* tab */
+        --tabFtColor: var(--btnOff_ftColor);
+        --tabBorder: var(--btnOff_BorderColor);
+        --tabBgColor: var(--btnOff_BgColor);
+        // tab 1 >> btn Color 사용
+        // --tabBorder: #3d4a87;
+        // tab 2
+        --tabBorderColor2: #407faa;
+        --tabBgColor2_on: var(--btnOff_BgColor);
+        // tab 3
+        --tabBorderColor3: #232357;
+        --tabShadow3: inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --tabBgColor3: #111b46;
+        --tabBorderColor3_on: #232357;
+        --tabShadow3_on: 0 2px 0 0 rgba(0, 0, 0, 0.16),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --tabBgColor3_on: #182152;
+        --tabBgColor3_on2: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%);
+        --tabZindex3: 0;
+        // tab 4
+        --tabFtColor4: var(--white);
+        --tabBorderColor4: #3d4a87;
+        --tabBgColor4: #273160;
+        --tabBorder4_on: var(--tabBorder);
+        --tabBgColor_on: var(--btnMain_bgColor);
+        // tab 5
+        --tabFtColor5: var(--subFtColor);
+        --tabBorderColor5: #2b3671;
+        --tabBgColor5: #0f163d;
+        --tabBorderColor5_on: #2b3671;
+        // tab 6
+        --tabBorderColor6: #232357;
+        --tabShadow6: inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --tabBgColor6: #111b46;
+        --tabBorder6_on: #111a46;
+        --tabShadow6_on: 0 2px 0 0 rgba(0, 0, 0, 0.16),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --tabBgColor6_on: #182152;
+        --tabBgColor6_on2: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%);
+        // --tabZindex6: none;
+
+
+        //* tabView */
+        --tabViewBorder: none;
+        --tabViewBorder2: none;
+
+        //* box layout */
+        --boxBorderColor: #232357;
+        --boxShadow: 0 2px 0 0 rgba(0, 0, 0, 0.5),
+            inset 0 0 15px 0 rgba(255, 255, 255, 0.05);
+        --boxBgColor: #111a46;
+        // boxLayout 2, 4, 5
+        --boxBorder2: none;
+        --boxShadow2: 0 2px 0 0 rgba(0, 0, 0, 0.16),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --boxBgColor2: #182152;
+        // boxLayout 3
+        --boxBorderColor3: var(--boxBorderColor);
+        --boxShadow3: var(--shadow3);
+        --boxBgColor3: #182152;
+        // boxLayout 4
+        --boxBorderColor4: var(--boxBorderColor);
+        // boxLayout 5
+        --boxBorderColor5: #0a072b;
+        --boxBgColor5: #111a46;
+        // boxLayout 6
+        --boxftColor6: var(--pointColor);
+        --boxBorderColor6: #133b6d;
+        --boxBorderColor6_hover: 1px solid #133b6d;
+        --boxShadow6: 0 2px 0 0 rgba(0, 0, 0, 0.16),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --boxShadow6_hover: 0 0 5px 0 #07e6ff;
+        --boxBgColor6: #133b6d;
+        --boxBgColor6_hover: #133b6d; // boxLayout 7
+        --boxBorderColor7: #2b3671;
+        --boxBgColor7: #0f163d;
+        // boxLayout 8
+        --boxBorderColor8: #3d4a87;
+        --boxBgColor8: #151c4f;
+        // boxLayout 10
+        --boxBorderColor10: var(--borderColor);
+        --boxBgColor10: var(--bgColor);
+        // boxLayout 11 >> bg,border: point, ft:bgColor
+        --boxftColor11: var(--bgColor);
+        --boxBorderColor11: var(--pointColor);
+        --boxBgColor11: var(--pointColor);
+        // boxLayout 12 >> bg: bg컬러랑 유사, border: 블루,border, ft:ftColor
+        --boxBorderColor12: #0d9cf4;
+        --boxShadow12: 0 0 10px 0 rgba(7, 230, 255, 0.2);
+        --boxBgColor12: #0e153a;
+        // boxLayout 13 >> bg: white, border: 블루,  ft:black (B,C동일)
+        --boxBorderColor13: #3c71fd;
+        --boxShadow13: 0 0 10px 0 #978eff;
+        --boxBgColor13: rgba(8, 156, 238, 0.2);
+        // boxLayout 14>> bg: 연보라, border: 연보라,  ft:black (B,C동일)
+        --boxBrdColor14: #978eff;
+        --boxShadow14: 0 0 10px 0 #978eff;
+        --boxBgColor14: rgba(151, 142, 255, 0.5);
+        // boxLayout 15>> B > bg: 파랑, border: 하양,  ft:black, C> bg:하양, border:기본,
+        --boxBorderColor15: #ffffff;
+        --boxShadow15: rgba(0, 10, 42, 0.5);
+        --boxBgColor15: rgba(0, 10, 42, 0.5);
+        // boxLayout 16>> B > bg: 파랑, border: 연보라,  ft:black, C> bg:하양, border:기본,
+        --boxBorderColor16: #3c71fd;
+        --boxShadow16: 0 0 6px 0 #978eff;
+        --boxBgColor16: rgba(0, 10, 42, 0.5);
+        //boxLayout 17 
+        // B: 임의로 제작, C:진파랑(BG,border) >> BC동일
+        --boxBorderColor17: #202c6e;
+        --boxShadow17: none;
+        --boxBgColor17: #202c6e;
+        // boxLayout 18
+        --boxBrdColor18: #3d4a87;
+        --boxBgColor18: #151c4f;
+        // box
+        --boxBrd19: var(--pointColor);
+        --boxBg19: #324a67;
+
+        //* grid */
+        // on, active border color
+        --boxOnColor: #ffffff; //B: WHITE, C: WHITE
+        --boxOnColor2: #ffffff; //B: WHITE, C: pink
+        --boxOnColor3: #ffffff; //B: WHITE, C: point
+        --boxOnColor4: var(--upColor); //B: red, C: red        
+        // box bg color
+        --boxColor1: #bdb6d5;
+        --boxColor2: #d561ba;
+        --boxColor3: #d52f82;
+        --boxColor4: #e950ac;
+        --boxColor5: #8e7bb3;
+        --boxColor6: #744684;
+        --boxColor7: #c562cf;
+        --boxColor8: #473974;
+        --boxColor9: #362f58;
+        --boxColor10: #603578;
+        --boxColor11: #903e88;
+        --boxColor12: #9948b5;
+        --boxColor13: #be4a9f;
+        --boxColor14: #864879; // 미지의 컬러..
+        // box t2
+        --boxColor2_1: #f2638f;
+        --boxColor2_2: #5a55e3;
+        --boxColor2_3: #2ed1aa;
+        --boxColor2_4: #1081f6;
+        --boxColor2_5: #ae6bfb;
+        // box t3 // 데이터 매니저 박스
+        --boxColor3_1: #7373be;
+        --boxColor3_2: #529ff8;
+        --boxColor3_3: #cd6fd9;
+        --boxColor3_4: #fc91aa;
+        --boxColor3_5: #ffbd53;
+        --boxColor3_6: #66b298;
+        --boxColor3_7: #c8795a;
+        --boxColor3_8: #7435b2;
+        --boxColor3_9: #a4b494;
+        --boxColor3_10: #52ccda;
+        --boxColor3_11: #ff6363;
+        --boxColor3_12: #3f3351;
+
+
+        //* z-index */
+        --zIndex: auto; // none, 1
+
+        //* image.scss > ico */
+        --ico_color: var(--pointColor); //  pointColor
+        --ico_color2: #ffffff; // B: fff, C: 222
+        --ico_color3: #2d5a7d; // B: 2d5a7d, C: aaaaaa
+        --ico_color4: var(--pointColor); // B: point, C: ffffff
+        --ico_color5: #fff; // B: fff, C: point
+        // --ico_color6: #fff; // B: fff, C: btnOff_borderColor
+        --ico_color6: var(--btnOff_BgColor); // B, C: btnOff_bgColor
+        --ico_color7: #2e3765; //B: 2e3765, C, borderColor
+        --ico_color8: var(--bgColor); // B: bgColor, C: ffffff
+        --ico_color9: #0a072b; // B: darkblue, C: pointColor
+        --ico_color10: var(--subFtColor); // subFtColor
+        --ico_color11: #0a072b; // B: darkblue, C: fff
+        --ico_color12: #7696aa; // B: btnDis_ft , C: btnDis_ft
+        --ico_color13: #222222; // B: 222222 , C: ffffff
+        --ico_color14: var(--btnDis_bgColor); //  readonly
+        --ico_color15: #ffffff; //B,C: white
+        --ico_color16: var(--btnOff_ftColor); // B: OFF버튼 ftColor , C: point 
+        --ico_color17: #ffff00; // #ff0 , issueColor
+
+        //* modal */
+        --ico_closeColor: #2d5a7d;
+        --modalBorderColor: var(--pointColor);
+        --modalShadow: 0 0 10px 0 var(--mainColor),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --modalBgColor: #151c4f;
+
+        //* Etc */
+        --etcColor: #204177; // B: blue, C: purple
+        --etcColor2: var(--pointColor); // B: point, C: pink
+        --etcColor3: #192044; // B: blue, C: gray
+        --etcColor4: #0f1444; // B: blue, C: sky blue
+        --etcColor5: #204177; // B: blue, C: gray
+        --etcColor6: #0a072b; // B: darkblue, C: pointColor
+        --etcColor7: #2d5a7d; // B: whiteblue, C: white gray
+
+        --color2: #ff0d6e;
+        --color10: #91aed5;
+        --color11: #000a29;
+        --color12: #102540;
+
+        //* ai price */
+        --price1: #bfbfbf; //free
+        --price2: #00b0f0; //starter
+        --price3: #3c71fd; //basic
+        --price4: #7030a0; //pro
+        --price5: #000000; //biz
+    }
+
+    //* typeC (WHITE) */
+    .typeC {
+        // basic
+        --mainColor: #3c71fd;
+        --ftColor: #222222;
+        --subFtColor: #999999;
+        --borderColor: #e6e6e6;
+        --bgColor: #f6f6f6;
+
+        //* dim */
+        --dimFtColor: #000000;
+        --dimOpacity: 0.8;
+        --dimShadow: rgba(0, 0, 0, 0.5);
+        --dimBgColor: #fff;
+        --dimBgColor2: rgba(245, 245, 245, 1);
+        --dimBgColor3: rgba(255, 255, 255, 0.8);
+
+        //* daterangepicker */
+        --dateFtColor2: #222222; // 요일
+        --dateFtColor3: #e5e5e5; // off
+        --dateFtColor4: #ffffff; // hover
+        --dateFtColor5: #222222; // 
+        --dateFtColor6: #ffffff;
+        --dateFtColor7: #ffffff; // 
+
+        --dateBorderColor: #d6d6d6;
+        --dateShadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+        --dateBgColor: #ffffff;
+        // 기간선택
+        --dateBgColor2: #88a9ff;
+        --dateBgColor3: #c1c8db;
+        // input 
+        --dateIpBorderColor: #d6d6d6;
+        --dateIpBgColor: #ffffff;
+
+
+        // point 
+        --pointColor: #3c71fd;
+        --pointColor2: #8c6bfb;
+        --pointColor3: #51ca9e;
+        --pointColor4: #ff6767;
+        --pointColor5: #39a8ff; // 3 set - 1
+        --pointColor6: #23bc85; // 3 set - 2
+        --pointColor7: #ff6767; // 3 set - 3
+        --pointColor8: #07e6ff; // B: point, C: B_point
+        --pointColor9: #3c71fd; // B: C_point, C: point
+        // point - etc
+        --issueColor: #ffcf31;
+        --issueColor2: var(--issueColor); // B: trnasparent, C: issue
+        --issueColor3: var(--white); // B: issue, C: white
+        --issueColor4: var(--ftColor); // B: issue, C: black
+        --issueColor5: #fbbe30;
+        --issueColor6: #ffcf31;
+        --waitColor: #f5a123;
+        --errorColor: #ff6767;
+        --normalColor: var(--pointColor); // B:point, C: point
+        --normalColor2: #07e6ff; // B: point, C: B_point
+        --normalColor3: var(--pointColor); // B: white, C: point
+        --normalColor4: var(--pointColor); // B: transparent, C: point
+        --noneColor: #80b6d6;
+        --noneColor2: #3f7197;
+        // --passColor: #40c969;
+        --checkColor: #aaaaaa;
+        // --unknowColor: #aaaaaa;
+
+        //* Font */
+        --ftColor2: var(--ftColor); // B : point, C : black
+        --ftColor3: #ffffff; // B : black, C : white
+        --ftColor4: #ffffff; // B : white, C : white
+        --ftColor5: var(--pointColor); // B : white, C : point
+        --ftColor6: #222222; // B : white, C : black
+        --ftColor7: #ff6091;
+        --ftColor8: #ff9e2e;
+        --ftColor9: #222222; // B : white blue, C : black
+        --ftColor10: #ffffff; // B : point, C : white
+        --ftColor11: #000000; // B: black, C: black
+        --ftColor12: var(--pointColor); //B: BLUE,  C: point
+        --ftColor13: #182152;
+        --ftColor14: var(--pointColor8); //B,C : B_point
+        --ftColor15: var(--bgColor);
+        --ftColor16: #c4c4c4;
+        --ftColor17: #ffffff; // B:NAVY, C: WHITE
+        --ftColor18: var(--white); //B: BLUE(btn ft color,  C: white
+        --ftColor19: var(--white); //B:point C: WHITE
+        --ftColor20: var(--pointColor);
+        --ftColor21: #3c71fd; // B,C: pointColor C
+        --ftColor22: var(--pointColor2);
+
+        // up & down 
+        --upColor: #ff5353;
+        --downColor: #1081f6;
+
+        // border
+        --border2: 1px solid var(--borderColor);
+        --borderColor2: #e6e6e6; // B: black, C: borderColor
+        --borderColor3: #e6e6e6; // title bottom 
+        --borderColor4: #ffffff; // checkboxBtn 
+        --borderColor5: #ebebeb; // box
+        --borderColor6: #aaaaaa; // B: none, C: gray
+        --borderColor7: #e5e5e5; // B: none, C: borderColor
+        --borderColor8: var(--pointColor); // B: borderColor, C: pointColor
+        --borderColor9: var(--borderColor); // B: dark navy, C: borderColor
+        --borderColor10: #000000; // B: WHITE, C: BLACK
+        --borderColor11: #8441d3;
+        --borderColor12: var(--pointColor); // B: tblBorder, C: point
+        --borderColor13: #f9f9f9; // B: transparent ,C: white gray
+        --borderColor14: #a2bdf3; // B: blue ,C: white gray
+        --borderColor15: rgba(60, 113, 253, 0.8);
+        --borderColor16: #3c71fd; // B,c : pointColor C
+        --borderColor17: var(--pointColor);
+        --brdColor18: var(--pointColor); //B,C :point
+        --brdColor19: var(--borderColor); // B : pointColor C: borderColor
+        --brdColor20: #c1c8db;
+        --brdc21: var(--pointColor); // AI스튜디오 Qbox색상
+
+
+        // bgColor 
+        --bgColor2: var(--mainColor);
+        --bgColor3: var(--mainColor);
+        --bgColor4: var(--bgColor);
+        --bgColor5: #f9f9f9; // B : dark blue C : white gray
+        --bgColor6: #ffffff; // B : dark blue C : white
+        --bgColor7: var(--btnOff_BgColor); // B : NONE C : btnOff
+        --bgColor8: var(--pointColor); // B : NONE C : point
+        --bgColor9: #ffffff; // B : NONE C : white
+        --bgColor10: #ffffff; // B : NONE, C : white
+        --bgColor11: #ffffff; // B: dark blue, C: white;
+        --bgColor12: var(--btnOff_BgColor); // B: white, C: point;
+        --bgColor13: var(--pointColor); // B: white, C: point;
+        --bgColor14: #ffffff; // B: dark blue, C: white;
+        --bgColor15: var(--pointColor);
+        --bgColor16: #f6f6f6; // B : dark blue C : white gray 
+        --bgColor17: #ffffff;
+        --bgColor18: #ffffff; //B: darkBlue, C: white;
+        --bgColor19: #f9f9f9; // B : transparent C : white gray
+        --bgColor20: #ffffff; //B: darkBlue, C: white;
+        --bgColor21: #ebebeb; //B: darkBlue, C: whitegray;
+        --bgColor22: #f9f9f9; //B: darkBlue, C: white gray;
+        --bgColor23: #f9f9f9; //B: darkBlue, C: white gray;
+        --bgColor24: rgba(0, 10, 42, 0.8);
+        --bgColor25: #ffffff;
+        --bgColor26: #192044; // inputBg 
+        --bgColor27: var(--mainColor); // rgba(60, 113, 253, 0.8); //B: point(0.8), C: point(0.8);
+        --bgColor28: var(--pointColor);
+        --bgColor29: var(--pointColor); // B,C: pointColor C
+        --bgColor30: #ffffff;
+        --bgColor31: #c1c8db;
+        --bgc32: #222222;
+        --bgc33: var(--pointColor); // AI스튜디오 Qbox 색상
+        --bgc34: #e5e5e5;
+        --bgc35: rgba(0, 0, 0, 0.8);
+        --bgc36: #ffffff; // bgColor, fff
+        --bgc37: #e7eeff;
+        --bgc38: #ffffff;
+        --brdw: 2px; // 1px 2px
+
+        // scroll 
+        --scrollbarColor: #ebebeb;
+        --scrollThumbColor: var(--mainColor);
+
+        //* gradient */
+        --gradient: none;
+        --gradient2: none;
+        --gradient3: none;
+        --gradient4: none;
+
+        //* DISPLAY */
+        --display: none;
+
+        // shadow 
+        --shadow: 0 0 20px 0 var(--pointColor);
+        --shadow2: none;
+        --shadow3: none;
+        --shadow4: none;
+        --shadow5: none;
+        --shadow6: none;
+        --shadow7: none;
+
+
+        //* header */
+        --headerFtColor: #777777;
+        --headerBorderColor: #e9e9e9;
+        --headerStoreBorderColor: #d1d1d1;
+        --headerUserBgColor: #ffffff;
+        --headerBgColor: #ffffff;
+        --ico_userInfo: var(--pointColor);
+
+        //* navigation */
+        --ico_navColor_on: var(--white); //ico on
+        --ico_navColor_off: #777777; //ico off
+        --navBorderColor: #ffffff;
+        --navFtColor: #777777; //1depth 하위 폰트 색상
+        --navFtColor2: #777777; //2depth 하위 폰트 색상
+        --navOnFtColor: var(--white);
+        --navShadow: none;
+        --navCloseBorderColor: #d1d1d1;
+        --navCloseBgColor: var(--mainColor);
+        --navBgColor: var(--white);
+        --navBgColor2: var(--mainColor); // 1depth active
+        --navBgColor3: #f6f6f6; // 2depth
+
+        //* iMarkHover */
+        --bubbleBorderColor: #ffffff;
+        --bubbleBgColor: #ffffff;
+        --bubbleShadow: 0 5px 10px 0 rgba(34, 34, 34, 0.1);
+
+
+        //* button */
+        // main 
+        --btnMain_ftColor: var(--white);
+        --btnMain_bgColor: var(--pointColor);
+        // main2
+        --btnMain_ftColor2: var(--pointColor);
+        --btnMain_border2: 1px solid var(--pointColor);
+        --btnMain_shadow2: none;
+        --btnMain_bgColor2: #e9f6ff;
+        // main 4 - B(main2), C: main1
+        --btnMain_ftColor4: var(--ftColor4);
+        --btnMain_border4: 1px solid var(--pointColor);
+        --btnMain_shadow4: none;
+        --btnMain_bgColor4: var(--pointColor);
+        // off
+        --btnOff_ftColor: var(--white);
+        --btnOff_BorderColor: #c1c8db;
+        --btnOff_BgColor: #c1c8db;
+        // off2 : white 
+        --btnOff_ftColor2: var(--ftColor);
+        --btnOff_BorderColor2: var(--borderColor);
+        --btnOff_BgColor2: var(--white);
+        // off3 > b:off, C:main(border:point) > btnMain2
+        --btnOff_ftColor3: var(--pointColor);
+        --btnOff_BrdColor3: var(--pointColor);
+        --btnOff_BgColor3: var(--btnMain_bgColor2);
+        // off4 
+        --btnOff_ftColor4: #333333;
+        --btnOff_BrdColor4: #f5f5f6;
+        --btnOff_BgColor4: #f5f5f6;
+        // disabled 
+        --btnDis_ftColor: #c4c4c4;
+        --btnDis_BorderColor: #eceff1;
+        --btnDis_BorderColor2: #c4c4c4;
+        --btnDis_bgColor: #eceff1;
+        // delete(red) 
+        --btnDlt_ftColor: #ffffff;
+        --btnDlt_BorderColor: #f65a5a;
+        --btnDlt_shadow: none;
+        --btnDlt_bgColor: #f65a5a;
+        // sub on (dark purple)
+        --btnFtColor3: #ffffff;
+        --btnBorderColor3: #8c6bfb;
+        --btnBgColor3: #8c6bfb;
+        // sub off (dark purple)
+        --btnFtColor4: #ffffff;
+        --btnBorderColor4: #ccc6d8;
+        --btnShadow4: none;
+        --btnBgColor4: #ccc6d8;
+        // white
+        --btnFtColor5: var(--pointColor);
+        --btnBorderColor5: var(--pointColor);
+        --btnBgColor5: #ffffff;
+        // skyblue - B(point), C: B_point
+        --btnFtColor6: var(--ftColor13);
+        --btnBgColor6: var(--pointColor8);
+        // btn2>> B:연보라, C:메인
+        --btn_ftColor2: #ffffff;
+        --btn_brdColor: var(--pointColor);
+        --btn_shadow2: none;
+        --btn_bgColor2: var(--pointColor);
+        // btn5
+        --btn_ftColor5: var(--pointColor);
+        --btn_brdColor5: var(--pointColor);
+        --btn_shadow5: none;
+        --btn_bgColor5: #e9f6ff;
+        // btn6 > btn5 (on) 
+        --btn_ftColor6: var(--ftColor10);
+        --btn_brdColor6: var(--pointColor);
+        --btn_shadow6: none;
+        --btn_bgColor6: var(--pointColor);
+        // btn7  > C:point
+        --btn_ftColor7: var(--ftColor4);
+        --btn_brdColor7: var(--pointColor);
+        --btn_bgColor7: var(--pointColor);
+        // btn8 > B:fff, fff, transparent C:222,222,transparent
+        --btn_ftColor8: #222222;
+        --btn_brdColor8: #222222;
+        --btn_bgColor8: transparent;
+        // btn9 > B: OFF, WHITE / C:  222, fff
+        --btn_ftColor9: #222222;
+        --btn_brdColor9: #222222;
+        --btn_bgColor9: #ffffff;
+        // btn10 > B: point, bg / C:  point
+        --btn_ftColor10: #8b8b8b;
+        --btn_brdColor10: var(--pointColor);
+        --btn_bgColor10: var(--pointColor);
+        //btn11 > 파랑, 회색
+        --btn_ftColor11: #8b8b8b;
+        --btn_brdColor11: #f4f5f6;
+        --btn_bgColor11: #f4f5f6;
+        //btn12 > 배경색, 포인트 선색
+        --btn_ftColor12: var(--ftColor);
+        --btn_brdColor12: var(--pointColor);
+        --btn_bgColor12: #ffffff;
+        // 라디오(이미지)버튼 
+        --btnOff_bgColor11: #ecf2ff;
+        --btnOn_shadow11: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        --btnOn_bgColor11: #ffffff;
+        // 라디오버튼  
+        --btnOn_ftColor12: var(--pointColor);
+        --btnOn_BrdColor12: var(--pointColor);
+        --btnOn_BgColor12: #e7eeff;
+
+        //* Table */
+        // table - thead, tbody 
+        --tblBorderColor: #e6e6e6;
+        --tblBgColor: #ffffff;
+        // important bg
+        --tblEmBgColor: #e15b5b; // B: none, C: deep red
+        --tblEmBgColor2: #ff8585; // B: none, C: deep red
+        // table - thead */
+        --tblTheadBgColor: #3c71fd;
+        --tblTheadBgColor2: #6d95ff;
+        --tblTheadBgColor3: #9eb8ff; // B: dark blue, C: white blue
+        --tblTheadBgColor4: #f6f6f6; // tr 두번째 줄
+        --tblTheadBgColor5: #f6f6f6; // tr even 
+        --tblTheadBgColor6: #ffffff; // B: dark blue, C: white
+        --tblTheadBgColor7: #3c71fd;
+        --tblTheadBgColor8: #9eb8ff;
+        --tblTheadBgColor9: #f6f6f6; // B: dark blue, C: white gray
+        --tblTheadBgColor10: #f6f6f6; // row thead th
+        --tblTheadBgColor11: #f6f6f6;
+        --tblTheadBgColor12: #6d95ff;
+        --tblTheadBgColor13: #f6f6f6;
+        --tblTheadBgColor14: #3c71fd; // div table thead th
+        --tblTheadBgColor15: #f6f6f6;
+        --tblTheadBgColor16: #6a92fc;
+
+        // table border
+        --tblBrdColor2: #e6e6e6; //임의로 제작, C:진파랑(BG,border) >> BC동일
+
+        // table- bg 
+        --tblBgColor2: #a2bdf3;
+        --tblBgColor3: #6368ef;
+        --tblBgColor4: #71aaff;
+        --tblBgColor5: #ffffff;
+        --tblBgColor6: #ffffff;
+        --tblBgColor7: #e9f6ff;
+        --tblBgColor8: #ebf1fe;
+        --tblBgColor9: #abc2ff;
+        --tblBgColor10: #7198ff;
+        --tblBgColor11: #f6f6f6; // 2단테이블 bgColor
+        --tblBgColor12: #ffffff; // AI 테이블(반투명)
+
+        //* graph */
+        --graphFtColor: #c1c8db;
+        --graphBarColor: #c1c8db;
+        --graphBgColor: #e4e4e5;
+
+        // label 
+        --labelColor: #38ddff;
+        --labelColor2: #8c6bfb;
+        --labelColor3: #51ca9e;
+        --labelColor4: #1081f6;
+        --labelColor5: #ff9e2e;
+        --labelColor6: #098a78;
+        --labelColor7: #f588b7;
+        --labelColor8: #ff7a7a;
+        --labelColor9: #fa859c;
+        --labelColor10: #07e6ff;
+        --labelColor11: #34c38f;
+        --labelColor12: #fce56b;
+        --labelColor13: #5d72ff;
+        --labelColor14: #ae6bfb;
+
+        //* input */
+        --ipBorderColor: #d6d6d6;
+        --ipBgColor: #ffffff;
+        --ipBorderColor2: var(--ipBorderColor);
+        // --ipShadow2: none;
+        --ipShadow2: 0 0 10px #e6e6e6;
+        --ipBgColor2: var(--ipBgColor);
+        // placeholder
+        --ipFtColor_placeholder: #bbbbbb;
+        --ipFtColor_placeholder2: #bbbbbb;
+        // disabled 
+        --ipFtColor_disabled: #c4c4c4;
+        --ipBorderColor_disabled: #d6d6d6;
+        --ipBgColor_disabled: #eceff1;
+        // toggle 
+        --ipToggleFt_off: #ffffff;
+        --ipToggleBorder_off: var(--btnOff_BorderColor);
+        --ipToggleDot_off: #ffffff;
+        --ipToggleBg_off: var(--btnOff_BgColor);
+        --ipToggleFt_on: #ffffff;
+        --ipToggleBorder_on: var(--pointColor);
+        --ipToggleDot_on: #ffffff;
+        --ipToggleBg_on: var(--pointColor);
+        --ipToggleFt_disabled: #c4c4c4;
+        --ipToggleBorder_disabled: var(--btnDis_BorderColor);
+        --ipToggleDot_disabled: #c4c4c4;
+        --ipToggleBg_disabled: var(--btnDis_bgColor);
+
+        //* slick */
+        --slickDot: #cecece;
+        --slickDot_active: var(--pointColor2);
+        --slickDot_active2: var(--pointColor);
+
+        //* tab */
+        --tabFtColor: var(--btnOff_ftColor);
+        --tabBorder: var(--btnOff_BorderColor);
+        --tabBgColor: var(--btnOff_BgColor);
+        // tab 2
+        --tabBorderColor2: var(--btnOff_BorderColor);
+        --tabBgColor2_on: var(--white);
+        // tab 3
+        --tabBorderColor3: var(--borderColor);
+        --tabShadow3: none;
+        --tabBgColor3: var(--white);
+        --tabBorderColor3_on: var(--pointColor);
+        --tabShadow3_on: none;
+        --tabBgColor3_on: #ffffff;
+        --tabBgColor3_on2: none;
+        --tabZindex3: 1;
+        // tab 4
+        --tabFtColor4: var(--white);
+        --tabBorderColor4: var(--white);
+        --tabBgColor4: var(--btnOff_BgColor);
+        --tabBorder4_on: var(--tabBorder);
+        --tabBgColor_on: var(--btnMain_bgColor);
+        // tab 5
+        --tabFtColor5: var(--subFtColor);
+        --tabBorderColor5: var(--btnOff_BorderColor);
+        --tabBgColor5: #ffffff;
+        --tabBorderColor5_on: var(--pointColor);
+
+        // tab 6
+        --tabBorderColor6: #e5e5e5;
+        --tabShadow6: none;
+        --tabBgColor6: #ffffff;
+        --tabBorder6_on: var(--pointColor);
+        --tabShadow6_on: none;
+        --tabBgColor6_on: #ffffff;
+        --tabBgColor6_on2: none;
+        // --tabZindex6: none;
+
+
+
+        //* tabView */
+        --tabViewBorder: 1px solid var(--pointColor);
+        --tabViewBorder2: 1px solid var(--borderColor);
+
+        //* box layout */
+        --boxBorderColor: var(--borderColor);
+        --boxShadow: none;
+        --boxBgColor: var(--white);
+        // boxLayout 2
+        --boxBorder2: 1px solid var(--borderColor);
+        --boxShadow2: none;
+        --boxBgColor2: var(--white);
+        // boxLayout 3
+        --boxBorderColor3: var(--borderColor);
+        --boxShadow3: none;
+        --boxBgColor3: var(--white);
+        // boxLayout 4
+        --boxBorderColor4: var(--borderColor);
+        // boxLayout 5
+        --boxBorderColor5: var(--borderColor);
+        --boxBgColor5: var(--white);
+        // boxLayout 6
+        --boxftColor6: var(--pointColor);
+        --boxBorderColor6: var(--pointColor);
+        --boxBorderColor6_hover: 1px solid var(--pointColor);
+        --boxShadow6: none;
+        --boxShadow6_hover: none;
+        --boxBgColor6: var(--white);
+        --boxBgColor6_hover: var(--pointColor);
+        // boxLayout 7
+        --boxBorderColor7: var(--borderColor);
+        --boxBgColor7: var(--white);
+        // boxLayout 8
+        --boxBorderColor8: #ebebeb;
+        --boxBgColor8: #ffffff;
+        // boxLayout 10
+        --boxBorderColor10: var(--borderColor);
+        --boxBgColor10: var(--bgColor);
+        // boxLayout 11 >> bg,border: point, ft:bgColor
+        --boxftColor11: var(--bgColor);
+        --boxBorderColor11: var(--pointColor);
+        --boxBgColor11: var(--pointColor);
+        // boxLayout 12 >> bg: bg컬러랑 유사, border: 블루,border, ft:ftColor
+        --boxBorderColor12: var(--borderColor);
+        --boxShadow12: none;
+        --boxBgColor12: var(--bgColor);
+        // boxLayout 13 >> bg: white, border: 블루,  ft:black (B,C동일)
+        --boxBorderColor13: var(--borderColor);
+        --boxShadow13: none;
+        --boxShadow13: 0 0 10px #e6e6e6;
+        --boxBgColor13: #ffffff;
+        // boxLayout 14>> bg: 연보라, border: 연보라,  ft:black (B,C동일)
+        --boxBrdColor14: var(--borderColor);
+        --boxShadow14: 0 0 10px #e6e6e6;
+        --boxBgColor14: #ffffff;
+        // boxLayout 15>> B > bg: 파랑, border: 연보라,  ft:black, C> bg:하양, border:기본,
+        --boxBorderColor15: var(--borderColor);
+        // --boxShadow15: none;
+        --boxShadow15: 0 0 10px #e6e6e6;
+        --boxBgColor15: #ffffff;
+        // boxLayout 15>> B > bg: 파랑, border: 연보라,  ft:black, C> bg:하양, border:기본,
+        --boxBorderColor16: var(--borderColor);
+        // --boxShadow16: none;
+        --boxShadow16: 0 0 10px #e6e6e6;
+        --boxBgColor16: #ffffff;
+        // B: 임의로 제작, C:진파랑(BG,border) >> BC동일
+        --boxBorderColor17: #202c6e;
+        --boxShadow17: none;
+        --boxBgColor17: #202c6e;
+        // boxLayout 18
+        --boxBrdColor18: #e5e5e5;
+        --boxBgColor18: #f5f9fc;
+        // box
+        --boxBrd19: #e5e5e5;
+        --boxBg19: #f5f9fc;
+
+        //* grid */
+        // on, active border color
+        --boxOnColor: rgba(255, 0, 0, 1); //B: black, C: black(opacity: 50%)
+        --boxOnColor2: #ee00ff; //B: WHITE, C: pink
+        --boxOnColor3: var(--pointColor); //B: WHITE, C: point
+        --boxOnColor4: #ff6767; //B: WHITE, C: red
+        // box bg color
+        --boxColor1: #a2bdf3;
+        --boxColor2: #6368ef;
+        --boxColor3: #4074ff;
+        --boxColor4: #9d48ff;
+        --boxColor5: #71aaff;
+        --boxColor6: #3633a5;
+        --boxColor7: #3cd5fd;
+        --boxColor8: #26c0e1;
+        --boxColor9: #202c6e;
+        --boxColor10: #3c31e1;
+        --boxColor11: #536ef1;
+        --boxColor12: #1e9af9;
+        --boxColor13: #6f0ae3;
+        --boxColor14: #32006e;
+        // box t2
+        --boxColor2_1: #f2638f;
+        --boxColor2_2: #5a55e3;
+        --boxColor2_3: #2ed1aa;
+        --boxColor2_4: #1081f6;
+        --boxColor2_5: #ae6bfb;
+        // box t3 // 데이터 매니저 박스
+        --boxColor3_1: #a2bdf3;
+        --boxColor3_2: #6368ef;
+        --boxColor3_3: #26c0e1;
+        --boxColor3_4: #9d48ff;
+        --boxColor3_5: #71aaff;
+        --boxColor3_6: #3cd5fd;
+        --boxColor3_7: #202c6e;
+        --boxColor3_8: #6f0ae3;
+        --boxColor3_9: #3633a5;
+        --boxColor3_10: #1e9af9;
+        --boxColor3_11: #6f0ae3;
+        --boxColor3_12: #32006e;
+
+        //* z-index */
+        --zIndex: 1; // none, 1
+
+        //* ico */
+        --ico_color: var(--pointColor); //  pointColor
+        --ico_color2: #222222; // B: fff, C: 222
+        --ico_color3: #aaaaaa; // B: 2d5a7d, C: ebebeb
+        --ico_color4: #ffffff; // B: point, C: ffffff
+        --ico_color5: var(--pointColor); // B: fff, C: point
+        --ico_color6: var(--btnOff_BgColor); // B: dark blue, C: btnOff_bgColor
+        --ico_color7: var(--borderColor); //B: 2e3765, C, borderColor
+        --ico_color8: var(--white); // B: bgColor, C: ffffff
+        --ico_color9: var(--pointColor); // B: darkblue, C: pointColor
+        --ico_color10: var(--subFtColor); // subFtColor
+        --ico_color11: #ffffff; // B: darkblue, C: fff
+        --ico_color12: #c4c4c4; // B: btnDis_ft , C: btnDis_ft
+        --ico_color13: #ffffff; // B: 222222 , C: ffffff
+        --ico_color14: var(--btnDis_bgColor); //  readonly
+        --ico_color15: #ffffff; //B,C: white
+        --ico_color16: var(--pointColor); // B: OFF버튼 ftColor , C: point 
+        --ico_color17: var(--issueColor); // #ff0 , issueColor
+
+        //* modal */
+        --ico_closeColor: #222222;
+        --modalBorderColor: var(--borderColor);
+        --modalShadow: 0 0 10px 0 var(--borderColor),
+            inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+        --modalBgColor: #ffffff;
+
+        //* Etc */
+        --etcColor: var(--pointColor2); // B: blue, C: purple (campaignList)
+        --etcColor2: #f2638f; // B: point, C: pink
+        --etcColor3: #f6f6f6; // B: blue, C: gray
+        --etcColor4: #f5faff; // B: blue, C: sky blue
+        --etcColor5: #ebebeb; // B: blue, C: gray
+        --etcColor6: var(--pointColor); // B: darkblue, C: pointColor
+        --etcColor7: #aaaaaa; // B: whiteblue, C: white gray
+
+        --color2: #ff0d6e;
+        --color10: #ecf2ff;
+        --color11: #000000;
+        --color12: #999999;
+
+        //* ai price */
+        --price1: #bfbfbf; //free
+        --price2: #00b0f0; //starter
+        --price3: #3c71fd; //basic
+        --price4: #7030a0; //pro
+        --price5: #000000; //biz
+    }
+
+    .grid_contents_wrap {
+        --ftColor20: var(--pointColor); // 위젯 타이틀 컬러
+    }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="41.001" viewBox="0 0 41 41.001">
+    <defs>
+        <clipPath id="i9vhl40uya">
+            <path data-name="사각형 3830" transform="translate(1530.75 1329.797)" style="stroke:#707070;opacity:0;fill:none" d="M0 0h41v41H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 4557">
+        <g data-name="마스크 그룹 17" style="clip-path:url(#i9vhl40uya)" transform="translate(-1530.75 -1329.796)">
+            <path data-name="Icon material-3d-rotation" d="M3.218 27.955a12.836 12.836 0 0 1-7.307-10.38h-1.836A14.681 14.681 0 0 0 8.7 31.039L9.51 31l-4.664-4.661zM15.365-5l-.808.037L19.221-.3l1.628-1.628a12.816 12.816 0 0 1 7.3 10.38h1.831A14.659 14.659 0 0 0 15.365-5z" transform="rotate(-14.98 5855.656 -5162.906)" style="stroke-linecap:round;stroke-linejoin:round;fill:#92f0ff;stroke:#92f0ff"/>
+        </g>
+        <g data-name="그룹 4566" transform="rotate(30 3456.291 175.27)">
+            <rect data-name="사각형 3828" width="33.031" height="18.155" rx="5" transform="translate(387 1750)" style="fill:#fff"/>
+            <rect data-name="사각형 3829" width="31.088" height="16.138" rx="4" transform="translate(387.971 1751.009)" style="fill:#fff"/>
+            <text transform="translate(403.66 1763.447)" style="fill:#3c71fd;stroke:#3c71fd;stroke-width:.5px;font-size:13px;font-family:NanumSquareRoundEB,NanumSquareRound;stroke-linecap:round;stroke-linejoin:round"><tspan x="-13.033" y="0">BUY</tspan></text>
+        </g>
+    </g>
+</svg>

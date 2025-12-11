@@ -1,0 +1,392 @@
+@charset "UTF-8";
+/*
+Explain : MOBTUNE
+File : idcm_makeshop.scss 
+Date : 2025.09.23
+Version : 1.1.1
+*/
+/*
+z-index 순서
+#. modal, modalDim: 999, 998
+*/
+/*
+File   : font.scss
+Date   : 2025.09.22
+*/
+@font-face {
+  font-family: "NotoSansL";
+  src: url("../font/notokr-light.eot");
+  src: url("../font/notokr-light.eot?#iefix") format("embedded-opentype"), url("../font/notokr-light.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"), url("../font/notokr-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"), url("../font/notokr-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"), url("../font/notokr-bold.woff") format("woff");
+}
+@font-face {
+  font-family: "scdreamL";
+  src: url("../font/scdreamL.eot");
+  src: url("../font/scdreamL.eot?#iefix") format("embedded-opentype"), url("../font/scdreamL.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareL";
+  src: url("../font/NanumSquareL.eot");
+  src: url("../font/NanumSquareL.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareL.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareR";
+  src: url("../font/NanumSquareR.eot");
+  src: url("../font/NanumSquareR.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareR.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareB";
+  src: url("../font/NanumSquareB.eot");
+  src: url("../font/NanumSquareB.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareB.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Light";
+  src: url("../font/Pretendard-Light.eot");
+  src: url("../font/Pretendard-Light.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Medium";
+  src: url("../font/Pretendard-Medium.eot");
+  src: url("../font/Pretendard-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Regular";
+  src: url("../font/Pretendard-Regular.eot");
+  src: url("../font/Pretendard-Regular.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Bold";
+  src: url("../font/Pretendard-Bold.eot");
+  src: url("../font/Pretendard-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "NotoSansR";
+}
+
+button {
+  font-family: inherit;
+}
+
+@-webkit-keyframes floatY {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes floatY {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+html ::-webkit-scrollbar {
+  width: 14px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #7c72f2;
+}
+html input {
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #555555;
+  border: 1px solid #d8d8d8;
+  background-color: #ffffff;
+}
+html input::-webkit-input-placeholder {
+  color: #b7b7b7;
+}
+html input::-moz-placeholder {
+  color: #b7b7b7;
+}
+html input:-ms-input-placeholder {
+  color: #b7b7b7;
+}
+html input::-ms-input-placeholder {
+  color: #b7b7b7;
+}
+html input::placeholder {
+  color: #b7b7b7;
+}
+html input:disabled {
+  color: #555555;
+  border-color: #d8d8d8;
+  background-color: #efefef;
+}
+html .disNone {
+  display: none !important;
+}
+
+.wrap[class*=tune_emailAuth] {
+  position: relative;
+  width: 100%;
+  min-height: -webkit-fill-available;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  color: #222222;
+}
+.wrap[class*=tune_emailAuth] video.bg_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: auto;
+}
+.wrap[class*=tune_emailAuth].tune_emailAuth {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+.wrap[class*=tune_emailAuth] .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.wrap[class*=tune_emailAuth] .container .title {
+  font-family: "Pretendard_Medium";
+  text-align: center;
+  font-size: 24px;
+}
+.wrap[class*=tune_emailAuth] .container .title:before {
+  content: "";
+  position: relative;
+  display: block;
+  font-size: 0;
+  font-style: normal;
+  background-position: 0px 0px;
+  background: url("../image_v3/component/ico_ai.svg") no-repeat center;
+  margin: 0 auto 20px auto;
+}
+.wrap[class*=tune_emailAuth] .container .title p {
+  font-size: 18px;
+}
+.wrap[class*=tune_emailAuth] .container .title b {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 25px;
+}
+.wrap[class*=tune_emailAuth] .container .content {
+  width: 500px;
+  min-height: 400px;
+  padding: 50px 70px;
+  margin: 50px 0 0 0;
+  padding: 30px;
+}/*# sourceMappingURL=idcm_emailAuth.css.map */

@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css">
+</head>
+
+<body>
+    <!-- 마이데이터 스튜디오 > 공통 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                    <li class="on"><a href="javascript:void(0);">마이데이터 스튜디오</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>마이데이터 스튜디오</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="mydata"></i><span>마이데이터</span></a>
+                    <ul class="active">
+                        <li class="on"><a href="javascript:void(0);">유입분석</a></li>
+                        <li><a href="javascript:void(0);">활동분석</a></li>
+                        <li><a href="javascript:void(0);">상품분석</a></li>
+                        <li><a href="javascript:void(0);">마이리포트</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_bookmark">
+                <div class="title">
+                    <p>마이데이터</p>
+                    <div class="optionBox">
+                        <button type="button" class="modify">편집</button>
+                        <button type="button" class="reset">초기화</button>
+                        <button type="button" class="cancel">편집 취소</button>
+                        <button type="button" class="save">저장 및 완료</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <section class="grid_setting_Wrap">
+                        <button type="button" class="gs_btn"><i></i></button>
+                    </section>
+                    <section class="grid_contents_wrap">
+                        <div class="grid-stack" id="grid-stack">
+                            <!-- 고객분석 > 구매전환율 분석 > 구매율 추이 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_purchaseRate -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                    <!-- 고객분석 > 구매전환율 분석(tune_purchaseChange) -->
+                                    <section class="sec_purchaseRate">
+                                        <div class="box_purchase">
+                                            <div class="tit">
+                                                <p>구매활동 세분화 분석 : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 구매전환율분석</span></button>
+                                                </p>
+                                                <p> 첫 구매와 재구매 고객의 구매 단계별 성과와 고객 세분화 데이터를 업종 평균과 비교하여, 자사의 신규 고객 유입 성과 및
+                                                    재구매 유도를 평가합니다. </p>
+                                                <p>이를 통해 구매 단계별 전환율 개선과 고객 충성도 강화를 위한 실행 방안을 도출할 수 있습니다.</p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphHeader">
+                                                    <input type="radio" name="rdDate" id="rdDate_1" checked>
+                                                    <label for="rdDate_1">주별</label>
+                                                    <input type="radio" name="rdDate" id="rdDate_2">
+                                                    <label for="rdDate_2">월별</label>
+                                                </div>
+                                                <div class="grpahBox">
+                                                    <div class="radioBox">
+                                                        <input type="radio" name="rd_group" id="rd_group1" checked>
+                                                        <label for="rd_group1">
+                                                            <p>구매 단계 그룹</p>
+                                                            <p>업종 첫구매 고객</p>
+                                                            <p>내 첫구매 고객</p>
+                                                            <p>업종 재구매 고객</p>
+                                                            <p>내 재구매 고객</p>
+                                                        </label>
+                                                        <input type="radio" name="rd_group" id="rd_group2" disabled>
+                                                        <label for="rd_group2">
+                                                            <p>고객 세분화 그룹</p>
+                                                            <p>업종 평균 고객</p>
+                                                            <p>내 전체 고객 </p>
+                                                            <p>내 신규고객 </p>
+                                                            <p>내 VIP 고객 </p>
+                                                            <p>내 일반 고객</p>
+                                                        </label>
+                                                    </div>
+                                                    <!-- <div class="labelBox">
+                                        <p>업종 평균 구매율</p>
+                                        <p>내 전체 고객</p>
+                                        <p>내 신규고객</p>
+                                        <p>내 VIP 고객</p>
+                                        <p>내 첫 구매고객</p>
+                                        <p>내 일반고객</p>
+                                    </div> -->
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 280px; border:1px solid #eee">
+                                                        #fa859c, #07e6ff, #34c38f, #fce56b, #5d72ff, #ae6bfb </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 유저 행동 기반 트래픽 분석: 자사 VS 동종업종(종합패션쇼핑몰)  -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="60" gs-max-h="60">
+                                <div class="grid-stack-item-content">
+                                    <!-- 신규 -->
+                                    <section class="sec_trafficAnalysis">
+                                        <div class="box_trafficAnalysis">
+                                            <div class="tit">
+                                                <p>유저 행동 기반 트래픽 분석: 자사 VS 동종업종(종합패션쇼핑몰)
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">화면
+                                                            이동</span></button>
+                                                </p>
+                                                <p>사이트 방문 유저를 상품 조회수 기준으로 분류하여 악성 트래픽(즉시 이탈)과 진성 트래픽의 추이를 시각화합니다. </p>
+                                                <p> 각 그룹의 유저 비율과 행동 데이터를 통해 마케팅 및 운영 전략의 최적화를 지원합니다</p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="grpahBox">
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 320px; border:1px solid #eee">
+                                                        #0ad5ff, #51ca9e, #3c71fd, #8c6bfb </div>
+                                                    <div class="labelBox">
+                                                        <p>즉시이탈유저</p>
+                                                        <p>단순탐색유저</p>
+                                                        <p>관심유저</p>
+                                                        <p>잠재구매유저</p>
+                                                    </div>
+                                                </div>
+                                                <div class="grpahBox">
+                                                    <div class="graphHeader">
+                                                        <input type="radio" name="rdDate" id="rdDate_1" checked>
+                                                        <label for="rdDate_1">즉시이탈유저</label>
+                                                        <input type="radio" name="rdDate" id="rdDate_2">
+                                                        <label for="rdDate_2">단순탐색유저(1~2회)</label>
+                                                        <input type="radio" name="rdDate" id="rdDate_2">
+                                                        <label for="rdDate_2">관심유저(3~5회)</label>
+                                                        <input type="radio" name="rdDate" id="rdDate_2">
+                                                        <label for="rdDate_2">잠재구매유저(6~)</label>
+                                                    </div>
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 300px; border:1px solid #eee">
+                                                        #1081f6, #8c6bfb </div>
+                                                    <div class="labelBox">
+                                                        <p>자사</p>
+                                                        <p>동종업종(여성종합쇼핑몰)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 환불 고객 분석 및 재구매 행동 통합 분석  -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="60" gs-max-h="60">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_refundRepurchaseAnalysis">
+                                        <div class="box_refundRepurchaseAnalysis">
+                                            <div class="tit">
+                                                <p>환불 고객 분석 및 재구매 행동 통합 분석
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">트렌드
+                                                            분석 > 업황분석</span></button>
+                                                </p>
+                                                <p> 이 차트는 환불 고객의 재구매 시점, RFM 고객별 환불 비율, 환불 고객의 구매자 수 및 인당 매출 데이터를 보여줍니다.
+                                                </p>
+                                                <p> 이를 통해 환불 고객의 행동 패턴과 비즈니스 영향도를 한눈에 파악할 수 있습니다</p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="box">
+                                                    <div class="tit">
+                                                        <p>환불 고객의 재구매 시점</p>
+                                                        <p>(최근 3개월)</p>
+                                                    </div>
+                                                    <div class="cont">
+                                                        <div class="graph"
+                                                            style=" height: 320px; border:1px solid #eee"> #0ad5ff,
+                                                            #51ca9e, #3c71fd, #8c6bfb </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="tit">
+                                                        <p>RFM 고객별 환불 고객 비율</p>
+                                                        <p>(최근 3개월)</p>
+                                                    </div>
+                                                    <div class="cont">
+                                                        <div class="graph"
+                                                            style=" height: 320px; border:1px solid #eee"> #0ad5ff,
+                                                            #51ca9e, #3c71fd, #8c6bfb </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="tit">
+                                                        <p>환불 고객의 구매자 및 인당 매출</p>
+                                                        <p>(최근 3개월)</p>
+                                                    </div>
+                                                    <div class="cont">
+                                                        <div class="graph"
+                                                            style=" height: 300px; border:1px solid #eee"> #0ad5ff,
+                                                            #51ca9e, #3c71fd, #8c6bfb </div>
+                                                        <div class="labelBox">
+                                                            <p>환불고객구매지수</p>
+                                                            <p>인당객단가</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 성별 구매 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_purchaseGender -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="52" gs-max-h="52">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_purchaseGender">
+                                        <div class="tit">
+                                            <p>성별 구매성향 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        구매전환율분석</span></button></p>
+                                            <p>남성과 여성의 첫 구매와 재구매 비율을 비교하여 성별에 따른 구매 전환율의 차이를 분석합니다.</p>
+                                            <p>이를 통해 성별별 구매 행동의 차이를 파악하고 전략을 최적화할 수 있습니다.</p>
+                                            <button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_purchaseGraph">
+                                                <div class="tit">
+                                                    <p>구매율 분석</p>
+                                                    <p>(24년 10월) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 210px; border:1px solid #eee">
+                                                        </div>
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>남자</p>
+                                                        <p>여자</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                            <div class="box_purchaseChart">
+                                                <div class="tit">
+                                                    <p>구매율 분석</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphHeader">
+                                                        <input type="radio" name="rdDate1" id="rdDate1_1" checked>
+                                                        <label for="rdDate1_1">주별</label>
+                                                        <input type="radio" name="rdDate1" id="rdDate1_2">
+                                                        <label for="rdDate1_2">월별</label>
+                                                    </div>
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 250px; border:1px solid #eee"> #147ad6,
+                                                            #34c38f, #ec6666, #8c6bfb</div>
+                                                        <div class="labelBox">
+                                                            <p>남자 첫구매</p>
+                                                            <p>남자 재구매</p>
+                                                            <p>여자 첫구매</p>
+                                                            <p>여자 재구매</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 장바구니 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_basketAnalysis -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="57" gs-max-h="57">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_basketAnalysis">
+                                        <div class="tit">
+                                            <p>장바구니 행동 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        구매전환율분석</span></button></p>
+                                            <p>사용자가 장바구니에 상품을 담은 후, 구매를 완료하는 비율(구매율)과 8일 이내에 구매하지 않고 떠나는 비율(이탈율)을 확인해
+                                                보세요.</p>
+                                            <p>다양한 프로모션과 리마인더를 활용하고, 이탈율 감소를 위해 개인화된 마케팅과 시점별 캠페인을 실행하세요.</p> <button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 장바구니 행동 분석 -->
+                                            <div class="box_basketAnalysis">
+                                                <div class="tit">
+                                                    <p>장바구니 행동 분석</p>
+                                                    <p>(24년 10월) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 300px; border:1px solid #eee">
+                                                            #0ad5ff, #8c6bfb </div>
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>구매율 38%</p>
+                                                        <p>이탈율 68%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 장바구니 행동 추이 -->
+                                            <div class="box_basketTrend">
+                                                <div class="tit">
+                                                    <p>장바구니 행동 추이</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphHeader">
+                                                        <input type="radio" name="rdDate3" id="rdDate3_1" checked>
+                                                        <label for="rdDate3_1">주별</label>
+                                                        <input type="radio" name="rdDate3" id="rdDate3_2">
+                                                        <label for="rdDate3_2">월별</label>
+                                                    </div>
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 300px; border:1px solid #eee"> #0ad5ff,
+                                                            #8c6bfb</div>
+                                                        <div class="labelBox">
+                                                            <p>장바구니 구매율</p>
+                                                            <p>장바구니 이탈율</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 카테고리별 랭킹 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_category -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="96" gs-max-h="96">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_category">
+                                        <div class="tit">
+                                            <p>카테고리별 랭킹 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        구매전환율분석</span></button></p>
+                                            <p>이 차트는 카테고리별로 매출 상위 랭킹을 분석하고, 첫 구매가 많은 카테고리와 재구매가 많은 카테고리를 각각 순위화한 데이터를
+                                                제공합니다.</p>
+                                            <p>첫 구매와 재구매 비중이 높은 카테고리를 비교하여, 신규 고객 유입 전략과 충성 고객 유지 전략을 각각 강화할 수 있습니다.</p>
+                                            <button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 카테고리별 구매율 Top 20 -->
+                                            <div class="box_categoryRank">
+                                                <div class="tit">
+                                                    <p>카테고리별 구매율 Top 20</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 710px; border:1px solid #eee">
+                                                            #1081f6 </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 구매 성향별 인기 카테고리 Top 20 -->
+                                            <div class="box_categoryPopular">
+                                                <div class="tit">
+                                                    <p>구매 성향별 인기 카테고리 Top 20</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphHeader">
+                                                        <select name="" id="">
+                                                            <option value="">첫구매 기준</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 710px; border:1px solid #eee"> #0ad5ff,
+                                                            #8c6bfb</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 카테고리별 인기상품 추이 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_categoryRate -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="52" gs-max-h="52">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_categoryRate">
+                                        <div class="box_categoryRate">
+                                            <div class="tit">
+                                                <p>카테고리별 인기상품 추이 분석
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 구매전환율분석</span></button></p>
+                                                <p>이 차트는 카테고리별로 인기 순위에 오른 주차별 추이를 보여줍니다.</p>
+                                                <p>특정 시즌이나 기간에 어떤 카테고리가 소비자 관심을 끌었는지 파악해 마케팅 캠페인을 더욱 효과적으로 설계해 보세요. </p>
+                                                <p>차트의 공백 구간은 해당 주차에 해당 카테고리가 인기 순위에 들지 않은 경우를 나타냅니다.</p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphHeader">
+                                                    <input type="radio" name="rdDate4" id="rdDate4_1" checked>
+                                                    <label for="rdDate4_1">주별</label>
+                                                    <input type="radio" name="rdDate4" id="rdDate4_2">
+                                                    <label for="rdDate4_2">월별</label>
+                                                </div>
+                                                <div class="grpahBox">
+                                                    <div class="optionBox">
+                                                        <div class="selectBox">
+                                                            <select name="" id="">
+                                                                <option value="">1~5위</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>가방잡화 > 악세서리</p>
+                                                            <p>여성의류 > 티셔츠</p>
+                                                            <p>여성의류 > 코트</p>
+                                                            <p>키즈 > 상의</p>
+                                                            <p>골프 > 여성 골프웨어</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 330px; border:1px solid #eee">
+                                                        #fa859c, #07e6ff, #34c38f, #fce56b, #5d72ff </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 채널 성과 비교 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="52" gs-max-h="52">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_purchaseAnalysis">
+                                        <div class="box_purchaseAnalysis">
+                                            <div class="tit">
+                                                <p>오가닉, 마케팅, CRM 채널의 성과 비교 분석 : : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 구매전환율분석</span></button></p>
+                                                <p>이 분석은 우리 쇼핑몰과 동종 업종 쇼핑몰에서 첫 구매자와 재구매자가 주로 어떤 유입 채널을 통해 방문했는지 비교한 결과를
+                                                    보여줍니다. </p>
+                                                <p>우리 쇼핑몰의 유입 채널이 얼마나 효과적으로 작동하고 있는지 파악하고, 동종 업계의 데이터를 참고하여 효율적인 채널 전략을
+                                                    세워보세요. </p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphHeader">
+                                                    <input type="radio" name="rdDate4" id="rdDate4_1" checked>
+                                                    <label for="rdDate4_1">전체 유입</label>
+                                                    <input type="radio" name="rdDate4" id="rdDate4_2">
+                                                    <label for="rdDate4_2">전체 매출</label>
+                                                    <input type="radio" name="rdDate4" id="rdDate4_3">
+                                                    <label for="rdDate4_3">첫구매</label>
+                                                    <input type="radio" name="rdDate4" id="rdDate4_4">
+                                                    <label for="rdDate4_4">재구매</label>
+                                                </div>
+                                                <div class="grpahBox">
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 280px; border:1px solid #eee">
+                                                        #fa859c, #07e6ff, #34c38f, #fce56b, #5d72ff </div>
+                                                    <div class="labelBox">
+                                                        <div>
+                                                            <p>자사(오가닉)</p>
+                                                            <p>자사(마케팅)</p>
+                                                            <p>자사(CRM)</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>동종업종(오가닉)</p>
+                                                            <p>동종업종(마케팅)</p>
+                                                            <p>동종업종(CRM)</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 유입 채널별 랭킹 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_monthAnlaysis -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="96" gs-max-h="96">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_monthAnlaysis">
+                                        <div class="tit">
+                                            <p>유입 채널별 랭킹 분석 : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        구배전환율분석</span></button></p>
+                                            <p> 이번 분석은 우리 쇼핑몰과 동종 업종 쇼핑몰의 첫 구매자와 재구매자들이 주로 어떤 경로(유입 채널)를 통해 들어왔는지를 비교하기
+                                                위해 진행했습니다. </p>
+                                            <p> 이 데이터를 통해 우리 쇼핑몰의 유입 채널이 효율적으로 작동하고 있는지 확인할 수 있습니다.</p> <button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 유입채널별 구매율 Top 20 -->
+                                            <div class="box_channel">
+                                                <div class="tit">
+                                                    <p>자사 유입 채널 랭킹</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 710px; border:1px solid #eee">
+                                                            #1081f6 </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 구매 성향별 유입 채널 Top 20 -->
+                                            <div class="box_channelType">
+                                                <div class="tit">
+                                                    <p>동종업종(종합패션쇼핑몰) 유입 채널 랭킹</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphHeader">
+                                                        <select name="" id="">
+                                                            <option value="">첫구매 기준</option>
+                                                            <option value="">전체 매출 기준</option>
+                                                            <option value="">전체 유입 기준</option>
+                                                            <option value="">재구매 기준</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 710px; border:1px solid #eee"> #0ad5ff,
+                                                            #8c6bfb</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 유입채널별 구매 추이 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_channelRate -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="52" gs-max-h="52">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_channelRate">
+                                        <div class="box_channelRate">
+                                            <div class="tit">
+                                                <p>유입채널별 구매 추이 분석
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 구배전환율분석</span></button></p>
+                                                <p>이 차트는 구매가 가장 많이 발생한 유입 채널을 기준으로 Top 20위까지의 주차별 추이를 시각화한 결과입니다. </p>
+                                                <p> 주차별 데이터를 통해 각 유입 채널의 성과를 비교하고 꾸준히 상위권을 유지하는 채널은 주요 트래픽 및 매출 창출 채널로
+                                                    마케팅 리소스를 집중 해 보세요.</p>
+                                                <p> 중간에 그래프가 끊긴 구간은 해당 채널이 특정 주에 Top 20위 내에 포함되지 않았음을 의미합니다.</p><button
+                                                    type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphHeader">
+                                                    <input type="radio" name="rdDate5" id="rdDate5_1" checked>
+                                                    <label for="rdDate5_1">주별</label>
+                                                    <input type="radio" name="rdDate5" id="rdDate5_2">
+                                                    <label for="rdDate5_2">월별</label>
+                                                </div>
+                                                <div class="grpahBox">
+                                                    <div class="optionBox">
+                                                        <div class="selectBox">
+                                                            <select name="" id="">
+                                                                <option value="">1~5위</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>가방잡화 > 악세서리</p>
+                                                            <p>여성의류 > 티셔츠</p>
+                                                            <p>여성의류 > 코트</p>
+                                                            <p>키즈 > 상의</p>
+                                                            <p>골프 > 여성 골프웨어</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style=" height: 330px; border:1px solid #eee">
+                                                        #fa859c, #07e6ff, #34c38f, #fce56b, #5d72ff </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 구매전환율 분석 > 구매전환율 시간대 및 요일 분석 -->
+                            <!-- customerAnalysis > purchaseChange.html > sec_timeAnalysis -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="66" gs-max-h="66">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_timeAnalysis">
+                                        <div class="tit">
+                                            <p>구매전환율 시간대 및 요일 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        구매전환율분석</span></button></p>
+                                            <p>최근 한 달 동안 구매 전환율이 가장 높은 요일과 시간대를 시각화한 결과입니다. 연령대별로 구매 전환이 활발한 최적의 시간대를 함께
+                                                분석하여, 보다 세밀한 마케팅 전략을 수립할 수 있습니다 </p><button type="button"
+                                                class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_graph">
+                                                <div class="tit">
+                                                    <p>연령대별 최적 구매 전환 시간대 분석</p>
+                                                    <p>가장 구매가 많이 이루어지는 요일과 시간대를 확인해 두면, 효과적인 마케팅 타이밍을 잡을 수 있어요!</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th>월</th>
+                                                                        <th>3.5</th>
+                                                                        <td class="t1">4.1</td>
+                                                                        <td class="t2">1.1</td>
+                                                                        <td class="t3">1.2</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>화</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>수</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>목</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>금</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>토</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>일</th>
+                                                                        <th>3.5</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>요일</th>
+                                                                        <th>평균</th>
+                                                                        <td>4.1</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th>요일</th>
+                                                                        <th>평균</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                        <th>1.1</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>&nbsp;</th>
+                                                                        <th>시간</th>
+                                                                        <th>00</th>
+                                                                        <th>01</th>
+                                                                        <th>02</th>
+                                                                        <th>03</th>
+                                                                        <th>04</th>
+                                                                        <th>05</th>
+                                                                        <th>06</th>
+                                                                        <th>07</th>
+                                                                        <th>08</th>
+                                                                        <th>09</th>
+                                                                        <th>10</th>
+                                                                        <th>11</th>
+                                                                        <th>12</th>
+                                                                        <th>13</th>
+                                                                        <th>14</th>
+                                                                        <th>15</th>
+                                                                        <th>16</th>
+                                                                        <th>17</th>
+                                                                        <th>18</th>
+                                                                        <th>19</th>
+                                                                        <th>20</th>
+                                                                        <th>21</th>
+                                                                        <th>22</th>
+                                                                        <th>23</th>
+                                                                        <th>24</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box_list">
+                                                <div class="tit">
+                                                    <p>연령대별 최적 구매 전환 시간대 분석</p>
+                                                    <p>연령대별로 구매가 많은 요일과 시간을 알면, 맞춤 마케팅이 가능해요!</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>연령</th>
+                                                                        <th>요일</th>
+                                                                        <th>시간</th>
+                                                                        <th>구매율</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>~ 13</td>
+                                                                        <td>월요일</td>
+                                                                        <td>오후 5시</td>
+                                                                        <td>6.8%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--// box end -->
+                                    </section>
+                                    <!--//section end -->
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <!-- 신규고객 vs 리스크 고객 비교, 자사vs 동종업종 리스크 고객 추이-->
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                    <!-- 신규고객 vs 리스크 고객 비교, 자사vs 동종업종 리스크 고객 추이-->
+                                    <section class="sec_customerCompare">
+                                        <div class="tit">
+                                            <p>신규 고객 분석 : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        신규고객관리</span></button> </p>
+                                            <p>이 차트는 최근 3개월간 신규 방문자를 신규 고객으로 정의하여, 이들의 주요 지표를 업종 평균과 비교한 분석 결과를 보여줍니다.
+                                            </p><button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 신규 고객 개요 -->
+                                            <div class="box_compare">
+                                                <div class="tit">
+                                                    <p>신규 고객 개요 (업종 비교)</p>
+                                                    <p>(월평균) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 250px; border:1px solid #ddd">
+                                                        </div>
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>자사</p>
+                                                        <p>업종(여성패션) 평균</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                            <!-- 자사 VS 동종업종(여성패션) 신규 방문고객 추이 -->
+                                            <div class="box_trend">
+                                                <div class="tit">
+                                                    <p>자사 VS 동종업종(여성패션) > 신규 방문고객 추이</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphHeader">
+                                                        <button type="button" class="on">자사 전체 고객</button>
+                                                    </div>
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 280px; border:1px solid #ddd">
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>자사 신규방문 고객</p>
+                                                            <p>업종(여성패션) 신규방문 고객</p>
+                                                            <p>자사 전체 고객</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <!-- 신규 고객 세그먼트 별 상세 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="53" gs-max-h="53">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_segmentList">
+                                        <div class="tit">
+                                            <p>신규 고객 세그먼트 별 상세 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        신규고객관리</span></button></p>
+                                            <p>신규 고객을 유형별 세그먼트로 재분류한 데이터를 제공합니다. </p>
+                                            <p> 타겟 캠페인 생성 : 각 세그먼트를 클릭하면 선택한 세그먼트를 기반으로 타겟 마케팅 캠페인을 바로 생성할 수 있습니다.</p>
+                                            <p> 세그먼트별 분석 : 해당 고객 그룹에 대한 상세 분석데이터를 업종 평균과 비교하여 확인할 수 있습니다.</p><button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_segment">
+                                                <div class="titBox">
+                                                    <p>신규 고객 세그먼트를 선택하고 상세 분석 데이터를 확인해 보세요.</p>
+                                                </div>
+                                                <div class="contBox">
+                                                    <div class="customerBox">
+                                                        <div class="box">
+                                                            <div class="checkBox">
+                                                                <input type="checkbox" name="customerSegment"
+                                                                    id="customerSegment_all">
+                                                                <label for="customerSegment_all">ALL</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#첫구매 비회원 <span class="iBox"><i class="iMark"></i>
+                                                                    <span class="iMarkHover">말풍선</span>
+                                                                </span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#유망신규고객 <span class="iBox"><i class="iMark"></i>
+                                                                    <span class="iMarkHover">말풍선</span>
+                                                                </span></p>
+                                                        </div>
+                                                        <div class="box on">
+                                                            <p>#첫구매 회원 <span class="iBox"><i class="iMark"></i>
+                                                                    <span class="iMarkHover">말풍선</span>
+                                                                </span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#미구매 회원 <span class="iBox"><i class="iMark"></i>
+                                                                    <span class="iMarkHover">말풍선</span>
+                                                                </span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#재방문 비회원 <span class="iBox"><i class="iMark"></i>
+                                                                    <span class="iMarkHover">말풍선</span>
+                                                                </span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box_compareList">
+                                                <div class="targetSend">
+                                                    <div class="titBox">
+                                                        <p>#첫 구매 비회원</p>
+                                                        <p>타겟 캠페인 생성</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <a href="#" class="send">
+                                                            <p>Advertisement</p>
+                                                            <p>광고,온사이트 마케팅용</p>
+                                                            <p>대상:<span>120,000명</span></p>
+                                                        </a>
+                                                        <a href="#" class="noty">
+                                                            <p>SEND</p>
+                                                            <p>카카오알림톡,SMS</p>
+                                                            <p>대상:<span>120명</span></p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="detailBox">
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>&nbsp;</th>
+                                                                        <th>
+                                                                            <p>자사</p>
+                                                                        </th>
+                                                                        <th>
+                                                                            <p>업종(여성패션)</p>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th>고객수는</th>
+                                                                        <td>32명</td>
+                                                                        <td>25명</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>평균 객단가는</th>
+                                                                        <td>51,500원</td>
+                                                                        <td>74,540원</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>평균 미방문한지</th>
+                                                                        <td>3.8일</td>
+                                                                        <td>5.2일</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>동종업종 구매활동 고객수는</th>
+                                                                        <td>18명</td>
+                                                                        <td>-</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>이탈고객 전환 확률은</th>
+                                                                        <td>25%</td>
+                                                                        <td>-</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <!-- 신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="66" gs-max-h="66">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_repurchasePoint">
+                                        <div class="tit">
+                                            <p>신규 고객 재방문 및 첫 구매 시점 비교 분석 : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        신규고객관리</span></button> </p>
+                                            <p>이 차트는 신규 고객의 재방문 시점과 첫 구매 시점을 자사와 업종 평균 데이터를 비교하여 분석한 결과를 보여줍니다</p>
+                                            <button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_revisitPoint">
+                                                <div class="tit">
+                                                    <p>신규고객(첫방문)의 재방문 시점</p>
+                                                    <p>(최근3개월)</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="guideBox">
+                                                        <p>신규 고객이 멀어지기 전에 재방문을 유도하세요.</p>
+                                                    </div>
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style="height: 350px; border:1px solid #fff">
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>자사</p>
+                                                        <p>업종</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box_purchasePoint">
+                                                <div class="tit">
+                                                    <p>신규고객(미구매)의 첫구매 시점</p>
+                                                    <p>(최근3개월)</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="guideBox">
+                                                        <p>신규 고객이 멀어지기 전에 재방문을 유도하세요.</p>
+                                                    </div>
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style="height: 350px; border:1px solid #fff">
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>미구매자</p>
+                                                        <p>신규(1회) 구매자</p>
+                                                        <p>재(2회이상~) 구매자</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <!-- 신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="102" gs-max-h="172">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_interestProduct">
+                                        <div class="box_interestProduct">
+                                            <div class="tit">
+                                                <p>구매 성향 별 관심상품 Top 10 : 신규고객 VS 재구매고객
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 신규고객관리</span></button></p>
+                                                <p>이 분석은 신규 고객과 재구매 고객이 관심을 보인 상위 10개 상품 리스트를 비교하여 보여줍니다.</p>
+                                                <p> 신규 고객이 선호하는 상품을 기반으로 초기 프로모션 및 첫 구매 유도 캠페인을 기획 하세요.</p>
+                                                <p> 재구매 고객의 관심 상품을 활용 해 충성 고객을 대상으로 한 리워드 프로그램이나 특별 혜택을 제공하세요.</p>
+                                                <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="tableHeader">
+                                                    <div class="radioBox">
+                                                        <input type="radio" name="date" id="month" value="00" checked>
+                                                        <label for="month">최근 한달(5월)</label>
+                                                        <input type="radio" name="date" id="three_month" value="01">
+                                                        <label for="three_month">최근 3개월</label>
+                                                    </div>
+                                                </div>
+                                                <div class="tableArea">
+                                                    <div class="tableBox pathArea">
+                                                        <svg>
+                                                            <!-- <path id="line11" d="M 300 160 500 160 -300" /> -->
+                                                            <!-- <path id="line22" d="M 300 300 500 300 -300" /> -->
+                                                            <!-- <line x1="300" y1="300" x2="500" y2="300"></line>
+                                            <path id="line32" d="M 300 470 500 300 -300" /> -->
+                                                        </svg>
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th rowspan="2">판매순위</th>
+                                                                    <th rowspan="2"> 신규고객 <span>38%</span></th>
+                                                                    <th rowspan="2">재구매 고객 <span>62%</span></th>
+                                                                    <th colspan="2">신규고객</th>
+                                                                    <th rowspan="2">전체고객</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>회원 (83%)</th>
+                                                                    <th>비회원(17%)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>
+                                                                        <div class="imgBox" id="pathStart1">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">1아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox" id="pathEnd1">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <!-- <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p> -->
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">4아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">6아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <!-- <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p> -->
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p>
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="imgBox">
+                                                                            <img src="../../image/test/test_1.png"
+                                                                                alt="">
+                                                                            <div class="countBox">
+                                                                                <!-- <p class="name">아이스 빙하 쿨슬림 부츠컷 팬츠</p> -->
+                                                                                <p class="num">738건(38%)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>7</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>8</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>9</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>10</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 가망고객관리(tune_prospectCustomer) -->
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <div class="grid-stack-item" gs-w="10" gs-h="49" gs-max-h="49">
+                                <div class="grid-stack-item-content">
+                                    <!-- 고객 모수추이, 고객 관심사 -->
+                                    <section class="sec_interestCategory">
+                                        <div class="tit">
+                                            <p>가망 고객 추이 및 관심업종 카테고리 Top 5 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        신규고객관리</span></button></p>
+                                            <p> 이 차트는 구매 가능성이 높은 가망 고객의 모수 추이와 이들이 관심을 보이는 업종 카테고리 상위 5개를 시각화한 결과를
+                                                보여줍니다. </p> <button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_chart">
+                                                <div class="tit">
+                                                    <p><span>동종업종 구매한 자사 미구매 고객</span> 모수추이</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style="height: 210px; border:1px solid #fff">
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>동종업종 구매한 자사 미구매 고객</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box_graph">
+                                                <div class="tit">
+                                                    <p><span>동종업종 구매한 자사 미구매 고객</span> 관심사</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style="height: 230px; border:1px solid #fff">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 신규고객관리 (newCustomerC.html)-->
+                            <!-- 가망 고객 외부 구매활동 Top 10 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="72" gs-max-h="72">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_externalPurchaseActivity">
+                                        <div class="box_list">
+                                            <div class="tit">
+                                                <p>가망 고객 외부 구매활동 Top 10 분석
+                                                    <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                    <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석
+                                                            > 신규고객관리</span></button> </p>
+                                                <p>가망 고객의 외부 구매 활동을 통해 경쟁사를 파악할 수 있으며, 구매 트렌드를 분석 해 자사 상품의 경쟁력을 강화 해
+                                                    보세요. </p>
+                                                <p>주요 구매 카테고리를 기반으로 고객 관심사에 맞춘 상품 및 마케팅 전략을 수립 해 보세요.</p> <button
+                                                    type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>외부 구매 사이트_전체 Top 10</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <div class="tableArea">
+                                                            <div class="tableBox">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>순위</th>
+                                                                            <th>사이트</th>
+                                                                            <th>구매지수</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>쿠팡</td>
+                                                                            <td>56</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>100</td>
+                                                                            <td>텍스트테스트중입니다.글자가 어디까지 길게 나올 수 있을까요</td>
+                                                                            <td>123,456,789,123,456,789,123,456,789
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>외부 구매 사이트_동종업종 Top 10</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <div class="tableArea">
+                                                            <div class="tableBox">
+                                                                <!-- td에 div 추가시 두줄이상부터 말줄임표로 나옴 -->
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>순위</th>
+                                                                            <th>사이트</th>
+                                                                            <th>구매지수</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>쿠팡</td>
+                                                                            <td>56</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>100</td>
+                                                                            <td>
+                                                                                <div>길어져라아.텍스트테스트중입니다.텍스트테스트중입니다.글자가
+                                                                                    어디까지 길게 나올 수 있을까요 </div>
+                                                                            </td>
+                                                                            <td>123,456,789,123,456,789,123,456,789
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>외부 구매 사이트 카테고리 Top 10</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <div class="tableArea">
+                                                            <div class="tableBox">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>순위</th>
+                                                                            <th>사이트</th>
+                                                                            <th>구매지수</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>쿠팡</td>
+                                                                            <td>56</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>100</td>
+                                                                            <td>
+                                                                                <div>텍스트테스트중입니다.글자가 어디까지 길게 나올 수
+                                                                                    있을까요.텍스트테스트중입니다.글자가 어디까지 길게 나올 수
+                                                                                    있을까요</div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div>
+                                                                                    123,456,789,123,456,789,123,456,789
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 환불고객관리 (tune_refundCustomer)-->
+                            <!-- 환불고객관리 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="57" gs-max-h="57">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_refundSummary">
+                                        <div class="tit">
+                                            <p>환불 고객 분석 : 자사 VS 동종업종(종합패션쇼핑몰)
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        환불고객관리</span></button> </p>
+                                            <p> 이 차트는 최근 3개월간 환불한 고객을 대상으로, 이들의 주요 지표를 업종 평균과 비교한 분석 결과를 보여줍니다. </p>
+                                            <p> CDP/DMP > 데이터 연동 관리 메뉴에서 EP 연동이 설정되어 있어야 정확한 데이터 확인이 가능합니다. EP 연동 메뉴에서
+                                                설정 완료 후 차트를 활용해 주세요.</p><button type="button"
+                                                class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 환불 고객 개요 -->
+                                            <div class="box_refundSummary">
+                                                <div class="tit">
+                                                    <p>환불 고객 개요</p>
+                                                    <p>(월평균) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 250px; border:1px solid #fff">
+                                                        </div>
+                                                    </div>
+                                                    <div class="labelBox">
+                                                        <p>자사</p>
+                                                        <p>업종(여성패션) 평균</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                            <!-- 환불 및 탈퇴 고객 추이 -->
+                                            <div class="box_refundProgress">
+                                                <div class="tit">
+                                                    <p>환불 및 탈퇴 고객 추이</p>
+                                                    <p>(월/최근3개월) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="graphBox">
+                                                        <div class="graph"
+                                                            style="width: 100%; height: 280px; border:1px solid #fff">
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>자사고객</p>
+                                                            <p>업종(여성패션)고객</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객분석 > 환불고객관리 (tune_refundCustomer)-->
+                            <!-- 환불 고객 세그먼트 별 상세 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_refundCompareList">
+                                        <div class="tit">
+                                            <p>환불 고객 세그먼트 별 상세 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        환불고객관리</span></button></p>
+                                            <p> 환불 고객을 유형별 세그먼트로 재분류한 데이터를 제공합니다. </p>
+                                            <p> 타겟 캠페인 생성 : 각 세그먼트를 클릭하면 선택한 세그먼트를 기반으로 타겟 마케팅 캠페인을 바로 생성할 수 있습니다. </p>
+                                            <p> 세그먼트별 분석 : 해당 고객 그룹에 대한 상세 분석데이터를 업종 평균과 비교하여 확인할 수 있습니다.</p> <button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box_segment">
+                                                <div class="titBox">
+                                                    <p>환불한 고객들의 분석 데이터를 확인하고, 맞춤 캠페인을 만들어 보세요.</p>
+                                                </div>
+                                                <div class="contBox">
+                                                    <div class="customerBox">
+                                                        <div class="box">
+                                                            <div class="checkBox">
+                                                                <input type="checkbox" name="customerSegment"
+                                                                    id="customerSegment_all">
+                                                                <label for="customerSegment_all">ALL</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#첫구매 환불 고객<span class="iBox"><i class="iMark"></i><i
+                                                                        class="iMarkHover">말풍선입니다. </i></span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#단골 첫 환불 고객<span class="iBox"><i class="iMark"></i><i
+                                                                        class="iMarkHover">말풍선입니다. </i></span></p>
+                                                        </div>
+                                                        <div class="box on">
+                                                            <p>#VIP 환불 고객<span class="iBox"><i class="iMark"></i><i
+                                                                        class="iMarkHover">말풍선입니다. </i></span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#연속 환불 고객<span class="iBox"><i class="iMark"></i><i
+                                                                        class="iMarkHover">말풍선입니다. </i></span></p>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p>#반복적 환불 고객<span class="iBox"><i class="iMark"></i><i
+                                                                        class="iMarkHover">말풍선입니다. </i></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box_compareList">
+                                                <div class="targetSend">
+                                                    <div class="titBox">
+                                                        <p>#첫 구매 비회원</p>
+                                                        <p>타겟 캠페인 생성</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <a href="#" class="send">
+                                                            <p>Advertisement</p>
+                                                            <p>광고,온사이트 마케팅용</p>
+                                                            <p>대상:<span>120,000명</span></p>
+                                                        </a>
+                                                        <a href="#" class="noty">
+                                                            <p>SEND</p>
+                                                            <p>카카오알림톡,SMS</p>
+                                                            <p>대상:<span>120명</span></p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="detailBox">
+                                                    <div class="tableArea">
+                                                        <div class="tableBox">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>&nbsp;</th>
+                                                                        <th>
+                                                                            <p>자사</p>
+                                                                        </th>
+                                                                        <th>
+                                                                            <p>업종(여성패션)</p>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th>고객수는</th>
+                                                                        <td>32명</td>
+                                                                        <td>25명</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>평균 객단가는</th>
+                                                                        <td>51,500원</td>
+                                                                        <td>74,540원</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>평균 미방문한지</th>
+                                                                        <td>3.8일</td>
+                                                                        <td>5.2일</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>동종업종 구매활동 고객수는</th>
+                                                                        <td>18명</td>
+                                                                        <td>-</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>이탈고객 전환 확률은</th>
+                                                                        <td>25%</td>
+                                                                        <td>-</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="56" gs-max-h="56">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_refundStats">
+                                        <div class="tit">
+                                            <p>환불 고객 분석 및 재구매 행동 통합 분석
+                                                <!-- <button type="button"
+                                                        class="widgetAdd">위젯추가</button> -->
+                                                <button type="button" class="map">화면 바로가기<span class="mapHover">고객분석 >
+                                                        환불고객관리</span></button></p>
+                                            <p> 이 차트는 환불 고객의 재구매 시점, RFM 고객별 환불 비율, 환불 고객의 구매자 수 및 인당 매출 데이터를 보여줍니다.
+                                            </p>
+                                            <p>이를 통해 환불 고객의 행동 패턴과 비즈니스 영향도를 한눈에 파악할 수 있습니다</p><button type="button"
+                                                class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="cont">
+                                            <!-- 환불 고객의 재구매 시점 -->
+                                            <div class="box_repurchasePoint">
+                                                <div class="tit">
+                                                    <p>환불 고객의 재구매 시점</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph"
+                                                            style=" height: 300px; border:1px solid #fff">
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>미구매 48%</p>
+                                                            <p>한달 내 14%</p>
+                                                            <p>3달 내 38%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                            <!-- RFM 고객별 환불 고객 비율 -->
+                                            <div class="box_refundRatio">
+                                                <div class="tit">
+                                                    <p>RFM 고객별 환불 고객 비율</p>
+                                                    <p>(최근3개월) </p>
+                                                </div>
+                                                <div class="cont">
+                                                    <div class="grpahBox">
+                                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                        <div class="graph" style="height: 300px; border:1px solid #fff">
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>VVIP, 25.5 36%</p>
+                                                            <p>단발성 고객, 12.5, 17%</p>
+                                                            <p>잠재적 VIP 11.5, 16%</p>
+                                                            <p>유동성 고객, 9.5, 13%</p>
+                                                            <p>이탈고객, 8.7, 12%</p>
+                                                            <p>기타, 4.4, 4.6%</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--// box end -->
+                                            <div class="box_purchaseSales">
+                                                <div class="tit">
+                                                    <p>환불 고객의 구매자 및 인당 매출</p>
+                                                </div>
+                                                <div class="cont">
+                                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                                    <div class="graph" style="height: 300px; border:1px solid #fff">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                </div>
+                            </div>
+                            <div class="grid-stack-item" gs-w="10" gs-h="54" gs-max-h="54">
+                                <div class="grid-stack-item-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trash ui-droppable">
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+    <!-- 위젯 -->
+    <!-- <script type="text/javascript">
+        let option = {
+            column: 10,
+            minRow: 3,
+            cellHeight: '10px',
+            placeholderClass: 'placeholder-content',
+            removable: '.trash',
+            disableOneColumnMode: true,
+            float: false,
+            resizable: {
+                handles: 'none'
+            }
+        };
+        let grid = GridStack.init(option);
+        let trash = document.querySelector('.trash');
+        grid.on('dragstart', function () {
+            trash.classList.add('on');
+            gridArea.classList.add('ani');
+        });
+        grid.on('dragstop', function () {
+            trash.classList.remove('on');
+            gridArea.classList.remove('ani');
+        });
+        grid.on('removed', function () {
+            if ($('.grid-stack-item').length == 1) {
+                $('.no_layout').css('display', 'flex');
+            }
+        });
+        let gsSettingBtn = document.querySelector('.gs_btn');
+        let gsSettingUl = document.querySelector('.gs_floating');
+        gsSettingBtn.addEventListener('click', function () {
+            gsSettingUl.classList.toggle('on');
+        });
+        let gridArea = document.querySelector('.grid-stack');
+        let gridTrash = document.querySelector('.trash');
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                $('.trash').css('bottom', '100px')
+            } else {
+                $('.trash').css('bottom', '0')
+            }
+        });
+    </script> -->
+</body>
+
+</html>

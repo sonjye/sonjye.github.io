@@ -1,0 +1,928 @@
+@charset "UTF-8";
+/*
+Explain : MOBTUNE
+File : idcm_makeshop.scss 
+Date : 2025.09.23
+Version : 1.1.1
+*/
+/*
+z-index 순서
+#. modal, modalDim: 999, 998
+*/
+/*
+File   : font.scss
+Date   : 2025.09.22
+*/
+@font-face {
+  font-family: "NotoSansL";
+  src: url("../font/notokr-light.eot");
+  src: url("../font/notokr-light.eot?#iefix") format("embedded-opentype"), url("../font/notokr-light.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"), url("../font/notokr-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"), url("../font/notokr-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"), url("../font/notokr-bold.woff") format("woff");
+}
+@font-face {
+  font-family: "scdreamL";
+  src: url("../font/scdreamL.eot");
+  src: url("../font/scdreamL.eot?#iefix") format("embedded-opentype"), url("../font/scdreamL.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareL";
+  src: url("../font/NanumSquareL.eot");
+  src: url("../font/NanumSquareL.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareL.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareR";
+  src: url("../font/NanumSquareR.eot");
+  src: url("../font/NanumSquareR.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareR.woff") format("woff");
+}
+@font-face {
+  font-family: "NanumSquareB";
+  src: url("../font/NanumSquareB.eot");
+  src: url("../font/NanumSquareB.eot?#iefix") format("embedded-opentype"), url("../font/NanumSquareB.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Light";
+  src: url("../font/Pretendard-Light.eot");
+  src: url("../font/Pretendard-Light.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Medium";
+  src: url("../font/Pretendard-Medium.eot");
+  src: url("../font/Pretendard-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Regular";
+  src: url("../font/Pretendard-Regular.eot");
+  src: url("../font/Pretendard-Regular.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard_Bold";
+  src: url("../font/Pretendard-Bold.eot");
+  src: url("../font/Pretendard-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "NotoSansR";
+}
+
+button {
+  font-family: inherit;
+}
+
+@-webkit-keyframes floatY {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes floatY {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+html ::-webkit-scrollbar {
+  width: 14px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #7c72f2;
+}
+html select {
+  background: url("../image_v3/id_makeshop/ico_select.svg") no-repeat center;
+  width: 15px;
+  height: 8px;
+  background-size: 15px 8px;
+  font-family: "Pretendard_Regular";
+  height: 50px;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 16px;
+  color: #222222;
+  line-height: 1;
+  border-radius: 10px;
+  border: 1px solid #d8d8d8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #ffffff;
+  background-position-x: calc(100% - 20px);
+  outline: none;
+  cursor: pointer;
+}
+html select option {
+  background-color: #ffffff;
+}
+html select:disabled {
+  color: #555555;
+  border: 1px solid #d8d8d8;
+  background-color: #efefef;
+  opacity: 1;
+  cursor: default;
+}
+html input {
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #555555;
+  border: 1px solid #d8d8d8;
+  background-color: #ffffff;
+}
+html input::-webkit-input-placeholder {
+  color: #b7b7b7;
+}
+html input::-moz-placeholder {
+  color: #b7b7b7;
+}
+html input:-ms-input-placeholder {
+  color: #b7b7b7;
+}
+html input::-ms-input-placeholder {
+  color: #b7b7b7;
+}
+html input::placeholder {
+  color: #b7b7b7;
+}
+html input:disabled {
+  color: #555555;
+  border-color: #d8d8d8;
+  background-color: #efefef;
+}
+html input[type=checkbox] {
+  display: none;
+}
+html input[type=checkbox] + label {
+  position: relative;
+  display: block;
+  color: #555555;
+  font-size: 14px;
+  cursor: pointer;
+}
+html input[type=checkbox] + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  background-position: 0px 0px;
+  background: url("../image_v3/id_makeshop/ico_check_off.svg") no-repeat center;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  content: "";
+  margin-right: 8px;
+  vertical-align: middle;
+  background-size: contain;
+}
+html input[type=checkbox]:checked + label:before {
+  background: url("../image_v3/id_makeshop/ico_check_on.svg") no-repeat center;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  vertical-align: middle;
+  background-size: contain;
+}
+html .disNone {
+  display: none !important;
+}
+
+.wrap .modalWrap.md_alert {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.md_alert.modalOn {
+  display: block;
+}
+.wrap .modalWrap.md_alert .modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  z-index: 999;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 70px;
+  font-size: 18px;
+  padding: 0px 30px 0 30px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle button {
+  position: relative;
+  padding: 15px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle button.close {
+  position: relative;
+  border-radius: 10px;
+  background: url("../image_v3/id_makeshop/ico_close.svg") no-repeat center;
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px 20px 20px;
+  overflow-y: auto;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter {
+  padding: 10px 0 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button {
+  position: relative;
+  border-radius: 10px;
+  font-family: "Pretendard_Medium";
+  min-width: 175px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button.create, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.modify, .wrap .modalWrap.md_alert .modalContainer .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #7c72f2;
+  background-color: #7c72f2;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter button.cancel {
+  color: #ffffff;
+  border: 1px solid #bfbfbf;
+  background-color: #bbbbbb;
+}
+.wrap .modalWrap.md_alert .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.md_alert .modalContainer {
+  width: 450px;
+  height: 300px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalTitle {
+  height: 70px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent {
+  height: 130px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalFooter {
+  height: 90px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div {
+  text-align: center;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div p .fc1 {
+  color: #7c72f2;
+}
+.wrap .modalWrap.md_alert .modalContainer .modalContent > div strong {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+.wrap .modalWrap.md_policyService {
+  display: none;
+  z-index: 999;
+}
+.wrap .modalWrap.md_policyService.modalOn {
+  display: block;
+}
+.wrap .modalWrap.md_policyService .modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 999;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  z-index: 999;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 70px;
+  font-size: 18px;
+  padding: 0px 30px 0 30px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalTitle p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 18px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalTitle button {
+  position: relative;
+  padding: 15px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalTitle button.close {
+  position: relative;
+  border-radius: 10px;
+  background: url("../image_v3/id_makeshop/ico_close.svg") no-repeat center;
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px 20px 20px;
+  overflow-y: auto;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalFooter {
+  padding: 10px 0 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalFooter button {
+  position: relative;
+  border-radius: 10px;
+  font-family: "Pretendard_Medium";
+  min-width: 175px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalFooter button.create, .wrap .modalWrap.md_policyService .modalContainer .modalFooter button.modify, .wrap .modalWrap.md_policyService .modalContainer .modalFooter button.confirm {
+  color: #ffffff;
+  border: 1px solid #7c72f2;
+  background-color: #7c72f2;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalFooter button.cancel {
+  color: #ffffff;
+  border: 1px solid #bfbfbf;
+  background-color: #bbbbbb;
+}
+.wrap .modalWrap.md_policyService .modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+.wrap .modalWrap.md_policyService .modalContainer {
+  width: 700px;
+  height: 600px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalTitle {
+  height: 70px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent {
+  height: 430px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalFooter {
+  height: 90px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent section.sec_policy .box_policy .box:nth-child(n+2) {
+  margin: 30px 0 0 0;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent section.sec_policy .box_policy .box > p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 15px;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent section.sec_policy .box_policy .box ul {
+  margin: 15px 0 0 0;
+  min-height: 100px;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+.wrap .modalWrap.md_policyService .modalContainer .modalContent section.sec_policy .box_policy .box ul li {
+  font-size: 13px;
+  line-height: 20px;
+  color: #333;
+}
+.wrap[class*=tune_makeshop] {
+  position: relative;
+  width: 100%;
+  min-height: -webkit-fill-available;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding-bottom: 60px;
+  color: #222222;
+  background-image: linear-gradient(121deg, #79d4fa 8%, #9283fa 86%);
+}
+.wrap[class*=tune_makeshop].complete .container {
+  padding: 100px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  left: 50%;
+}
+.wrap[class*=tune_makeshop].complete:before {
+  display: none;
+}
+.wrap[class*=tune_makeshop]:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  font-style: normal;
+  background-position: 0px 0px;
+  background: url("../image_v3/id_makeshop/img_bg.png") no-repeat center;
+  width: 1045px;
+  height: 778px;
+  background-size: contain;
+  top: 15%;
+  right: 0;
+  background-position-x: 100px;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-animation: floatY 2s ease-in-out infinite;
+          animation: floatY 2s ease-in-out infinite;
+}
+.wrap[class*=tune_makeshop] .container {
+  position: relative;
+  width: 700px;
+  min-height: 760px;
+  padding: 60px 100px;
+  top: 60px;
+  margin-bottom: 60px;
+  left: 100px;
+  color: #222222;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 30px 0 rgba(17, 39, 143, 0.1);
+          box-shadow: 10px 10px 30px 0 rgba(17, 39, 143, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-transition: left 0.5s ease, -webkit-transform 0.5s ease;
+  transition: left 0.5s ease, -webkit-transform 0.5s ease;
+  transition: left 0.5s ease, transform 0.5s ease;
+  transition: left 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+.wrap[class*=tune_makeshop] .title {
+  text-align: center;
+}
+.wrap[class*=tune_makeshop] .title:before {
+  content: "";
+  position: relative;
+  display: block;
+  font-size: 0;
+  font-style: normal;
+  background-position: 0px 0px;
+  background: url("../image_v3/id_makeshop/logo_tune720.svg") no-repeat center;
+  width: 270px;
+  height: 46px;
+  background-size: contain;
+  margin: 0 auto 20px auto;
+}
+.wrap[class*=tune_makeshop] .title p {
+  font-size: 18px;
+}
+.wrap[class*=tune_makeshop] .title b {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 25px;
+}
+.wrap[class*=tune_makeshop] .content {
+  margin: 60px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div:nth-child(n+2) {
+  margin: 20px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div > p {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  font-size: 18px;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div > p + input,
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div > p + select,
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div > p + button {
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.agreeBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.agreeBox button.fullText {
+  position: relative;
+  min-width: 80px;
+  height: 30px;
+  padding: 0 15px;
+  border-radius: 5px;
+  color: #7c72f2;
+  border: 1px solid #7c72f2;
+  background-color: #f2f5ff;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.buttonBox button.start, .wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.buttonBox button.modify, .wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.buttonBox button.apply {
+  position: relative;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid #7c72f2;
+  background-color: #7c72f2;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.buttonBox button.cancel {
+  position: relative;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid #bfbfbf;
+  background-color: #bbbbbb;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.joinBox {
+  margin: 40px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.joinBox button.join {
+  position: relative;
+  min-width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #7c72f2;
+  border: 1px solid #7c72f2;
+  background-color: #ffffff;
+  font-family: "Pretendard_Medium";
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.quickMove button.quickMove {
+  position: relative;
+  min-width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #7c72f2;
+  border: 1px solid #7c72f2;
+  background-color: #ffffff;
+  font-family: "Pretendard_Medium";
+  margin: 80px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.guideBox {
+  margin: 30px 0 0 0;
+}
+.wrap[class*=tune_makeshop] .content section.sec_input .box_input .inputBox > div.guideBox p {
+  font-family: "Pretendard_Regular";
+  font-size: 14px;
+  line-height: 24px;
+  color: #555555;
+}/*# sourceMappingURL=idcm_makeshop.css.map */

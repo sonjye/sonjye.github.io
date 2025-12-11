@@ -1,0 +1,91 @@
+/*
+Explain : MOBTUNE
+File : common.scss 
+Date : 2025.12.08
+Version : 1.8.97
+*/
+
+//* 수정 진행 예정 */
+// 모달 container flex 추가 
+// 모달 footer padding 값 
+// ai메뉴 홈, ai질문&탐색 메뉴 공통 영역 공통화
+
+//* 업무내용 */
+// 1. AI튜니 > 홈, 답변 개편
+// 이준희 주임 컨펌
+
+/*
+z-index 순서
+#. modal, modalDim: 1000, 1001
+# AI스튜디오 체험판 알림 띠 : 910
+# AI스튜디오 체험판 종료 DIM : 900
+#. header: 800
+#. iMarkHover, userMenu : 800,801
+#. selectDiv : 701
+#. dimDot, dimCircle : 700
+#. 캠페인리스트 : 500-1
+#. 날짜 (dateList) : 10
+*/
+
+//***** 공통 CSS *****/
+@import "_font";
+@import "_base";
+// @import "imagebefore";
+@import "_color";
+// @import "_theme";
+@import "image";
+// @import "calendar";
+@import "mixin";
+@import "mixin_ai";
+@import "bubble"; // 모달형태의 말풍선
+@import "toast"; // 토스트 메시지 
+@import "graph";
+@import "_layout";
+@import "_content";
+// 위젯
+@import "widget";
+//***** 개별 CSS *****/
+// 모달 
+@import "_modalLayout";
+@import "modal";
+
+// 대시보드 
+@import "dashboard";
+// 고객분석 
+@import "customerAnalysis";
+// 상품분석 
+@import "productAnalysis";
+// // CDP 
+@import "cdp";
+// LAB 
+@import "lab";
+// 트래킹  
+@import "tracking";
+// 데이터 매니저 
+@import "dataManager";
+// 키워드센터 
+@import "keyword";
+// 스크립트 연동 
+@import "script";
+// 광고효과분석 
+@import "adAnalysis";
+// Fraud 보고서 
+@import "fraudReport";
+// 원태그  
+@import "tag";
+// 마이데이터 스튜디오
+@import "mydata";
+// AI 스튜디오
+@import "ai";
+// @import "work";
+// @import "modal_work";
+
+// TEST 
+// 테마 
+// @import "themeTest"; 
+// @import "_theme";
+
+//* bakup */
+// @import "bak";               
+//* 제작 */
+// @import "test";

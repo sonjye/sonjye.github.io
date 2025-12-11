@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <!-- 기본 CSS, JS -->
+    <link type="text/css" href="../../css/base.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+    <!-- //기본 CSS, JS -->
+    <link type="text/css" href="../../css/common_v3.css" rel="stylesheet" />
+    <link type="text/css" href="../../css/lib/daterangepicker_popup.css" rel="stylesheet" />
+    <!-- dataTable -->
+    <link rel="stylesheet" type="text/css" href="../../css/lib/jquery.dataTables.css">
+    <script type="text/javascript" src="../../js/lib/jquery.dataTables.js"></script>
+    <!-- //dataTable -->
+    <script src="../../js/jquery.easing.1.3.js"></script>
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script src="../../js/ui.js"></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container_wrapper">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">인사이트마케팅</a></li>
+                    <li><a href="javascript:void(0);">추천엔진</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li class="on"><a href="javascript:void(0);">CRM</a></li>
+                    <li><a href="javascript:void(0);">트레킹</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트 연동</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <h2 class="hide">메뉴</h2>
+            <div class="authTitle">
+                <h4>CRM</h4>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="ico_nav_dashboard"></i><span>APP 대시보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="ico_nav_clip"></i><span>광고 추적 URL 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="ico_nav_report"></i><span>APP 보고서</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="ico_nav_clipReport"></i><span>광고 추적 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="ico_nav_setting"></i><span>설정</span></a>
+                    <ul>
+                        <li><a href="javascript:void(0);">APP생성</a></li>
+                        <li><a href="javascript:void(0);">SDK</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <script>
+                $(function () {
+                    $(".userMenu .btns").on("click", function () {
+                        var nextEl = $(this).next("ul");
+                        $(this).toggleClass("on");
+                        nextEl.toggle(300);
+                    });
+                    $(document).mouseup(function (e) {
+                        var userMenu = $(".userMenu");
+                        if (!userMenu.is(e.target) && userMenu.has(e.target).length === 0) {
+                            $(".userMenu ul").hide(300);
+                            $(".userMenu .btns").removeClass("on");
+                        }
+                    });
+                    $(".navigation .hamburger").on("click", function () {
+                        $(".navigation").toggleClass("closed");
+                        $(".contents_wrapper").toggleClass("wide-view");
+                        if ($(".navigation").hasClass("closed")) {
+                            $(".navigation").animate({
+                                width: "70px",
+                            }, 400);
+                        } else {
+                            $(".navigation").animate({
+                                width: "250px",
+                            }, 400);
+                        }
+                    });
+                    $(".navigation ul li:has(ul)").addClass("has-list");
+                    $(".navigation > ul > li > a").on("click", function () {
+                        var nextEl = $(this).next();
+                        $(".navigation > ul > li").removeClass("active");
+                        $(this).closest("li").addClass("active");
+                        if (nextEl.is("ul") && nextEl.is(":visible")) {
+                            $(this).closest("li").removeClass("active");
+                            nextEl.slideUp("fast");
+                        }
+                        if (nextEl.is("ul") && !nextEl.is(":visible")) {
+                            $(".navigation > ul > li > ul:visible").slideUp(300);
+                            nextEl.slideDown("fast");
+                        }
+                        if (nextEl.is("ul")) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    });
+                });
+            </script>
+        </nav>
+        <section class="contents_wrapper">
+            <div class="contents tracking_reportAd">
+                <div class="secTit">
+                    <h3>광고 추적 보고서</h3>
+                </div>
+                <div class="cont">
+                    <section class="sec_optionBox">
+                        <div class="optionBox">
+                            <div class="radioBox">
+                                <p>집계날짜</p>
+                                <div>
+                                    <input type="radio" name="rd_totalDate" id="rd_totalDate1" class="hidden"
+                                        value="day" checked>
+                                    <label for="rd_totalDate1">일별</label>
+                                    <input type="radio" name="rd_totalDate" id="rd_totalDate2" class="hidden"
+                                        value="week">
+                                    <label for="rd_totalDate2">주별</label>
+                                    <input type="radio" name="rd_totalDate" id="rd_totalDate3" class="hidden"
+                                        value="month">
+                                    <label for="rd_totalDate3">월별</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="optionBox">
+                            <div class="calendarBox">
+                                <div class="calendar type02">
+                                    <div class="dateChoice">
+                                        <input type="text" id="dateInput2" name="dateInput2" value="">
+                                    </div>
+                                    <div class="icon"></div>
+                                </div>
+                            </div>
+                            <div class="buttonBox">
+                                <button type="submit" class="btn_searchDate">검색</button>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_optionBox end-->
+                    <section class="sec_report">
+                        <div class="listArea">
+                            <div class="tableBox">
+                                <div class="tblHeader">
+                                    <div class="buttonBox">
+                                        <button class="btn_excel">엑셀</button>
+                                    </div>
+                                    <div class="tableSortBox">
+                                        <select>
+                                            <option value="1">10개씩 보기</option>
+                                            <option value="2">25개씩 보기</option>
+                                            <option value="3" selected>50개씩 보기</option>
+                                            <option value="4">100개씩 보기</option>
+                                            <option value="5">250개씩 보기</option>
+                                            <option value="6">500개씩 보기</option>
+                                            <option value="7">1000개씩 보기</option>
+                                            <option value="8">1500개씩 보기</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="tableWrap">
+                                    <div class="divTable">
+                                        <div class="divTblHead">
+                                            <div class="divTblRow">
+                                                <div>소스/매체/캠페인</div>
+                                                <div>사용자</div>
+                                                <div>세션</div>
+                                                <div>새로운 세션</div>
+                                                <div>이탈율</div>
+                                                <div>체류시간</div>
+                                                <div>전환수</div>
+                                                <div>전환율</div>
+                                                <div>전환매출</div>
+                                                <div>세션매출</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>Total</div>
+                                                <div>5,456</div>
+                                                <div>2,389,100</div>
+                                                <div>203,405</div>
+                                                <div>30.24%</div>
+                                                <div>00:10:24</div>
+                                                <div>1,494,901</div>
+                                                <div>8.51%</div>
+                                                <div>1,494,901</div>
+                                                <div>1,494,902</div>
+                                            </div>
+                                        </div>
+                                        <div class="divTblBody">
+                                            <div class="divTblRow">
+                                                <div>
+                                                    <a href=href="javascript:void(0);">
+                                                        <span>1.Kakao</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,901(10.97%)</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="divTblRow divTblRowChild divTblRowChild1">
+                                                <div>
+                                                    <a href=href="javascript:void(0);">
+                                                        <span>cpc</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,901(10.97%)</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="divTblRow divTblRowGrandChild">
+                                                <div>
+                                                    <a href=href="javascript:void(0);">
+                                                        <span>campaign 1 </span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,901(10.97%)</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="divTblRow divTblRowGrandChild">
+                                                <div>
+                                                    <a href=href="javascript:void(0);">
+                                                        <span>campaign 2 </span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,901(10.97%)</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="divTblRow divTblRowChild">
+                                                <div><a href=href="javascript:void(0);"><span>social</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,901(10.97%)</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div><a href=href="javascript:void(0);"><span>2. Facebook</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div><a href=href="javascript:void(0);"><span>3. Naver</span>
+                                                    </a><button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div><a href=href="javascript:void(0);"><span>4. Moloco</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div><a href=href="javascript:void(0);"><span>sample</span></a>
+                                                    <button type="button" class="btn_search"></button>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="divTblRow">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagingType02">
+                                <ul>
+                                    <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                    <li><a href="javascript:pageLink(2);">2</a></li>
+                                    <li><a href="javascript:pageLink(3);">3</a></li>
+                                    <li><a href="javascript:pageLink(4);">4</a></li>
+                                    <li><a href="javascript:pageLink(5);">5</a></li>
+                                    <li><a href="javascript:pageLink(6);">6</a></li>
+                                    <li><a href="javascript:pageLink(7);">7</a></li>
+                                    <li><a href="javascript:pageLink(8);">8</a></li>
+                                    <li><a href="javascript:pageLink(9);">9</a></li>
+                                    <li><a href="javascript:pageLink(10);">10</a></li>
+                                    <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                    <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_report end-->
+                </div>
+                <!--//cont end-->
+            </div>
+            <!--//contensts end-->
+        </section>
+    </div>
+</body>
+
+</html>

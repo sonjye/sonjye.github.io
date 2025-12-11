@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <!-- typeB typeC typeE-->
+    <div class="wrap typeC">
+        <!-- 빠른 소스 확인을 위해 header, navigation 태그 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>광고주관리</button></li>
+                        <li><button>권한정보</button></li>
+                        <li><button>회원정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+        </nav>
+        <section class="container">
+            <div class="modal">
+                <strong>COMMON</strong>
+                <p>공통 > alert (md_start) </p>
+                <div class="modalWrap md_start" id="md_start">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>OOOO Solution을 선택하셨습니다.</p>
+                                <p>데이터매니저 시작 후 Solution 변경은 제공하지 않습니다.</p>
+                                <p>신중하게 선택해 주세요.</p>
+                                <p>OOOO Solution으로 데이터매니저를 시작하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">시작하기</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>공통 > alert (md_alert) </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>제목</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <strong>중요한 내용입니다.</strong>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>최대 다섯줄까지 사용 권장합니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>공통 > alert (md_start) </p>
+                <div class="modalWrap md_start" id="md_start">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>새로운 버전의 스크립트로 저장됩니다.</p>
+                                <p>스크립트를 발행하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>스크립트 추가 (md_scriptAdd)</p>
+                <div class="modalWrap md_scriptAdd">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>스크립트 추가</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <!--  
+                            하단 t1,t2,t3 클래스 추가 
+                            t1: 아이센드-인사이트 마케팅
+                            t2 : 구글,
+                            t3: 직접임력 
+                            -->
+                            <div class="headerBox t3">
+                                <div>
+                                    <p>스크립트 선택</p>
+                                    <!-- <select name="" id="">
+                                        <option value="">아이센드-인사이트 마케팅</option>
+                                        <option value="">Google Analytics</option>
+                                        <option value="">직접입력</option>
+                                    </select> -->
+                                    <div class="selectDiv">
+                                        <div class="selected">
+                                            <p>선택하세요.</p>
+                                        </div>
+                                        <div class="selectList">
+                                            <div class="searchBox">
+                                                <input type="text" placeholder="검색">
+                                                <button type="buttton" class="search">검색</button>
+                                            </div>
+                                            <ul>
+                                                <li class="active">아이센드-인사이트 마케팅</li>
+                                                <li>Google Analytics</li>
+                                                <li>직접입력</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <input type="text" placeholder="스크립트명을 입력해주세요.">
+                                </div>
+                                <div>
+                                    <p>설명</p>
+                                    <div>
+                                        <p>본 스크립트는 아이센드에서 제공하는 인사이트마케팅 스크립트로, 사이트 내 각 지면별 사용자 유입을 위한 마케팅 툴을 위한 스크립트입니다.
+                                        </p>
+                                        <p>본 스크립트는 구글에서 제공하는 데이터 통계 분석 서비스로 해당 웹사이트의 방문자 행동 및 트래픽 데이터를 추적하고 분석 할 수 있습니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collectBox">
+                                <!-- 인사이트 마케팅 선택 -->
+                                <ul>
+                                    <li>
+                                        <p>태그 삽입 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="rd_tagPath" id="rd_tagPath_all" checked>
+                                                <label for="rd_tagPath_all">전체페이지</label>
+                                                <input type="radio" name="rd_tagPath" id="rd_tagPath_part">
+                                                <label for="rd_tagPath_part">일부페이지</label>
+                                            </div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="add">추가</button></div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="minus">제거</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>지면 정보</p>
+                                        <div>
+                                            <select name="" id="">
+                                                <option value="">이탈-팝업배너</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>스크립트 입력</p>
+                                        <div>
+                                            <div class="textareaBox">
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 구글 선택시 -->
+                                <ul>
+                                    <li>
+                                        <p>태그 삽입 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="rd_tagPath2" id="rd_tagPath_all" checked>
+                                                <label for="rd_tagPath_all">전체페이지</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>스크립트 입력</p>
+                                        <div>
+                                            <div>
+                                                <span>측정 ID</span>
+                                                <input type="text">
+                                            </div>
+                                            <div class="textareaBox">
+                                                <textarea>
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-64KNPRPXF4">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-64KNPRPXF4');
+    </script>
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 직접입력 선택시-->
+                                <ul>
+                                    <li>
+                                        <p>태그 삽입 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="rd_tagPath2" id="rd_tagPath_all" checked>
+                                                <label for="rd_tagPath_all">전체페이지</label>
+                                                <input type="radio" name="rd_tagPath2" id="rd_tagPath_part">
+                                                <label for="rd_tagPath_part">일부페이지</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>태그 작동 예외 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="add">추가</button>
+                                            </div>
+                                            <!-- <div>
+                                                <input type="text">
+                                                <button type="button" class="add">추가</button>
+                                            </div> -->
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>스크립트 입력</p>
+                                        <div>
+                                            <div class="textareaBox">
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="guideBox">
+                                <p>주의: 본 스크립트 템플릿은 제 3자(해당 스크립트)가 제공하므로 자사에서는 이러한 스크립트 템플릿이 제공하는 서비스 및 애플리케이션의 성능, 품질 또는
+                                    콘텐츠에 대해 어떠한 약속이나 보증을 하지 않습니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="save">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!--// modalWrap end -->
+                <p>스크립트 수정 (md_scriptModify)</p>
+                <div class="modalWrap md_scriptModify">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>스크립트 수정</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="headerBox">
+                                <div>
+                                    <p>스크립트명</p>
+                                    <input type="text" placeholder="인사이트 마케팅">
+                                </div>
+                            </div>
+                            <div class="collectBox">
+                                <ul>
+                                    <li>
+                                        <p>태그 삽입 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="rd_tagPath" id="rd_tagPath_all" checked>
+                                                <label for="rd_tagPath_all">전체페이지</label>
+                                                <input type="radio" name="rd_tagPath" id="rd_tagPath_part">
+                                                <label for="rd_tagPath_part">일부페이지</label>
+                                            </div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="add">추가</button></div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="minus">제거</button>
+                                            </div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="minus">제거</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>태그 작동 예외 경로</p>
+                                        <div>
+                                            <div>
+                                                <input type="text">
+                                                <button type="button" class="add">추가</button></div>
+                                            <!-- <div>
+                                                    <input type="text">
+                                                    <button type="button" class="minus">제거</button>
+                                                </div> -->
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>스크립트 입력</p>
+                                        <div>
+                                            <div class="textareaBox">
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="save">저장</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!--// modalWrap end -->
+                <p>스크립트 조회 (md_scriptInquiry)</p>
+                <div class="modalWrap md_scriptInquiry">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>스크립트 조회</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="headerBox">
+                                <p>현재 버전 : <span>Ver 3.0</span></p>
+                                <select name="" id="">
+                                    <option value="">Ver 3.0</option>
+                                    <option value="">Ver 1.0</option>
+                                    <option value="">Ver 2.0</option>
+                                </select>
+                                <button type="button" class="rollback">Rollback</button>
+                            </div>
+                            <div class="listBox">
+                                <ul>
+                                    <li>
+                                        <p>스크립트명</p>
+                                        <div>
+                                            <select name="" id="">
+                                                <option value="">아이센드-인사이트 마케팅</option>
+                                                <option value="">Google Analytics</option>
+                                                <option value="">직접입력</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>설명</p>
+                                        <div>
+                                            <p>본 스크립트는 아이센드에서 제공하는 인사이트마케팅 스크립트로, 사이트 내 각 지면별 사용자 유입을 위한 마케팅 툴을 위한
+                                                스크립트입니다. </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>태그 삽입 경로</p>
+                                        <div>
+                                            <input type="text">
+                                            <input type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>지면 정보</p>
+                                        <div>
+                                            <select name="" id="">
+                                                <option value="">이탈-팝업배너</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>스크립트 정보</p>
+                                        <div>
+                                            <div class="textareaBox">
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="modify">수정</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!--// modalWrap end -->
+                <p>게시 버전 (md_scriptVersion)</p>
+                <div class="modalWrap md_scriptVersion">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>게시 버전</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="guide">
+                                <p>게시된 버전을 조회하고 관리할 수 있습니다.</p>
+                            </div>
+                            <div class="version">
+                                <p>최근 스크립트 게시 버전은 Ver5.0(2024-05-31 15:15:10)입니다.</p>
+                            </div>
+                            <div class="box_list">
+                                <div class="tit">
+                                    <p>게시 이력</p>
+                                </div>
+                                <div class="cont">
+                                    <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                    <!-- <div class="tableArea tableAreaDataNone"> -->
+                                    <div class="tableArea">
+                                        <div class="tableBox">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Version</th>
+                                                        <th>디버깅 일시</th>
+                                                        <th>게시일시</th>
+                                                        <th>스크립트 수</th>
+                                                        <th>복구</th>
+                                                        <th>삭제</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>5.0</td>
+                                                        <td>2023-08-01 12:00:01</td>
+                                                        <td>2023-08-01 12:00:01</td>
+                                                        <td>22</td>
+                                                        <td>게시됨</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>5.0</td>
+                                                        <td>2023-08-01 12:00:01</td>
+                                                        <td>2023-08-01 12:00:01</td>
+                                                        <td>22</td>
+                                                        <td><button type="button" class="rollback">Rollback</button>
+                                                        </td>
+                                                        <td><button type="button" class="close">닫기</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tableDataNone">
+                                        <div>
+                                            <p>검색 결과가 없습니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>마이 원태그 정보 (md_mytagInfo)</p>
+                <div class="modalWrap md_mytagInfo">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>마이 원태그 정보</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="guide">
+                                <p>선택된 도메인(www.dabagirl.com)의 원태그 정보를 조회합니다. </p>
+                                <p>Service Key 는 APP 을 통한 SDK 삽입 시 들어갈 정보이며, 원태그는 웹/모바일웹 내 들어갈 스크립트입니다.</p>
+                            </div>
+                            <div class="inputArea">
+                                <div class="box">
+                                    <p>원태그 시작일</p>
+                                    <div><input type="text" name="" id=""></div>
+                                </div>
+                                <div class="box">
+                                    <p>Service Key</p>
+                                    <div>
+                                        <div class="inputBox">
+                                            <input type="text" name="" id="">
+                                            <button type="button" class="copy">복사</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <p>원태그(웹 스크립트)</p>
+                                    <div>
+                                        <div class="textareaBox">
+                                            <textarea name="" id=""></textarea>
+                                            <button type="button" class="copy">복사</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>마이 태그 분석 (md_mytagAnalysis)</p>
+                <div class="modalWrap md_mytagAnalysis">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>마이 태그 분석</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="guide">
+                                <p>사이트 내 분석이 필요한 도메인을 입력하고 "분석하기" 버튼을 클릭 해 주세요.
+                            </div>
+                            <div class="optionBox">
+                                <input type="radio" name="rd_domain" id="rd_domain1" checked>
+                                <label for="rd_domain1">
+                                    <select name="" id="">
+                                        <option value="">홈페이지</option>
+                                        <option value="">상세페이지</option>
+                                        <option value="">장바구니페이지</option>
+                                        <option value="">주문서 작성페이지</option>
+                                        <option value="">회원가입페이지</option>
+                                        <option value="">로그인페이지</option>
+                                        <option value="">직접 입력</option>
+                                    </select>
+                                    <input type="text" name="" id="">
+                                </label>
+                                <input type="radio" name="rd_domain" id="rd_domain2">
+                                <label for="rd_domain2">소스 직접 입력</label>
+                                <button type="button" class="analysis">분석하기</button>
+                                <!-- radio 소스 직접입력 선택되었을 때 textareaBox display: block 되는 css 추가되어 있음 -->
+                                <div class="textareaBox">
+                                    <textarea name="" id=""
+                                        placeholder="이 곳에 직접 스크립트를 복사하여 붙여 넣은 후 분석 해 주세요."></textarea>
+                                    <!-- <button type="button" class="copy">복사</button> -->
+                                </div>
+                            </div>
+                            <div class="box_analysis">
+                                <!-- 분석소스-->
+                                <div class="tit">
+                                    <p>스크립트 결과</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="tableHeader">
+                                        <div class="totalBox">
+                                            <p>총<span>23개</span></p>
+                                            <p>마이태그: 등록<span>20개</span> 미등록 <span>3개</span></p>
+                                        </div>
+                                        <button type="button" class="excelDown">엑셀</button>
+                                    </div>
+                                    <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                    <!-- <div class="tableArea tableAreaDataNone"> -->
+                                    <!-- tableAreaDataNone 일 때 하단 resultBox도 display: none 됨-->
+                                    <div class="tableArea">
+                                        <div class="tableBox">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th> <input type="checkbox" name="chk111" id="chk111_all">
+                                                            <label for="chk111_all"></label></th>
+                                                        <th>No</th>
+                                                        <th>위치</th>
+                                                        <th>제공사</th>
+                                                        <th>스크립트명</th>
+                                                        <th>마이태그</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <!-- 하단 checkbox 클릭시 부모 tr에 on 클래스 toggle로 td에 배경색 추가함 -->
+                                                        <td>
+                                                            <input type="checkbox" name="chk111" id="chk112">
+                                                            <label for="chk112"></label>
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td>Header,body</td>
+                                                        <td>Adobe</td>
+                                                        <!-- 하단 a를 클릭하면 다음 tr.script에 on 클래스 toggle -->
+                                                        <td><a href="javascript:void(0);">어도비 통합 트래킹어도비 통합
+                                                                트래킹어도비트래킹어도비트래킹</a>
+                                                        </td>
+                                                        <!-- 하단 등록/미등록 구분값은 미등록일 경우 td.t2 추가-->
+                                                        <td>등록</td>
+                                                    </tr>
+                                                    <tr class="script">
+                                                        <td colspan="6">
+                                                            <div class="sourceBox">
+                                                                <div class="source">
+                                                                    <!-- selected 클래스 추가시 배경색, 폰트색 변경됨-->
+                                                                    <div class="selected">
+                                                                        //www.google-analytics.com/analytics.js
+                                                                        //a.pxl.ai/js/plausible.js
+                                                                        //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //api.piclick.kr/common/js/v1/fp.min.js
+                                                                        //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                        //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                        memberId= </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                    </div>
+                                                                    <div class="selected">
+                                                                        //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>//www.google-analytics.com/analytics.js
+                                                                        //a.pxl.ai/js/plausible.js
+                                                                        //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //api.piclick.kr/common/js/v1/fp.min.js
+                                                                        //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                        //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                        memberId= </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="checkbox" name="chk111" id="chk113">
+                                                            <label for="chk113"></label>
+                                                        </td>
+                                                        <td>2</td>
+                                                        <td>Header,body</td>
+                                                        <td>Adobe</td>
+                                                        <td><a href="javascript:void(0);">어도비 통합 트래킹어도비 통합
+                                                                트래킹어도비트래킹어도비트래킹</a>
+                                                        </td>
+                                                        <td class=" t2">미등록</td>
+                                                    </tr>
+                                                    <tr class="script">
+                                                        <td colspan="6">
+                                                            <div class="sourceBox">
+                                                                <!-- source 에 div 추가시 배경색과 폰트색 바뀜 -->
+                                                                <div class="source">
+                                                                    <!-- selected 클래스 추가시 배경색, 폰트색 변경됨-->
+                                                                    <div class="selected">
+                                                                        //www.google-analytics.com/analytics.js
+                                                                        //a.pxl.ai/js/plausible.js
+                                                                        //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //api.piclick.kr/common/js/v1/fp.min.js
+                                                                        //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                        //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                        memberId= </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                    </div>
+                                                                    <div class="selected">
+                                                                        //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>//www.google-analytics.com/analytics.js
+                                                                        //a.pxl.ai/js/plausible.js
+                                                                        //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                        //api.piclick.kr/common/js/v1/fp.min.js
+                                                                        //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                        //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                        memberId= </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    <div>
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                        //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                    </div>
+                                                                    <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                        //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                        //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tableDataNone">
+                                            <div>
+                                                <!-- <p>검색 결과가 없습니다.</p> -->
+                                                <p>분석하기 버튼을 클릭하시면 이곳에 분석된 소스가 출력됩니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="guide">
+                                        <p><b>주의</b> : 본 분석 결과는 사이트 태그 관리를 위한 참고용으로만 확인 부탁드리며, 제3자(해당 스크립트사)가 제공하는 서비스 및
+                                            애플리케이션의 성능, 품질 또는 콘텐츠에 대해 어떠한 약속이나 보증을 하지 않습니다. </p>
+                                    </div>
+                                    <div class="resultBox">
+                                        <p>선택 <span>2</span>개</p>
+                                        <button type="button" class="myTagRegister">마이 태그 등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="modalFooter">
+                            <button type="button" class="close">닫기</button>
+                        </div> -->
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>마이 태그 분석 등록 알림 (md_start)</p>
+                <div class="modalWrap md_start" id="md_start">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>선택하신 스크립트를 마이태그에 등록하시겠습니까?</p>
+                                <p> (등록 시, OFF 상태로 등록되며 기존 사이트에서 <br>해당 스크립트가 중복으로 동작되지 않도록<br>기존 소스에서 직접 제거 후 관리 해
+                                    주세요.) </p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">예</button>
+                            <button type="button" class="cancel">아니오</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>공통 > alert (md_alert) </p>
+                <p>Debug 실행 결과 > alert (md_alert) </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>Debug 실행 결과</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>Debug 실행 결과 모든 스크립트<span class="fc1">(42개)</span>가 호출되었습니다.</p>
+                                <p>게시하기 버튼을 클릭하여 해당 스크립트를 게시하세요.</p><br>
+                                <p>(단, 해당 결과는 스크립트 자체적인 실행 및 동작을 확인하지 않으며<br>호출에 대한 참고용이므로 가급적 개발자모드에서 직접 확인하세요.) </p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="cancel">취소</button>
+                            <button type="button" class="confirm">게시하기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>공통 > alert (md_alert) </p>
+                <p>Debug 실행 확인 > alert (md_alert) </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>Debug 실행 결과</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <p>스크립트가 적용된 도메인을 새창으로 확인합니다.</p>
+                                <p>적용된 스크립트 위치를 모두 이동하시면<br> 'Debug 실행 결과'를 확인할 수 있습니다.</p><br>
+                                <p>단, 해당 결과는 스크립트 자체적인 실행 및 동작을 확인하지 않으며<br> 호출에 대한 참고용이므로 가급적 개발자모드에서 직접 확인하세요. </p>
+                                <p>실행하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="confirm">예</button>
+                            <button type="button" class="cancel">아니오</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modalWrap end-->
+                <p>게시 버전 (md_debugResult)</p>
+                <div class="modalWrap md_debugResult" id="md_debugResult">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>Debug 실행 결과</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="guide">
+                                <p>총 <span>12개(스크립트 사용)</span>에 대한 Debug 실행 결과 입니다. </p>
+                                <!-- <p><span>미실행</span> 또는 <span>미확인</span>하신 스크립트는 다시 확인 후 게시 해 주세요.</p> -->
+                                <p>이 결과는 <span class="b">호출에 대한 참고용</span>이므로 개발자 모드에서 직접 확인하는 것이 좋습니다.</p>
+                                <!-- <p>로딩속도는 디바이스와 네트워크 상황에 따라 달라질 수 있습니다.</p> -->
+                                <p>※<span class="b">중복 호출</span>로 게시가 불가능한 스크립트는 사이트에서 직접 해당 스크립트를 제거한 후 게시해 주세요.</p>
+                            </div>
+                            <div class="box_list">
+                                <div class="tableHeader">
+                                    <p><span>실행됨 : 32개(0.4sec)</span><span><span class="iBox"><i class="iMark"></i>
+                                                <span class="iMarkHover">스크립트가 정상적으로 실행되지 않았습니다.</span>
+                                            </span>미실행 : 8개 </span><span> <span class="iBox"><i class="iMark"></i>
+                                                <span class="iMarkHover">접근이 제한되어 실행 여부를 확인할 수 없습니다.</span>
+                                            </span>미확인함: 2개</span><span>ERROR: 4개</span>
+                                    </p>
+                                </div>
+                                <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                <!-- <div class="tableArea tableAreaDataNone"> -->
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th class="sort">스크립트명</th>
+                                                    <th class="sort">로딩속도(sec)</th>
+                                                    <th class="sort">실행여부</th>
+                                                    <th class="sort">게시가능</th>
+                                                    <th class="sort">식별된 ERROR</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="haveChild">
+                                                    <td>12</td>
+                                                    <td>아이샌드-인사이트 마케팅2아이샌드-인사이트 마케팅2아이샌드-인사이트 마케팅2아이샌드-인사이트 마케팅2</td>
+                                                    <td>0.13 </td>
+                                                    <td class="run">실행됨</td>
+                                                    <td>-</td>
+                                                    <td>
+                                                        <!-- <span class="btnToggle error">ERROR</span> -->
+                                                        <button type="button" class="btnToggle error">ERROR</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="child">
+                                                    <td colspan="6">
+                                                        <div class="detailBox">
+                                                            <div>
+                                                                <p>에러명 : SyntaxError </p>
+                                                                <p>에러 메시지 : Unexpected token &amp; in JSON at position
+                                                                    254 </p>
+                                                                <p>라인 번호 : 128 </p>
+                                                                <p>컬럼 번호 : 22</p>
+                                                            </div>
+                                                            <button type="button" class="scriptInquiry">스크립트 조회</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>TUNE720</td>
+                                                    <td>0.13 </td>
+                                                    <td class="error">실행불가</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>TUNE720</td>
+                                                    <td>0.13 </td>
+                                                    <td class="error">실행불가</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr class="haveChild">
+                                                    <td>10</td>
+                                                    <td>Google Analytics </td>
+                                                    <td>0.13 </td>
+                                                    <td class="notRun">미실행</td>
+                                                    <td>-</td>
+                                                    <td>
+                                                        <!-- <span class="btnToggle error">ERROR</span> -->
+                                                        <button type="button" class="btnToggle error">ERROR</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="child">
+                                                    <td colspan="6">
+                                                        <div class="detailBox">
+                                                            <div>
+                                                                <p>에러명 : SyntaxError </p>
+                                                                <p>에러 메시지 : Unexpected token &amp; in JSON at position
+                                                                    254 </p>
+                                                                <p>라인 번호 : 128 </p>
+                                                                <p>컬럼 번호 : 22</p>
+                                                            </div>
+                                                            <button type="button" class="scriptInquiry">스크립트 조회</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tableDataNone">
+                                        <div>
+                                            <p>검색 결과가 없습니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dataNone">
+                                    <div>
+                                        <p>데이터가 없습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_listDetail">
+                                <div class="tableTitle">
+                                    <p>식별되지 않은 ERROR (n개)</p>
+                                </div>
+                                <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                <!-- <div class="tableArea tableAreaDataNone"> -->
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>ERROR 상세 내용</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2 </td>
+                                                    <td>
+                                                        <div class="detailBox">
+                                                            <p>에러명 : TypeError</p>
+                                                            <p> 에러 메시지 : Cannot read property 'value' of null</p>
+                                                            <p> 라인 번호 : 정보없음</p>
+                                                            <p> 컬럼 번호 : 정보없음</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <div class="detailBox">
+                                                            <p>에러명 : TypeError</p>
+                                                            <p> 에러 메시지 : Cannot read property 'value' of null</p>
+                                                            <p> 라인 번호 : 정보없음</p>
+                                                            <p> 컬럼 번호 : 정보없음</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tableDataNone">
+                                        <div>
+                                            <p>검색 결과가 없습니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dataNone">
+                                    <div>
+                                        <p>데이터가 없습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="confirm">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>사용자 권한 조회 (md_userAuthInquiry)</p>
+                <div class="modalWrap md_userAuthInquiry">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>사용자 권한 조회</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_list">
+                                <div class="guide">
+                                    <p>사용자: <span>DAVA_AB1(애즈네트워크)</span></p>
+                                    <p>광고주가 설정한 권한입니다. 권한 수정 필요 시 광고주에게 확인 요청해 주세요.</p>
+                                </div>
+                                <div class="authList">
+                                    <ul>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthInquiry"
+                                                    id="chk11">
+                                                <label for="chk11">
+                                                    <span>조회</span>
+                                                    <span>태그(스크립트)를 조회할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthInquiry"
+                                                    id="chk22">
+                                                <label for="chk22">
+                                                    <span>편집</span>
+                                                    <span>태그(스크립트)를 추가하거나 등록되어 있는 태그를 수정할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthInquiry"
+                                                    id="chk3">
+                                                <label for="chk3">
+                                                    <span>게시</span>
+                                                    <span>태그(스크립트)를 게시할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>사용자 권한 추가 (md_userAuthAdd)</p>
+                <div class="modalWrap md_userAuthAdd">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>사용자 권한 추가</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_authAdd">
+                                <div class="guide">
+                                    <p>원태그 사용권한을 추가할 ID를 입력하세요.</p>
+                                </div>
+                                <div class="inputArea">
+                                    <div class="radioBox">
+                                        <input type="radio" name="rd_userAuthAdd" id="rd1">
+                                        <label for="rd1">광고대행사</label>
+                                    </div>
+                                    <div class="inputBox">
+                                        <input type="text">
+                                        <button type="button" class="add">추가</button>
+                                    </div>
+                                    <div class="resultBox">
+                                        <div>
+                                            <span>hskim4 (애즈네트워크)</span>
+                                            <button type="button" class="cancel">취소</button>
+                                        </div>
+                                        <div>
+                                            <span>dkjfeifj234 (광고에이전시)</span>
+                                            <button type="button" class="cancel">취소</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_list">
+                                <div class="guide">
+                                    <p>해당 ID에 부여할 권할을 체크하세요.</p>
+                                </div>
+                                <div class="authList">
+                                    <ul>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthAdd"
+                                                    id="chk_userAuthAdd1">
+                                                <label for="chk_userAuthAdd1">
+                                                    <span>조회</span>
+                                                    <span>태그(스크립트)를 조회할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthAdd"
+                                                    id="chk_userAuthAdd2">
+                                                <label for="chk_userAuthAdd2">
+                                                    <span>편집</span>
+                                                    <span>태그(스크립트)를 추가하거나 등록되어 있는 태그를 수정할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthAdd"
+                                                    id="chk_userAuthAdd3">
+                                                <label for="chk_userAuthAdd3">
+                                                    <span>게시</span>
+                                                    <span>태그(스크립트)를 게시할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="save">저장</button>
+                            <!-- <button type="button" class="close">닫기</button> -->
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>My 광고주 목록 (md_advertiserList)</p>
+                <div class="modalWrap md_advertiserList">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>My 광고주 목록</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_list">
+                                <div class="tit">
+                                    <p>로그인할 광고주를 선택하신 후 비밀번호를 넣어주세요. </p>
+                                    <p>권한은 광고주(관리자)가 부여합니다. </p>
+                                </div>
+                                <div class="cont">
+                                    <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                    <!-- <div class="tableArea tableAreaDataNone"> -->
+                                    <div class="tableArea">
+                                        <div class="tableBox">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>광고주</th>
+                                                        <th>아이디</th>
+                                                        <th>원태그 권한</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="select">
+                                                        <td>다바걸</td>
+                                                        <td>daba_ab1</td>
+                                                        <td>조회, 추가, 수정, 게시</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tableDataNone">
+                                        <div>
+                                            <p>검색 결과가 없습니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="password">
+                                        <p>비밀번호 재입력</p>
+                                        <div class="inputBox">
+                                            <input type="password" name="" id="">
+                                            <button type="button" class="login">로그인</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>사용자 권한 목록 (md_userAuthList)</p>
+                <div class="modalWrap md_userAuthList">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>사용자 권한 목록</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="box_userList">
+                                <div class="tableHeader">
+                                    <p>사용자 목록</p>
+                                    <button type="button" class="userAdd">사용자 추가</button>
+                                </div>
+                                <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                <!-- <div class="tableArea tableAreaDataNone"> -->
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>대행사</th>
+                                                    <th>아이디</th>
+                                                    <th>권한</th>
+                                                    <th>최종접속일</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="select">
+                                                    <td>애즈네트워크</td>
+                                                    <td>daba_ab1</td>
+                                                    <td>조회, 추가, 수정, 게시</td>
+                                                    <td>2024-07-19 15:10:12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tableDataNone">
+                                    <div>
+                                        <p>검색 결과가 없습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_auth">
+                                <div class="tit">
+                                    <p>해당 ID에 부여할 권한을 체크하세요.</p>
+                                </div>
+                                <div class="cont">
+                                    <ul>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthList"
+                                                    id="chk_userAuthList1">
+                                                <label for="chk_userAuthList1">
+                                                    <span>조회</span>
+                                                    <span>태그(스크립트)를 조회할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthList"
+                                                    id="chk_userAuthList2">
+                                                <label for="chk_userAuthList2">
+                                                    <span>편집</span>
+                                                    <span>태그(스크립트)를 추가하거나 등록되어 있는 태그를 수정할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkBox"><input type="checkbox" name="chk_userAuthList"
+                                                    id="chk_userAuthList3">
+                                                <label for="chk_userAuthList3">
+                                                    <span>게시</span>
+                                                    <span>태그(스크립트)를 게시할 수 있습니다.</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개만 사용 가능 -->
+                            <button type="button" class="modify">수정</button>
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>원태그 > 권장 스크립트 등록하기 (md_scriptRegister)</p>
+                <div class="modalWrap md_scriptRegister" id="md_scriptRegister">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>권장 스크립트 등록하기</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_scriptRegister">
+                                <div class="box_scriptRegister">
+                                    <!-- 분석소스-->
+                                    <div class="tit">
+                                        <p>권장 스크립트 목록</p>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="tableHeader">
+                                            <div class="totalBox">
+                                                <p>총<span>23개</span></p>
+                                            </div>
+                                            <button type="button" class="excelDown">엑셀</button>
+                                        </div>
+                                        <!--// 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                        <!-- <div class="tableArea tableAreaDataNone"> -->
+                                        <!-- tableAreaDataNone 일 때 하단 resultBox도 display: none 됨-->
+                                        <div class="tableArea">
+                                            <div class="tableBox">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th> <input type="checkbox" name="chk111" id="chk111_all">
+                                                                <label for="chk111_all"></label></th>
+                                                            <th>No</th>
+                                                            <th>위치</th>
+                                                            <th>제공사</th>
+                                                            <th>스크립트명</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="haveChild">
+                                                            <!-- 하단 checkbox 클릭시 부모 tr에 on 클래스 toggle로 td에 배경색 추가함 -->
+                                                            <td>
+                                                                <input type="checkbox" name="chk111" id="chk112">
+                                                                <label for="chk112"></label>
+                                                            </td>
+                                                            <td>1</td>
+                                                            <td>Header,body</td>
+                                                            <td>Adobe</td>
+                                                            <!-- 하단 a를 클릭하면 다음 tr.script에 on 클래스 toggle -->
+                                                            <td><a href="javascript:void(0);" class="btnToggle">어도비 통합
+                                                                    트래킹어도비 통합 트래킹어도비트래킹어도비트래킹</a>
+                                                            </td>
+                                                            <!-- 하단 등록/미등록 구분값은 미등록일 경우 td.t2 추가-->
+                                                        </tr>
+                                                        <tr class="child">
+                                                            <td colspan="5">
+                                                                <div class="sourceBox">
+                                                                    <div class="source">
+                                                                        <!-- selected 클래스 추가시 배경색, 폰트색 변경됨-->
+                                                                        <div> &lt;script type="text/javascript"&gt;
+                                                                            kakaoPixel('6870031721593159178').pageView();
+                                                                            kakaoPixel.setServiceOrigin('20001');
+                                                                            &lt;/script&gt; </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="haveChild">
+                                                            <td>
+                                                                <input type="checkbox" name="chk111" id="chk113">
+                                                                <label for="chk113"></label>
+                                                            </td>
+                                                            <td>2</td>
+                                                            <td>Header,body</td>
+                                                            <td>Adobe</td>
+                                                            <td><a href="javascript:void(0);" class=" btnToggle">어도비 통합
+                                                                    트래킹어도비 통합 트래킹어도비트래킹어도비트래킹</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="child">
+                                                            <td colspan="5">
+                                                                <div class="sourceBox">
+                                                                    <!-- source 에 div 추가시 배경색과 폰트색 바뀜 -->
+                                                                    <div class="source">
+                                                                        <!-- selected 클래스 추가시 배경색, 폰트색 변경됨-->
+                                                                        <div class="selected">
+                                                                            //www.google-analytics.com/analytics.js
+                                                                            //a.pxl.ai/js/plausible.js
+                                                                            //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                            //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                            //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                            //api.piclick.kr/common/js/v1/fp.min.js
+                                                                            //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                            //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                            memberId= </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                        </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                            //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                            //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                        <div>
+                                                                            //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                            //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                        </div>
+                                                                        <div class="selected">
+                                                                            //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                        </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                            //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                            //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                        <div>//www.google-analytics.com/analytics.js
+                                                                            //a.pxl.ai/js/plausible.js
+                                                                            //static.pxl.ai/apps-stg/utm/utm.min.js
+                                                                            //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                            //static.pxl.ai/pippin.co.kr/suggest/pxl-suggest.js
+                                                                            //api.piclick.kr/common/js/v1/fp.min.js
+                                                                            //api.piclick.kr/common/js/v1/polyfill.min.js
+                                                                            //cdn.megadata.co.kr/0/tcs.js?eid=skyesm4owsvlskyesm4ows&amp;
+                                                                            memberId= </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                        </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                            //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                            //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                        <div>
+                                                                            //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script.js
+                                                                            //sfre-srcs-service.snapfit.co.kr/js/snap_combine_script_main.js?824
+                                                                        </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/push/return_push.js
+                                                                        </div>
+                                                                        <div> //cdn.snapfit.co.kr/js/spm_f_common.js
+                                                                            //cdn.snapfit.co.kr/snap-dp/initializer.js
+                                                                            //push.snapfit.co.kr/custom/js/pippin </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tableDataNone">
+                                                <div>
+                                                    <p>검색 결과가 없습니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resultBox">
+                                            <p>선택 <span>2</span>개</p>
+                                            <button type="button" class="tagRegister">마이 태그 등록</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="close">닫기</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                    <!--//md_collectLog end-->
+                </div>
+                <!-- // modalWrap end-->
+                <p>마이데이터 스튜디오 > 리포트빌더 (md_aiReportBuilder)</p>
+                <div class="modalWrap md_aiReportBuilder" id="md_aiReportBuilder">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>AI 리포트 빌더</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <section class="sec_register">
+                                <!-- // left 미리보기 -->
+                                <div class="box_"></div>
+                                <!-- right 내용 -->
+                                <div class="box_">
+                                    <div class="tit">
+                                        <p></p>
+                                    </div>
+                                    <div class="cont"> </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="download">리포트 다운로드</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // modal end-->
+                <div class="title">
+                    <p>모달 </p>
+                </div>
+                <div class="content">
+                </div>
+                <footer class="footer">
+                    <h2 class="hide"> 하단 회사 정보 영역 </h2>
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved. </p>
+                </footer>
+        </section>
+    </div>
+</body>
+
+</html>

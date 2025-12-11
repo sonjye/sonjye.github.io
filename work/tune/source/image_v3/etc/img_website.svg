@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="176" viewBox="0 0 340 176">
+    <defs>
+        <filter id="93b5ls1vga" x="0" y="52" width="340" height="41" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-color="#3c71fd"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <path data-name="사각형 6648" transform="translate(45)" style="fill:#e3e3e3" d="M0 0h249v176H0z"/>
+    <path data-name="사각형 6650" transform="translate(53 45)" style="fill:#fff" d="M0 0h233v131H0z"/>
+    <path data-name="사각형 6649" transform="translate(53 8)" style="fill:#acc8ff" d="M0 0h233v37H0z"/>
+    <path data-name="사각형 6651" transform="translate(61 51)" style="fill:#dee9ff" d="M0 0h217v37H0z"/>
+    <path data-name="사각형 6652" transform="translate(61 94)" style="fill:#dee9ff" d="M0 0h53v37H0z"/>
+    <path data-name="사각형 6656" transform="translate(61 135)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6660" transform="translate(61 153)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6665" transform="translate(121 153)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6669" transform="translate(181 153)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6662" transform="translate(61 170)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6666" transform="translate(121 170)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6670" transform="translate(181 170)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6659" transform="translate(61 144)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6663" transform="translate(121 144)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6667" transform="translate(181 144)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6661" transform="translate(61 162)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6664" transform="translate(121 162)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6668" transform="translate(181 162)" style="fill:#e3e3e3" d="M0 0h42v6H0z"/>
+    <path data-name="사각형 6653" transform="translate(121 94)" style="fill:#dee9ff" d="M0 0h53v37H0z"/>
+    <path data-name="사각형 6657" transform="translate(121 135)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6654" transform="translate(181 94)" style="fill:#dee9ff" d="M0 0h53v37H0z"/>
+    <path data-name="사각형 6658" transform="translate(181 135)" style="fill:#e3e3e3" d="M0 0h53v6H0z"/>
+    <path data-name="사각형 6655" transform="translate(241 94)" style="fill:#e3e3e3" d="M0 0h37v82H0z"/>
+    <g style="filter:url(#93b5ls1vga)">
+        <g data-name="사각형 6671" transform="translate(9 58)" style="fill:rgba(60,113,253,.62);stroke:#002ea7;opacity:.8">
+            <rect width="322" height="23" rx="2" style="stroke:none"/>
+            <rect x=".5" y=".5" width="321" height="22" rx="1.5" style="fill:none"/>
+        </g>
+    </g>
+</svg>

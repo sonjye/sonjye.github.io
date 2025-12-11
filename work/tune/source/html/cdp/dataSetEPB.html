@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li class="on"><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>CDP</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드(개요)</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userInfo"></i><span>유저정보</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="coreUserAnalysis"></i><span>핵심유저분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignList"></i><span>캠페인 리스트</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignCreate"></i><span>캠페인 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="notice"></i><span>공지사항</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="dataLink"></i><span>데이터 연동 관리</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="rfmAnalysis"></i><span>RFM분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="userValueAnalysis"></i><span>고객가치분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="businessAnalysis"></i><span>업황분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userActivity"></i><span>고객외부활동</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_dateSetEP">
+                <div class="title">
+                    <p>데이터 연동 관리</p>
+                </div>
+                <div class="content">
+                    <div class="tab">
+                        <ul>
+                            <li><a href="javascript:void(0);">APP 트래커 <span>미연동</span></a></li>
+                            <li><a href="javascript:void(0);">WEB 트래커 <span>연동</span></a></li>
+                            <li class="on"><a href="javascript:void(0);">EP 데이터 <span>미연동</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tabView">
+                        <div class="tabViewList show">
+                            <div class="EP_Data_unlink_cafe24">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr solbox">
+                                            <div>솔루션 선택 </div>
+                                            <div> <select name="" id="">
+                                                    <option value="">카페24_스마트</option>
+                                                </select><button type="button" class="EP_manual">EP 연동 메뉴얼 보기</button>
+                                            </div>
+                                        </div>
+                                        <div class="divTr solbox">
+                                            <div>솔루션 계정(ID)정보</div>
+                                            <div> <input type="text" name="" id=""></div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>솔루션 계정(ID)정보</div>
+                                            <div> <input type="text" name="" id=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_unlink_cafe24 end --><br><br><br>&#60;&#60;&#45; 카페24 미연동시
+                            &#45;&#62;&#62;<br><br><br>
+                            <div class="EP_Data_link_cafe24">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr">
+                                            <div>솔루션 선택 </div>
+                                            <div> 카페24_스마트<button type="button" class="EP_manual_download">카페24 - 모비튠
+                                                    CRM APP 설치 바로가기</button></div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>솔루션 계정(ID)정보</div>
+                                            <div>mobon_admin</div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>연동상태</div>
+                                            <div><i class="normal">정상</i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_link_cafe24 end --><br><br><br>&#60;&#60;&#45;카페24
+                            연동시&#45;&#62;&#62;<br><br><br>
+                            <div class="EP_Data_unlink_makeShop">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr">
+                                            <div>솔루션 선택 </div>
+                                            <div><select name="" id="">
+                                                    <option value="">메이크샵</option>
+                                                </select><button type="button" class="EP_manual">EP 연동 메뉴얼 보기</button>
+                                            </div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>상점키 입력</div>
+                                            <div>
+                                                <p>메이크업 관리자(관리자로그인 > 쇼핑몰구축 > 쇼핑몰 관리기능설정 > 오픈 API)에서 발급한 (주)인라이플 상정키를
+                                                    입력해주세요.</p>
+                                                <input type="text" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_unlink_makeShop end --><br><br><br>&#60;&#60;&#45;메이크샵 미연동
+                            &#45;&#62;&#62;<br><br><br>
+                            <div class="EP_Data_link_makeShop">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr">
+                                            <div>솔루션 선택 </div>
+                                            <div> 메이크샵<button type="button" class="EP_manual_download">EP 연동 메뉴얼
+                                                    보기</button></div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>상점키 입력</div>
+                                            <div>abcdefghiqwer123456</div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>연동상태</div>
+                                            <div><i class="wait">대기</i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_link_cafe24 end --><br><br><br>&#60;&#60;&#45;메이크샵
+                            연동시&#45;&#62;&#62;<br><br><br>
+                            <div class="EP_Data_unlink_godoMall">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr">
+                                            <div>솔루션 선택 </div>
+                                            <div><select name="" id="">
+                                                    <option value="">고도몰</option>
+                                                </select><button type="button" class="EP_manual">EP 연동 메뉴얼 보기</button>
+                                            </div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>솔루션 계정(ID)정보</div>
+                                            <div>
+                                                <input type="text" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>실 도메인 정보</div>
+                                            <div>
+                                                <p>고도몰 관리자(관리자로그인 > 마이고도 > 쇼핑몰 관리 > 쇼핑몰 목록)에 등록되어 있는 [기본] 도메인 정보를
+                                                    입력해주세요.</p>
+                                                <input type="text" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_unlink_makeShop end --><br><br><br>&#60;&#60;&#45;고도몰 미연동
+                            &#45;&#62;&#62;<br><br><br>
+                            <div class="EP_Data_link_godoMall">
+                                <div class="box">
+                                    <div class="titBox">
+                                        <p>EP 데이터 연동을 위한 귀사의 솔루션 계정을 확인 해주세요. 솔루션사별 EP연동 메뉴얼을 참고해주세요.</p>
+                                        <button type="button" class="EP_manual_download">EP 연동 메뉴얼 보기</button>
+                                    </div>
+                                    <div class="divTable">
+                                        <div class="divTr">
+                                            <div>솔루션 선택 </div>
+                                            <div> 고도몰<button type="button" class="EP_manual_download">EP 연동 메뉴얼
+                                                    보기</button></div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>솔루션 계정(ID)정보</div>
+                                            <div>godo_admin</div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>실 도메인 정보</div>
+                                            <div>godo2020.godomall.com</div>
+                                        </div>
+                                        <div class="divTr">
+                                            <div>연동상태</div>
+                                            <div><i class="issue">이슈</i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// EP_Data_link_cafe24 end --><br><br><br>&#60;&#60;&#45;고도몰
+                            연동시&#45;&#62;&#62;<br><br><br>
+                        </div>
+                        <div class="btnArea">
+                            <button class="modify">수정</button>
+                            <button class="save">설정 저장</button>
+                        </div>
+                    </div>
+                </div>
+                <!--//content end-->
+            </div>
+            <footer class="footer">
+                <h2 class="hide">하단 회사 정보 영역</h2>
+                <p>
+                    <span>(주)인라이플</span><span>사업자번호: 113-86-60934</span>
+                    <span>사업자: 한경훈,이근옥</span>
+                    <span>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2003</span><span>FAX .02-865-6845</span>
+                    <span>E-mail : mobon@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ 모비온 All rights reserved.</p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <!--  highChart -->
+    <script type="text/javascript" src="../../js/lib/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="../../js/lib/highcharts/highcharts-more.js"></script>
+    <script type="text/javascript" src="../../js/lib/highcharts/modules/solid-gauge.js"></script>
+    <script type="text/javascript" src="../../js/lib/highcharts/modules/exporting.js"></script>
+    <script type="text/javascript" src="../../js/lib/highcharts/modules/export-data.js"></script>
+    <script type="text/javascript" src="../../js/lib/highcharts/modules/accessibility.js"></script>
+    <!--// highChat end -->
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li class="on"><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>CDP</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드(개요)</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userInfo"></i><span>유저정보</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="coreUserAnalysis"></i><span>핵심유저분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignList"></i><span>캠페인 리스트</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="campaignCreate"></i><span>캠페인 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="notice"></i><span>공지사항</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataLink"></i><span>데이터 연동 관리</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="rfmAnalysis"></i><span>RFM분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="userValueAnalysis"></i><span>고객가치분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="businessAnalysis"></i><span>업황분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userActivity"></i><span>고객외부활동</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_campaignCreate">
+                <div class="title">
+                    <p>캠페인 생성</p>
+                    <p>유저 분석 캠페인을 생성하여 문자메세지 등 다양한 마케팅에 이용할 수 있습니다.</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="tab">
+                            <ul>
+                                <li class="on">
+                                    <p>자사 유저 대상<span class="iBox"><i class="iMark"></i>
+                                            <i class="iMarkHover">자사 방문자 모수를 기준으로 캠페인을 생성할 수 있습니다.</i></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>DMP 유저 대상<span class="iBox"><i class="iMark"></i>
+                                            <i class="iMarkHover">DMP 유저 대상 전체 모수를 기반으로 캠페인을 생성할 수 있습니다. </i></span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box_tab">
+                            <ul>
+                                <li class="on"><a href="javascript:void(0);">회원 데이터 <span class="iBox">
+                                            <i class="iMark"></i>
+                                            <i class="iMarkHover"><span>회원데이터란?</span><br> (문자, 카카오톡, 이메일 등 직접 마케팅에 활용
+                                                가능한 데이터)<br><br> 실제 광고주 사이트의 회원으로 불필요한 모수 수집 없이 <span>빠르고 간단하게</span>데이터
+                                                조회가 가능합니다.</i>
+                                        </span></a>
+                                </li>
+                                <li><a href="javascript:void(0);">전체 방문자 데이터 <span class="iBox">
+                                            <i class="iMark"></i>
+                                            <i class="iMarkHover"><span>방문자 데이터란?</span><br> (개인 비식별 데이터를 포함하여 광고 등에 활용
+                                                가능한 데이터)<br><br> 광고주 사이트에 방문하는 모든 유저를 추적하고 분석하며 캠페인 조건에 따라 모수수집에 다소 시간이
+                                                걸릴 수 있습니다.</i>
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="sec_campaign">
+                        <div class="box_campaignSearch">
+                            <div class="searchList">
+                                <div class="tit">
+                                    <p>검색 조건</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>트래픽</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li class="active">방문수</li>
+                                                <li>페이지뷰</li>
+                                                <li>방문시간대</li>
+                                                <li>방문 요일</li>
+                                                <li>재방문 간격</li>
+                                                <li>체류시간</li>
+                                                <li>유입경로</li>
+                                                <li>상품조회</li>
+                                                <li>카테고리 상품 조회</li>
+                                                <li class="off">업종별 방문수</li>
+                                                <li class="off">업종별 방문시간대</li>
+                                                <li>업종별 방문요일</li>
+                                                <li>품목별 상세조회</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>커스텀 트래킹</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>커스텀 트래킹</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>커머스</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>장바구니 상품수</li>
+                                                <li>장바구니 금액</li>
+                                                <li>장바구니 상품</li>
+                                                <li>장바구니 카테고리</li>
+                                                <li>구매건수</li>
+                                                <li>구매금액</li>
+                                                <li>평균 구매액</li>
+                                                <li>카테고리 상품 구매</li>
+                                                <li>상품구매</li>
+                                                <li>과거 구매 이력</li>
+                                                <li>환불이력</li>
+                                                <li>결제이탈이력</li>
+                                                <!-- 
+                                                <!-- <li class="off">업종별 장바구니수</li>
+                                                <!-- <li class="off">업종별 장바구니 금액</li>
+                                                <li class="off">품목별 장바구니</li>
+                                                <li class="off">품목별 장바구니 금액</li>
+                                                <li class="off">업종별 구매건수</li>
+                                                <li>업종별 구매금액</li>
+                                                <li>업종별 구매건수</li>
+                                                <li>품목별 구매금액</li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>MMP 포스트백</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>포스트백 이벤트</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>회원</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>성별</li>
+                                                <li>연령</li>
+                                                <li>지역</li>
+                                                <li>쿠폰 조회</li>
+                                                <li class="important">RFM 세그먼트</li>
+                                                <li class="important">고객가치등급</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>이용환경</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>디바이스</li>
+                                                <li>브라우저</li>
+                                                <li>운영체제</li>
+                                                <li>통신사</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>APP</p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>APP 설치</li>
+                                                <li>APP 실행</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="listArea">
+                                        <div class="listTit">
+                                            <p>행동분석 <span class="iBox"><i class="iMark"></i>
+                                                    <i class="iMarkHover">회원의 활동 즉시 추출되는 행동분석조건으로<br /> 검색기간과 상관없이 생성할 수
+                                                        있습니다.<br /> 단, 행동분석 조건은 중복으로 선택할 수 없습니다.</i></span>
+                                            </p>
+                                        </div>
+                                        <div class="listCont">
+                                            <ul>
+                                                <li>방문시</li>
+                                                <li>회원가입시</li>
+                                                <li>로그인 시</li>
+                                                <li>구매완료 시</li>
+                                                <li>결제이탈 시</li>
+                                                <li>리뷰 등록시</li>
+                                                <li>리뷰 미등록시</li>
+                                                <li><span class="star">*</span>배송상태<p>(i-Visor전용/중복선택 X)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="searchResult">
+                                <div class="block_customer">
+                                    <div class="guideBox">
+                                        <p>*<span>‘회원데이터’</span> 모드입니다. AUID 및 ADID는 <span>‘전체 방문자 데이터’</span> 모드로 확인 시
+                                            조회 가능합니다.</p>
+                                        <button type="button" class="dataCheck">데이터 확인</button>
+                                    </div>
+                                    <div class="userParameter">
+                                        <div class="tit">
+                                            <p>자사 유저 모수</p>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>AUID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다.</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <div style="width:50%">
+                                                    </div>
+                                                    <p>2,324,156</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>ADID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <!-- 50% 넘어가는 경우 p 태그에 numIn 클래스 추가 및 right 값 : 100% - 그래프 바 크기(51) = 49% 값 입력  -->
+                                                    <div style="width:51%">
+                                                    </div>
+                                                    <p class="numIn" style="right:49%">156</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>Uni1ID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다.</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <!-- 50% 넘어가는 경우 p 태그에 numIn 클래스 추가 및 right 값 : 100% - 그래프 바 크기(90) = 49% 값 입력  -->
+                                                    <div style="width:90%">
+                                                    </div>
+                                                    <p class="numIn" style="right:10%">90,156,456,789,123</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>발송대상자<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다.</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <div style="width:10%">
+                                                    </div>
+                                                    <p>156</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151,123</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="userParameter dmp">
+                                        <div class="tit">
+                                            <p>DMP 유저 모수</p>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>AUID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다.</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <div style="width:50%">
+                                                    </div>
+                                                    <p>2,324,156</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>ADID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <!-- 50% 넘어가는 경우 p 태그에 numIn 클래스 추가 및 right 값 : 100% - 그래프 바 크기(51) = 49% 값 입력  -->
+                                                    <div style="width:51%">
+                                                    </div>
+                                                    <p class="numIn" style="right:49%">156</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div class="name">
+                                                    <p>Uni1ID<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선입니다.</i></span></p>
+                                                </div>
+                                                <div class="graph">
+                                                    <!-- 50% 넘어가는 경우 p 태그에 numIn 클래스 추가 및 right 값 : 100% - 그래프 바 크기(90) = 49% 값 입력  -->
+                                                    <div style="width:90%">
+                                                    </div>
+                                                    <p class="numIn" style="right:10%">90,156,456,789,123</p>
+                                                </div>
+                                                <div class="count">
+                                                    <p>8,545,151</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--//block_customer end-->
+                                <div class="block_userCount">
+                                    <div class="allUserCount">
+                                        <div>
+                                            <p>123,123,456,715,500</p>
+                                            <p>결합 모수 (AUID)</p>
+                                        </div>
+                                    </div>
+                                    <div class="eachUserCount">
+                                        <div>
+                                            <p>25,500</p>
+                                            <p>DMP 유저모수 (AUID)</p>
+                                        </div>
+                                        <div>
+                                            <p>255,500</p>
+                                            <p>자사 유저모수 (AUID)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block_detail">
+                                    <div class="includeOption">
+                                        <div class="titBox">
+                                            <strong>포함<span>(선택하신 조건의 유저 모수를 추출합니다.)</span></strong>
+                                            <button type="button" class="btn_toggle on"></button>
+                                        </div>
+                                        <!--조건설정 X-->
+                                        <div class="block_alarm">
+                                            <button>추천 캠페인 만들기</button>
+                                            <p>좌측에서 원하시는 검색 조건을 설정하신 후 캠페인을 생성 해 보세요.</p>
+                                        </div>
+                                        <!--//block_alarm end-->
+                                        <div class="block_input">
+                                            <div class="box_listIcon dmpBox">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>방문기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <input type="text">일 동안</li>
+                                                            <li>
+                                                                <div class="calendar">
+                                                                    <div class="dateChoice">
+                                                                        <input type="text" id="dateInput"
+                                                                            name="dateInput" value="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <div class="calendar">
+                                                                    <input type="text" id="dateInput" name="dateInput"
+                                                                        value="">
+                                                                </div> -->
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">회 <ul>
+                                                            <li>~ <input type="text">회</li>
+                                                        </ul><select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>페이지뷰</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">PV <ul>
+                                                            <li>~ <input type="text">PV</li>
+                                                        </ul>
+                                                        <select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문시간대</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">시~<input type="text" class="ml_t1"> 시(59분 59초
+                                                        까지) 방문 <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문 요일</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="calendar_chk check_type02">
+                                                            <input type="checkbox" name="check_day" id="day_01"
+                                                                class="hidden" value="01">
+                                                            <label for="day_01">월</label>
+                                                            <input type="checkbox" name="check_day" id="day_02"
+                                                                class="hidden" value="02">
+                                                            <label for="day_02">화</label>
+                                                            <input type="checkbox" name="check_day" id="day_03"
+                                                                class="hidden" value="03">
+                                                            <label for="day_03">수</label>
+                                                            <input type="checkbox" name="check_day" id="day_04"
+                                                                class="hidden" value="04">
+                                                            <label for="day_04">목</label>
+                                                            <input type="checkbox" name="check_day" id="day_05"
+                                                                class="hidden" value="05">
+                                                            <label for="day_05">금</label>
+                                                            <input type="checkbox" name="check_day" id="day_06"
+                                                                class="hidden" value="06">
+                                                            <label for="day_06">토</label>
+                                                            <input type="checkbox" name="check_day" id="day_07"
+                                                                class="hidden" value="07">
+                                                            <label for="day_07">일</label>
+                                                        </div>
+                                                        <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>재방문간격</p>
+                                                    </dt>
+                                                    <dd> 마지막 방문일로부터, <input type="text">일<select class="ml_t1">
+                                                            <option>만에</option>
+                                                            <option>이상만에</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>체류시간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">분<select class="ml_t1">
+                                                            <option>미만</option>
+                                                            <option>이상</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>유입경로</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>상품조회</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>같은 상품</option>
+                                                            <option>특정 상품</option>
+                                                            <option>전체 상품</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li>
+                                                                <button type="button" class="btn_green">상품 선택</button> 을
+                                                                <input type="text" class="ml_t1"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li>
+                                                                <div class="search">
+                                                                    <div class="searchChoice">
+                                                                        <input type="text">
+                                                                    </div>
+                                                                    <button class="btn_x_green">취소</button>
+                                                                </div>을 <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>카테고리 상품 조회</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li><select>
+                                                                    <option>같은 카테고리</option>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> 상품을 <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리1</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리2</option>
+                                                                </select> 상품을 <div class="mt_t1"><input type="text"> 회
+                                                                    이상 조회<button
+                                                                        class="btnLineRemove btn_x_green">취소</button>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>장바구니 담은 기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 동안 </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 상품수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">건<select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 금액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text" class="wd_120">원<select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 상품</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>상품</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li><button type="button" class="btn_green">상품 선택</button>
+                                                                을<input type="text" class="ml_t1">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 카테고리</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>동일 카테고리</option>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> 상품을 <input type="text" class="ml_t1"> 개 이상
+                                                                담음<button class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> <select>
+                                                                    <option>카테고리1</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리2</option>
+                                                                </select> <select>
+                                                                    <option>카테고리3</option>
+                                                                </select>상품을<div class="mt_t1">
+                                                                    <input type="text"> 개 이상 담음<button
+                                                                        class="btnLineRemove btn_x_green">취소</button>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>상품 구매</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>동일 상품</option>
+                                                                </select>을 <input type="text" class="ml_t1">개 이상 구매
+                                                            </li>
+                                                            <li class="mt_t1"> <select>
+                                                                    <option>특정 상품</option>
+                                                                </select><button type="button" class="btn_green">상품
+                                                                    선택</button>을 <select class="ml_t1">
+                                                                    <option>구매함</option>
+                                                                </select>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>구매기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <input type="text">일 동안</li>
+                                                            <li>
+                                                                <div class="calendar">
+                                                                    <div class="dateChoice">
+                                                                        <input type="text" id="dateInput"
+                                                                            name="dateInput" value="">
+                                                                    </div>
+                                                                    <!--<div class="icon"></div>-->
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>구매건수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">건 <ul>
+                                                            <li>~ <input type="text">건</li>
+                                                        </ul>
+                                                        <select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>구매 <button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>구매금액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text" class="wd_120">원<ul>
+                                                            <li>~ <input type="text" class="wd_120">원</li>
+                                                        </ul><select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>구매 <button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>평균구매액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>상품</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li><button type="button" class="btn_green">상품 선택</button>
+                                                                을<input type="text" class="ml_t1">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>카테고리 상품 구매</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>동일 카테고리</option>
+                                                            <option>특정 카테고리</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>같은 카테고리</option>
+                                                                </select>상품을 <input type="text" class="ml_t1">개 이상 구매
+                                                            </li>
+                                                            <li class="mt_t1"> <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리 1</option>
+                                                                </select><select>
+                                                                    <option>카테고리 2</option>
+                                                                </select>상품을</li>
+                                                            <li class="mt_t1"><input type="text">개 이상 구매 </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <!-- 하위 박스 시작 -->
+                                            <div class="box_listChild">
+                                                <!-- line 1 -->
+                                                <div class="list">
+                                                    <p class="listTit">커스텀 조건</p>
+                                                    <!-- cont -->
+                                                    <div>
+                                                        <select name="" id="" disabled>
+                                                            <option value="">최근</option>
+                                                        </select>
+                                                        <input type="text" name="" id="" disabled> 일 동안, <div
+                                                            class="buttonBox">
+                                                            <button type="button" class="modify">수정</button>
+                                                            <button type="button" class="delete">삭제</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- line 2 -->
+                                                <div class="list">
+                                                    <p>장바구니 이탈</p>
+                                                    <div> <input type="text" name="" id="" disabled>회/건 이상</div>
+                                                </div>
+                                                <!-- line 3 -->
+                                                <div class="list">
+                                                    <p>위시 리스트 찜하기 OFF</p>
+                                                    <div> <input type="text" name="" id="" disabled>회/건 이상</div>
+                                                </div>
+                                            </div>
+                                            <!-- 하위 박스 끝 -->
+                                            <div class="box_listIcon dmpBox">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>과거구매이력</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text"> 일 전에<input type="text" class="ml_t1"> 건
+                                                        <select class="ml_t2">
+                                                            <option>이상</option>
+                                                        </select> 구매<button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <dl>
+                                                <dt class="list_tit">
+                                                    <p>과거구매이력</p>
+                                                </dt>
+                                                <dd>
+                                                    <input type="text"> 일 전에<input type="text" class="ml_t1"> 건 <select
+                                                        class="ml_t2">
+                                                        <option>이상</option>
+                                                    </select> 구매<button class="btnLineRemove btn_x_green">취소</button>
+                                                </dd>
+                                            </dl>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>회원가입일</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                        </select><input type="text">일 동안<button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>성별</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rd_t2">
+                                                            <input type="radio" name="rd_gender" id="gender_m"
+                                                                class="hidden" value="00" checked>
+                                                            <label for="gender_m">남</label>
+                                                            <input type="radio" name="rd_gender" id="gender_w"
+                                                                class="hidden" value="01">
+                                                            <label for="gender_w">여</label>
+                                                        </div>
+                                                        <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>연령</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_age" id="age_01"
+                                                            class="hidden" value="age_01">
+                                                        <label for="age_01">~13</label>
+                                                        <input type="checkbox" name="check_age" id="age_02"
+                                                            class="hidden" value="age_02">
+                                                        <label for="age_02">14~19</label>
+                                                        <input type="checkbox" name="check_age" id="age_03"
+                                                            class="hidden" value="age_03">
+                                                        <label for="age_03">20~26</label>
+                                                        <input type="checkbox" name="check_age" id="age_04"
+                                                            class="hidden" value="age_04">
+                                                        <label for="age_05">27~32</label>
+                                                        <input type="checkbox" name="check_age" id="age_05"
+                                                            class="hidden" value="age_05">
+                                                        <label for="age_05">33~40</label>
+                                                        <input type="checkbox" name="check_age" id="age_06"
+                                                            class="hidden" value="age_06">
+                                                        <label for="age_06">41~46</label>
+                                                        <input type="checkbox" name="check_age" id="age_07"
+                                                            class="hidden" value="age_07">
+                                                        <label for="age_07">47~56</label>
+                                                        <input type="checkbox" name="check_age" id="age_08"
+                                                            class="hidden" value="age_07">
+                                                        <label for="age_07">56~</label>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>적용기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <input type="text">동안</li>
+                                                            <li>
+                                                                <div class="calendar">
+                                                                    <div class="dateChoice">
+                                                                        <input type="text" id="dateInput"
+                                                                            name="dateInput" value=""></div>
+                                                                </div> 동안,
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>쿠폰조회</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li><button type="button" class="btn_green">쿠폰 선택</button>
+                                                            </li>
+                                                            <li class="mt_t1">XXXXXXXXX 쿠폰을 <select class="ml_t2">
+                                                                    <option>선택하세요</option>
+                                                                    <option>수령</option>
+                                                                    <option>미수령</option>
+                                                                    <option>사용</option>
+                                                                    <option>미사용</option>
+                                                                </select> 한</li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl class="RFM_segment">
+                                                    <dt class="list_tit">
+                                                        <p>RFM 세그먼트</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li>
+                                                                <button type="button" class="rfmChart">RFM
+                                                                    분석차트확인</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <input type="checkbox" name="rfm" id="rfm_1"
+                                                                    class="hidden" value="1">
+                                                                <label for="rfm_1">VVIP</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_2"
+                                                                    class="hidden" value="2">
+                                                                <label for="rfm_2">VIP</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_3"
+                                                                    class="hidden" value="3">
+                                                                <label for="rfm_3">요즘 뜸한 VIP</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_4"
+                                                                    class="hidden" value="4">
+                                                                <label for="rfm_4">잠재적 VIP</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_5"
+                                                                    class="hidden" value="5">
+                                                                <label for="rfm_5">이탈한 VIP</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="rfm" id="rfm_6"
+                                                                    class="hidden" value="6">
+                                                                <label for="rfm_6">신규고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_7"
+                                                                    class="hidden" value="7">
+                                                                <label for="rfm_7">유망고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_8"
+                                                                    class="hidden" value="8">
+                                                                <label for="rfm_8">이탈한 유망고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_8"
+                                                                    class="hidden" value="8">
+                                                                <label for="rfm_8">이탈고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_9"
+                                                                    class="hidden" value="9">
+                                                                <label for="rfm_9">유동성 고객</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="rfm" id="rfm_10"
+                                                                    class="hidden" value="10">
+                                                                <label for="rfm_10">이탈우려 고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_11"
+                                                                    class="hidden" value="11">
+                                                                <label for="rfm_11">단발성 고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_12"
+                                                                    class="hidden" value="12">
+                                                                <label for="rfm_12">활동기대 고객</label>
+                                                                <input type="checkbox" name="rfm" id="rfm_13"
+                                                                    class="hidden" value="13">
+                                                                <label for="rfm_13">아이쇼핑 고객</label>
+                                                                <button class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl class="customerValueGrade">
+                                                    <dt class="list_tit">
+                                                        <p>고객가치등급</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <button type="button" class="customerValueChart">고객 가치
+                                                                    분석 차트 확인</button></li>
+                                                            <li> <select>
+                                                                    <option>1등급</option>
+                                                                </select><span>~</span>
+                                                                <select>
+                                                                    <option>선택</option>
+                                                                </select>
+                                                                <button class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>디바이스</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_device" id="device_1"
+                                                            class="hidden" value="device_1">
+                                                        <label for="device_1">PC웹</label>
+                                                        <input type="checkbox" name="check_device" id="device_2"
+                                                            class="hidden" value="device_2">
+                                                        <label for="device_2">모바일웹</label>
+                                                        <input type="checkbox" name="check_device" id="device_3"
+                                                            class="hidden" value="device_3">
+                                                        <label for="device_3">하이브리드 앱</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>운영체제</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_os" id="os_1" class="hidden"
+                                                            value="os_1">
+                                                        <label for="os_1">Window</label>
+                                                        <input type="checkbox" name="check_os" id="os_2" class="hidden"
+                                                            value="os_2">
+                                                        <label for="os_2">MAC OS</label>
+                                                        <input type="checkbox" name="check_os" id="os_3" class="hidden"
+                                                            value="os_3">
+                                                        <label for="os_3">Android</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>브라우저</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_browser" id="browser_1"
+                                                            class="hidden" value="browser_1">
+                                                        <label for="browser_1">Chrome</label>
+                                                        <input type="checkbox" name="check_browser" id="browser_2"
+                                                            class="hidden" value="browser_2">
+                                                        <label for="browser_2">Safari</label>
+                                                        <input type="checkbox" name="check_browser" id="browser_3"
+                                                            class="hidden" value="browser_3">
+                                                        <label for="browser_3">MS Edge</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>방문 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>첫 방문시</option>
+                                                            <option>재방문(2회 이상)시</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>회원가입 시</p>
+                                                    <dd>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>로그인 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>첫 로그인 시</option>
+                                                            <option>재로그인(2회 이상)시</option>
+                                                        </select><button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>구매완료 시</p>
+                                                    </dt>
+                                                    <dd><select>
+                                                            <option>첫 구매시</option>
+                                                            <option>재구매(2회 이상)시</option>
+                                                        </select><button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>결제 이탈 시</p>
+                                                    </dt>
+                                                    <dd>결제 페이지를 본 후<input type="text" class="ml_t2"> <select>
+                                                            <option>분</option>
+                                                            <option>일</option>
+                                                        </select> 동안 미구매시<button
+                                                            class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>배송상태 변경시</p>
+                                                    </dt>
+                                                    <dd><button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>리뷰 미 등록 시 시</p>
+                                                    </dt>
+                                                    <dd> 배송 완료 된지<input type="text" class="ml_t2"> <select>
+                                                            <option>분</option>
+                                                            <option>일</option>
+                                                        </select> 이 지났는데, 리뷰 미등록 시<button
+                                                            class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>배송 상태 변경 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--//includeOption end-->
+                                    <div class="exceptionOption">
+                                        <div class="titBox">
+                                            <strong>제외<span>(선택하신 조건의 유저 모수는 제외합니다.)</span></strong>
+                                            <button type="button" class="btn_toggle"></button>
+                                        </div>
+                                        <!-- <div class="block_input"></div> -->
+                                        <div class="block_input">
+                                            <div class="box_listIcon dmpBox">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>방문기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <input type="text">일 동안</li>
+                                                            <li>
+                                                                <div class="calendar">
+                                                                    <div class="dateChoice">
+                                                                        <input type="text" id="dateInput"
+                                                                            name="dateInput" value="">
+                                                                    </div>
+                                                                    <!--<div class="icon"></div>-->
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">회 <ul>
+                                                            <li>~ <input type="text">회</li>
+                                                        </ul><select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>페이지뷰</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">PV <ul>
+                                                            <li>~ <input type="text">PV</li>
+                                                        </ul>
+                                                        <select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문시간대</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">시~<input type="text" class="ml_t1"> 시(59분 59초
+                                                        까지) 방문 <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>방문 요일</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="calendar_chk check_type02">
+                                                            <input type="checkbox" name="check_day" id="day_01"
+                                                                class="hidden" value="01">
+                                                            <label for="day_01">월</label>
+                                                            <input type="checkbox" name="check_day" id="day_02"
+                                                                class="hidden" value="02">
+                                                            <label for="day_02">화</label>
+                                                            <input type="checkbox" name="check_day" id="day_03"
+                                                                class="hidden" value="03">
+                                                            <label for="day_03">수</label>
+                                                            <input type="checkbox" name="check_day" id="day_04"
+                                                                class="hidden" value="04">
+                                                            <label for="day_04">목</label>
+                                                            <input type="checkbox" name="check_day" id="day_05"
+                                                                class="hidden" value="05">
+                                                            <label for="day_05">금</label>
+                                                            <input type="checkbox" name="check_day" id="day_06"
+                                                                class="hidden" value="06">
+                                                            <label for="day_06">토</label>
+                                                            <input type="checkbox" name="check_day" id="day_07"
+                                                                class="hidden" value="07">
+                                                            <label for="day_07">일</label>
+                                                        </div>
+                                                        <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>재방문간격</p>
+                                                    </dt>
+                                                    <dd> 마지막 방문일로부터, <input type="text">일<select class="ml_t1">
+                                                            <option>만에</option>
+                                                            <option>이상만에</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>체류시간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">분<select class="ml_t1">
+                                                            <option>미만</option>
+                                                            <option>이상</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>유입경로</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>도메인</option>
+                                                                    <option>검색어</option>
+                                                                    <option>이벤트 URL</option>
+                                                                </select><input type="text" class="input_url"
+                                                                    placeholder="http://"> 로부터 유입 <button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>상품조회</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>같은 상품</option>
+                                                            <option>특정 상품</option>
+                                                            <option>전체 상품</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li>
+                                                                <button type="button" class="btn_green">상품 선택</button> 을
+                                                                <input type="text" class="ml_t1"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li>
+                                                                <div class="search">
+                                                                    <div class="searchChoice">
+                                                                        <input type="text">
+                                                                    </div>
+                                                                    <button class="btn_x_green">취소</button>
+                                                                </div>을 <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>카테고리 상품 조회</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li><select>
+                                                                    <option>같은 카테고리</option>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> 상품을 <input type="text"> 회 이상 조회<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리1</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리2</option>
+                                                                </select> 상품을 <div class="mt_t1"><input type="text"> 회
+                                                                    이상 조회<button
+                                                                        class="btnLineRemove btn_x_green">취소</button>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>장바구니 담은 기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 동안 </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 상품수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">건<select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 금액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text" class="wd_120">원<select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 상품</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>상품</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li><button type="button" class="btn_green">상품 선택</button>
+                                                                을<input type="text" class="ml_t1">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>장바구니 카테고리</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>동일 카테고리</option>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> 상품을 <input type="text" class="ml_t1"> 개 이상
+                                                                담음<button class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li class="mt_t1">
+                                                                <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select> <select>
+                                                                    <option>카테고리1</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리2</option>
+                                                                </select> <select>
+                                                                    <option>카테고리3</option>
+                                                                </select>상품을<div class="mt_t1">
+                                                                    <input type="text"> 개 이상 담음<button
+                                                                        class="btnLineRemove btn_x_green">취소</button>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>상품 구매</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>동일 상품</option>
+                                                                </select>을 <input type="text" class="ml_t1">개 이상 구매
+                                                            </li>
+                                                            <li class="mt_t1"> <select>
+                                                                    <option>특정 상품</option>
+                                                                </select><button type="button" class="btn_green">상품
+                                                                    선택</button>을 <select class="ml_t1">
+                                                                    <option>구매함</option>
+                                                                </select>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>구매기간</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <input type="text">일 동안</li>
+                                                            <li>
+                                                                <div class="calendar">
+                                                                    <div class="dateChoice">
+                                                                        <input type="text" id="dateInput"
+                                                                            name="dateInput" value="">
+                                                                    </div>
+                                                                    <!--<div class="icon"></div>-->
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>구매건수</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text">건 <ul>
+                                                            <li>~ <input type="text">건</li>
+                                                        </ul>
+                                                        <select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>구매 <button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>구매금액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text" class="wd_120">원<ul>
+                                                            <li>~ <input type="text" class="wd_120">원</li>
+                                                        </ul><select class="ml_t1">
+                                                            <option>이상</option>
+                                                            <option>이하</option>
+                                                            <option>범위지정</option>
+                                                        </select>구매 <button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>
+                                                        <p>평균구매액</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>상품</option>
+                                                            <option>특정기간</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li><input type="text">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                            <li><button type="button" class="btn_green">상품 선택</button>
+                                                                을<input type="text" class="ml_t1">일 이상 유지<button
+                                                                    class="btnLineRemove btn_x_green">취소</button>
+                                                            </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt class="list_tit_long">
+                                                        <p>카테고리 상품 구매</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>동일 카테고리</option>
+                                                            <option>특정 카테고리</option>
+                                                        </select>
+                                                        <ul>
+                                                            <li> <select>
+                                                                    <option>같은 카테고리</option>
+                                                                </select>상품을 <input type="text" class="ml_t1">개 이상 구매
+                                                            </li>
+                                                            <li class="mt_t1"> <select>
+                                                                    <option>특정 카테고리</option>
+                                                                </select>
+                                                                <select>
+                                                                    <option>카테고리 1</option>
+                                                                </select><select>
+                                                                    <option>카테고리 2</option>
+                                                                </select>상품을</li>
+                                                            <li class="mt_t1"><input type="text">개 이상 구매 </li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon dmpBox">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>과거구매이력</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text"> 일 전에<input type="text" class="ml_t1"> 건
+                                                        <select class="ml_t2">
+                                                            <option>이상</option>
+                                                        </select> 구매<button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>회원가입일</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>최근</option>
+                                                        </select><input type="text">일 동안<button
+                                                            class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>성별</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rd_t2">
+                                                            <input type="radio" name="rd_gender" id="gender_m"
+                                                                class="hidden" value="00" checked>
+                                                            <label for="gender_m">남</label>
+                                                            <input type="radio" name="rd_gender" id="gender_w"
+                                                                class="hidden" value="01">
+                                                            <label for="gender_w">여</label>
+                                                        </div>
+                                                        <button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>연령</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_age" id="age_01"
+                                                            class="hidden" value="age_01">
+                                                        <label for="age_01">~13</label>
+                                                        <input type="checkbox" name="check_age" id="age_02"
+                                                            class="hidden" value="age_02">
+                                                        <label for="age_02">14~19</label>
+                                                        <input type="checkbox" name="check_age" id="age_03"
+                                                            class="hidden" value="age_03">
+                                                        <label for="age_03">20~26</label>
+                                                        <input type="checkbox" name="check_age" id="age_04"
+                                                            class="hidden" value="age_04">
+                                                        <label for="age_05">27~32</label>
+                                                        <input type="checkbox" name="check_age" id="age_05"
+                                                            class="hidden" value="age_05">
+                                                        <label for="age_05">33~40</label>
+                                                        <input type="checkbox" name="check_age" id="age_06"
+                                                            class="hidden" value="age_06">
+                                                        <label for="age_06">41~46</label>
+                                                        <input type="checkbox" name="check_age" id="age_07"
+                                                            class="hidden" value="age_07">
+                                                        <label for="age_07">47~56</label>
+                                                        <input type="checkbox" name="check_age" id="age_08"
+                                                            class="hidden" value="age_07">
+                                                        <label for="age_07">56~</label>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>디바이스</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_device" id="device_1"
+                                                            class="hidden" value="device_1">
+                                                        <label for="device_1">PC웹</label>
+                                                        <input type="checkbox" name="check_device" id="device_2"
+                                                            class="hidden" value="device_2">
+                                                        <label for="device_2">모바일웹</label>
+                                                        <input type="checkbox" name="check_device" id="device_3"
+                                                            class="hidden" value="device_3">
+                                                        <label for="device_3">하이브리드 앱</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>운영체제</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_os" id="os_1" class="hidden"
+                                                            value="os_1">
+                                                        <label for="os_1">Window</label>
+                                                        <input type="checkbox" name="check_os" id="os_2" class="hidden"
+                                                            value="os_2">
+                                                        <label for="os_2">MAC OS</label>
+                                                        <input type="checkbox" name="check_os" id="os_3" class="hidden"
+                                                            value="os_3">
+                                                        <label for="os_3">Android</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>브라우저</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="checkbox" name="check_browser" id="browser_1"
+                                                            class="hidden" value="browser_1">
+                                                        <label for="browser_1">Chrome</label>
+                                                        <input type="checkbox" name="check_browser" id="browser_2"
+                                                            class="hidden" value="browser_2">
+                                                        <label for="browser_2">Safari</label>
+                                                        <input type="checkbox" name="check_browser" id="browser_3"
+                                                            class="hidden" value="browser_3">
+                                                        <label for="browser_3">MS Edge</label>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>방문 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>첫 방문시</option>
+                                                            <option>재방문(2회 이상)시</option>
+                                                        </select>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>회원가입 시</p>
+                                                    <dd>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>로그인 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <select>
+                                                            <option>첫 로그인 시</option>
+                                                            <option>재로그인(2회 이상)시</option>
+                                                        </select><button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>구매완료 시</p>
+                                                    </dt>
+                                                    <dd><select>
+                                                            <option>첫 구매시</option>
+                                                            <option>재구매(2회 이상)시</option>
+                                                        </select><button class="btnLineRemove btn_x_green">취소</button>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>결제 이탈 시</p>
+                                                    </dt>
+                                                    <dd>결제 페이지를 본 후<input type="text" class="ml_t2"> <select>
+                                                            <option>분</option>
+                                                            <option>일</option>
+                                                        </select> 동안 미구매시<button
+                                                            class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>배송상태 변경시</p>
+                                                    </dt>
+                                                    <dd><button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>리뷰 미 등록 시 시</p>
+                                                    </dt>
+                                                    <dd> 배송 완료 된지<input type="text" class="ml_t2"> <select>
+                                                            <option>분</option>
+                                                            <option>일</option>
+                                                        </select> 이 지났는데, 리뷰 미등록 시<button
+                                                            class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="box_listIcon">
+                                                <dl>
+                                                    <dt class="list_tit">
+                                                        <p>배송 상태 변경 시</p>
+                                                    </dt>
+                                                    <dd>
+                                                        <button class="btnLineRemove btn_x_green">취소</button></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <!--// block_input end-->
+                                    </div>
+                                    <!--//exceptionOption end-->
+                                </div>
+                                <div class="btnArea">
+                                    <button class="checkData">데이터 확인</button>
+                                    <button class="createCampaign">캠페인 생성</button>
+                                    <button class="cancel">취소</button>
+                                </div>
+                                <!--//btnArea end-->
+                            </div>
+                        </div>
+                        <div class="box_dataAnalysis">
+                            <div class="titBox">
+                                <strong>해당 캠페인 Live 시 대상 유저에 대한 분석 데이터 입니다.</strong>
+                                <div class="tabArea">
+                                    <ul>
+                                        <li class="on"><a href="javascript:void(0);">AUID<span>500,000</span></a>
+                                        </li>
+                                        <li><a href="javascript:void(0);">AUID<span>23,000</span></a></li>
+                                        <li><a href="javascript:void(0);">User ID<span>1,000</span> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--// titBox emd-->
+                            <div class="tabListArea">
+                                <div class="listArea show">
+                                    <div class="areaChart">
+                                        <div class="chartBox">
+                                            <strong>성별/연령별 분포</strong>
+                                            <div>
+                                                <!--
+                                                chart 영역
+                                                남자 > #4484d6,
+                                                여자 > #e2725e,
+                                                알수없음 > #7d7d7d
+                                            -->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>이용자 디바이스</strong>
+                                            <div>
+                                                <!--
+                                                chart 영역
+                                                pc > #7abb38
+                                                모바일 웹 > #3957a9
+                                                하이브리드 앱 > #56c2ac
+                                            -->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>매체 관심 성향</strong>
+                                            <div>
+                                                <!--
+                                                chart 영역
+                                                #52a3f3,
+                                                #31c1a4,
+                                                #ffd321,
+                                                #945af8,
+                                                #ff8080,
+                                                #2e7ce1,
+                                                #7abb38,
+                                                #ff9b58,
+                                                #9d9ae2,
+                                                #ef5b40,
+                                                #716369,
+                                                #00ced1,
+                                                #48598a,
+                                                #ffd321,
+                                                #5b6bd4
+                                            -->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>지역 분포도</strong>
+                                            <div>
+                                                <div class="labelBox">
+                                                    <div>
+                                                        <p>국내</p>
+                                                        <p>277,517</p>
+                                                        <p>100</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>해외</p>
+                                                        <p>277,517</p>
+                                                        <p>100</p>
+                                                    </div>
+                                                </div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--//areaChart end-->
+                                </div>
+                                <!--//listArea end-->
+                                <div class="listArea">
+                                    <div class="areaChart">
+                                        <div class="chartBox">
+                                            <strong>성별/연령별 분포</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>이용자 디바이스</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>매체 관심 성향</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>지역 분포도</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--//areaChart end-->
+                                </div>
+                                <!--//listArea end-->
+                                <div class="listArea">
+                                    <div class="areaChart">
+                                        <div class="chartBox">
+                                            <strong>성별/연령별 분포</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>이용자 디바이스</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>매체 관심 성향</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                        <div class="chartBox">
+                                            <strong>지역 분포도</strong>
+                                            <div>
+                                                <!--chart 영역-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--//areaChart end-->
+                                </div>
+                                <!--//listArea end-->
+                            </div>
+                            <!--//tabListArea end-->
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

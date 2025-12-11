@@ -1,0 +1,790 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : lab.scss
+    Date  : 2024.02.27
+    menu  : LAB
+/*---------------------------------*/
+
+
+//* LAB */
+.wrap {
+
+  //* 랭킹 분석 */
+  .tune_rankAnalysis {
+    .title {
+      @include titleLayout;
+
+      p {
+        span {
+          margin-left: 20px;
+
+          &:before {
+            @include iLayout;
+            @include ico_lineRight;
+            width: 7px;
+            height: 14px;
+            margin-right: 20px;
+            background-size: 100% 100%;
+          }
+        }
+      }
+    }
+
+    .content {
+      section {
+        &.sec_search {
+          @include flex_between;
+          margin-top: 20px;
+
+          .searchBox {
+            @include searchBox_t2;
+
+            input {
+              min-width: 500px;
+            }
+          }
+
+          .infoBox {
+            text-align: right;
+
+            p {
+              &:first-child {
+                @include ftMedium;
+                font-size: 18px;
+              }
+
+              &:nth-child(2) {
+                margin-top: 5px;
+                font-size: 13px;
+                color: var(--subFtColor);
+              }
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout;
+          margin-top: 30px;
+
+          .tit {
+            @include title($fs: 18px);
+          }
+
+          .cont {
+            margin-top: 20px;
+
+            .searchBox {
+              @include flex_start;
+
+              .selectBox {
+                @include flex_start;
+
+                select {
+                  &:nth-child(n+2) {
+                    margin-left: 10px;
+                  }
+                }
+              }
+            }
+
+            .tableHeader {
+              margin-top: 50px;
+
+              >div {
+                @include flex_between;
+
+                p {
+                  &:nth-child(1) {
+                    @include ftBold;
+                    position: relative;
+                    padding-left: 80px;
+                    font-size: 22px;
+                    color: var(--pointColor);
+
+                    &:before {
+                      @include iLayout;
+                      @include ico_rank;
+                      position: absolute;
+                      top: -15px;
+                      left: 0;
+                      margin-right: 10px;
+                      vertical-align: text-bottom;
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    @include ftRegular;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    color: var(--ftColor6);
+                  }
+                }
+              }
+            }
+
+            .tableArea {
+              .tableBox {
+                @include tableLayout_t2;
+                margin-top: 20px;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+                        .iBox {
+                          margin-left: 4px;
+
+                          .iMark {
+                            @include ico_i_wht;
+                            top: 2px;
+                          }
+
+                          .iMarkHover {
+                            @include iMarkHover_TL;
+                          }
+                        }
+
+                        &:last-child {
+                          .iBox {
+                            .iMarkHover {
+                              @include iMarkHover_TR;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      &:first-child.myRank {
+                        td {
+                          border-top: 4px solid var(--pointColor);
+                        }
+                      }
+
+                      &.myRank {
+                        td {
+                          border-top: 2px solid var(--pointColor);
+                          border-bottom: 2px solid var(--pointColor);
+
+                          &:nth-child(1) {
+                            border-left: 2px solid var(--pointColor);
+                          }
+
+                          &:last-child {
+                            border-right: 2px solid var(--pointColor);
+                          }
+                        }
+                      }
+
+                      &.rank1,
+                      &.rank2,
+                      &.rank3 {
+                        td {
+                          background-color: var(--tblBgColor6);
+
+                          &:first-child {
+                            p:nth-of-type(1) {
+                              font-size: 0;
+                              vertical-align: middle;
+                            }
+                          }
+                        }
+                      }
+
+                      &.rank1 {
+                        td {
+                          &:first-child {
+                            p:nth-of-type(1) {
+                              &:before {
+                                @include iLayout;
+                                @include ico_rank1;
+                                margin: 0 auto 4px;
+                                vertical-align: middle;
+                                text-align: center;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      &.rank2 {
+                        td {
+                          &:first-child {
+                            p:nth-of-type(1) {
+                              &:before {
+                                @include iLayout;
+                                @include ico_rank2;
+                                margin: 0 auto 4px;
+                                vertical-align: middle;
+                                text-align: center;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      &.rank3 {
+                        td {
+                          &:first-child {
+                            p:nth-of-type(1) {
+                              &:before {
+                                @include iLayout;
+                                @include ico_rank3;
+                                margin: 0 auto 4px;
+                                vertical-align: middle;
+                                text-align: center;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      td {
+                        &:nth-child(1) {
+                          p {
+                            &:nth-of-type(1) {
+                              @include ftBold;
+                              font-size: 20px;
+                            }
+                          }
+                        }
+
+                        &:nth-child(2) {
+                          font-size: 20px;
+
+                          a {
+                            text-decoration: underline;
+
+                            &:after {
+                              @include iLayout;
+                              @include ico_dashboard;
+                              margin-left: 10px;
+                              vertical-align: bottom;
+                            }
+                          }
+                        }
+
+                        &:nth-child(1) {}
+
+                        &:nth-child(1) {}
+
+                        p {
+
+                          &.zero,
+                          &.up,
+                          &.down {
+                            font-size: 13px;
+
+                            &:before {}
+                          }
+
+                          &.zero {
+                            &:before {
+                              content: "";
+                              position: relative;
+                              display: inline-block;
+                              width: 8px;
+                              height: 2px;
+                              top: -4px;
+                              margin-right: 4px;
+                              background-color: var(--ftColor6);
+                            }
+                          }
+
+                          &.up {
+                            color: var(--upColor);
+
+                            &:before {
+                              content: "▲";
+                              position: relative;
+                              display: inline-block;
+                              top: 0px;
+                              margin-right: 4px;
+                            }
+                          }
+
+                          &.down {
+                            color: var(--downColor);
+
+                            &:before {
+                              content: "▼";
+                              position: relative;
+                              display: inline-block;
+                              top: 0px;
+                              margin-right: 4px;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 검색 결과 */
+        &.sec_result {
+          @include boxLayout;
+          min-height: 500px;
+          margin-top: 30px;
+
+          >.tit {
+            @include titleLayout_t2;
+            @include flex_between;
+
+            button {
+              position: relative;
+              float: right;
+              right: -2px;
+              padding: 15px;
+
+              &.close {
+                @include btnLayout;
+                @include ico_closeS;
+                font-size: 0;
+              }
+            }
+          }
+
+          >.cont {
+            margin-top: 30px;
+
+            //* 검색결과 없음 */
+            .dataNone {
+              @include dataNone;
+            }
+
+            .listArea {
+              .list {
+                @include flex_between;
+                flex-wrap: wrap;
+                gap: 30px;
+
+                &:nth-child(n+2) {
+                  border-top: 1px solid var(--borderColor3);
+                  margin: 30px 0 0 0;
+                  padding: 30px 0 0 0;
+                }
+
+                .infoBox {
+                  flex-grow: 1;
+
+                  .tit {
+                    p {
+                      @include ftMedium;
+                      font-size: 16px;
+
+                      &:before {
+                        @include txtDot;
+                      }
+
+                      &:after {
+                        @include iLayout;
+                        @include ico_dashboard;
+                        margin-left: 10px;
+                        vertical-align: bottom;
+                      }
+                    }
+                  }
+
+                  .cont {
+                    margin-top: 20px;
+
+                    p {
+                      font-size: 14px;
+                      text-indent: 8px;
+
+                      &:before {
+                        @include iLayout;
+                        margin-right: 16px;
+                        vertical-align: middle;
+                      }
+
+                      &:nth-child(n+2) {
+                        margin-top: 15px;
+                      }
+
+                      &:first-child {
+                        &:before {
+                          @include ico_folder;
+                        }
+                      }
+
+                      &:nth-child(2) {
+                        &:before {
+                          @include ico_home;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .rankBox {
+                  @include flex_between;
+
+                  .box {
+                    @include boxLayout_t4;
+                    min-width: 180px;
+                    height: 135px;
+                    margin-right: 100px;
+                    padding: 0;
+
+                    &:after {
+                      @include iLayout;
+                      @include ico_arrowRight3;
+                      content: "";
+                      position: absolute;
+                      display: inline-block;
+                      margin: auto 40px;
+                      top: calc(50% - 15px);
+                      left: 100%;
+                    }
+
+                    &:last-child {
+                      margin-right: 0;
+
+                      &:after {
+                        display: none;
+                      }
+                    }
+
+                    >div {
+                      @include flex_center;
+                      align-items: center;
+                      padding: 10px;
+                      text-align: center;
+
+                      &:nth-child(1) {
+                        height: 46px;
+                        border-radius: 5px 5px 0 0;
+                        color: var(--white);
+                        background-color: var(--bgColor3);
+
+                        p {
+                          margin: auto 0;
+                          font-size: 16px;
+                        }
+                      }
+
+                      &:nth-child(2) {
+                        height: calc(100% - 46px);
+
+                        p {
+                          @include ftMedium;
+                          margin: auto 0;
+                          font-size: 25px;
+
+                          &:after {
+                            content: "위";
+                            position: relative;
+                            display: inline-block;
+                            margin-left: 2px;
+                            font-size: 18px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 랭킹 분석 상세 */
+  .tune_rankAnalysisDetail {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      section {
+
+        /* 유저 이름 */
+        &.sec_user {
+          @include boxLayout;
+          margin-top: 20px;
+
+          p {
+            @include ftMedium;
+            font-size: 16px;
+          }
+        }
+
+        /* 소개, 유저특성, 유저 관심사 */
+        &.sec_info {
+          @include flex_between;
+          height: 230px;
+          margin-top: 30px;
+
+          .box_intro,
+          .box_feature,
+          .box_interest {
+            @include boxLayout;
+            flex-grow: 1;
+
+            &:nth-child(n+2) {
+              margin-left: 30px;
+            }
+
+            .tit {
+              @include titleLayout;
+            }
+
+            .cont {
+              margin-top: 20px;
+            }
+          }
+
+          /* 소개 */
+          .box_intro {
+            min-width: 350px;
+
+            .tit {
+              @include titleLayout;
+            }
+
+            .cont {
+              margin-top: 20px;
+
+              p {
+                font-size: 16px;
+                line-height: 25px;
+              }
+            }
+          }
+
+          /* 유저 특성 */
+          .box_feature {
+            min-width: 590px;
+            flex-grow: 1;
+
+            .cont {
+              @include flex_between;
+
+              .graph {
+                flex-grow: 1;
+
+                &:nth-child(2) {
+                  margin-left: 30px;
+                }
+              }
+            }
+          }
+
+          /* 유저 관심사 */
+          .box_interest {
+            min-width: 590px;
+            flex-grow: 1;
+          }
+        }
+
+        &.sec_rank {
+          @include flex_between;
+          height: 230px;
+          margin-top: 30px;
+
+          .box_category {
+            @include boxLayout;
+            width: 50%;
+            flex-grow: 1;
+
+            .tit {
+              @include titleLayout;
+              @include flex_between;
+            }
+
+            .cont {
+              @include flex_between;
+              margin-top: 30px;
+
+              .box {
+                @include boxLayout_t4;
+                min-width: 180px;
+                height: 135px;
+                padding: 0;
+
+                &:after {
+                  @include iLayout;
+                  @include ico_arrowRight3;
+                  content: "";
+                  position: absolute;
+                  display: inline-block;
+                  margin: auto 40px;
+                  top: calc(50% - 15px);
+                  left: 100%;
+                }
+
+                >div {
+                  @include flex_center;
+                  align-items: center;
+                  padding: 10px;
+                  text-align: center;
+
+                  &:nth-child(1) {
+                    height: 46px;
+                    border-radius: 5px 5px 0 0;
+                    color: var(--white);
+                    background-color: var(--bgColor3);
+
+                    p {
+                      margin: auto 0;
+                      font-size: 16px;
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    height: calc(100% - 46px);
+
+                    p {
+                      @include ftMedium;
+                      margin: auto 0;
+                      font-size: 25px;
+
+                      &:after {
+                        content: "위";
+                        position: relative;
+                        display: inline-block;
+                        margin-left: 2px;
+                        font-size: 18px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .box_rank {
+            @include boxLayout;
+            flex-grow: 1;
+            width: 50%;
+            margin-left: 30px;
+
+            .tit {
+              @include titleLayout;
+              @include flex_between;
+            }
+
+            .cont {
+              margin-top: 20px;
+            }
+          }
+        }
+
+        &.sec_analysis {
+          @include boxLayout;
+          margin-top: 30px;
+
+          .tit {
+            @include titleLayout;
+            @include flex_between;
+          }
+
+          .cont {
+            margin-top: 30px;
+
+            .statsBox {
+              @include flex_between;
+
+              .box {
+                @include boxLayout_t4;
+                height: 160px;
+                flex-grow: 1;
+                width: 14%;
+
+                &:nth-child(n+2) {
+                  margin-left: 20px;
+                }
+
+                &:last-child {
+                  .iBox {
+                    .iMarkHover {
+                      @include iMarkHover_TR;
+                    }
+                  }
+                }
+
+                &:hover {
+                  padding: 23px;
+                  border: 3px solid var(--pointColor);
+                  box-shadow: var(--shadow2);
+                }
+
+                .titBox {
+                  padding: 0 0 15px 0;
+                  border-bottom: 1px solid var(--borderColor3);
+
+                  p {
+                    @include flex_between;
+                    @include ftRegular;
+                    font-size: 16px;
+
+                    .iBox {
+                      margin-left: 4px;
+
+                      .iMark {
+                        top: 2px;
+                      }
+                    }
+                  }
+                }
+
+                .contBox {
+                  @include flex_between_column;
+                  height: 50px;
+                  margin-top: 20px;
+
+                  p {
+                    text-align: center;
+
+                    &:first-child {
+                      @include ftBold;
+                      font-size: 20px;
+                    }
+
+                    &:nth-child(2) {
+                      font-size: 13px;
+
+                      &.up {
+                        &:before {
+                          content: "▲";
+                          position: relative;
+                          display: inline-block;
+                          margin-right: 4px;
+                          color: var(--upColor);
+                        }
+                      }
+
+                      &.down {
+                        &:before {
+                          content: "▼";
+                          position: relative;
+                          display: inline-block;
+                          margin-right: 4px;
+                          color: var(--downColor);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .graphBox {
+              margin-top: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

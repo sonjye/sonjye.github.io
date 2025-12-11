@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+    <defs>
+        <filter id="pq8b5wp0ha" x="3.5" y="3.5" width="31" height="31" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feFlood flood-color="#07e6ff" flood-opacity=".6"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="t6xp7ni51b" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="5" result="blur-2"/>
+            <feFlood flood-color="#07e6ff" flood-opacity=".502"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g data-name="그룹 6363">
+        <g data-name="그룹 6051">
+            <g style="filter:url(#pq8b5wp0ha)" data-name="그룹 4947">
+                <g data-name="모서리가 둥근 직사각형 11" transform="translate(11 11)" style="fill:#0a072b;stroke:#07e6ff;stroke-linejoin:round">
+                    <rect width="16" height="16" rx="8" style="stroke:none"/>
+                    <rect x=".5" y=".5" width="15" height="15" rx="7.5" style="fill:none"/>
+                </g>
+            </g>
+        </g>
+        <g style="filter:url(#t6xp7ni51b)">
+            <circle data-name="타원 535" cx="4" cy="4" r="4" transform="translate(15 15)" style="fill:#07e6ff"/>
+        </g>
+    </g>
+</svg>

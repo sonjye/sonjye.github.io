@@ -1,0 +1,419 @@
+@charset 'utf-8';
+
+/*
+File  : mydata.scss
+Date  : 2025.01.21
+menu  : 마이데이터 스튜디오
+*/
+
+
+//* 마이데이터 스튜디오 */
+
+.wrap {
+
+  //* 공통 */
+  //* 즐겨찾기, 유입분석, 활동분석, 상품분석, 마이리포트 */
+  .tune_bookmark,
+  .tune_inflowAnalysis,
+  .tune_activityAnalysis,
+  .tune_prodctAnalysis,
+  .tune_myReport {
+
+
+    .title {
+      @include titleLayout;
+      @include flexBox();
+
+      .optionBox {
+        @include flexBox();
+        position: absolute;
+        top: 20px;
+        right: 30px;
+
+        button {
+          @include btnLayout;
+          min-width: 100px;
+          height: 36px;
+
+          &.modify,
+          &.save {
+            @include btn_main;
+          }
+
+          &.reset,
+          &.cancel {
+            @include btn_off;
+          }
+        }
+      }
+    }
+
+    .content {
+
+
+      button {
+        &.widgetClose {
+          @include iBtn;
+          @include ico_closeS;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+      }
+
+      section {
+
+
+        //* 구매활동 세분화 분석 */
+        &.sec_purchaseRate {
+          height: 100%;
+
+          .box_purchase {
+            @include widget_purchaseRate;
+            // height: 513px;
+            height: 100%;
+          }
+        }
+
+        //* 유저 행동 기반 트래픽 분석: 자사 VS 동종업종(종합패션쇼핑몰) */
+        &.sec_trafficAnalysis {
+          height: 100%;
+
+          .box_trafficAnalysis {
+            @include widget_trafficAnalysis;
+            // height: 573px;
+            height: -webkit-fill-available;
+          }
+        }
+
+        //* 환불 고객 분석 및 재구매 행동 통합 분석 */
+        &.sec_refundRepurchaseAnalysis {
+          height: 100%;
+
+          .box_refundRepurchaseAnalysis {
+            @include widget_refundRepurchaseAnalysis;
+            height: -webkit-fill-available;
+          }
+        }
+
+        //* 성별 구매 분석 데이터  */
+        &.sec_purchaseGender {
+          @include widget_purchaseGender;
+        }
+
+        //* 장바구니 행동 분석  */
+        &.sec_basketAnalysis {
+          @include widget_basketAnalysis;
+        }
+
+        //* 카테고리별 구매율  */
+        &.sec_category {
+          // height: 100%;
+          @include widget_category;
+        }
+
+        //* 카테고리별 구매율 추이, 첫구매와 재구매 추이 분석 */
+        &.sec_categoryRate {
+          height: 100%;
+
+          .box_categoryRate {
+            @include widget_categoryRate;
+            height: -webkit-fill-available;
+          }
+        }
+
+        &.sec_purchaseAnalysis {
+          height: 100%;
+
+          .box_purchaseAnalysis {
+            @include widget_purchaseAnalysis;
+            height: -webkit-fill-available;
+          }
+        }
+
+        //* 최근 한달간 채널별 구매율 분석 데이터입니다 .  */
+        &.sec_monthAnlaysis {
+          @include widget_monthAnlaysis;
+        }
+
+        //* 유입채널별 구매 추이 분석 */
+        &.sec_channelRate {
+          height: 100%;
+
+          .box_channelRate {
+            @include widget_channelRate;
+            height: -webkit-fill-available;
+          }
+        }
+
+        //* 구매전환율 시간대 및 요일 분석 */
+        &.sec_timeAnalysis {
+          @include widget_timeAnalysis;
+        }
+
+        //* 신규고객관리 */
+        /* 재구매 고객 분석 : 자사 VS 동종업종(종합패션쇼핑몰)*/
+        &.sec_customerCompare {
+          @include widget_customerCompare;
+        }
+
+        //* 신규 고객 세그먼트 별 상세 분석  */
+        &.sec_segmentList,
+        &.sec_repurchaseSegmentList {
+          @include widget_segmentList;
+        }
+
+        //*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+        &.sec_repurchasePoint {
+          @include widget_repurchasePoint;
+          height: 640px;
+        }
+
+        //* 신규 고객 관심 상품 Top 10  */
+        /* 구매 성향 별 관심상품 Top 10 : 재구매고객 VS 신규고객 */
+        &.sec_interestProduct {
+          @include widget_interestProduct;
+          height: 1000px;
+        }
+
+        //*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+        &.sec_interestCategory {
+          @include widget_interestCategory;
+          height: 470px;
+        }
+
+        //* 가망 고객 외부 구매활동 Top 10 분석  */
+        &.sec_externalPurchaseActivity {
+          @include widget_externalPurchaseActivity;
+        }
+
+        //*  환불고객관리  */
+        &.sec_refundSummary {
+          @include widget_refundSummary;
+          height: 550px;
+        }
+
+        //* 환불 고객 세그먼트 별 상세 분석 */
+        &.sec_refundCompareList {
+          @include widget_refundCompareList;
+          height: 520px;
+        }
+
+        //* 환불 고객의 재구매 시점, 환불 고객 비율, 구매횟수 및 객단가 */
+        &.sec_refundStats {
+          @include widget_refundStats;
+          height: 540px;
+        }
+
+        //* 리스크 고객 분석 : 신규고객 및 업종 비교*/
+        &.sec_riskCompare {
+          @include widget_riskCompare;
+          height: 550px;
+        }
+
+        //* 리스크 고객 세그먼트 별 상세 분석 */
+        &.sec_ristCompareList {
+          @include widget_ristCompareList;
+          height: 510px;
+        }
+
+        //*  구매 고객 행동 분석 : 동종업종(여성패션) 회원 기준, 페이지별 방문분석 : 구매자별 행동 패턴  */
+        &.sec_purchasePercentage,
+        &.sec_businessPurchasePercentage {
+          @include widget_purchasePercentage;
+          height: 570px;
+        }
+
+        /* 구매 고객별 페이지 방문 데이터 분석  */
+        &.sec_visitDataAnalysis {
+          @include widget_visitDataAnalysis;
+          height: 520px;
+        }
+
+        //* 신규 및 재구매자 분석, 자사 재구매 구간 비교, 구매 비교 분석 */
+        &.sec_customerAnalysis,
+        &.sec_intervalCompare,
+        &.sec_averageCompare {
+          height: 100%;
+
+          .box_customerAnlaysis,
+          .box_intervalCompare,
+          .box_averageCompare {
+            @include widget_graph3;
+            height: 610px;
+          }
+        }
+
+
+        //* 신규상품 vs 히트 상품, 재구매 및 악성 상품 분석 */
+        &.sec_newHitGraph,
+        &.sec_repurchaseAnalysis {
+          @include widget_graph2;
+          height: 540px;
+        }
+
+        //* 상품 점유율 RACE */
+        &.sec_productRaceGraph {
+          height: 100%;
+          .box_productRaceGraph {
+            @include widget_productRaceGraph;
+            height: 780px;
+          }
+        }
+
+        //* 업황 요약 */
+        &.sec_summary {
+          @include widget_bussinewwSummary;
+          height: 630px;
+        }
+
+        //* 업황내 비교 */
+        &.sec_businessCompare,
+        &.sec_buyPurchaseAnalysis {
+          @include widget_businessCompare;
+          height: 910px;
+        }
+
+        /* 고객 외부활동 분석내역 */
+        &.sec_userExternalActivity {
+          @include widget_userExternalActivity;
+          height: 620px;
+        }
+
+        /* 고객 외부사이트 방문내역 분석 */
+        &.sec_userVisitList {
+          @include widget_userVisitList;
+          height: 790px;
+        }
+
+        /* 고객 외부사이트 활동 분포 분석 */
+        &.sec_userSiteActivity {
+          @include widget_userSiteActivity;
+          height: 890px;
+        }
+
+        /* 고객 관심상품 카테고리 분석 */
+        &.sec_userInterestCategory {
+          @include widget_userInterestCategory;
+          height: 690px;
+        }
+      }
+    }
+  }
+
+  //* 유입분석 */
+  .tune_inflowAnalysis {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      height: 100%;
+      margin-top: 10px;
+    }
+
+    section {}
+  }
+
+  //* 마이리포트 */
+  .tune_myReport {
+    .title {
+      @include titleLayout;
+      @include flexBox();
+
+      .optionBox {
+        @include flexBox();
+        position: absolute;
+        top: 20px;
+        right: 30px;
+
+        button {
+          @include btnLayout;
+          min-width: 100px;
+          height: 36px;
+
+          &.modify,
+          &.save {
+            @include btn_main;
+          }
+
+          &.reset,
+          &.cancel {
+            @include btn_off;
+          }
+        }
+      }
+    }
+
+    .content {
+      margin: 30px 0 0 0;
+
+      section {
+        &.sec_start {
+          .box_start {
+            @include boxLayout;
+
+            .tit {
+              margin: 40px 0 0 0;
+              font-size: 16px;
+              text-align: center;
+
+              p {
+                line-height: 30px;
+
+                b {
+                  @include ftBold;
+                }
+
+                i {
+                  position: relative;
+                  display: inline-block;
+                  width: 26px;
+                  height: 26px;
+                  margin: 0 4px;
+                  border-radius: 5px;
+                  vertical-align: sub;
+                  background-color: var(--pointColor);
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_widgetAdd;
+                    content: "";
+                    width: 19px;
+                    height: 17px;
+                    padding: 4px;
+                    background-position-x: 5px;
+                    background-color: var(--bgColor9);
+                  }
+                }
+              }
+            }
+
+            .cont {
+              .guideBox {
+                margin: 30px auto 80px auto;
+                text-align: center;
+
+                p {
+                  @include iMark;
+                  @include img_myReport;
+                  width: 1245px;
+                  height: 464px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 고객분석 > 구매전환율분석 */
+  // .tune_purchaseChange {
+
+  //   .content {
+  //     margin-top: 10px;
+  //   }
+  // }
+
+}

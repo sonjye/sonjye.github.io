@@ -1,0 +1,160 @@
+@charset 'utf-8';
+
+/*
+File   : content.scss
+Date   : 2025.01.22
+*/
+
+//* text */
+::selection {
+  color: var(--ftColor);
+  background: var(--pointColor);
+}
+
+.hide {
+  @include txtHide();
+}
+
+.hidden {
+  position: fixed;
+  top: 0;
+  left: -999em;
+}
+
+.clear {
+  clear: both;
+}
+
+.disNone,
+.dis_none {
+  display: none !important;
+}
+
+.ft_r {
+  float: right;
+}
+
+.ft_l {
+  float: left;
+}
+
+//* pointColor*/
+.pointColor {
+  color: var(--pointColor);
+}
+
+//* ellipsis */
+.elHvrVsbl,
+.elHvrVsbl2,
+.elHvrVsbl3,
+.elHvrVsbl4 {
+  &:hover {
+    @include ellipsisHover;
+  }
+}
+
+.elHvrVsbl {
+  @include ellipsis;
+}
+
+.elHvrVsbl2 {
+  @include ellipsis_l4($wlc:2);
+}
+
+.elHvrVsbl4 {
+  @include ellipsis_l4;
+}
+
+//* loading  */
+#loadingBg {
+  @include loadingBg;
+}
+
+.dimCircle {
+  @include loadingCircle;
+}
+
+.dimDot {
+  @include loadingDot;
+}
+
+.dimText {
+  @include loadingText;
+  @include loadingText_t2;
+}
+
+.loadingText {
+  display: none;
+}
+
+//* iBox */
+.iBox {
+  position: relative;
+  display: inline-block;
+}
+
+.iMark {
+  @include iMark;
+}
+
+.iMarkHover {
+  @include iMarkHover;
+}
+
+.map {
+  .mapHover {
+    @include iMarkHover($minW: 250px, $w:auto, $minH:null, $br:10px);
+    @include iMarkHover_TL($t: 36px, $l:-22px, $l2:36px);
+  }
+}
+
+//* input */
+input {
+  @include input;
+}
+
+textarea {
+  @include textarea;
+}
+
+//* select */
+select {
+  @include select;
+}
+
+//* checkbox */
+input[type="checkbox"] {
+  @include checkbox;
+}
+
+//* radio */
+input[type="radio"] {
+  @include radio;
+}
+
+.selectDiv {
+  @include selectDiv;
+}
+
+//* daterangepicker */
+.daterangepicker {
+  @include daterangepicker;
+}
+
+.tableArea {
+  @include tableDataNone;
+}
+
+.dataNone {
+  display: none;
+}
+
+//* paging */
+.paging {
+  @include paging;
+}
+
+//* btnArea */
+.btnArea {
+  @include btnArea;
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// 환불고객 분석 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li class="on"><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>CDP</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드(개요)</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userInfo"></i><span>유저정보</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="coreUserAnalysis"></i><span>핵심유저분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignList"></i><span>캠페인 리스트</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignCreate"></i><span>캠페인 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="notice"></i><span>공지사항</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataLink"></i><span>데이터 연동 관리</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="rfmAnalysis"></i><span>RFM분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="userValueAnalysis"></i><span>고객가치분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="businessAnalysis"></i><span>업황분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userActivity"></i><span>고객외부활동</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="riskAnalysis"></i><span>리스크분석</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="refundAnalysis"></i><span>환불고객분석</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_refundAnalysis">
+                <section class="sec_refundAnalysis">
+                    <div class="tit">
+                        <p>환불고객 분석</p>
+                    </div>
+                    <div class="cont">
+                        <!-- 환불 고객 RFM 분포도, 환불고객 개요, 환불 고객 구매자 비율  -->
+                        <div class="box_rfmDistribute">
+                            <div class="graphBox">
+                                <div class="titBox">
+                                    <p>환불 고객 RFM 분포도</p>
+                                    <p>(최근 3개월)</p>
+                                </div>
+                                <div class="contBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <!-- <div class="graph" style="height: 620px; border:1px solid #fff;"></div> -->
+                                    <div class="guideBox">
+                                        <p>고객행동지표<span>(방문빈도, 상품조회, 구매건수 등)</span></p>
+                                        <p>Last Updated 2022.08.30 11:35</p>
+                                    </div>
+                                    <div class="chartBox">
+                                        <div class="box on">
+                                            <div class="titBox">
+                                                <p>이탈한 VIP</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">이탈한VIP</div>
+                                                </div>
+                                                </label>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">321</p>
+                                            </div>
+                                        </div>
+                                        <div class="box on">
+                                            <div class="titBox">
+                                                <p>요즘 뜸한 VIP</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">요즘 뜸한 VIP</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="down">181</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>VVIP</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">VVIP</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">123</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>VIP</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">VIP</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>이탈한 유망 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>유망 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>잠재적 VIP</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>단발성 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>이탈 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>유동성 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>이탈 우려 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>활동 기대 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>아이쇼핑 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="titBox">
+                                                <p>신규 고객</p>
+                                                <div class="iBox"><i class="iMark"></i>
+                                                    <div class="iMarkHover">유망 고객</div>
+                                                </div>
+                                            </div>
+                                            <div class="contBox">
+                                                <p class="up">23</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="graphBox">
+                                <div class="titBox">
+                                    <p>환불 고객 개요(업종 비교)</p>
+                                    <p>(최근 3개월)</p>
+                                </div>
+                                <div class="contBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 280px; border:1px solid #fff;"></div>
+                                </div>
+                            </div>
+                            <div class="graphBox">
+                                <div class="titBox">
+                                    <p>환불 고객 구매자 비율</p>
+                                    <p>(최근 3개월)</p>
+                                </div>
+                                <div class="contBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 280px; border:1px solid #fff;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// box_rfmDistribute end -->
+                        <!-- 환불 고객의 재구매 시점, 환불 및 탈퇴 고객 추이 -->
+                        <div class="box_refund">
+                            <div class="graphBox">
+                                <div class="titBox">
+                                    <p>환불 고객의 재구매 시점</p>
+                                    <p>(평균/최근 3개월)</p>
+                                </div>
+                                <div class="contBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 350px; border:1px solid #fff;"></div>
+                                </div>
+                            </div>
+                            <div class="graphBox">
+                                <div class="titBox">
+                                    <p>환불 고객의 재구매 시점</p>
+                                    <p>(평균/최근 3개월)</p>
+                                </div>
+                                <div class="contBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 320px; border:1px solid #fff;"></div>
+                                    <div class="labelBox">
+                                        <p>환불고객수</p>
+                                        <p>탈퇴수</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// box_refund end -->
+                    </div>
+                </section>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

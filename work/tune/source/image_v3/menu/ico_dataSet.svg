@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g data-name="그룹 6876">
+        <g data-name="그룹 6821">
+            <path data-name="패스 12237" d="M2.571 4h5.874a.571.571 0 0 1 .371.137l3.009 2.579a.571.571 0 0 0 .371.137h8.252a.571.571 0 0 1 .571.571v2.662a.571.571 0 0 1-.571.571H2.571A.571.571 0 0 1 2 10.086V4.571A.571.571 0 0 1 2.571 4zm18.447 5.705v3.8" transform="translate(0 -1)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;stroke:#fff;fill:none"/>
+            <path data-name="패스 12238" d="M2 10v8.938a.571.571 0 0 0 .571.571h7.889" transform="translate(0 -1.295)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;stroke:#fff;fill:none"/>
+            <path data-name="패스 12239" d="M20.1 24.2a4.1 4.1 0 1 0-4.1-4.1 4.1 4.1 0 0 0 4.1 4.1z" transform="translate(-3.5 -3)" style="stroke-dasharray:.3 2;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;stroke:#fff;fill:none"/>
+            <g data-name="타원 647" transform="translate(12.75 13.25)" style="stroke-width:2px;stroke:#fff;fill:none">
+                <ellipse cx="3.77" cy="3.769" rx="3.77" ry="3.769" style="stroke:none"/>
+                <ellipse cx="3.77" cy="3.769" rx="2.77" ry="2.769" style="fill:none"/>
+            </g>
+        </g>
+    </g>
+</svg>

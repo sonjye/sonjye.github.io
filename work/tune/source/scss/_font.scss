@@ -1,0 +1,53 @@
+@charset 'utf-8';
+
+/*
+File   : font.scss
+Date   : 2025.09.22
+*/
+
+@mixin font($fontFamily:null,
+  $name:null,
+  $path:"../font/",
+  $format:null,
+  $format2:null,
+  $format3:null,
+  $format4:null) {
+  $format: "eot";
+  $format2: "eot?#iefix";
+  $format3: "embedded-opentype";
+  $format4: "woff";
+
+  @font-face {
+    font-family: $fontFamily;
+    src: url("#{$path}#{$name}.#{$format}");
+    //* IE9 Compat Modes */
+    src:url("#{$path}#{$name}.#{$format2}") format("#{$format3}"),
+    //* IE6-IE8 */
+    url("#{$path}#{$name}.#{$format4}") format("#{$format4}");
+  }
+}
+
+
+//NotoSan
+@include font($fontFamily:'NotoSansL', $name:'notokr-light');
+@include font($fontFamily:'NotoSansR', $name:'notokr-regular');
+@include font($fontFamily:'NotoSansM', $name:'notokr-medium');
+@include font($fontFamily:'NotoSansB', $name:'notokr-bold');
+
+// scdream
+@include font($fontFamily:'scdreamL', $name:'scdreamL');
+
+// NanumSquare
+@include font($fontFamily:'NanumSquareL', $name:'NanumSquareL');
+@include font($fontFamily:'NanumSquareR', $name:'NanumSquareR');
+@include font($fontFamily:'NanumSquareB', $name:'NanumSquareB');
+
+// Pretendard
+// @include font($fontFamily:'Pretendard_Thin', $name:'Pretendard-Thin');
+@include font($fontFamily:'Pretendard_Light', $name:'Pretendard-Light');
+@include font($fontFamily:'Pretendard_Medium', $name:'Pretendard-Medium');
+@include font($fontFamily:'Pretendard_Regular', $name:'Pretendard-Regular');
+// @include font($fontFamily:'Pretendard_SemiBold', $name:'Pretendard-SemiBold');
+@include font($fontFamily:'Pretendard_Bold', $name:'Pretendard-Bold');
+// @include font($fontFamily:'Pretendard_ExtraBold', $name:'Pretendard-ExtraBold');
+// @include font($fontFamily:'Pretendard_Black', $name:'Pretendard-Black');

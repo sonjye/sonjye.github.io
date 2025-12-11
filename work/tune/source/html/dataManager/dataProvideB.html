@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// 데이터매니저 메뉴 > 데이터 제공 관리 -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트래킹</a></li>
+                    <li class="on"><a href="javascript:void(0);">데이터매니저</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="javascript:void(0);">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>데이터매니저</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataCollect"></i><span>데이터 수집 관리</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="dataProvide"></i><span>데이터 제공 관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataMonitor"></i><span>데이터 모니터링</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="scriptSDK"></i><span>스크립트/SDK 관리</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_dataProvide">
+                <div class="title">
+                    <p>데이터 제공 관리</p>
+                    <p>수집중이거나 수집된 이벤트 데이터를 각 플랫폼별로 제공할 수 있는 기능을 제공합니다.</p>
+                    <p>제공할 이벤트를 선택하신 후 플랫폼 추가버튼을 클릭하시면 원하는 플랫폼에 해당 데이터를 제공할 수 있습니다.</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="selectDiv">
+                            <div class="selected">
+                                <p><i class="web">Web</i>www.mobon.co.kr</span>
+                                </p>
+                            </div>
+                            <ul>
+                                <li class="active"><i class="web">Web</i>www.mobon.co.kr</span>
+                                </li>
+                                <li><i class="ios">ios</i>http://www.dabagirl.com</li>
+                                <li><i class="android">android</i>http://www.dabalab.com</li>
+                                <li class="create">신규 만들기</li>
+                                <li class="domainInfo">도메인 정보</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="sec_option">
+                        <div class="optionBox">
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>수집구분</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="checkbox" name="check_01" id="checkbox_all" value="A">
+                                        <label for="checkbox_all">ALL</label>
+                                        <input type="checkbox" name="check_01" id="checkbox_01" value="01">
+                                        <label for="checkbox_01">수집중 <span>(123)</span></label>
+                                        <input type="checkbox" name="check_01" id="checkbox_02" value="02">
+                                        <label for="checkbox_02">미수집 <span>(1234)</span></label>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>수집상태</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="checkbox" name="check_02" id="status_all" value="B">
+                                        <label for="status_all">ALL</label>
+                                        <input type="checkbox" name="check_02" id="status_01" value="01">
+                                        <label for="status_01">정상 <span>(123)</span></label>
+                                        <input type="checkbox" name="check_02" id="status_02" value="02">
+                                        <label for="status_02">이슈 <span>(123)</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>제공구분</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="checkbox" name="check_03" id="send_all" value="C">
+                                        <label for="send_all">ALL</label>
+                                        <input type="checkbox" name="check_03" id="send_01" value="01">
+                                        <label for="send_01">제공중 <span>(123)</span></label>
+                                        <input type="checkbox" name="check_03" id="send_02" value="02">
+                                        <label for="send_02">미수집 <span>(10)</span></label>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>제공상태</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="checkbox" name="check_04" id="channel_all" value="D">
+                                        <label for="channel_all">ALL</label> <input type="checkbox" name="check_04"
+                                            id="channel_01" value="01">
+                                        <label for="channel_01">정상 <span>(123)</span></label>
+                                        <input type="checkbox" name="check_04" id="channel_01" value="01">
+                                        <label for="channel_01">이슈 <span>(123)</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>제공 플랫폼</p>
+                                    </div>
+                                    <div class="cont">
+                                        <select name="" id="">
+                                            <option value="">전체</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox end -->
+                        <div class="buttonBox">
+                            <button type="button">검색</button>
+                        </div>
+                    </section>
+                    <section class="sec_list">
+                        <div class="tableHeader">
+                            <div class="radioBox">
+                                <input type="radio" name="radio" id="radio" value="00" checked>
+                                <label for="radio">선택 이벤트</label>
+                            </div>
+                            <button type="button" class="flatformAdd">제공 플랫폼 추가</button>
+                            <button type="button" class="eventPlatformAdd">전체 이벤트 플랫폼 제공</button>
+                        </div>
+                        <!-- left table -->
+                        <div>
+                            <div class="tableArea">
+                                <div class="tableBox">
+                                    <!-- table 로 제작한 table 입니다.-->
+                                    <!-- table 또는 div로 제작된 table 둘 중 하나 사용하시면 됩니다. -->
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;</th>
+                                                <th>이벤트</th>
+                                                <th>제공 플랫폼</th>
+                                                <th>수집상태</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="radio" name="radio" id="radio2" value="00" checked>
+                                                    <label for="radio2"></label></td>
+                                                <td>방문</td>
+                                                <td>0</td>
+                                                <td>수집중 </td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td><input type="radio" name="radio" id="radio3" value="00" checked>
+                                                    <label for="radio3"></label></td>
+                                                <td>방문</td>
+                                                <td>0</td>
+                                                <td>수집중 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tableArea">
+                                <div class="tableBox">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>데이터 제공</th>
+                                                <th>플랫폼(회사)</th>
+                                                <th>제공 방식</th>
+                                                <th>제공 데이터 항목</th>
+                                                <th>제공 시작일</th>
+                                                <th>제공 로그</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="toggleBox">
+                                                        <input type="checkbox" name="ip_toggle" id="ip_toggle_1"
+                                                            checked>
+                                                        <label for="ip_toggle_1"></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="javascript:void(0);">Mob-i</a></td>
+                                                <td>POSTBACK(post)</td>
+                                                <td>25</td>
+                                                <td>2023-10-06 12:22:16</td>
+                                                <td><button type="button" class="log">제공 로그</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//section end -->
+                </div>
+                <!--//contents end-->
+                <footer class=" footer">
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved.</p>
+                </footer>
+                <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

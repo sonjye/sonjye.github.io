@@ -1,0 +1,865 @@
+@charset "UTF-8";
+/*
+Explain : MOBTUNE
+File : tune_dataManager.scss 
+Date : 2025.04.09
+Version : 1.1.1
+*/
+/*
+z-index 순서
+1. modal, modalDim: 999, 998
+2. tooltipHover,userMenu : 800,801
+3. dimDot, dimCircle : 700
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "NotoSansR";
+}
+
+button {
+  font-family: inherit;
+}
+
+/*
+File   : color.scss
+Date   : 2025.04.02
+*/
+html {
+  --white: #ffffff;
+  --black: #000000;
+  --red: #ff0000;
+  --red2: #e31737;
+  --B_mainColor: #07e6ff;
+  --C_mainColor: #3c71fd;
+  --mainColor: #3c71fd;
+  --ftColor: #222222;
+  --subFtColor: #999999;
+  --borderColor: #e6e6e6;
+  --bgColor: #f6f6f6;
+  --dimFtColor: #000000;
+  --dimOpacity: 0.8;
+  --dimShadow: rgba(0, 0, 0, 0.5);
+  --dimBgColor: #fff;
+  --dateFtColor2: #222222;
+  --dateFtColor3: #e5e5e5;
+  --dateFtColor4: #ffffff;
+  --dateFtColor5: #222222;
+  --dateFtColor6: #ffffff;
+  --dateFtColor7: #ffffff;
+  --dateBorderColor: #d6d6d6;
+  --dateShadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  --dateBgColor: #ffffff;
+  --dateBgColor2: #88a9ff;
+  --dateBgColor3: #c1c8db;
+  --dateIpBorderColor: #d6d6d6;
+  --dateIpBgColor: #ffffff;
+  --pointColor: #3c71fd;
+  --pointColor2: #8c6bfb;
+  --pointColor3: #51ca9e;
+  --pointColor4: #ff6767;
+  --pointColor5: #39a8ff;
+  --pointColor6: #23bc85;
+  --pointColor7: #ff6767;
+  --pointColor8: #07e6ff;
+  --pointColor9: #3c71fd;
+  --issueColor: #ffcf31;
+  --issueColor2: var(--issueColor);
+  --issueColor3: var(--white);
+  --issueColor4: var(--ftColor);
+  --issueColor5: #fbbe30;
+  --waitColor: #f5a123;
+  --errorColor: #ff6767;
+  --normalColor: var(--pointColor);
+  --normalColor2: #07e6ff;
+  --normalColor3: var(--pointColor);
+  --normalColor4: var(--pointColor);
+  --noneColor: #80b6d6;
+  --noneColor2: #3f7197;
+  --checkColor: #aaaaaa;
+  --ftColor2: var(--ftColor);
+  --ftColor3: #ffffff;
+  --ftColor4: #ffffff;
+  --ftColor5: var(--pointColor);
+  --ftColor6: #222222;
+  --ftColor7: #ff6091;
+  --ftColor8: #ff9e2e;
+  --ftColor9: #222222;
+  --ftColor10: #ffffff;
+  --ftColor11: #000000;
+  --ftColor12: var(--pointColor);
+  --ftColor13: #182152;
+  --ftColor14: var(--pointColor8);
+  --ftColor15: var(--bgColor);
+  --ftColor16: #c4c4c4;
+  --ftColor17: #ffffff;
+  --ftColor18: var(--white);
+  --ftColor19: var(--white);
+  --ftColor20: var(--pointColor);
+  --upColor: #ff5353;
+  --downColor: #1081f6;
+  --border2: 1px solid var(--borderColor);
+  --borderColor2: #e6e6e6;
+  --borderColor3: #e6e6e6;
+  --borderColor4: #ffffff;
+  --borderColor5: #ebebeb;
+  --borderColor6: #aaaaaa;
+  --borderColor7: #e5e5e5;
+  --borderColor8: var(--pointColor);
+  --borderColor9: var(--borderColor);
+  --borderColor10: #000000;
+  --borderColor11: #8441d3;
+  --borderColor12: var(--pointColor);
+  --borderColor13: #f9f9f9;
+  --borderColor14: #a2bdf3;
+  --bgColor2: var(--mainColor);
+  --bgColor3: var(--mainColor);
+  --bgColor4: var(--bgColor);
+  --bgColor5: #f9f9f9;
+  --bgColor6: #ffffff;
+  --bgColor7: var(--btnOff_BgColor);
+  --bgColor8: var(--pointColor);
+  --bgColor9: #ffffff;
+  --bgColor10: #ffffff;
+  --bgColor11: #ffffff;
+  --bgColor12: var(--btnOff_BgColor);
+  --bgColor13: var(--pointColor);
+  --bgColor14: #ffffff;
+  --bgColor15: var(--pointColor);
+  --bgColor16: #f6f6f6;
+  --bgColor17: #ffffff;
+  --bgColor18: #ffffff;
+  --bgColor19: #f9f9f9;
+  --bgColor20: #ffffff;
+  --bgColor21: #ebebeb;
+  --bgColor22: #f9f9f9;
+  --bgColor23: #f9f9f9;
+  --scrollbarColor: #ebebeb;
+  --scrollThumbColor: var(--mainColor);
+  --gradient: none;
+  --gradient2: none;
+  --gradient3: none;
+  --display: none;
+  --shadow: 0 0 20px 0 var(--pointColor);
+  --shadow2: none;
+  --shadow3: none;
+  --shadow4: none;
+  --shadow5: none;
+  --headerFtColor: #777777;
+  --headerBorderColor: #e9e9e9;
+  --headerStoreBorderColor: #d1d1d1;
+  --headerUserBgColor: #ffffff;
+  --headerBgColor: #ffffff;
+  --ico_userInfo: var(--pointColor);
+  --ico_navColor_on: var(--white);
+  --ico_navColor_off: #777777;
+  --navBorderColor: #ffffff;
+  --navFtColor: #777777;
+  --navFtColor2: #777777;
+  --navOnFtColor: var(--white);
+  --navShadow: none;
+  --navCloseBorderColor: #d1d1d1;
+  --navCloseBgColor: var(--mainColor);
+  --navBgColor: var(--white);
+  --navBgColor2: var(--mainColor);
+  --navBgColor3: #f6f6f6;
+  --bubbleBorderColor: #ffffff;
+  --bubbleBgColor: #ffffff;
+  --bubbleShadow: 0 5px 10px 0 rgba(34, 34, 34, 0.1);
+  --btnMain_ftColor: var(--white);
+  --btnMain_bgColor: var(--pointColor);
+  --btnMain_ftColor2: var(--pointColor);
+  --btnMain_border2: 1px solid var(--pointColor);
+  --btnMain_shadow2: none;
+  --btnMain_bgColor2: #e9f6ff;
+  --btnMain_ftColor4: var(--ftColor4);
+  --btnMain_border4: 1px solid var(--pointColor);
+  --btnMain_shadow4: none;
+  --btnMain_bgColor4: var(--pointColor);
+  --btnOff_ftColor: var(--white);
+  --btnOff_BorderColor: #c1c8db;
+  --btnOff_BgColor: #c1c8db;
+  --btnOff_ftColor2: var(--ftColor);
+  --btnOff_BorderColor2: var(--borderColor);
+  --btnOff_BgColor2: var(--white);
+  --btnDis_ftColor: #c4c4c4;
+  --btnDis_BorderColor: #eceff1;
+  --btnDis_bgColor: #eceff1;
+  --btnDlt_ftColor: #ffffff;
+  --btnDlt_BorderColor: #f65a5a;
+  --btnDlt_shadow: none;
+  --btnDlt_bgColor: #f65a5a;
+  --btnFtColor3: #ffffff;
+  --btnBorderColor3: #8c6bfb;
+  --btnBgColor3: #8c6bfb;
+  --btnFtColor4: #ffffff;
+  --btnBorderColor4: #ccc6d8;
+  --btnShadow4: none;
+  --btnBgColor4: #ccc6d8;
+  --btnFtColor5: var(--pointColor);
+  --btnBorderColor5: var(--pointColor);
+  --btnBgColor5: #ffffff;
+  --btnFtColor6: var(--ftColor13);
+  --btnBgColor6: var(--pointColor8);
+  --tblBorderColor: #e6e6e6;
+  --tblBgColor: #ffffff;
+  --tblEmBgColor: #e15b5b;
+  --tblEmBgColor2: #ff8585;
+  --tblTheadBgColor: #3c71fd;
+  --tblTheadBgColor2: #6d95ff;
+  --tblTheadBgColor3: #9eb8ff;
+  --tblTheadBgColor4: #f6f6f6;
+  --tblTheadBgColor5: #f6f6f6;
+  --tblTheadBgColor6: #ffffff;
+  --tblTheadBgColor7: #3c71fd;
+  --tblTheadBgColor8: #9eb8ff;
+  --tblTheadBgColor9: #f6f6f6;
+  --tblTheadBgColor10: #f6f6f6;
+  --tblTheadBgColor11: #f6f6f6;
+  --tblTheadBgColor12: #6d95ff;
+  --tblTheadBgColor13: #f6f6f6;
+  --tblTheadBgColor14: #3c71fd;
+  --tblTheadBgColor15: #f6f6f6;
+  --tblTheadBgColor16: #6a92fc;
+  --tblBgColor2: #a2bdf3;
+  --tblBgColor3: #6368ef;
+  --tblBgColor4: #71aaff;
+  --tblBgColor5: #ffffff;
+  --tblBgColor6: #ffffff;
+  --tblBgColor7: #e9f6ff;
+  --tblBgColor8: #ebf1fe;
+  --tblBgColor9: #abc2ff;
+  --tblBgColor10: #7198ff;
+  --graphFtColor: #c1c8db;
+  --graphBarColor: #c1c8db;
+  --graphBgColor: #e4e4e5;
+  --labelColor: #38ddff;
+  --labelColor2: #8c6bfb;
+  --labelColor3: #51ca9e;
+  --labelColor4: #1081f6;
+  --labelColor5: #ff9e2e;
+  --labelColor6: #098a78;
+  --labelColor7: #f588b7;
+  --labelColor8: #ff7a7a;
+  --labelColor9: #fa859c;
+  --labelColor10: #07e6ff;
+  --labelColor11: #34c38f;
+  --labelColor12: #fce56b;
+  --labelColor13: #5d72ff;
+  --labelColor14: #ae6bfb;
+  --ipBorderColor: #d6d6d6;
+  --ipBgColor: #ffffff;
+  --ipFtColor_placeholder: #bbbbbb;
+  --ipFtColor_disabled: #c4c4c4;
+  --ipBorderColor_disabled: #d6d6d6;
+  --ipBgColor_disabled: #eceff1;
+  --ipToggleFt_off: #ffffff;
+  --ipToggleBorder_off: var(--btnOff_BorderColor);
+  --ipToggleDot_off: #ffffff;
+  --ipToggleBg_off: var(--btnOff_BgColor);
+  --ipToggleFt_on: #ffffff;
+  --ipToggleBorder_on: var(--pointColor);
+  --ipToggleDot_on: #ffffff;
+  --ipToggleBg_on: var(--pointColor);
+  --ipToggleFt_disabled: #c4c4c4;
+  --ipToggleBorder_disabled: var(--btnDis_BorderColor);
+  --ipToggleDot_disabled: #c4c4c4;
+  --ipToggleBg_disabled: var(--btnDis_bgColor);
+  --slickDot: #cecece;
+  --slickDot_active: var(--pointColor2);
+  --tabFtColor: var(--btnOff_ftColor);
+  --tabBorder: var(--btnOff_BorderColor);
+  --tabBgColor: var(--btnOff_BgColor);
+  --tabBorderColor2: var(--btnOff_BorderColor);
+  --tabBgColor2_on: var(--white);
+  --tabBorderColor3: var(--borderColor);
+  --tabShadow3: none;
+  --tabBgColor3: var(--white);
+  --tabBorderColor3_on: var(--pointColor);
+  --tabShadow3_on: none;
+  --tabBgColor3_on: #ffffff;
+  --tabBgColor3_on2: none;
+  --tabZindex3: 1;
+  --tabFtColor4: var(--white);
+  --tabBorderColor4: var(--white);
+  --tabBgColor4: var(--btnOff_BgColor);
+  --tabBorder4_on: var(--tabBorder);
+  --tabBgColor_on: var(--btnMain_bgColor);
+  --tabFtColor5: var(--subFtColor);
+  --tabBorderColor5: var(--btnOff_BorderColor);
+  --tabBgColor5: #ffffff;
+  --tabBorderColor5_on: var(--pointColor);
+  --tabBorderColor6: #e5e5e5;
+  --tabShadow6: none;
+  --tabBgColor6: #ffffff;
+  --tabBorder6_on: var(--pointColor);
+  --tabShadow6_on: none;
+  --tabBgColor6_on: #ffffff;
+  --tabBgColor6_on2: none;
+  --tabViewBorder: 1px solid var(--pointColor);
+  --tabViewBorder2: 1px solid var(--borderColor);
+  --boxBorderColor: var(--borderColor);
+  --boxShadow: none;
+  --boxBgColor: var(--white);
+  --boxBorder2: 1px solid var(--borderColor);
+  --boxShadow2: none;
+  --boxBgColor2: var(--white);
+  --boxBorderColor3: var(--borderColor);
+  --boxShadow3: none;
+  --boxBgColor3: var(--white);
+  --boxBorderColor4: var(--borderColor);
+  --boxBorderColor5: var(--borderColor);
+  --boxBgColor5: var(--white);
+  --boxftColor6: var(--pointColor);
+  --boxBorderColor6: var(--pointColor);
+  --boxBorderColor6_hover: 1px solid var(--pointColor);
+  --boxShadow6: none;
+  --boxShadow6_hover: none;
+  --boxBgColor6: var(--white);
+  --boxBgColor6_hover: var(--pointColor);
+  --boxBorderColor7: var(--borderColor);
+  --boxBgColor7: var(--white);
+  --boxBorderColor8: #ebebeb;
+  --boxBgColor8: #ffffff;
+  --boxBorderColor10: var(--borderColor);
+  --boxBgColor10: var(--bgColor);
+  --boxOnColor: rgba(255, 0, 0, 1);
+  --boxOnColor2: #ee00ff;
+  --boxOnColor3: var(--pointColor);
+  --boxOnColor4: #ff6767;
+  --boxColor1: #a2bdf3;
+  --boxColor2: #6368ef;
+  --boxColor3: #4074ff;
+  --boxColor4: #9d48ff;
+  --boxColor5: #71aaff;
+  --boxColor6: #3633a5;
+  --boxColor7: #3cd5fd;
+  --boxColor8: #26c0e1;
+  --boxColor9: #202c6e;
+  --boxColor10: #3c31e1;
+  --boxColor11: #536ef1;
+  --boxColor12: #1e9af9;
+  --boxColor13: #6f0ae3;
+  --boxColor14: #32006e;
+  --boxColor2_1: #f2638f;
+  --boxColor2_2: #5a55e3;
+  --boxColor2_3: #2ed1aa;
+  --boxColor2_4: #1081f6;
+  --boxColor2_5: #ae6bfb;
+  --boxColor3_1: #a2bdf3;
+  --boxColor3_2: #6368ef;
+  --boxColor3_3: #26c0e1;
+  --boxColor3_4: #9d48ff;
+  --boxColor3_5: #71aaff;
+  --boxColor3_6: #3cd5fd;
+  --boxColor3_7: #202c6e;
+  --boxColor3_8: #6f0ae3;
+  --boxColor3_9: #3633a5;
+  --boxColor3_10: #1e9af9;
+  --boxColor3_11: #6f0ae3;
+  --boxColor3_12: #32006e;
+  --zIndex: 1;
+  --ico_color: var(--pointColor);
+  --ico_color2: #222222;
+  --ico_color3: #aaaaaa;
+  --ico_color4: #ffffff;
+  --ico_color5: var(--pointColor);
+  --ico_color6: var(--btnOff_BgColor);
+  --ico_color7: var(--borderColor);
+  --ico_color8: var(--white);
+  --ico_color9: var(--pointColor);
+  --ico_color10: var(--subFtColor);
+  --ico_color11: #ffffff;
+  --ico_color12: #c4c4c4;
+  --ico_color13: #ffffff;
+  --ico_closeColor: #222222;
+  --modalBorderColor: var(--borderColor);
+  --modalShadow: 0 0 10px 0 var(--borderColor),
+  inset 0 0 30px 0 rgba(255, 255, 255, 0.1);
+  --modalBgColor: #ffffff;
+  --etcColor: var(--pointColor2);
+  --etcColor2: #f2638f;
+  --etcColor3: #f6f6f6;
+  --etcColor4: #f5faff;
+  --etcColor5: #ebebeb;
+  --etcColor6: var(--pointColor);
+  --etcColor7: #aaaaaa;
+}
+html.themeB {
+  --mainColor: #07e6ff;
+}
+html.themeC {
+  --mainColor: #3c71fd;
+}
+html .grid_contents_wrap {
+  --ftColor20: var(--pointColor);
+}
+
+/*---------------------------------
+    File  : id_errorLink.scss
+    Date  : 2025.04.09
+    menu  : 데이터매니저
+    description : 링크 연결 에러 화면(독립페이지)
+/*---------------------------------*/
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"), url("../font/notokr-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"), url("../font/notokr-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"), url("../font/notokr-bold.woff") format("woff");
+}
+html,
+body {
+  font-family: "NotoSansR";
+  font-size: 14px;
+  color: var(--ftColor);
+}
+
+.wrap {
+  width: 100%;
+  height: -webkit-fill-available;
+  background-color: var(--bgColor);
+}
+.wrap .container {
+  height: -webkit-fill-available;
+}
+.wrap #loadingBg {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+.wrap #loadingBg.complete {
+  display: none;
+  opacity: 0;
+  z-index: -999;
+}
+.wrap #loadingBg .loader {
+  --cell-size: 24px;
+  --cell-spacing: 1px;
+  --border-width: 1px;
+  --cells: 4;
+  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.wrap #loadingBg .loader > .cell {
+  --cell-color: white;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 var(--cell-size);
+          flex: 0 0 var(--cell-size);
+  margin: var(--cell-spacing);
+  background-color: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: var(--border-width) solid var(--cell-color);
+  -webkit-animation: 1.5s ripple ease infinite;
+          animation: 1.5s ripple ease infinite;
+}
+.wrap #loadingBg .loader > .cell.d-1 {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+.wrap #loadingBg .loader > .cell.d-2 {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+.wrap #loadingBg .loader > .cell.d-3 {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+.wrap #loadingBg .loader > .cell.d-4 {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+.wrap #loadingBg .loader > .cell.d-5 {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+.wrap #loadingBg .loader > .cell.d-6 {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
+}
+.wrap #loadingBg .loader > .cell:nth-child(1) {
+  --cell-color: #6ef0ff;
+}
+.wrap #loadingBg .loader > .cell:nth-child(2) {
+  --cell-color: #0fa5be;
+}
+.wrap #loadingBg .loader > .cell:nth-child(3) {
+  --cell-color: #06697b;
+}
+.wrap #loadingBg .loader > .cell:nth-child(4) {
+  --cell-color: #3f0684;
+}
+.wrap #loadingBg .loader > .cell:nth-child(5) {
+  --cell-color: #0fa5be;
+}
+.wrap #loadingBg .loader > .cell:nth-child(6) {
+  --cell-color: #06697b;
+}
+.wrap #loadingBg .loader > .cell:nth-child(7) {
+  --cell-color: #3f0684;
+}
+.wrap #loadingBg .loader > .cell:nth-child(8) {
+  --cell-color: #7f1eed;
+}
+.wrap #loadingBg .loader > .cell:nth-child(9) {
+  --cell-color: #06697b;
+}
+.wrap #loadingBg .loader > .cell:nth-child(10) {
+  --cell-color: #3f0684;
+}
+.wrap #loadingBg .loader > .cell:nth-child(11) {
+  --cell-color: #7f1eed;
+}
+.wrap #loadingBg .loader > .cell:nth-child(12) {
+  --cell-color: #ac64ff;
+}
+.wrap #loadingBg .loader > .cell:nth-child(13) {
+  --cell-color: #3f0684;
+}
+.wrap #loadingBg .loader > .cell:nth-child(14) {
+  --cell-color: #7f1eed;
+}
+.wrap #loadingBg .loader > .cell:nth-child(15) {
+  --cell-color: #ac64ff;
+}
+.wrap #loadingBg .loader > .cell:nth-child(16) {
+  --cell-color: #e0c4ff;
+}
+@-webkit-keyframes ripple {
+  0% {
+    background-color: transparent;
+  }
+  30% {
+    background-color: var(--cell-color);
+  }
+  60% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes ripple {
+  0% {
+    background-color: transparent;
+  }
+  30% {
+    background-color: var(--cell-color);
+  }
+  60% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.wrap.tune_errorLink {
+  height: -webkit-fill-available;
+}
+.wrap.tune_errorLink .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+}
+.wrap.tune_errorLink .title {
+  text-indent: -999999px;
+  font-size: 0;
+}
+.wrap.tune_errorLink .content {
+  position: relative;
+  width: 100%;
+}
+.wrap.tune_errorLink .content section.sec_guide {
+  padding: 25px;
+}
+.wrap.tune_errorLink .content section.sec_guide .guideBox p {
+  font-size: 16px;
+  text-align: center;
+  line-height: 25px;
+  word-break: keep-all;
+}
+.wrap.tune_errorLink .content section.sec_guide .guideBox p:nth-child(1):before {
+  content: "";
+  position: relative;
+  display: block;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+  background: url(../image_v3/component/ico_error.svg) no-repeat center;
+  width: 72px;
+  height: 58px;
+  margin: 0 auto 32px;
+}
+.wrap.tune_errorLink .content section.sec_guide .guideBox p:nth-child(n+2) {
+  margin: 20px 0 0 0;
+}
+.wrap.tune_errorLink .content section.sec_guide .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin: 45px 0 0 0;
+}
+.wrap.tune_errorLink .content section.sec_guide .buttonBox button {
+  font-family: "NotoSansR";
+  position: relative;
+  min-width: 180px;
+  height: 50px;
+  padding: 4px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "NotoSansM";
+  font-weight: normal;
+  color: var(--btnMain_ftColor);
+  border: 2px solid var(--btnMain_bgColor);
+  background-color: var(--btnMain_bgColor);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  min-width: auto;
+  width: 180px;
+}
+.wrap.tune_errorLink .content section.sec_guide .buttonBox button:disabled {
+  color: var(--btnDis_ftColor);
+  border-width: inherit;
+  border-color: var(--btnDis_borderColor);
+  background-color: var(--btnDis_bgColor);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+.wrap.tune_errorLink .content section.sec_guide .buttonBox button:disabled {
+  color: var(--btnDis_ftColor);
+  border-width: inherit;
+  border-color: var(--btnDis_borderColor);
+  background-color: var(--btnDis_bgColor);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}/*# sourceMappingURL=idcm_errorLink.css.map */

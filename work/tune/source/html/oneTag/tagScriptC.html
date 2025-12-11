@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/idcm_onetag.css">
+</head>
+
+<body>
+    <!--// 원태그 메뉴 > 스크립트 설치 단독페이지  -->
+    <div class="wrap tune_scriptKey">
+        <!-- complete 클래스 추가하면 loadingBg display:none 처리됨  -->
+        <!-- <div id="loadingBg" class="complete"> -->
+        <div id="loadingBg" class="complete">
+            <div class="loader">
+                <div class="cell d-0"></div>
+                <div class="cell d-1"></div>
+                <div class="cell d-2"></div>
+                <div class="cell d-3"></div>
+                <div class="cell d-1"></div>
+                <div class="cell d-2"></div>
+                <div class="cell d-3"></div>
+                <div class="cell d-4"></div>
+                <div class="cell d-2"></div>
+                <div class="cell d-3"></div>
+                <div class="cell d-4"></div>
+                <div class="cell d-5"></div>
+                <div class="cell d-3"></div>
+                <div class="cell d-4"></div>
+                <div class="cell d-5"></div>
+                <div class="cell d-6"></div>
+            </div>
+        </div>
+        <!--// loadingBg end -->
+        <div class="modal">
+            <div class="modalWrap md_alert" id="md_alert">
+                <div class="modalContainer">
+                    <div class="modalTitle">
+                        <p>현재 상태로 저장 확인</p>
+                        <button class="close modalClose"></button>
+                    </div>
+                    <div class="modalContent">
+                        <div>
+                            <p>변경한 기여기간을 적용하시겠습니까?</p>
+                            <br>
+                            <p>기여기간을 수정하면 이후 집계되는 광고의 성과 기준이 바뀌게 됩니다.</p>
+                            <p>실제 적용은 약 수분 후 소요될 수 있으며,<br> 적용 후 들어오는 데이터부터해당 기여기간이 적용됩니다.</p>
+                            <br>
+                            <p>정말로 변경하시겠습니까?</p>
+                        </div>
+                    </div>
+                    <div class="modalFooter">
+                        <!-- 버튼 한개 사용 가능 -->
+                        <button type="button" class="confirm">확인</button>
+                        <button type="button" class="cancel">취소</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!-- // modalWrap end-->
+        </div>
+        <section class="container">
+            <div class="title">
+                <p>튠720</p>
+            </div>
+            <div class="content">
+                <section class="sec_key">
+                    <p>원태그 스크립트 설치를 위한 Service Key를 입력해 주세요.</p>
+                    <div class="inputArea">
+                        <div class="selectBox">
+                            <p>도메인 선택</p>
+                            <select name="" id="">
+                                <option value="">선택하세요.</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <p>Service Key</p>
+                            <input type="text">
+                        </div>
+                        <div class="checkBox">
+                            <input type="checkbox" name="chk_autoInterwork" id="chk_autoInterwork" checked>
+                            <label for="chk_autoInterwork">MOBON,CDP를 자동 연동합니다.</label>
+                            <button type="button" class="confirm modalOpen" data-popname="md_alert">확인</button>
+                        </div>
+                    </div>
+                    <div class="guideBox">
+                        <p>Tip</p>
+                        <p>TUNE720 &gt; 원태그 메뉴의 우측 상단에 도메인 정보를 클릭하면 보이는 Service key를 복사해서 붙여 넣어주세요.(실제 사용중인 도메인에 있는
+                            Service Key로 입력해 주세요.)</p>
+                        <p>Service Key가 없다면?</p>
+                        <ol>
+                            <li>TUNE720( <a href="http://tune.720.com">tune720.com</a> ) 광고주 회원 가입 </li>
+                            <li>원태그 메뉴 이동 </li>
+                            <li>사용중인 도메인 입력 후 만들기를 클릭하면 스크립트 생성</li>
+                            <li>우측 상단 ‘도메인 정보’ 클릭 후 해당 도메인의 Service key 복사</li>
+                            <li>카페24에서 다시 원태그 설치하기 또는 원태그 앱에서 '관리하기' 클릭 후 입력</li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+            <!--// content END -->
+        </section>
+    </div>
+</body>
+
+</html>

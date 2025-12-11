@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// 상품카테고리분석 -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li class="on"><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme">
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>상품분석</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="coverage"></i><span>추천 커버리지 현황</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="categoryAnalysis"></i><span>카테고리 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="prodAnalysis"></i><span>상품 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="recommendProdList"></i><span>추천 상품 리스트</span></a>
+                    <ul>
+                        <li><a href="javascript:void(0);">대체재 추천</a></li>
+                        <li><a href="javascript:void(0);">키워드 기반 추천</a></li>
+                        <li><a href="javascript:void(0);">보완재 추천</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="recommendEngine"></i><span>추천엔진</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_categoryAnalysis">
+                <div class="title">
+                    <p>카테고리 분석</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="calendarBox">
+                            <div class="calendar">
+                                <input type="text" id="dateInput" name="dateInput" value="">
+                            </div>
+                            <button type="button" class="search">검색</button>
+                        </div>
+                        <!--//calendarBox end-->
+                    </section>
+                    <section class="sec_category">
+                        <div class="tab">
+                            <ul>
+                                <li class="on"><a href="javascript:void(0);">광고주 카테고리</a></li>
+                                <li><a href="javascript:void(0);">표준 카테고리(상품기준)</a></li>
+                            </ul>
+                        </div>
+                        <div class="tabView">
+                            <!-- 광고주 카테고리 시작 -->
+                            <div class="tabViewList show">
+                                <div class="optionBox">
+                                    <div class="selectBox">
+                                        <select name="" id="">
+                                            <option value="">상품열람</option>
+                                        </select>
+                                        <span>VS.</span>
+                                        <select name="" id="">
+                                            <option value="">구매율</option>
+                                        </select>
+                                    </div>
+                                    <div class="labelBox">
+                                        <p>상품열람(회)</p>
+                                        <p>구매(건)</p>
+                                    </div>
+                                </div>
+                                <div class="graphBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 300px; border:1px solid #fff;"></div>
+                                </div>
+                                <div class="searchBox">
+                                    <div class="selectBox">
+                                        <select name="" id="">
+                                            <option value="">표준 카테고리 설정 여부</option>
+                                        </select>
+                                        <select name="" id="">
+                                            <option value="">AI 카테고리 설정여부</option>
+                                        </select></div>
+                                    <div class="searchBox">
+                                        <input type="text" placeholder="검색어를 입력하세요.">
+                                        <button type="button" class="search">검색</button>
+                                    </div>
+                                    <div class="buttonBox"><button class="excel">엑셀</button></div>
+                                </div>
+                                <!-- 테이블 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                <!-- <div class="tableArea tableDataNone"> -->
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">광고주 카테고리</th>
+                                                    <th colspan="3">표준 카테고리</th>
+                                                    <th rowspan="2">상품별<br>AI연동</th>
+                                                    <th rowspan="2">연관<br>카테고리</th>
+                                                    <th colspan="3">상품정보</th>
+                                                    <th colspan="5">쇼핑데이터</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="sorting">카테고리 1</th>
+                                                    <th class="sorting_asc">카테고리 2</th>
+                                                    <th class="sorting_desc">카테고리 1</th>
+                                                    <th>카테고리 2</th>
+                                                    <th>카테고리 3</th>
+                                                    <th>이미지</th>
+                                                    <th>상품수</th>
+                                                    <th>재구매주기</th>
+                                                    <th>총 방문수</th>
+                                                    <th>구매수</th>
+                                                    <th>평균 구매금액</th>
+                                                    <th>총매출</th>
+                                                    <th>구매율</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>133개</th>
+                                                    <th>85개</th>
+                                                    <th>121개</th>
+                                                    <th>55개</th>
+                                                    <th>14개</th>
+                                                    <th>13개</th>
+                                                    <th>86개</th>
+                                                    <th>-</th>
+                                                    <th>9,643개</th>
+                                                    <th>
+                                                        <button type="button" class="allSetting">전체설정</button>
+                                                    </th>
+                                                    <th>10,009,274회</th>
+                                                    <th>431,123건</th>
+                                                    <th>15,002,334원</th>
+                                                    <th>105,204,842원</th>
+                                                    <th>00.00%</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>DRESS</td>
+                                                    <td>원피스</td>
+                                                    <td><a href="javascript:void(0);">패션</a></td>
+                                                    <td><a href="javascript:void(0);">여성의류</a></td>
+                                                    <td><a href="javascript:void(0);">원피스</a></td>
+                                                    <td>OFF</td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">
+                                                            <span>패션</span>
+                                                            <span>여성의류</span>
+                                                            <span>자켓</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <!-- 상품 이미지가 없는경우 >> i 태그에  blakimg 클래스 추가 -->
+                                                        <i class="blakimg">이미지 없음</i>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">00개</a> </td>
+                                                    <td>
+                                                        <button type="button" class="setting">설정</button>
+                                                        <!-- 일 입력시 하단 이용 -->
+                                                        <div class="inputDay disNone">
+                                                            <div><input type="text">일</div>
+                                                            <button type="submit" class="save">저장</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>0,000,000회</td>
+                                                    <td>000,000건</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>000,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>OUTER</td>
+                                                    <td>-</td>
+                                                    <td><a href="javascript:void(0);">패션</a></td>
+                                                    <td><a href="javascript:void(0);">여성의류</a></td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">
+                                                            <p>AI 연동</p>
+                                                            <p>(진행중)</p>
+                                                        </a>
+                                                    </td>
+                                                    <td>ON</td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">
+                                                            <span>패션</span>
+                                                            <span>여성의류</span>
+                                                            <span>자켓</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/product_01.png">
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">00개</a>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="setting">설정</button>
+                                                        <!-- 일 입력시 하단 이용 -->
+                                                        <div class="inputDay disNone">
+                                                            <div><input type="text">일</div>
+                                                            <button type="submit" class="save">저장</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>0,000,000회</td>
+                                                    <td>000,000건</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>000,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>당/일/배/송</td>
+                                                    <td>-</td>
+                                                    <td colspan="3">
+                                                        <button type="button" class="setting">설정</button>
+                                                    </td>
+                                                    <td>OFF</td>
+                                                    <td>
+                                                        <button type="button" class="setting">설정</button>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/product_01.png">
+                                                    </td>
+                                                    <td> <a href="javascript:void(0);">00개</a> </td>
+                                                    <td>
+                                                        <div class="inputDay">
+                                                            <div><input type="text">일</div>
+                                                            <button type="submit" class="save">저장</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>0,000,000회</td>
+                                                    <td>000,000건</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>000,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>OUTER</td>
+                                                    <td>-</td>
+                                                    <td><a href="javascript:void(0);">패션</a></td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">
+                                                            <p>AI 연동완료</p>
+                                                            <p>(YYYY.MM.DD)</p>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">
+                                                            <p>AI 연동완료</p>
+                                                            <p>(YYYY.MM.DD) </p>
+                                                        </a>
+                                                    </td>
+                                                    <td>OFF</td>
+                                                    <td>
+                                                        <button type="button" class="setting">설정</button>
+                                                    </td>
+                                                    <td>
+                                                        <img src="../../image/test/product_01.png">
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">00개</a> </td>
+                                                    <td>
+                                                        <!-- <button type="button">설정</button> -->
+                                                        <div class="inputDay">
+                                                            <div><input type="text">일</div>
+                                                            <button type="submit" class="save">저장</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>0,000,000회</td>
+                                                    <td>000,000건</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>000,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--// tableBox end-->
+                                </div>
+                                <!-- tableDataNone 위치는 tableArea 클래스 다음이어야 함 -->
+                                <div class="tableDataNone">
+                                    <div>
+                                        <p>검색 결과가 없습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="paging">
+                                    <ul>
+                                        <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                        <li><a href="javascript:pageLink(2);">2</a></li>
+                                        <li><a href="javascript:pageLink(3);">3</a></li>
+                                        <li><a href="javascript:pageLink(4);">4</a></li>
+                                        <li><a href="javascript:pageLink(5);">5</a></li>
+                                        <li><a href="javascript:pageLink(6);">6</a></li>
+                                        <li><a href="javascript:pageLink(7);">7</a></li>
+                                        <li><a href="javascript:pageLink(8);">8</a></li>
+                                        <li><a href="javascript:pageLink(9);">9</a></li>
+                                        <li><a href="javascript:pageLink(10);">10</a></li>
+                                        <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                        <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                    </ul>
+                                </div>
+                                <!--// paging end-->
+                            </div>
+                            <!-- 광고주 카테고리 끝 -->
+                            <!-- 표준 카테고리(상품기준) 시작 -->
+                            <div class="tabViewList">
+                                <div class="optionBox">
+                                    <div class="selectBox">
+                                        <select name="" id="">
+                                            <option value="">클릭수(회)</option>
+                                        </select>
+                                        <span>VS.</span>
+                                        <select name="" id="">
+                                            <option value="">상품 수</option>
+                                            <option value="">클릭수(회)</option>
+                                            <option value="">구매수(건)</option>
+                                            <option value="">평균 구매금액(원)</option>
+                                            <option value="">총매출(원)</option>
+                                            <option value="">구매율(%)</option>
+                                        </select>
+                                    </div>
+                                    <div class="labelBox">
+                                        <p>클릭수(회)</p>
+                                        <p>구매수(건)</p>
+                                    </div>
+                                </div>
+                                <div class="graphBox">
+                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                    <div class="graph" style="height: 300px; border:1px solid #fff;"></div>
+                                </div>
+                                <div class="searchBox">
+                                    <div class="selectBox">
+                                        <select name="" id="">
+                                            <option value="">표준 카테고리 설정 여부</option>
+                                            <option value="">설정완료</option>
+                                            <option value="">미설정</option>
+                                        </select>
+                                        <select name="" id="">
+                                            <option value="">AI 카테고리 설정여부</option>
+                                            <option value="">On</option>
+                                            <option value="">Off</option>
+                                        </select></div>
+                                    <div class="searchBox">
+                                        <input type="text" placeholder="상품명이나 상품코드를 입력하세요.">
+                                        <button type="button" class="search">검색</button>
+                                    </div>
+                                    <div class="checkBox">
+                                        <input type="checkbox" name="chk_prodAll" id="chk_prodAll">
+                                        <label for="chk_prodAll">상품 전체 보기</label>
+                                    </div>
+                                    <select name="" id="">
+                                        <option value="">10개씩 보기</option>
+                                        <option value="">25개씩 보기</option>
+                                        <option value="">50개씩 보기</option>
+                                        <option value="">100개씩 보기</option>
+                                        <option value="">250개씩 보기</option>
+                                        <option value="" selected>500개씩 보기</option>
+                                        <option value="">1000개씩 보기</option>
+                                        <option value="">1500개씩 보기</option>
+                                    </select>
+                                    <div class="buttonBox"><button class="excel">엑셀</button></div>
+                                </div>
+                                <!-- 테이블 내용이 없을 때 tableWrap & tableAreaDataNone 함께 사용 -->
+                                <!-- <div class="tableArea tableAreaDataNone"> -->
+                                <div class="tableArea">
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">표준 카테고리</th>
+                                                    <th colspan="2">광고주 카테고리</th>
+                                                    <th colspan="2">상품정보</th>
+                                                    <th colspan="5">쇼핑데이터</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="sorting">표준 카테고리 1</th>
+                                                    <th class="sorting_asc">표준 카테고리 2</th>
+                                                    <th class="sorting_desc">표준 카테고리 3</th>
+                                                    <th class="sorting">광고주 카테고리1</th>
+                                                    <th class="sorting">광고주 카테고리2</th>
+                                                    <th>상품 이미지</th>
+                                                    <th class="sorting">상품수</th>
+                                                    <th class="sorting">클릭수</th>
+                                                    <th class="sorting">구매수</th>
+                                                    <th class="sorting">평균 구매금액</th>
+                                                    <th class="sorting">총매출</th>
+                                                    <th class="sorting">구매율</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>133개</th>
+                                                    <th>85개</th>
+                                                    <th>121개</th>
+                                                    <th>-</th>
+                                                    <th>-</th>
+                                                    <th>-</th>
+                                                    <th>8,996개</th>
+                                                    <th>0,000회</th>
+                                                    <th>10,009,274회</th>
+                                                    <th>99.99%</th>
+                                                    <th>10,009,274원</th>
+                                                    <th>00.00%</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="javascript:void(0);">패션</a></td>
+                                                    <td><a href="javascript:void(0);">여성의류</a></td>
+                                                    <td><a href="javascript:void(0);">니트/스웨터</a></td>
+                                                    <td>-</td>
+                                                    <td>TOP</td>
+                                                    <td>
+                                                        <!-- 이미지 없는 경우 -->
+                                                        <!-- <i class="blakimg">이미지없음</i> -->
+                                                        <!-- 이미지 있는 경우 -->
+                                                        <img src="../../image/test/test_1.png">
+                                                    </td>
+                                                    <td><a href="javascript:void(0);">1,599개</a></td>
+                                                    <td>0,000,000회</td>
+                                                    <td>0,000,000회</td>
+                                                    <td>00.00%</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="javascript:void(0);">패션</a></td>
+                                                    <td><a href="javascript:void(0);">여성의류</a></td>
+                                                    <td><a href="javascript:void(0);">니트/스웨터</a></td>
+                                                    <td>1만원대</td>
+                                                    <td>자켓</td>
+                                                    <td>
+                                                        <!-- 이미지 없는 경우 -->
+                                                        <!-- <i class="blakimg">이미지없음</i> -->
+                                                        <!-- 이미지 있는 경우 -->
+                                                        <img src="../../image/test/product_01.png">
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);">1,599개</a></td>
+                                                    <td>0,000,000회</td>
+                                                    <td>0,000,000회</td>
+                                                    <td>00.00%</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <button type="button" class="setting">설정</button>
+                                                    </td>
+                                                    <td>-</td>
+                                                    <td>원피스</td>
+                                                    <td>
+                                                        <i class="blakimg">이미지없음</i>
+                                                    </td>
+                                                    <td><a href="javascript:void(0);">1,599개</a></td>
+                                                    <td>0,000,000회</td>
+                                                    <td>0,000,000회</td>
+                                                    <td>00.00%</td>
+                                                    <td>00,000,000원</td>
+                                                    <td>00.00%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--// tableBox end-->
+                                </div>
+                                <!-- // tableArea end -->
+                                <!-- tableDataNone 위치는 tableArea 클래스 다음이어야 함 -->
+                                <div class="tableDataNone">
+                                    <div>
+                                        <p>검색 결과가 없습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="paging">
+                                    <ul>
+                                        <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                        <li><a href="javascript:pageLink(2);">2</a></li>
+                                        <li><a href="javascript:pageLink(3);">3</a></li>
+                                        <li><a href="javascript:pageLink(4);">4</a></li>
+                                        <li><a href="javascript:pageLink(5);">5</a></li>
+                                        <li><a href="javascript:pageLink(6);">6</a></li>
+                                        <li><a href="javascript:pageLink(7);">7</a></li>
+                                        <li><a href="javascript:pageLink(8);">8</a></li>
+                                        <li><a href="javascript:pageLink(9);">9</a></li>
+                                        <li><a href="javascript:pageLink(10);">10</a></li>
+                                        <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                        <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                    </ul>
+                                </div>
+                                <!--// paging end-->
+                            </div>
+                            <!-- 표준 카테고리(상품기준) 끝 -->
+                        </div>
+                        <!--// tabView end -->
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

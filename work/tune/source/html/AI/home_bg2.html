@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <!-- <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script> -->
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css"> -->
+</head>
+
+<body>
+    <!-- AI스튜디오 > AI HOME (tune_aiHome) -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                    <li class="on aiStudio"><a href="javascript:void(0);">AI 스튜디오</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme">
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>AI 스튜디오</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="home"></i><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="message"></i><span>최근 대화</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="ai"></i><span>AI질문 & 탐색</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="storage"></i><span>내 리포트 보관함</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="setting"></i><span>설정 & 튜닝</span></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- jquery로 .container 하위에 .tune_AIdashboard 클래스가 있는경우 .container에 tune_AIdashboard 클래스 추가하는 소스 추가함 -->
+        <section class="container">
+            <video autoplay loop muted playsinline class="bg_video">
+                <source src="../../image_v3/etc/bg_ai.mp4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline class="bg_video">
+                <source src="../../image_v3/etc/bgB_ai.mp4" type="video/mp4">
+            </video>
+            <!-- t1 : 입력전, t2: 입력 후-->
+            <div class="tune_aiHome t1">
+                <div class="title">
+                    <p>AI 스튜디오</p>
+                </div>
+                <div class="content">
+                    <section class="sec_aiHome">
+                        <div class="box_circle"><i class="ai_circle"></i></div>
+                        <div class="box_guide">
+                            <p>피핀님, 오늘도 데이터는 말하고 있어요. 무엇이 궁금하신가요?</p>
+                        </div>
+                        <div class="box_qna">
+                            <div class="qnaBox">
+                                <div class="Qbox">
+                                    <div class="box">
+                                        <p>응 생성해줘.</p>
+                                    </div>
+                                </div>
+                                <div class="Qbox">
+                                    <div class="box">
+                                        <p>응 생성해줘.</p>
+                                        <p>응 생성해줘.</p>
+                                    </div>
+                                </div>
+                                <div class="Abox">
+                                    <div class="tit">
+                                        <p> 튜니 </p>
+                                    </div>
+                                    <div class="cont">
+                                        <p>[고객 AOV 상승 전략 캠페인]이 생성되었어요. 일 타겟 예상 고객은 2,923명입니다. <br><br>이 캠페인을 ＇모비온＇광고에 집행
+                                            할게요.<br> 광고 셋팅 전략을 제안합니다.<br> 입찰전략: tROAS 300% / 고가상품 집중 시간대: PC 타임
+                                            (09시~20시) 매체 : 카카오RTB, 안랩TC<br><br> 이 캠페인으로 광고를 설정하시겠어요? </p>
+                                    </div>
+                                </div>
+                                <div class="Qbox">
+                                    <div class="box">
+                                        <p>좋아</p>
+                                    </div>
+                                </div>
+                                <div class="Abox">
+                                    <div class="tit">
+                                        <p> 튜니 </p>
+                                    </div>
+                                    <div class="cont">
+                                        <p>[고객 AOV 상승 전략 캠페인]이 생성되었어요. 일 타겟 예상 고객은 2,923명입니다. </p>
+                                        <p> 이 캠페인을 ＇모비온＇광고에 집행 할게요.</p>
+                                        <p>광고 셋팅 전략을 제안합니다.</p>
+                                        <p> 입찰전략: tROAS 300% / 고가상품 집중 시간대: PC 타임 (09시~20시) 매체 : 카카오RTB, 안랩TC</p>
+                                        <p>이 캠페인으로 광고를 설정하시겠어요? </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_input">
+                            <div class="textareaBox">
+                                <textarea name="" id="" placeholder="이번달 매출은 어때?"></textarea>
+                            </div>
+                            <div class="optionBox">
+                                <!-- <button type="button" class="fileUpload">파일첨부</button> -->
+                                <label class="fileUpload"> 파일첨부 <input type="file" hidden>
+                                </label>
+                                <button type="button" class="search">Search</button>
+                                <button type="button" class="voice">음성입력</button>
+                                <button type="button" class="voiceMode">음성모드</button>
+                            </div>
+                        </div>
+                        <div class="box_customQuestion">
+                            <div class="tit">
+                                <p>맞춤형 제안 질문</p>
+                            </div>
+                            <div class="cont">
+                                <!-- <button type="button">첫방문자 수는 느는데, 첫구매 전환율은 계속 떨어지고 있어요. 왜일까요?</button>
+                                <button type="button">우리 사이트에선 오랜 시간 머무는 데, 왜 장바구니에 잘 안 담을까요?</button>
+                                <button type="button">구매 전환율은 정상인데, 재구매 주기가 급격히 길어지고 있어요. 무슨 일이죠?”</button> -->
+                                <div class="box">
+                                    <a href="javascript:void(0);">
+                                        <button type="button" class="bookmark on">즐겨찾기</button>
+                                        <p>첫방문자 수는 느는데, 첫구매 전환율은 계속 떨어지고 있어요. 왜일까요?</p>
+                                    </a>
+                                </div>
+                                <div class="box">
+                                    <a href="javascript:void(0);">
+                                        <button type="button" class="bookmark">즐겨찾기</button>
+                                        <p>우리 사이트에선 오랜 시간 머무는 데, 왜 장바구니에 잘 안 담을까요?</p>
+                                    </a>
+                                </div>
+                                <div class="box">
+                                    <a href="javascript:void(0);">
+                                        <button type="button" class="bookmark">즐겨찾기</button>
+                                        <p>구매 전환율은 정상인데, 재구매 주기가 급격히 길어지고 있어요. 무슨 일이죠? 글자가 길어지게되면 어떻게 나올까요?”</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <!-- <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer> -->
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

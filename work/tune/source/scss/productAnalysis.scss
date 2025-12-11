@@ -1,0 +1,3335 @@
+@charset 'utf-8';
+
+/*
+File  : productAnalysis.scss
+Date  : 2024.11.05
+menu  : 상품분석
+*/
+
+.wrap {
+
+  /* 추천 커버리지 현황 */
+  .tune_adAnalysis {
+
+    .title {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+
+      section {
+        position: relative;
+
+        .dimBox {
+          @include dimBox();
+        }
+
+        //* 검색 영역 (달력, 위젯) */
+        &.sec_search {
+          width: 100%;
+
+          .box_search {
+            position: relative;
+            display: flex;
+            justify-content: end;
+
+            .calendarBox {
+              .calendar {
+                @include calendar;
+              }
+            }
+
+            .widgetBox {
+              margin-left: 10px;
+
+              button {
+                &.widget {
+                  @include ico_widget();
+                  width: 40px;
+                  height: 40px;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+        }
+
+        //* 광고효과 안내글 */
+        &.sec_alarm {
+          @include boxLayout($pd:0);
+          width: 100%;
+          height: 65px;
+          margin-top: 15px;
+
+          .box_alarm {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            .txtBox {
+              p {
+                margin: auto 0;
+                text-align: center;
+                font-size: 20px;
+
+                span {
+                  &:nth-of-type(1) {
+                    color: var(--pointColor2);
+                  }
+
+                  &:nth-of-type(2) {
+                    color: var(--pointColor);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //*  탭 버튼 */
+        &.sec_tabButton {
+          width: 100%;
+          margin-top: 30px;
+
+          .box_tabButton {
+            display: flex;
+            justify-content: end;
+
+            .tabButton {
+
+              //* 상품, 카테고리 */
+              &:nth-child(1) {
+                display: none;
+
+                button {
+                  @include btnLayout($br:5px);
+                  @include btn_main2;
+                  width: 120px;
+                  height: 40px;
+                  margin-left: 10px;
+                  font-size: 15px;
+
+                  &:first-child {
+                    margin-left: 0;
+                  }
+
+                  &.on {
+                    @include btn_main;
+                  }
+                }
+              }
+
+              //* 클릭, 노출, 전환(건), 전환(매출) */
+              &:nth-child(2) {
+                button {
+                  @include btnLayout($br:5px);
+                  @include btn_off;
+                  width: 90px;
+                  height: 30px;
+                  margin-left: 5px;
+                  font-size: 13px;
+
+                  &:first-child {
+                    margin-left: 0;
+                  }
+
+                  &.on {
+                    @include btn_main;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 컨텐츠 내용(광고효과) */
+        &.sec_adAnalysis {
+          position: relative;
+          width: 60%;
+          margin-top: 30px;
+          display: flex;
+          justify-content: space-between;
+
+          //* 광고효과 순위 */
+          .box_adAnalysis {
+            @include boxLayout($pd:30px 20px);
+            flex-grow: 1;
+            display: inline-grid;
+            height: 530px;
+            gap: 15px;
+
+            //* common */
+            .box {
+              @include boxLayout_t3;
+
+              .tooltipHover {
+                @include boxLayout_t3;
+                display: none;
+                position: absolute;
+                width: 370px;
+                height: 400px;
+                padding: 20px;
+                right: -90%;
+                z-index: 800;
+
+                .imgBox {
+                  margin-top: 20px;
+
+                  img {
+                    width: 100%;
+                    height: 250px;
+                  }
+                }
+
+                .titBox {
+                  margin-top: 18px;
+
+                  p {
+                    @include ellipsis;
+                    @include ftMedium;
+                    font-size: 16px;
+                  }
+                }
+
+                .countBox {
+                  margin-top: 20px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+
+                  >div {
+                    display: flex;
+                    justify-content: start;
+
+                    >p {
+                      position: relative;
+                      width: 80px;
+                      font-size: 13px;
+
+                      &:after {
+                        content: "";
+                        position: absolute;
+                        display: inline-block;
+                        width: 1px;
+                        height: 8px;
+                        margin-left: 10px;
+                        top: 3px;
+                        right: 1px;
+                        border-right: 1px solid #fff;
+                      }
+                    }
+
+                    >div {
+                      @include ellipsis;
+                      font-size: 13px;
+                      margin-left: 15px;
+                      text-align: left;
+
+                      &:after {
+                        content: "건";
+                        position: relative;
+                        display: inline-block;
+                        font-size: 13px;
+                      }
+                    }
+
+                    &:nth-child(1),
+                    &:nth-child(3) {
+                      width: 40%;
+
+                      >p {
+                        width: 40px;
+                      }
+                    }
+
+                    &:nth-child(2),
+                    &:nth-child(4) {
+                      flex-grow: 1;
+                      max-width: 58%;
+
+                    }
+
+                    &:nth-child(3),
+                    &:nth-child(4) {
+                      margin-top: 10px;
+                    }
+
+                    &:nth-child(4) {
+                      >div {
+                        &:after {
+                          content: "원";
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .tit {
+                p {
+                  &:nth-child(1) {
+                    span {
+                      color: var(--pointColor);
+
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    span {
+                      color: var(--pointColor2);
+
+                    }
+                  }
+                }
+              }
+
+              .cont {
+                .titBox {
+                  p {
+                    @include ellipsis;
+
+                    a {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+
+              /* TOP 1 */
+              &:nth-child(1) {
+                grid-column: 1/span 1;
+                grid-row: 1/ span 2;
+                width: auto;
+                min-width: 390px;
+                height: 100%;
+                padding: 20px 30px;
+
+                .tit {
+                  p {
+                    &:nth-child(1) {
+                      @include ftMedium;
+                      font-size: 18px;
+
+                      &:after {
+                        @include iLayout;
+                        @include icoB_crown;
+                        width: 20px;
+                        height: 20px;
+                        content: "";
+                        position: relative;
+                        display: inline-block;
+                        margin-left: 7px;
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      margin-top: 8px;
+                    }
+                  }
+                }
+
+                .cont {
+                  .imgBox {
+                    margin-top: 20px;
+
+                    img {
+                      width: 100%;
+                      height: 250px;
+                    }
+                  }
+
+                  .titBox {
+                    margin-top: 18px;
+
+                    p {
+                      @include ftMedium;
+                      font-size: 16px;
+                      text-decoration: underline;
+                    }
+                  }
+
+                  .countBox {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    >div {
+                      display: flex;
+                      justify-content: start;
+
+                      >p {
+                        position: relative;
+                        width: 80px;
+                        font-size: 13px;
+
+                        &:after {
+                          content: "";
+                          position: absolute;
+                          display: inline-block;
+                          width: 1px;
+                          height: 8px;
+                          margin-left: 10px;
+                          top: 3px;
+                          right: 1px;
+                          border-right: 1px solid #fff;
+                        }
+                      }
+
+                      >div {
+                        @include ellipsis;
+                        font-size: 13px;
+                        margin-left: 15px;
+                        text-align: left;
+
+                        &:after {
+                          content: "건";
+                          position: relative;
+                          display: inline-block;
+                          font-size: 13px;
+                        }
+                      }
+
+                      &:nth-child(1),
+                      &:nth-child(3) {
+                        width: 40%;
+
+                        >p {
+                          width: 40px;
+                        }
+                      }
+
+                      &:nth-child(2),
+                      &:nth-child(4) {
+                        flex-grow: 1;
+                        max-width: 58%;
+
+                      }
+
+                      &:nth-child(3),
+                      &:nth-child(4) {
+                        margin-top: 10px;
+                      }
+
+                      &:nth-child(4) {
+                        >div {
+                          &:after {
+                            content: "원";
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              /* TOP 2~5 */
+              &:nth-child(2),
+              &:nth-child(3),
+              &:nth-child(4),
+              &:nth-child(5) {
+                min-width: 250px;
+                height: 230px;
+                padding: 20px;
+
+                .tit {
+                  p {
+                    display: inline-block;
+
+                    &:nth-child(2) {
+                      font-size: 12px;
+                    }
+                  }
+                }
+
+                .cont {
+                  margin-top: 20px;
+
+                  .imgBox {
+                    img {
+                      width: 100%;
+                      height: 120px;
+                    }
+                  }
+
+                  .titBox {
+                    margin-top: 10px;
+                    font-size: 13px;
+                  }
+                }
+              }
+
+              /* TOP 2 */
+              &:nth-child(2) {
+                grid-column: 2 /span 1;
+                grid-row: 1/ span 1;
+              }
+
+              /* TOP 3 */
+              &:nth-child(3) {
+                grid-column: 3 /span 1;
+                grid-row: 1/ span 1;
+              }
+
+              /* TOP 4 */
+              &:nth-child(4) {
+                grid-column: 2 /span 1;
+                grid-row: 2/ span 1;
+              }
+
+              /* TOP 5 */
+              &:nth-child(5) {
+                grid-column: 3 /span 1;
+                grid-row: 2/ span 1;
+              }
+            }
+          }
+        }
+
+        //* Race 그래프 */
+        &.sec_raceGraph {
+          width: calc(40% - 30px);
+          height: 530px;
+          margin-top: 30px;
+          margin-left: 30px;
+
+          .box_raceGraph {
+            @include boxLayout();
+            min-width: 600px;
+            height: 100%;
+            padding-top: 30px;
+            flex-grow: 0.4;
+
+            //* 그래프 있을때 없을때 on/off 조절 */
+            &.on {
+              .graphNone {
+                display: none;
+              }
+            }
+
+            &.off {
+
+              .tit,
+              .cont {
+                display: none;
+              }
+            }
+
+            .tit {
+              position: relative;
+              @include flex_between;
+              
+              p {
+                @include title;
+                // @include ftMedium;
+                // font-size: 16px;
+              }
+
+              button {
+                &.run {
+                  @include btnLayout;
+                  @include btn_main();
+                  width: 70px;
+                  height: 30px;
+                }
+              }
+            }
+
+            .cont {
+              margin-top: 20px;
+
+              .graphLine {
+                cursor: pointer;
+              }
+
+              .tooltipHover {
+                @include boxLayout_t3;
+                display: none;
+                position: absolute;
+                width: 270px;
+                height: 330px;
+                padding: 20px;
+                right: 30px;
+                bottom: 20px;
+                z-index: 800;
+
+                .imgBox {
+
+                  img {
+                    width: 100%;
+                    height: 230px;
+                  }
+                }
+
+                .titBox {
+                  margin-top: 15px;
+
+                  p {
+                    @include ellipsis_l4($wlc:2);
+                    @include ftMedium;
+                    font-size: 14px;
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
+
+            .graphNone {
+              position: relative;
+              display: flex;
+              height: 100%;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+
+              p {
+                font-size: 20px;
+              }
+
+              button {
+                margin-top: 20px;
+
+                &.run {
+                  @include btnLayout;
+                  @include btn_main();
+                  @include ftBold;
+                  width: 230px;
+                  height: 50px;
+                  font-size: 16px;
+
+                  &:after {
+                    content: ">";
+                    position: relative;
+                    display: inline-block;
+                    margin-left: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        /* 도넛그래프 */
+        &.sec_adGraph {
+          width: 100%;
+
+          .box_adGraph {
+            @include boxLayout();
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+
+            .graphArea {
+              @include boxLayout_t3();
+              flex-grow: 1;
+              width: 33.33333%;
+              margin-left: 20px;
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+              .tit {
+                margin-top: 10px;
+                text-align: center;
+
+                p {
+                  @include ftMedium;
+                  font-size: 16px;
+                }
+              }
+
+              .cont {
+                margin-top: 15px;
+
+                .graphBox {
+                  margin-top: 20px;
+
+                  .graph {
+                    margin: 0 auto;
+                  }
+                }
+
+                .totalBox {
+                  margin-top: 20px;
+                  text-align: center;
+
+                  p {
+                    @include ftMedium;
+                    font-size: 16px;
+
+                    &:before {
+                      content: "Total";
+                      position: relative;
+                      display: inline-block;
+                      margin-right: 10px;
+                    }
+
+                    &:after {
+                      content: "원";
+                      position: relative;
+                      display: inline-block;
+                    }
+                  }
+                }
+
+                .labelBox {
+                  margin-top: 20px;
+
+                  >div {
+                    display: flex;
+                    margin-top: 10px;
+                    width: 60%;
+                    margin: 10px 10% 0 30%;
+
+                    p {
+                      display: inline-block;
+
+                      &:nth-child(1) {
+                        width: 120px;
+
+                        &:before {
+                          content: "";
+                          position: relative;
+                          display: inline-block;
+                          width: 10px;
+                          height: 10px;
+                          margin-right: 10px;
+                          // background-color: var(--pointColor);
+                        }
+                      }
+
+                      &:nth-child(2) {
+                        &:after {
+                          content: "원";
+                          position: relative;
+                          display: inline-block;
+                        }
+                      }
+                    }
+
+                    &:first-child {
+                      margin-top: 0;
+
+                      p {
+                        &:before {
+                          background-color: var(--pointColor);
+                        }
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      p {
+                        &:before {
+                          background-color: var(--pointColor2);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              //* graphArea -1 */
+              &:nth-child(1) {
+                .cont {
+                  .totalBox {
+                    p {
+                      &:after {
+                        content: "명";
+                      }
+                    }
+                  }
+
+                  .labelBox {
+                    >div {
+                      p {
+                        &:nth-child(2) {
+                          &:after {
+                            content: "명";
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              //* graphArea -2 */
+              &:nth-child(2) {
+                .cont {
+                  .totalBox {
+                    p {
+                      &:after {
+                        content: "건";
+                      }
+                    }
+                  }
+
+                  .labelBox {
+                    >div {
+                      p {
+                        &:nth-child(2) {
+                          &:after {
+                            content: "건";
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //* 리스트 테이블 */
+        &.sec_list {
+          width: 100%;
+
+          .box_list {
+            @include boxLayout();
+            margin-top: 30px;
+
+            .tableBox {
+              width: 100%;
+              border-radius: 0;
+              margin-top: 20px;
+              padding: 0;
+              background-color: transparent;
+
+              .tableWrap {
+                @include tableLayout_t2;
+                padding: 0;
+                background-color: transparent;
+
+                table {
+                  width: 100%;
+                  // border-color: #282f51;
+                  background-color: transparent;
+
+                  thead,
+                  tbody {
+                    tr {
+                      // border-color: #282f51;
+
+                      th,
+                      td {
+                        font-size: 13px;
+                        // border-color: #282f51;
+                      }
+                    }
+                  }
+
+                  thead {
+                    tr {
+                      th {
+                        @include ftMedium;
+                        font-size: 13px;
+                        color: #fff;
+                        // background-color: #0a072b;
+                        // background-color: var(--tblTheadBgColor3);
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      td {
+                        color: var(--ftColor6);
+
+                        //* 상품 th */
+                        &:nth-child(1) {
+                          width: 340px;
+
+                          .imgBox {
+                            position: relative;
+                            display: inline-block;
+                            vertical-align: middle;
+
+                            .tooltipHover {
+                              @include boxLayout_t3;
+                              display: none;
+                              position: absolute;
+                              width: 270px;
+                              height: 330px;
+                              padding: 20px;
+                              top: 40px;
+                              left: 80%;
+                              z-index: 800;
+
+                              .imgBox {
+
+                                img {
+                                  width: 100%;
+                                  height: 230px;
+                                }
+                              }
+
+                              .titBox {
+                                margin-top: 15px;
+
+                                p {
+                                  @include ellipsis_l4($wlc:2);
+                                  @include ftMedium;
+                                  font-size: 14px;
+                                  text-decoration: underline;
+                                }
+                              }
+                            }
+
+                            img {
+                              width: 80px;
+                              height: 80px;
+                              cursor: pointer;
+                            }
+                          }
+
+                          .graphBox {
+                            display: inline-block;
+                            margin-left: 15px;
+                            vertical-align: middle;
+
+                            .prdName {
+                              @include ellipsis;
+                              width: 220px;
+                              font-size: 13px;
+                              text-align: left;
+                            }
+
+                            .graphArea {
+                              position: relative;
+                              width: 100%;
+                              max-width: 210px;
+                              cursor: pointer;
+
+                              .tooltipHover {
+                                display: none;
+                                position: absolute;
+                                min-width: 220px;
+                                top: 30px;
+                                height: 90px;
+                                padding: 20px 30px;
+                                // border: 1px solid #4f4fa4;
+                                border: 1px solid var(--borderColor);
+                                border-radius: 5px;
+                                background-color: var(--bgColor11);
+                                box-shadow: var(--shadow5);
+                                z-index: 800;
+
+                                >div {
+
+                                  p {
+                                    display: inline-block;
+                                    color: var(--ftColor6);
+                                    font-size: 13px;
+
+                                    &:nth-child(1) {
+                                      &:before {
+                                        content: "";
+                                        position: relative;
+                                        display: inline-block;
+                                        width: 12px;
+                                        height: 12px;
+                                        margin-right: 10px;
+                                        border-radius: 100%;
+                                      }
+
+                                      &:after {
+                                        content: ":";
+                                        position: relative;
+                                        display: inline-block;
+
+                                      }
+                                    }
+
+                                    &:nth-child(2) {
+                                      &:after {
+                                        content: "명";
+                                        position: relative;
+                                        display: inline-block;
+                                      }
+                                    }
+                                  }
+
+                                  &:nth-child(1) {
+                                    p {
+                                      &:first-child {
+                                        &:before {
+                                          background-color: var(--pointColor2);
+                                        }
+                                      }
+                                    }
+                                  }
+
+                                  &:nth-child(2) {
+                                    margin-top: 10px;
+
+                                    p {
+                                      &:first-child {
+                                        &:before {
+                                          background-color: var(--pointColor);
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+
+                              .graph {
+                                position: relative;
+                                display: flex;
+                                flex-direction: row;
+                                width: 100%;
+                                height: 18px;
+                                margin-top: 10px;
+                                border-radius: 9px;
+
+                                >div {
+                                  @include ellipsis;
+                                  padding: 0 8px;
+                                  line-height: 1.8;
+                                  text-align: center;
+                                  font-size: 10px;
+
+                                  &:first-child {
+                                    // color: #0c1439;
+                                    color: var(--ftColor3);
+                                    border-radius: 9px 0 0 9px;
+                                    background-color: var(--pointColor);
+                                  }
+
+                                  &:nth-child(2) {
+                                    color: #fff;
+                                    border-radius: 0 9px 9px 0;
+                                    background-color: var(--pointColor2);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+
+                        /* 카테고리 */
+                        &:nth-child(2) {
+                          .category {
+                            span {
+                              display: block;
+                              text-align: center;
+
+                              &:after {
+                                content: ">";
+                                position: relative;
+                                display: inline-block;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      &:nth-last-child(1),
+                      &:nth-last-child(2),
+                      &:nth-last-child(3) {
+                        td {
+                          &:nth-child(1) {
+                            .imgBox {
+                              .tooltipHover {
+                                top: auto;
+                                bottom: 40px;
+                              }
+                            }
+
+                            .graphArea {
+                              .tooltipHover {
+                                top: auto;
+                                bottom: 30px;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 상품분석 > 판매예측 분석 */
+  .tune_salesForecast {
+    .title {
+      @include titleLayout;
+
+      p {
+        &:nth-child(3) {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          color: var(--white);
+        }
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+
+        //* 전체 상품 갯수 */
+        &.sec_numberProduct {
+          @include boxLayout;
+          min-height: 70px;
+
+          p {
+            @include ftMedium;
+            font-size: 20px;
+            text-align: center;
+
+            span {
+              &:nth-of-type(1) {
+                margin: 0 2px;
+                color: var(--pointColor2);
+                font-size: 22px;
+              }
+
+              &:nth-of-type(2) {
+                color: var(--pointColor);
+              }
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout2;
+          margin-top: 30px;
+
+          .date {
+            text-align: center;
+            border-bottom: 1px solid var(--borderColor3);
+            padding-bottom: 20px;
+
+            p {
+              @include ftMedium;
+              position: relative;
+              display: inline-block;
+              min-width: 250px;
+              padding: 7px 0;
+              font-size: 18px;
+              vertical-align: middle;
+              text-align: center;
+            }
+
+            button {
+              @include iLayout;
+              padding: 15px 20px;
+              vertical-align: middle;
+
+              &.prev {
+                @include ico_lineLeft4;
+              }
+
+              &.next {
+                @include ico_lineRight4;
+              }
+            }
+          }
+
+          //* 상품 예측 */
+          .loading {
+            position: relative;
+            text-align: center;
+            margin: 200px 0;
+
+            p {
+              line-height: 20px;
+
+              &:nth-child(1) {
+                font-size: 18px;
+              }
+
+              &:nth-child(2) {
+                margin-top: 10px;
+                font-size: 14px;
+                color: var(--subFtColor);
+
+                span {
+                  text-decoration: underline;
+                }
+              }
+
+              &:nth-child(3) {
+                margin-top: 10px;
+                font-size: 13px;
+                color: var(--ftColor);
+              }
+            }
+          }
+
+          .tabButton {
+            @include tabLi_t2($width:160px);
+            margin: 20px 0 0 0;
+            text-align: right;
+
+            .iBox {
+              margin-left: 4px;
+
+              .iMarkHover {
+                @include iMarkHover_R;
+                bottom: 27px;
+              }
+            }
+          }
+
+          .tab {
+            @include tabLi_t6($height:50px);
+            margin-top: 20px;
+          }
+
+          .tabView {
+            .tabViewList {
+              @include tabViewList;
+              position: relative;
+
+              .dataNone {
+                @include dataNone;
+              }
+
+              .labelBox {
+                position: absolute;
+                top: -35px;
+                right: 0;
+                text-align: center;
+
+                p {
+                  display: inline-block;
+                  font-size: 13px;
+
+                  &:before {
+                    content: "";
+                    position: relative;
+                    display: inline-block;
+                    width: 10px;
+                    height: 15px;
+                    top: 3px;
+                    margin-right: 8px;
+                  }
+
+                  &:nth-child(n+2) {
+                    margin-left: 20px;
+                  }
+
+                  &:nth-child(1) {
+                    &:before {
+                      background-color: var(--pointColor);
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    &:before {
+                      background-color: #fddd60;
+                    }
+                  }
+
+                  &:nth-child(3) {
+                    &:before {
+                      background-color: #c0059b;
+                    }
+                  }
+
+                  &:nth-child(4) {
+                    &:before {
+                      background-color: #ff6e76;
+                    }
+                  }
+
+                  &:nth-child(5) {
+                    &:before {
+                      background-color: #4992ff;
+                    }
+                  }
+
+                  &:nth-child(6) {
+                    &:before {
+                      background-color: #7cffb2;
+                    }
+                  }
+
+                  &:nth-child(7) {
+                    &:before {
+                      background-color: #8d48e3;
+                    }
+                  }
+
+                  &:nth-child(8) {
+                    &:before {
+                      background-color: #05c091;
+                    }
+                  }
+
+                  &:nth-child(9) {
+                    &:before {
+                      background-color: #ff8a45;
+                    }
+                  }
+
+                  &:nth-child(10) {
+                    &:before {
+                      background-color: #9fc987;
+                    }
+                  }
+                }
+              }
+
+              //* TODAY 예측 탭 */
+              &:nth-child(1),
+              &:nth-child(n+3) {
+                .tableArea {
+                  padding: 0;
+
+                  .tableBox {
+                    @include tableWrap;
+                    @include tableLayout_t4;
+
+                    table {
+                      thead {
+                        tr {
+                          th {
+                            .iBox {
+                              top: 3px;
+                              margin-left: 2px;
+
+                              .iMark {
+                                @include ico_i_wht;
+                              }
+
+                              .iMarkHover {
+                                @include iMarkHover_TL;
+                              }
+                            }
+
+                            &:last-child {
+                              width: 35%;
+
+                              .iBox {
+                                .iMarkHover {
+                                  @include iMarkHover_TR;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      tbody {
+                        tr {
+
+                          //* 1 */
+                          &:nth-child(1) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank1;
+                                      top: 5px;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          //* 2 */
+                          &:nth-child(2) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank2;
+                                      top: 5px;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          //* 3 */
+                          &:nth-child(3) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank3;
+                                      top: 5px;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          &:nth-child(n+4) {
+                            td {
+                              &:first-child {
+                                p {
+                                  &:nth-child(1) {
+                                    @include ftBold;
+                                    font-size: 20px;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          td {
+                            &:nth-child(1) {
+                              .default {
+                                color: var(--ftColor6);
+                                font-size: 13px;
+
+                                &:before {
+                                  content: "";
+                                  position: relative;
+                                  display: inline-block;
+                                  width: 6px;
+                                  height: 2px;
+                                  top: -3px;
+                                  margin-right: 3px;
+                                  background-color: var(--ftColor6);
+                                }
+                              }
+
+                              .up {
+                                color: var(--upColor);
+                                font-size: 13px;
+
+                                &:before {
+                                  content: "▲";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-right: 2px;
+                                }
+                              }
+
+                              .down {
+                                color: var(--downColor);
+                                font-size: 13px;
+
+
+                                &:before {
+                                  content: "▼";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-right: 2px;
+                                }
+                              }
+                            }
+
+                            &:nth-child(n+2) {
+                              .default {
+                                color: var(--pointColor6);
+                                font-size: 13px;
+                              }
+
+                              .up {
+                                color: var(--upColor);
+                                font-size: 13px;
+
+                                &:before {
+                                  content: "오차 ▲";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-right: 2px;
+                                }
+                              }
+
+                              .down {
+                                color: var(--downColor);
+                                font-size: 13px;
+
+
+                                &:before {
+                                  content: "오차 ▼";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-right: 2px;
+                                }
+                              }
+                            }
+
+                            .pc {
+                              color: var(--pointColor);
+                            }
+
+                            p {
+                              &:nth-child(2) {
+                                font-size: 13px;
+                                margin-top: 10px;
+                              }
+                            }
+
+                            img {
+                              width: 150px;
+                              height: 150px;
+                            }
+
+                            /* 예측 top 100 */
+                            &:nth-child(2) {
+                              width: 30%;
+                              max-width: 30%;
+                              text-align: left;
+
+                              >div {
+                                display: inline-flex;
+                                flex-direction: column;
+                                width: calc(100% - 170px);
+                                min-height: 150px;
+                                margin-left: 10px;
+                                vertical-align: top;
+
+                                p {
+                                  text-align: left;
+
+                                  &:nth-child(1) {}
+
+                                  &:nth-child(2) {
+                                    flex-grow: 1;
+                                  }
+
+                                  &:nth-child(3) {
+                                    color: var(--pointColor);
+                                  }
+
+                                  &:nth-child(4) {
+                                    color: var(--pointColor);
+                                  }
+                                }
+                              }
+                            }
+
+                            /* 광고주 카테고리 */
+                            &:nth-child(3) {
+                              p {
+                                &:after {
+                                  content: ">";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-left: 2px;
+                                }
+                              }
+                            }
+
+                            /* 예측 점수 */
+                            &:nth-child(4) {
+                              p {
+                                &:after {
+                                  content: ">";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-left: 2px;
+                                }
+
+                                &:last-child {
+                                  &:after {
+                                    display: none;
+                                  }
+                                }
+                              }
+                            }
+
+                            /* 판매 예측 순위 */
+                            &:nth-child(6) {
+                              p {
+                                &:nth-child(1) {}
+
+                                &:nth-child(2) {
+                                  margin-top: 10px;
+
+                                  &.default {
+                                    color: #71ec8e;
+                                  }
+
+                                  &.up {
+                                    color: var(--upColor);
+
+                                    &:before {
+                                      content: "오차 ▲";
+                                      position: relative;
+                                      display: inline-block;
+                                      margin: 0 1px;
+                                      color: var(--upColor);
+                                    }
+                                  }
+
+                                  &.down {
+                                    color: var(--downColor);
+
+                                    &:before {
+                                      content: "오차 ▼";
+                                      position: relative;
+                                      display: inline-block;
+                                      margin: 0 1px;
+                                    }
+                                  }
+                                }
+
+                                &:nth-child(3) {}
+
+                                &:nth-child(4) {
+                                  margin-top: 10px;
+                                  text-align: left;
+                                }
+
+                                &:nth-child(5) {
+                                  text-align: left;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              //* 누적 30일 순위 */
+              &:nth-child(2) {
+                .graphBox {}
+
+                .tableHeader {
+                  border-top: 1px solid var(--borderColor);
+                  margin: 30px 0 20px 0;
+                  padding-top: 30px;
+
+                  .titBox {
+                    p {
+                      @include ftMedium;
+                      font-size: 18px;
+                    }
+                  }
+                }
+
+                .tableArea {
+                  padding: 0;
+
+                  .tableBox {
+                    @include tableWrap;
+                    @include tableLayout_t4;
+
+                    table {
+                      tbody {
+                        tr {
+
+                          /* 1, 2, 3 공통 */
+                          &:nth-child(1),
+                          &:nth-child(2),
+                          &:nth-child(3) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(2) {
+                                    font-size: 13px;
+
+                                    &.default {
+                                      color: var(--white);
+
+                                      &:before {
+                                        content: "";
+                                        position: relative;
+                                        display: inline-block;
+                                        width: 6px;
+                                        height: 2px;
+                                        top: -3px;
+                                        margin-right: 3px;
+                                        background-color: var(--white);
+                                      }
+                                    }
+
+                                    &.up {
+                                      color: var(--upColor);
+
+                                      &:before {
+                                        content: "▲";
+                                        position: relative;
+                                        display: inline-block;
+                                        margin-right: 2px;
+                                      }
+                                    }
+
+                                    &.down {
+                                      color: var(--downColor);
+
+                                      &:before {
+                                        content: "▼";
+                                        position: relative;
+                                        display: inline-block;
+                                        margin-right: 2px;
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          &:nth-child(n+4) {
+                            td {
+                              &:first-child {
+                                p {
+                                  @include ftBold;
+                                  font-size: 20px;
+                                }
+                              }
+                            }
+                          }
+
+                          /* 1 */
+                          &:nth-child(1) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank1;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          /* 2 */
+                          &:nth-child(2) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank2;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          /* 3 */
+                          &:nth-child(3) {
+                            td {
+                              &:nth-child(1) {
+                                p {
+                                  &:nth-child(1) {
+                                    font-size: 0;
+
+                                    &:before {
+                                      @include iLayout;
+                                      @include ico_rank3;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                          td {
+                            img {
+                              width: 150px;
+                              height: 150px;
+                            }
+
+                            /* 예측 top 100 */
+                            &:nth-child(2) {
+                              width: 30%;
+                              max-width: 30%;
+                              text-align: left;
+
+                              >div {
+                                display: inline-flex;
+                                flex-direction: column;
+                                width: calc(100% - 170px);
+                                min-height: 150px;
+                                margin-left: 10px;
+                                vertical-align: top;
+
+                                p {
+                                  text-align: left;
+
+                                  &:nth-child(1) {}
+
+                                  &:nth-child(2) {
+                                    flex-grow: 1;
+                                  }
+
+                                  &:nth-child(3) {
+                                    color: var(--pointColor);
+                                  }
+
+                                  &:nth-child(4) {
+                                    color: var(--pointColor);
+                                  }
+                                }
+                              }
+                            }
+
+                            /* 광고주 카테고리 */
+                            &:nth-child(3) {
+                              p {
+                                &:after {
+                                  content: ">";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-left: 2px;
+                                }
+                              }
+                            }
+
+                            /* 표준 카테고리  */
+                            &:nth-child(4) {
+                              p {
+                                &:after {
+                                  content: ">";
+                                  position: relative;
+                                  display: inline-block;
+                                  margin-left: 2px;
+                                }
+
+                                &:last-child {
+                                  &:after {
+                                    display: none;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  /* 상품 분석 */
+  .tune_productAnalysis {
+
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      // @include flex_between;
+      // flex-wrap: wrap;
+      margin-top: 30px;
+
+      section {
+        position: relative;
+
+        //* 신규상품 vs 히트 상품, 재구매 및 악성 상품 분석 */
+        &.sec_newHitGraph,
+        &.sec_repurchaseAnalysis {
+          @include widget_graph2;
+          margin-top: 30px;
+        }
+
+        //* 상품 점유율 RACE */
+        &.sec_productRaceGraph {
+          .box_productRaceGraph {
+            @include widget_productRaceGraph;
+            margin: 30px 0 0 0;
+          }
+        }
+
+        /* 업종 비교 */
+        &.sec_compare {
+          @include boxLayout();
+          margin-top: 30px;
+          height: 480px;
+          width: 100%;
+
+          >.titBox {
+            @include flex_between;
+            @include titleLayout;
+
+            p {
+              
+              @include ftMedium;
+              font-size: 16px;
+
+              span {
+                margin: 0 2px;
+
+                &:nth-child(1) {
+                  color: var(--pointColor);
+                }
+
+                &:nth-child(2) {
+                  color: var(--pointColor2);
+                }
+              }
+            }
+          }
+
+          >.contBox {
+            .box_graph {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 30px;
+
+              .searchBox {
+                position: absolute;
+                top: 60px;
+                right: 30px;
+
+                .tabButton {
+                  display: inline-block;
+                  margin-left: 25px;
+
+                  p {
+                    display: inline-block;
+                    color: var(--subFtColor);
+                    font-size: 16px;
+                  }
+
+                  button {
+                    @include btnLayout($br:15px);
+                    @include btn_main;
+                    min-width: 90px;
+                    height: 30px;
+                    margin-left: 8px;
+                    padding: 2px 10px 3px;
+                    font-size: 14px;
+
+                    &.on,
+                    &:hover {
+                      @include btn_main2;
+                    }
+
+                    &:first-child {
+                      margin-left: 15px;
+                    }
+                  }
+                }
+              }
+
+              .box {
+                flex-grow: 1;
+                margin-top: 30px;
+
+                .titBox {
+                  text-align: center;
+
+                  p {
+                    @include title($fs:16px);
+                  }
+                }
+
+                .graphBox {
+                  .graph {
+                    margin: 0 auto;
+                    min-width: 550px;
+                    // width: 100%;
+                  }
+                }
+
+                .labelBox {
+                  margin-top: 20px;
+                  text-align: center;
+
+                  p {
+                    display: inline-block;
+                    font-size: 13px;
+
+                    &:first-child {
+                      &:before {
+                        background-color: var(--pointColor);
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      margin-left: 30px;
+
+                      &:before {
+                        background-color: var(--pointColor2);
+                      }
+                    }
+
+                    &:before {
+                      content: "";
+                      position: relative;
+                      display: inline-block;
+                      width: 10px;
+                      height: 15px;
+                      top: -2px;
+                      margin-right: 10px;
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 상품 기반 */
+  .tune_productBase {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      section {
+        &.sec_productBase {
+          @include boxLayout;
+          margin-top: 30px;
+
+          .optionBox {
+            @include flex_between;
+            margin: 5px 0 0 0;
+
+            >div {
+              &:first-child {
+                flex-grow: 1;
+
+                p {
+                  @include ip_title;
+                }
+
+                .radioBox {
+                  display: inline-block;
+                  margin-left: 25px;
+
+                  &+label {
+                    margin-right: 30px;
+                  }
+                }
+              }
+
+              &.dateBox {
+                position: relative;
+                top: 10px;
+                font-size: 15px;
+              }
+            }
+          }
+
+          .tableBox {
+            margin-top: 30px;
+
+            ul {
+              li {
+                display: flex;
+                margin-top: 30px;
+
+                &:first-child {
+                  margin-top: 0;
+                }
+
+                dl {
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                  min-height: 260px;
+                  border: 1px solid var(--tblBorderColor);
+                  border-left: none;
+
+                  &:first-child {
+                    width: 275px;
+                    border-left: 1px solid var(--tblBorderColor);
+                  }
+
+                  &:nth-child(2) {
+                    width: 250px;
+                  }
+
+                  &:nth-child(3) {
+                    width: 550px;
+                  }
+
+                  &:nth-child(4) {
+                    width: 110px;
+                  }
+
+                  &:nth-child(5) {
+                    width: 100px;
+                  }
+
+                  &:nth-child(6) {
+                    width: 90px;
+                  }
+
+                  &:nth-child(7) {
+                    width: 90px;
+                  }
+
+                  &:nth-child(8) {
+                    width: 90px;
+                  }
+
+                  dt {
+                    height: 38px;
+                    padding: 12px 13px;
+                    font-size: 14px;
+                    text-align: center;
+                    color: var(--ftColor4);
+                    background-color: var(--tblTheadBgColor);
+                  }
+
+                  dd {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    min-height: 260px;
+
+                    p {
+                      @include ellipsis();
+                      padding: 10px 13px;
+                      font-size: 13px;
+                      text-align: center;
+                      line-height: 2.5;
+                    }
+                  }
+
+                  //* dl:first-child */
+                  &:first-child {
+                    dd {
+                      div {
+                        margin: 0 auto 20px;
+                        text-align: center;
+                      }
+
+                      p {
+                        flex-grow: 0;
+                        padding: 0;
+                        line-height: 1.5;
+                        text-align: center;
+                      }
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    dd {
+                      p {
+                        text-align: left;
+
+                        &:before {
+                          @include txtDot;
+                        }
+                      }
+                    }
+                  }
+
+                  &:nth-child(3) {
+                    dd {
+                      p {
+                        text-align: left;
+
+                        >span {
+                          position: relative;
+                          display: inline-block;
+                          width: 150px;
+                          height: 16px;
+                          margin-right: 16px;
+                          margin-left: 5px;
+                          top: 5px;
+                          border-radius: 5px;
+                          border: 1px solid var(--pointColor);
+                          background-color: var(--bgColor);
+                          overflow: hidden;
+
+                          >span {
+                            position: absolute;
+                            display: inline;
+                            height: 16px;
+                            background-color: var(--pointColor);
+                            border-radius: 5px 0 0 5px;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &:nth-child(6) {
+                    dd {
+                      p {
+                        color: var(--ftColor12);
+                      }
+                    }
+                  }
+                }
+
+                /* li:nth-child(2) */
+                &:nth-child(2) {
+                  dl:nth-child(3) {
+                    dd {
+                      p {
+                        span {
+                          border: 1px solid var(--pointColor2);
+                          background-color: var(--bgColor);
+
+                          span {
+                            background-color: var(--pointColor2);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 카테고리 분석 */
+  .tune_categoryAnalysis {
+    .title {
+      @include title;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_search {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+
+          .calendarBox {
+            @include calendarBox;
+          }
+        }
+
+        &.sec_category {
+          .tab {
+            @include tabLi_t6($height:50px);
+          }
+
+          .tabView {
+            .tabViewList {
+              @include boxLayout2;
+              @include tabViewBox;
+              @include tabViewList;
+
+              .optionBox {
+                .selectBox {
+                  display: inline-block;
+
+                  span {
+                    margin: 0 4px;
+                  }
+                }
+
+                .labelBox {
+                  display: inline-block;
+                  margin-left: 40px;
+
+                  p {
+                    display: inline-block;
+
+                    &:first-child {
+                      &:before {
+                        content: "";
+                        position: relative;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        margin-right: 8px;
+                        background-color: var(--pointColor);
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      margin-left: 40px;
+
+                      &:before {
+                        content: "";
+                        position: relative;
+                        display: inline-block;
+                        width: 16px;
+                        height: 2px;
+                        margin-right: 8px;
+                        vertical-align: middle;
+                        background-color: var(--pointColor2);
+                      }
+                    }
+                  }
+                }
+              }
+
+              .graphBox {
+                margin-top: 30px;
+              }
+
+              .tableArea {
+                @include tableDataNone($h:400px);
+
+                .tableBox {
+                  @include tableWrap;
+                  @include tableLayout_t2;
+                  margin-top: 20px;
+                  padding: 0;
+                  // min-height: 550px;
+                  max-height: 800px;
+                  overflow: auto;
+
+                  table {
+                    thead {
+                      tr {
+                        &:nth-child(2) {
+                          th {
+                            color: var(--ftColor4);
+                            background-color: var(--tblTheadBgColor2);
+                          }
+                        }
+
+                        &:nth-child(3) {
+                          th {
+                            color: var(--ftColor4);
+                            background-color: var(--tblTheadBgColor3);
+
+                            button {
+                              color: var(--ftColor4);
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        td {
+                          a {
+                            border-bottom: 1px solid var(--borderColor10);
+                          }
+
+                          i {
+                            &.blakimg {
+                              @include iLayout;
+                              @include ico_noImage;
+                              width: 30px;
+                              height: 22px;
+                              mask-size: contain;
+                            }
+                          }
+
+                          img {
+                            max-width: 100px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              //* 광고주 카테고리 */
+              &:nth-child(1) {
+                >.searchBox {
+                  display: flex;
+                  justify-content: start;
+                  gap: 10px;
+                  margin: 30px 0 0 0;
+
+                  .selectBox {
+                    display: inline-block;
+
+                    select {
+                      min-width: 200px;
+
+                      &:nth-child(n+2) {
+                        margin-left: 10px;
+                      }
+                    }
+                  }
+
+                  .searchBox {
+                    @include searchBox_t2;
+                  }
+
+                  .buttonBox {
+                    flex-grow: 1;
+                    text-align: right;
+
+                    button {
+                      &.excel {
+                        @include btn_excel_t2;
+                        height: 40px;
+                      }
+                    }
+                  }
+                }
+
+                .tableArea {
+                  .tableBox {
+                    table {
+                      tbody {
+                        button {
+                          @include btnLayout;
+                          @include btn_main;
+                          width: 70px;
+                          height: 26px;
+                          font-size: 13px;
+                        }
+
+                        td {
+                          a {
+                            p {
+                              &:nth-child(1) {
+                                text-decoration: underline;
+                              }
+                            }
+
+                            span {
+                              &:nth-child(n+2) {
+                                margin-left: -3px;
+
+                                &:before {
+                                  content: ">";
+                                  position: relative;
+                                  display: inline-block;
+                                  padding: 0 4px;
+                                }
+                              }
+                            }
+                          }
+
+                          .inputDay {
+                            @include flex_center_column;
+                            align-items: center;
+
+                            >div {
+                              display: inline-flex;
+                              width: 70px;
+                              height: 24px;
+                              padding: 1px 4px 0 4px;
+                              font-size: 13px;
+                              text-align: right;
+                              border: 1px solid var(--ipBorderColor);
+                              background-color: var(--ipBgColor);
+
+                              input[type="text"] {
+                                width: 100%;
+                                height: 100%;
+                                padding: 2px 4px 2px 2px;
+                                font-size: 13px;
+                                border: none;
+                              }
+                            }
+
+                            button {
+                              margin: 4px 0 0 0;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              //* 표준 카테고리(상품기준) */
+              &:nth-child(2) {
+                >.searchBox {
+                  display: flex;
+                  justify-content: start;
+                  gap: 10px;
+                  margin: 30px 0 0 0;
+
+                  .selectBox {
+                    display: inline-block;
+
+                    select {
+                      min-width: 200px;
+
+                      &:nth-child(n+2) {
+                        margin-left: 10px;
+                      }
+                    }
+                  }
+
+                  .searchBox {
+                    @include searchBox_t2;
+                    flex-grow: 1;
+                  }
+
+                  .checkBox {
+                    flex-grow: 1;
+                    text-align: right;
+
+                    input[type="checkbox"]+label {
+                      display: inline-flex;
+                      align-items: center;
+                      height: 40px;
+                      padding: 0 20px;
+                      color: var(--pointColor);
+                      border-radius: 2px;
+                      border: 1px solid var(--borderColor);
+                      background-color: var(--ipBgColor);
+
+                      &:before {
+                        top: 0;
+                      }
+                    }
+                  }
+
+
+                  .buttonBox {
+                    button {
+                      &.excel {
+                        @include btn_excel_t2;
+                        height: 40px;
+                      }
+                    }
+                  }
+                }
+
+                .tableArea {
+                  .tableBox {
+                    table {
+                      tbody {
+                        button {
+                          @include btnLayout;
+                          @include btn_main;
+                          width: 70px;
+                          height: 26px;
+                          font-size: 13px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 추천상품 리스트 > 대체재 추천 */
+  .tune_replaceRecommend {
+    .title {
+      @include title;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_search {
+          @include boxLayout2;
+          @include flex_between;
+          align-items: center;
+          padding: 30px;
+
+          .radioBox {
+            @include flex_start;
+            align-items: center;
+
+            p {
+              margin-right: 25px;
+            }
+          }
+
+          .category {
+            select {
+              width: 240px;
+              height: 40px;
+              vertical-align: top;
+            }
+
+            button {
+              @include btnLayout_normal;
+              @include btn_main;
+              min-width: 80px;
+              height: 40px;
+              margin-left: 10px;
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout2;
+          margin-top: 30px;
+
+          .box_percent {
+            @include flex_center_column;
+            align-items: center;
+            margin: 30px auto 0;
+
+            .percentBar {
+              @include flex_center;
+              align-items: center;
+
+              div {
+                &.bar {
+                  position: relative;
+                  width: 600px;
+                  height: 30px;
+                  background: var(--bgColor);
+                  border: 1px solid var(--pointColor);
+                  overflow: hidden;
+                  border-radius: 5px;
+
+                  span {
+                    position: absolute;
+                    height: 30px;
+                    background: var(--pointColor);
+                  }
+                }
+              }
+
+              span {
+                &.text {
+                  @include ftMedium;
+                  color: var(--pointColor);
+                  font-size: 24px;
+                  line-height: 26px;
+                  margin-left: 30px;
+                }
+              }
+            }
+
+            p {
+              font-size: 18px;
+              list-style: 26px;
+              margin-top: 20px;
+
+              span {
+                &.color_b {
+                  color: var(--pointColor);
+                  font-size: 24px
+                }
+              }
+            }
+          }
+
+          .tableHeader {
+            @include flex_between;
+            margin-top: 60px;
+
+            .searchBox {
+              @include searchBox_t2($ip_width:280px);
+            }
+
+            .selectBox {
+              flex-grow: 1;
+              text-align: right;
+
+              select {
+                width: 180px
+              }
+            }
+
+            .buttonBox {
+              button {
+                &.excel {
+                  @include btn_excel_t2;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+
+          .tableBox {
+            padding: 0;
+            margin-top: 16px;
+
+            .tableWrap {
+              @include tableWrap;
+              @include tableLayout_t4;
+
+              table {
+                thead {
+                  tr {
+                    &:nth-child(2) {
+                      th {
+                        // color: var(--white);
+                        color: var(--ftColor4);
+                        background-color: var(--tblTheadBgColor2);
+                      }
+                    }
+                  }
+                }
+
+                tbody {
+                  tr {
+                    td {
+                      font-size: 13px;
+
+                      a {
+                        font-size: 13px;
+                      }
+
+                      &.img {
+                        &.blakimg {
+                          img {
+                            width: 30px;
+                            height: 22px;
+                          }
+                        }
+
+                        img {
+                          width: 65px;
+                          height: 85px;
+                        }
+                      }
+                    }
+
+                    &.total {
+                      th {
+                        @include ftMedium;
+                        padding: 10px 0;
+                      }
+                    }
+                  }
+
+                  &.no_data {
+                    height: 541px;
+
+                    tr {
+                      td {
+                        padding: 120px 0;
+
+                        span {
+                          font-size: 16px;
+                          font-weight: 500;
+                          width: 100%;
+                          display: block;
+                          margin-bottom: 10px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 추천상품 리스트 > 키워드 기반 추천 */
+  .tune_keywordRecommend {
+    .title {
+      @include title;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_search {
+          @include boxLayout2;
+          @include flex_between;
+          align-items: center;
+          padding: 30px;
+
+          .radioBox {
+            @include flex_start;
+            align-items: center;
+
+            p {
+              margin-right: 25px;
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout2;
+          margin-top: 30px;
+
+          .tableHeader {
+            @include flex_between;
+
+            .searchBox {
+              @include searchBox_t2($ip_width:280px);
+            }
+
+            .selectBox {
+              select {
+                width: 180px
+              }
+
+              button {
+                &.btn_excel {
+                  @include btn_excel_t2;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+
+          .tableBox {
+            padding: 0;
+            margin-top: 16px;
+
+            .tableWrap {
+              @include tableWrap;
+              @include tableLayout_t4;
+
+              table {
+                thead {
+                  // @include tableHeaderFixed;
+
+                  // &:before {
+                  //   @include tableHeaderBeforeFixed;
+                  // }
+                  tr {
+                    &:nth-child(2) {
+                      th {
+                        // color: var(--white);
+                        color: var(--ftColor4);
+                        background-color: var(--tblTheadBgColor2);
+                      }
+                    }
+                  }
+                }
+
+                tbody {
+                  tr {
+                    td {
+                      font-size: 13px;
+
+                      a {
+                        font-size: 13px;
+                      }
+
+                      &.img {
+                        &.blakimg {
+                          img {
+                            width: 30px;
+                            height: 22px;
+                          }
+                        }
+
+                        img {
+                          width: 65px;
+                          height: 85px;
+                        }
+                      }
+                    }
+                  }
+
+                  &.no_data {
+                    height: 541px;
+
+                    tr {
+                      td {
+                        padding: 120px 0;
+
+                        span {
+                          font-size: 16px;
+                          font-weight: 500;
+                          width: 100%;
+                          display: block;
+                          margin-bottom: 10px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 추천상품 리스트 > 보완재 추천 */
+  .tune_supplementRecommend {
+    .title {
+      @include title;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      section {
+        &.sec_search {
+          @include boxLayout2;
+          @include flex_between;
+          align-items: center;
+          padding: 30px;
+
+          .radioBox {
+            @include flex_start;
+            align-items: center;
+
+            p {
+              margin-right: 25px;
+            }
+          }
+
+          .category {
+            flex-grow: 1;
+
+            select {
+              width: 240px;
+              height: 40px;
+              vertical-align: top;
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout2;
+          margin-top: 30px;
+
+          .box_percent {
+            @include flex_center_column;
+            align-items: center;
+            margin: 30px auto 0;
+
+            .percentBar {
+              @include flex_center;
+              align-items: center;
+
+              div {
+                &.bar {
+                  position: relative;
+                  width: 600px;
+                  height: 30px;
+                  background: var(--bgColor);
+                  border: 1px solid var(--pointColor);
+                  overflow: hidden;
+                  border-radius: 5px;
+
+                  span {
+                    position: absolute;
+                    height: 30px;
+                    background: var(--pointColor);
+                  }
+                }
+              }
+
+              span {
+                &.text {
+                  @include ftMedium;
+                  color: var(--pointColor);
+                  font-size: 24px;
+                  line-height: 26px;
+                  margin-left: 30px;
+                }
+              }
+            }
+
+            p {
+              font-size: 18px;
+              list-style: 26px;
+              margin-top: 20px;
+
+              span {
+                &.color_b {
+                  color: var(--pointColor);
+                  font-size: 24px
+                }
+              }
+            }
+          }
+
+          .tableHeader {
+            @include flex_between;
+            margin-top: 60px;
+
+            .searchBox {
+              @include searchBox_t2($ip_width:280px);
+
+            }
+
+            .selectBox {
+              flex-grow: 1;
+              text-align: right;
+
+              select {
+                width: 180px;
+              }
+            }
+
+            .buttonBox {
+              position: relative;
+
+              button {
+                &.btn_excel {
+                  @include btn_excel_t2;
+                  height: 40px;
+                  margin-left: 10px;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+
+          .tableBox {
+            padding: 0;
+            margin-top: 16px;
+
+            .tableWrap {
+              @include tableWrap;
+              @include tableLayout_t4;
+
+              table {
+                thead {
+                  tr {
+                    &:nth-child(2) {
+                      th {
+                        color: var(--ftColor4);
+                        background-color: var(--tblTheadBgColor2);
+                      }
+                    }
+                  }
+                }
+
+                tbody {
+                  tr {
+                    td {
+                      font-size: 13px;
+
+                      a {
+                        font-size: 13px;
+                      }
+
+                      &.img {
+                        &.blakimg {
+                          img {
+                            width: 30px;
+                            height: 22px;
+                          }
+                        }
+
+                        img {
+                          width: 65px;
+                          height: 85px;
+                        }
+                      }
+                    }
+                  }
+
+                  &.no_data {
+                    height: 541px;
+
+                    tr {
+                      td {
+                        padding: 120px 0;
+
+                        span {
+                          font-size: 16px;
+                          font-weight: 500;
+                          width: 100%;
+                          display: block;
+                          margin-bottom: 10px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 추천엔진 > 추천현황분석 */
+  .tune_recommendAnalysis {
+    .title {
+      @include title;
+    }
+
+    .content {
+      margin-top: 20px;
+
+      .areaTab {
+        @include tabLi_t6($height:50px);
+      }
+
+      .tabListArea {
+        @include boxLayout2;
+        @include tabViewBox;
+
+        .listArea {
+          display: none;
+
+          &.show {
+            display: block;
+          }
+
+          >.optionBox {
+            margin-top: 10px;
+
+            >div {
+              display: inline-block;
+              margin-left: 80px;
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+              p {
+                @include ip_title;
+                margin-right: 25px;
+              }
+            }
+
+            .radioBox {
+              p {
+                margin-right: 0;
+              }
+            }
+
+            .calendarBox {
+              @include calendarBox;
+            }
+          }
+
+          .areaStatistic {
+            margin-top: 30px;
+            padding-top: 40px;
+            border-top: 1px solid var(--borderColor3);
+
+            .areaChart {
+              @include flex_between;
+
+              .blockBox {
+                width: 50%;
+
+                .tit {
+                  @include ftMedium;
+                  font-size: 16px;
+                }
+
+                .tabBox {
+                  @include tabLi_t3;
+                  margin-top: 45px;
+                }
+
+                .chartArea {
+                  @include boxLayout2;
+                  @include tabViewBox;
+                  height: 450px;
+
+                  .labelBox {
+                    padding: 16px 0;
+
+                    dl {
+                      position: relative;
+                      display: inline-block;
+                      margin-bottom: 12px;
+
+                      &.LS dt {
+                        background-color: #1081f6;
+                      }
+
+                      &.CR dt {
+                        background-color: #65fbd7;
+                      }
+
+                      &.CT dt {
+                        background-color: #65fbd7;
+                      }
+
+                      &.VT dt {
+                        background-color: #71ec8e;
+                      }
+
+                      &.I_C dt,
+                      &.IC dt,
+                      &.CB dt,
+                      &.I_S dt,
+                      &.IS dt,
+                      &.UB dt {
+                        background-color: var(--pointColor);
+                      }
+
+                      &.GA dt,
+                      &.SS dt,
+                      &.CC dt,
+                      &.AR dt {
+                        background-color: var(--pointColor2);
+                      }
+
+                      dt {
+                        position: relative;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        margin: 0 1px 0 15px;
+                        background-color: #1081f6;
+                      }
+
+                      dd {
+                        display: inline-block;
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+
+                &:nth-child(2) {
+                  margin-left: 20px;
+
+                  .tit {
+                    .optionBox {
+                      display: inline-block;
+
+                      .selectBox {
+                        display: inline-block;
+
+                        select {
+                          margin-left: 10px;
+                        }
+                      }
+
+                      .buttonBox {
+                        display: inline-block;
+                        margin-left: 10px;
+
+                        button {
+                          @include btnLayout_small;
+                          @include btn_main2;
+                        }
+                      }
+                    }
+                  }
+
+                  .tabBox {
+                    margin-top: 20px;
+                  }
+                }
+              }
+            }
+
+            .areaTable {
+              margin-top: 30px;
+
+              .blockBox {
+                position: relative;
+
+                .tabBox {
+                  @include tabLi_t3($width:130px);
+                }
+
+                .buttonBox {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+
+                  button {
+                    &.btn_excel {
+                      @include btn_excel_t2($w:120px);
+                    }
+                  }
+                }
+
+                .tableBox {
+                  .tableWrap {
+                    @include tableWrap;
+                    @include tableLayout_t4;
+                    display: none;
+
+                    &.show {
+                      display: block;
+                    }
+
+                    table {
+                      tbody {
+                        th {
+                          &:nth-child(1) {
+                            border-left: none;
+
+                            &[class] {
+                              color: var(--ftColor11);
+                            }
+                          }
+
+                          &:nth-child(2) {
+                            text-align: left;
+                          }
+
+                          &.LS {
+                            background-color: #1081f6;
+                          }
+
+                          &.CR {
+                            background-color: #65fbd7;
+                          }
+
+                          &.CT {
+                            background-color: #65fbd7;
+                          }
+
+                          &.VT {
+                            background-color: #71ec8e;
+                          }
+
+                          &.I_C,
+                          &.IC,
+                          &.CB,
+                          &.I_S,
+                          &.IS,
+                          &.UB {
+                            background-color: var(--pointColor);
+                          }
+
+                          &.GA,
+                          &.SS,
+                          &.CC,
+                          &.AR {
+                            background-color: var(--pointColor2);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

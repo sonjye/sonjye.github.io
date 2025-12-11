@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 트래킹 광고추적 URL -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li class="on"><a href="javascript:void(0);">트래킹</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>트래킹</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>트래커보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="report"></i><span>트래커 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="createURL"></i><span>광고 추적 URL 생성</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="reportAD"></i><span>광고 추적 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="setting"></i><span>설정</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_trackingReportAD">
+                <div class="title">
+                    <p>광고 추적 보고서</p>
+                </div>
+                <div class="content">
+                    <section class="sec_optionBox">
+                        <div class="optionBox">
+                            <div class="radioBox">
+                                <p>집계날짜<span class="iBox"><i class="iMark"></i><i class="iMarkHover">각 소스/매체/캠페인 별로 유입된
+                                            동질집단의 크기를 설정할 수 있습니다. 돋보기 아이콘을 클릭하면 해당 경로를 통해 유입되어 설치한 사용자의 APP 유지율을 확인할 수
+                                            있습니다. 유지율의 판단 기준은 APP의 실행입니다. </i></span></p>
+                                <input type="radio" name="rd_totalDate" id="rd_totalDate1" class="hidden" value="day"
+                                    checked>
+                                <label for="rd_totalDate1">일별</label>
+                                <input type="radio" name="rd_totalDate" id="rd_totalDate2" class="hidden" value="week">
+                                <label for="rd_totalDate2">주별</label>
+                                <input type="radio" name="rd_totalDate" id="rd_totalDate3" class="hidden" value="month">
+                                <label for="rd_totalDate3">월별</label>
+                            </div>
+                            <div class="calendarBox">
+                                <div class="calendar">
+                                    <div class="dateChoice">
+                                        <input type="text" id="dateInput2" name="dateInput2" value="">
+                                    </div>
+                                </div>
+                                <button type="submit">검색</button>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_optionBox end-->
+                    <section class="sec_report">
+                        <div class="listArea">
+                            <div class="tableBox">
+                                <div class="tblHeader">
+                                    <div class="buttonBox">
+                                        <button class="columnSet">컬럼설정</button>
+                                        <!-- buttonList 에 active 추가시 display: block -->
+                                        <div class="buttonList active">
+                                            <ul>
+                                                <li><a class="active" href="javascript:void(0);">설치</a></li>
+                                                <li><a href="javascript:void(0);">실행</a></li>
+                                                <li><a href="javascript:void(0);">매출</a></li>
+                                                <li><a href="javascript:void(0);">페이지뷰</a></li>
+                                                <li><a href="javascript:void(0);">체류시간</a></li>
+                                                <li><a href="javascript:void(0);">재설치</a></li>
+                                                <li><a href="javascript:void(0);">사용자</a></li>
+                                                <li><a href="javascript:void(0);">첫방문</a></li>
+                                                <li><a href="javascript:void(0);">전환수</a></li>
+                                                <li><a href="javascript:void(0);">세션당 페이지뷰</a></li>
+                                                <li><a href="javascript:void(0);">회원가입</a></li>
+                                                <li><a href="javascript:void(0);">회원탈퇴</a></li>
+                                                <li><a href="javascript:void(0);">주문취소(수)</a></li>
+                                                <li><a href="javascript:void(0);">주문취소(원)</a></li>
+                                                <li><a href="javascript:void(0);">장바구니</a></li>
+                                                <li><a href="javascript:void(0);">회원로그인</a></li>
+                                                <li><a href="javascript:void(0);">이탈수</a></li>
+                                                <li><a href="javascript:void(0);">이탈률</a></li>
+                                            </ul>
+                                        </div>
+                                        <button class="btn_excel">엑셀</button>
+                                    </div>
+                                    <div class="tableSortBox">
+                                        <select>
+                                            <option value="1">10개씩 보기</option>
+                                            <option value="2">25개씩 보기</option>
+                                            <option value="3" selected>50개씩 보기</option>
+                                            <option value="4">100개씩 보기</option>
+                                            <option value="5">250개씩 보기</option>
+                                            <option value="6">500개씩 보기</option>
+                                            <option value="7">1000개씩 보기</option>
+                                            <option value="8">1500개씩 보기</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="tableWrap">
+                                    <div class="divTable">
+                                        <div class="thead">
+                                            <div class="tr">
+                                                <div>소스/매체/캠페인<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">소스: 쇼핑몰로 유입된 출처 사이트입니다. 추적 URL의
+                                                            utm_source를 통해 식별됩니다.<br> 매체: 추적 URL의 utm_medium을 통해 식별된
+                                                            매체입니다. 자연검색(organic), 앱푸시(push) 등이 포합됩니다.캠페인: 추적 URL의
+                                                            utm_campaign 변수를 통해 수동으로 추가한 맞춤 캠페인입니다. </i></span></div>
+                                                <div>사용자<span class="iBox"><i class="iMark"></i><i class="iMarkHover">특정
+                                                            기간의 순 방문자 수입니다. 조회 기간 내에 여러 번 방문한 방문자는 1명으로 집계합니다.
+                                                        </i></span></div>
+                                                <div>세션<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>새로운 세션<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>이탈율<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>체류시간<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>전환수<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>전환율<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">말풍선테스트입니다. </i></span></div>
+                                                <div>세션매출<span class="iBox"><i class="iMark"></i><i
+                                                            class="iMarkHover">웹사이트 및 APP에서 발생한 총 매출을 유입 경로 별로 구분하여
+                                                            보여줍니다. </i></span></div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>Total<span>(123,123,456)</span></div>
+                                                <div>5,456<span>(일별 sum: 45,210명)</span></div>
+                                                <div>2,389,100</div>
+                                                <div>203,405</div>
+                                                <div>30.24%</div>
+                                                <div>00:10:24</div>
+                                                <div>1,494,901</div>
+                                                <div>8.51%</div>
+                                                <div>1,494,902</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody">
+                                            <div class="tr on">
+                                                <div>
+                                                    <div>
+                                                        <a href="javascript:void(0);">
+                                                            <span>1.Kakao</span></a>
+                                                        <span>131</span>
+                                                        <button type="button" class="btn_plus"></button>
+                                                        <!-- <button type="button" class="btn_minus"></button> -->
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,494,494,494,494,902<span>(100.00%)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tr divTblRowChild divTblRowChild1">
+                                                <div>
+                                                    <div>
+                                                        <a href="javascript:void(0);">
+                                                            <span>cpc</span></a>
+                                                        <span>31</span>
+                                                        <button type="button" class="btn_minus"></button>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="tr divTblRowGrandChild">
+                                                <div>
+                                                    <div>
+                                                        <a href="javascript:void(0);">
+                                                            <span>campaign 123123456789 </span></a>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="tr divTblRowGrandChild">
+                                                <div>
+                                                    <div>
+                                                        <a href="javascript:void(0);">
+                                                            <span>campaign 2 </span></a>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="tr moreView">
+                                                <div>
+                                                    <button type="button" class="more">더보기<div>
+                                                            <span>472</span><span>50</span></div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="tr divTblRowChild">
+                                                <div>
+                                                    <div><a href="javascript:void(0);"><span>social</span></a>
+                                                        <span>100,000,123,123,456</span>
+                                                        <button type="button" class="btn_minus"></button>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>3,395(59.97%)</div>
+                                                <div>1,582,300(66.23%)</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>00:12:42</div>
+                                                <div>381.531(15.97%)</div>
+                                                <div>16.95%</div>
+                                                <div>1,494,902(100.00%)</div>
+                                            </div>
+                                            <div class="tr moreView">
+                                                <div>
+                                                    <button type="button" class="more">더보기<div>
+                                                            <span>472</span><span>50</span></div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>
+                                                    <div>
+                                                        <a href="javascript:void(0);"><span>2. Facebook</span>
+                                                        </a>
+                                                        <button type="button" class="btn_plus"></button>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>
+                                                    <div><a href="javascript:void(0);"><span>3. Naver</span>
+                                                        </a><button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>
+                                                    <div><a href="javascript:void(0);"><span>4. Moloco</span></a>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>
+                                                    <div><a href="javascript:void(0);"><span>sample</span></a>
+                                                        <button type="button" class="btn_search"></button>
+                                                    </div>
+                                                </div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                            <div class="tr">
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                                <div>&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tblDataNone">
+                                        <div>
+                                            <p>데이터가 없습니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="paging">
+                                <ul>
+                                    <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                    <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                    <li><a href="javascript:pageLink(2);">2</a></li>
+                                    <li><a href="javascript:pageLink(3);">3</a></li>
+                                    <li><a href="javascript:pageLink(4);">4</a></li>
+                                    <li><a href="javascript:pageLink(5);">5</a></li>
+                                    <li><a href="javascript:pageLink(6);">6</a></li>
+                                    <li><a href="javascript:pageLink(7);">7</a></li>
+                                    <li><a href="javascript:pageLink(8);">8</a></li>
+                                    <li><a href="javascript:pageLink(9);">9</a></li>
+                                    <li><a href="javascript:pageLink(10);">10</a></li>
+                                    <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                    <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_report end-->
+                </div>
+                <!--//cont end-->
+            </div>
+            <!--//contensts end-->
+        </section>
+    </div>
+</body>
+
+</html>

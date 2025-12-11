@@ -1,0 +1,27 @@
+/*
+Explain : MOBTUNE
+File : tune_dataManager.scss 
+Date : 2025.04.09
+Version : 1.1.1
+*/
+
+/*
+z-index 순서
+1. modal, modalDim: 999, 998
+2. tooltipHover,userMenu : 800,801
+3. dimDot, dimCircle : 700
+*/
+
+//* 화면 설명 */
+// 데이터매니저에서 오류발생시 호출하는 별도 페이지 작업
+// 모바일웹, 가로최대 600px 제한, header없음
+
+//***** 공통 CSS *****/
+// 독립페이지 COMMON CSS 파일명은 앞에 'idcm' 추가
+// 독립페이지 CSS 파일명은 앞에 'id' 추가
+@import "_base";
+@import "_id_color";
+// @import "_id_mixin";
+
+//***** 개별 CSS *****/
+@import "id_errorLink";

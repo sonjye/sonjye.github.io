@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+    <defs>
+        <clipPath id="fefrituxea">
+            <path data-name="사각형 5931" style="fill:none" d="M0 0h16v6.828H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="타원 687" style="stroke:#3c71fd;fill:#3c71fd">
+        <circle cx="13" cy="13" r="13" style="stroke:none"/>
+        <circle cx="13" cy="13" r="12.5" style="fill:none"/>
+    </g>
+    <g data-name="그룹 7354">
+        <path data-name="패스 12644" d="M.762.763h2v4.581h-2zM0 6.107h3.53V0H0z" style="fill:#fff" transform="translate(5 9.586)"/>
+        <g data-name="그룹 7353">
+            <g data-name="그룹 7352" style="clip-path:url(#fefrituxea)" transform="translate(5 9.586)">
+                <path data-name="패스 12645" d="M9.352 6.828 3.024 4.655l.248-.721L9.283 6l5.681-3.071a1.605 1.605 0 0 0-1.823-.414c-.964.292-3.868 1.4-3.9 1.411l-.272-.712c.121-.046 2.96-1.13 3.949-1.429a2.33 2.33 0 0 1 2.936 1.128l.146.321z" style="fill:#fff"/>
+                <path data-name="패스 12646" d="M8.723 4.027a1.422 1.422 0 0 1-.6-.133L5.711 2.769l.322-.691L8.445 3.2a.658.658 0 0 0 .84-.252.66.66 0 0 0-.285-.94L6.354.763h-3.5V0h3.67l2.805 1.318a1.422 1.422 0 0 1-.606 2.709" style="fill:#fff"/>
+                <path data-name="사각형 5930" transform="translate(1.383 3.744)" style="fill:#fff" d="M0 0h.763v.983H0z"/>
+            </g>
+        </g>
+    </g>
+</svg>

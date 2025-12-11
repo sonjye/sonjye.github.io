@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46">
+    <g data-name="그룹 4030">
+        <g data-name="그룹 4024">
+            <g data-name="그룹 3988" transform="translate(2.962 5.818)">
+                <path data-name="Icon awesome-shopping-basket" d="M40.4 14.836v1.094a1.663 1.663 0 0 1-1.683 1.642h-.561l-1.832 12.5a3.341 3.341 0 0 1-3.333 2.819H7.409a3.341 3.341 0 0 1-3.333-2.819l-1.831-12.5h-.562A1.663 1.663 0 0 1 0 15.931v-1.095a1.663 1.663 0 0 1 1.683-1.642h4.724L13.9 3.151a2.282 2.282 0 0 1 3.135-.483 2.154 2.154 0 0 1 .5 3.058l-5.569 7.468h16.477l-5.569-7.468a2.154 2.154 0 0 1 .5-3.058 2.282 2.282 0 0 1 3.135.483l7.489 10.043h4.723a1.663 1.663 0 0 1 1.679 1.642zM21.884 26.875v-7.661a1.684 1.684 0 0 0-3.367 0v7.661a1.684 1.684 0 0 0 3.367 0zm7.856 0v-7.661a1.684 1.684 0 0 0-3.367 0v7.661a1.684 1.684 0 0 0 3.367 0zm-15.711 0v-7.661a1.684 1.684 0 0 0-3.367 0v7.661a1.684 1.684 0 0 0 3.367 0z" transform="translate(0 -1.267)" style="fill:#fff"/>
+                <rect data-name="사각형 3349" width="4.693" height="17.291" rx="1" transform="rotate(36 7.313 22.53)" style="fill:#fff"/>
+                <rect data-name="사각형 3350" width="4.693" height="17.292" rx="1" transform="rotate(144 15.58 12.797)" style="fill:#fff"/>
+            </g>
+            <g data-name="그룹 3987">
+                <path data-name="패스 1172" d="M8.366 0A8.366 8.366 0 1 1 0 8.366 8.366 8.366 0 0 1 8.366 0z" style="fill:#2a2d3e" transform="translate(26.629 26.631)"/>
+                <g data-name="그룹 3991">
+                    <path data-name="합치기 20" d="M3.289 8.762V5.476H0v-2.19h3.289V0H5.48v3.286h3.282v2.19H5.48v3.286z" transform="translate(30.614 30.615)" style="fill:#fff"/>
+                </g>
+                <g data-name="그룹 3995">
+                    <path data-name="패스 1172" d="M8.366 0A8.366 8.366 0 1 1 0 8.366 8.366 8.366 0 0 1 8.366 0z" style="fill:#4299e1" transform="translate(26.629 26.631)"/>
+                    <g data-name="그룹 3991">
+                        <path data-name="합치기 20" d="M4.5 11.978V7.486H0V4.492h4.5V0h2.991v4.492h4.487v2.994H7.491v4.492z" transform="translate(29.006 29.008)" style="fill:#2a2d3e"/>
+                    </g>
+                </g>
+            </g>
+            <path data-name="패스 1174" d="M9.249.884a8.366 8.366 0 1 0 8.366 8.366A8.366 8.366 0 0 0 9.249.884m0-2.384A10.749 10.749 0 1 1-1.5 9.249 10.762 10.762 0 0 1 9.249-1.5z" transform="translate(25.747 25.747)" style="fill:#2a2d3e"/>
+        </g>
+    </g>
+</svg>

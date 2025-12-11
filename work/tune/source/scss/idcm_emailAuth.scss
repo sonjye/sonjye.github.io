@@ -1,0 +1,335 @@
+/*
+Explain : MOBTUNE
+File : idcm_makeshop.scss 
+Date : 2025.09.23
+Version : 1.1.1
+*/
+
+//* 업무내용 :*/
+// AI 스튜디오 가입 및 체험신청 화면 화이트 테마 추가
+
+/*
+z-index 순서
+#. modal, modalDim: 999, 998
+*/
+
+//* 공통 CSS ==========================================/
+@import "_font";
+@import "_base";
+
+
+//* color  ============================================/
+
+$point: #7c72f2;
+
+$ft: #222222;
+$ft2: #555555;
+
+//input
+$ip_ft: #555555;
+$ip_ft_ph: #b7b7b7;
+$ip_brd: #d8d8d8;
+$ip_bg: #ffffff;
+
+
+//input disabled
+$ip_ft_dis: #555555;
+$ip_brd_dis: #d8d8d8;
+$ip_bg_dis:#efefef;
+
+// button
+$btn_ft: #ffffff;
+$btn_brd: #d8d8d8;
+$btn_bg: #7c72f2;
+
+$btn_ft2:#7c72f2;
+$btn_brd2: #7c72f2;
+$btn_bg2: #ffffff;
+
+$btn_ft3:#7c72f2;
+$btn_brd3: #7c72f2;
+$btn_bg3: #f2f5ff;
+
+$btn_ft4:#ffffff;
+$btn_brd4: #bfbfbf;
+$btn_bg4: #bbbbbb;
+
+$ip_brd: #d8d8d8;
+$ip_bg: #ffffff;
+
+
+
+//* image  ============================================/
+
+// 공통 이미지 경로 (이미지 지정 전용)
+@mixin img($folder, $name, $format:"svg", $bgXY:center, $path:"../image_v3/", ) {
+  background: url("#{$path}#{$folder}/#{$name}.#{$format}") no-repeat $bgXY;
+}
+
+// 사이즈 및 background-size 조절 전용
+@mixin imgSize($w:null, $h:null, $bgw:null, $bgh:null, $bgs:null) {
+  @if $w !=null {
+    width: $w;
+  }
+
+  @if $h !=null {
+    height: $h;
+  }
+
+  @if $bgw !=null and $bgh !=null {
+    background-size: $bgw $bgh;
+  }
+
+  @else if $bgs !=null {
+    background-size: $bgs;
+  }
+}
+
+// 로고
+@mixin logo_t720() {
+  @include img("id_makeshop", "logo_tune720");
+  @include imgSize(270px, 46px, $bgs:contain);
+}
+
+@mixin logo_tuny() {
+  @include img("logo", "logo_tuny");
+  @include imgSize(270px, 46px, $bgs:contain);
+}
+
+// AI 심볼
+@mixin ico_ai() {
+  @include img("component", "ico_ai");
+  // @include imgSize(270px, 46px, $bgs:contain);
+}
+
+
+
+
+//* mixin  ============================================/
+
+@mixin ftr {
+  // font-family: "Pretendard_Light";
+  font-family: "Pretendard_Regular";
+}
+
+@mixin ftm {
+  font-family: "Pretendard_Medium";
+  // font-weight: normal;
+}
+
+@mixin ftb {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  // font-weight: bold;
+}
+
+//* animation //
+@mixin keyframe($bgc1:$point, $w2:100%) {
+  @keyframes barFill {
+    0% {
+      width: 0;
+      background-color: $bgc1;
+    }
+
+    100% {
+      width: $w2;
+      background-color: $bgc1;
+    }
+  }
+
+  animation: barFill 1.5s ease-in-out forwards;
+}
+
+
+// keyframes 정의
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  // 위로 살짝
+  100% {
+    transform: translateY(0);
+  }
+
+  // 다시 제자리
+}
+
+@mixin flex($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+@mixin btn($w:null, $minw:null, $h:null, $minh:null, $fs:null, $br:10px, $pd:null) {
+  position: relative;
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  font-size: $fs;
+  border-radius: $br;
+}
+
+@mixin btn_main {
+  color: $btn_ft;
+  border: 1px solid $btn_bg;
+  background-color: $btn_bg;
+}
+
+
+//* ico */
+@mixin ico($p:relative, $d:inline-block, $bgp: 0px 0px) {
+  content: "";
+  position: $p;
+  display: $d;
+  font-size: 0;
+  font-style: normal;
+  background-position: $bgp;
+}
+
+
+@mixin input($minw: null, $w: null, $h:50px, $pd:10px 20px, $fs:16px, $br:10px) {
+  min-width: $minw;
+  width: $w;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  border-radius: $br;
+  color: $ip_ft;
+  border: 1px solid $ip_brd;
+  background-color: $ip_bg;
+
+  &::placeholder {
+    color: $ip_ft_ph;
+  }
+
+  &:disabled {
+    color: $ip_ft_dis;
+    border-color: $ip_brd_dis;
+    background-color: $ip_bg_dis;
+  }
+}
+
+
+
+
+
+
+
+
+//* layout, content  ============================================/
+
+html {
+  // overflow: hidden;
+
+  ::-webkit-scrollbar {
+    width: 14px;
+    // background-color: var(--borderColor);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $point;
+  }
+
+  input {
+    @include input;
+  }
+
+  .disNone {
+    display: none !important;
+  }
+}
+
+
+
+.wrap {
+  &[class*="tune_emailAuth"] {
+    video {
+      &.bg_video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // object-fit: fill;
+        z-index: auto;
+        // pointer-events: none;
+      }
+    }
+
+    position: relative;
+    width: 100%;
+    //min-width: 1920px; 
+    // min-width: 1900px;
+    min-height: -webkit-fill-available;
+    height: max-content;
+    // padding-bottom: 60px;
+    color: $ft;
+
+    &.tune_emailAuth {
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      .title {
+        @include ftm;
+        text-align: center;
+        font-size: 24px;
+
+        &:before {
+          @include ico($d:block);
+          @include ico_ai();
+          margin: 0 auto 20px auto;
+        }
+
+        p {
+          font-size: 18px;
+
+          // &:before {
+          //   @include ico($d:block);
+          //   @include logo_t720();
+          //   margin: 0 auto 20px auto;
+          // }
+        }
+
+        b {
+          @include ftb;
+          font-size: 25px;
+        }
+      }
+
+      // common 
+      .content {
+        width: 500px;
+        min-height: 400px;
+        padding: 50px 70px;
+        margin: 50px 0 0 0;
+        padding: 30px;
+
+        section {
+          &.sec_input {
+            .box_input {}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/t720.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/id_makeshop.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/idcm_makeshop.css">
+</head>
+
+<body>
+    <!-- 메이크샵스토어(tune_makeshop) > TUNE720 사용하기 > Service Key 미등록 계정인 경우 해당 화면 나타남 -->
+    <!-- 버튼 .nextMove 클래스 이용해서 container 영역 움직임 > .wrap에 complete 추가됨 -->
+    <div class="wrap tune_makeshop">
+        <!-- <button type="button" class="modalOpen" data-popname="md_alert">알림</button> -->
+        <!-- <button type="button" class="modalOpen" data-popname="md_policyService">서비스 이용약관</button> -->
+        <!-- modal 영역 -->
+        <div class="modal">
+            <div class="modalWrap">
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>제목</p>
+                            <!-- modalClose 클래스 추가시 모달 닫기 -->
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <strong>중요한 내용입니다.</strong>
+                                <!-- <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>네줄까지 사용 권장합니다.</p> -->
+                                <p>다섯줄부터는 스크롤 나타납니다</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+            </div>
+            <!-- <p>이용 약관 (md_policyService)</p> -->
+            <div class="modalWrap md_policyService" id="md_policyService">
+                <div class="modalContainer">
+                    <div class="modalTitle">
+                        <p>TUNE720 서비스 이용약관</p>
+                        <button class="close modalClose">닫기</button>
+                    </div>
+                    <div class="modalContent">
+                        <section class="sec_policy">
+                            <div class="box_policy">
+                                <div class="box">
+                                    <p>API 사용 권한</p>
+                                    <ul>
+                                        <li>
+                                            <p>제1조(목적) </p>
+                                        </li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                    </ul>
+                                </div>
+                                <div class="box">
+                                    <p>실시간 정보 제공 권한</p>
+                                    <ul>
+                                        <li> 제1조(목적) </li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                    </ul>
+                                </div>
+                                <div class="box">
+                                    <p>전환 측정 이벤트 정보 제공 권한</p>
+                                    <ul>
+                                        <li>제1조(목적)</li>
+                                        <li> 이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선
+                                            등을 이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                    </ul>
+                                </div>
+                                <div class="box">
+                                    <p>이용동의</p>
+                                    <ul>
+                                        <li>제1조(목적) </li>
+                                        <li>이 약관은 제공하는 인터넷 관련 서비스를 이용함에있어 몰과 이용자의 권리, 의무 및 책임사항을 목적으로 합니다. ※「PC통신, 무선 등을
+                                            이용하는 전자상거래에 대해서도 그 성질에 반하지않는 한 이 약관을 준용합니다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modalFooter">
+                        <button type="button" class="cancel">동의안함</button>
+                        <button type="button" class="confirm">동의함</button>
+                    </div>
+                </div>
+                <div class="modalDim"></div>
+            </div>
+            <!--// modalWrap end-->
+        </div>
+        <!-- // modal end -->
+        <section class="container">
+            <!-- contents에 페이지 고유 클래스 추가 >> .tune_makeshop -->
+            <div class="title">
+                <p>메이크샵 쇼핑몰을 TUNE720에 연동합니다.</p>
+                <!-- <p>TUNE720 메이크샵 서비스키 등록</p> -->
+                <!-- <b>TUNE720 연동이 완료되었습니다.</b> -->
+            </div>
+            <div class="content">
+                <section class="sec_input">
+                    <div class="box_input">
+                        <div class="inputBox">
+                            <!-- line -->
+                            <div>
+                                <p>도메인</p>
+                                <select name="" id="">
+                                    <option value="" selected disabled>선택하세요</option>
+                                    <option value="">도메인1</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>Service Key</p>
+                                <input type="text" placeholder="Service Key를 입력해 주세요.">
+                            </div>
+                            <div class="agreeBox">
+                                <div class="checkBox">
+                                    <input type="checkbox" name="chk1" id="chk1" checked>
+                                    <label for="chk1">TUNE720 서비스 이용약관에 동의합니다.</label>
+                                </div>
+                                <button type="button" class="fullText modalOpen" data-popname="md_policyService">전문
+                                    보기</button>
+                            </div>
+                            <div class="buttonBox">
+                                <!-- <button type="button" class="start">시작하기</button> -->
+                                <!-- <button type="button" class="modify">수정하기</button> -->
+                                <button type="button" class="apply nextMove">적용하기</button>
+                                <button type="button" class="cancel">취소</button>
+                            </div>
+                            <div class="joinBox">
+                                <p>Service Key가 없다면?</p>
+                                <button type="button" class="join">가입하고 발급하기</button>
+                            </div>
+                            <div class="quickMove disNone">
+                                <button type="button" class="quickMove">TUNE720 바로가기</button>
+                            </div>
+                            <div class="guideBox">
+                                <p>1. TUNE720 광고주 회원 가입</p>
+                                <p>2. 로그인 후 원태그 메뉴 이동</p>
+                                <p>3. 사용중인 도메인 입력 후 만들기를 클릭하면 스크립트 생성</p>
+                                <p>4. 우측 상단 ‘도메인 정보’ 클릭 후 해당 도메인의 Service key 복사 </p>
+                                <p>5. 메이크샵스토어 > TUNE720에서 Service Key 입력 후 ‘시작하기’ 클릭</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

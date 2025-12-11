@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css">
+</head>
+
+<body>
+    <!-- 마이데이터 스튜디오 > 공통 -->
+    <!-- 마이데이터(상품분석> 상품분석 tune_productAnalysis) -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                    <li class="on"><a href="javascript:void(0);">마이데이터 스튜디오</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>마이데이터 스튜디오</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="mydata"></i><span>마이데이터</span></a>
+                    <ul class="active">
+                        <li class="on"><a href="javascript:void(0);">유입분석</a></li>
+                        <li><a href="javascript:void(0);">활동분석</a></li>
+                        <li><a href="javascript:void(0);">상품분석</a></li>
+                        <li><a href="javascript:void(0);">마이리포트</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_bookmark">
+                <div class="title">
+                    <p>마이데이터(상품분석 > 상품분석 / tune_productAnalysis)</p>
+                    <div class="optionBox">
+                        <button type="button" class="modify">편집</button>
+                        <button type="button" class="reset">초기화</button>
+                        <button type="button" class="cancel">편집 취소</button>
+                        <button type="button" class="save">저장 및 완료</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <section class="grid_setting_Wrap">
+                        <button type="button" class="gs_btn"><i></i></button>
+                    </section>
+                    <section class="grid_contents_wrap">
+                        <div class="grid-stack" id="grid-stack">
+                            <!-- 신규 및 인기상품 분석-->
+                            <div class="grid-stack-item" gs-w="10" gs-h="56" gs-max-h="56">
+                                <section class="sec_newHitGraph">
+                                    <!-- <div class="dimBox"></div> -->
+                                    <div class="tit">
+                                        <p>신규 및 인기상품 분석 <button type="button" class="map">화면 바로가기<span
+                                                    class="mapHover">상품분석 > 상품분석 화면 확인</span></button></p>
+                                        <p> 신규 상품과 인기 상품의 매출 기여도를 비교 분석하여, 매출이 인기 상품에 집중되어 있는지 혹은 신규 상품 발굴이 필요한지를 확인합니다.
+                                        </p>
+                                        <p>또한, 동종 업계 평균과의 비교를 통해 인기 상품의 개선 가능성을 탐색하고, 이를 바탕으로 효과적인 마케팅 전략을 수립합니다.</p>
+                                        <button type="button" class="widgetClose">닫기</button>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="box_graph">
+                                            <div class="tit">
+                                                <p>자사 상품 분석 : <span>신규</span> VS <span>인기</span></p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphBox">
+                                                    <div class="graph dimDot"
+                                                        style="width:700px; height:330px; border:1px solid #ddd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box_graph">
+                                            <div class="tit">
+                                                <p>상품 분석 :<span>자사</span> VS <span>동종(여성패션) </span></p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphBox">
+                                                    <div class="graph dimDot"
+                                                        style="width:700px; height:330px; border:1px solid #ddd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- 재구매 및 악성 상품 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="56" gs-max-h="56">
+                                <section class="sec_repurchaseAnalysis">
+                                    <!-- <div class="dimBox"></div> -->
+                                    <div class="tit">
+                                        <p>재구매 및 악성 상품 분석 <button type="button" class="map">화면 바로가기<span
+                                                    class="mapHover">상품분석 > 상품분석 화면 확인</span></button></p>
+                                        <p> 재구매율과 악성 상품 비율을 동종 업계와 비교 분석하여, 고객 만족도와 매출에 영향을 미치는 요인을 시각화합니다.</p>
+                                        <p> 이를 통해 재구매를 유도할 전략과 문제 상품 개선 방안을 도출합니다. </p><button type="button"
+                                            class="widgetClose">닫기</button>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="box_graph">
+                                            <div class="tit">
+                                                <p>재구매 상품 :<span>자사</span> VS <span>동종업종(종합패션쇼핑몰)</span></p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphBox">
+                                                    <div class="graph dimDot"
+                                                        style="width:700px; height:330px; border:1px solid #ddd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box_graph">
+                                            <div class="tit">
+                                                <p>악성 상품 :<span>자사</span> VS <span>동종(여성패션) </span></p>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="graphBox">
+                                                    <div class="graph dimDot"
+                                                        style="width:700px; height:330px; border:1px solid #ddd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- 상품수 비교 및 점유율 RACE  -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="80" gs-max-h="80">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_productRaceGraph">
+                                        <div class="box_productRaceGraph">
+                                            <div class="tit">
+                                                <p>상품수 비교 및 점유율 RACE <button type="button" class="map">화면 바로가기<span
+                                                            class="mapHover">상품분석 > 상품분석 화면 확인</span></button></p>
+                                                <p> 자사와 동종 업계의 매출 상위 90%를 차지하는 상품 수를 비교하여 상품 수가 매출 성과에 미치는 영향을 분석합니다.
+                                                </p>
+                                                <p> 또한, 최근 2주간 RACE 차트를 통해 신규 상품이 매출 상위권에 진입했는지 조회와 전환 데이터를 기준으로 확인합니다.
+                                                </p> <button type="button" class="widgetClose">닫기</button>
+                                            </div>
+                                            <div class="cont">
+                                                <div class="box_graph">
+                                                    <div class="tit">
+                                                        <p>상품수 분석 :<span>자사</span> VS <span>동종업종(종합패션쇼핑몰)</span></p>
+                                                        <p> 매출 상위 90%를 차지하는 상품을 대상으로 상품 수를 비교했습니다. </p>
+                                                        <p>하위 10%의 악성 재고는 분석에서 제외하였습니다.</p>
+                                                    </div>
+                                                    <div class="cont">
+                                                        <div class="graphBox">
+                                                            <div class="graph dimDot"
+                                                                style="width:100%; height:540px; border:1px solid #ddd">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box_raceGraph">
+                                                    <div class="tab">
+                                                        <ul>
+                                                            <li class="on"><a href="#">클릭</a></li>
+                                                            <li><a href="#">노출</a></li>
+                                                            <li><a href="#">전환(건)</a></li>
+                                                            <li><a href="#">전환(매출)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- <div class="dimCircle"></div> -->
+                                                    <!-- <div class="dimBox"></div> -->
+                                                    <!-- !! 하단 on/off 클래스 로 그래프 있을때 없을때 화면 다르게 나옴 !! -->
+                                                    <!-- <div class="box_raceGraph off">-->
+                                                    <div class="graphBox on">
+                                                        <div class="tit">
+                                                            <p>상품 점유율 RACE</p>
+                                                            <button type="button" class="run">RUN</button>
+                                                        </div>
+                                                        <div class="cont">
+                                                            <div class="tooltipHover">
+                                                                <div class="imgBox">
+                                                                    <img src="../../img/sample/graph01.png" alt="">
+                                                                </div>
+                                                                <div class="titBox">
+                                                                    <p>[블랙라벨]블로스핸드코트
+                                                                        (한정수량한정수량한정수량한정수량한정수량한정수량한정수량한정수량한정수량한정수량한정수량한정수량)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="graph"
+                                                                style="width:100%; height:440px; border:1px solid #ddd">
+                                                                <div class="graphLine">graphLine</div>
+                                                            </div>
+                                                            <!-- 그래프 선에 graphLine 추가 > graphLine 클래스에 마우스 HOVER 하면 tooltipHover 나타남 -->
+                                                        </div>
+                                                        <div class="graphNone">
+                                                            <p>상품 RACE를 시작해보세요.</p>
+                                                            <button type="button" class="run">RACE RUN</button>
+                                                        </div>
+                                                        <!-- graphNone END -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trash ui-droppable">
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

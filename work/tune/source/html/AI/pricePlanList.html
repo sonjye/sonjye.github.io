@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/t720.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <!-- <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script> -->
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <!-- <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css"> -->
+</head>
+<style>
+</style>
+
+<body>
+    <!-- AI스튜디오 > 구독 및 결제 (tune_aiPricePlanList) -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                    <li class="on aiStudio"><a href="javascript:void(0);">AI 스튜디오</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme">
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>AI 스튜디오</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="home"></i><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="talk"></i><span>최근 대화</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="qne"></i><span>AI질문 & 탐색</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="reportLounge"></i><span>리포트 라운지</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="reportStorage"></i><span>내 리포트 보관함</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="setting"></i><span>설정 & 튜닝</span></a>
+                    <ul class="active">
+                        <li><a href="javascript:void(0);">개인 맞춤 설정</a></li>
+                        <li class="on"><a href="javascript:void(0);">구독 및 결제</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- jquery로 .container 하위에 .tune_aiHome 클래스가 있는경우 
+         1. .container에 tune_aiHome 클래스 추가 > 배경 VIDEO 제어
+         2. HTML에 스크롤 제거 기능 추가함  -->
+        <section class="container tune_aiPricePlanList">
+            <video autoplay loop muted playsinline class="bg_video">
+                <source src="../../image_v3/etc/bg_ai.mp4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline class="bg_video">
+                <source src="../../image_v3/etc/bgB_ai.mp4" type="video/mp4">
+            </video>
+            <!-- 체험판 알림 띠-->
+            <section class="alert_aiTrial">
+                <div class="box_alarm">
+                    <p>체험판 이용 중입니다. (D-3) 정식 서비스로 전환하고 모든 기능을 이용해보세요.</p>
+                    <button type="button" class="price">요금제 보기</button>
+                </div>
+            </section>
+            <!-- 체험판 종료 안내 disNone-->
+            <section class="full_aiTrialEnd disNone">
+                <div class="box_trialEnd">
+                    <div class="logoBox">
+                        <p>TUNY</p>
+                    </div>
+                    <div class="guideBox">
+                        <p>체험이 종료되었어요.</p>
+                        <p>체험 기간 : 2025.10.10 ~ 2025.10.17</p>
+                        <p>지금 <span>정식 서비스로 전환</span></span>하고, <br>AI 튜니의 모든 기능을 이어서 사용해보세요.</p>
+                    </div>
+                    <div class="buttonBox">
+                        <button type="button" class="change">정식 서비스로 전환하기</button>
+                    </div>
+                </div>
+            </section>
+            <div class="tune_aiPricePlanList">
+                <div class="title">
+                    <p>구독 및 결제</p>
+                </div>
+                <div class="content">
+                    <section class="sec_payInfo">
+                        <!-- 현재 구독 & 토큰 -->
+                        <div>
+                            <!-- 현재 구독 -->
+                            <div class="box_subscript">
+                                <div class="tit">
+                                    <p>현재 구독</p>
+                                </div>
+                                <!-- <div class="cont dataNoneArea"> -->
+                                <div class="cont dataNoneArea">
+                                    <div class="summary">
+                                        <!-- p클래스 클래스값을 pro, free, starter, basic, biz 로 변경-->
+                                        <!-- <p class="starter">STARTER 요금제 - <span>매월 1일</span></p> -->
+                                        <p class="starter">PRO 요금제 - <span class="issue">구독 해지됨</span></p>
+                                        <button type="button">요금제 업그레이드</button>
+                                    </div>
+                                    <div class="infoBox">
+                                        <p>포함사항</p>
+                                        <ul>
+                                            <li><b>25만</b> 토큰</li>
+                                            <li> 대화 <b>250</b> 건 </li>
+                                            <li><b>오픈형</b> 리포트</li>
+                                            <li><b>모니터링</b> 프롬프트 </li>
+                                            <!-- <li><b>추천 캠페인</b> 기능 제공</li>
+                                            <li> 원태그 , 데이터매니저 , TUNE720 주요 기능 사용</li>
+                                            <li> 기본 지원 (문의 및 유지 보수)</li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="dataNone ">
+                                        <div class="guideBox ">
+                                            <p>구독이 <span>종료될 예정</span>입니다.</p>
+                                            <p>서비스 이용 가능 : <span>2025-08-31</span>까지</p>
+                                            <p>혜택: 잔여 기간 동안 기존 혜택 유지</p>
+                                        </div>
+                                        <div class="guideBox disNone">
+                                            <p>사용중인 요금제가 없습니다.</p>
+                                            <p>더 많은 기능과 혜택을 사용하려면<br> 요금제를 업그레이드하세요.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 토큰 -->
+                            <div class="box_token">
+                                <div class="tit">
+                                    <p>토큰</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="summary">
+                                        <p>현재 보유 토큰: <span>265,086개</span></p>
+                                        <button type="button">결제수단 등록하기</button>
+                                    </div>
+                                    <div class="statsBox">
+                                        <div class="box">
+                                            <p>토큰 충전일</p>
+                                            <p>매월 17일</p>
+                                        </div>
+                                        <div class="box">
+                                            <p>차감 토큰</p>
+                                            <p>215,000개</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 결제 방식 -->
+                        <!-- box_payMethod에 .alertArea 추가시 .alertBox 나타남-->
+                        <!-- <div class="box_payMethod alertArea"> -->
+                        <!-- 기획자 요청에 따라 임시 disNone 처리함 -->
+                        <div class="box_payMethod disNone">
+                            <div class="alertBox">
+                                <p>현재 결제 수단은 등록 되어있지만,<br>다음 결제는 진행되지 않습니다.</p>
+                            </div>
+                            <div class="tit">
+                                <p>결제 방식</p>
+                            </div>
+                            <!-- 결제수단 없을 때 나타는 화면은 하단 주석과 같이 cont에 dataNoneArea 클래스 추가 -->
+                            <!-- <div class="cont dataNoneArea"> -->
+                            <div class="cont dataNoneArea">
+                                <!-- <p class="dText">준비중입니다.</p> -->
+                                <!-- <div class="dataNone">
+                                    <p>준비중입니다.</p>
+                                </div> -->
+                                <div class="summary">
+                                    <p>결제 수단</p>
+                                    <button type="button">결제수단 변경</button>
+                                </div>
+                                <div class="cardBox">
+                                    <button type="button" class="delete">카드 삭제</button>
+                                    <div class="number">
+                                        <p>카드번호</p>
+                                        <p>**** **** **** 2020</p>
+                                    </div>
+                                    <div class="type"><i class="master"></i>
+                                        <p>유효기간 <span>07/29</span></p>
+                                    </div>
+                                </div>
+                                <div class="infoBox">
+                                    <div>
+                                        <p>결제 예정 금액</p>
+                                        <p>199,000원<span>(VAT 제외)</span>/매월</p>
+                                    </div>
+                                    <div>
+                                        <p>청구 정보 </p>
+                                        <p>example@enliple.com</p>
+                                    </div>
+                                </div>
+                                <div class="dataNone">
+                                    <div class="payAddBox">
+                                        <button type="add">추가</button>
+                                        <p>결제 진행을 위해<br> 결제 수단을 등록하세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 결제내역 -->
+                    <section class="sec_payList">
+                        <div class="box_payList">
+                            <div class="tit">
+                                <p>결제내역</p>
+                            </div>
+                            <div class="cont">
+                                <!-- tableAreaDataNone >> 데이터가 없을때 하단 클래스에 추가-->
+                                <!-- <div class="tableArea tableAreaDataNone"> -->
+                                <div class="tableArea">
+                                    <!-- tableBox 에 max-height값으로 테이블 최대 높이값 지정&스크롤나타남, 배경동영상때문에 mx-height: 500px 이상은 테이블이 화면 밖으로 나감-->
+                                    <div class="tableBox">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>기간</th>
+                                                    <th>요금제</th>
+                                                    <th>가격</th>
+                                                    <th>토큰수</th>
+                                                    <th>결제내용</th>
+                                                    <th>영수증내역</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2025-08-01</td>
+                                                    <td><i class="pro"></i>PRO 요금제</td>
+                                                    <td>₩218,900원</td>
+                                                    <td>25만 토큰</td>
+                                                    <td class="complete">결제 완료</td>
+                                                    <td><button type="button" class="receipt">영수증</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-08-01</td>
+                                                    <td><i class="free"></i>FREE 요금제</td>
+                                                    <td>₩218,900원</td>
+                                                    <td>25만 토큰</td>
+                                                    <td class="fail">결제 실패</td>
+                                                    <td><button type="button" class="receipt">영수증</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-08-01</td>
+                                                    <td><i class="starter"></i>STARTER 요금제</td>
+                                                    <td>₩218,900원</td>
+                                                    <td>25만 토큰</td>
+                                                    <td class="complete">결제 완료</td>
+                                                    <td><button type="button" class="receipt">영수증</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-08-01</td>
+                                                    <td><i class="basic"></i>BASIC 요금제</td>
+                                                    <td>₩218,900원</td>
+                                                    <td>25만 토큰</td>
+                                                    <td class="fail">결제 실패</td>
+                                                    <td><button type="button" class="receipt">영수증</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-08-01</td>
+                                                    <td><i class="biz"></i>BIZ 요금제</td>
+                                                    <td>₩218,900원</td>
+                                                    <td>25만 토큰</td>
+                                                    <td class="complete">결제 완료</td>
+                                                    <td><button type="button" class="receipt">영수증</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="paging">
+                                        <ul>
+                                            <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                            <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                            <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                            <li><a href="javascript:pageLink(2);">2</a></li>
+                                            <li><a href="javascript:pageLink(3);">3</a></li>
+                                            <li><a href="javascript:pageLink(4);">4</a></li>
+                                            <li><a href="javascript:pageLink(5);">5</a></li>
+                                            <li><a href="javascript:pageLink(6);">6</a></li>
+                                            <li><a href="javascript:pageLink(7);">7</a></li>
+                                            <li><a href="javascript:pageLink(8);">8</a></li>
+                                            <li><a href="javascript:pageLink(9);">9</a></li>
+                                            <li><a href="javascript:pageLink(10);">10</a></li>
+                                            <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                            <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                        </ul>
+                                    </div>
+                                    <!--//paging end-->
+                                    <div class="tableDataNone">
+                                        <div>
+                                            <p>결제 내역이 없습니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--footer 생략-->
+        </section>
+    </div>
+</body>
+
+</html>

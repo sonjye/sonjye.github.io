@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- LAB > 키워드 통계 - 등급조회 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li class="on"><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트래킹</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>LAB</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="rankAnalysis"></i><span>랭킹분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="businessAnalysis"></i><span>업황분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userActivity"></i><span>고객외부활동</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="productTrend"></i><span>상품트렌드</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="keywordAnalysis"></i><span>키워드분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="mediaAnalysis"></i><span>매체분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="opinionAnalysis"></i><span>여론분석</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_keywordStatsGrade">
+                <div class="title">
+                    <p>키워드 통계- <b>등급 조회</b></p>
+                    <p>Last updated 2023-05-24 02:00</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="calendarBox">
+                            <div class="calendar">
+                                <input type="text" id="dateInput" name="dateInput" value="">
+                            </div>
+                            <button type="button">검색</button>
+                        </div>
+                    </section>
+                    <!--// section -->
+                    <section class="sec_list">
+                        <div class="box_info">
+                            <div class="tableArea">
+                                <div class="tableBox">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>키워드</th>
+                                                <th>등급</th>
+                                                <th>점수</th>
+                                                <th colspan="2">유입수</th>
+                                                <th>어시스트</th>
+                                                <th colspan="2">전환수</th>
+                                                <th colspan="2">전환매출</th>
+                                                <th>평균구매액</th>
+                                                <th>상승지수</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>도드리</td>
+                                                <td>1등급</td>
+                                                <td>96.5점</td>
+                                                <td>87,791</td>
+                                                <td>
+                                                    <p><span>네이버</span><span>78,487</span></p>
+                                                    <p><span>다음</span><span>7,487</span></p>
+                                                    <p><span>기타(구글 외)</span><span>178,487</span></p>
+                                                </td>
+                                                <td>89,154</td>
+                                                <td>13,562</td>
+                                                <td>
+                                                    <p><span>네이버</span><span>78,487</span></p>
+                                                    <p><span>다음</span><span>7,487</span></p>
+                                                    <p><span>기타(구글 외)</span><span>178,487</span></p>
+                                                </td>
+                                                <td>309,293,288</td>
+                                                <td>
+                                                    <p><span>네이버</span><span>78,487</span></p>
+                                                    <p><span>다음</span><span>7,487</span></p>
+                                                    <p><span>기타(구글 외)</span><span>178,487</span></p>
+                                                </td>
+                                                <td>22,194</td>
+                                                <td>-35%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- <div class="dataNone">
+                                <p>제공 되는 데이터가 없습니다.</p>
+                            </div> -->
+                        </div>
+                        <div class="box_list">
+                            <div class="tableHeader">
+                                <select name="" id="">
+                                    <option value="">50개씩 보기</option>
+                                </select>
+                            </div>
+                            <div class="tableArea">
+                                <div class="tableBox">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>순위</th>
+                                                <th>TOP 100</th>
+                                                <th>URL</th>
+                                                <th class="sort">상품명</th>
+                                                <th class="sort">제이버 전환수</th>
+                                                <th class="sort">다음 전환수</th>
+                                                <th class="sort">기타 전환수</th>
+                                                <th class="sort">매출</th>
+                                                <th class="sort">네이버 매출</th>
+                                                <th class="sort">다음 매출</th>
+                                                <th class="sort">기타 매출</th>
+                                                <th class="sort">점유율</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><img src="../../image/test/test_1.png" alt=""></td>
+                                                <td><a href="javascript:void(0);">
+                                                        https://www.dodry.net/product/detail.html?product_no=35217&cate_no=1&display_group=3</a>
+                                                </td>
+                                                <td>
+                                                    <p>by-D R20980</p>
+                                                    <p> 따뜻 피치기모 트임 롱티</p>
+                                                </td>
+                                                <td>298</td>
+                                                <td>298</td>
+                                                <td>298,123</td>
+                                                <td>50,392,000원</td>
+                                                <td>20,392,000원</td>
+                                                <td>9,392,000원</td>
+                                                <td>0원</td>
+                                                <td>2.234%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><img src="../../image/test/test_1.png" alt=""></td>
+                                                <td><a href="javascript:void(0);">
+                                                        https://www.dodry.net/product/detail.html?product_no=35217&cate_no=1&display_group=3</a>
+                                                </td>
+                                                <td>
+                                                    <p>by-D R20980</p>
+                                                    <p> 따뜻 피치기모 트임 롱티</p>
+                                                </td>
+                                                <td>298</td>
+                                                <td>298</td>
+                                                <td>298,123</td>
+                                                <td>50,392,000원</td>
+                                                <td>20,392,000원</td>
+                                                <td>9,392,000원</td>
+                                                <td>0원</td>
+                                                <td>2.234%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="dataNone">
+                                <p>제공 되는 데이터가 없습니다.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section -->
+                </div>
+            </div>
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/gridstack-h5.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- 개발 구조상 grid관련 css를 common.css 하단으로 배치함 -->
+    <link type="text/css" rel="stylesheet" href="../../css/lib/gridstack.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/gridstack.css">
+</head>
+
+<body>
+    <!-- 마이데이터 스튜디오 > 공통 -->
+    <!-- 마이데이터(트렌드분석> 고객외부활동) -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                    <li class="on"><a href="javascript:void(0);">마이데이터 스튜디오</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>마이데이터 스튜디오</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="mydata"></i><span>마이데이터</span></a>
+                    <ul class="active">
+                        <li class="on"><a href="javascript:void(0);">유입분석</a></li>
+                        <li><a href="javascript:void(0);">활동분석</a></li>
+                        <li><a href="javascript:void(0);">상품분석</a></li>
+                        <li><a href="javascript:void(0);">마이리포트</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_bookmark">
+                <div class="title">
+                    <p>마이데이터(트렌드분석 > 고객외부활동 / tune_userExternalActivity)</p>
+                    <div class="optionBox">
+                        <button type="button" class="modify">편집</button>
+                        <button type="button" class="reset">초기화</button>
+                        <button type="button" class="cancel">편집 취소</button>
+                        <button type="button" class="save">저장 및 완료</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <section class="grid_setting_Wrap">
+                        <button type="button" class="gs_btn"><i></i></button>
+                    </section>
+                    <section class="grid_contents_wrap">
+                        <div class="grid-stack" id="grid-stack">
+                            <!-- <button type="button" class="widgetAdd">위젯추가</button>
+                            <button type="button" class="map">화면 바로가기<span class="mapHover">트렌드분석 > 고객외부활동 화면
+                                    확인</span></button>
+                            <button type="button" class="widgetClose">닫기</button> -->
+                            <!-- 고객 외부활동 분석내역 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="64" gs-max-h="64">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_userExternalActivity">
+                                        <div class="titBox">
+                                            <p>고객 외부활동 분석 <button type="button" class="map">화면 바로가기<span
+                                                        class="mapHover">트렌드분석 > 고객외부활동 화면 확인</span></button></p>
+                                            <p> 최근 3개월 동안 자사 방문 고객이 외부에서 어떤 활동을 했는지 비교 분석한 데이터입니다. </p>
+                                            <p> 이를 통해 고객의 외부 행동 패턴을 파악하고, 마케팅 및 전략 수립에 유용한 인사이트를 도출하세요.</p> <button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="contBox">
+                                            <div class="graphBox">
+                                                <div class="titBox">
+                                                    <p>고객 내·외부 활동내역</p>
+                                                </div>
+                                                <div class="contBox">
+                                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                    <div class="graph" style="height: 390px; border:1px solid #ddd;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div class="titBox">
+                                                    <p>방문고객 구매활동 분석</p>
+                                                    <p>(월평균)</p>
+                                                </div>
+                                                <div class="contBox">
+                                                    <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                    <div class="graph" style="height: 390px; border:1px solid #ddd;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객 외부사이트 방문내역 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="81" gs-max-h="81">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_userVisitList">
+                                        <div class="titBox">
+                                            <p>고객 외부 사이트 방문내역 분석 <button type="button" class="map">화면 바로가기<span
+                                                        class="mapHover">트렌드분석 > 고객외부활동 화면 확인</span></button> </p>
+                                            <p> 최근 3개월 동안 자사 방문자가 주로 방문한 외부 사이트를 분석한 자료입니다. </p>
+                                            <p>각 사이트를 클릭 시 자사 방문자가 해당 사이트에서 구매한 주요 상품 카테고리를 확인할 수 있습니다.</p> <button
+                                                type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="contBox">
+                                            <div class="tabButton">
+                                                <button type="button" class="on">전체</button>
+                                                <button type="button">여성패션</button>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>고객 주요 활동사이트<span>(상위 20개)</span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 510px; border:1px solid #ddd;">
+                                                        </div>
+                                                        <div class="labelBox">
+                                                            <p>방문자</p>
+                                                            <p>구매력</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>고객 주요 활동 사이트 카테고리<span>(상위 10개)</span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 550px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- 고객 외부사이트 활동 분포 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="91" gs-max-h="91">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_userSiteActivity">
+                                        <div class="titBox">
+                                            <p>고객 외부 사이트 활동 분포 분석 <button type="button" class="map">화면 바로가기<span
+                                                        class="mapHover">트렌드분석 > 고객외부활동 화면 확인</span></button>
+                                            </p>
+                                            <p> 최근 3개월간 자사 방문자가 주로 방문한 외부 사이트의 접속 분포를 방문자 수와 본 상품 데이터를 기반으로 확인합니다. </p>
+                                            <p>또한, 전환 분포도는 인당 구매 금액과 구매자 수를 기준으로 분석하여 고객 활동의 패턴과 전환 성과를 시각적으로 제공합니다.</p>
+                                            <button type="button" class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="contBox">
+                                            <div class="tabButton">
+                                                <button type="button" class="on">전체</button>
+                                                <button type="button">여성패션</button>
+                                            </div>
+                                            <div class="graphBox">
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>주요 외부사이트 접속 분포도</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 620px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>주요 외부사이트 전환 분포도</p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 620px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!--// section end -->
+                                </div>
+                            </div>
+                            <!-- 고객 관심상품 카테고리 분석 -->
+                            <div class="grid-stack-item" gs-w="10" gs-h="71" gs-max-h="71">
+                                <div class="grid-stack-item-content">
+                                    <section class="sec_userInterestCategory">
+                                        <div class="titBox">
+                                            <p>고객 관심상품 카테고리 분석 <button type="button" class="map">화면 바로가기<span
+                                                        class="mapHover">트렌드분석 > 고객외부활동 화면 확인</span></button></p>
+                                            <p> 최근 3개월 동안 자사 방문자가 외부 쇼핑몰에서 구매한 상품, 장바구니에 담은 상품, 그리고 본 상품을 기준으로 관심을 보인
+                                                카테고리를 분석한 자료입니다. </p>
+                                            <p>이를 통해 고객의 관심사를 효과적으로 파악할 수 있습니다."</p> <button type="button"
+                                                class="widgetClose">닫기</button>
+                                        </div>
+                                        <div class="contBox">
+                                            <div class="graphBox">
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>구매상품 카테고리 분석<span>(상위 10개 기준)</span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 440px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>장바구니 카테고리 분석<span>(상위 10개 기준)</span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 440px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="titBox">
+                                                        <p>본상품 카테고리 분석<span>(상위 10개 기준)</span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                        <div class="graph"
+                                                            style="height: 440px; border:1px solid #ddd;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trash ui-droppable">
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/*-------------------------------------------------------------------------------------------------------------
+    File   : conponent.scss
+    Date   : 2023.03.06
+/*------------------------------------------------------------------------------------------------------------*/
+/********** common  **********/
+/* color */
+/* menu */
+/* border */
+/* font */
+/* bg */
+/* input */
+/* up & down */
+/* font weight */
+/* hover visible */
+/* button */
+i.btn_download,
+button.btn_download,
+a.btn_download {
+  min-width: 160px;
+  height: 30px;
+  padding: 4px 35px 4px 12px;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  font-size: 13px;
+  vertical-align: middle;
+  text-align: right;
+  line-height: 1.5;
+}
+
+i.btn_download:after,
+button.btn_download:after,
+a.btn_download:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  float: right;
+  top: 2px;
+  right: -25px;
+  background: url("../img/i_download_gray.svg") no-repeat;
+  background-position: right center;
+}
+
+i.btn_download_white,
+button.btn_download_white,
+a.btn_download_white {
+  min-width: 160px;
+  height: 30px;
+  padding: 4px 35px 4px 12px;
+  background-color: #79bd2f;
+  border: 1px solid #79bd2f;
+  border-radius: 2px;
+  font-size: 13px;
+  color: #fff;
+  vertical-align: middle;
+  text-align: right;
+  line-height: 1.5;
+}
+
+i.btn_download_white:after,
+button.btn_download_white:after,
+a.btn_download_white:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  float: right;
+  top: 2px;
+  right: -25px;
+  background: url("../img/i_download_white.svg") no-repeat;
+  background-position: right center;
+}
+
+/********** 커스텀 timepicker css **********/
+.timepicker {
+  border: 1px solid #c5c5c5;
+  width: 65px;
+  height: 36px;
+  border-radius: 3px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.timepicker:focus {
+  outline: none;
+}
+
+/********** 커스텀 라디오 버튼 css **********/
+.radioBox > div:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+input[type="radio"] + label {
+  float: left;
+  position: relative;
+  /*padding-left: 20px;*/
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+input[type="radio"] + label:before {
+  float: left;
+  /*position: absolute; */
+  top: 0.25em;
+  left: 0;
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  margin: 0 5px 6px 0;
+  background: url("../img/radio.png") center/100% no-repeat;
+}
+
+input[type="radio"]:checked + label:before {
+  content: "";
+  background: url("../img/radio_on2.png") center/100% no-repeat;
+}
+
+input[type="radio"].disabled + label:before {
+  content: "";
+  background: url("../img/radio_off.png") center/100% no-repeat;
+}
+
+.customRadioMargin input[type="radio"] + label:before {
+  margin-top: 8px;
+}
+
+.underLine input[type="radio"] + label:before {
+  margin-top: 0;
+}
+
+/* radio type02 >> rd_t2 */
+.rd_t2 input[type="radio"] + label {
+  cursor: pointer;
+}
+
+.rd_t2 input[type="radio"] + label:before {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  margin: 0 5px 6px 0;
+  background: url("../img/radio2.png") center/100% no-repeat;
+}
+
+.rd_t2 input[type="radio"]:checked + label:before {
+  content: "";
+  background: url("../img/radio_on2.png") center/100% no-repeat;
+}
+
+.rd_t2 input[type="radio"].disabled + label:before {
+  content: "";
+  background: url("../img/radio_off2.png") center/100% no-repeat;
+}
+
+.rd_t2 .customRadioMargin input[type="radio"] + label:before {
+  margin-top: 8px;
+}
+
+.rd_t2 .underLine input[type="radio"] + label:before {
+  margin-top: 0;
+}
+
+/********** 커스텀 체크박스 버튼 css **********/
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+  position: absolute;
+  left: 0;
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url("../img/check.png") center/100% no-repeat;
+}
+
+.tableSection input[type="checkbox"] + label {
+  position: static;
+  width: auto;
+  padding-left: 0;
+  text-align: center;
+}
+
+.tableSection input[type="checkbox"] + label:before {
+  position: static;
+  display: inline-block;
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  background: url("../img/check_on.png") center/100% no-repeat;
+}
+
+input[type="checkbox"]:disabled + label {
+  color: #979797;
+}
+
+input[type="checkbox"]:disabled + label:before {
+  content: "";
+  background: url("../img/component/ico_checkbox_disabled.svg") center/100% no-repeat;
+}
+
+/* checkbox M Size */
+/* 커스텀 체크박스 type 02 >> check_type02 */
+.check_type02 input[type="checkbox"] + label {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.check_type02 input[type="checkbox"] + label:before {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url("../img/check_off.png") center/100% no-repeat;
+}
+
+.check_type02 .tableSection input[type="checkbox"] + label {
+  position: static;
+  width: auto;
+  padding-left: 0;
+  text-align: center;
+}
+
+.check_type02 .tableSection input[type="checkbox"] + label:before {
+  position: static;
+  display: inline-block;
+}
+
+.check_type02 input[type="checkbox"]:checked + label:before {
+  content: "";
+  background: url("../img/check_on.png") center/100% no-repeat;
+}
+
+.check_type02 input[type="checkbox"][disabled] + label:before {
+  content: "";
+  background: url("../img/checkbox_disabled.png") center/100% no-repeat;
+}
+
+/*** checkbox Type 3 ***/
+/* checkBox */
+/********** 커스텀 체크박스 toggle 버튼 css **********/
+/********** option **********/
+/* calendar type2 */
+.searchArea {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+
+.searchArea span input[type="text"].search {
+  color: #bbb;
+  border: 1px solid #d0d0d0;
+  font-family: "Noto Sans CJK KR Bold";
+  font-size: 13px;
+  width: 220px;
+}
+
+.searchArea span:after {
+  content: url(../img/keyword/search-regular.svg);
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  width: 18px;
+  height: 18px;
+}
+
+.date .buttonBox {
+  display: inline;
+}
+
+.date .buttonBox button {
+  min-height: 30px;
+  padding: 7px 20px;
+  background-color: #85b74e;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  color: #fff;
+}
+
+.daterangepicker {
+  left: auto;
+  right: 20px;
+}
+
+.calendar_t2 {
+  width: 225px;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-right: 15px;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.calendar_t2 input[type="text"] {
+  width: 190px;
+  border: none;
+}
+
+.calendar_t2 .icon_calendar {
+  float: right;
+  position: relative;
+  display: inline-block;
+  bottom: 33px;
+  width: 35px;
+  height: 30px;
+  background: url("../img/ico_calendar.png") no-repeat;
+  background-position: center 4px;
+  border-radius: 3px 0 0 3px;
+}
+
+.calendar_t2 .calendar_chk input[type="checkbox"] + label {
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/******************** table ********************/
+/* tableWrap */
+/* divTable */
+/* tableDataNone */
+.tblDataNone {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid #e9e9e9;
+  border-top: none;
+}
+
+.tblDataNone > div {
+  padding-top: 100px;
+}
+
+.tblDataNone > div > p {
+  font-size: 14px;
+  color: #bbb;
+  text-align: center;
+}
+
+/********** tab, tabView **********/

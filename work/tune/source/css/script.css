@@ -1,0 +1,547 @@
+/*-------------------------------------------------------------------------------------------------------------
+    File   : script
+    Date   : 2021.03.24
+/*------------------------------------------------------------------------------------------------------------*/
+/********** script common css ***********/
+.script {
+  /* icon */
+  /* optionBox */
+  /* span icon */
+}
+
+.script i.icon_empty_script,
+.script button.icon_empty_script,
+.script a.icon_empty_script {
+  width: 52px;
+  height: 52px;
+  background: url("../img/script/icon_empty_script.svg") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script i.icon_empty_script,
+.script button.icon_empty_script,
+.script a.icon_empty_script {
+  width: 52px;
+  height: 52px;
+  background: url("../img/script/icon_empty_script.svg") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script i.btn_excel,
+.script button.btn_excel,
+.script a.btn_excel {
+  position: relative;
+  display: inline-block;
+  min-width: 70px;
+  height: 30px;
+  padding-left: 32px;
+  text-align: left;
+  color: #fff;
+  border-radius: 2px;
+  background-color: #85b74e;
+}
+
+.script i.btn_excel:before,
+.script button.btn_excel:before,
+.script a.btn_excel:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  left: 13px;
+  background: url("../img/script/icon_excel.png") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script .optionBox {
+  margin-bottom: 0;
+  padding-bottom: 25px;
+}
+
+.script .optionBox .optionRow {
+  clear: both;
+  /* float */
+  /* box_radio */
+  /* box_button */
+}
+
+.script .optionBox .optionRow .box_right {
+  float: right;
+}
+
+.script .optionBox .optionRow .box_left {
+  float: left;
+}
+
+.script .optionBox .optionRow .box_radio {
+  display: inline-block;
+}
+
+.script .optionBox .optionRow .box_radio h4 {
+  display: inline-block;
+  min-width: 55px;
+  padding: 0;
+  font-size: 15px;
+  color: #2a2a2a !important;
+  background-color: transparent;
+  font-family: "NotoSansR";
+}
+
+.script .optionBox .optionRow .box_radio > div {
+  display: inline-block;
+  padding: 4px 0 0 25px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.script .optionBox .optionRow .box_radio > div input[type="radio"] + label {
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+.script .optionBox .optionRow .box_button {
+  display: inline-block;
+}
+
+.script span.i_normal, .script span.i_issue, .script span.i_error {
+  position: relative;
+  display: inline-block;
+  min-width: 60px;
+  height: 20px;
+  padding: 0 5px 0 17px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 10px;
+  line-height: 1.7;
+  color: #fff;
+}
+
+.script span.i_normal:before, .script span.i_issue:before, .script span.i_error:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  top: 4px;
+  left: 3px;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script span.i_normal {
+  background-color: #2fa6fa;
+}
+
+.script span.i_normal:before {
+  background: url("../img/script/icon_normal_blue.svg") left center no-repeat;
+}
+
+.script span.i_issue {
+  background-color: #f5d023;
+}
+
+.script span.i_issue:before {
+  background: url("../img/script/icon_normal_blue.svg") left center no-repeat;
+}
+
+.script span.i_error {
+  background-color: #dc5858;
+}
+
+.script span.i_error:before {
+  background: url("../img/script/icon_normal_blue.svg") left center no-repeat;
+}
+
+/********** script each css ***********/
+/* 01_script */
+.script .secTit .id_domain {
+  margin-top: 4px;
+}
+
+.script .secTit .id_domain li {
+  display: inline-block;
+  font-size: 15px;
+  color: #181c27;
+}
+
+.script .secTit .id_domain li:first-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 15px;
+  top: 3px;
+  margin-right: 6px;
+  border-right: 1px solid #181c27;
+}
+
+.script .secTit .block_call {
+  position: absolute;
+  display: inline-block;
+  float: right;
+  top: 34px;
+  right: 30px;
+  width: 120px;
+  height: 60px;
+  padding-top: 12px;
+  border-radius: 5px;
+  background-color: #7e7e7e;
+}
+
+.script .secTit .block_call > p {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 18px;
+  font-family: "NotoSansM";
+}
+
+.script .cont {
+  margin-top: 24px;
+}
+
+.script .cont .block_solution {
+  margin-bottom: 12px;
+  padding: 24px 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.script .cont .block_solution .tit {
+  font-size: 16px;
+  font-family: "NotoSansM";
+}
+
+.script .cont .block_solution ul {
+  margin-top: 12px;
+}
+
+.script .cont .block_solution ul .box_radio {
+  display: inline-block;
+  margin-left: 16px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.script .cont .block_solution ul p {
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: middle;
+  color: #000;
+}
+
+.script .cont .block_solution ul .customSelect {
+  width: 300px;
+  margin-left: 16px;
+  vertical-align: middle;
+}
+
+.script .cont .block_solution ul .box_button {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.script .cont .block_solution ul .box_button button {
+  margin: 0 5px;
+}
+
+.script .cont .area_script .block_tab {
+  margin-top: 30px;
+}
+
+.script .cont .area_script .block_tab > ul > li {
+  position: relative;
+  display: inline-block;
+  float: left;
+  min-width: 150px;
+  min-height: 40px;
+  padding: 9px 15px;
+  text-align: center;
+  color: #777;
+  border: 1px solid #c9c9c9;
+  border-radius: 3px 3px 0 0;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.script .cont .area_script .block_tab > ul > li.on {
+  position: relative;
+  padding-bottom: 10px;
+  color: #fff;
+  border: 1px solid #79bd2f;
+  border-bottom: 1px solid #79bd2f;
+  background-color: #79bd2f;
+}
+
+.script .cont .area_script .block_tab > ul > li.disabled {
+  color: #979797;
+  border: 1px solid #c9c9c9;
+  background-color: #cdcdcd;
+}
+
+.script .cont .area_script .block_tab > ul > li.disabled.on {
+  color: #6aaa22;
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.script .cont .area_script .block_script {
+  clear: both;
+  padding: 20px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #fff;
+  border-radius: 0 5px 5px;
+}
+
+.script .cont .area_script .block_script > div {
+  display: none;
+}
+
+.script .cont .area_script .block_script > div.show {
+  display: block;
+}
+
+.script .cont .area_script .block_script .script_empty {
+  position: relative;
+  width: 280px;
+  height: 166px;
+  margin: 187px auto;
+  border-radius: 20px;
+  border: 1px solid #eaeaea;
+  background-color: #f9fafb;
+}
+
+.script .cont .area_script .block_script .script_empty p {
+  font-size: 15px;
+  text-align: center;
+  color: #999;
+  line-height: 22.5px;
+}
+
+.script .cont .area_script .block_script .script_empty p:before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: 33px auto 15px;
+  text-align: center;
+  background: url("../img/script/icon_empty_script.svg") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script .cont .area_script .block_script .box_script {
+  margin-top: 8px;
+}
+
+.script .cont .area_script .block_script .box_script .secTit {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.script .cont .area_script .block_script .box_script .secTit button {
+  width: 70px;
+  height: 24px;
+  border-radius: 2px;
+  border: 1px solid #85b74e;
+  color: #85b74e;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+.script .cont .area_script .block_script .box_script .secTit span {
+  margin-left: 8px;
+  color: #777;
+  font-size: 13px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox {
+  padding: 0;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .optionBox {
+  padding-bottom: 0;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .optionBox .box_radio {
+  padding-top: 4px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap {
+  margin-top: 16px;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap {
+  /* tableUl common  */
+  /* ul_head */
+  /* ul_body */
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul,
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul {
+  width: 100%;
+  font-size: 0;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul > li,
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li {
+  display: inline-block;
+  min-height: 40px;
+  width: 280px;
+  padding: 6px 16px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2;
+  border: 1px solid #eaeaea;
+  border-right: none;
+  border-top: none;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul > li:nth-child(1), .script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul > li:nth-child(2),
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:nth-child(1),
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:nth-child(2) {
+  width: 280px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul > li:nth-child(3),
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:nth-child(3) {
+  width: 740px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head > ul > li:nth-child(4),
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:nth-child(4) {
+  width: calc(100% - 1300px);
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_head ul {
+  background-color: #cae2af;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul {
+  border-right: 1px solid #eaeaea;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li.on > ul > li:after {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li {
+  width: 280px;
+  cursor: pointer;
+  vertical-align: text-top;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:nth-child(3) {
+  width: 740px;
+  text-align: left;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:last-child {
+  text-align: left;
+  width: calc(100% - 1300px);
+  padding-right: 80px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li:last-child:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 15px;
+  height: 9px;
+  top: 10px;
+  left: 50px;
+  background: url("../img/script/ico_arrow_d.png") right center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .tableUlWrap .ul_body > ul > li > ul > li > ul > li {
+  display: inline-block;
+  min-height: 40px;
+  padding: 6px 10px;
+  border-right: 1px solid #eaeaea;
+  font-size: 13px;
+  line-height: 2;
+  cursor: pointer;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl {
+  position: relative;
+  display: none;
+  padding: 30px;
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl.show {
+  display: block;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table thead th {
+  height: 36px;
+  font-size: 13px;
+  background-color: #ececec;
+  border: 1px solid #bcbcbc;
+  padding: 6px 16px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table thead th:nth-child(1), .script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table thead th:nth-child(2) {
+  width: 17%;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table tbody {
+  background-color: #fff;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table tbody tr.bg_issue td {
+  background-color: #fff7d2;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table tbody tr.bg_error td {
+  background-color: #FFE6E6;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table tbody td {
+  height: 40px;
+  border: 1px solid #bcbcbc;
+  padding: 6px 16px;
+}
+
+.script .cont .area_script .block_script .box_script .tableBox .tableWrap .box_tbl table tbody td:nth-child(3) {
+  text-align: left;
+}
+
+.script .cont .area_script .block_script .box_timeline {
+  margin-top: 50px;
+}
+
+.script .cont .area_script .block_script .box_timeline .secTit {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.script .cont .area_script .block_script .box_timeline .chartWrap {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+}
+/*# sourceMappingURL=script.css.map */

@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/t720.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <!-- chart test를 위해 추가한 js -->
+    <script type="text/javascript" src="../../js/ui_chart.js"></script>
+    <!-- chart.js end -->
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <script>
+        /*
+         날짜 슬라이드 
+         jquery-ui > slider 참고
+        */
+        $(function () {
+            $("#slider").slider({
+                min: 1,
+                max: 10,
+                value: 2,
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- CDP 대시보드 -->
+    <!-- 250918 작업내용 -->
+    <!-- 
+    1. bubbleOpen > bubbleWrap 추가 
+     - bubbleOpen 클릭시 bubbleWrap .wrap하단으로 이동함
+     - bubbleOpen의 data-popBubbleName값과 bubbleWrap의 data-popBubbleWrapName 동일한 값으로 해당 말풍선 찾음
+    2. chartArea > box > bg(사용하지않음), chartBox > chartBlock > chartGroup > chartOut(이탈) + chartIn > chart 구조로 그래프 작업하였음
+     - 1단 차트의 경우 .bg 하위에는 div가 1단으로만 들어가야함 (안그러면 높이값 높아짐) > bg 사용하지 않아도되는 형태로 변경
+     - 1단 차트에서 차트가 2층으로 나와야하는 경우 .chartGroup > .chart(2)개 사용해야함
+     - 2단 차트의 경우 .bg > div 2개 구조로 바꾸어야함 (ex bg > div(2), 해당 구조가 아닐 경우 높이값 알수없음) 
+     - 2단 차트의 경우 .chartBox > chartBlock(2) 사용해야함 
+     - 다섯칸과 여섯칸의 구분은 .box의 갯수로 결정됨
+      -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li class="on"><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>CDP</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드(개요)</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userInfo"></i><span>유저정보</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="coreUserAnalysis"></i><span>핵심유저분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignList"></i><span>캠페인 리스트</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="campaignCreate"></i><span>캠페인 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="notice"></i><span>공지사항</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataLink"></i><span>데이터 연동 관리</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="rfmAnalysis"></i><span>RFM분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="userValueAnalysis"></i><span>고객가치분석</span></a>
+                <li>
+                    <a href="javascript:void(0);"><i class="businessAnalysis"></i><span>업황분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userActivity"></i><span>고객외부활동</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="customerAnalysis"></i><span>구매고객 분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="riskAnalysis"></i><span>리스크분석</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_cdpDashboard">
+                <div class="title">
+                    <p>대시보드</p>
+                    <p>유저 분석 캠페인을 생성하여 문자메세지 등 다양한 마케팅에 이용할 수 있습니다.</p>
+                </div>
+                <div class="content">
+                    <!-- 공지사항 -->
+                    <section class="sec_notice">
+                        <div class="box_notice">
+                            <div class="tit">
+                                <p>공지사항</p>
+                            </div>
+                            <div class="cont">
+                                <div>
+                                    <a href="#">
+                                        <p>[CDP]캠페인 연령대 구간 변경 안내</p>
+                                        <p>2021-03-05</p>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        <p>[CDP]캠페인 연령대 구간 변경 안내</p>
+                                        <p>2021-03-05</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_call">
+                            <p>이용 문의 : 070-4672-2303</p>
+                        </div>
+                    </section>
+                    <!-- 구매 고객별 비율, 구매고객별 마지막 로그인 시점 -->
+                    <section class="sec_totalAnalysis">
+                        <div class="box_totalAnalysis">
+                            <div class="guideBox">
+                                <div class="indexBox">
+                                    <p>10월 3주 성과 진단 : 업종 표준 지표 비교</p>
+                                    <p>본 평가지표는 <span>자사</span>와 동종 업계(<span>여성패션</span>)의 주요 지표를 비교하여 점수화한 자료로, 광고주의 주간
+                                        성과 진단과 데이터 기반 의사결정을 지원합니다. </p>
+                                    <p>여러 경로의 출처 데이터를 AI 알고리즘으로 분석한 결과이므로 해석 시 참고용으로 활용해 주시기 바랍니다. </p>
+                                </div>
+                                <div class="sampleBox">
+                                    <p>
+                                        <span>분석 표본 정보</span>
+                                        <span>(10월 3주)</span>
+                                    </p>
+                                    <p>
+                                        <span>동종 업종 분석 사이트 수</span>
+                                        <span>153개</span>
+                                    </p>
+                                    <p>
+                                        <span>분석 대상 유저 수</span>
+                                        <span>28,444,999명</span>
+                                    </p>
+                                    <p>
+                                        <span>전체 매출 규모</span>
+                                        <span>28,444,999명</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="analysisBox">
+                                <div class="graphBox">
+                                    <div class="titBox">
+                                        <p>종합지표평가분석<span class="iBox"><i class="iMark"></i><i class="iMarkHover">말풍선입니다.
+                                                </i></span></p>
+                                    </div>
+                                    <div class="contBox">
+                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                        <div class="graph" style="height: 560px; border:1px solid 
+                                        #e5e5e5">
+                                            <p>방문수 80 <span class="iBox">
+                                                    <i class="iMark good"></i>
+                                                    <i class="iMarkHover">말풍선입니다. </i>
+                                                </span>
+                                            </p>
+                                            <p><span class="iBox">
+                                                    <i class="iMark bad"></i>
+                                                    <i class="iMarkHover">말풍선입니다. </i>
+                                                </span> 구매전환율 80 </p>
+                                        </div>
+                                        <div class="labelBox">
+                                            <p>이전 3개월 평균 (756점)</p>
+                                            <p>금주 (776점)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summaryBox">
+                                    <div class="titBox">
+                                        <p>종합진단평가 (5월 4주)</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <div class="score">
+                                            <div class="total">
+                                                <p>총점 : <b>776점</b><span>/1000</span></p>
+                                            </div>
+                                            <div class="graph">
+                                                <div class="bg"></div>
+                                                <div class="point" style="width:50%">
+                                                    <p>상위 50%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="summary">
+                                            <p>현재, 우리 사이트는 총점 <b>776</b>점으로 업종 평균 대비 상위 <b>42%</b> 입니다.</p>
+                                            <p>이전 3개월 평균과 비교하여 가장 상승한 평가지표는 <b class="up">‘방문수’</b> 이며, 가장 하락한 평가지표는 <b
+                                                    class="ct1">‘객단가’</b> 입니다.</p>
+                                            <p>현재 가장 좋은 평가 지표는 <b class="up">‘방문수’</b>이며, 가장 낮은 평가 지표는 <b
+                                                    class="down">‘체류시간’</b> 입니다.</p>
+                                            <p>총점은 전주대비하여 <b>5점하락</b> 하였으며, <b class="up">‘재구매율’</b>이(가) 가장 큰 원인 으로
+                                                보여집니다. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttonBox">
+                                <button type="button" class="play">PLAY</button>
+                                <button type="button" class="stop">STOP</button>
+                            </div>
+                            <div class="dateBox">
+                                <div class="bg">
+                                    <div class="before">
+                                        <div class="circle">
+                                            <p>2월4주</p>
+                                        </div>
+                                    </div>
+                                    <div class="after">
+                                        <div class="circle">
+                                            <p>2월4주</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider" id="slider">
+                                    <div class="now ui-slider-handle">
+                                        <div class="circle">
+                                            <p class="date">5월4주 </p>
+                                        </div>
+                                        <p>776점</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                    <!-- 유저 퍼널 분석-->
+                    <section class="sec_analysis">
+                        <div class="box_personalAnalysis">
+                            <div class="tit">
+                                <p>유저 퍼널 분석</p>
+                            </div>
+                            <div class="cont">
+                                <div class="optionBox">
+                                    <div class="tab">
+                                        <p>구분</p>
+                                        <ul>
+                                            <li> <input type="radio" name="rd1" id="rd1" checked>
+                                                <label for="rd1">자사전체</label></li>
+                                            <li> <input type="radio" name="rd1" id="rd2">
+                                                <label for="rd2">자사 신규/재방문</label></li>
+                                            <li> <input type="radio" name="rd1" id="rd3">
+                                                <label for="rd3">자사/동종업종 </label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="radioBox">
+                                        <p>기간</p>
+                                        <input type="radio" name="rd2" id="rd2_1" checked>
+                                        <label for="rd2_1">최근7일</label>
+                                        <input type="radio" name="rd2" id="rd2_2">
+                                        <label for="rd2_2">최근 30일</label>
+                                        <input type="radio" name="rd2" id="rd2_3">
+                                        <label for="rd2_3">최근 90일</label>
+                                    </div>
+                                    <!-- <div class="calendarBox">
+                                        <div class="calendar">
+                                            <input type="text" id="dateInput" name="dateInput" value="">
+                                        </div>
+                                    </div> -->
+                                    <div class="toggleBox">
+                                        <p>이전 기간 비교<span class="iBox"><span class="iMark"></span><span
+                                                    class="iMarkHover">선택한 기간과 동일한 길이의 이전 기간과 자동으로 비교됩니다.</span></span>
+                                        </p>
+                                        <input type="checkbox" name="ip_toggle" id="ip_toggle_1">
+                                        <label for="ip_toggle_1">기간비교</label>
+                                    </div>
+                                    <div class="toggleBox">
+                                        <p>딥퍼널</p>
+                                        <input type="checkbox" name="ip_toggle" id="ip_toggle_2" checked>
+                                        <label for="ip_toggle_2">Deep Funnel</label>
+                                    </div>
+                                    <!-- <button type="button" class="search">검색</button> -->
+                                </div>
+                                <div class="tabView">
+                                    <!-- 자사 전체 -->
+                                     <!-- dimText 추가시 기준기간 포함해서 dim처리됨 -->
+                                    <!-- dataNoneArea 추가 위치 > 데이터가 충분하지 않아 제공할 수 없습니다.-->
+                                    <div class="tabViewList dataNoneArea show">
+                                        <!-- <p class="dText">최근 7일동안 데이터가 충분하지 않아 제공할 수 없습니다.</p> -->
+                                        <div class="dateBox">
+                                            <p>기준기간 : 2025-11-01 ~ 2025-11-07</p>
+                                            <!-- <p>비교기간 : 2025-11-01 ~ 2025-11-07</p> -->
+                                        </div>
+                                        <div class="dataNone">
+                                            <p>최근 7일동안 데이터가 충분하지 않아 제공할 수 없습니다.</p>
+                                        </div>
+                                        <!-- toastOn 추가로 toast메시지 나타나게 함 -->
+                                        <div class="toastWrap tst_alert">
+                                            <p>이전 기간 데이터가 충분하지 않아 증감률을 표시할 수 없습니다(1).</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <div class="box">
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <!-- <div class="txt">
+                                                                            <p><span class="up">15%</span></p>
+                                                                        </div> -->
+                                                                        <div class="txt2">
+                                                                            <p>방문<span>100%</span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div>
+                                                        <span>21.5%</span><span>120,000명</span>
+                                                    </div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats1">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats1">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>조회</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p>- 분석기간 :
+                                                                                            2025-07-05~2025-08-04 :
+                                                                                            <b>294,600명 (55.3%)</b></p>
+                                                                                        <p><b>→ 원인예상</b> : 결제 시 회원가입,
+                                                                                            결제오류, 배송비 등 </p>
+                                                                                        <p><b>→ 제안</b> : 즉시 쿠폰 , 간편결제,
+                                                                                            환불보장 등 </p>
+                                                                                        <p>스크롤테스트</p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p> <span class="down">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>조회<span>100%</span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div>
+                                                        <span>21.5%</span><span>120,000명</span>
+                                                    </div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats2">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats2">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>장바구니</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p>- 분석기간 :
+                                                                                            2025-07-05~2025-08-04 :
+                                                                                            <b>294,600명 (55.3%)</b>
+                                                                                        </p>
+                                                                                        <p><b>→ 원인예상</b> : 결제 시 회원가입,
+                                                                                            결제오류, 배송비 등 </p>
+                                                                                        <p><b>→ 제안</b> : 즉시 쿠폰 , 간편결제,
+                                                                                            환불보장 등 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p><span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>장바구니<span>100% </span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p> <span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>바로결제<span>100%</span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                            <div class="chartOut">
+                                                                <p>61.8%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 위치 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p><span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>결제<span>100%</span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>4.6%</p>
+                                                                <p>398,662명 </p>
+                                                                <!-- bubble 위치 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p><span class="down">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>구매완료<span>100%</span> </p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>6.6%</p>
+                                                                <p>398,662명 </p>
+                                                                <!-- bubble 위치 -->
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats5">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats5">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>구매완료</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p>- 분석기간 :
+                                                                                            2025-07-05~2025-08-04 <br>:
+                                                                                            <b> 294,600명 (55.3%)</b></p>
+                                                                                        <br>
+                                                                                        <p><b>- 매출</b> :124,555,666원
+                                                                                        </p>
+                                                                                        <p>&nbsp;&nbsp;&nbsp;PC:13,601,002원
+                                                                                            | 11% </p>
+                                                                                        <p>&nbsp;&nbsp;&nbsp;Mobile:13,601,002원
+                                                                                            | 51% </p>
+                                                                                        <br>
+                                                                                        <p><b>→ 제안</b> : 즉시 쿠폰 , 간편결제,
+                                                                                            환불보장 등 </p>
+                                                                                        <p>스크롤테스트</p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p><span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>리텐션 <span>11%</span></p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                        </div>
+                                        <!--// chartArea end -->
+                                    </div>
+                                    <!-- 자사 신규/ 재방문 -->
+                                    <div class="tabViewList">
+                                        <div class="dateBox">
+                                            <p>기준기간 : 2025-11-01 ~ 2025-11-07</p>
+                                            <p>비교기간 : 2025-11-01 ~ 2025-11-07</p>
+                                        </div>
+                                        <div class="dataNone">
+                                            <p>최근 30일동안 데이터가 충분하지 않아 제공할 수 없습니다.</p>
+                                        </div>
+                                        <!-- toastOn 추가로 toast메시지 나타나게 함 -->
+                                        <div class="toastWrap tst_alert toastOn">
+                                            <p>이전 기간 데이터가 충분하지 않아 증감률을 표시할 수 없습니다(2).</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <!-- chartOut 은 첫번째 박스라 없음 -->
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <!-- <p>100% <span class="up">15%</span></p> -->
+                                                                            <p>100% </p>
+                                                                            <p>신규방문<span>(Visit)</span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>방문</p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Visit) </p>
+                                                                            <p>80,000명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>재방문<span>(Re-Visit)</span></p>
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 data-popBubbleName은 한 화면 내에서 중복되지 않게 숫자 변경하여 사용하여야 합니다. -->
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats9">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats9">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>조회</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p>- 분석기간 :
+                                                                                            2025-07-05~2025-08-04 :
+                                                                                            <b>294,600명 (55.3%)</b></p>
+                                                                                        <p><b>→ 원인예상</b> : 결제 시 회원가입,
+                                                                                            결제오류, 배송비 등 </p>
+                                                                                        <p><b>→ 제안</b> : 즉시 쿠폰 , 간편결제,
+                                                                                            환불보장 등 </p>
+                                                                                        <p>스크롤테스트</p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% <span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>조회</p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Product View)</p>
+                                                                            <p>180,000명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>82.1% <span class="up">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>장바구니</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>바로결제</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Payment)</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>18.1%<span class="down">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Add to Car)</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>18.1%<span class="down">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>13.2% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>결제</p>
+                                                                            <p>9,500명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Checkout)</p>
+                                                                            <p>9,500명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>13.2% <span class="up">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>9.5% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>구매완료</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Purchase)</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>9.5%<span class="down">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>9.5% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>리텐션</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Retention)</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>9.5%<span class="down">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                        </div>
+                                        <!--// chartArea end -->
+                                    </div>
+                                    <!-- 자사/동종업종-->
+                                    <div class="tabViewList">
+                                        <div class="dateBox">
+                                            <p>기준기간 : 2025-11-01 ~ 2025-11-07</p>
+                                            <p>비교기간 : 2025-11-01 ~ 2025-11-07</p>
+                                        </div>
+                                        <div class="dataNone">
+                                            <p>최근 90일동안 데이터가 충분하지 않아 제공할 수 없습니다.</p>
+                                        </div>
+                                        <!-- toastOn 추가로 toast메시지 나타나게 함 -->
+                                        <div class="toastWrap tst_alert">
+                                            <p>이전 기간 데이터가 충분하지 않아 증감률을 표시할 수 없습니다.(3)</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <!-- chartOut 은 첫번째 박스라 없음 -->
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <!-- <p>100% <span class="up">15%</span></p> -->
+                                                                            <p>100% </p>
+                                                                            <p>자사<span>(인라이플)</span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>방문</p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Visit) </p>
+                                                                            <!-- <p>80,000명</p> -->
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>동종업종<span>(여성패션)</span></p>
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 data-popBubbleName은 한 화면 내에서 중복되지 않게 숫자 변경하여 사용하여야 합니다. -->
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats31">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats31">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>조회</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p>- 분석기간 :
+                                                                                            2025-07-05~2025-08-04 :
+                                                                                            <b>294,600명 (55.3%)</b></p>
+                                                                                        <p><b>→ 원인예상</b> : 결제 시 회원가입,
+                                                                                            결제오류, 배송비 등 </p>
+                                                                                        <p><b>→ 제안</b> : 즉시 쿠폰 , 간편결제,
+                                                                                            환불보장 등 </p>
+                                                                                        <p>스크롤테스트</p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                        <p>스크롤테스트 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% <span class="up">15%</span></p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>조회</p>
+                                                                            <p>300,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                                <!-- bubble 영역 data-popBubbleName은 한 화면 내에서 중복되지 않게 숫자 변경하여 사용하여야 합니다. -->
+                                                                <div class="bubbleOpen"
+                                                                    data-popBubbleName="bw_userStats32">
+                                                                    <div class="bubbleWrap bw_userStats"
+                                                                        data-popBubbleWrapName="bw_userStats32">
+                                                                        <div class="bubbleContainer">
+                                                                            <div class="bubbleTitle">
+                                                                                <p>[동종업종] 조회</p>
+                                                                                <button type="button"
+                                                                                    class="close bubbleClose">닫기</button>
+                                                                            </div>
+                                                                            <div class="bubbleContent">
+                                                                                <section>
+                                                                                    <div class="box_guide">
+                                                                                        <p> - 분석기간: 2025-10-28 ~
+                                                                                            2025-11-26 </p>
+                                                                                        <p> <b>: 89.6%</b></p>
+                                                                                        <p><b>→ 원인예상</b> : 상품 정보 충실, 리뷰
+                                                                                            신뢰도 높음 </p>
+                                                                                        <p><b>→ 제안</b> : 유사 카테고리 상품 추천,
+                                                                                            상세정보/리뷰 강화 </p>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="bubbleFooter">
+                                                                                <button type="button" class="create">캠페인
+                                                                                    생성</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- <div class="bubbleDim"></div> -->
+                                                                    </div>
+                                                                    <!-- // bubbleWrap end -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Product View)</p>
+                                                                            <!-- <p>180,000명</p> -->
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>82.1% <span class="up">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>장바구니</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>100% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>바로결제</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <!-- <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Payment)</p>
+                                                                            <p>45,000명</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>18.1%<span class="down">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> -->
+                                                                <!-- chart end -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Add to Car)</p>
+                                                                            <!-- <p>45,000명</p> -->
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>18.1%<span class="down">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>13.2% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>결제</p>
+                                                                            <p>9,500명</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Checkout)</p>
+                                                                            <!-- <p>9,500명</p> -->
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>13.2% <span class="up">15%</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <p>398,662명</p>
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>9.5% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>구매완료</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>(Purchase)</p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>9.5%<span class="down">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                            <div class="box">
+                                                <!-- <div class="bg">
+                                                    <div><span>21.5%</span><span>120,000명</span></div>
+                                                    <div><span>29.5%</span><span>120,000명</span></div>
+                                                </div> -->
+                                                <!-- chartBox chart wrap 개념-->
+                                                <div class="chartBox">
+                                                    <!-- chartBlock : chartGroup 두개 들어갈 수 있게 높이값 50%로 지정 -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <div class="txt">
+                                                                            <p>9.5% </p>
+                                                                        </div>
+                                                                        <div class="txt2">
+                                                                            <p>리텐션</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                    <div class="chartBlock">
+                                                        <!-- chartGroup : chart의 높이를 지정 -->
+                                                        <div class="chartGroup">
+                                                            <div class="chartOut">
+                                                                <p>31.7%</p>
+                                                                <!-- <p>398,662명</p> -->
+                                                                <!-- bubble 영역 -->
+                                                            </div>
+                                                            <div class="chartIn">
+                                                                <!-- chart가 두개 이상 들어갈 수 있음 -->
+                                                                <div class="chart">
+                                                                    <div class="info">
+                                                                        <!-- <div class="txt">
+                                                                            <p>(Retention)</p>
+                                                                        </div> -->
+                                                                        <div class="txt2">
+                                                                            <p>9.5%<span class="down">15%</span> </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- chart end -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- chartGroup end -->
+                                                    </div>
+                                                    <!-- chartBlock end -->
+                                                </div>
+                                                <!-- chartBox end-->
+                                            </div>
+                                            <!-- box end -->
+                                        </div>
+                                        <!--// chartArea end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 구매 후 이동 퍼널 분석(리텐션 흐름) -->
+                    <section class="sec_moveAnalysis">
+                        <div class="box_moveAnalysis">
+                            <div class="tit">
+                                <p>구매 후 이동 퍼널 분석(리텐션 흐름)</p>
+                            </div>
+                            <div class="cont">
+                                <div class="optionBox">
+                                    <div class="radioBox">
+                                        <p>분석 기간</p>
+                                        <input type="radio" name="rd3" id="rd3_1" checked>
+                                        <label for="rd3_1">최근 30일</label>
+                                        <input type="radio" name="rd3" id="rd3_2">
+                                        <label for="rd3_2">3개월 전</label>
+                                    </div>
+                                    <div class="radioBox">
+                                        <p>재방문 기간</p>
+                                        <input type="radio" name="rd4" id="rd4_1" checked>
+                                        <label for="rd4_1">30일 이내 재방문</label>
+                                        <input type="radio" name="rd4" id="rd4_2">
+                                        <label for="rd4_2">3개월 내 재방문</label>
+                                    </div>
+                                    <!-- <button type="button" class="search">검색</button> -->
+                                </div>
+                                <div class="updateBox">
+                                    <p>Last Updated 2025.11.03 13:13</p>
+                                </div>
+                                <div class="guideBox">
+                                    <p><span>3개월 전 한달간</span>구매완료 한 고객의 <span>30일 내</span>재방문 패턴을 분석합니다.</p>
+                                </div>
+                                <div class="graphArea">
+                                    <div class="graph">
+                                        <ul>
+                                            <li>
+                                                <div class="info">
+                                                    <div class="txt bubbleOpen" data-popBubbleName="bw_moveAnalysis1">
+                                                        <span>구매완료</span>
+                                                        <span>100%(5,400명)</span>
+                                                        <div class="bubbleWrap bw_moveAnalysis1"
+                                                            data-popBubbleWrapName="bw_moveAnalysis1">
+                                                            <div class="bubbleContainer">
+                                                                <div class="bubbleTitle">
+                                                                    <p>구매완료</p>
+                                                                    <button type="button"
+                                                                        class="close bubbleClose">닫기</button>
+                                                                </div>
+                                                                <div class="bubbleContent">
+                                                                    <section>
+                                                                        <div class="box_guide">
+                                                                            <p>- 분석기간 : 2025-07-05~2025-08-04<b> :
+                                                                                    3,200명 (55.3%)</b></p>
+                                                                            <p><b>→ 제안</b> : 리뷰 작성 유도, 재구매 할인, 친구추천 혜택
+                                                                            </p>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="bubbleFooter">
+                                                                    <button type="button" class="create">캠페인 생성</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <div class="bubbleDim"></div> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="line">
+                                                        <div>구매완료>재방문</div>
+                                                        <div>구매완료>이탈</div>
+                                                    </div>
+                                                </div>
+                                                <ul>
+                                                    <li style="height:80%">
+                                                        <div class="info">
+                                                            <div class="txt bubbleOpen"
+                                                                data-popBubbleName="bw_moveAnalysis2">
+                                                                <span>재방문</span><span>100%(5,400명)</span>
+                                                                <div class="bubbleWrap bw_moveAnalysis2"
+                                                                    data-popBubbleWrapName="bw_moveAnalysis2">
+                                                                    <div class="bubbleContainer">
+                                                                        <div class="bubbleTitle">
+                                                                            <p>재방문</p>
+                                                                            <button type="button"
+                                                                                class="close bubbleClose">닫기</button>
+                                                                        </div>
+                                                                        <div class="bubbleContent">
+                                                                            <section>
+                                                                                <div class="box_guide">
+                                                                                    <p>- 분석기간 : 2025-07-05~2025-08-04<b>
+                                                                                            : 3,200명 (55.3%)</b></p>
+                                                                                    <p><b>→ 제안</b> : 최근 본 상품, 관심 상품 리마인드
+                                                                                    </p>
+                                                                                </div>
+                                                                            </section>
+                                                                        </div>
+                                                                        <div class="bubbleFooter">
+                                                                            <button type="button" class="create">캠페인
+                                                                                생성</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <div class="bubbleDim"></div> -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="line">
+                                                                <div>재방문>조회</div>
+                                                                <div>재방문>장바구니</div>
+                                                                <!-- <div>재방문>바로결제</div> -->
+                                                                <div>재방문>결제</div>
+                                                                <div>재방문>구매완료</div>
+                                                            </div>
+                                                        </div>
+                                                        <ul>
+                                                            <li style="height:35%">
+                                                                <div class="info">
+                                                                    <div class="txt bubbleOpen"
+                                                                        data-popBubbleName="bw_moveAnalysis3">
+                                                                        <span>조회</span><span>100%(5,400명)</span>
+                                                                        <div class="bubbleWrap bw_moveAnalysis3"
+                                                                            data-popBubbleWrapName="bw_moveAnalysis3">
+                                                                            <div class="bubbleContainer">
+                                                                                <div class="bubbleTitle">
+                                                                                    <p>조회</p>
+                                                                                    <button type="button"
+                                                                                        class="close bubbleClose">닫기</button>
+                                                                                </div>
+                                                                                <div class="bubbleContent">
+                                                                                    <section>
+                                                                                        <div class="box_guide">
+                                                                                            <p>- 분석기간 :
+                                                                                                2025-07-05~2025-08-04<b>
+                                                                                                    : 3,200명 (55.3%)</b>
+                                                                                            </p>
+                                                                                            <p><b>→ 제안</b> : 보완 상품 추천,
+                                                                                                재구매 유도 </p>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </div>
+                                                                                <div class="bubbleFooter">
+                                                                                    <button type="button"
+                                                                                        class="create">캠페인 생성</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- <div class="bubbleDim"></div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li style="height:30%">
+                                                                <div class="info">
+                                                                    <div class="txt bubbleOpen"
+                                                                        data-popBubbleName="bw_moveAnalysis4">
+                                                                        <span>장바구니</span><span>100%(5,400명)</span>
+                                                                        <div class="bubbleWrap bw_moveAnalysis4"
+                                                                            data-popBubbleWrapName="bw_moveAnalysis4">
+                                                                            <div class="bubbleContainer">
+                                                                                <div class="bubbleTitle">
+                                                                                    <p>장바구니</p>
+                                                                                    <button type="button"
+                                                                                        class="close bubbleClose">닫기</button>
+                                                                                </div>
+                                                                                <div class="bubbleContent">
+                                                                                    <section>
+                                                                                        <div class="box_guide">
+                                                                                            <p>- 분석기간 :
+                                                                                                2025-07-05~2025-08-04<b>
+                                                                                                    : 3,200명 (55.3%)</b>
+                                                                                            </p>
+                                                                                            <p><b>→ 제안</b> : 결제 진행 유도,
+                                                                                                무료배송 안내 </p>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </div>
+                                                                                <div class="bubbleFooter">
+                                                                                    <button type="button"
+                                                                                        class="create">캠페인 생성</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- <div class="bubbleDim"></div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li style="height:20%">
+                                                                <div class="info">
+                                                                    <div class="txt bubbleOpen"
+                                                                        data-popBubbleName="bw_moveAnalysis6">
+                                                                        <span>결제</span><span>100%(5,400명)</span>
+                                                                        <div class="bubbleWrap bw_moveAnalysis6"
+                                                                            data-popBubbleWrapName="bw_moveAnalysis6">
+                                                                            <div class="bubbleContainer">
+                                                                                <div class="bubbleTitle">
+                                                                                    <p>결제</p>
+                                                                                    <button type="button"
+                                                                                        class="close bubbleClose">닫기</button>
+                                                                                </div>
+                                                                                <div class="bubbleContent">
+                                                                                    <section>
+                                                                                        <div class="box_guide">
+                                                                                            <p>- 분석기간 :
+                                                                                                2025-07-05~2025-08-04<b>
+                                                                                                    : 3,200명 (55.3%)</b>
+                                                                                            </p>
+                                                                                            <p><b>→ 제안</b> : 한정시간 이벤트,
+                                                                                                즉시 할인 </p>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </div>
+                                                                                <div class="bubbleFooter">
+                                                                                    <button type="button"
+                                                                                        class="create">캠페인 생성</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- <div class="bubbleDim"></div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li style="height:15%">
+                                                                <div class="info">
+                                                                    <div class="txt bubbleOpen"
+                                                                        data-popBubbleName="bw_moveAnalysis7">
+                                                                        <span>구매완료</span><span>100%(5,400명)</span>
+                                                                        <div class="bubbleWrap bw_moveAnalysis7"
+                                                                            data-popBubbleWrapName="bw_moveAnalysis7">
+                                                                            <div class="bubbleContainer">
+                                                                                <div class="bubbleTitle">
+                                                                                    <p>구매완료</p>
+                                                                                    <button type="button"
+                                                                                        class="close bubbleClose">닫기</button>
+                                                                                </div>
+                                                                                <div class="bubbleContent">
+                                                                                    <section>
+                                                                                        <div class="box_guide">
+                                                                                            <p>- 분석기간 :
+                                                                                                2025-07-05~2025-08-04<b>
+                                                                                                    : 3,200명 (55.3%)</b>
+                                                                                            </p>
+                                                                                            <p><b>→ 제안</b> : 리뷰 작성 유도,
+                                                                                                재구매 할인, 친구추천 혜택 </p>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </div>
+                                                                                <div class="bubbleFooter">
+                                                                                    <button type="button"
+                                                                                        class="create">캠페인 생성</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- <div class="bubbleDim"></div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li style="height:20%">
+                                                        <div class="info">
+                                                            <div class="txt bubbleOpen"
+                                                                data-popBubbleName="bw_moveAnalysis8">
+                                                                <span>이탈</span><span>100%(5,400명)</span>
+                                                                <div class="bubbleWrap bw_moveAnalysis8"
+                                                                    data-popBubbleWrapName="bw_moveAnalysis8">
+                                                                    <div class="bubbleContainer">
+                                                                        <div class="bubbleTitle">
+                                                                            <p>이탈</p>
+                                                                            <button type="button"
+                                                                                class="close bubbleClose">닫기</button>
+                                                                        </div>
+                                                                        <div class="bubbleContent">
+                                                                            <section>
+                                                                                <div class="box_guide">
+                                                                                    <p>- 분석기간 : 2025-07-05~2025-08-04<b>
+                                                                                            : 3,200명 (55.3%)</b>
+                                                                                    </p>
+                                                                                    <p><b>→ 제안</b> : 재구매 할인 쿠폰, 포인트 적립
+                                                                                        안내 </p>
+                                                                                </div>
+                                                                            </section>
+                                                                        </div>
+                                                                        <div class="bubbleFooter">
+                                                                            <button type="button" class="create">캠페인
+                                                                                생성</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <div class="bubbleDim"></div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 유저 사용량 통계 -->
+                    <section class="sec_stats">
+                        <article class="dimDot">
+                            <div class="tit">
+                                <h4>유저 사용량 통계</h4>
+                                <a href="javascript:void(0);" class="btn-more"><span>더보기</span><i></i></a>
+                            </div>
+                            <div class="graph"></div>
+                        </article>
+                        <article>
+                            <div class="tit">
+                                <h4>재방문 통계</h4>
+                                <a href="javascript:void(0);" class="btn-more"><span>더보기</span><i></i></a>
+                            </div>
+                            <div class="graphHeader">
+                                <div class="block_tab">
+                                    <ul>
+                                        <li class="on">최근 7일</li>
+                                        <li>최근 30일</li>
+                                    </ul>
+                                </div>
+                                <div class="graph"></div>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="tit">
+                                <h4>상위 판매 카테고리 통계</h4>
+                                <div class="txt_info">(총 카테고리 수 : <span>1,234</span>)</div>
+                            </div>
+                            <div>
+                                <div class="graphHeader">
+                                    <div class="block_tab">
+                                        <ul>
+                                            <li>오늘</li>
+                                            <li class="on">최근 7일</li>
+                                            <li>최근 30일</li>
+                                        </ul>
+                                    </div>
+                                    <div class="txtBox">
+                                        <p>"EP 연동이 되어 있지 않아, 카테고리 관련 모수가 부정확할 수 있습니다.<br> 정확한 데이터 확인을 위해 EP 연동을 해 주세요."
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--// graph style은 위치 확인을 위해 추가하였음 -->
+                                <div class="graph dimCircle" style="height: 300px; border:1px solid #fff;"></div>
+                            </div>
+                        </article>
+                    </section>
+                    <!-- graph -2 -->
+                    <section class="sec_visitAnalysis">
+                        <article>
+                            <div class="tit">
+                                <h4>방문자 분석</h4>
+                                <a href="javascript:void(0);" class="btn-more"><span>더보기</span><i></i></a>
+                            </div>
+                            <div>
+                                <div class="block_tab">
+                                    <ul>
+                                        <li class="on">전일</li>
+                                        <li>최근 7일</li>
+                                        <li>최근 30일</li>
+                                    </ul>
+                                </div>
+                                <div class="block_chart_tit">
+                                    <ul>
+                                        <li>연령</li>
+                                        <li>성별</li>
+                                        <li>접속</li>
+                                        <li>오디언스</li>
+                                    </ul>
+                                </div>
+                                <div class="flex_area">
+                                    <div class="dimDot">
+                                        <!--<p class="chart_tit">연령</p>-->
+                                    </div>
+                                    <div>
+                                        <!--<p class="chart_tit">성별</p> -->
+                                        <div></div>
+                                    </div>
+                                    <div>
+                                        <!-- <p class="chart_tit">접속</p> -->
+                                        <div></div>
+                                    </div>
+                                    <div>
+                                        <!-- <p class="chart_tit">접속</p> -->
+                                        <div>
+                                        </div>
+                                        <div class="preparing">
+                                            <p>준비중입니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+                <!--//content end-->
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <h2 class="hide">하단 회사 정보 영역</h2>
+                <p>
+                    <span>(주)인라이플</span><span>사업자번호: 113-86-60934</span>
+                    <span>사업자: 한경훈,이근옥</span>
+                    <span>주소: 서울특별시 구로구 구로동 디지털로 272 한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2003</span><span>FAX .02-865-6845</span>
+                    <span>E-mail : mobon@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ 모비온 All rights reserved.</p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

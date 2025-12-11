@@ -1,0 +1,2054 @@
+@charset 'utf-8';
+
+/*
+File  : work.scss
+Date  : 2025.04.17
+menu  : TEST
+*/
+
+//***** 공통 CSS *****/
+@import "_font";
+@import "_base";
+// @import "imagebefore";
+@import "_color";
+// @import "_theme";
+@import "image";
+// @import "calendar";
+@import "mixin";
+@import "_layout";
+@import "_content";
+// 위젯
+@import "widget";
+//***** 개별 CSS *****/
+// 모달 
+// @import "_modalLayout";
+// @import "modal";
+// @import "modal_work";
+
+//* 작업용 */
+.wrap {
+
+  //* component 모음 */
+  .tune_test {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin: 30px 0 0 0;
+
+      section {
+        &:nth-child(n+2) {
+          margin: 20px 0 0 0;
+        }
+
+        >div[class*="box_"] {
+          @include boxLayout;
+
+          .tit {
+            @include titleLayout3;
+            line-height: 1.5;
+
+            p {
+              &.em {
+                color: var(--errorColor);
+              }
+            }
+          }
+
+          .cont {
+            margin: 20px 0 0 0;
+
+            >p {
+              @include ftM;
+              line-height: 1.5;
+
+              &:nth-of-type(n+2) {
+                margin: 10px 0 0 0;
+                line-height: 1.5;
+                // color: red;
+              }
+            }
+
+            .box {
+              &:nth-child(n+2) {
+                margin: 10px 0 0 0;
+              }
+
+              >p {
+                line-height: 1.5;
+
+                &:nth-child(1) {
+                  @include ftM;
+                  color: var(--pointColor);
+                }
+
+                &:nth-of-type(n+2) {
+                  color: var(--subFtColor);
+                }
+
+                &.em {
+                  color: var(--errorColor);
+                }
+              }
+            }
+          }
+
+          &:nth-child(n+2) {
+            margin: 20px 0 0 0;
+            // background-color: pink;
+          }
+        }
+
+        &.sec_loading {
+          .box_loading {
+            .box {
+              .dimText {
+                height: 100px;
+                border: 1px solid var(--borderColor);
+              }
+
+              .dimCircle,
+              .dimDot {
+                display: inline-block;
+                height: 60px;
+              }
+            }
+          }
+        }
+
+        &.sec_input {
+
+          .box_button {
+            .cont {
+              .buttonBox {
+                @include flexBox($j:start, $fw:wrap);
+
+                button {
+
+                  @include btnLayout($minw:90px, $h: 36px);
+
+                  &.btn_main {
+                    @include btn_main;
+                  }
+
+                  &.btn_main2 {
+                    @include btn_main2;
+                  }
+
+                  &.btn_main3 {
+                    @include btn_main3;
+                  }
+
+                  &.btn_main4 {
+                    @include btn_main4;
+                  }
+
+                  &.btn_off {
+                    @include btn_off;
+                  }
+
+                  &.btn_off2 {
+                    @include btn_off2;
+                  }
+
+                  &.btn_off3 {
+                    @include btn_off3;
+                  }
+
+                  &.btn2 {
+                    @include btn2;
+                  }
+
+                  &.btn5 {
+                    @include btn5;
+                  }
+
+                  &.btn6 {
+                    @include btn6;
+                  }
+
+                  &.btn7 {
+                    @include btn7;
+                  }
+
+                  &.btn_t2 {
+                    @include btn_t2;
+                  }
+
+                  &.btn_white {
+                    @include btn_white;
+                  }
+
+                  &.btn_delete {
+                    @include btn_delete;
+                  }
+
+                  &.btn_pointSub {
+                    @include btn_pointSub;
+                  }
+
+                  &.btn_pointSubOn {
+                    @include btn_pointSubOn;
+                  }
+
+                  &.btn_excel_t2 {
+                    @include btn_excel_t2;
+                  }
+
+                  &.btn_download_t2 {
+                    @include btn_download_t2;
+                  }
+
+                  &.btn_copy {
+                    @include btn_copy;
+                  }
+
+                  &.btn_searchBox {
+                    @include btn_searchBox;
+                  }
+
+                  &.btn_search {
+                    @include btn_search;
+                  }
+
+                  &.btn_add {
+                    @include btn_add;
+                  }
+
+                  &.btn_remove {
+                    @include btn_remove;
+                  }
+
+                  &.btn_widgetAdd {
+                    @include btn_widgetAdd;
+                  }
+
+                  &.btn_map {
+                    @include btn_map;
+                  }
+                }
+              }
+
+              .calendarBox {
+                .calendar {
+                  @include calendar;
+                }
+              }
+
+              .toggleBox {
+                @include toggleBox;
+              }
+
+              .checkBox {}
+
+              .checkBox {
+                &.t1 {
+                  @include checkbox_t2;
+                  display: inline-block;
+                  @include flexBox;
+                }
+
+                &.t2 {
+                  @include checkboxBtn;
+                }
+              }
+
+              .sec_search {
+                @include iflexBox;
+              }
+
+              .selectDiv {
+                .select {
+                  @include selectDiv;
+                }
+
+                &.t1 {
+                  // styles for t1
+                  @include selectDiv;
+                }
+
+                &.t2 {
+                  // styles for t2
+                  @include selectDiv;
+                }
+
+                &.t3 {
+                  // styles for t3
+                  @include selectDiv;
+                }
+              }
+            }
+          }
+
+          .box_calendar {}
+
+          .box_searchBox {
+            .searchBox {
+              &:nth-of-type(1) {
+                @include searchBox;
+              }
+
+              &:nth-of-type(2) {
+                @include searchBox_t2;
+              }
+            }
+          }
+
+          .box_ico {
+            i {
+              @include iLayout;
+              margin: 10px;
+              padding-top: 40px;
+              font-size: 12px;
+              text-align: center;
+              border: 1px solid #f00;
+
+              &.logo_tune {
+                @include logo_tune;
+              }
+
+              &.logo_mobtune_bk {
+                @include logo_mobtune_bk;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_mobtune_wht {
+                @include logo_mobtune_wht;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_mobtune_wg {
+                @include logo_mobtune_wg;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_tuny {
+                @include logo_tuny;
+                @include maskSize(140px, 36px);
+              }
+
+              &.logo_isend {
+                @include logo_isend;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_mobon {
+                @include logo_mobon;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_mobwith {
+                @include logo_mobwith;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_items {
+                @include logo_items;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_ADHub {
+                @include logo_ADHub;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_criteo {
+                @include logo_criteo;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_mobi {
+                @include logo_mobi;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_kakaoPM {
+                @include logo_kakaoPM;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_makeTApp {
+                @include logo_makeTApp;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_kakao {
+                @include logo_kakao;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_facebook {
+                @include logo_facebook;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_naver {
+                @include logo_naver;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_moloco {
+                @include logo_moloco;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_criteo2 {
+                @include logo_criteo2;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_searchAds {
+                @include logo_searchAds;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_googleAds {
+                @include logo_googleAds;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_applovin {
+                @include logo_applovin;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.logo_kakaomoment {
+                @include logo_kakaomoment;
+                @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.ico_userInfo {
+                @include ico_userInfo;
+                // @include imgSize(100px, 20px, null, null, contain);
+              }
+
+              &.ico_white {
+                @include ico_white;
+              }
+
+              &.ico_blue {
+                @include ico_blue;
+              }
+
+              &.icoB_loadingCircle {
+                @include icoB_loadingCircle;
+              }
+
+              &.icoB_loadingDot {
+                @include icoB_loadingDot;
+              }
+
+              &.ico_loading {
+                @include ico_loading;
+              }
+
+              &.ico_widget {
+                @include ico_widget;
+              }
+
+              &.ico_widgetAdd2 {
+                @include ico_widgetAdd2;
+              }
+
+              &.ico_map {
+                @include ico_map;
+              }
+
+              &.nav_dashboard_on {
+                @include nav_dashboard_on;
+              }
+
+              &.nav_dashboard_off {
+                @include nav_dashboard_off;
+              }
+
+              &.nav_vip_on {
+                @include nav_vip_on;
+              }
+
+              &.nav_vip_off {
+                @include nav_vip_off;
+              }
+
+              &.nav_prospectiveCustomer_on {
+                @include nav_prospectiveCustomer_on;
+              }
+
+              &.nav_prospectiveCustomer_off {
+                @include nav_prospectiveCustomer_off;
+              }
+
+              &.nav_refundCustomer_on {
+                @include nav_refundCustomer_on;
+              }
+
+              &.nav_refundCustomer_off {
+                @include nav_refundCustomer_off;
+              }
+
+              &.nav_riskCustomer_on {
+                @include nav_riskCustomer_on;
+              }
+
+              &.nav_riskCustomer_off {
+                @include nav_riskCustomer_off;
+              }
+
+              &.nav_repurchaseCustomer_on {
+                @include nav_repurchaseCustomer_on;
+              }
+
+              &.nav_repurchaseCustomer_off {
+                @include nav_repurchaseCustomer_off;
+              }
+
+              &.nav_coverage_on {
+                @include nav_coverage_on;
+              }
+
+              &.nav_coverage_off {
+                @include nav_coverage_off;
+              }
+
+              &.nav_salesForecst_on {
+                @include nav_salesForecst_on;
+              }
+
+              &.nav_salesForecst_off {
+                @include nav_salesForecst_off;
+              }
+
+              &.nav_category_on {
+                @include nav_category_on;
+              }
+
+              &.nav_category_off {
+                @include nav_category_off;
+              }
+
+              &.nav_product_on {
+                @include nav_product_on;
+              }
+
+              &.nav_product_off {
+                @include nav_product_off;
+              }
+
+              &.nav_productList_on {
+                @include nav_productList_on;
+              }
+
+              &.nav_productList_off {
+                @include nav_productList_off;
+              }
+
+              &.nav_engine_on {
+                @include nav_engine_on;
+              }
+
+              &.nav_engine_off {
+                @include nav_engine_off;
+              }
+
+              &.nav_userInfo_on {
+                @include nav_userInfo_on;
+              }
+
+              &.nav_userInfo_off {
+                @include nav_userInfo_off;
+              }
+
+              &.nav_coreUserAnalysis_on {
+                @include nav_coreUserAnalysis_on;
+              }
+
+              &.nav_coreUserAnalysis_off {
+                @include nav_coreUserAnalysis_off;
+              }
+
+              &.nav_campaignList_on {
+                @include nav_campaignList_on;
+              }
+
+              &.nav_campaignList_off {
+                @include nav_campaignList_off;
+              }
+
+              &.nav_campaignCreate_on {
+                @include nav_campaignCreate_on;
+              }
+
+              &.nav_campaignCreate_off {
+                @include nav_campaignCreate_off;
+              }
+
+              &.nav_notice_on {
+                @include nav_notice_on;
+              }
+
+              &.nav_notice_off {
+                @include nav_notice_off;
+              }
+
+              &.nav_dataLink_on {
+                @include nav_dataLink_on;
+              }
+
+              &.nav_dataLink_off {
+                @include nav_dataLink_off;
+              }
+
+              &.nav_rfmAnalysis_on {
+                @include nav_rfmAnalysis_on;
+              }
+
+              &.nav_rfmAnalysis_off {
+                @include nav_rfmAnalysis_off;
+              }
+
+              &.nav_userValueAnalysis_on {
+                @include nav_userValueAnalysis_on;
+              }
+
+              &.nav_userValueAnalysis_off {
+                @include nav_userValueAnalysis_off;
+              }
+
+              &.nav_businessAnalysis_on {
+                @include nav_businessAnalysis_on;
+              }
+
+              &.nav_userActivity_on {
+                @include nav_userActivity_on;
+              }
+
+              &.nav_customerAnalysis_on {
+                @include nav_customerAnalysis_on;
+              }
+
+              &.nav_riskAnalysis_on {
+                @include nav_riskAnalysis_on;
+              }
+
+              &.nav_refundAnalysis_on {
+                @include nav_refundAnalysis_on;
+              }
+
+              &.nav_userSearch_on {
+                @include nav_userSearch_on;
+              }
+
+              &.nav_rank_on {
+                @include nav_rank_on;
+              }
+
+              &.nav_productTrend_on {
+                @include nav_productTrend_on;
+              }
+
+              &.nav_keywordAnalysis_on {
+                @include nav_keywordAnalysis_on;
+              }
+
+              &.nav_mediaAnalysis_on {
+                @include nav_mediaAnalysis_on;
+              }
+
+              &.nav_opinionAnalysis_on {
+                @include nav_opinionAnalysis_on;
+              }
+
+              &.nav_stats_on {
+                @include nav_stats_on;
+              }
+
+              &.nav_proposal_on {
+                @include nav_proposal_on;
+              }
+
+              &.nav_manage_on {
+                @include nav_manage_on;
+              }
+
+              &.nav_report_on {
+                @include nav_report_on;
+              }
+
+              &.nav_createURL_on {
+                @include nav_createURL_on;
+              }
+
+              &.nav_reportAD_on {
+                @include nav_reportAD_on;
+              }
+
+              &.nav_setting_on {
+                @include nav_setting_on;
+              }
+
+              &.nav_dataSet_on {
+                @include nav_dataSet_on;
+              }
+
+              &.nav_folderPlus_on {
+                @include nav_folderPlus_on;
+              }
+
+              &.nav_scriptSDK_on {
+                @include nav_scriptSDK_on;
+              }
+
+              &.nav_graph_on {
+                @include nav_graph_on;
+              }
+
+              &.nav_dataMonitor_on {
+                @include nav_dataMonitor_on;
+              }
+
+              &.nav_reportPlus_on {
+                @include nav_reportPlus_on;
+              }
+
+              &.nav_chartDetail_on {
+                @include nav_chartDetail_on;
+              }
+
+              &.nav_dataStats_on {
+                @include nav_dataStats_on;
+              }
+
+              &.nav_site_on {
+                @include nav_site_on;
+              }
+
+              &.nav_home_on {
+                @include nav_home_on;
+              }
+
+              &.nav_message_on {
+                @include nav_message_on;
+              }
+
+              &.nav_ai_on {
+                @include nav_ai_on;
+              }
+
+              &.nav_storage_on {
+                @include nav_storage_on;
+              }
+
+              &.nav_reportLounge_on {
+                @include nav_reportLounge_on;
+              }
+
+              &.nav_connectHub_on {
+                @include nav_connectHub_on;
+              }
+
+              &.ico_nav {
+                @include ico_nav;
+              }
+
+              &.ico_i {
+                @include ico_i;
+              }
+
+              &.ico_i_wht {
+                @include ico_i_wht;
+              }
+
+              &.ico_i3 {
+                @include ico_i3;
+              }
+
+              &.ico_qMark {
+                @include ico_qMark;
+              }
+
+              &.ico_q {
+                @include ico_q;
+              }
+
+              &.ico_pagingPrev {
+                @include ico_pagingPrev;
+              }
+
+              &.ico_pagingPrevList {
+                @include ico_pagingPrevList;
+              }
+
+              &.ico_checkbox_on {
+                @include ico_checkbox_on;
+              }
+
+              &.ico_checkbox_off {
+                @include ico_checkbox_off;
+              }
+
+              &.ico_checkbox_disabled {
+                @include ico_checkbox_disabled;
+              }
+
+              &.ico_radio_on {
+                @include ico_radio_on;
+              }
+
+              &.ico_radio_off {
+                @include ico_radio_off;
+              }
+
+              &.ico_radio_disabled {
+                @include ico_radio_disabled;
+              }
+
+              &.ico_select {
+                @include ico_select;
+              }
+
+              &.ico_calendar {
+                @include ico_calendar;
+              }
+
+              &.ico_calendar2 {
+                @include ico_calendar2;
+              }
+
+              &.ico_calendar_disabled {
+                @include ico_calendar_disabled;
+              }
+
+              &.ico_time {
+                @include ico_time;
+              }
+
+              &.ico_search {
+                @include ico_search;
+              }
+
+              &.ico_searchBox {
+                @include ico_searchBox;
+              }
+
+              &.ico_sign {
+                @include ico_sign;
+              }
+
+              &.ico_check {
+                @include ico_check;
+              }
+
+              &.ico_x {
+                @include ico_x;
+              }
+
+              &.ico_copy {
+                @include ico_copy;
+              }
+
+              &.ico_copy2 {
+                @include ico_copy2;
+              }
+
+              &.ico_plus {
+                @include ico_plus;
+              }
+
+              &.ico_minus {
+                @include ico_minus;
+              }
+
+              &.ico_sort {
+                @include ico_sort;
+              }
+
+              &.ico_sortUp {
+                @include ico_sortUp;
+              }
+
+              &.ico_sortDown {
+                @include ico_sortDown;
+              }
+
+              &.ico_sort_gry {
+                @include ico_sort_gry;
+              }
+
+              &.ico_refresh {
+                @include ico_refresh;
+              }
+
+              &.ico_refresh2 {
+                @include ico_refresh2;
+              }
+
+              &.ico_lineRight {
+                @include ico_lineRight;
+              }
+
+              &.ico_lineRight2 {
+                @include ico_lineRight2;
+              }
+
+              &.ico_lineRight3 {
+                @include ico_lineRight3;
+              }
+
+              &.ico_toggle_normal {
+                @include ico_toggle_normal;
+              }
+
+              &.ico_toggle_issue {
+                @include ico_toggle_issue;
+              }
+
+              &.ico_toggle_error {
+                @include ico_toggle_error;
+              }
+
+              &.ico_toggle_wait {
+                @include ico_toggle_wait;
+              }
+
+              &.ico_toggle_none {
+                @include ico_toggle_none;
+              }
+
+              &.ico_dataNone {
+                @include ico_dataNone;
+              }
+
+              &.ico_dropUp {
+                @include ico_dropUp;
+              }
+
+              &.ico_dropDown {
+                @include ico_dropDown;
+              }
+
+              &.ico_folderParent {
+                @include ico_folderParent;
+              }
+
+              &.ico_folderChild {
+                @include ico_folderChild;
+              }
+
+              &.ico_lineDown {
+                @include ico_lineDown;
+              }
+
+              &.ico_check_y {
+                @include ico_check_y;
+              }
+
+              &.ico_check2 {
+                @include ico_check2;
+              }
+
+              &.ico_check3 {
+                @include ico_check3;
+              }
+
+              &.ico_check4 {
+                @include ico_check4;
+              }
+
+              &.ico_list {
+                @include ico_list;
+              }
+
+              &.ico_listCard {
+                @include ico_listCard;
+              }
+
+              &.ico_provide {
+                @include ico_provide;
+              }
+
+              &.ico_siteNotFound {
+                @include ico_siteNotFound;
+              }
+
+              &.ico_modify {
+                @include ico_modify;
+              }
+
+              &.ico_closeS {
+                @include ico_closeS;
+              }
+
+              &.ico_buy {
+                @include ico_buy;
+              }
+
+              &.ico_basket {
+                @include ico_basket;
+              }
+
+              &.icoB_inquiry {
+                @include icoB_inquiry;
+              }
+
+              &.ico_noCriteria {
+                @include ico_noCriteria;
+              }
+
+              &.ico_noImage {
+                @include ico_noImage;
+              }
+
+              &.ico_excel {
+                @include ico_excel;
+              }
+
+              &.ico_excel2 {
+                @include ico_excel2;
+              }
+
+              &.ico_excel3 {
+                @include ico_excel3;
+              }
+
+              &.ico_closeS2 {
+                @include ico_closeS2;
+              }
+
+              &.ico_closeS3 {
+                @include ico_closeS3;
+              }
+
+              &.ico_banner {
+                @include ico_banner;
+              }
+
+              &.ico_keyword {
+                @include ico_keyword;
+              }
+
+              &.ico_play {
+                @include ico_play;
+              }
+
+              &.ico_stop {
+                @include ico_stop;
+              }
+
+              &.ico_emoji_good {
+                @include ico_emoji_good;
+              }
+
+              &.ico_emoji_warning {
+                @include ico_emoji_warning;
+              }
+
+              &.ico_widget {
+                @include ico_widget;
+              }
+
+              &.icoB_crown {
+                @include icoB_crown;
+              }
+
+              &.ico_lineLeft4 {
+                @include ico_lineLeft4;
+              }
+
+              &.ico_lineRight4 {
+                @include ico_lineRight4;
+              }
+
+              &.ico_setting {
+                @include ico_setting;
+              }
+
+              &.ico_arrowRightS {
+                @include ico_arrowRightS;
+              }
+
+              &.ico_arrowRightS_t2 {
+                @include ico_arrowRightS_t2;
+              }
+
+              &.ico_star_on {
+                @include ico_star_on;
+              }
+
+              &.ico_star_off {
+                @include ico_star_off;
+              }
+
+              &.ico_close {
+                @include ico_close;
+              }
+
+              &.ico_reset {
+                @include ico_reset;
+              }
+
+              &.ico_reset2 {
+                @include ico_reset2;
+              }
+
+              &.ico_reset3 {
+                @include ico_reset3;
+              }
+
+              &.ico_gradeTop {
+                @include ico_gradeTop;
+              }
+
+              &.ico_gradeMiddle {
+                @include ico_gradeMiddle;
+              }
+
+              &.ico_gradeBottom {
+                @include ico_gradeBottom;
+              }
+
+              &.ico_group {
+                @include ico_group;
+              }
+
+              &.ico_folder2 {
+                @include ico_folder2;
+              }
+
+              &.ico_arrowRight {
+                @include ico_arrowRight;
+              }
+
+              &.ico_arrowRight2 {
+                @include ico_arrowRight2;
+              }
+
+              &.ico_toggleDown {
+                @include ico_toggleDown;
+              }
+
+              &.ico_toggleDown_gry {
+                @include ico_toggleDown_gry;
+              }
+
+              &.ico_delete {
+                @include ico_delete;
+              }
+
+              &.ico_delete2 {
+                @include ico_delete2;
+              }
+
+              &.ico_upCircle {
+                @include ico_upCircle;
+              }
+
+              &.icoB_downCircle {
+                @include icoB_downCircle;
+              }
+
+              &.ico_paperAirplain {
+                @include ico_paperAirplain;
+              }
+
+              &.ico_send_on {
+                @include ico_send_on;
+              }
+
+              &.ico_send_off {
+                @include ico_send_off;
+              }
+
+              &.ico_noty_on {
+                @include ico_noty_on;
+              }
+
+              &.ico_noty_off {
+                @include ico_noty_off;
+              }
+
+              &.ico_visitNumber {
+                @include ico_visitNumber;
+              }
+
+              &.ico_prodInquiry {
+                @include ico_prodInquiry;
+              }
+
+              &.ico_basketNumber {
+                @include ico_basketNumber;
+              }
+
+              &.ico_buyFrequency {
+                @include ico_buyFrequency;
+              }
+
+              &.ico_unitPrice {
+                @include ico_unitPrice;
+              }
+
+              &.ico_buyNumber {
+                @include ico_buyNumber;
+              }
+
+              &.ico_purchaseRate_on {
+                @include ico_purchaseRate_on;
+              }
+
+              &.ico_purchaseRate_off {
+                @include ico_purchaseRate_off;
+              }
+
+              &.ico_leaveRate_on {
+                @include ico_leaveRate_on;
+              }
+
+              &.ico_leaveRate_off {
+                @include ico_leaveRate_off;
+              }
+
+              &.ico_visitCount_on {
+                @include ico_visitCount_on;
+              }
+
+              &.ico_visitCount_off {
+                @include ico_visitCount_off;
+              }
+
+              &.ico_basketSearch_on {
+                @include ico_basketSearch_on;
+              }
+
+              &.ico_basketSearch_off {
+                @include ico_basketSearch_off;
+              }
+
+              &.ico_basketPlus_on {
+                @include ico_basketPlus_on;
+              }
+
+              &.ico_basketPlus_off {
+                @include ico_basketPlus_off;
+              }
+
+              &.ico_monthPurchase_on {
+                @include ico_monthPurchase_on;
+              }
+
+              &.ico_monthPurchase_off {
+                @include ico_monthPurchase_off;
+              }
+
+              &.ico_customerPrice_on {
+                @include ico_customerPrice_on;
+              }
+
+              &.ico_customerPrice_off {
+                @include ico_customerPrice_off;
+              }
+
+              &.ico_monthCheck_on {
+                @include ico_monthCheck_on;
+              }
+
+              &.ico_monthCheck_off {
+                @include ico_monthCheck_off;
+              }
+
+              &.ico_basketCheck_on {
+                @include ico_basketCheck_on;
+              }
+
+              &.ico_basketCheck_off {
+                @include ico_basketCheck_off;
+              }
+
+              &.ico_arrowRight3 {
+                @include ico_arrowRight3;
+              }
+
+              &.ico_dashboard {
+                @include ico_dashboard;
+              }
+
+              &.ico_folder {
+                @include ico_folder;
+              }
+
+              &.ico_home {
+                @include ico_home;
+              }
+
+              &.ico_rank {
+                @include ico_rank;
+              }
+
+              &.ico_rank1 {
+                @include ico_rank1;
+              }
+
+              &.ico_rank2 {
+                @include ico_rank2;
+              }
+
+              &.ico_rank3 {
+                @include ico_rank3;
+              }
+
+              &.ico_lineLeft {
+                @include ico_lineLeft;
+              }
+
+              &.ico_prepare {
+                @include ico_prepare;
+              }
+
+              &.ico_android {
+                @include ico_android;
+              }
+
+              &.ico_android_on {
+                @include ico_android_on;
+              }
+
+              &.ico_android_off {
+                @include ico_android_off;
+              }
+
+              &.ico_ios {
+                @include ico_ios;
+              }
+
+              &.ico_ios_on {
+                @include ico_ios_on;
+              }
+
+              &.ico_ios_off {
+                @include ico_ios_off;
+              }
+
+              &.ico_web {
+                @include ico_web;
+              }
+
+              &.ico_web_on {
+                @include ico_web_on;
+              }
+
+              &.ico_web_off {
+                @include ico_web_off;
+              }
+
+              &.ico_android2_on {
+                @include ico_android2_on;
+              }
+
+              &.ico_android3_on {
+                @include ico_android3_on;
+              }
+
+              &.ico_android2_off {
+                @include ico_android2_off;
+              }
+
+              &.ico_ios2_on {
+                @include ico_ios2_on;
+              }
+
+              &.ico_ios3_on {
+                @include ico_ios3_on;
+              }
+
+              &.ico_ios2_off {
+                @include ico_ios2_off;
+              }
+
+              &.ico_web2_on {
+                @include ico_web2_on;
+              }
+
+              &.ico_web3_on {
+                @include ico_web3_on;
+              }
+
+              &.ico_web2_off {
+                @include ico_web2_off;
+              }
+
+              &.ico_reset_wht {
+                @include ico_reset_wht;
+              }
+
+              &.ico_arrowRight4 {
+                @include ico_arrowRight4;
+              }
+
+              &.ico_mobile {
+                @include ico_mobile;
+              }
+
+              &.ico_googleStore {
+                @include ico_googleStore;
+              }
+
+              &.ico_pc {
+                @include ico_pc;
+              }
+
+              &.ico_lineDivide {
+                @include ico_lineDivide;
+              }
+
+              &.ico_download {
+                @include ico_download;
+              }
+
+              &.ico_scriptEmpty {
+                @include ico_scriptEmpty;
+              }
+
+              &.ico_arrowUp {
+                @include ico_arrowUp;
+              }
+
+              &.ico_arrowDown {
+                @include ico_arrowDown;
+              }
+
+              &.ico_normal {
+                @include ico_normal;
+              }
+
+              &.ico_normal2 {
+                @include ico_normal2;
+              }
+
+              &.ico_issue {
+                @include ico_issue;
+              }
+
+              &.ico_error {
+                @include ico_error;
+              }
+
+              &.ico_error2 {
+                @include ico_error2;
+              }
+
+              &.ico_dataMonitor {
+                @include ico_dataMonitor;
+              }
+
+              &.ico_data {
+                @include ico_data;
+              }
+
+              &.ico_monitor {
+                @include ico_monitor;
+              }
+
+              &.ico_calendarChart {
+                @include ico_calendarChart;
+              }
+
+              &.ico_dataCalendar {
+                @include ico_dataCalendar;
+              }
+
+              &.ico_calendarMonth {
+                @include ico_calendarMonth;
+              }
+
+              &.ico_calendarDay {
+                @include ico_calendarDay;
+              }
+
+              &.ico_link {
+                @include ico_link;
+              }
+
+              &.ico_report {
+                @include ico_report;
+              }
+
+              &.ico_inflow {
+                @include ico_inflow;
+              }
+
+              &.ico_inflowMoney {
+                @include ico_inflowMoney;
+              }
+
+              &.ico_searchEngine {
+                @include ico_searchEngine;
+              }
+
+              &.ico_display {
+                @include ico_display;
+              }
+
+              &.ico_shopping {
+                @include ico_shopping;
+              }
+
+              &.ico_email {
+                @include ico_email;
+              }
+
+              &.ico_social {
+                @include ico_social;
+              }
+
+              &.ico_video {
+                @include ico_video;
+              }
+
+              &.ico_organic {
+                @include ico_organic;
+
+              }
+
+              &.ico_write_off {
+                @include ico_write_off;
+              }
+
+              &.ico_analysis {
+                @include ico_analysis;
+              }
+
+              &.ico_star {
+                @include ico_star;
+              }
+
+              &.ico_script {
+                @include ico_script;
+              }
+
+              &.img_myReport {
+                @include img_myReport;
+              }
+
+              &.bg_ai {
+                @include bg_ai;
+              }
+
+              &.img_ai {
+                @include img_ai;
+              }
+
+              &.ico_plus2 {
+                @include ico_plus2;
+              }
+
+              &.ico_plus3 {
+                @include ico_plus3;
+              }
+
+              &.ico_search2 {
+                @include ico_search2;
+              }
+
+              &.ico_mic {
+                @include ico_mic;
+              }
+
+              &.ico_mic_off {
+                @include ico_mic_off;
+              }
+
+              &.ico_voiceMode {
+                @include ico_voiceMode;
+              }
+
+              &.ico_ai {
+                @include ico_ai;
+              }
+
+              &.ico_star2_on {
+                @include ico_star2_on;
+              }
+
+              &.ico_star2_off {
+                @include ico_star2_off;
+              }
+
+              &.ico_star3 {
+                @include ico_star3;
+              }
+
+              &.ico_enter {
+                @include ico_enter;
+              }
+
+              &.ico_copy3 {
+                @include ico_copy3;
+              }
+
+              &.ico_refresh3 {
+                @include ico_refresh3;
+              }
+
+              &.ico_sound {
+                @include ico_sound;
+              }
+
+              &.ico_sound_on {
+                @include ico_sound_on;
+              }
+
+              &.ico_pause {
+                @include ico_pause;
+              }
+
+              &.ico_pause2 {
+                @include ico_pause2;
+              }
+
+              &.ico_photo {
+                @include ico_photo;
+              }
+
+              &.ico_storage {
+                @include ico_storage;
+              }
+
+              &.ico_coin {
+                @include ico_coin;
+              }
+
+              &.ico_arrow2 {
+                @include ico_arrow2;
+              }
+
+              &.ico_more {
+                @include ico_more;
+              }
+
+              &.ico_listPrev {
+                @include ico_listPrev;
+              }
+
+              &.ico_listNext {
+                @include ico_listNext;
+              }
+
+              &.ico_updown {
+                @include ico_updown;
+              }
+
+              &.img_website {
+                @include img_website;
+              }
+
+              &.ico_kakao {
+                @include ico_kakao;
+              }
+
+              &.ico_naver {
+                @include ico_naver;
+              }
+
+              &.ico_mobon {
+                @include ico_mobon;
+              }
+
+              &.ico_mail {
+                @include ico_mail;
+              }
+
+              &.logo_meta {
+                @include logo_meta;
+              }
+
+              &.img_pc {
+                @include img_pc;
+              }
+
+              &.img_homepage {
+                @include img_homepage;
+              }
+
+              &.ico_free {
+                @include ico_free;
+              }
+
+              &.ico_starter {
+                @include ico_starter;
+              }
+
+              &.ico_basic {
+                @include ico_basic;
+              }
+
+              &.ico_pro {
+                @include ico_pro;
+              }
+
+              &.ico_biz {
+                @include ico_biz;
+              }
+
+              &.ico_check5 {
+                @include ico_check5;
+              }
+
+              &.ico_issue2 {
+                @include ico_issue2;
+              }
+
+              &.ico_card {
+                @include ico_card;
+              }
+
+              &.ico_card_ic {
+                @include ico_card_ic;
+              }
+
+              &.ico_card_master {
+                @include ico_card_master;
+              }
+
+              &.ico_card_visa {
+                @include ico_card_visa;
+              }
+
+              &.ico_card_amex {
+                @include ico_card_amex;
+              }
+
+              &.ico_card_discover {
+                @include ico_card_discover;
+              }
+
+              &.ico_list2 {
+                @include ico_list2;
+              }
+
+              &.ico_chart {
+                @include ico_chart;
+              }
+
+              &.ico_speaker {
+                @include ico_speaker;
+              }
+
+              &.ico_hacker {
+                @include ico_hacker;
+              }
+
+              &.ico_alarm {
+                @include ico_alarm;
+              }
+
+              &.ico_alarm2 {
+                @include ico_alarm2;
+              }
+
+              &.ico_alarm3 {
+                @include ico_alarm3;
+              }
+
+              &.ico_calendar3 {
+                @include ico_calendar3;
+              }
+
+              &.ico_pen {
+                @include ico_pen;
+              }
+
+              &.ico_refresh4 {
+                @include ico_refresh4;
+              }
+
+              &.ico_write {
+                @include ico_write;
+              }
+
+              &.img_tooltip_t1 {
+                @include img_tooltip_t1;
+              }
+
+              &.img_tooltip_t2 {
+                @include img_tooltip_t2;
+              }
+
+              &.img_tooltip_t3 {
+                @include img_tooltip_t3;
+              }
+
+              &.img_tooltip_t4 {
+                @include img_tooltip_t4;
+              }
+
+              &.img_tooltip_t5 {
+                @include img_tooltip_t5;
+              }
+
+              &.img_tooltip_t6 {
+                @include img_tooltip_t6;
+              }
+
+              &.ico_lightning {
+                @include ico_lightning;
+              }
+
+              &.ico_nodata {
+                @include ico_nodata;
+              }
+
+              &.ico_safe {
+                @include ico_safe;
+              }
+
+              &.ico_mailCheck {
+                @include ico_mailCheck;
+              }
+
+              &.ico_mailFail {
+                @include ico_mailFail;
+              }
+            }
+          }
+
+          .box_input {
+
+            .textareaBox {
+              // border: 1px solid #f00;
+
+              // 첫 번째 textareaBox
+              &:first-of-type {
+                @include textarea;
+              }
+
+              // 두 번째 textareaBox
+              &:last-of-type {
+                @include textarea_t2($height: 100px);
+                padding: 0;
+
+                button.copy {
+                  @include iLayout;
+                  @include ico_copy;
+                  display: block;
+                  width: 20px;
+                  height: 22px;
+                  margin: 0px 10px 0 auto;
+                  // text-align: right;
+                }
+              }
+            }
+          }
+
+          .box_selectBox {
+
+            .selectChkDiv {
+              @include selectChkDiv;
+            }
+          }
+
+          .box_calendar {
+            .calendarBox {
+              @include calendarBox;
+
+              .calendar {}
+            }
+
+            .timeBox {
+              @include timeBox;
+              display: inline-block;
+              // margin-left: 15px;
+
+              &.off {
+                &:before {
+                  @include inputOff;
+                }
+              }
+            }
+          }
+
+          .box_checkbox {
+            .box {
+              .checkBox {
+                &:nth-of-type(2) {
+                  input[type="checkbox"]+label {
+                    display: inline-flex;
+                    align-items: center;
+                    height: 40px;
+                    padding: 0 20px;
+                    color: var(--pointColor);
+                    border-radius: 2px;
+                    border: 1px solid var(--borderColor);
+                    background-color: var(--ipBgColor);
+
+                    &:before {
+                      top: 0;
+                    }
+                  }
+                }
+              }
+
+              &:nth-child(3) {
+                .toggleBox {
+                  @include toggleBox;
+                }
+              }
+
+              &:nth-child(4) {
+                .toggleBox {
+                  @include toggleBox_t2;
+                }
+              }
+
+              &:nth-child(5) {
+                .toggleBox {
+                  .ip_toggle {
+                    @include toggle_t2;
+                  }
+                }
+              }
+
+              &:nth-child(6) {
+                .toggleBox {
+                  @include toggle_t3;
+                }
+              }
+            }
+
+            .toggleBox {
+              border: 1px solid var(--borderColor);
+              position: relative;
+              display: inline-block;
+              min-width: 100px;
+              min-height: 50px;
+            }
+          }
+
+          .box_file {
+            // @include ip_fileBox;
+
+            .fileBox {
+              margin-top: 15px;
+
+              .fileList {
+                @include input($pd: 6px 0);
+                @include flexBox();
+                position: relative;
+                margin-top: 8px;
+                border: 1px solid var(--ipBorderColor);
+
+                input {
+                  &[type="file"] {
+                    display: none;
+                  }
+
+                  &[type="text"] {
+                    border: none;
+
+                    &:disabled {
+                      border: none;
+                      background-color: transparent;
+                    }
+                  }
+                }
+
+                button.btnFileCancel {
+                  @include iLayout;
+                  @include ico_closeS2;
+                  font-size: 0;
+                  position: relative;
+                  display: inline-block;
+                  width: 14px;
+                  min-width: 40px;
+                  height: 14px;
+                  border-radius: 3px;
+                }
+              }
+
+              .fileUpload {
+                position: relative;
+                display: inline-block;
+                width: 130px;
+                height: 33px;
+                font-size: 14px;
+                text-align: center;
+                line-height: 2.3;
+                vertical-align: middle;
+                color: var(--ftColor3);
+                border-radius: 3px;
+                background-color: var(--pointColor);
+                cursor: pointer;
+              }
+            }
+          }
+
+          .box_box {
+            .box {
+              &:nth-child(1) {
+                @include boxLayout;
+              }
+
+              &:nth-child(2) {
+                @include boxLayout2;
+              }
+
+              &:nth-child(3) {
+                @include boxLayout_t3;
+              }
+
+              &:nth-child(4) {
+                @include boxLayout_t4;
+              }
+
+              &:nth-child(5) {
+                @include boxLayout_t5;
+              }
+
+              &:nth-child(6) {
+                @include boxLayout_t6;
+              }
+
+              &:nth-child(7) {
+                @include boxLayout_t7;
+              }
+
+              &:nth-child(8) {
+                @include boxLayout_t8;
+              }
+
+              &:nth-child(9) {
+                @include boxLayout_t9;
+              }
+
+              &:nth-child(10) {
+                @include boxLayout_t10;
+              }
+
+              &:nth-child(11) {
+                @include boxLayout_t11;
+              }
+
+              &:nth-child(12) {
+                @include boxLayout_t12;
+              }
+
+              &:nth-child(13) {
+                @include boxLayout_t13;
+              }
+
+              &:nth-child(14) {
+                @include boxLayout_t14;
+              }
+
+              &:nth-child(15) {
+                @include boxLayout_t15;
+              }
+
+              &:nth-child(16) {
+                @include boxLayout_t16;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

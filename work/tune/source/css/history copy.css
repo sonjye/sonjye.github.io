@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*-----------------------
+    Explain : MOBTUNE
+    File : history.scss
+    Date   : 2022.06.29
+/*-------------------------*/
+/***** History *****/
+/*
+
+22.06.29 -> 캠페인생성 탭, 검색조건 플로팅 기능 추가 및 수정
+(campaign_create.html, crm.scss, component.scss)
+1. campaign_create.html -> div태그 추가
+2. crm.scss -> .tab, .searchList 수정
+3. component.scss -> @mixin scroll 부분 추가
+
+24.02.27 -> CDP/DMP > 결제정보 신규 페이지,
+기획자 : 정승균 부장
+- 공통된 부분으로 퍼블작업 완료하였는데, 디자인과 다르다고 디자인과 똑같이 제작해달라고 함
+ > 달력, 엑셀버튼, .tableHeader위치, 테이블(th)색상 변경함
+*/

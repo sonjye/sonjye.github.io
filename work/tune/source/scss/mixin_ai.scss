@@ -1,0 +1,109 @@
+@charset 'utf-8';
+/*
+File   : mixin_ai.scss
+Date   : 2025.07.03
+discript : ai에만 추가되는 mixin
+*/
+
+
+@mixin mn_ai_chk_bookmark($p:relative, $w:null, $h:null, $pd:null, $fs:null) {
+  position: $p;
+
+  &+label {
+    padding: $pd;
+    font-size: $fs;
+
+    &:before {
+      @include ico_star2_off;
+      top: 0;
+      margin: 0;
+      width: $w;
+      height: $h;
+    }
+  }
+
+  &:checked+label:before {
+    @include ico_star2_on;
+    width: $w;
+    height: $h;
+  }
+}
+
+//  input[type="radio"] 
+@mixin mn_ai_tab_radio($minW:100px, $h:40px, $m:0px 0 0 10px, $pd:null, $fs:13px, $br:4px) {
+  &+label {
+    @include btnLayout;
+    @include iflexBox($j:center);
+    @include btn5;
+    min-width: $minW;
+    height: $h;
+    font-size: $fs;
+    padding: $pd;
+    border-radius: $br;
+    border-width: 1px;
+
+    &:nth-of-type(n+2) {
+      margin: $m;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked+label {
+    @include btn6;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+@mixin mn_ai_input2 {
+  border: 1px solid var(--ipBorderColor2);
+  box-shadow: var(--ipShadow2);
+  background-color: var(--ipBgColor2);
+}
+
+
+@mixin mn_ai_inputCommon {
+  input {
+    @include mn_ai_input2;
+
+    &[type="text"],
+    &[type="search"] {
+      &::placeholder {
+        color: var(--ipFtColor_placeholder2);
+      }
+    }
+  }
+
+  .calendarBox {
+    @include calendarBox;
+
+    .calendar {
+      background-color: var(--ipBgColor2);
+    }
+  }
+
+  textarea {
+    color: var(--ftColor6);
+
+    &::placeholder {
+      color: var(--ipFtColor_placeholder2);
+    }
+  }
+
+  select {
+    border-color: var(--ipBorderColor2);
+    box-shadow: var(--ipShadow2);
+    background-color: var(--ipBgColor2);
+  }
+}
+
+@mixin mn_ai_common($w:60%, $minw: 800px, $m: 40px auto 0) {
+  width: $w;
+  min-width: $minw;
+  margin: $m;
+}

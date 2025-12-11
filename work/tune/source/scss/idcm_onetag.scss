@@ -1,0 +1,24 @@
+/*
+Explain : MOBTUNE
+File : tune_onetag.scss 
+Date : 2025.04.02
+Version : 1.1.3
+*/
+
+/*
+z-index 순서
+1. modal, modalDim: 999, 998
+2. tooltipHover,userMenu : 800,801
+3. dimDot, dimCircle : 700
+*/
+
+//* 업무 내용 : 모달추가(현재상태로 저장 확인) */
+
+//***** 공통 CSS *****/
+// 독립페이지 COMMON CSS 파일명은 앞에 'idcm' 추가
+// 독립페이지 CSS 파일명은 앞에 'id' 추가
+@import "_base";
+@import "_id_color";
+
+//***** 개별 CSS *****/
+@import "id_onetag";

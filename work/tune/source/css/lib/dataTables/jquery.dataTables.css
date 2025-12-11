@@ -1,0 +1,32 @@
+/*
+ * Table styles
+ */
+table.dataTable thead .sorting {
+  background: url("../../../images/common/icon_ arrow_default.png") no-repeat right/15px;
+}
+table.dataTable thead .sorting_asc {
+  background: url("../../../images/common/icon_ arrow_up.png") no-repeat right/15px;
+}
+table.dataTable thead .sorting_desc {
+  background: url("../../../images/common/icon_ arrow_down.png") no-repeat right/15px;
+}
+table.dataTable thead .sorting_asc_disabled {
+  background-image: url("../images/sort_asc_disabled.png");
+}
+table.dataTable thead .sorting_desc_disabled {
+  background-image: url("../images/sort_desc_disabled.png");
+}
+
+div.dt-button-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  z-index: 1100;
+  opacity: .1;
+}
+.dt-button-collection{
+  z-index: 100000000;
+}

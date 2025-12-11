@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 트래킹 광고추적 URL -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li class="on"><a href="javascript:void(0);">트래킹</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>트래킹</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>트래커보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="report"></i><span>트래커 보고서</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="createURL"></i><span>광고 추적 URL 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="reportAD"></i><span>광고 추적 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="setting"></i><span>설정</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_trackingCreateURL">
+                <div class="title">
+                    <p>광고 추적 URL 생성</p>
+                    <p>* 필수항목(*표시)를 입력하면 광고 추천 URL이 생성됩니다.</p>
+                    <p>* 생성된 URL은 변경시 자동으로 업데이트 됩니다.</p>
+                </div>
+                <div class="content">
+                    <section class="sec_optionBox">
+                        <div class="inputBox">
+                            <dl>
+                                <dt>Website URL</dt>
+                                <dd><input type="text">
+                                    <span>전체 웹사이트 URL (ex_http://example.com)</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>* utm_source (소스)</dt>
+                                <dd><select name="" id="">
+                                        <option value="">옵션1</option>
+                                    </select>
+                                    <input type="text" name="" id="" disabled>
+                                    <span>참조자 (ex_google, newsletter) 어느 출처에서 오는지 입력</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>* utm_medium (매체)</dt>
+                                <dd><select name="" id="">
+                                        <option value="">옵션1</option>
+                                    </select>
+                                    <input type="text" name="" id="">
+                                    <span>마케팅 매체 (ex_cpc, banner, email) 어느 매체를 통해서 오는지 입력</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>* utm_campaign (캠페인)</dt>
+                                <dd><input type="text">
+                                    <span>제품, 프로모션 코드 또는 슬로건 (ex_spring_sale) 어느 매체를 통해서 오는지 입력</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>* utm_term (키워드)</dt>
+                                <dd><input type="text">
+                                    <span>검색광고 시 사용되는 검색어를 입력</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>* utm_content (광고콘텐츠)</dt>
+                                <dd><input type="text">
+                                    <span>동일한 광고 캠페인에서 소재가 여러 개일 경우, 이를 구분하기 위해 입력</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <!--//inputBox end-->
+                        <div class="previewBox">
+                            <dl>
+                                <dt>
+                                    <p>광고 추적 URL 미리보기</p>
+                                    <button type="button" class="btn_reset"></button>
+                                </dt>
+                                <dd>
+                                    <div class="urlBox">
+                                        <textarea readonly>http://mobon.net 읽기전용입니다.</textarea>
+                                        <button type="button" class="btn_copy">URL 복사</button>
+                                    </div>
+                                    <span>* 생성된 광고 추천 URL을 트래킹 하고 싶은 버튼 및 링크에 삽입시키면, 광고 추적 보고서를 통해 데이터를 확인 하실 수
+                                        있습니다.</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <!--//previewBox end-->
+                    </section>
+                    <!--//sec_optionBox end-->
+                </div>
+                <!--//cont end-->
+            </div>
+            <!--//contensts end-->
+        </section>
+    </div>
+</body>
+
+</html>

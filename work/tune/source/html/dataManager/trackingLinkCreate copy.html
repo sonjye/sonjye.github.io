@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// 데이터매니저 메뉴 > 트래킹 링크 생성  -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li class="on"><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="javascript:void(0);">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>데이터매니저</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataStats"></i><span>데이터 통계</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataCollect"></i><span>데이터 수집 관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataProvide"></i><span>데이터 제공 관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataMonitor"></i><span>데이터 모니터링</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="trackingLink"></i><span>트래킹 링크 관리</span></a>
+                    <ul class="active">
+                        <li class="on"><a href="javascript:void(0);">트래킹 링크 관리</a></li>
+                        <li><a href="javascript:void(0);">트래킹 링크 통계</a></li>
+                        <li><a href="javascript:void(0);">앱 및 딥링크 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_trackingLinkCreate">
+                <div class="title">
+                    <p>트래킹 링크 생성</p>
+                    <p>트래킹 링크를 만들면 광고 캠페인을 통해 <span>사용자 데이터를 수집</span>하고,<span>딥링크 기능</span>으로 특정 앱 화면이나 웹페이지로 바로 연결할 수
+                        있습니다.</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="checkBox">
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform1" disabled>
+                            <label for="chk_flatform1" class="web">web</label>
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform2">
+                            <label for="chk_flatform2" class="ios">ios</label>
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform3">
+                            <label for="chk_flatform3" class="android">android</label>
+                        </div>
+                        <div class="selectDiv">
+                            <div class="selected">
+                                <p>www.mobon.co.kr</span>
+                                </p>
+                            </div>
+                            <ul>
+                                <li class="active">www.mobon.co.kr</span>
+                                </li>
+                                <li>http://www.dabagirl.com</li>
+                                <li>http://www.dabalab.com</li>
+                                <li class="create">신규 만들기</li>
+                                <li class="domainInfo">도메인 정보</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="sec_set">
+                        <div class="box_android">
+                            <div class="androidBox">
+                                <div class="tit">
+                                    <p>안드로이드</p>
+                                </div>
+                                <div class="cont">
+                                    <div>
+                                        <p>APP이름 :<span>다바걸-스타일을 만드는 사람들</span></p>
+                                    </div>
+                                    <div>
+                                        <p>구글 플레이 스토어 URL :</p>
+                                        <input type="url" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="linkSetBox">
+                                <div class="tit">
+                                    <p>딥링크 설정</p>
+                                </div>
+                                <div class="cont">
+                                    <div>
+                                        <p>안드로이드 URL 스킴</p>
+                                        <p>입력한 값이 AndroidManifest.xml에서 지정하는 값과 일치해야 합니다.</p>
+                                        <input type="url" name="" id="">
+                                    </div>
+                                    <div>
+                                        <p>안드로이드 패키지 이름</p>
+                                        <p>구글 플레이 스토어 URL 중 'id='이후 값으로 안드로이드 패키지이름을 확인할 수 있습니다.</p>
+                                        <input type="url" name="" id="">
+                                    </div>
+                                    <div>
+                                        <p>sha256 핑거프린터</p>
+                                        <p>핑거프린트는 앱의 고유한 보안 인증 코드로, 앱이 진짜 등록된 앱인지 확인하는데 사용됩니다.</p>
+                                        <p>구글 플레이 스토어에 등록할때 사용한 keystore 파일을 통해 결과 값을 확인 후 넣어주시고 여러값이 있는 경우 쉼표(,)로 구분해
+                                            모두 입력할 수 있습니다.</p>
+                                    </div>
+                                    <div>
+                                        <p>안드로이드 SDK 설정 필요 정보</p>
+                                        <p>AndroidManifest.xml에 URL매핑을 추가하는 과정에서 아래 값을 인텐트 필터에 host로 사용할 수 있습니다.</p>
+                                        <input type="text" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_ios"></div>
+                        <div class="buttonBox">
+                            <button type="button" class="save">저장</button>
+                        </div>
+                    </section>
+                </div>
+                <!--//contents end-->
+                <footer class=" footer">
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved.</p>
+                </footer>
+                <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

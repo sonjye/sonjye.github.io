@@ -1,0 +1,796 @@
+/*
+Explain : MOBTUNE
+File : idcm_makeshop.scss 
+Date : 2025.09.23
+Version : 1.1.1
+*/
+
+//* 업무내용 :*/
+// AI 스튜디오 가입 및 체험신청 화면 화이트 테마 추가
+
+/*
+z-index 순서
+#. modal, modalDim: 999, 998
+*/
+
+//* 공통 CSS ==========================================/
+@import "_font";
+@import "_base";
+
+
+//* color  ============================================/
+
+$point: #7c72f2;
+
+$ft: #222222;
+$ft2: #555555;
+
+//input
+$ip_ft: #555555;
+$ip_ft_ph: #b7b7b7;
+$ip_brd: #d8d8d8;
+$ip_bg: #ffffff;
+
+
+//input disabled
+$ip_ft_dis: #555555;
+$ip_brd_dis: #d8d8d8;
+$ip_bg_dis:#efefef;
+
+// button
+$btn_ft: #ffffff;
+$btn_brd: #d8d8d8;
+$btn_bg: #7c72f2;
+
+$btn_ft2:#7c72f2;
+$btn_brd2: #7c72f2;
+$btn_bg2: #ffffff;
+
+$btn_ft3:#7c72f2;
+$btn_brd3: #7c72f2;
+$btn_bg3: #f2f5ff;
+
+$btn_ft4:#ffffff;
+$btn_brd4: #bfbfbf;
+$btn_bg4: #bbbbbb;
+
+$ip_brd: #d8d8d8;
+$ip_bg: #ffffff;
+
+
+
+//* image  ============================================/
+
+// 공통 이미지 경로 (이미지 지정 전용)
+@mixin img($folder, $name, $format:"svg", $bgXY:center, $path:"../image_v3/", ) {
+  background: url("#{$path}#{$folder}/#{$name}.#{$format}") no-repeat $bgXY;
+}
+
+// 사이즈 및 background-size 조절 전용
+@mixin imgSize($w:null, $h:null, $bgw:null, $bgh:null, $bgs:null) {
+  @if $w !=null {
+    width: $w;
+  }
+
+  @if $h !=null {
+    height: $h;
+  }
+
+  @if $bgw !=null and $bgh !=null {
+    background-size: $bgw $bgh;
+  }
+
+  @else if $bgs !=null {
+    background-size: $bgs;
+  }
+}
+
+// 로고
+@mixin logo_t720() {
+  @include img("id_makeshop", "logo_tune720");
+  @include imgSize(270px, 46px, $bgs:contain);
+}
+
+// 배경
+@mixin img_bg() {
+  @include img("id_makeshop", "img_bg", "png");
+  @include imgSize(1045px, 778px, $bgs:contain);
+}
+
+// 모달 닫기버튼
+@mixin ico_close() {
+  @include img("id_makeshop", "ico_close");
+  @include imgSize(20px, 20px, 20px, 20px);
+}
+
+
+// 체크박스
+@mixin ico_check_on() {
+  @include img("id_makeshop", "ico_check_on");
+  @include imgSize(20px, 20px, $bgs:contain);
+}
+
+@mixin ico_check_off() {
+  @include img("id_makeshop", "ico_check_off");
+  @include imgSize(20px, 20px, $bgs:contain);
+}
+
+// 셀렉트박스
+@mixin ico_select() {
+  @include img("id_makeshop", "ico_select");
+  @include imgSize(15px, 8px, 15px, 8px);
+}
+
+
+//* mixin  ============================================/
+
+@mixin ftr {
+  // font-family: "Pretendard_Light";
+  font-family: "Pretendard_Regular";
+}
+
+@mixin ftm {
+  font-family: "Pretendard_Medium";
+  // font-weight: normal;
+}
+
+@mixin ftb {
+  font-family: "Pretendard_Bold";
+  font-weight: normal;
+  // font-weight: bold;
+}
+
+//* animation //
+@mixin keyframe($bgc1:$point, $w2:100%) {
+  @keyframes barFill {
+    0% {
+      width: 0;
+      background-color: $bgc1;
+    }
+
+    100% {
+      width: $w2;
+      background-color: $bgc1;
+    }
+  }
+
+  animation: barFill 1.5s ease-in-out forwards;
+}
+
+
+// keyframes 정의
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  // 위로 살짝
+  100% {
+    transform: translateY(0);
+  }
+
+  // 다시 제자리
+}
+
+@mixin flex($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+@mixin btn($w:null, $minw:null, $h:null, $minh:null, $fs:null, $br:10px, $pd:null) {
+  position: relative;
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  font-size: $fs;
+  border-radius: $br;
+}
+
+@mixin btn_main {
+  color: $btn_ft;
+  border: 1px solid $btn_bg;
+  background-color: $btn_bg;
+}
+
+@mixin btn2 {
+  color: $btn_ft2;
+  border: 1px solid $btn_brd2;
+  background-color: $btn_bg2;
+}
+
+@mixin btn3 {
+  color: $btn_ft3;
+  border: 1px solid $btn_brd3;
+  background-color: $btn_bg3;
+}
+
+// 회색버튼
+@mixin btn4 {
+  color: $btn_ft4;
+  border: 1px solid $btn_brd4;
+  background-color: $btn_bg4;
+}
+
+//* ico */
+@mixin ico($p:relative, $d:inline-block, $bgp: 0px 0px) {
+  content: "";
+  position: $p;
+  display: $d;
+  font-size: 0;
+  font-style: normal;
+  background-position: $bgp;
+}
+
+
+@mixin input($minw: null, $w: null, $h:50px, $pd:10px 20px, $fs:16px, $br:10px) {
+  min-width: $minw;
+  width: $w;
+  height: $h;
+  padding: $pd;
+  font-size: $fs;
+  border-radius: $br;
+  color: $ip_ft;
+  border: 1px solid $ip_brd;
+  background-color: $ip_bg;
+
+  &::placeholder {
+    color: $ip_ft_ph;
+  }
+
+  &:disabled {
+    color: $ip_ft_dis;
+    border-color: $ip_brd_dis;
+    background-color: $ip_bg_dis;
+  }
+}
+
+@mixin select($minw:null, $w:null, $h:50px, $pd: 10px 20px, $fs:16px, $br: 10px) {
+  @include ico_select;
+  @include ftr();
+  min-width: $minw;
+  width: $w;
+  height: $h;
+  padding: $pd;
+  appearance: none;
+  font-size: $fs;
+  color: $ft;
+  line-height: 1;
+  border-radius: $br;
+  border: 1px solid $ip_brd;
+  box-shadow: none;
+  background-color: $ip_bg;
+  background-position-x: calc(100% - 20px);
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background-color: $ip_bg;
+  }
+
+  &:disabled {
+    color: $ip_ft_dis;
+    border: 1px solid $ip_brd_dis;
+    background-color: $ip_bg_dis;
+    opacity: 1;
+    cursor: default;
+  }
+}
+
+@mixin checkbox {
+  display: none;
+
+  +label {
+    position: relative;
+    display: block;
+    color: $ft2;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:before {
+      // @include iLayout;
+      @include ico;
+      @include ico_check_off;
+      @include imgSize(20px, 20px);
+      content: "";
+      // width: 16px;
+      // height: 16px;
+      margin-right: 8px;
+      // top: -1px;
+      vertical-align: middle;
+      background-size: contain;
+    }
+  }
+
+  &:checked {
+    +label {
+      &:before {
+        // @include iLayout;
+        @include ico_check_on;
+        // width: 16px;
+        // height: 16px;
+        vertical-align: middle;
+        background-size: contain;
+      }
+    }
+  }
+
+  // &:disabled {
+  //   +label {
+  //     &:before {
+  //       @include iLayout;
+  //       @include ico_checkbox_disabled;
+  //       width: 16px;
+  //       height: 16px;
+  //       vertical-align: middle;
+  //       background-size: contain;
+  //       cursor: default;
+  //     }
+  //   }
+  // }
+}
+
+//* modal =================================================================== */
+@mixin modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+.modalDim {
+  @include modalDim;
+}
+
+@mixin modal {
+  display: none;
+  z-index: 999;
+
+  &.modalOn {
+    display: block;
+  }
+}
+
+//*  layout */
+@mixin modalPosition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // border-radius: 5px;
+  // box-shadow: 0 0 12px 0 rgba(21, 21, 21, 0.16);
+  // background-color: #ffffff;
+  overflow: hidden;
+  z-index: 999;
+}
+
+//* box */
+@mixin modalBox {
+  // position: absolute;
+  border-radius: 20px;
+  // border: 1px solid var(--modalBorderColor);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  z-index: 999;
+}
+
+@mixin modalTitle($pd:0px 30px 0 30px) {
+  @include flex;
+  height: 70px;
+  font-size: 18px;
+  padding: $pd;
+  border-bottom: 1px solid #e2e2e2;
+
+  p {
+    @include ftb;
+    font-size: 18px;
+  }
+
+  button {
+    position: relative;
+    padding: 15px;
+
+    &.close {
+      @include btn;
+      @include ico_close;
+      @include imgSize(30px, 30px);
+      // top: 2px;
+      font-size: 0;
+    }
+  }
+}
+
+//* content */
+@mixin modalContent {
+  position: relative;
+  width: calc(100% - 20px);
+  // max-height: 650px;
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px 20px 20px;
+  overflow-y: auto;
+}
+
+//* modalFooter */
+@mixin modalFooter() {
+  // @include box_shadow_t;
+  // padding-top: 30px;
+  padding: 10px 0 10px;
+  // margin-top: 10px;
+  text-align: center;
+  @include flex($j:center);
+
+  button {
+    @include btn;
+    @include ftm;
+    min-width: 175px;
+    height: 50px;
+    // margin-left: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+
+    &.create,
+    &.modify,
+    &.confirm {
+      @include btn_main;
+    }
+
+    &.cancel {
+      @include btn4;
+    }
+  }
+}
+
+// h: 전체높이, h2: footer높이 , h3: title 높이
+@mixin modalSize($w:null, $h:null, $h2:90px, $h3:70px) {
+  .modalContainer {
+    width: $w;
+    height: $h;
+
+    .modalTitle {
+      height: $h3;
+    }
+
+    .modalContent {
+      // modalContent margin값떄문에 10px 추가로 빼줌
+      height: calc($h - $h2 - $h3 - 10px);
+    }
+
+    .modalFooter {
+      height: $h2;
+    }
+  }
+}
+
+//* layout */
+@mixin modalLayout {
+  @include modal;
+
+  .modalContainer {
+    @include modalPosition();
+    @include modalBox;
+
+    .modalTitle {
+      @include modalTitle;
+    }
+
+    .modalContent {
+      @include modalContent;
+    }
+
+    .modalFooter {
+      @include modalFooter;
+    }
+  }
+
+  .modalDim {
+    @include modalDim;
+  }
+}
+
+//* layout, content  ============================================/
+
+html {
+  // overflow: hidden;
+
+  ::-webkit-scrollbar {
+    width: 14px;
+    // background-color: var(--borderColor);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $point;
+  }
+
+  select {
+    @include select;
+  }
+
+  input {
+    @include input;
+  }
+
+  input[type="checkbox"] {
+    @include checkbox;
+  }
+
+  .disNone {
+    display: none !important;
+  }
+}
+
+//* makeshop  ============================================/
+
+.wrap {
+  .modalWrap {
+
+    //* 공통 - alert  */
+    &.md_alert {
+      @include modalLayout;
+      @include modalSize(450px, 300px);
+
+      .modalContainer {
+        .modalContent {
+          @include flex($d:column, $j:center);
+
+          >div {
+            text-align: center;
+
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              .fc1 {
+                color: $point;
+              }
+            }
+
+            strong {
+              @include ftb;
+              font-size: 16px;
+              line-height: 1.5;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    &.md_policyService {
+      @include modalLayout;
+      @include modalSize(700px, 600px);
+
+      .modalContainer {
+        .modalContent {
+          section {
+            &.sec_policy {
+              .box_policy {
+                .box {
+                  &:nth-child(n+2) {
+                    margin: 30px 0 0 0;
+                  }
+
+                  >p {
+                    @include ftb;
+                    font-size: 15px;
+                  }
+
+                  ul {
+                    margin: 15px 0 0 0;
+                    min-height: 100px;
+                    padding: 20px;
+                    border: 1px solid #e5e5e5;
+                    border-radius: 10px;
+                    background-color: #f8f8f8;
+
+                    li {
+                      font-size: 13px;
+                      line-height: 20px;
+                      color: #333;
+
+                      p {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrap {
+  &[class*="tune_makeshop"] {
+    position: relative;
+    width: 100%;
+    //min-width: 1920px; 
+    // min-width: 1900px;
+    min-height: -webkit-fill-available;
+    height: max-content;
+    padding-bottom: 60px;
+    color: $ft;
+    background-image: linear-gradient(121deg, #79d4fa 8%, #9283fa 86%);
+    // overflow: auto;
+
+    // js 추가되어있음
+    &.complete {
+      .container {
+        padding: 100px;
+        transform: translateX(-50%);
+        left: 50%;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &:before {
+      @include ico($p:absolute);
+      @include img_bg;
+      top: 15%;
+      right: 0;
+      background-position-x: 100px;
+      transition: transform 0.5s ease;
+      // 애니메이션 추가
+      animation: floatY 2s ease-in-out infinite;
+    }
+
+    .container {
+      position: relative;
+      width: 700px;
+      min-height: 760px;
+      padding: 60px 100px;
+      top: 60px;
+      margin-bottom: 60px;
+      // margin-top: 60px;
+      left: 100px;
+      color: #222222;
+      border-radius: 10px;
+      box-shadow: 10px 10px 30px 0 rgba(17, 39, 143, 0.1);
+      background-color: rgba(999, 999, 999, 0.95);
+      transition: left 0.5s ease,
+        transform 0.5s ease;
+    }
+
+    .title {
+      text-align: center;
+
+      &:before {
+        @include ico($d:block);
+        @include logo_t720();
+        margin: 0 auto 20px auto;
+      }
+
+      p {
+        font-size: 18px;
+
+        // &:before {
+        //   @include ico($d:block);
+        //   @include logo_t720();
+        //   margin: 0 auto 20px auto;
+        // }
+      }
+
+      b {
+        @include ftb;
+        font-size: 25px;
+      }
+    }
+
+    // common 
+
+    .content {
+      margin: 60px 0 0 0;
+
+      section {
+        &.sec_input {
+          .box_input {
+            .inputBox {
+              >div {
+                &:nth-child(n+2) {
+                  margin: 20px 0 0 0;
+                }
+
+                >p {
+                  @include ftb;
+                  font-size: 18px;
+
+                  +input,
+                  +select,
+                  +button {
+                    width: 100%;
+                    margin: 15px 0 0 0;
+                  }
+                }
+
+                &.agreeBox {
+                  @include flex;
+
+                  button {
+                    &.fullText {
+                      @include btn($minw:80px, $h:30px, $br:5px, $pd:0 15px);
+                      @include btn3;
+                    }
+                  }
+
+                }
+
+                &.buttonBox {
+                  @include flex;
+
+                  button {
+
+                    &.start,
+                    &.modify,
+                    &.apply {
+                      @include btn($h:60px, $fs:18px, $pd:0 15px);
+                      @include btn_main;
+                      flex-grow: 1;
+                    }
+
+                    &.cancel {
+                      @include btn($h:60px, $fs:18px, $pd:0 15px);
+                      @include btn4;
+                      flex-grow: 1;
+                    }
+                  }
+                }
+
+                &.joinBox {
+                  margin: 40px 0 0 0;
+
+                  button {
+                    &.join {
+                      @include btn($minw:100%, $h:60px, $fs:18px, $pd:0 15px);
+                      @include btn2;
+                      @include ftm;
+                    }
+                  }
+                }
+
+                &.quickMove {
+                  button {
+                    &.quickMove {
+                      @include btn($minw:100%, $h:60px, $fs:18px, $pd:0 15px);
+                      @include btn2;
+                      @include ftm;
+                      margin: 80px 0 0 0;
+                    }
+                  }
+                }
+
+                &.guideBox {
+                  margin: 30px 0 0 0;
+
+                  p {
+                    @include ftr;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: $ft2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

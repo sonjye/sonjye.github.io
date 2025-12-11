@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+    <g data-name="그룹 4035">
+        <g data-name="그룹 4027">
+            <g data-name="그룹 4007" transform="translate(4.824 1.733)">
+                <path data-name="빼기 9" d="M-10191.486-4985.274h-30.338a1 1 0 0 1-1-1v-24.458a1 1 0 0 1 1-1h30.338a1 1 0 0 1 1 1v24.458a1 1 0 0 1-1 1zm-7.548-10.291a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.35a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1zm-10.288 0a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.35a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1zm-10.29 0a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.349a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1zm20.578-10.288a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.35a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1zm-10.288 0a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.35a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1zm-10.29 0a1 1 0 0 0-1 1v5.349a1 1 0 0 0 1 1h5.349a1 1 0 0 0 1-1v-5.349a1 1 0 0 0-1-1z" transform="translate(10222.824 5020.553)" style="fill:#fff"/>
+                <rect data-name="사각형 3378" width="4.41" height="12.288" rx="2.205" transform="translate(5.88)" style="fill:#fff"/>
+                <rect data-name="사각형 3379" width="4.41" height="12.288" rx="2.205" transform="translate(22.049)" style="fill:#fff"/>
+            </g>
+            <g data-name="그룹 4008">
+                <g data-name="그룹 4002">
+                    <path data-name="패스 1172" d="M9.022 0A9.024 9.024 0 1 1 0 9.024 9.023 9.023 0 0 1 9.022 0z" transform="translate(21.33 21.326)" style="fill:#fff"/>
+                    <g data-name="그룹 3991">
+                        <path data-name="합치기 20" d="M3.548 9.451V5.907H0V3.545h3.548V0h2.363v3.545H9.45v2.362H5.911v3.544z" transform="translate(25.628 25.623)" style="fill:#fff"/>
+                    </g>
+                    <g data-name="그룹 3995">
+                        <path data-name="패스 1172" d="M9.022 0A9.024 9.024 0 1 1 0 9.024 9.023 9.023 0 0 1 9.022 0z" transform="translate(21.33 21.326)" style="fill:#fff"/>
+                    </g>
+                </g>
+                <path data-name="패스 1178" d="M9.727.7a9.024 9.024 0 1 0 9.023 9.028A9.023 9.023 0 0 0 9.727.7m0-2.2A11.228 11.228 0 1 1-1.5 9.728 11.241 11.241 0 0 1 9.727-1.5z" transform="translate(20.625 20.621)" style="fill:#c1c8db"/>
+            </g>
+            <path data-name="패스 1179" d="M19842.023 11370.408a1.47 1.47 0 0 1-1.061-.449l-2.7-2.8a1.471 1.471 0 0 1 2.119-2.041l1.682 1.744 4.67-4.453a1.469 1.469 0 1 1 2.027 2.127l-5.729 5.463a1.459 1.459 0 0 1-1.008.409z" transform="translate(-19812.963 -11336.015)" style="fill:#c1c8db"/>
+        </g>
+    </g>
+</svg>

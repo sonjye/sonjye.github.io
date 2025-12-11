@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g data-name="다각형 52" style="fill:none">
+        <path d="M8.742.587a1.25 1.25 0 0 1 1.525 0l8.055 6.2a1.25 1.25 0 0 1 .433 1.357l-3.106 10.129a1.25 1.25 0 0 1-1.2.884h-9.9a1.25 1.25 0 0 1-1.2-.884L.254 8.146a1.25 1.25 0 0 1 .433-1.357z" style="stroke:none" transform="translate(2.745 2.5)"/>
+        <path d="M9.504 1.528a.048.048 0 0 0-.03.01L1.419 7.74a.05.05 0 0 0-.018.054l3.106 10.128a.05.05 0 0 0 .048.035h9.9a.05.05 0 0 0 .047-.035l3.106-10.128a.05.05 0 0 0-.018-.054L9.535 1.538a.048.048 0 0 0-.03-.01m0-1.2c.268 0 .537.086.762.26l8.055 6.2c.413.319.586.86.433 1.358l-3.106 10.127a1.25 1.25 0 0 1-1.195.884h-9.9a1.25 1.25 0 0 1-1.195-.884L.254 8.146a1.25 1.25 0 0 1 .433-1.357L8.742.587c.225-.173.493-.26.762-.26z" style="fill:#07e6ff;stroke:none" transform="translate(2.745 2.5)"/>
+    </g>
+    <path data-name="선 294" transform="translate(3.254 9.648)" style="stroke-width:1.2px;stroke:#07e6ff;fill:none" d="m0 0 11 3"/>
+    <path data-name="선 295" transform="translate(10.254 9.648)" style="stroke-width:1.25px;stroke:#07e6ff;fill:none" d="m0 3 12-3"/>
+    <path data-name="선 296" transform="translate(11.683 10.554)" style="stroke-width:1.25px;stroke:#07e6ff;fill:none" d="m0 0 6 10"/>
+    <path data-name="선 297" transform="translate(12.254 3.406)" style="stroke-width:1.25px;stroke:#07e6ff;fill:none" d="M0 0v11"/>
+    <path data-name="선 298" transform="translate(6.825 10.554)" style="stroke-width:1.25px;stroke:#07e6ff;fill:none" d="M6 0 0 10"/>
+    <g data-name="타원 176" transform="translate(9.754 9.889)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="2.5" cy="2.5" r="2.5" style="stroke:none"/>
+        <circle cx="2.5" cy="2.5" r="2" style="fill:none"/>
+    </g>
+    <g data-name="타원 177" transform="translate(10.75 1)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="1.5" cy="1.5" r="1.5" style="stroke:none"/>
+        <circle cx="1.5" cy="1.5" r="1" style="fill:none"/>
+    </g>
+    <g data-name="타원 178" transform="translate(16.629 20.156)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="1.5" cy="1.5" r="1.5" style="stroke:none"/>
+        <circle cx="1.5" cy="1.5" r="1" style="fill:none"/>
+    </g>
+    <g data-name="타원 179" transform="translate(4.245 20.054)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="1.5" cy="1.5" r="1.5" style="stroke:none"/>
+        <circle cx="1.5" cy="1.5" r="1" style="fill:none"/>
+    </g>
+    <g data-name="타원 180" transform="translate(1.245 8.399)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="1.5" cy="1.5" r="1.5" style="stroke:none"/>
+        <circle cx="1.5" cy="1.5" r="1" style="fill:none"/>
+    </g>
+    <g data-name="타원 181" transform="translate(20.254 8.399)" style="fill:#07e6ff;stroke:#07e6ff">
+        <circle cx="1.5" cy="1.5" r="1.5" style="stroke:none"/>
+        <circle cx="1.5" cy="1.5" r="1" style="fill:none"/>
+    </g>
+    <path data-name="패스 12059" d="m-45-4797.709 4.746-3.373 6.558 2.973-2.946 7.63h-7.012z" transform="translate(51.825 4808.744)" style="opacity:.35;fill:#07e6ff"/>
+    <path data-name="사각형 4753" style="fill:none" d="M0 0h24v24H0z"/>
+</svg>

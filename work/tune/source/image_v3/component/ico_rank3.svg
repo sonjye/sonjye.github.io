@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="49" viewBox="0 0 38 49">
+    <defs>
+        <clipPath id="7w4akmtbqa">
+            <ellipse data-name="타원 655" cx="19" cy="19.075" rx="19" ry="19.075" style="fill:#f8d3ba"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 6939">
+        <g data-name="그룹 6934">
+            <path data-name="패스 12366" d="m795.064 183.742-8.089 12.532-1.518-2.107-2.289-3.181-3.842-.776-2.545-.515 8.089-12.532z" transform="translate(-775.978 -147.274)" style="fill:#afc99b"/>
+            <path data-name="패스 12367" d="m797.15 184.552-7.575 11.736-2.289-3.181-3.842-.776 7.575-11.736z" transform="translate(-780.096 -149.395)" style="fill:#5e873e"/>
+            <path data-name="패스 12368" d="m824.64 183.742 8.089 12.532 1.518-2.107 2.289-3.181 3.841-.776 2.545-.515-8.089-12.532z" transform="translate(-805.724 -147.274)" style="fill:#afc99b"/>
+            <path data-name="패스 12369" d="m829.958 184.552 7.575 11.736 2.289-3.181 3.842-.776-7.575-11.731z" transform="translate(-809.011 -149.395)" style="fill:#5e873e"/>
+            <ellipse data-name="타원 654" cx="19" cy="19.075" rx="19" ry="19.075" style="fill:#d4b29b"/>
+            <g data-name="그룹 6926">
+                <g data-name="그룹 6925" style="clip-path:url(#7w4akmtbqa)">
+                    <path data-name="패스 12429" d="M0 0h1.581l.083 50.186H.083z" transform="rotate(28.95 21.585 57.264)" style="fill:#f8d3ba"/>
+                    <path data-name="패스 12430" d="m0 0 4.4.007.083 50.186-4.4-.007z" transform="rotate(28.95 20.21 41.012)" style="fill:#f8d3ba"/>
+                </g>
+            </g>
+            <ellipse data-name="타원 656" cx="11.892" cy="11.976" rx="11.892" ry="11.976" transform="translate(7.108 7.108)" style="fill:#c29474"/>
+            <path data-name="패스 12370" d="M821.788 141.455a11.974 11.974 0 0 0-16.853 16.853 11.977 11.977 0 1 1 16.853-16.853z" transform="translate(-793.498 -129.948)" style="fill:#b38261"/>
+            <path data-name="패스 12393" d="M801.465 175.318c-.249.793-.852 1.31-1.345 1.155l.9-2.871c.496.155.694.924.445 1.716z" transform="translate(-793.25 -148.347)" style="fill:#dec5b4"/>
+        </g>
+        <text data-name="3" transform="translate(13.338 26.101)" style="fill:#5d361b;font-size:20px;font-family:NotoSansCJKkr-Black,Noto Sans CJK KR;font-weight:800"><tspan x="0" y="0">3</tspan></text>
+    </g>
+</svg>

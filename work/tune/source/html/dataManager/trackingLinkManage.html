@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// 데이터매니저 메뉴 > 트래킹 링크 관리  -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">트렌드분석</a></li>
+                    <li><a href="javascript:void(0);">CDP/DMP</a></li>
+                    <li class="on"><a href="javascript:void(0);">데이터매니저</a></li>
+                    <li><a href="javascript:void(0);">원태그</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="javascript:void(0);">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>데이터매니저</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataStats"></i><span>데이터 통계</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataCollect"></i><span>데이터 수집 관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataProvide"></i><span>데이터 제공 관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataMonitor"></i><span>데이터 모니터링</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="trackingLink"></i><span>트래킹 링크 관리</span></a>
+                    <ul class="active">
+                        <li><a href="javascript:void(0);">트래킹 링크 관리</a></li>
+                        <li class="on"><a href="javascript:void(0);">트래킹 링크 통계</a></li>
+                        <li><a href="javascript:void(0);">앱 및 딥링크 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_trackingLink">
+                <div class="title">
+                    <p>트래킹 링크 통계</p>
+                    <p>트래킹 링크를 만들면 광고 캠페인을 통해 <span>사용자 데이터를 수집</span>하고, <span>딥링크 기능</span>으로 특정 앱 화면이나 웹페이지로 바로 연결할 수
+                        있습니다. </p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="checkBox">
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform1" disabled>
+                            <label for="chk_flatform1" class="web">web</label>
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform2">
+                            <label for="chk_flatform2" class="ios">ios</label>
+                            <input type="checkbox" name="chk_flatform" id="chk_flatform3">
+                            <label for="chk_flatform3" class="android">android</label>
+                        </div>
+                        <div class="selectDiv">
+                            <div class="selected">
+                                <p>www.mobon.co.kr</span>
+                                </p>
+                            </div>
+                            <div class="selectList">
+                                <ul>
+                                    <li class="active">www.mobon.co.kr</span>
+                                    </li>
+                                    <li>http://www.dabagirl.com</li>
+                                    <li>http://www.dabalab.com</li>
+                                    <li class="create">신규 만들기</li>
+                                    <li class="domainInfo">도메인 정보</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="sec_option">
+                        <div class="optionBox">
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>캠페인명</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="캠페인명">
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>채널명</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="채널명">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>광고그룹</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="광고그룹">
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>광고소재</p>
+                                    </div>
+                                    <div class="cont">
+                                        <input type="text" placeholder="광고소재">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line">
+                                <div class="box">
+                                    <div class="tit">
+                                        <p>진행기간</p>
+                                    </div>
+                                    <div class="cont">
+                                        <div class="calendarBox">
+                                            <div class="calendar">
+                                                <div class="dateChoice">
+                                                    <input type="text" id="dateInput" name="dateInput" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox end -->
+                        <div class="buttonBox">
+                            <button type="button">검색</button>
+                        </div>
+                    </section>
+                    <section class="sec_list">
+                        <div class="tit">
+                            <p>트래킹 링크 목록</p>
+                        </div>
+                        <div class="cont">
+                            <!-- tableAreaDataNone2 > thead가 있는 경우 -->
+                            <div class="tableArea">
+                                <div class="tableBox">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">클릭수</th>
+                                                <th rowspan="2">노출수</th>
+                                                <th rowspan="2">설치수<br>(App)</th>
+                                                <th rowspan="2">최초설치수<br>(App)</th>
+                                                <th rowspan="2">재설치수<br>(App)</th>
+                                                <th colspan="3">구매완료수</th>
+                                                <th colspan="3">구매액</th>
+                                            </tr>
+                                            <tr>
+                                                <th>App</th>
+                                                <th>Web</th>
+                                                <th>App+Web</th>
+                                                <th>App</th>
+                                                <th>Web</th>
+                                                <th>App+Web</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>100</td>
+                                                <td>200</td>
+                                                <td>300</td>
+                                                <td>400</td>
+                                                <td>500</td>
+                                                <td>600</td>
+                                                <td>700</td>
+                                                <td>800</td>
+                                                <td>1,000</td>
+                                                <td>10,000</td>
+                                                <td>100,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tableDataNone">
+                                    <div>
+                                        <p>데이터가 없습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="paging">
+                                    <ul>
+                                        <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                        <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                        <li><a href="javascript:pageLink(2);">2</a></li>
+                                        <li><a href="javascript:pageLink(3);">3</a></li>
+                                        <li><a href="javascript:pageLink(4);">4</a></li>
+                                        <li><a href="javascript:pageLink(5);">5</a></li>
+                                        <li><a href="javascript:pageLink(6);">6</a></li>
+                                        <li><a href="javascript:pageLink(7);">7</a></li>
+                                        <li><a href="javascript:pageLink(8);">8</a></li>
+                                        <li><a href="javascript:pageLink(9);">9</a></li>
+                                        <li><a href="javascript:pageLink(10);">10</a></li>
+                                        <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                        <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//section end -->
+                </div>
+                <!--//contents end-->
+                <footer class=" footer">
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved.</p>
+                </footer>
+                <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

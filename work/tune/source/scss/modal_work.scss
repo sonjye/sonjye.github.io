@@ -1,0 +1,274 @@
+@charset 'utf-8';
+
+/*
+File   : modal_work.scss
+Date   : 2025.07.16
+Descript : 업무용
+*/
+
+.wrap {
+
+  //* modal 업무용 */
+  .modalWrap {
+
+    //* 원태그 > 디버그 실행 결과  */
+    &.md_debugResult2 {
+      @include modalLayout_t2;
+
+      .modalContainer {
+        width: 800px;
+        height: 730px;
+
+        .modalContent {
+          max-height: 580px;
+          overflow: visible;
+
+          .guide {
+            p {
+              font-size: 16px;
+              line-height: 1.5;
+
+              &:nth-child(n+2) {
+
+                font-size: 13px;
+                color: var(--subFtColor);
+              }
+
+              &:nth-child(2) {
+                margin-top: 10px;
+
+                span {
+                  &:nth-child(1) {
+                    color: var(--errorColor);
+                  }
+
+                  &:nth-child(2) {
+                    color: var(--issueColor);
+                  }
+                }
+              }
+
+              span {
+
+                &.b {
+                  @include ftMedium;
+                  text-decoration: underline;
+                  color: var(--ftColor6);
+                }
+              }
+            }
+          }
+
+          .box_list {
+            margin: 20px 0 0 0;
+
+            .tableHeader {
+              p {
+                >span {
+                  position: relative;
+
+                  &:nth-child(n+2) {
+                    margin-left: 10px;
+                    padding-left: 10px;
+
+                    &:before {
+                      content: "";
+                      position: absolute;
+                      display: inline-block;
+                      width: 1px;
+                      height: 14px;
+                      top: 3px;
+                      left: 0;
+                      border-left: 1px solid var(--borderColor14);
+                    }
+                  }
+
+                  &:nth-child(1) {
+                    color: var(--pointColor);
+                  }
+
+                  &:nth-child(2) {
+                    color: var(--errorColor);
+                  }
+
+                  &:nth-child(3) {
+                    color: var(--issueColor);
+                  }
+
+                  &:nth-child(4) {
+                    color: var(--subFtColor);
+                  }
+
+                  .iBox {
+                    .iMark {
+                      margin-right: 4px;
+                      vertical-align: bottom;
+                    }
+                  }
+                }
+              }
+            }
+
+            .tableArea {
+              @include tableDataNone($h:220px, $minh:auto);
+              height: 220px;
+              margin-top: 10px;
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 220px;
+                height: auto;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+                        &:nth-child(1) {
+                          width: 80px;
+                        }
+
+                        &:nth-child(3),
+                        &:last-child {
+                          width: 100px;
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+
+                      &.child {
+                        display: none;
+                      }
+
+                      td {
+                        &:nth-child(2) {
+                          padding-left: 10px;
+                          text-align: left;
+                        }
+
+                        &.run {
+                          color: var(--pointColor);
+                        }
+
+                        &.error {
+                          color: var(--errorColor);
+                        }
+
+                        &.unconfirm {
+                          color: var(--issueColor);
+                        }
+
+                        button {
+                          &.error {
+                            color: var(--ftColor);
+
+                            &:after {
+                              @include iLayout;
+                              @include ico_dropDown;
+                              margin-left: 4px;
+                            }
+
+                            &.on:after {
+                              @include ico_dropUp;
+                            }
+                          }
+                        }
+                      }
+
+                      &.child {
+                        td {
+                          padding: 0;
+                        }
+
+                        .detailBox {
+                          @include flexBox();
+                          padding: 10px 20px;
+                          background-color: var(--tblBgColor11);
+
+                          >div {
+                            flex-grow: 1;
+
+                            p {
+                              text-align: left;
+
+                              &:before {
+                                @include txtDot;
+                              }
+                            }
+                          }
+
+                          button {
+                            @include btnLayout($minw: 90px, $h:36px);
+                            @include btn_main;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .box_listDetail {
+            margin: 20px 0 0 0;
+
+            .tableTitle {
+              // @include title2;
+              font-size: 16px;
+              // line-height: 1.5;
+            }
+
+            .tableArea {
+              @include tableDataNone($h:140px, $minh:auto);
+              height: 140px;
+              margin-top: 10px;
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 140px;
+                height: auto;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+
+                        &:nth-child(1) {
+                          width: 80px;
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      td {
+                        &:nth-child(2) {
+                          padding-left: 10px;
+                          text-align: left;
+                        }
+
+                        .detailBox {
+                          >div {
+                            p {
+                              text-align: left;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4439 @@
+@charset 'utf-8';
+
+/*
+File  : widget.scss
+Date  : 2025.01.21
+menu  : 위젯
+discription : 위젯 관련 스타일
+*/
+
+
+
+//* 환불 고객 분석 및 재구매 행동 통합 분석 */
+@mixin widget_refundRepurchaseAnalysis {
+  @include boxLayout;
+  height: 580px;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:30px);
+    margin: 30px 0 0 0;
+
+    .box {
+      @include boxLayout2;
+      height: 430px;
+
+      .tit {
+        @include titleLayout;
+        @include flexBox;
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+      }
+
+      &:nth-child(1) {
+        width: 30%;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1;
+        width: 40%;
+      }
+
+      &:nth-child(3) {
+        width: 40%;
+
+        .labelBox {
+          @include flexBox($fw:wrap, $g:12px, $j:space-evenly);
+          width: 50%;
+          margin: 20px auto 0;
+          text-align: center;
+
+          p {
+            &:first-child {
+              &:before {
+                @include label();
+                background-color: var(--labelColor);
+              }
+            }
+
+            &:nth-child(2) {
+              &:before {
+                @include label_t4;
+                background-color: var(--labelColor2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+Menu>고객분석>scss>customerAnalysis
+page > 구매 전환율 분석 > tune_purchaseChange.html
+*/
+//* 구매활동 세분화 분석 */
+@mixin widget_purchaseRate {
+  @include boxLayout;
+  height: 520px;
+
+  .tit {
+    @include titleLayout4;
+  }
+
+  .cont {
+    @include boxLayout2;
+    margin-top: 20px;
+
+    .graphHeader {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+
+      input[type="radio"] {
+        @include radioButton_t2($minW:80px, $br:15px);
+      }
+
+      // button {
+      //   @include tabButton($width:80px);
+      // }
+    }
+
+    .grpahBox {
+      @include flexBox($g:20px);
+
+      .radioBox {
+        @include flexBox($d:column);
+
+        input[type="radio"] {
+          +label {
+            min-width: 170px;
+            height: 50%;
+            margin: 0;
+            padding: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--borderColor);
+
+            &:before {
+              margin: 0;
+            }
+
+
+            p {
+              line-height: 20px;
+
+              &:nth-child(1) {
+                display: inline-block;
+                @include ftMedium;
+                font-size: 15px;
+              }
+
+              &:nth-child(n+2) {
+                margin: 4px 0 0 0;
+                font-size: 13px;
+
+                &:before {
+                  @include txtDot();
+                }
+              }
+            }
+          }
+
+          &:disabled {
+            +label {
+              p {
+                &:nth-child(n+2) {
+                  &:before {
+                    @include txtDot($bgColor:var(--btnDis_ftColor));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .labelBox {
+        @include boxLayout_t9;
+        @include flexBox($d:column, $j:start, $a:start, $g:20px);
+        width: 200px;
+
+        p {
+          position: relative;
+          display: inline-block;
+
+          &:before {
+            content: "";
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            width: 20px;
+            height: 2px;
+            top: -3px;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            top: 4px;
+            left: 6px;
+            border-radius: 100%;
+            // background-color: #ffacd0;
+          }
+
+          &:first-child {
+            @include label_t3($bgColor:var(--labelColor9));
+          }
+
+          &:nth-child(2) {
+            @include label_t3($bgColor:var(--labelColor10));
+          }
+
+          &:nth-child(3) {
+            @include label_t3($bgColor:var(--labelColor11));
+          }
+
+          &:nth-child(4) {
+            @include label_t3($bgColor:var(--labelColor12));
+          }
+
+          &:nth-child(5) {
+            @include label_t3($bgColor:var(--labelColor13));
+          }
+
+          &:nth-child(6) {
+            @include label_t3($bgColor:var(--labelColor14));
+          }
+        }
+      }
+
+      .graph {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+/*
+Menu>고객분석>scss>customerAnalysis
+page > 구매 전환율 분석 > tune_purchaseChange.html
+*/
+//* 성별 구매 분석 데이터  */
+@mixin widget_purchaseGender {
+  @include boxLayout;
+  height: 500px;
+
+  >.tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  >.cont {
+    @include flexBox($g:30px, $a:start);
+    height: 360px;
+    margin-top: 20px;
+
+    //* 구매율 분석 */
+    .box_purchaseGraph {
+      @include boxLayout2;
+      min-width: 550px;
+
+      .tit {
+        @include title2;
+        @include flexBox;
+
+        p {
+          &:nth-child(2) {
+            @include titleSub;
+          }
+        }
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .grpahBox {
+          .graph {}
+        }
+
+        .labelBox {
+          @include flex_around;
+          margin-top: 25px;
+          padding: 20px 0 0 0;
+          border-top: 1px solid var(--borderColor);
+
+          p {
+            @include ftMedium;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    // 구매율 분석 2
+    .box_purchaseChart {
+      @include boxLayout2;
+      flex-grow: 1;
+      height: 360px;
+
+      .tit {
+        @include title2;
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .graphHeader {
+          position: absolute;
+          top: 18px;
+          right: 25px;
+
+          input[type="radio"] {
+            @include radioButton_t2($minW:80px, $br:15px);
+          }
+
+          // button {
+          //   @include tabButton($width:80px);
+          // }
+        }
+
+        .grpahBox {
+
+          .graph {}
+
+          .labelBox {
+            @include flexBox($j:center, $a:center, $g:20px);
+            margin: 10px 0 0 0;
+
+            p {
+              position: relative;
+              display: inline-block;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+                width: 20px;
+                height: 2px;
+                top: -3px;
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                top: 4px;
+                left: 6px;
+                border-radius: 100%;
+                // background-color: #ffacd0;
+              }
+
+              &:first-child {
+                @include label_t3($bgColor:var(--labelColor9));
+              }
+
+              &:nth-child(2) {
+                @include label_t3($bgColor:var(--labelColor10));
+              }
+
+              &:nth-child(3) {
+                @include label_t3($bgColor:var(--labelColor11));
+              }
+
+              &:nth-child(4) {
+                @include label_t3($bgColor:var(--labelColor12));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+Menu>고객분석>scss>customerAnalysis
+page > 구매 전환율 분석 > tune_purchaseChange.html
+*/
+//* 장바구니 분석  */
+@mixin widget_basketAnalysis {
+  @include boxLayout;
+  height: 550px;
+
+  >.tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  >.cont {
+    @include flexBox($g:30px, $a:start);
+    margin-top: 20px;
+
+    //* 장바구니 행동 분석 */
+    .box_basketAnalysis {
+      @include boxLayout2;
+      min-width: 550px;
+      height: 410px;
+
+      .tit {
+        @include title2;
+        @include flexBox;
+
+        p {
+          &:nth-child(2) {
+            @include titleSub;
+          }
+        }
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .grpahBox {
+          .graph {}
+
+        }
+
+        .labelBox {
+          margin: 10px 0 auto 0;
+          text-align: center;
+
+          p {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 0 20px;
+
+            &:before {
+              @include label_t2;
+              border-radius: 100%;
+            }
+
+            &:nth-child(2) {
+              &:before {
+                background-color: var(--labelColor14);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 장바구니 행동 추이
+    .box_basketTrend {
+      @include boxLayout2;
+      flex-grow: 1;
+      height: 410px;
+
+      .tit {
+        @include title2;
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .graphHeader {
+          position: absolute;
+          top: 18px;
+          right: 25px;
+
+          // button {
+          //   @include tabButton($width:80px);
+          // }
+          input[type="radio"] {
+            @include radioButton_t2($minW:80px, $br:15px);
+          }
+        }
+
+        .grpahBox {
+
+          .graph {}
+        }
+
+        .labelBox {
+          margin: 10px 0 auto 0;
+          text-align: center;
+
+          p {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 0 20px;
+            @include label_t3;
+
+            &:nth-child(2) {
+              @include label_t3($bgColor:var(--labelColor14));
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//* 카테고리별 구매율  */
+@mixin widget_category {
+  @include boxLayout;
+  height: 940px;
+
+  >.tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  >.cont {
+    @include flexBox($g:30px, $a:start);
+    margin-top: 20px;
+
+    //* 카테고리별 구매율 Top 20 */
+    .box_categoryRank {
+      @include boxLayout2;
+      min-width: 50%;
+      height: 800px;
+      // height: 410px;
+
+      .tit {
+        @include title2;
+        @include flexBox;
+
+        p {
+          &:nth-child(2) {
+            @include titleSub;
+          }
+        }
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .grpahBox {
+          .graph {}
+        }
+
+        .labelBox {
+          @include flexBox($j:center, $a:center, $g:20px);
+          margin: 10px 0 0 0;
+
+          p {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+              @include label_t2;
+              border-radius: 100%;
+            }
+
+            &:first-child:before {
+              background-color: var(--labelColor10);
+            }
+
+            &:nth-child(2):before {
+              background-color: var(--labelColor14);
+            }
+          }
+        }
+      }
+    }
+
+    // 구매 성향별 인기 카테고리 Top 20
+    .box_categoryPopular {
+      @include boxLayout2;
+      flex-grow: 1;
+      height: 800px;
+
+      .tit {
+        @include title2;
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .graphHeader {
+          position: absolute;
+          top: 18px;
+          right: 25px;
+
+          // button {
+          //   @include tabButton($width:80px);
+          // }
+          input[type="radio"] {
+            @include radioButton_t2($minW:80px, $br:15px);
+          }
+        }
+
+        .grpahBox {
+
+          .graph {}
+
+          .labelBox {
+            @include flexBox($j:center, $a:center, $g:20px);
+            margin: 10px 0 0 0;
+
+            p {
+              position: relative;
+              display: inline-block;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+                width: 20px;
+                height: 2px;
+                top: -3px;
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                top: 4px;
+                left: 6px;
+                border-radius: 100%;
+                // background-color: #ffacd0;
+              }
+
+              &:first-child {
+                @include label_t3($bgColor:var(--07e6ff));
+              }
+
+              &:nth-child(2) {
+                @include label_t3($bgColor:var(--ae6bfb));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 카테고리별 구매율 추이 */
+@mixin widget_categoryRate {
+  @include boxLayout;
+  height: 500px;
+
+  .tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  .cont {
+    position: relative;
+    margin-top: 20px;
+
+    .graphHeader {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+
+      // button {
+      //   @include tabButton($width:80px);
+      // }
+      input[type="radio"] {
+        @include radioButton_t2($minW:80px, $br:15px);
+      }
+    }
+
+    .grpahBox {
+      @include flexBox($g:20px);
+
+      .optionBox {
+        width: 220px;
+
+        .selectBox {
+          select {
+            width: 100%;
+          }
+        }
+
+        .labelBox {
+          @include boxLayout_t9;
+          @include flexBox($d:column, $j:start, $a:start, $g:20px);
+          width: 100%;
+          margin: 10px 0 0 0;
+
+          p {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+              content: "";
+              position: relative;
+              display: inline-block;
+              margin-right: 10px;
+              width: 20px;
+              height: 2px;
+              top: -3px;
+            }
+
+            &:after {
+              content: "";
+              position: absolute;
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              top: 4px;
+              left: 6px;
+              border-radius: 100%;
+              // background-color: #ffacd0;
+            }
+
+            &:first-child {
+              @include label_t3($bgColor:var(--labelColor9));
+            }
+
+            &:nth-child(2) {
+              @include label_t3($bgColor:var(--labelColor10));
+            }
+
+            &:nth-child(3) {
+              @include label_t3($bgColor:var(--labelColor11));
+            }
+
+            &:nth-child(4) {
+              @include label_t3($bgColor:var(--labelColor12));
+            }
+
+            &:nth-child(5) {
+              @include label_t3($bgColor:var(--labelColor13));
+            }
+          }
+        }
+      }
+
+      .graph {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+//* 채널 성과 비교 분석 */
+@mixin widget_purchaseAnalysis {
+  @include boxLayout;
+  height: 500px;
+
+  .tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  .cont {
+    position: relative;
+    margin-top: 20px;
+
+    .graphHeader {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+
+      // button {
+      //   @include tabButton($width:80px);
+      // }
+      input[type="radio"] {
+        @include radioButton_t2($minW:80px, $br:15px);
+      }
+    }
+
+    .grpahBox {
+
+      .graph {}
+
+      .labelBox {
+        width: 100%;
+        margin: 10px 0 0 0;
+
+        >div {
+          @include flexBox($j:center, $g:20px);
+
+          p {
+            position: relative;
+            display: inline-block;
+            min-width: 150px;
+
+            &:before {
+              @include label_t4;
+            }
+          }
+
+          &:nth-child(n+2) {
+            margin: 10px 0 0 0;
+          }
+
+          &:nth-child(1) {
+            p {
+              &:first-child:before {
+                background-color: var(--labelColor);
+              }
+
+              &:nth-child(2):before {
+                background-color: var(--labelColor2);
+              }
+
+              &:nth-child(3):before {
+                background-color: var(--labelColor3);
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            p {
+              &:first-child:before {
+                background-color: var(--labelColor);
+              }
+
+              &:nth-child(2):before {
+                background-color: var(--labelColor2);
+              }
+
+              &:nth-child(3):before {
+                background-color: var(--labelColor3);
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            p {
+              &:nth-child(1):before {
+                background-color: var(--labelColor4);
+              }
+
+              &:nth-child(2):before {
+                background-color: var(--labelColor5);
+              }
+
+              &:nth-child(3):before {
+                background-color: var(--labelColor6);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 최근 한달간 채널별 구매율 분석 데이터입니다 .  */
+@mixin widget_monthAnlaysis {
+  @include boxLayout;
+  height: 940px;
+
+  >.tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  >.cont {
+    @include flexBox($g:30px, $a:start);
+    margin-top: 20px;
+
+    //* 카테고리별 구매율 Top 20 */
+    .box_channel {
+      @include boxLayout2;
+      min-width: 50%;
+      height: 800px;
+      // height: 410px;
+
+      .tit {
+        @include title2;
+        @include flexBox;
+
+        p {
+          &:nth-child(2) {
+            @include titleSub;
+          }
+        }
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .grpahBox {
+          .graph {}
+        }
+
+        .labelBox {
+          @include flexBox($j:center, $a:center, $g:20px);
+          margin: 10px 0 0 0;
+
+          p {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+              @include label_t2;
+              border-radius: 100%;
+            }
+
+            &:first-child:before {
+              background-color: var(--labelColor10);
+            }
+
+            &:nth-child(2):before {
+              background-color: var(--labelColor14);
+            }
+          }
+        }
+      }
+    }
+
+    // 구매 성향별 인기 카테고리 Top 20
+    .box_channelType {
+      @include boxLayout2;
+      flex-grow: 1;
+      height: 800px;
+
+      .tit {
+        @include title2;
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .graphHeader {
+          position: absolute;
+          top: 18px;
+          right: 25px;
+
+          button {
+            @include tabButton($width:80px);
+          }
+        }
+
+        .grpahBox {
+
+          .graph {}
+
+          .labelBox {
+            @include flexBox($j:center, $a:center, $g:20px);
+            margin: 10px 0 0 0;
+
+            p {
+              position: relative;
+              display: inline-block;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+                width: 20px;
+                height: 2px;
+                top: -3px;
+              }
+
+              &:after {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                top: 4px;
+                left: 6px;
+                border-radius: 100%;
+                // background-color: #ffacd0;
+              }
+
+              &:first-child {
+                @include label_t3($bgColor:var(--07e6ff));
+              }
+
+              &:nth-child(2) {
+                @include label_t3($bgColor:var(--ae6bfb));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 유입채널별 구매 추이 분석 */
+@mixin widget_channelRate {
+  @include boxLayout;
+  height: 500px;
+
+  .tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  .cont {
+    position: relative;
+    margin-top: 20px;
+
+    .graphHeader {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+
+      // button {
+      //   @include tabButton($width:80px);
+      // }
+      input[type="radio"] {
+        @include radioButton_t2($minW:80px, $br:15px);
+      }
+    }
+
+    .grpahBox {
+      @include flexBox($g:20px);
+
+      .optionBox {
+        width: 220px;
+
+        .selectBox {
+          select {
+            width: 100%;
+          }
+        }
+
+        .labelBox {
+          @include boxLayout_t9;
+          @include flexBox($d:column, $j:start, $a:start, $g:20px);
+          width: 100%;
+          margin: 10px 0 0 0;
+
+          p {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+              content: "";
+              position: relative;
+              display: inline-block;
+              margin-right: 10px;
+              width: 20px;
+              height: 2px;
+              top: -3px;
+            }
+
+            &:after {
+              content: "";
+              position: absolute;
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              top: 4px;
+              left: 6px;
+              border-radius: 100%;
+              // background-color: #ffacd0;
+            }
+
+            &:first-child {
+              @include label_t3($bgColor:var(--labelColor9));
+            }
+
+            &:nth-child(2) {
+              @include label_t3($bgColor:var(--labelColor10));
+            }
+
+            &:nth-child(3) {
+              @include label_t3($bgColor:var(--labelColor11));
+            }
+
+            &:nth-child(4) {
+              @include label_t3($bgColor:var(--labelColor12));
+            }
+
+            &:nth-child(5) {
+              @include label_t3($bgColor:var(--labelColor13));
+            }
+          }
+        }
+      }
+
+      .graph {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+//* 구매전환율 시간대 및 요일 분석 */
+@mixin widget_timeAnalysis {
+  @include boxLayout;
+  height: 640px;
+
+  >.tit {
+    @include titleLayout4;
+
+    p {
+      &:nth-child(2) {
+        margin: 8px 0 0 0;
+      }
+
+      &:nth-child(n+2) {
+        &:before {
+          @include txtDot($bgColor:var(--subFtColor));
+        }
+      }
+    }
+  }
+
+  >.cont {
+    @include flexBox($g:30px, $a:start);
+    margin-top: 20px;
+
+    //* 카테고리별 구매율 Top 20 */
+    .box_graph {
+      @include boxLayout2;
+      flex-grow: 1;
+      height: 520px;
+      // height: 410px;
+
+      .tit {
+        @include titleLayout;
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .tableArea {
+          .tableBox {
+            @include tableWrap;
+            @include tableLayout_t2;
+            position: relative;
+            max-height: 414px;
+
+            table {
+              tr {
+                th {
+                  &:nth-of-type(1) {
+                    color: var(--ftColor3);
+                    background-color: var(--pointColor);
+                  }
+
+                  &:nth-of-type(2) {
+                    background-color: var(--tblTheadBgColor4);
+                  }
+                }
+              }
+
+              tbody,
+              tfoot {
+                tr {
+                  td {
+                    &.t1 {
+                      color: var(--ftColor11);
+                      background-color: var(--tblBgColor8);
+                    }
+
+                    &.t2 {
+                      color: var(--ftColor11);
+                      background-color: var(--tblBgColor9);
+                    }
+
+                    &.t3 {
+                      color: var(--ftColor4);
+                      background-color: var(--tblBgColor10);
+                    }
+                  }
+                }
+              }
+
+              tfoot {
+                tr {
+                  border-bottom: 1px solid var(--tblBorderColor);
+
+                  &:nth-child(1) {
+
+                    th,
+                    td {
+                      background-color: var(--tblTheadBgColor4);
+
+                      &:nth-child(1) {
+                        background-color: var(--pointColor);
+                      }
+                    }
+                  }
+
+                  &:nth-child(2) {
+
+                    th,
+                    td {
+                      background-color: var(--pointColor);
+                      color: var(--ftColor3);
+                    }
+                  }
+
+                  th,
+                  td {
+                    padding: 10px 6px;
+                    vertical-align: middle;
+                    text-align: center;
+                    line-height: 20px;
+                    font-size: 13px;
+                    font-weight: normal;
+                    border: 1px solid var(--tblBorderColor);
+                    color: var(--ftColor);
+                    word-break: break-all;
+                    white-space: normal;
+                    background-color: var(--tblBgColor);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 구매 성향별 인기 카테고리 Top 20
+    .box_list {
+      @include boxLayout2;
+      min-width: 520px;
+
+      .tit {
+        @include titleLayout;
+      }
+
+      .cont {
+        margin: 20px 0 0 0;
+
+        .tableArea {
+          .tableBox {
+            @include tableWrap;
+            @include tableLayout_t2;
+            position: relative;
+            max-height: 410px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 신규고객관리(tune_newCustomer) */
+//* page > 고객분석 > 재구매고객관리(tune_repurchaseCustomer) */
+@mixin widget_customerCompare {
+  @include boxLayout;
+  // @include flex_between;
+  height: 520px;
+  @include flexBox($d:column, $g:20px, $j:start, $a:start);
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px);
+    width: 100%;
+    // margin-top: 20px;
+
+    >div {
+      flex-grow: 1;
+
+      .tit {
+        @include titleLayout;
+        @include flexBox;
+      }
+
+      .cont {
+        margin-top: 20px;
+      }
+
+      &:nth-child(1) {
+        @include boxLayout2;
+        min-width: 500px;
+        width: 30%;
+
+      }
+
+      &:nth-child(2) {
+        @include boxLayout;
+        flex-grow: 1;
+        width: 70%;
+      }
+    }
+  }
+
+  //* 리스크 비교 */
+  .box_compare {
+    .cont {
+      .labelBox {
+        @include flex_around;
+        margin-top: 25px;
+        padding: 20px 0 0 0;
+        border-top: 1px solid var(--borderColor);
+
+        p {
+          @include ftMedium;
+          font-size: 15px;
+
+          &:first-child {
+            @include ftBold;
+            color: var(--pointColor);
+          }
+        }
+      }
+    }
+  }
+
+  //* 자사 VS 동종업종(여성패션) 신규 고객 추이 */
+  .box_trend {
+
+    flex-grow: 1;
+
+    .cont {
+      .graphHeader {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+
+        button {
+          @include tabButton($width:140px);
+        }
+      }
+
+      .grpahBox {
+        .labelBox {
+          margin: 20px 0 auto 0;
+          text-align: center;
+
+          p {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 0 20px;
+
+            &:first-child {
+              margin-top: 0;
+              @include label_t3($bgColor:var(--labelColor));
+            }
+
+            &:nth-child(2) {
+              @include label_t3($bgColor:var(--labelColor2));
+            }
+
+            &:nth-child(3) {
+              @include label_t3($bgColor:var(--labelColor3));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 신규고객관리(tune_newCustomer) */
+//* 신규 고객 세그먼트 별 상세 분석  */
+//* page > 고객분석 > 신규고객관리(tune_repurchaseCustomer) */
+//* 재구매 고객 세그먼트 별 상세 분석  */
+@mixin widget_segmentList {
+  @include boxLayout;
+  height: 510px;
+
+  >.tit {
+    @include titleLayout4;
+    // @include flex_between;
+  }
+
+  >.cont {
+    @include flex_between;
+    position: relative;
+    margin-top: 15px;
+    gap: 30px;
+
+    .box_segment {
+      @include boxLayout_t3;
+      min-width: 550px;
+
+      .titBox {
+        @include title2;
+      }
+
+      .contBox {
+        margin-top: 20px;
+
+        .customerBox {
+          @include flex_start;
+          flex-wrap: wrap;
+
+          .box {
+            color: var(--white);
+
+            .iBox {
+              .iMark {
+                @include iMark_wht;
+              }
+            }
+
+            &:nth-child(1) {
+              width: 100%;
+              margin: auto 0;
+              font-size: 15px;
+              text-align: right;
+            }
+
+            &:nth-child(odd) {
+              margin-left: 15px;
+            }
+
+            &:nth-child(n+2) {
+              @include flex_item_column;
+              width: calc(50% - 10px);
+              margin-top: 15px;
+              height: 70px;
+              font-size: 20px;
+              text-align: center;
+              border-radius: 10px;
+              border: 3px solid transparent;
+            }
+
+            &:nth-child(2) {
+              margin-top: 8px;
+              background-color: var(--pointColor2);
+            }
+
+            &:nth-child(3) {
+              margin-top: 8px;
+              background-color: #33d1ab;
+            }
+
+            &:nth-child(4) {
+              background-color: #1081f6;
+            }
+
+            &:nth-child(5) {
+              background-color: #ff9e2e;
+            }
+
+            &:last-child {
+              width: 100%;
+              margin: 15px 0 0 0;
+              background-color: #4559bb;
+            }
+
+            &.on {
+              border: 5px solid var(--boxOnColor);
+              box-shadow: var(--shadow2);
+            }
+          }
+        }
+      }
+    }
+
+    .box_compareList {
+      @include boxLayout_t3;
+      @include flexBox($g:0);
+      flex-grow: 1;
+      height: 360px;
+
+      .targetSend {
+        min-width: 240px;
+
+        .titBox {
+          p {
+            line-height: 1.3;
+
+            &:nth-child(1) {
+              @include ftBold;
+              font-size: 22px;
+              color: var(--pointColor);
+
+              // &:before {
+              //   @include iLayout;
+              //   @include ico_paperAirplain;
+              //   top: 2px;
+              //   margin-right: 8px;
+              // }
+            }
+
+            &:nth-child(n+2) {
+              color: var(--ftolor3);
+              font-size: 16px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 2px;
+
+          a {
+            @include boxLayout_t6;
+            display: block;
+            width: 100%;
+            height: 130px;
+            margin-top: 5px;
+
+            &:first-child {
+              margin-top: 0;
+            }
+
+            p {
+              &:first-child {
+                @include ftBold;
+                font-size: 15px;
+              }
+
+              &:nth-child(2) {
+                text-align: center;
+                font-size: 14px;
+              }
+
+              &:nth-child(3) {
+                margin-top: 5px;
+                font-size: 14px;
+                text-align: center;
+
+                span {
+                  @include ftBold;
+                  text-decoration: underline;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            &.send {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_send_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px;
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_send_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+
+            &.noty {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_noty_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_noty_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .detailBox {
+        @include boxLayout_t7($pd:10px 20px);
+        @include flexBox($a:center, $j:center, $g:0);
+        position: relative;
+        flex-grow: 1;
+        height: 100%;
+        margin-left: 40px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: inlnie-block;
+          width: 1px;
+          height: 265px;
+          top: 50px;
+          left: -20px;
+          border-left: 1px dashed var(--borderColor);
+        }
+
+        .tableArea {
+          width: 100%;
+
+          .tableBox {
+            @include tableWrap;
+            @include tableLayout;
+            border: none;
+
+            table {
+              thead {
+                tr {
+                  th {
+                    padding: 6px;
+                    background-color: transparent;
+
+                    p {
+                      min-width: 170px;
+                      font-size: 14px;
+                      min-height: 34px;
+                      border-radius: 5px;
+                      line-height: 2.5;
+                      vertical-align: middle;
+                    }
+
+                    &:nth-child(2) {
+                      p {
+                        // color: var(--ftColor);
+                        background-color: var(--pointColor);
+                      }
+                    }
+
+                    &:nth-child(3) {
+                      p {
+                        margin: 0 0 0 20px;
+                        background-color: var(--pointColor2);
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  border: none;
+
+                  th,
+                  td {
+                    padding: 10px 6px;
+                  }
+
+                  th {
+                    min-width: 200px;
+                    text-align: left;
+                    font-size: 14px;
+
+                    &:before {
+                      @include txtDot;
+                    }
+                  }
+
+                  td {
+                    text-align: right;
+
+                    &:nth-of-type(1) {
+                      color: var(--pointColor);
+                      font-size: 14px;
+
+                    }
+
+                    &:nth-of-type(2) {
+                      color: var(--pointColor2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 신규고객관리(tune_newCustomer) */
+//* 유저 행동 기반 트래픽 분석: 자사 VS 동종업종(종합패션쇼핑몰) */
+@mixin widget_trafficAnalysis {
+  @include boxLayout;
+  height: 580px;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  .cont {
+    @include flexBox($g:30px);
+    margin: 30px 0 0 0;
+
+    .grpahBox {
+      @include boxLayout2;
+      height: 430px;
+
+      &:nth-child(1) {
+        min-width: 500px;
+        width: 33%;
+
+        .labelBox {
+          @include flexBox($fw:wrap, $g:12px);
+          width: 50%;
+          margin: 20px auto 0;
+          text-align: center;
+
+          p {
+            &:before {
+              @include label_t5();
+            }
+
+            &:first-child {
+              &:before {
+                background-color: var(--labelColor);
+              }
+            }
+
+            &:nth-child(2) {
+              &:before {
+                background-color: var(--labelColor2);
+              }
+            }
+
+            &:nth-child(3) {
+              &:before {
+                background-color: var(--labelColor3);
+              }
+            }
+
+            &:nth-child(4) {
+              &:before {
+                background-color: var(--labelColor4);
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1;
+
+        .labelBox {
+          @include flexBox($fw:wrap, $g:12px, $j:space-evenly);
+          width: 50%;
+          margin: 20px auto 0;
+          text-align: center;
+
+          p {
+            &:before {
+              @include label_t4();
+            }
+
+            &:first-child {
+              &:before {
+                background-color: var(--labelColor);
+              }
+            }
+
+            &:nth-child(2) {
+              &:before {
+                background-color: var(--labelColor2);
+              }
+            }
+
+            &:nth-child(3) {
+              &:before {
+                background-color: var(--labelColor3);
+              }
+            }
+
+            &:nth-child(4) {
+              &:before {
+                background-color: var(--labelColor4);
+              }
+            }
+          }
+        }
+      }
+
+      .graphHeader {
+        @include flexBox($j:end);
+
+        input[type="radio"] {
+          @include radioButton($margin:0, $pd:0 10px, $width:120px);
+
+          +label {
+            @include iflexBox($j:center);
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 신규고객관리(tune_newCustomer) */
+//*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+@mixin widget_repurchasePoint {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px);
+    margin-top: 20px;
+  }
+
+  .box_revisitPoint,
+  .box_purchasePoint {
+    @include boxLayout2;
+    flex-grow: 1;
+    width: 50%;
+    // min-width: 790px;
+    height: 520px;
+
+    .tit {
+      @include titleLayout;
+      @include flex_between;
+    }
+
+    .cont {
+      margin-top: 30px;
+
+      .guideBox {
+        text-align: center;
+
+        p {
+          font-size: 15px;
+        }
+      }
+
+      .graph {
+        margin: 15px 0 0 0;
+      }
+
+      .labelBox {
+        margin: 20px 0 auto 0;
+        text-align: center;
+
+        p {
+          position: relative;
+          display: inline-block;
+          margin: 0 0 0 20px;
+
+          &:before {
+            @include label;
+          }
+
+          &:nth-child(2) {
+            &:before {
+              background-color: var(--labelColor2);
+            }
+          }
+
+          &:nth-child(3) {
+            &:before {
+              background-color: var(--labelColor3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 신규고객관리(tune_newCustomer) */
+//* page > 고객분석 > 재구매고객관리 (tune_repurchaseCustomer) */
+//* 신규 고객 관심 상품 Top 10, 재구매 고객 관심 상품 Top 10  */
+@mixin widget_interestProduct {
+  @include boxLayout;
+  max-height: 1700px;
+
+  .box_interestProduct {
+    .tit {
+      @include titleLayout4;
+    }
+
+    .cont {
+      position: relative;
+      margin-top: 30px;
+
+      .tableHeader {
+        position: absolute;
+        top: -30px;
+        right: 30px;
+        text-align: right;
+
+        .radioBox {}
+      }
+
+      .tableArea {
+        @include tableLayout_t2;
+        margin-top: 20px;
+
+        .tableBox {
+          position: relative;
+
+          table {
+            thead {
+              tr {
+                &:nth-child(1) {
+                  th {
+                    font-size: 15px;
+
+                    span {
+                      display: block;
+                    }
+
+                    &:nth-child(1) {
+                      background-color: var(--bgColor);
+                      color: var(--ftColor);
+                    }
+
+                    &:nth-child(3) {
+                      background-color: var(--pointColor2);
+                    }
+                  }
+                }
+
+                &:nth-child(2) {
+                  th {
+                    font-size: 15px;
+                    background-color: var(--tblTheadBgColor2);
+                  }
+                }
+              }
+            }
+
+            tbody {
+              tr {
+                td {
+                  border: none;
+
+                  &:nth-child(1) {
+                    @include ftMedium;
+                    font-size: 24px;
+                  }
+
+                  &:nth-child(1),
+                  &:nth-child(2),
+                  &:nth-child(4),
+                  &:nth-child(6) {
+                    border-left: 1px solid var(--tblBorderColor);
+                  }
+
+                  &:last-child {
+                    border-right: 1px solid var(--tblBorderColor);
+                  }
+
+                  .imgBox {
+                    position: relative;
+                    display: inline-block;
+
+                    img {
+                      position: relative;
+                      width: 124px;
+                      height: 124px;
+                    }
+
+                    .countBox {
+                      @include flex_end_column;
+                      position: absolute;
+                      width: 124px;
+                      height: 124px;
+                      top: 0;
+
+                      p {
+                        position: relative;
+                        text-align: center;
+                        color: var(--white);
+
+                        &.name {
+                          display: none;
+                          align-items: center;
+                          flex-grow: 1;
+                          margin: auto 0;
+                        }
+
+                        &.num {
+                          height: 26px;
+                        }
+                      }
+
+                      &:hover {
+                        p {
+                          background-color: rgba(0, 0, 0, 0.6);
+
+                          &.name {
+                            display: inline-flex;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .pathArea {
+        svg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+
+          path,
+          line {
+            stroke: var(--tblTheadBgColor2);
+            stroke-width: 2;
+            stroke-dasharray: 5, 5;
+            fill: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 가망고객관리(tune_prospectCustomer) */
+//*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+@mixin widget_interestCategory {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:30px);
+    margin: 20px 0 0 0;
+  }
+
+  .box_chart,
+  .box_graph {
+    @include boxLayout2;
+    flex-grow: 1;
+    height: 350px;
+
+    .tit {
+      @include titleLayout;
+
+      // @include flex_between;
+      span {
+        color: var(--pointColor);
+
+        &:before {
+          content: "#";
+          position: relative;
+          display: inline-block;
+        }
+      }
+    }
+
+    .cont {
+      margin-top: 30px;
+
+      .guideBox {
+        text-align: center;
+
+        p {
+          font-size: 15px;
+        }
+      }
+
+      .graph {
+        margin: 15px 0 0 0;
+      }
+    }
+  }
+
+  .box_chart {
+    width: 60%;
+
+    .labelBox {
+      margin: 20px 0 auto 0;
+      text-align: center;
+
+      p {
+        position: relative;
+        display: inline-block;
+        margin: 0 0 0 20px;
+        @include label_t3;
+      }
+    }
+  }
+
+  .box_graph {
+    width: 40%;
+  }
+}
+
+//* page > 고객분석 > 가망고객관리(tune_prospectCustomer) */
+//*  가망 고객 외부 구매활동 Top 10 분석  */
+@mixin widget_externalPurchaseActivity {
+  @include boxLayout;
+  height: 700px;
+
+  .box_list {
+    .tit {
+      @include titleLayout4;
+
+      span {
+        color: var(--pointColor);
+
+        &:before {
+          content: "#";
+          position: relative;
+          display: inline-block;
+        }
+      }
+    }
+
+    .cont {
+      margin-top: 30px;
+      @include flex_between;
+      height: 555px;
+
+      >div {
+        @include boxLayout;
+        flex-grow: 1;
+        width: 30%;
+
+        &:nth-child(n+2) {
+          margin-left: 20px;
+        }
+      }
+
+      .titBox {
+        p {
+          @include ftMedium;
+          font-size: 18px;
+        }
+      }
+
+      .contBox {
+        margin-top: 30px;
+      }
+
+      .tableArea {
+        margin-top: 20px;
+
+        .tableBox {
+          @include tableLayout_t2;
+          position: relative;
+          max-height: 430px;
+
+          table {
+            thead {
+              tr {
+                th {
+
+                  &:nth-child(1),
+                  &:nth-child(3) {
+                    width: 100px;
+                  }
+                }
+              }
+            }
+
+            tbody {
+              tr {
+                td {
+                  >div {
+                    @include ellipsis_l4($wlc:2);
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 환불고객관리(tune_refundCustomer) */
+//*  환불고객관리  */
+@mixin widget_refundSummary {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flex_between;
+    margin: 20px 0 0 0;
+
+    >div {
+      flex-grow: 1;
+      height: 410px;
+
+      &:nth-child(n+2) {
+        margin-left: 20px;
+      }
+
+      .tit {
+        @include titleLayout;
+        @include flex_between;
+      }
+
+      .cont {
+        margin-top: 20px;
+      }
+    }
+
+    /* 환불 고객 개요 */
+    .box_refundSummary {
+      @include boxLayout2;
+      min-width: 500px;
+
+      .cont {
+        .labelBox {
+          @include flex_around;
+          margin-top: 25px;
+          padding: 20px 0 0 0;
+          border-top: 1px solid var(--borderColor);
+
+          p {
+            @include ftMedium;
+            font-size: 15px;
+
+            &:nth-child(1) {
+              @include ftBold;
+              color: var(--pointColor);
+            }
+          }
+        }
+      }
+    }
+
+    /* 환불 고객 추이 */
+    .box_refundProgress {
+      @include boxLayout;
+      min-width: 1000px;
+
+      .tit {
+        @include titleLayout;
+        @include flex_between;
+      }
+
+      .cont {
+        @include flex_between;
+        position: relative;
+        margin-top: 20px;
+
+        .graphBox {
+          position: relative;
+          flex-grow: 1;
+
+          .labelBox {
+            margin: 20px 0 auto 0;
+            text-align: center;
+
+            p {
+              @include label_t3;
+              position: relative;
+              display: inline-block;
+              margin: 0 0 0 20px;
+
+              &:nth-child(2) {
+                @include label_t3($bgColor:var(--labelColor2));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 환불고객관리(tune_refundCustomer) */
+//*  환불 고객 세그먼트 별 상세 분석  */
+@mixin widget_refundCompareList {
+  @include boxLayout;
+  @include flexBox($d:column, $a:start);
+
+  .tit {
+    @include titleLayout4;
+  }
+
+  .cont {
+    @include flex_between;
+    position: relative;
+    margin-top: 15px;
+    gap: 30px;
+    flex-grow: 1;
+
+    .box_segment {
+      @include boxLayout_t3;
+      flex-grow: 1;
+
+      .titBox {
+        @include titleLayout;
+      }
+
+      .contBox {
+        margin-top: 20px;
+
+        .customerBox {
+          @include flex_start;
+          flex-wrap: wrap;
+
+          .box {
+            color: var(--white);
+            cursor: pointer;
+
+            .iBox {
+              margin-left: 4px;
+
+              .iMark {
+                @include iMark_wht;
+              }
+            }
+
+            &:nth-child(1) {
+              width: 100%;
+              margin: auto 0;
+              font-size: 15px;
+              text-align: right;
+            }
+
+            &:nth-child(3),
+            &:nth-child(5) {
+              margin-left: 15px;
+            }
+
+            &:nth-child(n+2) {
+              @include flex_item_column;
+              width: calc(50% - 10px);
+              margin-top: 15px;
+              height: 70px;
+              font-size: 20px;
+              text-align: center;
+              border-radius: 10px;
+              border: 3px solid transparent;
+            }
+
+            &:nth-child(2) {
+              background-color: #4559bb;
+            }
+
+            &:nth-child(3) {
+              background-color: var(--pointColor2);
+            }
+
+            &:nth-child(4) {
+              background-color: #33d1ab;
+            }
+
+            &:nth-child(5) {
+              background-color: #1081f6;
+            }
+
+            &:nth-child(6) {
+              width: 100%;
+              background-color: #ff9e2e;
+            }
+
+            &.on {
+              border: 5px solid var(--boxOnColor);
+              box-shadow: var(--shadow2);
+            }
+          }
+        }
+      }
+    }
+
+    .box_compareList {
+      @include boxLayout_t3;
+      @include flexBox($g:0);
+      flex-grow: 1;
+      // height: 360px;
+      // border: 1px solid var(--borderColor);
+
+      .targetSend {
+        min-width: 240px;
+
+        .titBox {
+          p {
+            line-height: 1.3;
+
+            &:nth-child(1) {
+              @include ftBold;
+              font-size: 22px;
+              color: var(--pointColor);
+
+              // &:before {
+              //   @include iLayout;
+              //   @include ico_paperAirplain;
+              //   top: 2px;
+              //   margin-right: 8px;
+              // }
+            }
+
+            &:nth-child(n+2) {
+              color: var(--ftolor3);
+              font-size: 16px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 2px;
+
+          a {
+            @include boxLayout_t6;
+            display: block;
+            width: 100%;
+            height: 130px;
+            margin-top: 5px;
+
+            &:first-child {
+              margin-top: 0;
+            }
+
+            p {
+              &:first-child {
+                @include ftBold;
+                font-size: 15px;
+              }
+
+              &:nth-child(2) {
+                text-align: center;
+                font-size: 14px;
+              }
+
+              &:nth-child(3) {
+                margin-top: 5px;
+                font-size: 14px;
+                text-align: center;
+
+                span {
+                  @include ftBold;
+                  text-decoration: underline;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            &.send {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_send_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px;
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_send_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+
+            &.noty {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_noty_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_noty_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .detailBox {
+        @include boxLayout_t7($pd:10px 20px);
+        @include flexBox($a:center, $j:center, $g:0);
+        position: relative;
+        flex-grow: 1;
+        height: 100%;
+        margin-left: 40px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: inlnie-block;
+          width: 1px;
+          height: 265px;
+          top: 50px;
+          left: -20px;
+          border-left: 1px dashed var(--borderColor);
+        }
+
+        .tableArea {
+          width: 100%;
+
+          .tableBox {
+            @include tableWrap;
+            @include tableLayout;
+            border: none;
+
+            table {
+              thead {
+                tr {
+                  th {
+                    padding: 6px;
+                    background-color: transparent;
+
+                    p {
+                      min-width: 170px;
+                      font-size: 14px;
+                      min-height: 34px;
+                      border-radius: 5px;
+                      line-height: 2.5;
+
+                      vertical-align: middle;
+                    }
+
+                    &:nth-child(2) {
+                      p {
+                        // color: var(--black);
+                        background-color: var(--pointColor);
+                      }
+                    }
+
+                    &:nth-child(3) {
+                      p {
+                        margin: 0 0 0 20px;
+                        background-color: var(--pointColor2);
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  border: none;
+
+                  th,
+                  td {
+                    padding: 10px 6px;
+                  }
+
+                  th {
+                    min-width: 200px;
+                    text-align: left;
+                    font-size: 14px;
+
+                    &:before {
+                      @include txtDot;
+                    }
+                  }
+
+                  td {
+                    text-align: right;
+
+                    &:nth-of-type(1) {
+                      color: var(--pointColor);
+                      font-size: 14px;
+
+                    }
+
+                    &:nth-of-type(2) {
+                      color: var(--pointColor2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 환불고객관리(tune_refundCustomer) */
+//* 환불 고객의 재구매 시점, 환불 고객 비율, 구매횟수 및 객단가 */
+@mixin widget_refundStats {
+  @include boxLayout2;
+  @include flexBox($d:column, $a:start, $g:20px);
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  .cont {
+    @include flexBox($g:20px);
+    width: 100%;
+    flex-grow: 1;
+    // margin: 20px 0 0 0;
+
+    >div {
+      flex-grow: 1;
+      height: 100%;
+    }
+
+    .box_repurchasePoint,
+    .box_refundRatio {
+      @include boxLayout2;
+      width: 30%;
+      min-width: 460px;
+
+      .tit {
+        @include titleLayout;
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .grpahBox {
+          @include flex_between;
+
+          .graph {
+            flex-grow: 1;
+          }
+
+          .labelBox {
+            @include flex_center_column;
+            margin-left: 20px;
+
+            p {
+              margin-top: 10px;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                margin-right: 4px;
+                border-radius: 100%;
+              }
+
+              &:first-child {
+                margin-top: 0;
+
+                &:before {
+                  background-color: var(--labelColor);
+                }
+              }
+
+              &:nth-child(2) {
+                &:before {
+                  background-color: var(--labelColor2);
+                }
+              }
+
+              &:nth-child(3) {
+                &:before {
+                  background-color: var(--labelColor3);
+                }
+              }
+
+              &:nth-child(4) {
+                &:before {
+                  background-color: var(--labelColor4);
+                }
+              }
+
+              &:nth-child(5) {
+                &:before {
+                  background-color: var(--labelColor5);
+                }
+              }
+
+              &:nth-child(6) {
+                &:before {
+                  background-color: var(--labelColor6);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .box_purchaseSales {
+      @include boxLayout;
+      width: 40%;
+      // min-width: 650px;
+
+      .tit {
+        @include titleLayout;
+        @include flex_between;
+      }
+
+      .cont {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 리스크고객관리(tune_riskCustomerAnalysist) */
+//* 리스크 고객 분석 : 신규고객 및 업종 비교 */
+@mixin widget_riskCompare {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px);
+    height: 410px;
+    margin: 20px 0 0 0;
+
+    >div {
+      height: 100%;
+    }
+
+    .tit {
+      @include titleLayout;
+      @include flexBox($g:0)
+    }
+  }
+
+  //* 리스크 비교 */
+  .box_riskCompare {
+    @include boxLayout;
+    min-width: 500px;
+
+    .cont {
+
+      .grpahBox {
+        .graph {}
+      }
+
+      .labelBox {
+        @include flex_around;
+        margin-top: 25px;
+        padding: 20px 0 0 0;
+        border-top: 1px solid var(--borderColor);
+
+        p {
+          @include ftMedium;
+          font-size: 15px;
+
+          &:first-child {
+            @include ftBold;
+            color: var(--pointColor);
+          }
+        }
+      }
+    }
+  }
+
+  //* 자사 VS 동종업종(여성패션) 리스크 고객 추이 */
+  .box_riskTrend {
+    @include boxLayout;
+    flex-grow: 1;
+
+    .cont {
+      .graphHeader {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+
+        button {
+          @include tabButton($width:140px);
+        }
+      }
+
+      .grpahBox {
+
+        .graph {}
+
+        .labelBox {
+          margin: 20px 0 auto 0;
+          text-align: center;
+
+          p {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 0 20px;
+
+            &:before {
+              content: "";
+              position: relative;
+              display: inline-block;
+              margin-right: 10px;
+              width: 20px;
+              height: 2px;
+              top: -3px;
+            }
+
+            &:after {
+              content: "";
+              position: absolute;
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              top: 4px;
+              left: 6px;
+              border-radius: 100%;
+              // background-color: #ffacd0;
+            }
+
+            &:first-child {
+              @include label_t3($bgColor:var(--labelColor));
+            }
+
+            &:nth-child(2) {
+              @include label_t3($bgColor:var(--labelColor2));
+            }
+
+            &:nth-child(3) {
+              @include label_t3($bgColor:var(--labelColor3));
+            }
+
+            &:nth-child(4) {
+              @include label_t3($bgColor:var(--labelColor4));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 리스크고객관리(tune_riskCustomerAnalysist) */
+//* 리스크 고객 세그먼트 별 상세 분석 */
+@mixin widget_ristCompareList {
+  @include boxLayout;
+  // height: 510px;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  .cont {
+    @include flex_between;
+    position: relative;
+    margin-top: 15px;
+    gap: 30px;
+
+    .box_segment {
+      @include boxLayout_t3;
+      flex-grow: 1;
+
+      .titBox {
+        @include titleLayout;
+      }
+
+      .contBox {
+        @include flex_between;
+        margin-top: 20px;
+
+        .customerBox {
+          @include flex_start;
+          flex-wrap: wrap;
+
+          .box {
+            color: var(--white);
+
+            .iBox {
+              .iMark {
+                @include iMark_wht;
+              }
+            }
+
+            &:nth-child(1) {
+              width: 100%;
+              margin: auto 0;
+              font-size: 15px;
+              text-align: right;
+            }
+
+            &:nth-child(even) {
+              margin-left: 15px;
+            }
+
+            &:nth-child(n+2) {
+              @include flex_item_column;
+              width: calc(50% - 10px);
+              margin-top: 15px;
+              height: 70px;
+              font-size: 20px;
+              text-align: center;
+              border-radius: 10px;
+              border: 3px solid transparent;
+            }
+
+            &:nth-child(2) {
+              width: 100%;
+              margin: 8px 0 0 0;
+              background-color: #4559bb;
+            }
+
+            &:nth-child(3) {
+              background-color: var(--pointColor2);
+            }
+
+            &:nth-child(4) {
+              background-color: #33d1ab;
+            }
+
+            &:nth-child(5) {
+              background-color: #1081f6;
+            }
+
+            &:nth-child(6) {
+              background-color: #ff9e2e;
+            }
+
+            &.on {
+              border: 5px solid var(--boxOnColor);
+              box-shadow: var(--shadow2);
+            }
+          }
+        }
+      }
+    }
+
+    .box_compareList {
+      @include boxLayout_t3;
+      @include flexBox($g:0);
+      flex-grow: 1;
+      height: 360px;
+      // border: 1px solid var(--borderColor);
+
+      .targetSend {
+        min-width: 240px;
+
+        .titBox {
+          p {
+            line-height: 1.3;
+
+            &:nth-child(1) {
+              @include ftBold;
+              font-size: 22px;
+              color: var(--pointColor);
+
+              // &:before {
+              //   @include iLayout;
+              //   @include ico_paperAirplain;
+              //   top: 2px;
+              //   margin-right: 8px;
+              // }
+            }
+
+            &:nth-child(n+2) {
+              color: var(--ftolor3);
+              font-size: 16px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 2px;
+
+          a {
+            @include boxLayout_t6;
+            display: block;
+            width: 100%;
+            height: 130px;
+            margin-top: 5px;
+
+            &:first-child {
+              margin-top: 0;
+            }
+
+            p {
+              &:first-child {
+                @include ftBold;
+                font-size: 15px;
+              }
+
+              &:nth-child(2) {
+                text-align: center;
+                font-size: 14px;
+              }
+
+              &:nth-child(3) {
+                margin-top: 5px;
+                font-size: 14px;
+                text-align: center;
+
+                span {
+                  @include ftBold;
+                  text-decoration: underline;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            &.send {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_send_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px;
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_send_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+
+            &.noty {
+              p {
+                &:nth-child(2) {
+                  &:before {
+                    @include iLayout;
+                    @include ico_noty_off;
+                    position: relative;
+                    display: block;
+                    height: 50px;
+                    margin: 0px auto 4px
+                  }
+                }
+              }
+
+              &:hover {
+                p {
+                  &:nth-child(2) {
+                    &:before {
+                      @include ico_noty_on;
+                      height: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .detailBox {
+        @include boxLayout_t7($pd:10px 20px);
+        @include flexBox($a:center, $j:center, $g:0);
+        position: relative;
+        flex-grow: 1;
+        height: 100%;
+        margin-left: 40px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: inlnie-block;
+          width: 1px;
+          height: 265px;
+          top: 50px;
+          left: -20px;
+          border-left: 1px dashed var(--borderColor);
+        }
+
+        .tableArea {
+          width: 100%;
+
+          .tableBox {
+            @include tableWrap;
+            @include tableLayout;
+            border: none;
+
+            table {
+              thead {
+                tr {
+                  th {
+                    padding: 6px;
+                    background-color: transparent;
+
+                    p {
+                      min-width: 170px;
+                      font-size: 14px;
+                      min-height: 34px;
+                      border-radius: 5px;
+                      line-height: 2.5;
+
+                      vertical-align: middle;
+                    }
+
+                    &:nth-child(2) {
+                      p {
+                        // color: var(--black);
+                        background-color: var(--pointColor);
+                      }
+                    }
+
+                    &:nth-child(3) {
+                      p {
+                        margin: 0 0 0 20px;
+                        background-color: var(--pointColor2);
+                      }
+                    }
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  border: none;
+
+                  th,
+                  td {
+                    padding: 10px 6px;
+                  }
+
+                  th {
+                    min-width: 200px;
+                    text-align: left;
+                    font-size: 14px;
+
+                    &:before {
+                      @include txtDot;
+                    }
+                  }
+
+                  td {
+                    text-align: right;
+
+                    &:nth-of-type(1) {
+                      color: var(--pointColor);
+                      font-size: 14px;
+
+                    }
+
+                    &:nth-of-type(2) {
+                      color: var(--pointColor2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 리스크고객관리(tune_riskCustomerAnalysist) */
+//*  구매 고객 행동 분석 : 동종업종(여성패션) 회원 기준, 페이지별 방문분석 : 구매자별 행동 패턴  */
+@mixin widget_purchasePercentage {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flex_between;
+    margin-top: 30px;
+  }
+
+  .box_purchasePercentage,
+  .box_businessPurchasePercentage {
+    @include boxLayout2;
+    width: 30%;
+    min-width: 500px;
+    height: 410px;
+
+    .tit {
+      @include titleLayout;
+      @include flex_between;
+    }
+
+    .cont {
+      margin-top: 30px;
+    }
+  }
+
+  .box_lastLogin,
+  .box_businessLastLogin {
+    @include boxLayout;
+    flex-grow: 1;
+    margin-left: 20px;
+
+    .tit {
+      @include titleLayout;
+      @include flex_between;
+    }
+
+    .cont {
+      margin-top: 30px;
+
+      .labelBox {
+        margin: 20px 0 auto 0;
+        text-align: center;
+
+        p {
+          position: relative;
+          display: inline-block;
+          margin: 0 0 0 20px;
+
+          &:before {
+            @include label;
+          }
+
+          &:nth-child(2) {
+            &:before {
+              background-color: var(--labelColor2);
+            }
+          }
+
+          &:nth-child(3) {
+            &:before {
+              background-color: var(--labelColor3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 리스크고객관리(tune_riskCustomerAnalysist) */
+//*  구매 고객별 페이지 방문 데이터 분석  */
+@mixin widget_visitDataAnalysis {
+  @include boxLayout;
+  // height: 520px;
+
+  .box_visitDataAnalysis {
+
+    .tit {
+      @include titleLayout4;
+    }
+
+    .cont {
+      @include flex_between;
+      position: relative;
+      margin-top: 30px;
+
+      .tabButton {
+        position: absolute;
+        top: -40px;
+        right: 0px;
+        text-align: right;
+
+        button {
+          @include tabButton;
+          position: relative;
+
+          &.on {
+            @include ftMedium;
+            top: 1px;
+          }
+        }
+      }
+
+      >div {
+        flex-grow: 1;
+
+        &:nth-child(3) {
+          margin-left: 60px;
+        }
+
+        .titBox {
+          position: relative;
+          text-align: center;
+          height: 50px;
+          color: var(--white);
+          border: 1px solid var(--tblBorderColor);
+          background-color: var(--bgColor2);
+
+          p {
+            @include flex_center_column;
+            @include ftMedium;
+            height: 100%;
+            margin: auto 0;
+            font-size: 14px;
+          }
+        }
+
+        .contBox {
+          margin-top: 20px;
+
+          .graph {}
+
+          .labelBox {
+            margin: 20px 0 auto 0;
+            text-align: center;
+
+            p {
+              position: relative;
+              display: inline-block;
+              margin: 0 0 0 20px;
+
+              &:before {
+                @include label($width:10px, $height:15px);
+              }
+
+              &:nth-child(2) {
+                &:before {
+                  background-color: var(--labelColor2);
+                }
+              }
+
+              &:nth-child(3) {
+                &:before {
+                  background-color: var(--labelColor3);
+                }
+              }
+
+              &:nth-child(4) {
+                &:before {
+                  background-color: var(--labelColor4);
+                }
+              }
+
+              &:nth-child(5) {
+                &:before {
+                  background-color: var(--labelColor5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 고객분석 > 재구매고객관리 (tune_repurchaseCustomer) */
+//*  신규 및 재구매자 분석, 자사 재구매 구간 비교, 구매 비교 분석   */
+@mixin widget_graph3 {
+  @include boxLayout;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px);
+    margin-top: 20px;
+
+    .box {
+      @include boxLayout2;
+      height: 480px;
+      flex-grow: 1;
+
+      .tit {
+        p {
+          @include title;
+        }
+
+        .iBox {
+          .iMark {
+            top: 1px;
+            left: 3px;
+          }
+
+          .iMarkHover {
+            @include iMarkHover_TL;
+          }
+        }
+      }
+
+      .cont {
+        margin-top: 20px;
+
+        .graphBox {
+          .guideBox {
+            text-align: right;
+          }
+
+          .graph {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 상품분석 > 상품분석 (tune_productAnalysis) */
+//* 신규상품 vs 히트 상품 */
+@mixin widget_graph2 {
+  @include boxLayout();
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px);
+    margin: 20px 0 0 0;
+  }
+
+  .box_graph {
+    @include boxLayout2();
+    flex-grow: 1;
+
+    // 공통 
+    >.tit {
+      @include titleLayout;
+      // text-align: center;
+
+      p {
+        @include title($fs:16px);
+
+        span {
+          margin: 0 2px;
+
+          &:nth-child(1) {
+            color: var(--pointColor);
+          }
+
+          &:nth-child(2) {
+            color: var(--pointColor2);
+          }
+        }
+      }
+    }
+
+    >.cont {
+      margin-top: 15px;
+
+      .guideBox {
+        @include boxLayout_t10($pd:15px 25px);
+
+        p {
+          text-align: center;
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+
+      .graphBox {
+        margin: 15px 0 0 0;
+
+        .graph {
+          margin: 0 auto;
+          min-width: 550px;
+          // width: 100%;
+        }
+      }
+
+      .labelBox {
+        margin-top: 20px;
+        text-align: center;
+
+        p {
+          display: inline-block;
+          font-size: 13px;
+
+          &:first-child {
+            &:before {
+              background-color: var(--pointColor);
+            }
+          }
+
+          &:nth-child(2) {
+            margin-left: 30px;
+
+            &:before {
+              background-color: var(--pointColor2);
+            }
+          }
+
+          &:before {
+            content: "";
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            top: -2px;
+            margin-right: 10px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    // box_graph 첫번째 
+    &:nth-child(1) {
+      .titBox {
+        p {
+          span {
+            &:nth-child(2) {
+              color: var(--pointColor3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 상품분석 > 상품분석 (tune_productAnalysis) */
+//* 상품 점유율 RACE */
+@mixin widget_productRaceGraph {
+  @include boxLayout();
+  // height: 800px;
+
+  >.tit {
+    @include titleLayout4;
+  }
+
+  >.cont {
+    @include flexBox($g:20px, $a:start);
+    margin: 20px 0 0 0;
+
+    >div {
+      @include boxLayout2;
+      flex-grow: 1;
+      width: 50%;
+
+      .tit {
+        @include titleLayout3;
+        // text-align: center;
+
+        p {
+          @include title($fs:16px);
+
+          &:nth-child(2) {
+            margin: 8px 0 0 0;
+          }
+
+          span {
+            margin: 0 2px;
+
+            &:nth-child(1) {
+              color: var(--pointColor);
+            }
+
+            &:nth-child(2) {
+              color: var(--pointColor2);
+            }
+          }
+        }
+      }
+
+      //* 상품수 분석 : 자사 VS 동종업종(종합패션쇼핑몰) */
+      &:nth-child(1) {}
+
+      //* 상품 점유율 RACE */ 
+      &.box_raceGraph {
+        @include boxLayout();
+
+        .tab {
+          @include tabLi_t4($width:120px);
+          text-align: right;
+        }
+
+        .graphBox {
+          @include boxLayout_t3;
+          height: 542px;
+          margin-top: 20px;
+
+          /* 그래프 있을때 없을때 on/off 조절 */
+          &.on {
+            .graphNone {
+              display: none;
+            }
+          }
+
+          &.off {
+
+            .tit,
+            .cont {
+              display: none;
+            }
+          }
+
+          .tit {
+            @include flex_between;
+
+            p {
+              @include ftMedium;
+              margin: auto 0;
+              font-size: 18px;
+            }
+
+            button {
+              &.run {
+                @include btnLayout;
+                @include btn_main();
+                width: 70px;
+                height: 30px;
+              }
+            }
+          }
+
+          .cont {
+            margin-top: 20px;
+
+            .graphLine {
+              cursor: pointer;
+            }
+
+            .tooltipHover {
+              @include boxLayout_t3;
+              display: none;
+              position: absolute;
+              width: 270px;
+              height: 330px;
+              padding: 20px;
+              right: 30px;
+              bottom: 20px;
+              z-index: 800;
+
+              .imgBox {
+
+                img {
+                  width: 100%;
+                  height: 230px;
+                }
+              }
+
+              .titBox {
+                margin-top: 15px;
+
+                p {
+                  @include ellipsis_l4($wlc:2);
+                  @include ftMedium;
+                  font-size: 14px;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          .graphNone {
+            position: relative;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            p {
+              font-size: 20px;
+            }
+
+            button {
+              margin-top: 20px;
+
+              &.run {
+                @include btnLayout;
+                @include btn_main();
+                @include ftBold;
+                width: 230px;
+                height: 50px;
+                font-size: 16px;
+
+                &:after {
+                  content: ">";
+                  position: relative;
+                  display: inline-block;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 트렌드분석 > 업황분석 (tune_businessAnalysis) */
+//* 업황 요약 */
+@mixin widget_bussinewwSummary {
+  @include boxLayout;
+
+  >.titBox {
+    @include titleLayout4;
+
+    // display: flex;
+    // justify-content: space-between;
+
+    >p {
+      // @include ftMedium;
+      // font-size: 20px;
+
+      span {
+        margin-right: 4px;
+        // font-size: 22px;
+        color: var(--pointColor2);
+      }
+    }
+
+    .categoryBox {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+
+      p {
+        display: inline-block;
+        font-size: 13px;
+        color: var(--subFtColor);
+
+        &:nth-child(1) {
+          &:after {
+            content: ":";
+            position: relative;
+            display: inline-block;
+            margin: 0 4px;
+          }
+
+        }
+
+        &:nth-child(n+2) {
+          &:after {
+            content: ">";
+            position: relative;
+            display: inline-block;
+            margin: 0 4px;
+          }
+        }
+
+        &:last-child {
+          &:after {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+
+  >.contBox {
+    @include boxLayout2;
+    height: 490px;
+    margin-top: 30px;
+
+    .headerBox {
+      display: flex;
+      justify-content: space-between;
+
+      .tabButton {
+        button {
+          @include btnLayout;
+          @include btn_off;
+          min-width: 100px;
+          height: 40px;
+          margin-left: 10px;
+          border-radius: 20px;
+          font-size: 16px;
+
+          &.on,
+          &:hover {
+            @include btn_main2;
+          }
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:nth-child(6),
+          &:nth-child(7) {
+            @include btn_pointSub;
+            min-width: 120px;
+
+            &.on,
+            &:hover {
+              @include btn_pointSubOn;
+            }
+          }
+
+          &:nth-child(6) {
+            margin-left: 70px;
+          }
+        }
+      }
+
+      .guideBox {
+        p {
+          font-size: 13px;
+          color: var(--subFtColor);
+        }
+      }
+    }
+
+    .summaryBox {
+      @include flexBox($a:start, $g:20px);
+      // display: flex;
+      // justify-content: space-between;
+      margin-top: 25px;
+
+      .graphBox {
+        width: 60%;
+        // min-width: 880px;
+
+        .graph {}
+      }
+
+      .monthSummaryBox {
+        @include boxLayout_t4;
+        // width: calc(40% - 40px);
+        width: 40%;
+        // min-width: 620px;
+        // margin-left: 40px;
+
+        .titBox {
+          p {
+            &:first-of-type {
+              @include ftMedium;
+              font-size: 20px;
+
+              span {
+                margin: 0 4px;
+                color: var(--pointColor2);
+              }
+            }
+
+            &:nth-of-type(2) {
+              margin-top: 13px;
+              font-size: 13px;
+              color: var(--subFtColor);
+
+              span {
+                &:nth-child(2) {
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+
+          .selectBox {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+          }
+        }
+
+        .contBox {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 230px;
+          margin-top: 30px;
+
+          p {
+            margin-top: 10px;
+            font-size: 17px;
+
+            &:before {
+              @include txtDot_t2;
+              content: "";
+              position: relative;
+              display: inline-block;
+              margin-right: 20px;
+            }
+
+            span {
+              &.up {
+                color: var(--upColor);
+              }
+
+              &.down {
+                color: var(--downColor);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 트렌드분석 > 업황분석 (tune_businessAnalysis) */
+//* 업황내 비교 */
+@mixin widget_businessCompare {
+  @include boxLayout;
+
+  >.titBox {
+    @include titleLayout4;
+
+    p {
+      @include ftMedium;
+      font-size: 20px;
+    }
+  }
+
+  >.contBox {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+
+    .box_graph {
+      @include boxLayout_t4;
+      height: 460px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .guideBox {
+        position: absolute;
+        right: 30px;
+        text-align: right;
+
+        p {
+          font-size: 13px;
+          color: var(--subFtColor);
+        }
+      }
+
+      .tabButton {
+        position: relative;
+        display: inline-block;
+        @include iflexBox($g:4px, $d:column, $j:center); // margin-top: 20px;
+
+        button {
+          @include btnLayout;
+          @include btn_off;
+          display: block;
+          width: 130px;
+          height: 40px;
+          // margin-top: 4px;
+          font-size: 16px;
+          border-radius: 20px;
+          min-width: 130px;
+          padding: 0 10px;
+          width: 100%;
+
+          &.on,
+          &:hover {
+            @include btn_main2;
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .graphBox {
+        flex-grow: 1;
+        position: relative;
+        display: inline-block;
+        margin: 30px 0 0 80px;
+
+        .graph {}
+
+        .labelBox {
+          margin-top: 20px;
+          text-align: center;
+
+          >div {
+            display: inline-block;
+            text-align: left;
+
+            &:first-child {
+              p {
+                &:first-child {
+                  &:before {
+                    background-color: var(--labelColor);
+                  }
+                }
+
+                &:nth-child(2) {
+                  &:before {
+                    // background-color: #0affd5;
+                    background-color: var(--labelColor3);
+                  }
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              margin-left: 30px;
+
+              p {
+                &:first-child {
+                  &:before {
+                    background-color: var(--labelColor2);
+                  }
+                }
+
+                &:nth-child(2) {
+                  &:before {
+                    background-color: var(--labelColor7);
+                  }
+                }
+              }
+            }
+
+            p {
+              font-size: 13px;
+
+              &:nth-child(1) {
+                &:before {
+                  content: "";
+                  position: relative;
+                  display: inline-block;
+                  width: 20px;
+                  height: 15px;
+                  top: 2px;
+                  margin-right: 10px;
+                }
+              }
+
+              &:nth-child(2) {
+                margin-top: 5px;
+
+                &:before {
+                  content: "";
+                  position: relative;
+                  display: inline-block;
+                  width: 20px;
+                  height: 3px;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .box_table {
+    @include boxLayout_t4;
+    margin-top: 20px;
+    width: 100%;
+
+    .titBox {
+      @include titleLayout4;
+    }
+
+    .contBox {
+      margin-top: 20px;
+
+      .tableArea {
+        @include tableLayout;
+        @include tableDataNone($minh:auto);
+
+        .tableBox {
+          table {
+            tbody {
+              tr {
+                &:nth-child(1) {
+                  td {
+                    &:first-child {
+                      color: var(--pointColor);
+                    }
+                  }
+                }
+
+                &:nth-child(2) {
+                  td {
+                    &:first-child {
+                      color: var(--pointColor2);
+                    }
+                  }
+                }
+
+                td {
+                  &.up {
+                    color: var(--upColor);
+
+                    >div {
+                      &:nth-child(2) {
+                        &:after {
+                          content: "▲";
+                          position: relative;
+                          display: inline-block;
+                          margin-left: 2px;
+                        }
+                      }
+                    }
+                  }
+
+                  &.down {
+                    color: var(--downColor);
+
+                    >div {
+                      &:nth-child(2) {
+                        &:after {
+                          content: "▼";
+                          position: relative;
+                          display: inline-block;
+                          margin-left: 2px;
+                        }
+                      }
+                    }
+                  }
+
+                  >div {
+                    display: inline-block;
+
+                    &:nth-child(2) {
+                      margin: 0 0px 0 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* page > 트렌드분석 > 고객외부활동 (tune_userExternalActivity) */
+//*  고객 외부활동 분석내역 */
+@mixin widget_userExternalActivity {
+  @include boxLayout;
+  // @include flexBox($d:column);
+  // height: 610px;
+
+  >.titBox {
+    @include titleLayout4;
+  }
+
+  >.contBox {
+    @include flex_between;
+    flex-grow: 1;
+    margin-top: 20px;
+
+    .graphBox {
+      @include boxLayout_t4;
+      margin-left: 20px;
+
+      &:first-child {
+        width: 25%;
+        min-width: 480px;
+        margin-left: 0;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1;
+      }
+
+      .titBox {
+        @include flex_between;
+
+        p {
+          @include title($fs:18px);
+
+          &:nth-child(2) {
+            @include titleSub;
+          }
+        }
+      }
+
+      .contBox {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+//* 고객 외부사이트 방문내역 분석 */
+@mixin widget_userVisitList {
+  @include boxLayout;
+  // height: 780px;
+
+  >.titBox {
+    @include titleLayout4;
+  }
+
+  >.contBox {
+    position: relative;
+
+    .tabButton {
+      position: absolute;
+      top: -40px;
+      right: 20px;
+
+      button {
+        @include tabButton;
+        padding: 0 16px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .graphBox {
+      @include flex_between;
+      margin-top: 30px;
+
+      >div {
+        @include boxLayout_t4;
+        height: 640px;
+        margin: 0 0 0 20px;
+
+        &:first-child {
+          margin-left: 0;
+          flex-grow: 1;
+        }
+
+        &:nth-child(2) {
+          min-width: 490px;
+        }
+
+        .titBox {
+          p {
+            font-size: 18px;
+
+            span {
+              color: var(--subFtColor);
+              font-size: 16px;
+              margin-left: 4px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 20px;
+
+          .labelBox {
+            position: relative;
+            margin-top: 10px;
+            text-align: center;
+
+            p {
+              position: relative;
+              display: inline-block;
+              margin-left: 20px;
+              font-size: 12px;
+
+              &:before {
+                content: "";
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+              }
+
+              &:first-child {
+                margin-left: 0;
+
+                &:before {
+                  width: 8px;
+                  height: 18px;
+                  top: 3px;
+                  background-color: var(--pointColor);
+                }
+              }
+
+              &:nth-child(2) {
+                &:before {
+                  width: 20px;
+                  height: 3px;
+                  top: -2px;
+                  background-color: var(--pointColor2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//* 고객 외부사이트 활동 분포 분석 */
+@mixin widget_userSiteActivity {
+  @include boxLayout;
+  // height: 880px;
+
+  >.titBox {
+    @include titleLayout4;
+  }
+
+  >.contBox {
+    position: relative;
+
+    .tabButton {
+      position: absolute;
+      top: -40px;
+      right: 20px;
+
+      button {
+        @include tabButton;
+        padding: 0 16px;
+      }
+    }
+
+    .graphBox {
+      @include flex_between;
+      margin-top: 30px;
+
+      >div {
+        @include boxLayout_t4;
+        height: 740px;
+        margin: 0 0 0 20px;
+        width: 50%;
+        flex-grow: 1;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        .titBox {
+          p {
+            font-size: 18px;
+
+            span {
+              color: var(--subFtColor);
+              font-size: 16px;
+              margin-left: 4px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+//* 고객 관심상품 카테고리 분석 */
+@mixin widget_userInterestCategory {
+  @include boxLayout;
+  // height: 670px;
+
+  >.titBox {
+    @include titleLayout4;
+  }
+
+  >.contBox {
+    .graphBox {
+      @include flex_between;
+      margin-top: 30px;
+
+      >div {
+        @include boxLayout_t4;
+        height: 530px;
+        margin: 0 0 0 20px;
+        width: 33.33333%;
+        flex-grow: 1;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        .titBox {
+          p {
+            font-size: 18px;
+
+            span {
+              color: var(--subFtColor);
+              font-size: 16px;
+              margin-left: 4px;
+            }
+          }
+        }
+
+        .contBox {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,333 @@
+@charset 'utf-8';
+
+/*---------------------------------
+    File  : id_errorLink.scss
+    Date  : 2025.04.09
+    menu  : 데이터매니저
+    description : 링크 연결 에러 화면(독립페이지)
+/*---------------------------------*/
+
+//* COMMON ---------- */
+//*----- FONT -----*/
+@font-face {
+  font-family: "NotoSansR";
+  src: url("../font/notokr-regular.eot");
+  //* IE9 Compat Modes */
+  src: url("../font/notokr-regular.eot?#iefix") format("embedded-opentype"),
+    //* IE6-IE8 */
+    url("../font/notokr-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansM";
+  src: url("../font/notokr-medium.eot");
+  src: url("../font/notokr-medium.eot?#iefix") format("embedded-opentype"),
+    url("../font/notokr-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSansB";
+  src: url("../font/notokr-bold.eot");
+  src: url("../font/notokr-bold.eot?#iefix") format("embedded-opentype"),
+    //* IE6-IE8 */
+    url("../font/notokr-bold.woff") format("woff");
+}
+
+
+//*----- IMAGE -----*/
+@mixin ico_error {
+  background: url(../image_v3/component/ico_error.svg) no-repeat center;
+}
+
+
+
+//*----- MIXIN -----*/
+// FONT
+@mixin ftRegular {
+  font-family: "NotoSansR";
+}
+
+@mixin ftMedium {
+  font-family: "NotoSansM";
+  font-weight: normal;
+}
+
+@mixin ftBold {
+  font-family: "NotoSansB";
+}
+
+//* text */
+// hide 
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+
+@mixin loadingBg {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+
+  &.complete {
+    display: none;
+    opacity: 0;
+    z-index: -999;
+  }
+
+  $--p-1: #6ef0ff;
+  $--p-2: #0fa5be;
+  $--p-3: #06697b;
+  $--p-4: #3f0684;
+
+  $--b-1: #0fa5be;
+  $--b-2: #06697b;
+  $--b-3: #3f0684;
+  $--b-4: #7f1eed;
+
+  $--g-1: #06697b;
+  $--g-2: #3f0684;
+  $--g-3: #7f1eed;
+  $--g-4: #ac64ff;
+
+  $--y-1: #3f0684;
+  $--y-2: #7f1eed;
+  $--y-3: #ac64ff;
+  $--y-4: #e0c4ff;
+
+  $colors: ($--p-1, $--p-2, $--p-3, $--p-4, $--b-1, $--b-2, $--b-3, $--b-4, $--g-1, $--g-2, $--g-3, $--g-4, $--y-1, $--y-2, $--y-3, $--y-4);
+
+  .loader {
+    --cell-size: 24px;
+    --cell-spacing: 1px;
+    --border-width: 1px;
+    --cells: 4;
+    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--total-size);
+    height: var(--total-size);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    >.cell {
+      --cell-color: white;
+      flex: 0 0 var(--cell-size);
+      margin: var(--cell-spacing);
+      background-color: transparent;
+      box-sizing: border-box;
+      border: var(--border-width) solid var(--cell-color);
+
+      animation: 1.5s ripple ease infinite;
+
+      $delays: (2 * 4) - 2;
+
+      @for $i from 1 through $delays {
+        &.d-#{$i} {
+          animation-delay: $i * 100ms;
+        }
+      }
+
+      @for $i from 1 through length($colors) {
+        &:nth-child(#{$i}) {
+          --cell-color: #{nth($colors, $i)};
+        }
+      }
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      background-color: transparent;
+    }
+
+    30% {
+      background-color: var(--cell-color);
+    }
+
+    60% {
+      background-color: transparent;
+    }
+
+    100% {
+      background-color: transparent;
+    }
+  }
+}
+
+// ICON 
+@mixin iLayout($p:relative, $d: inline-block) {
+  content: "";
+  position: $p;
+  display: $d;
+  background-position: 0px 0px;
+  font-size: 0;
+  font-style: normal;
+}
+
+//* display */
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin iflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+// Button 
+@mixin btnLayout($d:null, $br:2px, $w:null, $minw:null, $h:null, $minh:null, $pd:null, $fs:null) {
+  @include ftRegular;
+  position: relative;
+  display: $d;
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  text-align: center;
+  font-size: $fs;
+  border-radius: $br;
+  cursor: pointer;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+@mixin btn_disabled {
+  color: var(--btnDis_ftColor);
+  // border: 2px solid var(--btnDis_borderColor);
+  border-width: inherit;
+  border-color: var(--btnDis_borderColor);
+  background-color: var(--btnDis_bgColor);
+  box-shadow: none;
+  cursor: default;
+}
+
+
+// ON > B: skyblue(bg), C: point
+@mixin btn_main ($w:null, $minw:null, $h:null, $minh:null, $pd:null) {
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  color: var(--btnMain_ftColor);
+  border: 2px solid var(--btnMain_bgColor);
+  background-color: var(--btnMain_bgColor);
+  box-shadow: none;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+
+
+//*----- lAYOUT -----*/
+html,
+body {
+  @include ftRegular();
+  font-size: 14px;
+  color: var(--ftColor);
+}
+
+
+
+
+//* EACH ----------*/
+.wrap {
+  width: 100%;
+  height: -webkit-fill-available;
+  background-color: var(--bgColor);
+
+  .container {
+    height: -webkit-fill-available;
+  }
+
+  #loadingBg {
+    @include loadingBg;
+  }
+
+  &.tune_errorLink {
+    height: -webkit-fill-available;
+
+    .container {
+      @include flexBox($j:center, $g:0);
+    }
+
+    .title {
+      @include txtHide;
+    }
+
+    .content {
+      position: relative;
+      width: 100%;
+
+      section {
+        &.sec_guide {
+          padding: 25px;
+
+          .guideBox {
+
+            p {
+              font-size: 16px;
+              text-align: center;
+              line-height: 25px;
+              word-break: keep-all;
+
+              &:nth-child(1) {
+                &:before {
+                  @include iLayout($d:block);
+                  @include ico_error;
+                  width: 72px;
+                  height: 58px;
+                  margin: 0 auto 32px;
+                }
+              }
+
+              &:nth-child(n+2) {
+                margin: 20px 0 0 0;
+              }
+            }
+          }
+
+          .buttonBox {
+            @include flexBox($j:center);
+            margin: 45px 0 0 0;
+
+            button {
+              @include btnLayout($minw:180px, $h:50px, $fs:16px, $br:5px, $pd: 4px);
+              @include ftMedium;
+              @include btn_main;
+              min-width: auto;
+              width: 180px;
+
+              &.store,
+              &.run {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link rel="shortcut icon" type="image/ico" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 리스크구매고객관리 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">고객분석</a></li>
+                    <li><a href="javascript:void(0);">업황분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>고객분석</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><i class="rfmAnalysis"></i><span>RFM분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="userValueAnalysis"></i><span>고객가치분석</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="vip"></i><span>VIP관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="newCustomer"></i><span>신규고객관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="prospectiveCustomer"></i><span>가망고객관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="refundCustomer"></i><span>환불고객관리</span></a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="riskCustomer"></i><span>리스크고객관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="repurchaseCustomer"></i><span>재구매고객관리</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="purchaseAnalysis"></i><span>구매패턴분석</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_riskCustomerAnalysist">
+                <div class="title">
+                    <p>리스크 고객관리</p>
+                    <p><b>최근 3개월간 결제이탈, 교환/환불, 이탈우려 등</b>과 같이 리스크 있는 고객을 <b>아래와 같은 세그먼트로 분류</b>하여 리스크 고객으로 정의하고 분석하였습니다.
+                    </p>
+                </div>
+                <div class="content">
+                    <!-- 신규고객 vs 리스크 고객 비교, 자사vs 동종업종 리스크 고객 추이-->
+                    <section class="sec_riskCompare">
+                        <div class="tit">
+                            <p>리스크 고객 분석 : 신규고객 및 업종 비교<button type="button" class="widgetAdd">위젯추가</button> </p>
+                            <p> 이 차트는 최근 3개월간 결제 이탈, 교환/환불, 이탈 우려 등 리스크가 있는 고객을 분류하여, 신규 고객과의 기본 지표를 비교한 데이터를 제공합니다.
+                            </p>
+                            <p> 또한, 자사와 동종 업종의 리스크 고객 추이를 통합적으로 분석하여, 어떤 고객을 우선적으로 관리해야 할지 인사이트를 제공합니다</p>
+                        </div>
+                        <div class="cont">
+                            <!-- 환불 고객 개요 -->
+                            <div class="box_riskCompare">
+                                <div class="tit">
+                                    <p>신규 고객 VS 리스크 고객 비교</p>
+                                    <p>(월평균) </p>
+                                </div>
+                                <div class="cont">
+                                    <div class="grpahBox">
+                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                        <div class="graph" style="height: 260px; border:1px solid #fff">
+                                        </div>
+                                    </div>
+                                    <div class="labelBox">
+                                        <p>리스크고객</p>
+                                        <p>신규고객</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// box end -->
+                            <!-- 자사 VS 동종업종(여성패션) 리스크 고객 추이 -->
+                            <div class="box_riskTrend">
+                                <div class="tit">
+                                    <p>자사 VS 동종업종(여성패션) 리스크 고객 추이</p>
+                                </div>
+                                <div class="cont">
+                                    <div class="graphHeader">
+                                        <button type="button" class="on">자사 전체 고객</button>
+                                        <button type="button">자사 신규 방문 고객</button>
+                                    </div>
+                                    <div class="grpahBox">
+                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                        <div class="graph" style=" height: 280px; border:1px solid #fff">
+                                        </div>
+                                        <div class="labelBox">
+                                            <p>자사고객</p>
+                                            <p>업종(여성패션) 리스크 고객</p>
+                                            <p>자사 전체 고객</p>
+                                            <p>자사 신규방문 고객</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// box end -->
+                        </div>
+                    </section>
+                    <!--//section end -->
+                    <!-- 리스크 고객 세그먼트 별 상세 분석 -->
+                    <section class="sec_ristCompareList">
+                        <div class="tit">
+                            <p>리스크 고객 세그먼트 별 상세 분석 </p>
+                            <p>리스크 고객을 유형별 세그먼트로 재분류한 데이터를 제공합니다. </p>
+                            <p>타겟 캠페인 생성 : 각 세그먼트를 클릭하면 선택한 세그먼트를 기반으로 타겟 마케팅 캠페인을 바로 생성할 수 있습니다. .</p>
+                            <p>세그먼트별 분석 : 해당 고객 그룹에 대한 상세 분석데이터를 업종 평균과 비교하여 확인할 수 있습니다</p>
+                        </div>
+                        <div class="cont">
+                            <div class="box_segment">
+                                <div class="titBox">
+                                    <p>리스크 고객들의 분석 데이터를 확인하고, 맞춤 캠페인을 만들어 보세요.</p>
+                                </div>
+                                <div class="contBox">
+                                    <div class="customerBox">
+                                        <div class="box">
+                                            <div class="checkBox">
+                                                <input type="checkbox" name="customerSegment" id="customerSegment_all">
+                                                <label for="customerSegment_all">ALL</label>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <p> #요즘 뜸한 VIP </p>
+                                        </div>
+                                        <div class="box">
+                                            <p> #결제이탈고객 </p>
+                                        </div>
+                                        <div class="box on">
+                                            <p> #이탈우려고객 </p>
+                                        </div>
+                                        <div class="box">
+                                            <p>#QA 진행고객 </p>
+                                        </div>
+                                        <div class="box">
+                                            <p> #교환/환불고객 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_compareList">
+                                <div class="targetSend">
+                                    <div class="titBox">
+                                        <p>#요즘 뜸한 VIP</p>
+                                        <p>타겟 캠페인 생성</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <a href="#" class="send">
+                                            <p>Advertisement</p>
+                                            <p>광고,온사이트 마케팅용</p>
+                                            <p>대상:<span>120,000명</span></p>
+                                        </a>
+                                        <a href="#" class="noty">
+                                            <p>SEND</p>
+                                            <p>카카오알림톡,SMS</p>
+                                            <p>대상:<span>120명</span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="detailBox">
+                                    <div class="tableArea">
+                                        <div class="tableBox">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>&nbsp;</th>
+                                                        <th>
+                                                            <p>자사</p>
+                                                        </th>
+                                                        <th>
+                                                            <p>업종(여성패션)</p>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>고객수는</th>
+                                                        <td>32명</td>
+                                                        <td>25명</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>평균 객단가는</th>
+                                                        <td>51,500원</td>
+                                                        <td>74,540원</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>평균 미방문한지</th>
+                                                        <td>3.8일</td>
+                                                        <td>5.2일</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>동종업종 구매활동 고객수는</th>
+                                                        <td>18명</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>이탈고객 전환 확률은</th>
+                                                        <td>25%</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                    <!-- 구매 고객 행동 분석 : 동종업종(여성패션) 회원 기준 -->
+                    <section class="sec_purchasePercentage">
+                        <div class="tit">
+                            <p> 구매 고객 행동 분석 : 자사 회원 기준 <button type="button" class="widgetAdd">위젯추가</button> </p>
+                            <p> 이 차트는 자사 회원을 기준으로 구매 횟수별 고객 비율(미구매자, 1회 구매자, 2회 구매자, 3회 이상 구매자 등)과 구매 고객별 마지막 로그인 시점
+                                데이터를 시각화한 결과를 제공합니다. </p>
+                            <p>구매 횟수에 따라 세분화된 고객 관리 전략을 수립하여 충성 고객을 확보하고 유지하세요. </p>
+                            <p>마지막 로그인 시점을 분석하여, 장기 미활동 고객을 재활성화하기 위한 리마인드 캠페인을 설계하세요.</p>
+                        </div>
+                        <div class="cont">
+                            <div class="box_purchasePercentage">
+                                <div class="tit">
+                                    <p>구매 고객별 비율</p>
+                                    <p>전체고객(회원)/최근 12개월 </p>
+                                </div>
+                                <div class="cont">
+                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                    <div class="graph" style="height: 300px; border:1px solid #fff">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_lastLogin">
+                                <div class="tit">
+                                    <p>구매고객별 마지막 로그인 시점</p>
+                                    <p>전체고객(회원)/최근 12개월 </p>
+                                </div>
+                                <div class="cont">
+                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                    <div class="graph" style="height: 260px; border:1px solid #fff"> </div>
+                                    <div class="labelBox">
+                                        <p>미구매자</p>
+                                        <p>신규(1회) 구매자</p>
+                                        <p>재(2회이상~) 구매자</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                    <!-- 구매 고객별 비율, 구매고객별 마지막 로그인 시점 -->
+                    <section class="sec_businessPurchasePercentage">
+                        <div class="tit">
+                            <p>구매 고객 행동 분석 : 동종업종(여성패션) 회원 기준 <button type="button" class="widgetAdd">위젯추가</button> </p>
+                            <p> 이 차트는 동종 업종에서 회원을 기준으로 구매 횟수별 고객 비율(미구매자, 1회 구매자, 2회 구매자, 3회 이상 구매자 등)과 구매 고객별 마지막 로그인
+                                시점 데이터를 시각화한 결과를 제공합니다. </p>
+                            <p>동종 업종의 데이터를 자사와 비교하여 경쟁력을 강화할 수 있는 차별화된 전략을 수립하세요</p>
+                        </div>
+                        <div class="cont">
+                            <div class="box_businessPurchasePercentage">
+                                <div class="tit">
+                                    <p>업종(여성패션) 구매 고객별 비율</p>
+                                    <p>전체고객(회원)/최근 12개월 </p>
+                                </div>
+                                <div class="cont">
+                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                    <div class="graph" style="height: 300px; border:1px solid #fff">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_businessLastLogin">
+                                <div class="tit">
+                                    <p>업종(여성패션) 구매 고객별 비율</p>
+                                    <p>전체고객(회원)/최근 12개월 </p>
+                                </div>
+                                <div class="cont">
+                                    <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                    <div class="graph" style="height: 260px; border:1px solid #fff"> </div>
+                                    <div class="labelBox">
+                                        <p>미구매자</p>
+                                        <p>신규(1회) 구매자</p>
+                                        <p>재(2회이상~) 구매자</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                    <!-- 구매 고객별 비율, 구매고객별 마지막 로그인 시점 -->
+                    <section class="sec_visitDataAnalysis">
+                        <div class="box_visitDataAnalysis">
+                            <div class="tit">
+                                <p>페이지별 방문분석 : 구매자별 행동 패턴<button type="button" class="widgetAdd">위젯추가</button> </p>
+                                <p>이 차트는 메인 페이지, 상세 페이지, 장바구니 페이지, 주문 페이지, 주문 완료 페이지의 페이지뷰 데이터를 미구매자와 구매자를 횟수별로 나누어 분석한
+                                    결과를 보여줍니다. </p>
+                                <p>미구매자의 특정 페이지 이탈 구간을 확인하고, 이탈을 방지할 수 있는 UX 개선 및 전환율 최적화 전략을 수립 하세요.</p>
+                                <p> 페이지별 방문 이탈 구간을 파악하여 고객 여정을 매끄럽게 연결하는 것이 전환율 개선의 핵심입니다.</p>
+                            </div>
+                            <div class="cont">
+                                <div class="tabButton">
+                                    <button type="button" class="on">절대값</button>
+                                    <button type="button">상대값</button>
+                                </div>
+                                <div>
+                                    <div class="titBox">
+                                        <p>자사</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                        <div class="graph" style="height: 240px; border:1px solid #fff">
+                                        </div>
+                                        <div class="labelBox">
+                                            <p>메인</p>
+                                            <p>상세</p>
+                                            <p>장바구니</p>
+                                            <p>주문</p>
+                                            <p>주문완료(주문완료 후 반품/환불 포함)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="titBox">
+                                        <p>업종</p>
+                                    </div>
+                                    <div class="contBox">
+                                        <!-- graph 클래스의 style은 퍼블 확인용으로 추가하였음 -->
+                                        <div class="graph" style="height: 240px; border:1px solid #fff">
+                                        </div>
+                                        <div class="labelBox">
+                                            <p>메인</p>
+                                            <p>상세</p>
+                                            <p>장바구니</p>
+                                            <p>주문</p>
+                                            <p>주문완료(주문완료 후 반품/환불 포함)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                </div>
+            </div>
+            <!--//contents end-->
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

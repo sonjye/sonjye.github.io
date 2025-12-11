@@ -1,0 +1,684 @@
+@charset 'utf-8';
+/*
+File  : customerAnalysis.scss
+Date : 2024.11.05
+menu  : 고객분석
+*/
+
+
+//* 고객분석 */
+.wrap {
+
+  //* 신규고객관리, 재구매고객관리 공통부분 */
+  .tune_newCustomer,
+  .tune_repurchaseCustomer {
+    .title {
+      @include titleLayout;
+
+      p {
+        b {
+          @include ftBold;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    section {
+
+
+      //* 신규 고객 세그먼트 별 상세 분석  */
+      //* 재구매 고객 세그먼트 별 상세 분석  */
+      &.sec_segmentList {
+        @include widget_segmentList;
+        @include titleColor;
+        margin-top: 30px;
+      }
+
+      //*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+      &.sec_repurchasePoint {
+        @include widget_repurchasePoint;
+        margin-top: 30px;
+      }
+
+      //* 신규 고객 관심 상품 Top 10  */
+      &.sec_interestProduct {
+        @include widget_interestProduct;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  //* 신규고객관리 */
+  .tune_newCustomer {
+    section {
+      &.sec_customerCompare {
+        @include widget_customerCompare;
+        // @include titleColor;
+      }
+
+      //* 유저 행동 기반 트래픽 분석: 자사 VS 동종업종(종합패션쇼핑몰)  */
+      &.sec_trafficAnalysis {
+        .box_trafficAnalysis {
+          @include widget_trafficAnalysis;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+  //* 재구매고객관리 */
+  .tune_repurchaseCustomer {
+    .content {
+      section {
+
+        /*재구매 고객 분석 : 자사 VS 동종업종(종합패션쇼핑몰)*/
+        &.sec_customerCompare {
+          @include widget_customerCompare;
+        }
+
+        //* 신규 및 재구매자 분석, 자사 재구매 구간 비교, 구매 비교 분석 */
+        &.sec_customerAnalysis,
+        &.sec_intervalCompare,
+        &.sec_averageCompare {
+
+          .box_customerAnlaysis,
+          .box_intervalCompare,
+          .box_averageCompare {
+            @include widget_graph3;
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  //* 가망고객관리 */
+  .tune_prospectCustomer {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    section {
+      &.sec_customerCompare {
+        @include flex_between;
+
+        >div {
+          height: 700px;
+        }
+
+        /* grid */
+        .box_chart {
+          @include boxLayout;
+          position: relative;
+          min-width: 970px;
+
+          .chartArea {
+            position: relative;
+
+            &:after {
+              content: "외부활동";
+              position: absolute;
+              display: inline-block;
+              right: 0px;
+              color: var(--subFtColor);
+              font-size: 13px;
+              bottom: -24px;
+              font-size: 14px;
+            }
+          }
+
+          .guideBox {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+              font-size: 13px;
+              color: var(--subFtColor);
+            }
+          }
+
+          .chartBox {
+            position: relative;
+            display: grid;
+            gap: 5px;
+            margin-top: 10px;
+            grid-auto-rows: minmax(52px, auto);
+            grid-auto-columns: minmax(80px, auto);
+            padding: 0 0 15px 15px;
+            border-left: 1px solid var(--borderColor);
+            border-bottom: 1px solid var(--borderColor);
+
+            &:before {
+              content: "▲";
+              position: absolute;
+              display: inline-block;
+              top: -5px;
+              left: -5.5px;
+              font-size: 10px;
+              color: var(--subFtColor);
+            }
+
+            &:after {
+              content: "▶";
+              position: absolute;
+              display: inline-block;
+              right: 0px;
+              bottom: -5px;
+              font-size: 10px;
+              color: var(--subFtColor);
+            }
+
+            .box {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              box-sizing: border-box;
+              padding: 12px;
+              border: 5px solid transparent;
+              border-radius: 10px;
+
+              &.on,
+              &:hover {
+                // box-shadow: var(--shadow);
+                border: 5px solid var(--boxOnColor);
+              }
+
+              p {
+                @include ftMedium;
+                display: inline-block;
+                font-size: 18px;
+                line-height: 1.5;
+                color: var(--white);
+                vertical-align: middle;
+
+                &:before {
+                  content: "#";
+                  position: relative;
+                  display: inline-block;
+                }
+
+                .iBox {
+                  position: relative;
+                  display: inline-block;
+
+                  i {
+                    &.iMark {
+                      @include iMark_wht;
+                      top: -2px;
+                      margin-left: 2px;
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+
+              &:first-child {
+                grid-column: 1 / span 3;
+                grid-row: 1 / span 3;
+                background-color: #864879;
+
+                .iBox {
+                  .iMarkHover {
+                    @include iMarkHover_TL;
+                  }
+                }
+              }
+
+              &:nth-child(2) {
+                grid-column: 4 / span 3;
+                grid-row: 1 / span 3;
+                background-color: #fec260;
+              }
+
+              &:nth-child(3) {
+                grid-column: 7 / span 4;
+                grid-row: 1 / span 7;
+                flex-direction: row;
+                display: inline-flex;
+                justify-content: space-between;
+                background-color: #278ea5;
+
+                .iBox {
+                  .iMarkHover {
+                    @include iMarkHover_TR;
+                  }
+                }
+              }
+
+              &:nth-child(4) {
+                grid-column: 1 / span 3;
+                grid-row: 4 / span 2;
+                // flex-direction: row;
+                // display: inline-flex;
+                // justify-content: space-between;
+                background-color: #3f3351;
+              }
+
+              &:nth-child(5) {
+                grid-column: 4 / span 3;
+                grid-row: 4 / span 2;
+                background-color: #f4abc4;
+              }
+
+              &:nth-child(6) {
+                grid-column: 1/ span 4;
+                grid-row: 6 / span 5;
+                background-color: #b85c38;
+              }
+
+              &:nth-child(7) {
+                grid-column: 5 / span 2;
+                grid-row: 6 / span 3;
+                background-color: #a4b494;
+              }
+
+              &:nth-child(8) {
+                grid-column: 5 / span 2;
+                grid-row: 9 / span 2;
+                flex-direction: row;
+                background-color: #03c4a1;
+              }
+
+              &:nth-child(9) {
+                grid-column: 7 / span 4;
+                grid-row: 8 / span 3;
+                background-color: #346751;
+
+                .iBox {
+                  .iMarkHover {
+                    @include iMarkHover_TR;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        /* 고객 특성 */
+        .box_character {
+          @include boxLayout;
+          min-width: 610px;
+          margin: 0px 0 0 30px;
+
+          .tit {
+            @include flex_center2;
+            @include flexBox($j:space-between, $d:column);
+            // padding: 0 40px;
+            height: 240px;
+
+            p {
+              &:nth-child(1) {
+                @include ftMedium;
+                font-size: 30px;
+                text-align: left;
+                line-height: 40px;
+              }
+
+              &:nth-child(2) {
+                font-size: 18px;
+                line-height: 1.5;
+              }
+
+              span {
+                color: var(--pointColor);
+              }
+            }
+          }
+
+          .cont {
+            @include flex_between_column;
+            height: 380px;
+            margin-top: 20px;
+            border-top: 1px solid #000000;
+
+            .txtBox {
+              @include boxLayout2;
+              margin-top: 20px;
+              // padding-right: 10px;
+              padding: 20px 10px 20px 25px;
+
+              ul {
+                height: 120px;
+                padding-right: 10px;
+                overflow-y: auto;
+
+                li {
+                  position: relative;
+                  font-size: 20px;
+                  line-height: 1.3;
+                  padding-left: 20px;
+
+                  &:nth-child(n+2) {
+                    margin-top: 10px;
+                  }
+
+                  span {
+                    &.ct1 {
+                      color: var(--pointColor5);
+                    }
+
+                    &.ct2 {
+                      color: var(--pointColor4);
+                    }
+
+                    &.ct3 {
+                      color: var(--pointColor6);
+                    }
+                  }
+
+                  &:before {
+                    @include txtDot_t2;
+                    position: absolute;
+                    top: 12px;
+                    left: 0;
+                  }
+                }
+              }
+            }
+
+            .targetSend {
+              @include boxLayout_t5($pd:15px 25px);
+              min-width: 100%;
+              height: 175px;
+              margin: 20px 0 0 0px;
+
+              .titBox {
+                p {
+                  line-height: 1.3;
+
+                  &:nth-child(1) {
+                    @include ftBold;
+                    font-size: 22px;
+                    color: var(--pointColor);
+                  }
+
+                  &:nth-child(n+2) {
+                    color: var(--ftolor3);
+                    font-size: 16px;
+                  }
+                }
+              }
+
+              .contBox {
+                @include flex_between;
+                margin-top: 8px;
+
+                a {
+                  @include boxLayout_t6;
+                  display: block;
+                  width: 100%;
+                  height: 87px;
+
+                  &:nth-child(2) {
+                    margin-left: 15px;
+                  }
+
+                  p {
+                    // color: var(--pointColor);
+
+                    &:first-child {
+                      @include ftBold;
+                      font-size: 15px;
+
+                      &:before {
+                        @include txtDot($t:-4px, $bgColor:var(--pointColor));
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      margin-top: 8px;
+                      font-size: 14px;
+                    }
+
+                    &:nth-child(3) {
+                      margin-top: 6px;
+                      font-size: 14px;
+
+                      span {
+                        @include ftBold;
+                        margin-left: 4px;
+                        text-decoration: underline;
+                        font-size: 14px;
+                      }
+                    }
+                  }
+
+
+                  &.send {
+                    p {
+                      &:nth-child(2) {
+                        &:after {
+                          @include iLayout;
+                          @include ico_send_off;
+                          position: absolute;
+                          display: inline-block;
+                          height: 50px;
+                          top: 16px;
+                          right: 5px;
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      p {
+                        &:nth-child(2) {
+                          &:after {
+                            @include ico_send_on;
+                            height: 50px;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &.noty {
+                    p {
+                      &:nth-child(2) {
+                        &:before {
+                          @include iLayout;
+                          @include ico_noty_off;
+                          position: absolute;
+                          display: inline-block;
+                          height: 50px;
+                          top: 20px;
+                          right: 5px;
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      p {
+                        &:nth-child(2) {
+                          &:before {
+                            @include ico_noty_on;
+                            height: 50px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /*  신규고객(첫방문)의 재방문 시점, 신규고객(미구매)의 첫구매 시점  */
+      &.sec_interestCategory {
+        @include widget_interestCategory;
+        margin-top: 30px;
+      }
+
+      /* 가망 고객 외부 구매활동 Top 10 분석  */
+      &.sec_externalPurchaseActivity {
+        @include widget_externalPurchaseActivity;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  //* 환불고객관리 */
+  .tune_refundCustomer {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    section {
+      &.sec_refundSummary {
+        @include widget_refundSummary;
+      }
+
+      //* 환불 고객 세그먼트 별 상세 분석 */
+      &.sec_refundCompareList {
+        @include widget_refundCompareList;
+        @include titleColor;
+        margin-top: 30px;
+      }
+
+      //* 환불 고객의 재구매 시점, 환불 고객 비율, 구매횟수 및 객단가 */
+      &.sec_refundStats {
+        @include widget_refundStats;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  //* 리스크고객관리 */
+  .tune_riskCustomerAnalysist {
+    .title {
+      @include titleLayout;
+
+      p {
+        b {
+          @include ftBold;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    section {
+      &.sec_riskCompare {
+        @include widget_riskCompare;
+      }
+
+      /* 리스크 고객 세그먼트 별 상세 분석 */
+      &.sec_ristCompareList {
+        @include widget_ristCompareList;
+        @include titleColor;
+        margin-top: 30px;
+      }
+
+      /*  구매 고객 행동 분석 : 동종업종(여성패션) 회원 기준, 페이지별 방문분석 : 구매자별 행동 패턴  */
+      &.sec_purchasePercentage,
+      &.sec_businessPurchasePercentage {
+        @include widget_purchasePercentage;
+        margin-top: 30px;
+      }
+
+      /* 구매 고객별 페이지 방문 데이터 분석  */
+      &.sec_visitDataAnalysis {
+        @include widget_visitDataAnalysis;
+        margin-top: 30px;
+
+      }
+    }
+  }
+
+  //* 구매전환율 분석 */
+  .tune_purchaseChange {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    section {
+      &.sec_purchaseRate {
+        .box_purchase {
+          @include widget_purchaseRate;
+        }
+      }
+
+      //* 구매활동 세분화 분석 */
+      &.sec_categoryRate {
+        .box_categoryRate {
+          @include widget_categoryRate;
+        }
+      }
+
+      //* 채널 성과 비교 분석  */
+      &.sec_purchaseAnalysis {
+        .box_purchaseAnalysis {
+          @include widget_purchaseAnalysis;
+          margin-top: 30px;
+        }
+      }
+
+      //* 성별 구매 분석 데이터  */
+      &.sec_purchaseGender {
+        @include widget_purchaseGender;
+        margin-top: 30px;
+      }
+
+      //* 카테고리별 구매율  */
+      &.sec_category {
+        @include widget_category;
+        margin: 30px 0 0 0;
+      }
+
+      //* 장바구니 분석  */
+      &.sec_basketAnalysis {
+        @include widget_basketAnalysis;
+        margin: 30px 0 0 0;
+      }
+
+      //* 카테고리별 구매율 추이 */
+      &.sec_categoryRate {
+        .box_categoryRate {
+          @include widget_categoryRate;
+          margin: 30px 0 0 0;
+        }
+      }
+
+      //* 최근 한달간 채널별 구매율 분석 데이터입니다 .  */
+      &.sec_monthAnlaysis {
+        @include widget_monthAnlaysis;
+        margin: 30px 0 0 0;
+      }
+
+      //* 유입채널별 구매율 추이 */
+      &.sec_channelRate {
+        .box_channelRate {
+          @include widget_channelRate;
+          margin: 30px 0 0 0;
+        }
+      }
+
+      //* 구매율 높은 요일&시간 확인 */
+      &.sec_timeAnalysis {
+        @include widget_timeAnalysis;
+        margin: 30px 0 0 0;
+      }
+    }
+  }
+}

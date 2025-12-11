@@ -1,0 +1,1291 @@
+@charset 'utf-8';
+
+/*
+File   : layout.scss
+Date   : 2025.07.11
+*/
+
+
+//* html */
+html {
+  min-height: -webkit-fill-available;
+  color: var(--fontColor);
+
+  &.theme {
+
+    &B,
+    &C {
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        // background-color: var(--borderColor);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: var(--mainColor);
+      }
+
+      .container {
+
+        // container 스크롤 사이즈
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+
+//* wrap */
+.wrap {
+  position: relative;
+  width: 100%;
+  //min-width: 1920px; 
+  min-width: 1900px;
+  color: var(--ftColor);
+  background-color: var(--bgColor);
+
+  button {
+    &.research {
+      @include btnLayout($br:100px, $w:160px, $h:160px);
+      @include ftM;
+      position: fixed;
+      left: 40px;
+      bottom: 40px;
+      font-size: 20px;
+      color: var(--ftColor4);
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+      background: linear-gradient(212deg, #8b16ff 12%, #314cff 85%, #1354ff 100%);
+      z-index: 101;
+
+      &:before {
+        @include iLayout($d:block);
+        @include ico_write;
+        @include imgSize(60px, 68px);
+        background-position-x: 5px;
+        margin: 0 auto 5px;
+      }
+    }
+  }
+}
+
+
+//* header */
+.header {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  padding: 0 30px 0 22px;
+  border-bottom: 1px solid var(--headerBorderColor);
+  background-color: var(--headerBgColor);
+  z-index: 800;
+
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    clear: both;
+  }
+
+  h1 {
+    display: block;
+    float: left;
+    margin: 18px 0 0 0;
+
+    a {
+      @include txtHide();
+      @include logo_tune;
+      display: block;
+      width: 200px;
+      height: 28px;
+      background-position: center left;
+      background-size: contain;
+    }
+  }
+
+  .mainNav {
+    position: relative;
+    display: block;
+    height: 100%;
+    float: left;
+    margin: 0px 0 0 40px;
+
+    ul {
+      font-size: 0;
+      height: 100%;
+
+      li {
+        @include dpLayout();
+        height: -webkit-fill-available;
+        margin-left: 30px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:hover,
+        &.on {
+          a {
+            position: relative;
+            color: var(--pointColor);
+          }
+        }
+
+        // AI 스튜디오 메뉴 아이콘 추가
+        &.aiStudio {
+          a {
+            position: relative;
+            padding-left: 38px;
+
+            &:before {
+              @include iLayout($p:absolute);
+              @include ico_ai;
+              left: 5px;
+              margin-top: -3px;
+              width: 27px;
+              height: 25px;
+            }
+          }
+        }
+
+        a {
+          @include ftBold;
+          @include transition();
+          display: block;
+          height: -webkit-fill-available;
+          padding: 26px 12px 0;
+          font-size: 18px;
+          color: var(--headerFtColor);
+        }
+      }
+    }
+  }
+
+  .userinfo {
+    float: right;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+
+    >div {
+      display: inline-block;
+      margin-left: 30px;
+    }
+
+    .store {
+      a {
+        @include ftBold;
+        position: relative;
+        top: -1px;
+        font-size: 18px;
+        color: var(--ftColor);
+      }
+
+      &:after {
+        content: "";
+        position: relative;
+        display: inline-block;
+        width: 1px;
+        height: 20px;
+        top: 2px;
+        padding-left: 26px;
+        border-right: 1px solid var(--headerStoreBorderColor);
+      }
+    }
+
+    .moveMobon {
+      button {
+        // @include btn_main2;
+        @include btn_main4;
+        @include ftMedium;
+        width: 140px;
+        height: 36px;
+        border-radius: 18px;
+      }
+    }
+
+    .name {
+      @include iflex_item;
+      color: var(--pointColor);
+
+      strong {
+        @include ftBold;
+        @include ellipsis_l4($wlc:2);
+        // display: inline-block;
+        max-width: 120px;
+        margin-right: 5px;
+        line-height: 1.2;
+      }
+    }
+
+    .userMenu {
+      position: relative;
+      margin-left: 30px;
+
+      .btns {
+        display: inline-block;
+        position: relative;
+        width: 35px;
+        height: 20px;
+        text-align: left;
+
+        span {
+          @include txtHide();
+        }
+
+        i {
+          @include ico_userInfo;
+          position: relative;
+          display: inline-block;
+          width: 35px;
+          height: 20px;
+          background-size: cover;
+          background-size: 50px 50px;
+          background-position-x: -15px;
+        }
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        width: 160px;
+        padding: 10px;
+        border: 1px solid var(--borderColor);
+        border-radius: 5px;
+        background-color: var(--headerUserBgColor);
+        z-index: 801;
+
+        li {
+          button {
+            @include ftRegular;
+            width: 100%;
+            padding: 10px;
+            text-align: left;
+            color: var(--ftColor6);
+            @include transition();
+
+            &:hover {
+              color: var(--pointColor);
+            }
+
+            $icoText: ('FREE', 'STARTER', 'BASIC', 'PRO', 'BIZ');
+            $icoBg: (var(--price1), var(--price2), var(--price3), var(--price4), var(--price5));
+
+            @for $i from 1 through length($icoText) {
+              $text: nth($icoText, $i);
+              $class: to-lower-case($text);
+
+              &.#{$class} {
+
+                &:before {
+                  @include iLayout;
+                  @include ftM;
+                  @include iflexBox($j:center);
+                  // content: "PRO";
+                  content: "#{$text}";
+                  min-width: 30px;
+                  height: 20px;
+                  margin: 0 4px 0 0;
+                  padding: 0 6px;
+                  font-size: 12px;
+                  text-align: center;
+                  border-radius: 20px;
+                  color: var(--ftColor4);
+                  background-color: nth($icoBg, $i);
+                  // background-color: #7030a0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .theme {
+      position: relative;
+      @include toggle_t3($width: 54px);
+
+      input {
+
+        // blue 
+        &[type="checkbox"] {
+          border: 1px solid var(--B_mainColor);
+          background-color: #000000;
+
+          // blue 
+          &:before {
+            @include iLayout;
+            @include ico_blue;
+            position: absolute;
+            right: 9px;
+            content: ""
+          }
+
+          &:after {
+            background-color: var(--B_mainColor);
+          }
+
+          // white 
+          &:checked {
+            border: 1px solid #e5e5e5;
+            background-color: #f6f6f6;
+
+            &:before {
+              @include iLayout;
+              @include ico_white;
+              position: absolute;
+              left: 6px;
+              content: "";
+            }
+
+            &:after {
+              left: 30px;
+              background-color: var(--C_mainColor);
+            }
+          }
+
+          +label {
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* navigation */
+.navigation {
+  width: 250px;
+  min-height: calc(100% - 70px);
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-color: var(--navBgColor);
+  box-shadow: 3.5px 3.5px 5px 0 rgba(0, 0, 0, 0.1);
+  z-index: 100;
+
+  .authTitle {
+    width: 100%;
+    height: 55px;
+    position: relative;
+    padding: 18px 0 0 20px;
+    border-bottom: 1px solid var(--navBorderColor);
+
+    //* 개발에서 h4 넣어달라고 함 */
+    h2,
+    h4 {
+      @include ftMedium;
+      font-size: 20px;
+      color: var(--ftColor);
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 0;
+      cursor: pointer;
+
+      >div {
+        width: 20px;
+        height: 2px;
+        border-radius: 1px;
+        background: var(--ftColor);
+        transition: 0.3s;
+
+        &:nth-of-type(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        &:nth-of-type(3) {
+          transform: translateY(5px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  >ul {
+    display: block;
+    width: 100%;
+    height: calc(100% - 55px);
+
+    >li {
+      border-bottom: 1px solid var(--navBorderColor);
+
+      >a {
+        @include transition();
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 19px 20px 19px 20px;
+        color: var(--navFtColor);
+        background-color: var(--navBgColor);
+
+        i,
+        span {
+          @include dpLayout();
+          @include transition();
+        }
+
+        span {
+          font-size: 16px;
+          color: var(--ftColor);
+        }
+
+        i {
+          width: 24px;
+          height: 24px;
+          margin: 0 7px 0 0;
+          background-position: center center;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+
+          //* 고객분석 - vip관리 */
+          &.vip {
+            @include nav_vip_off;
+          }
+
+          //* 고객분석 - 가망고객관리 */
+          &.prospectiveCustomer {
+            @include nav_prospectiveCustomer_off;
+            background-size: 20px 20px;
+          }
+
+          //* 고객분석 - 환불고객관리 */
+          &.refundCustomer {
+            @include nav_refundCustomer_off;
+            background-size: 20px 20px;
+          }
+
+          //* 고객분석 - 리스크고객관리 */
+          &.riskCustomer {
+            @include nav_riskCustomer_off;
+            background-size: 20px 20px;
+          }
+
+          //* 고객분석 - 재구매고객관리 */
+          &.repurchaseCustomer {
+            @include nav_repurchaseCustomer_off;
+            background-size: 20px 20px;
+          }
+
+          //* 상품분석 - 추천 커버리지 현황, 
+          //* 광고효과분석 - 광고트래킹 */
+          &.coverage,
+          &.fraudSet {
+            @include nav_coverage_off;
+          }
+
+          //* 상품분석 - 판매예측 분석  */
+          &.salesForecst {
+            @include nav_salesForecst_off;
+          }
+
+          //* 상품분석 - 카테고리 분석 */
+          &.categoryAnalysis {
+            @include nav_category_off;
+          }
+
+          //* 상품분석 - 상품 분석 */
+          &.prodAnalysis {
+            @include nav_product_off;
+          }
+
+          //* 상품분석 - 추천 상품 리스트 */
+          &.recommendProdList {
+            @include nav_productList_off;
+          }
+
+          //* 상품분석 - 추천엔진 */
+          &.recommendEngine {
+            @include nav_engine_off;
+          }
+
+          //* 트래킹 */
+          &.tracking {
+            @include nav_graph_off;
+          }
+
+          //* CDP - 대시보드,
+          // 키워드센터 - 대시보드 */
+          &.dashboard {
+            @include nav_dashboard_off;
+          }
+
+          //* CDP - 유저정보 ,
+          //  고객분석 - 신규고객관리 */
+          &.userInfo,
+          &.newCustomer {
+            @include nav_userInfo_off;
+            background-size: 20px 20px;
+          }
+
+          //* CDP - 핵심유저분석 */
+          &.coreUserAnalysis {
+            @include nav_coreUserAnalysis_off;
+            background-size: 20px 20px;
+          }
+
+          //* CDP - 캠페인리스트 */
+          &.campaignList {
+            @include nav_campaignList_off;
+          }
+
+          //* CDP - 캠페인생성 */
+          &.campaignCreate {
+            @include nav_campaignCreate_off;
+          }
+
+          // CDP - 환불고객분석
+          &.refundAnalysis {
+            @include nav_refundAnalysis_off;
+          }
+
+          //* CDP - 공지사항 */
+          &.notice {
+            @include nav_notice_off;
+            background-size: 19px 17px;
+          }
+
+          //* CDP - 데이터 연동 관리 */
+          // 원태그 > 마이태그 관리
+          // 데이터 매니저 > 트래킹링크관리
+          &.dataLink,
+          &.tagSet,
+          &.trackingLink {
+            @include nav_dataLink_off;
+          }
+
+          //* CDP - RFM 분석 */
+          &.rfmAnalysis {
+            @include nav_rfmAnalysis_off;
+          }
+
+          //* CDP - 고객가치분석 */
+          &.userValueAnalysis {
+            @include nav_userValueAnalysis_off;
+          }
+
+          //* CDP - 업황분석,
+          // LAB - 업황분석 */
+          &.businessAnalysis {
+            @include nav_businessAnalysis_off;
+          }
+
+          //* CDP - 고객외부활동,
+          // LAB- 고객외부활동 */
+          &.userActivity {
+            @include nav_userActivity_off;
+          }
+
+          //* CDP - 구매고객 분석 */
+          &.customerAnalysis {
+            @include nav_customerAnalysis_off;
+          }
+
+          //* CDP - 리스크분석 */
+          &.riskAnalysis {
+            @include nav_riskAnalysis_off;
+          }
+
+          //* LAB - 랭킹분석 */
+          &.rankAnalysis {
+            @include nav_rank_off;
+          }
+
+          //* LAB - 상품트렌드 */
+          &.productTrend {
+            @include nav_productTrend_off;
+          }
+
+          //* LAB - 키워드분석 */
+          &.keywordAnalysis {
+            @include nav_keywordAnalysis_off;
+          }
+
+          //* LAB - 매체분석 */
+          &.mediaAnalysis {
+            @include nav_mediaAnalysis_off;
+          }
+
+          //* LAB - 여론분석
+          // 고객분석 - 구매패턴 분석 */
+          &.opinionAnalysis,
+          &.purchaseAnalysis {
+            @include nav_opinionAnalysis_off;
+          }
+
+          //* 키워드센터 - 키워드 통계,
+          // 데이터매니저 - 데이터 매니저 관리 */
+          &.keywordStats,
+          &.dataSet {
+            @include nav_stats_off;
+          }
+
+          //* 키워드센터 - 키워드 제안 */
+          &.keywordProposal {
+            @include nav_proposal_off;
+          }
+
+          //* 키워드센터 - 키워드팩관리 */
+          &.keywordManage {
+            @include nav_manage_off;
+          }
+
+          //* 트래킹 - 트래커 보고서 */
+          &.report {
+            @include nav_report_off;
+          }
+
+          //* 트래킹 - 광고 추적 URL 생성 */
+          &.createURL {
+            @include nav_createURL_off;
+          }
+
+          //* 트래킹 - 광고 추적 보고서 */
+          &.reportAD {
+            @include nav_reportAD_off;
+          }
+
+          //* 트래킹 - 설정 */
+          &.setting {
+            @include nav_setting_off;
+          }
+
+          //* 데이터 매니저 - 데이터 수집 관리 */
+          &.dataCollect {
+            @include nav_folderPlus_off;
+          }
+
+          //* 데이터 매니저 - 데이터 제공 관리 */
+          &.dataProvide,
+          &.adTrend {
+            @include nav_dataSet_off;
+          }
+
+          //* 데이터 매니저 - 데이터 모니터링
+          // 광고효과분석 - 광고트래킹 */
+          //* 마이데이터 스튜디오 */
+          &.dataMonitor,
+          &.adTracking,
+          &.mydata {
+            @include nav_dataMonitor_off;
+          }
+
+          /* 데이터 매니저 - 데이터 통계 */
+          &.dataStats {
+            @include nav_dataStats_off;
+          }
+
+          //* 데이터 매니저 - 스크립트 SDK 관리
+          &.scriptSDK {
+            @include nav_scriptSDK_off;
+          }
+
+          //* Fraud보고서 */
+          &.fraudReport {
+            @include nav_reportPlus_off;
+          }
+
+          //* Fraud상세내역 */
+          &.fraudDetail {
+            @include nav_chartDetail_off;
+          }
+
+          //* 구매전환율 분석 */
+          &.purchaseChange {
+            @include nav_userSearch_off;
+          }
+
+          //* 원태그 */
+          // 사이트 성능분석
+          &.siteAnalysis {
+            @include nav_site_off;
+          }
+
+          //* AI 스튜디오 */
+          // home
+          &.home {
+            @include nav_home_off;
+          }
+
+          // message
+          // &.message {
+          //   @include nav_message_off;
+          // }
+
+          // ai
+          // &.ai {
+          //   @include nav_ai_off;
+          // }
+          // talk 최근대화
+          &.talk {
+            @include nav_message_off;
+          }
+
+          // 질문 & 탐색 
+          &.qne {
+            @include nav_ai_off;
+          }
+
+          // reportLounge 리포트 라운지
+          &.reportLounge {
+            @include nav_reportLounge_off;
+          }
+
+          // connectHub 통합 연동 센터
+          &.connectHub {
+            @include nav_connectHub_off;
+          }
+
+          // reportStorage 리포트 보관함
+          &.reportStorage {
+            @include nav_storage_off;
+          }
+        }
+      }
+
+      >ul {
+        display: none;
+        width: 100%;
+        background-color: var(--navBgColor3);
+
+        &.active {
+          display: block;
+        }
+
+        li {
+          a {
+            display: block;
+            padding: 18px 0 18px 50px;
+            font-size: 14px;
+            color: var(--navFtColor2);
+            @include transition();
+
+            &:hover {
+              color: var(--pointColor);
+            }
+          }
+
+          &.on {
+            a {
+              color: var(--pointColor);
+            }
+          }
+        }
+      }
+
+      &.has-list {
+        >a {
+          &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 6px;
+            background-size: 100% 100%;
+            top: 50%;
+            right: 20px;
+          }
+        }
+      }
+
+      &.active {
+        >a {
+          box-shadow: var(--navShadow);
+          background-color: var(--navBgColor2);
+          overflow: hidden;
+
+          &::before {
+            position: absolute;
+            content: '';
+            top: -105px;
+            left: 0%;
+            width: 100%;
+            height: 120px;
+            background: radial-gradient(ellipse farthest-corner at, var(--mainColor) 0%, var(--mainColor) 50%, rgba(28, 190, 248, 0) 70%, rgba(7, 170, 255, 0) 100%);
+            opacity: 0.16;
+          }
+
+          &::after {
+            position: absolute;
+            content: '';
+            top: 0px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%);
+          }
+
+          span {
+            color: var(--navOnFtColor);
+          }
+
+          i {
+
+            //* 고객분석 - vip관리 */
+            &.vip {
+              @include nav_vip_on;
+            }
+
+            //* 고객분석 - 가망고객관리 */
+            &.prospectiveCustomer {
+              @include nav_prospectiveCustomer_on;
+            }
+
+            //* 고객분석 - 환불고객관리 */
+            &.refundCustomer {
+              @include nav_refundCustomer_on;
+            }
+
+            //* 고객분석 - 리스크고객관리 */
+            &.riskCustomer {
+              @include nav_riskCustomer_on;
+            }
+
+            //* 고객분석 - 재구매고객관리 */
+            &.repurchaseCustomer {
+              @include nav_repurchaseCustomer_on;
+            }
+
+            //* 상품분석 - 추천 커버리지 현황 
+            // 광고효과분석 - 광고트래킹 */
+            &.coverage,
+            &.fraudSet {
+              @include nav_coverage_on;
+            }
+
+            //* 상품분석 - 판매예측 분석  */
+            &.salesForecst {
+              @include nav_salesForecst_on;
+            }
+
+            //* 상품분석 - 카테고리 분석 */
+            &.categoryAnalysis {
+              @include nav_category_on;
+            }
+
+            //* 상품분석 - 상품 분석 */
+            &.prodAnalysis {
+              @include nav_product_on;
+            }
+
+            //* 상품분석 - 추천 상품 리스트 */
+            &.recommendProdList {
+              @include nav_productList_on;
+            }
+
+            //* 상품분석 - 추천엔진, 트래킹 */
+            &.recommendEngine {
+              @include nav_engine_on;
+            }
+
+            //* 트래킹 */
+            &.tracking {
+              @include nav_graph_on;
+            }
+
+            //* CDP - 대시보드 */
+            &.dashboard {
+              @include nav_dashboard_on;
+            }
+
+            //* CDP - 대시보드 */
+            &.dashboard {
+              @include nav_dashboard_on;
+            }
+
+            //* CDP - 유저정보,
+            // 고객분석 - 신규고객관리 */
+            &.userInfo,
+            &.newCustomer {
+              @include nav_userInfo_on;
+            }
+
+            //* CDP - 핵심유저분석 */
+            &.coreUserAnalysis {
+              @include nav_coreUserAnalysis_on;
+              background-size: 20px 20px;
+            }
+
+            //* CDP - 캠페인리스트 */
+            &.campaignList {
+              @include nav_campaignList_on;
+            }
+
+            //* CDP - 캠페인생성 */
+            &.campaignCreate {
+              @include nav_campaignCreate_on;
+            }
+
+            // CDP - 환불고객분석
+            &.refundAnalysis {
+              @include nav_refundAnalysis_on;
+            }
+
+            //* CDP - 공지사항 */
+            &.notice {
+              @include nav_notice_on;
+              background-size: 19px 17px;
+            }
+
+            //* CDP - 데이터 연동 관리 */
+            // 원태그 > 마이태그 관리, 
+            // 데이터 매니저 > 트래킹링크관리
+            &.dataLink,
+            &.tagSet,
+            &.trackingLink {
+              @include nav_dataLink_on;
+            }
+
+            //* CDP - RFM 분석 */
+            &.rfmAnalysis {
+              @include nav_rfmAnalysis_on;
+            }
+
+            //* CDP - 고객가치분석 */
+            &.userValueAnalysis {
+              @include nav_userValueAnalysis_on;
+            }
+
+            //* CDP - 업황분석 */
+            &.businessAnalysis {
+              @include nav_businessAnalysis_on;
+            }
+
+            //* CDP - 고객외부활동 */
+            &.userActivity {
+              @include nav_userActivity_on;
+            }
+
+            //* CDP - 구매고객분석 */
+            &.customerAnalysis {
+              @include nav_customerAnalysis_on;
+            }
+
+            //* CDP - 리스크분석 */
+            &.riskAnalysis {
+              @include nav_riskAnalysis_on;
+            }
+
+            //* LAB - 랭킹분석 */
+            &.rankAnalysis {
+              @include nav_rank_on;
+            }
+
+            //* LAB - 상품트렌드 */
+            &.productTrend {
+              @include nav_productTrend_on;
+            }
+
+            //* LAB - 키워드분석 */
+            &.keywordAnalysis {
+              @include nav_keywordAnalysis_on;
+            }
+
+            //* LAB - 매체분석 */
+            &.mediaAnalysis {
+              @include nav_mediaAnalysis_on;
+            }
+
+            //* LAB - 여론분석
+            // 고객분석 - 구매패턴분석 */
+            &.opinionAnalysis,
+            &.purchaseAnalysis {
+              @include nav_opinionAnalysis_on;
+              background-size: 20px 20px;
+            }
+
+            //* 키워드센터 - 키워드 통계,
+            // 데이터매니저 - 데이터 매니저 관리 */
+            &.keywordStats,
+            &.dataSet {
+              @include nav_stats_on;
+            }
+
+            //* 키워드센터 - 키워드 제안 */
+            &.keywordProposal {
+              @include nav_proposal_on;
+            }
+
+            //* 키워드센터 - 키워드팩관리 */
+            &.keywordManage {
+              @include nav_manage_on;
+            }
+
+            //* 트래킹 - 트래커 보고서 */
+            &.report {
+              @include nav_report_on;
+            }
+
+            //* 트래킹 - 광고 추적 URL 생성 */
+            &.createURL {
+              @include nav_createURL_on;
+            }
+
+            //* 트래킹 - 광고 추적 보고서 */
+            &.reportAD {
+              @include nav_reportAD_on;
+            }
+
+            //* 트래킹 - 설정 */
+            &.setting {
+              @include nav_setting_on;
+            }
+
+            //* 데이터 매니저 - 데이터 매니저 관리 */
+            &.dataMonitoring {
+              @include nav_dataSet_on;
+            }
+
+            //* 데이터 매니저 - 데이터 수집 관리 */
+            &.dataCollect {
+              @include nav_folderPlus_on;
+            }
+
+            //* 데이터 매니저 - 데이터 제공 관리
+            // 광고효과분석 - 광고 트렌드 */
+            &.dataProvide,
+            &.adTrend {
+              @include nav_dataSet_on;
+            }
+
+            //* 데이터 매니저 - 데이터 모니터링
+            // 광고효과분석 - 광고트래킹 */
+            //* 마이데애터 스튜디오 */
+            &.dataMonitor,
+            &.adTracking,
+            &.mydata {
+              @include nav_dataMonitor_on;
+            }
+
+            /* 데이터 매니저 - 데이터 통계 */
+            &.dataStats {
+              @include nav_dataStats_on;
+            }
+
+            //* 데이터 매니저 - 스크립트 SDK 관리
+            &.scriptSDK {
+              @include nav_scriptSDK_on;
+            }
+
+            //* Fraud보고서 */
+            &.fraudReport {
+              @include nav_reportPlus_on;
+            }
+
+            //* Fraud상세내역 */
+            &.fraudDetail {
+              @include nav_chartDetail_on;
+            }
+
+            //* 구매전환율 분석 */
+            &.purchaseChange {
+              @include nav_userSearch_on;
+            }
+
+            //* 원태그 */
+            // 사이트 성능분석
+            &.siteAnalysis {
+              @include nav_site_on;
+            }
+
+            //* AI 스튜디오 */
+            // home
+            &.home {
+              @include nav_home_on;
+            }
+
+            // message
+            // &.message {
+            //   @include nav_message_on;
+            // }
+
+            // ai
+            // &.ai {
+            //   @include nav_ai_on;
+            // }
+            // talk 최근대화
+            &.talk {
+              @include nav_message_on;
+            }
+
+            // 질문 & 탐색 
+            &.qne {
+              @include nav_ai_on;
+            }
+
+            // reportLounge 리포트 라운지
+            &.reportLounge {
+              @include nav_reportLounge_on;
+            }
+
+            // connectHub 통합 연동 센터
+            &.connectHub {
+              @include nav_connectHub_on;
+            }
+
+            // storage
+            &.reportStorage {
+              @include nav_storage_on;
+            }
+          }
+
+          &:before {
+            filter: brightness(100);
+          }
+        }
+      }
+    }
+  }
+
+  &.closed {
+    .authTitle {
+      padding: 0;
+      width: 70px;
+      height: 70px;
+
+      h2 {
+        display: none;
+      }
+
+      .hamburger {
+        right: 24px;
+        margin: -10px 0 0 0;
+
+        >div {
+          &:nth-of-type(1) {
+            transform: translateY(0) rotate(0deg);
+          }
+
+          &:nth-of-type(2) {
+            opacity: 1;
+            transform: translateY(5px);
+          }
+
+          &:nth-of-type(3) {
+            transform: translateY(10px) rotate(0deg);
+          }
+        }
+      }
+    }
+
+    >ul {
+      >li {
+        position: relative;
+
+        >a {
+          width: 70px;
+          height: 60px;
+          text-align: center;
+
+          span {
+            display: none;
+          }
+
+          i {
+            margin: 0;
+            width: 20px;
+            height: 20px;
+          }
+
+          &:before {
+            display: none;
+          }
+        }
+
+        >ul {
+          position: absolute;
+          display: none;
+          top: 0;
+          left: 75px;
+          z-index: 10;
+          width: 200px;
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+          border: 1px solid var(--navCloseBorderColor);
+          background: var(--navCloseBgColor);
+
+          li {
+            a {
+              padding: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//* container */
+.container {
+  width: calc(100% - 250px);
+  min-height: 1000px;
+  margin: 0 0 45px 250px;
+  padding: 30px;
+  position: relative;
+  @include transition();
+
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    clear: both;
+  }
+
+  &.wide-view {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+  }
+
+
+}
+
+//* footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  margin: 45px 0 0 0;
+
+  p {
+    font-size: 13px;
+    color: #9e9bb6;
+    line-height: 150%;
+
+    span {
+      position: relative;
+      padding: 0 10px;
+
+      &:before {
+        display: block;
+        content: "";
+        width: 1px;
+        height: 10px;
+        background: var(--subFtColor);
+        position: absolute;
+        top: 4px;
+        left: 0;
+      }
+
+      &:first-child:before {
+        display: none;
+      }
+    }
+  }
+}

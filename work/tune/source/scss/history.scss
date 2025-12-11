@@ -1,0 +1,71 @@
+/*------------------------------
+    Explain : MOBTUNE
+    File : history.scss
+    Date   : 2024.03.07
+/*--------------------------------*/
+
+/***** History *****/
+/*
+[25.10.14 - 김햇빛과장] 
+# AI스튜디오>구독및결제 (tune_aiPricePlanList)
+1. 화면 수정
+
+[25.10.14 - 이승일주임] 
+# 원태그 > 대시보드, 사이트성능분석,
+1. 화면 고도화
+
+[25.09.29 - 김햇빛과장] 
+# AI스튜디오 > 홈, 답변화면
+1. 토큰없는경우 입력(box_input)영역 딤+텍스트,버튼 추가
+
+[25.09.24 - 이준희주임]
+# AI설문조사 동동이 버튼 추가
+
+[25.03.06 - 송승희 대리 요청사항]
+# 공통 테이블 수정
+
+24.03.07 김현선 차장 요청사항 
+CDP/DMP>캠페인생성 신규 모달 >> 카테고리 선택 (md_categorySelect) 
+1. modal_cdp.html 참고: active된 리스트의 배경색이 CDP캠페인생성 리스트의 off(disabled) 색상과 동일하지만 괜찮다고 함
+>> 캠페인생성화면에서 나타나는 모달인데 리스트에서는 off색상을 모달에서는 active색상으로 사용됨
+(마지막 3차 카테고리 배경색만 민트색으로 교체 요청있어 해당부분만 포인트색상으로 변경함)
+
+24.02.27 
+정승균 부장 요청사항
+CDP/DMP > 결제정보 신규 페이지
+1. paymentInfo.html
+참고: 공통된 부분으로 퍼블작업 완료하였는데, 본인이 컨펌한 디자인과 다르다고 디자인과 똑같이 제작해달라고 함
+>> 디자인도 본인이 목업페이지 만들어서 가져와서 그거대로 디자인해달라고 함
+(달력,엑셀버튼,.tableHeader위치,테이블(th)색상) 공통과 다르게 제작함
+
+24.02.27 
+정승균 부장 요청사항
+CDP/DMP > 결제정보 신규 페이지
+1. paymentInfo.html
+참고: 공통된 부분으로 퍼블작업 완료하였는데, 본인이 컨펌한 디자인과 다르다고 디자인과 똑같이 제작해달라고 함
+>> 디자인도 본인이 목업페이지 만들어서 가져와서 그거대로 디자인해달라고 함
+(달력,엑셀버튼,.tableHeader위치,테이블(th)색상) 공통과 다르게 제작함
+
+
+22.08.08 송승희 대리님 요청사항 
+22.08.08 ->모달>캠페인생성하기 (crmMd_campaignLoad_new) 말풍선 수정
+(modal.html, modal.scss) 
+1. modal.html -> 테이블 태그 및 클래스 추가 및 변경 
+2. modal.scss 
+
+
+22.08.05 송승희 대리님 요청사항
+22.08.05 ->모달>캠페인생성하기 (crmMd_campaignLoad_new) 말풍선 수정
+ (modal.html, modal.scss, component.scss) 
+ 1. modal.html -> 말풍선 태그 변경
+ 2. component.scss -> iBox, iMark, iMarkHover @mixin 추가
+ 3. modal.scss 말풍선 css 추가
+
+
+22.06.29 -> 캠페인생성 탭, 검색조건 플로팅 기능 추가 및 수정
+(campaign_create.html, crm.scss, component.scss)
+1. campaign_create.html -> div태그 추가
+2. crm.scss -> .tab, .searchList 수정
+3. component.scss -> @mixin scroll 부분 추가
+
+*/

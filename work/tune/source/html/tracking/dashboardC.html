@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 트래킹 대시보드 -->
+    <div class="wrap typeC">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li class="on"><a href="javascript:void(0);">트래킹</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme" checked>
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>트래킹</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>트래커보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="report"></i><span>트래커 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="createURL"></i><span>광고 추적 URL 생성</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="reportAD"></i><span>광고 추적 보고서</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="setting"></i><span>설정</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_trackingDashboard">
+                <div class="title">
+                    <p>트래커보드</p>
+                    <div class="call">
+                        <p>이용문의 : 070-4672-2303</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <section class="sec_prepare disNone">
+                        <div class="box_prepare">
+                            <div class="textBox">
+                                <p>현재 서비스 준비중입니다. <span> 보다 나은 서비스 제공을 위하여 페이지 준비중에 있습니다.<br> 빠른 시일내에 준비하여
+                                        찾아뵙겠습니다.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//section end-->
+                    <section class="sec_infoApp">
+                        <div class="box_infoApp">
+                            <div class="infoAppBox">
+                                <div class="selectBox">
+                                    <select name="" id="">
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                        <option value="">test app-111</option>
+                                    </select>
+                                </div>
+                                <!--infoAppBox 아이콘 li 클릭시 아이콘 on,off 기능 class : .active일때 on기능 -->
+                                <div class="info_list">
+                                    <ul>
+                                        <li><a href="" class="all">전체</a></li>
+                                        <li class="active"><a href="" class="ico_android"></a></li>
+                                        <li><a href="" class="ico_ios"></a></li>
+                                        <li><a href="" class="ico_web"></a></li>
+                                    </ul>
+                                    <div class="last"> UTC +9 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_chartBox">
+                            <div class="chartBox">
+                                <div class="chartWrap">
+                                    <div class="chartText">
+                                        <i class="live">LIVE</i>
+                                        <p>10초 마다 재갱신 됩니다.</p>
+                                        <p class="h2">현재 사이트 활성 사용자<span class="iBox"><i class="iMark"></i><i
+                                                    class="iMarkHover">현재 웹사이트 및 APP을 이용하고 있는 실시간 사용자 현황입니다. 디바이스 분류를
+                                                    클릭하여 차트를 활성화/비활성화할 수 있습니다.</i></span>
+                                        </p>
+                                        <p class="h1">30명</p>
+                                        <p>2021-11-16 12:00:01</p>
+                                        <button type="button" class="reset">새로고침</button>
+                                    </div>
+                                    <div class="chartArea">
+                                        <div class="graph" style="height: 140px; border:1px solid #fff"></div>
+                                    </div>
+                                    <div class="chartList">
+                                        <p>Android</p>
+                                        <p>IOS</p>
+                                        <p>PC web</p>
+                                        <p>Mo web</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_notice">
+                            <div class="noticeBox">
+                                <div class="titBox">
+                                    <p>공지사항</p>
+                                    <a href="#">전체보기</a>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <p>[CRM] 모비온과 모비튠의 스크립트가 통합되었습니다.</p><span>2021-05-03</span>
+                                        </a>
+                                    </li>
+                                    <li> <a href="javascript:void(0);">
+                                            <p>[CRM] 모비튠 CRM이 오픈하였습니다.모비튠 CRM이 오픈하였습니다.모비튠 CRM이 오픈하였습니다.모비튠 CRM이
+                                                오픈하였습니다. </p>
+                                            <span>2021-05-03</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:void(0);">
+                                            <p>[CRM] 모비튠 CRM이 오픈하였습니다.모비튠 CRM이 오픈하였습니다.모비튠 CRM이 오픈하였습니다.모비튠 CRM이
+                                                오픈하였습니다. </p>
+                                            <span>2021-05-03</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_infoApp end-->
+                    <section class="sec_date">
+                        <div class="optionBox">
+                            <div class="calendarBox">
+                                <div class="calendar">
+                                    <div class="dateChoice">
+                                        <input type="text" id="dateInput" name="dateInput" value="">
+                                    </div>
+                                </div>
+                                <p>비교기간</p>
+                                <div class="calendar">
+                                    <div class="dateChoice">
+                                        <input type="text" id="dateInput2" name="dateInput2" value="">
+                                    </div>
+                                </div>
+                                <button type="submit">검색</button>
+                            </div>
+                            <div class="checkBox">
+                                <input type="checkbox" name="check_date" id="check_1" class="hidden" value="01">
+                                <label for="check_1">기간 맞춤</label>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_date end-->
+                    <section class="sec_eventStats">
+                        <div class="box_eventStats">
+                            <div class="titBox">
+                                <p>이벤트</p>
+                                <button type="button">편집</button>
+                            </div>
+                            <div class="boxWrap">
+                                <div class="box">
+                                    <div class="first">
+                                        <p>사용자<span class="iBox"><i class="iMark"></i><i class="iMarkHover">특정 기간의 플랫폼 별
+                                                    순 방문자 수입니다. </i></span></p>
+                                        <i class="i_reset"></i>
+                                    </div>
+                                    <div class="boxCon">
+                                        <div class="boxText">
+                                            <p class="percent col_b"><span>3.21</span>%</p>
+                                            <p class="equals up">3.1%</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 60px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="first">
+                                        <p>페이지뷰<span class="iBox"><i class="iMark"></i><i class="iMarkHover">조회한 페이지의 총
+                                                    개수입니다. 특정 페이지를 반복적으로 조회한 경우는 포함되지 않습니다. </i></span></p>
+                                        <i class="i_reset"></i>
+                                    </div>
+                                    <div class="boxCon">
+                                        <div class="boxText">
+                                            <p class="percent col_r"><span>59,131</span></p>
+                                            <p class="equals up">68.1%</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 60px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="first">
+                                        <p>체류시간<span class="iBox"><i class="iMark"></i><i class="iMarkHover">방문자의 한 방문 당
+                                                    평균 체류시간입니다.</i></span></p>
+                                        <i class="i_reset"></i>
+                                    </div>
+                                    <div class="boxCon">
+                                        <div class="boxText">
+                                            <p class="percent col_g"><span>00:02:30</span></p>
+                                            <p class="equals down">2.5%</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 60px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="first">
+                                        <p>재설치<span class="iBox"><i class="iMark"></i><i class="iMarkHover">APP 최초 설치 이후
+                                                    재설치한 횟수입니다.</i></span></p>
+                                        <i class="i_reset"></i>
+                                    </div>
+                                    <div class="boxCon">
+                                        <div class="boxText">
+                                            <p class="percent col_p"><span>123,456,789,123,456,789</span>원</p>
+                                            <p class="equals up">123,456%</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 60px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="first">
+                                        <p>매출<span class="iBox"><i class="iMark"></i><i class="iMarkHover">웹사이트 및 APP에서
+                                                    발생한 총 매출 금액입니다.</i></span></p>
+                                        <i class="i_reset"></i>
+                                    </div>
+                                    <div class="boxCon">
+                                        <div class="boxText">
+                                            <p class="percent col_y"><span>1,555,913</span>원</p>
+                                            <p class="equals up">308.1%</p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 60px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_eventStats end-->
+                    <section class="sec_chartArea">
+                        <div class="box_chartArea">
+                            <div class="tit">
+                                <p>통계그래프</p>
+                            </div>
+                            <div class="dateBox">
+                                <div class="list_state">
+                                    <p>기준기간 : 2023-03-20 ~ 2023-04-19</p>
+                                    <p>비교기간 : 2023-02-18 ~ 2023-03-20</p>
+                                    <!-- <ul>
+                                    <li>
+                                        <p>2021-04-01 ~ 2021-04-30</p>
+                                        <p><span class="i_blue">설치</span><span class="i_pink">실행</span></p>
+                                    </li>
+                                    <li>
+                                        <p>2021-04-01 ~ 2021-04-30</p>
+                                        <p><span class="i_purple">설치</span><span class="i_orange">실행</span></p>
+                                    </li>
+                                </ul> -->
+                                </div>
+                                <div class="tabButton">
+                                    <button type="button" class="on">일</button>
+                                    <button type="button">주</button>
+                                    <button type="button">월</button>
+                                </div>
+                            </div>
+                            <div class="optionBox">
+                                <select name="" id="">
+                                    <option value="">설치</option>
+                                </select>
+                                <span>VS.</span>
+                                <select name="" id="">
+                                    <option value="">실행</option>
+                                </select>
+                            </div>
+                            <div class="chartArea">
+                                <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                <div class="graph" style="height: 400px; border:1px solid #fff;"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_eventStats end-->
+                    <section class="sec_box">
+                        <div class="box_page">
+                            <div class="pageBox">
+                                <div class="titBox">
+                                    <p>자주 가는 페이지<span class="iBox"><i class="iMark"></i><i class="iMarkHover">페이지뷰 수 기준
+                                                상위 9개 페이지를 보여줍니다. etc 항목은 그 외 모든 페이지를 말합니다.</i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="contBox">
+                                    <div class="optionBox">
+                                        <p>조회기간</p>
+                                        <div class="selectDiv">
+                                            <div class="selected">
+                                                <p>2023-07-31 ~ 2023-08-30 </p>
+                                            </div>
+                                            <div class="selectList">
+                                                <ul>
+                                                    <li>오늘</li>
+                                                    <li>어제</li>
+                                                    <li>이번달</li>
+                                                    <li>전월</li>
+                                                    <li>전전월</li>
+                                                    <li>최근 7일</li>
+                                                    <li>최근 30일</li>
+                                                    <li>최근 90일</li>
+                                                    <li>최근 180일</li>
+                                                    <li>사용자 선택</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="dateBox">
+                                            <div class="dateList">
+                                                <p class="date">2023-07-31 ~ 2023-08-30</p>
+                                                <ul>
+                                                    <li>오늘</li>
+                                                    <li>어제</li>
+                                                    <li>이번달</li>
+                                                    <li>전월</li>
+                                                    <li>전전월</li>
+                                                    <li>최근 7일</li>
+                                                    <li>최근 30일</li>
+                                                    <li>최근 90일</li>
+                                                    <li>최근 180일</li>
+                                                    <li>사용자 선택</li>
+                                                </ul>
+                                            </div>
+                                            <script>
+                                                $(function () {
+                                                    $(".date").on("click", function (e) {
+                                                        e.preventDefault();
+                                                        $(this).siblings().toggle();
+                                                    });
+                                                    $(".dateList ul li").on("click", function () {
+                                                        $(this).addClass("active").siblings()
+                                                            .removeClass("active");
+                                                        // console.log('..');
+                                                        $(this).parents(".dateList").hide();
+                                                    });
+                                                });
+                                            </script>
+                                        </div> -->
+                                    </div>
+                                    <div class="tableArea">
+                                        <div class="tableBox">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>페이지</th>
+                                                        <th>페이지 뷰</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="hover">
+                                                            /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            <span class="hover_after">
+                                                                /m/board.html?cod...0&number=1&lock=N/m/board.html?cod...0&number=1&lock=N
+                                                            </span>
+                                                        </td>
+                                                        <td>123,322%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_userAnalysisBox">
+                            <div class="AnalysisBox">
+                                <div class="titBox">
+                                    <p>사용자 유입 분석<span class="iBox"><i class="iMark"></i><i class="iMarkHover">실행수 기준으로
+                                                사용자가 쇼핑몰로 유입된 상위 5개 경로를 소스/매체 별로 보여줍니다. etc 항목은 그 외 모든 경로를
+                                                말합니다.</i></span></p>
+                                </div>
+                                <div class="contBox">
+                                    <div class="optionBox">
+                                        <p>조회기간</p>
+                                        <div class="selectDiv">
+                                            <div class="selected">
+                                                <p>2023-07-31 ~ 2023-08-30 </p>
+                                            </div>
+                                            <div class="selectList">
+                                                <ul>
+                                                    <li>오늘</li>
+                                                    <li>어제</li>
+                                                    <li>이번달</li>
+                                                    <li>전월</li>
+                                                    <li>전전월</li>
+                                                    <li>최근 7일</li>
+                                                    <li>최근 30일</li>
+                                                    <li>최근 90일</li>
+                                                    <li>최근 180일</li>
+                                                    <li>사용자 선택</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="AnalysisCon">
+                                        <div class="tabArea">
+                                            <ul>
+                                                <li class="on"><a href="">소스별</a></li>
+                                                <li><a href="">매체별</a></li>
+                                                <li><a href="">소스/매체</a></li>
+                                            </ul>
+                                        </div>
+                                        <!--//tabArea end-->
+                                        <div class="tabListArea">
+                                            <div class="listArea show">
+                                                <div class="chartArea">
+                                                    <!-- chart영역
+                                                facebook #5b6bd4, kakao #f8e259, mobon #85b74e, organic #ffb85b,
+                                                direct #f85959;
+                                                width:548px;,height:299px
+                                            -->
+                                                </div>
+                                            </div>
+                                            <div class="listArea">
+                                                <div class="chartArea">
+                                                    <!-- chart영역
+                                            -->
+                                                </div>
+                                            </div>
+                                            <div class="listArea">
+                                                <div class="chartArea">
+                                                    <!-- chart영역
+                                            -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--//tabListArea end-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_platform">
+                            <div class="platformBox dataday">
+                                <div class="titBox">
+                                    <p>플랫폼별 사용자<span class="iBox"><i class="iMark"></i><i class="iMarkHover">사용자의 수치 및
+                                                전체 비율을 디바이스 및 OS 별로 보여줍니다. </i></span></p>
+                                </div>
+                                <div class="contBox">
+                                    <div class="optionBox">
+                                        <p>조회기간</p>
+                                        <div class="selectDiv">
+                                            <div class="selected">
+                                                <p>2023-07-31 ~ 2023-08-30 </p>
+                                            </div>
+                                            <div class="selectList">
+                                                <ul>
+                                                    <li>오늘</li>
+                                                    <li>어제</li>
+                                                    <li>이번달</li>
+                                                    <li>전월</li>
+                                                    <li>전전월</li>
+                                                    <li>최근 7일</li>
+                                                    <li>최근 30일</li>
+                                                    <li>최근 90일</li>
+                                                    <li>최근 180일</li>
+                                                    <li>사용자 선택</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="platCon">
+                                        <div class="chartArea">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph"
+                                                style="width: 100%; height: 430px; border:1px solid #fff;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_box end-->
+                    <section class="sec_integrateReport">
+                        <div class="box_integrateReport">
+                            <div class="titBox">
+                                <p>통합 리포트</p>
+                            </div>
+                            <div class="contBox">
+                                <div class="optionBox">
+                                    <button type="button" class="btn_excel">엑셀</button>
+                                    <select name="" id="">
+                                        <option value="">50개씩 보기</option>
+                                    </select>
+                                </div>
+                                <div class="tableBox">
+                                    <div class="tableWrap">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="sorting">기간</th>
+                                                    <th class="sorting_asc">사용자<span class="iBox"><i
+                                                                class="iMark"></i><i class="iMarkHover">특정 기간의 순 방문자
+                                                                수입니다. 조회 기간 단위(일/주/월) 내에 여러 번 방문한 방문자는 1명으로 집계합니다.
+                                                            </i></span></th>
+                                                    <th class="sorting_desc">실행<span class="iBox"><i
+                                                                class="iMark"></i><i class="iMarkHover">말풍선 테스트
+                                                                문구</i></span></th>
+                                                    <th class="sorting">삭제</th>
+                                                    <th class="sorting">매출</th>
+                                                    <th class="sorting">매출<span class="iBox"><i class="iMark"></i><i
+                                                                class="iMarkHover">말풍선 테스트 문구 </i></span></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Total</th>
+                                                    <th>
+                                                        <p class="up">108.1%</p>913
+                                                    </th>
+                                                    <th>
+                                                        <p class="up">108.1%</p>59,131
+                                                    </th>
+                                                    <th>
+                                                        <p class="down">2.5%</p>113
+                                                    </th>
+                                                    <th>
+                                                        <p class="up">308.1%</p>
+                                                        1,555,915,111,222,333,444,555,666,777,888,999,000,111,222
+                                                    </th>
+                                                    <th>
+                                                        <p class="up">308.1%</p>
+                                                        1,555,915,111,222,333,444,555,666,777,888,999,000,111,222
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-30 (일)</td>
+                                                    <td>41 (4.97%)</td>
+                                                    <td>4,5631 (15.97%)</td>
+                                                    <td>7 (10.52%)</td>
+                                                    <td>00:11:42</td>
+                                                    <td>00:11:42</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="paging">
+                                        <ul>
+                                            <li class="prev-list"><a href="javascript:pageLink(0);"></a></li>
+                                            <li class="prev"><a href="javascript:pageLink(0);"></a></li>
+                                            <li class="on"><a href="javascript:pageLink(1);">1</a></li>
+                                            <li><a href="javascript:pageLink(2);">2</a></li>
+                                            <li><a href="javascript:pageLink(3);">3</a></li>
+                                            <li><a href="javascript:pageLink(4);">4</a></li>
+                                            <li><a href="javascript:pageLink(5);">5</a></li>
+                                            <li><a href="javascript:pageLink(6);">6</a></li>
+                                            <li><a href="javascript:pageLink(7);">7</a></li>
+                                            <li><a href="javascript:pageLink(8);">8</a></li>
+                                            <li><a href="javascript:pageLink(9);">9</a></li>
+                                            <li><a href="javascript:pageLink(10);">10</a></li>
+                                            <li class="next"><a href="javascript:pageLink(10+1);"></a></li>
+                                            <li class="next-list"><a href="javascript:pageLink(10+1);"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//sec_integrateReport end-->
+                </div>
+                <!--//content end-->
+            </div>
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g data-name="타원 154" style="fill:none;stroke:#f26969">
+        <circle cx="10" cy="10" r="10" style="stroke:none"/>
+        <circle cx="10" cy="10" r="9.5" style="fill:none"/>
+    </g>
+    <text transform="translate(10 15)" style="fill:#f27272;font-size:13px;font-family:NotoSansCJKkr-Regular,Noto Sans CJK KR"><tspan x="-5.98" y="0">상</tspan></text>
+</svg>

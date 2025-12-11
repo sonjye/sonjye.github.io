@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+    <!-- modalTest.css 는 퍼블확인용이므로 개발시 제외하고 사용하시면 됩니다. -->
+    <link type="text/css" rel="stylesheet" href="../../css/modalTest.css">
+</head>
+
+<body>
+    <!-- modal 디자인을 한눈에 보기 위해 제작한 페이지 입니다. -->
+    <div class="wrap typeC">
+        <!-- 빠른 소스 확인을 위해 header, navigation 태그 제거하였음 -->
+        <!-- 모달 닫아야 하는 버튼에 modalClose 추가 -->
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+        </header>
+        <nav class="navigation">
+        </nav>
+        <section class="container">
+            <div class="modal">
+                <strong>COMMON</strong>
+                <p>공통 > alert </p>
+                <div class="modalWrap md_alert" id="md_alert">
+                    <div class="modalContainer">
+                        <div class="modalTitle">
+                            <p>제목</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div>
+                                <strong>중요한 내용입니다.</strong>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>알림창 공통 내용입니다.</p>
+                                <p>최대 다섯줄까지 사용 권장합니다.</p>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <!-- 버튼 한개 사용 가능 -->
+                            <button type="button" class="confirm">확인</button>
+                            <button type="button" class="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // md_alert end-->
+                <strong>LAB</strong>
+                <p>LAB > 랭킹분석 상세 (md_rankAnalysisDetail)</p>
+                <div class="modalWrap md_rankAnalysisDetail" id="md_rankAnalysisDetail">
+                    <div class="modalContainer">
+                        <div class=" modalTitle">
+                            <p>랭킹분석 상세</p>
+                            <button class="close modalClose"></button>
+                        </div>
+                        <div class="modalContent">
+                            <div class="tit">
+                                <p>베니토 (benito.co.kr)</p>
+                            </div>
+                            <div class="cont">
+                                <section class="sec_rankAnalysisDetail">
+                                    <div class="box_category">
+                                        <div class="tit">
+                                            <p>카테고리 순위</p>
+                                            <p>(05-01 ~ 05-07)</p>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="box">
+                                                <div>
+                                                    <p>쇼핑</p>
+                                                </div>
+                                                <div>
+                                                    <p>265</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div>
+                                                    <p>여성패션</p>
+                                                </div>
+                                                <div>
+                                                    <p>65</p>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <div>
+                                                    <p>모던시크</p>
+                                                </div>
+                                                <div>
+                                                    <p>5</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box_feature dimDot">
+                                        <div class="tit">
+                                            <p>유저 특성</p>
+                                        </div>
+                                        <div class="cont">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 140px; border:1px solid #fff;"></div>
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph" style="height: 140px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="box_rank">
+                                        <div class="tit">
+                                            <p>랭킹 추이</p>
+                                            <p>(여성패션 기준)</p>
+                                        </div>
+                                        <div class="cont">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph"
+                                                style="width: 100%; height: 140px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="box_interest dimCircle">
+                                        <div class="tit">
+                                            <p>유저 관심사</p>
+                                        </div>
+                                        <div class="cont">
+                                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                            <div class="graph"
+                                                style="width: 100%; height: 140px; border:1px solid #fff;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="box_siteAnalysis">
+                                        <div class="tit">
+                                            <p>사이트 분석</p>
+                                            <p>(05-01 ~ 05-07)</p>
+                                        </div>
+                                        <div class="cont">
+                                            <div class="statsBox">
+                                                <div class="box on">
+                                                    <div class="titBox">
+                                                        <p>방문자수<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>2,414,845</p>
+                                                        <p class="zero">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>PV<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>2,414,845</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>체류시간<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>11:00</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>방문당 PV<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>85</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>반송률(이탈율)<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>10%</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>신규가입수<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>12.5</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>구매건수<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>52.8</p>
+                                                        <p class="up">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>신규 구매건수<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>12.9</p>
+                                                        <p class="down">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>총매출(백분위)<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>95</p>
+                                                        <p class="down">5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="titBox">
+                                                        <p>신규매출(비율)<span class="iBox"><i class="iMark"></i><i
+                                                                    class="iMarkHover">말풍선테스트입니다. </i></span></p>
+                                                    </div>
+                                                    <div class="contBox">
+                                                        <p>95%</p>
+                                                        <p class="down">5</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="graphBox">
+                                                <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                                                <div class="graph" style="height: 350px; border:1px solid #fff;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalDim"></div>
+                </div>
+                <!-- // md_rankAnalysisDetail end-->
+                <div class="title">
+                    <p>모달 </p>
+                </div>
+                <div class="content">
+                </div>
+            </div>
+            <footer class="footer">
+                <h2 class="hide"> 하단 회사 정보 영역 </h2>
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved. </p>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

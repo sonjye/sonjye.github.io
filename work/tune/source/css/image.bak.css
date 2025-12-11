@@ -1,0 +1,11 @@
+/*
+File   : image.scss
+Date   : 2024.01.15
+*/
+.typeB {
+  --ico_userInfo: url(../image/component/icoB_userInfo.svg) no-repeat center;
+}
+
+.typeC {
+  --ico_userInfo: url(../image/component/ico_userInfo.svg) no-repeat center;
+}

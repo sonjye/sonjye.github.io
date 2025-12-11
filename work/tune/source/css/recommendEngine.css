@@ -1,0 +1,527 @@
+/*-------------------------------------------------------------------------------------------------------------
+    File   : recommendEngine
+    Date   : 2021.04.22
+/*------------------------------------------------------------------------------------------------------------*/
+/********** recommendEngine common css ***********/
+/********** productAnalysis_navigation **********/
+.navigation > ul > li > a i.ico_nav_recommendEngine {
+  background-image: url("../img/menu/ico_recommendEngine_off.svg");
+}
+
+.navigation > ul > li > ul {
+  display: none;
+}
+
+.navigation > ul > li > ul.active {
+  display: block;
+}
+
+.navigation > ul > li > ul.active a.on {
+  color: #85b74e;
+}
+
+.navigation > ul > li.active > a i.ico_nav_recommendEngine {
+  background-image: url("../img/menu/ico_recommendEngine_on.svg");
+}
+
+.recommendEngine_statistic {
+  /* icon */
+  /* areaTab */
+  /* tabBOX */
+  /* optionBox */
+}
+
+.recommendEngine_statistic i.btn_excel,
+.recommendEngine_statistic button.btn_excel,
+.recommendEngine_statistic a.btn_excel {
+  position: relative;
+  display: inline-block;
+  min-width: 102px;
+  height: 30px;
+  padding-left: 32px;
+  text-align: left;
+  color: var(--mainColor);
+  border-radius: 2px;
+  border: 1px solid var(--mainColor);
+  background-color: #fff;
+}
+
+.recommendEngine_statistic i.btn_excel:before,
+.recommendEngine_statistic button.btn_excel:before,
+.recommendEngine_statistic a.btn_excel:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  left: 13px;
+  background: url("../img/icon_exel.svg") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+.recommendEngine_statistic .areaTab {
+  border-bottom: 1px solid var(--mainColor);
+}
+
+.recommendEngine_statistic .areaTab ul {
+  font-size: 0;
+}
+
+.recommendEngine_statistic .areaTab ul li {
+  display: inline-block;
+  margin-left: 4px;
+  line-height: 22px;
+}
+
+.recommendEngine_statistic .areaTab ul li:first-child {
+  margin-left: 0;
+}
+
+.recommendEngine_statistic .areaTab ul li.on a {
+  color: #fff;
+  border: 1px solid var(--mainColor);
+  background-color: var(--mainColor);
+}
+
+.recommendEngine_statistic .areaTab ul li a {
+  position: relative;
+  display: inline-block;
+  min-width: 220px;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 2.6;
+  color: #999;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #e9e9e9;
+  border-bottom: none;
+  font-family: "NotoSansM";
+  background-color: #fff;
+}
+
+.recommendEngine_statistic .listArea {
+  display: none;
+}
+
+.recommendEngine_statistic .listArea.show {
+  display: block;
+}
+
+.recommendEngine_statistic .tabBox > ul > li {
+  position: relative;
+  display: inline-block;
+  float: left;
+  top: 1px;
+  left: 0;
+  min-width: 90px;
+  min-height: 34px;
+  margin-right: 2px;
+  padding: 2px 10px;
+  text-align: center;
+  color: #777;
+  border: 1px solid #c9c9c9;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.recommendEngine_statistic .tabBox > ul > li.on {
+  position: relative;
+  color: #6aaa22;
+  border: 1px solid var(--mainColor);
+  border-bottom: 1px solid #fff;
+  background-color: #fff;
+  font-family: "NotoSansB";
+  z-index: 1;
+}
+
+.recommendEngine_statistic .tabBox > ul > li.disabled {
+  color: #979797;
+  border: 1px solid #c9c9c9;
+  background-color: #cdcdcd;
+}
+
+.recommendEngine_statistic .tabBox > ul > li.disabled.on {
+  color: #6aaa22;
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.recommendEngine_statistic .optionBox {
+  margin-bottom: 0;
+  padding-bottom: 25px;
+  /* box_radio */
+  /* box_button */
+}
+
+.recommendEngine_statistic .optionBox .box_radio {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .optionBox .box_radio h4 {
+  display: inline-block;
+  min-width: 55px;
+  padding: 0;
+  font-size: 15px;
+  color: #2a2a2a !important;
+  background-color: transparent;
+  font-family: "NotoSansR";
+}
+
+.recommendEngine_statistic .optionBox .box_radio > div {
+  display: inline-block;
+  padding: 4px 0 0 25px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.recommendEngine_statistic .optionBox .box_radio > div input[type="radio"] + label {
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+.recommendEngine_statistic .optionBox .box_button {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .optionBox .calendarBox .buttonBox button[type="submit"] {
+  width: 68px;
+  height: 30px;
+  margin-left: 15px;
+  font-size: 14px;
+  vertical-align: middle;
+  color: #fff;
+  border-radius: 2px;
+  background-color: var(--mainColor);
+}
+
+.recommendEngine_statistic .optionBox .selectBox select {
+  outline: none;
+}
+
+/********** recommendEngine each css **********/
+/* 01.recommendEngine_statistic */
+.recommendEngine_statistic .cont {
+  /* areaStatistic */
+}
+
+.recommendEngine_statistic .cont .tabListArea {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div {
+  /* optionBox */
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox {
+  margin-top: 10px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox p {
+  display: inline-block;
+  margin-right: 25px;
+  font-size: 15px;
+  vertical-align: baseline;
+  font-family: "NotoSansM";
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .radioBox {
+  display: inline-block;
+  margin-right: 60px;
+  vertical-align: baseline;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .radioBox > div {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .radioBox label {
+  top: 8px;
+  margin-left: 30px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .radioBox label:nth-child(2) {
+  margin-left: 0;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .selectBox {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .selectBox select {
+  min-width: 180px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .calendarBox {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .calendarBox .calendar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.recommendEngine_statistic .cont .tabListArea > div > .optionBox .calendarBox .buttonBox {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .cont .areaStatistic {
+  /* areaChart */
+  /* areaTable */
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* blockBox */
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox {
+  width: 50%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  /* tit */
+  /* tabBox */
+  /* chartArea */
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox:nth-child(2) {
+  margin-left: 20px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox:nth-child(2) .optionBox {
+  position: relative;
+  width: auto;
+  display: inline-block;
+  bottom: 2px;
+  margin-left: 15px;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox:nth-child(2) .optionBox .selectBox {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox:nth-child(2) .optionBox .buttonBox {
+  display: inline-block;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox:nth-child(2) .optionBox .buttonBox button {
+  min-width: 70px;
+  min-height: 30px;
+  margin-left: 10px;
+  padding: 6px 13px;
+  vertical-align: middle;
+  border-radius: 2px;
+  color: var(--mainColor);
+  border: 1px solid var(--mainColor);
+  background-color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .tit {
+  min-height: 40px;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .tit strong {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "NotoSansM";
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .tabBox {
+  margin-top: 10px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea {
+  clear: both;
+  position: relative;
+  min-height: 420px;
+  border: 1px solid var(--mainColor);
+  background-color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div {
+  display: none;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div.show {
+  display: block;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox {
+  padding: 16px 0;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.LS dt {
+  background-color: #a9a9a9;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.CR dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.CT dt {
+  background-color: #3cb371;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.VT dt {
+  background-color: #9932cc;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.I_C dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.IC dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.CB dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.I_S dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.IS dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.UB dt {
+  background-color: #87cefa;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.GA dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.SS dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.CC dt,
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl.AR dt {
+  background-color: #ffa500;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl dt {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 1px 0 15px;
+  background-color: #a9a9a9;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .labelBox dl dd {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaChart .blockBox .chartArea > div .chartBox {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable {
+  position: relative;
+  display: block;
+  margin-top: 30px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tabBox {
+  position: relative;
+  display: inline-block;
+  height: 38px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tabBox li {
+  min-width: 110px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .buttonBox {
+  float: right;
+  bottom: 4px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableBox {
+  position: relative;
+  top: -4px;
+  padding: 0;
+  border-radius: 0;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap {
+  padding: 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: none;
+  overflow-y: hidden;
+  border-radius: 0;
+  border: 1px solid #b4d490;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap.show {
+  display: block;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table {
+  position: relative;
+  width: 100%;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table thead {
+  background-color: #cae2af;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table thead th {
+  padding: 9px 10px;
+  min-height: 36px;
+  border: none;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th,
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody td {
+  padding: 10px 11px;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th {
+  border: 1px solid #eaeaea;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th:nth-child(1) {
+  border-left: none;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th:nth-child(2) {
+  text-align: left;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.LS {
+  background-color: #a9a9a9;
+  color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.CR, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.CT {
+  background-color: #3cb371;
+  color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.VT {
+  background-color: #9932cc;
+  color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.I_C, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.IC, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.CB, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.I_S, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.IS, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.UB {
+  background-color: #87cefa;
+  color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.GA, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.SS, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.CC, .recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody th.AR {
+  background-color: #ffa500;
+  color: #fff;
+}
+
+.recommendEngine_statistic .cont .areaStatistic .areaTable .tableWrap table tbody td {
+  border: 1px solid #eaeaea;
+  text-align: right;
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!-- 대시보드 -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">대시보드</a></li>
+                    <li><a href="javascript:void(0);">상품분석</a></li>
+                    <li><a href="javascript:void(0);">CDP</a></li>
+                    <li><a href="javascript:void(0);">LAB</a></li>
+                    <li><a href="javascript:void(0);">키워드센터</a></li>
+                    <li><a href="javascript:void(0);">트렌드</a></li>
+                    <li><a href="javascript:void(0);">스크립트관리</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <input type="checkbox" name="chk_theme" id="chk_theme">
+                    <label for="chk_theme"></label>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>대시보드</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </nav>
+        <section class="container">
+            <div class="tune_dashboard">
+                <div class="title">
+                    <p>대시보드</p>
+                </div>
+                <div class="content">
+                    <!-- 공지사항 -->
+                    <section class="noticeBox">
+                        <div>
+                            <dl>
+                                <dt>공지사항</dt>
+                                <dd>
+                                    <p>CRM 분석 서비스가 업그레이드 되었습니다.길고기이이이인 제목입니다.아직도모자라는 길이라니이이이</p>
+                                    <span>2021-03-05</span>
+                                </dd>
+                                <dd>
+                                    <p>AI 모비박스 서비스 캠페인이 출시 되었습니다.</p>
+                                    <span>2021-03-05</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <p>이용 문의: 070-4672-2303</p>
+                        </div>
+                    </section>
+                    <!--유저 퍼널 분석 -->
+                    <section class="userInfoBox">
+                        <div class="box">
+                            <div class="tit">
+                                <p>유저 정보</p>
+                            </div>
+                            <div class="cont">
+                                <div class="leftBox">
+                                    <dl>
+                                        <dt>AU_ID :</dt>
+                                        <dd>21,154,012,000,000,000</dd>
+                                        <dd>(<span class="up">↑154,007 </span>)</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>MO_ID :</dt>
+                                        <dd>1</dd>
+                                        <dd>(<span class="up">↑17 </span>)</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>ADID :</dt>
+                                        <dd>121,154</dd>
+                                        <dd>(<span class="down">↓1 </span>)</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>USER ID :</dt>
+                                        <dd>25,000</dd>
+                                        <dd>(<span class="down">↓100 </span>)</dd>
+                                    </dl>
+                                </div>
+                                <div class="rightBox">
+                                    <dl>
+                                        <dt>크로스 디바이스 비율</dt>
+                                        <dd>72%</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>우리 사이트 방문자들은,<br>
+                                <strong><span>20대,30대</span>의 <span>여성</span><br>방문 비율<span>(85%)</span>이</strong><br>
+                                가장 많으며,<br><strong>'사회문화','방송연예'</strong><br> 분야에 관심이 많습니다. </p>
+                        </div>
+                        <div class="box">
+                            <div class="tit">
+                                <p>캠페인</p>
+                            </div>
+                            <ul>
+                                <li>캠페인 생성 수<span>1,150,123,123,456</span></li>
+                                <li>캠페인 운영 수<span>15</span></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <!-- 그래프 -1 -->
+                    <section class="keywordChartBox">
+                        <div class="tit">
+                            <p>전환 키워드 추이</p>
+                        </div>
+                        <div class="mainTopchart">
+                            <div class="chartsInfo">
+                                <dl>
+                                    <dt class="infoTitle">유입키워드</dt>
+                                    <dd class="contentsAll">
+                                        <P>전체</P>
+                                        <P>100,000</P>
+                                    </dd>
+                                    <dd class="contentsAverage">
+                                        <P>평균</P>
+                                        <P>1,000</P>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="chartsInfo">
+                                <dl>
+                                    <dt class="infoTitle">전환키워드</dt>
+                                    <dd class="contentsAll">
+                                        <P>전체</P>
+                                        <P>100,000</P>
+                                    </dd>
+                                    <dd class="contentsAverage">
+                                        <P>평균</P>
+                                        <P>1,000</P>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="chartArea">
+                                <ul class="oneCharts">
+                                    <li class="key_chartSection01">
+                                        <!--차트영역-->
+                                        <div class="chartBox" style="border:1px solid #dedede;"> 차트영역 </div>
+                                        <!--차트영역-->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 전환 키워드 분석 -->
+                    <section class="keywordAnalyseBox">
+                        <div class="tit">
+                            <p>전환 키워드 분석</p>
+                        </div>
+                        <div class="chartArea">
+                            <!--// graph 클래스의 속성은 그래프 위치를 확인하기 위해 추가하였음 -->
+                            <div class="graph" style="height: 470px; border:1px solid #e5e5e5;"></div>
+                        </div>
+                    </section>
+                    <!--//keywordAnalyseBox end-->
+                    <section class="recommendChartBox">
+                        <div class="leftBox">
+                            <div class="tit">
+                                <p>추천 타겟팅 현황</p>
+                            </div>
+                            <div class="tableBox">
+                                <div class="tableWrap">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>타겟팅명</th>
+                                                <th>추천재명</th>
+                                                <th>전환율</th>
+                                                <th>CTR</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>투데이카트</td>
+                                                <td class="LS">보완재 추천_AR</td>
+                                                <td>3.12%(10개)</td>
+                                                <td>1.01(20회)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>투데이카트</td>
+                                                <td class="LS">보완재 추천_AR</td>
+                                                <td>3.12%(10개)</td>
+                                                <td>1.01(20회)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>투데이카트</td>
+                                                <td class="VT">보완재 추천_AR</td>
+                                                <td>3.12%(10개)</td>
+                                                <td>1.01(20회)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="I_C">&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rightBox">
+                            <div class="tit">
+                                <p>추천 커버리지 현황</p>
+                                <p>(전일)</p>
+                            </div>
+                            <div class="contBox">
+                                <div class="tab">
+                                    <ul>
+                                        <li class="on">PC</li>
+                                        <li>Mobile</li>
+                                    </ul>
+                                </div>
+                                <!--//tabBox end-->
+                                <div class="tabView">
+                                    <div class="tabViewList show">
+                                        <div class="chartArea">
+                                            <strong>대체재 전체 커버리지</strong>
+                                            <div class="chartBox"
+                                                style="width: 150px; height: 150px; border: 1px solid #000; padding-top: 67px;">
+                                                준비중입니다.</div>
+                                            <p> 상품 전체 기준 5,000 중 3,000개<br> 최소 : 10% 최대: 50% 평균 : 30% 최소 : 10% </p>
+                                        </div>
+                                        <div class="chartArea">
+                                            <strong>보완재 전체 커버리지</strong>
+                                            <div class="chartBox"
+                                                style="width: 150px; height: 150px; border: 1px solid #000; padding-top: 67px;">
+                                                준비중입니다.</div>
+                                            <p> 상품 전체 기준 5,000 중 3,000개<br> 최소 : 10% 최대: 50% 평균 : 30% 최소 : 10% </p>
+                                        </div>
+                                    </div>
+                                    <div class="tabViewList">
+                                        <div class="chartArea">
+                                            <strong>대체재 전체 커버리지</strong>
+                                            <div class="chartBox"
+                                                style="width: 200px; height: 150px; border: 1px solid #000; padding-top: 80px;">
+                                                준비중입니다.</div>
+                                            <p> 상품 전체 기준 5,000 중 3,000개<br> 최소 : 10% 최대: 50% 평균 : 30% 최소 : 10% </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--//recommendChartBox end-->
+                </div>
+                <!--//contDashboard end-->
+            </div>
+            <footer class="footer">
+                <p>
+                    <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                        한신아이티타워 501호~504호</span>
+                </p>
+                <p>
+                    <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                        mobsense@enliple.com</span>
+                </p>
+                <p>Copyright ⓒ MOBON All rights reserved.</p>
+            </footer>
+            <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

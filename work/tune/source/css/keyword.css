@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/*---------------------------------
+    File  : keyword.scss
+    Date  : 2023.05.02
+    menu  : 키워드센터
+/*---------------------------------*/
+.typeB .tune_keywordDashboard {
+  /* sec_visitorAnalysis */
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis {
+  padding: 25px 36px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .box_tit {
+  margin: 0 14px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .box_tit p {
+  font-size: 20px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .box_tit p span {
+  font-family: "NotoSansM";
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .box_tit p span:nth-child(1) {
+  color: #416eff;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .box_tit p span:nth-child(2) {
+  color: #f06060;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box {
+  position: relative;
+  min-width: 480px;
+  min-height: 190px;
+  width: 32.5%;
+  margin: 10px 7px;
+  padding: 30px;
+  background-color: #fbfbfb;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box:nth-child(3n) {
+  margin-right: 0;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div:nth-child(1) {
+  position: absolute;
+  z-index: 10;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div:nth-child(1) p {
+  font-size: 14px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div:nth-child(1) span {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 26px;
+  font-family: "NotoSansM";
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div:nth-child(1) span._innerQuery {
+  min-width: 420px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 45px;
+}
+
+.typeB .tune_keywordDashboard .cont section.sec_visitorAnalysis .box_analysis .grp_graph .box div:nth-child(2) {
+  width: 100%;
+  height: 130px;
+}
+
+.typeB .tune_keywordDashboard .cont section.optionBox {
+  margin: 30px 0 0 0;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart div.red {
+  background: #f85479;
+  margin-left: 70px;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart div.blue {
+  background: #2e7ce1;
+  margin-left: 20px;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo {
+  float: left;
+  width: 293px;
+  height: 80px;
+  margin: 15px 0 42px 0;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl {
+  font-size: 10px;
+  font-family: "NotoSansR";
+  color: #fff;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dt {
+  position: relative;
+  margin: 14px 0 0 14px;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dt::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 1.5px;
+  top: 16px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dd > p {
+  float: left;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dd > p:first-child {
+  padding: 6px 8px 0 0;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dd > p:last-child {
+  font-size: 18px;
+  font-family: "NotoSansM";
+  font-weight: 500;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dd {
+  margin: 24px 0 0 14px;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .chartsInfo dl dd:last-child > p:first-child {
+  padding-left: 67px;
+}
+
+.typeB .tune_keywordDashboard .mainTopchart .key_chartSection01 .chartBox {
+  clear: both;
+  height: 210px;
+  margin: 0 55px 25px 70px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0 15px;
+  overflow-x: auto;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div {
+  width: 20%;
+  min-width: 320px;
+  height: 500px;
+  margin: 15px 15px 35px 15px;
+  background: #fff;
+  border: solid 5px #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop {
+  width: 100%;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop div,
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop a {
+  display: block;
+  float: left;
+  font-family: "NotoSansR";
+  height: 30px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop div:first-child {
+  width: 70%;
+  font-family: "NotoSansB";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.8px;
+  padding: 29px 0 29px 27px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop a {
+  width: 30%;
+  text-align: right;
+  padding: 35px 13px 29px 0px;
+  color: #010101;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop div:nth-child(3),
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop div:nth-child(4) {
+  width: 124px;
+  background: #cae2af;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 2;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  color: #010101;
+  margin: 31px 7px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordTop div:nth-child(3) {
+  margin-left: 22px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea {
+  position: relative;
+  overflow-y: auto;
+  width: 295px;
+  height: 307px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea ol {
+  counter-reset: item;
+  list-style-type: none;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea li {
+  display: block;
+  font-family: "NotoSansR";
+  clear: both;
+  padding-bottom: 31px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea li p {
+  float: left;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea li p:first-child {
+  width: 130px;
+}
+
+.typeB .tune_keywordDashboard .keywordTop50 > div .keywordListarea li:before {
+  content: counter(item) "  ";
+  counter-increment: item;
+  font-family: "NotoSansM";
+  width: 25px;
+  padding-left: 54px;
+  float: left;
+}
+
+.typeB .tune_keywordDashboard .userRtio {
+  width: 100%;
+  height: 220px;
+  margin: 57px 0;
+}
+
+.typeB .tune_keywordDashboard .userRtio li {
+  height: 220px;
+  text-align: center;
+  border: 1px solid #e1e1e1;
+}

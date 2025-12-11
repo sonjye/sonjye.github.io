@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="49" viewBox="0 0 38 49">
+    <defs>
+        <clipPath id="kz0xuo0aia">
+            <ellipse data-name="타원 652" cx="19" cy="19.062" rx="19" ry="19.062" style="fill:#fff"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 6941" transform="translate(-565.062 -122.804)">
+        <path data-name="패스 12309" d="m578.681 183.758-8.108 12.562-1.521-2.112-2.294-3.189-3.851-.778-2.551-.517 8.108-12.562z" transform="translate(5.511 -24.515)" style="fill:#8471e2"/>
+        <path data-name="패스 12310" d="m580.756 184.562-7.593 11.764-2.294-3.189-3.851-.778 7.593-11.764z" transform="translate(1.4 -26.633)" style="fill:#4c4199"/>
+        <path data-name="패스 12311" d="m608.215 183.758 8.108 12.562 1.521-2.112 2.295-3.189 3.851-.778 2.551-.517-8.108-12.562z" transform="translate(-24.283 -24.515)" style="fill:#8471e2"/>
+        <path data-name="패스 12312" d="m613.533 184.562 7.593 11.764 2.294-3.189 3.851-.778-7.593-11.759z" transform="translate(-27.565 -26.633)" style="fill:#4c4199"/>
+        <ellipse data-name="타원 651" cx="19" cy="19.062" rx="19" ry="19.062" transform="translate(565.062 122.804)" style="fill:#ebebeb"/>
+        <g data-name="그룹 6912">
+            <g data-name="그룹 6911" transform="translate(565.062 122.804)" style="clip-path:url(#kz0xuo0aia)">
+                <path data-name="패스 12427" d="M0 0h1.581l.069 50.16H.069z" transform="rotate(28.95 21.58 57.265)" style="fill:#fff"/>
+                <path data-name="패스 12428" d="m0 0 4.395.006.069 50.16-4.395-.006z" transform="rotate(28.95 20.204 41.013)" style="fill:#fff"/>
+            </g>
+        </g>
+        <path data-name="패스 12422" d="M11.875 0A11.94 11.94 0 0 1 23.75 12a11.94 11.94 0 0 1-11.875 12A11.94 11.94 0 0 1 0 12 11.94 11.94 0 0 1 11.875 0z" transform="translate(572.187 129.93)" style="fill:#dcdcdc"/>
+        <path data-name="패스 12313" d="M605.413 141.466a12 12 0 0 0-16.893 16.893 12.006 12.006 0 1 1 16.893-16.893z" transform="translate(-12.032 -7.127)" style="fill:#afafaf"/>
+        <text data-name="2" transform="translate(578.617 148.905)" style="fill:#606060;font-size:20px;font-family:NotoSansCJKkr-Black,Noto Sans CJK KR;font-weight:800"><tspan x="0" y="0">2</tspan></text>
+    </g>
+</svg>

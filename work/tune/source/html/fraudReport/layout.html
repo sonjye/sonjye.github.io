@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta name="description" content="MOBTUNE" />
+    <meta name="keywords" content="MOBTUNE" />
+    <meta name="author" content="인라이플" />
+    <title>MOBTUNE</title>
+    <link type="image/ico" rel="shortcut icon" href="../../image_v3/favicon/favicon.png">
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="../../js/ui_v3.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/lib/daterangepicker_popup.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/lib/jquery.timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common_v3.css">
+</head>
+
+<body>
+    <!--// Fraud 보고서 > 대시보드 -->
+    <div class="wrap typeB">
+        <header class="header">
+            <h1><a href="javascript:void(0);">모비튠</a></h1>
+            <nav class="mainNav">
+                <ul>
+                    <li class="on"><a href="javascript:void(0);">Fraud 보고서</a></li>
+                </ul>
+            </nav>
+            <div class="userinfo">
+                <div class="store"><a href="#">STORE</a></div>
+                <div class="moveMobon"><button type="button" class="mobon">모비온 이동하기</button></div>
+                <div class="name"><strong>에비블루</strong>님</div>
+                <div class="userMenu">
+                    <a href="javascript:void(0);" class="btns"><i></i><span>정보수정, 로그아웃</span></a>
+                    <ul>
+                        <li><button>정보수정</button></li>
+                        <li class="logout"><button>로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="authTitle">
+                <h2>데이터매니저</h2>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);"><i class="dashboard"></i><span>대시보드</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><i class="dataCollect"></i><span>데이터 수집 관리</span></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="tune_dataManagerDashboard">
+                <div class="title">
+                    <p>대시보드</p>
+                </div>
+                <div class="content">
+                    <section class="sec_search">
+                        <div class="selectDiv">
+                            <div class="selected">
+                                <p>www.mobon.co.kr</span>
+                                </p>
+                            </div>
+                            <ul>
+                                <li class="active">www.mobon.co.kr</span>
+                                </li>
+                                <li>http://www.dabagirl.com</li>
+                                <li>http://www.dabalab.com</li>
+                                <li class="create">신규 만들기</li>
+                                <li class="domainInfo">도메인 정보</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="sec_notice">
+                        <div class="box_notice">
+                            <div class="tit">
+                                <p>공지사항</p>
+                            </div>
+                            <div class="cont">
+                                <div>
+                                    <p>[CDP]캠페인 연령대 구간 변경 안내페인 연령대 구간 변경 안내페인 연령대 구간 변경 안내페인 연령대 구간 변경 안내</p>
+                                    <p>2021-03-05</p>
+                                </div>
+                                <div>
+                                    <p>[CDP]캠페인 연령대 구간 변경캠페인 연령대 구간 변경캠페인 연령대 구간 변경캠페인 연령대 구간 변경 안내</p>
+                                    <p>2021-03-05</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_event">
+                            <p>[알림] 추가 수집 가능한 이벤트가 있습니다.</p>
+                            <button type="button" class="eventCreate">이벤트 생성 바로가기</button>
+                        </div>
+                    </section>
+                    <!--// section -->
+                    <!-- 데이터 수집 현황, 데이터 제공 현황 -->
+                    <section class="sec_dataStatus">
+                        <div class="box_collectStatus">
+                            <div class="tit">
+                                <p>데이터 수집 현황</p>
+                                <p>Last updated 2023-05-03 00:00</p>
+                            </div>
+                            <div class="cont">
+                                <div class="box">
+                                    <p>수집 이벤트 수</p>
+                                    <p>8개</p>
+                                </div>
+                                <div class="box">
+                                    <p>전체 수집 데이터 건 수</p>
+                                    <p>2,159,021건</p>
+                                </div>
+                                <div class="box">
+                                    <p>일 평균 데이터 수집 건 수</p>
+                                    <p>213,029건</p>
+                                </div>
+                                <div class="box">
+                                    <p>실시간 데이터 수집량(2023-10-10 17시 기준)</p>
+                                    <p>107,257건 <span class="down">전일 동시간 대비 12%하락</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_provideStatus">
+                            <div class="tit">
+                                <p>데이터 제공 현황</p>
+                                <p>Last updated 2023-05-03 00:00</p>
+                            </div>
+                            <div class="cont">
+                                <div class="box">
+                                    <p>제공 이벤트 수</p>
+                                    <p>8개</p>
+                                </div>
+                                <div class="box">
+                                    <p>전체 제공 데이터 건 수</p>
+                                    <p>2,159,021건</p>
+                                </div>
+                                <div class="box">
+                                    <p>일 평균 데이터 제공 건 수</p>
+                                    <p>213,029건</p>
+                                </div>
+                                <div class="box">
+                                    <p>실시간 데이터 제공량(2023-10-10 17시 기준)</p>
+                                    <p>107,257건 <span class="up">전일 동시간 대비 12%상승</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// section end -->
+                    <!-- 이벤트 수집 현황, 플랫폼별 제공 현황 -->
+                    <section class="sec_status">
+                        <div class="box_event">
+                            <div class="tit">
+                                <p>이벤트 수집 현황 및 모니터링</p>
+                            </div>
+                            <div class="cont">
+                                <div class="tabButton">
+                                    <button type="button" class="normal">정상</button>
+                                    <button type="button" class="issue">이슈</button>
+                                </div>
+                                <div class="chartBox">
+                                    <!-- box에 on 클래스 추가 또는 마우스 오버시 테두리 선 나타남, 
+                                    issue 클래스 추가시 빨간테두리로 변경  -->
+                                    <div class="box on">
+                                        <p>방문</p>
+                                    </div>
+                                    <div class="box issue">
+                                        <p>회원가입</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>장바구니</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>회원수정</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>로그인</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>결제이탈</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>본상품</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>커스텀이벤트1</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>결제취소</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>커스텀이벤트2</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>결제</p>
+                                    </div>
+                                    <div class="box">
+                                        <p>회원탈퇴</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_flatform">
+                            <div class="tit">
+                                <p>플랫폼별 제공 현황</p>
+                            </div>
+                            <div class="cont">
+                                <div>
+                                    <div>
+                                        <p>제공 이벤트</p>
+                                        <p>5</p>
+                                    </div>
+                                    <ul>
+                                        <li>장바구니</li>
+                                        <li>결제</li>
+                                        <li>방문</li>
+                                        <li>본상품</li>
+                                        <li>방문</li>
+                                        <li>본상품</li>
+                                        <li>방문</li>
+                                        <li>본상품</li>
+                                        <li>방문</li>
+                                        <li>본상품</li>
+                                        <li>방문</li>
+                                        <li>본상품</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div>
+                                        <p>제공 플랫폼</p>
+                                        <p>5</p>
+                                    </div>
+                                    <ul>
+                                        <li class="mobon">모비온</li>
+                                        <li class="mobi">모비아이</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--//contents end-->
+                <footer class=" footer">
+                    <p>
+                        <span>(주)인라이플</span><span>113-86-60934</span><span>한경훈,이근옥</span><span>서울특별시 구로구 구로동 디지털로 272
+                            한신아이티타워 501호~504호</span>
+                    </p>
+                    <p>
+                        <span>TEL .070-7705-2093(948)</span><span>FAX .02-865-6845</span><span>E-mail :
+                            mobsense@enliple.com</span>
+                    </p>
+                    <p>Copyright ⓒ MOBON All rights reserved.</p>
+                </footer>
+                <!--footer end -->
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,2355 @@
+@charset 'utf-8';
+
+/*
+File  : tag.scss
+Date  : 2025.11.04
+menu  : 원태그
+*/
+
+
+//* 원태그 */
+.wrap {
+
+  //원태그 시작하기 > 대시보드에도 추가하였음
+  .tune_tagStart,
+  .tune_tagDashboard {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin: 30px 0 0 0;
+
+      section {
+        &.sec_empty {
+          @include boxLayout();
+          @include dataNoneContent($pd:40px 25px);
+          font-size: 18px;
+          line-height: 1.5;
+
+          div {
+            @include flexBox($d:column, $g:0);
+            // color: var(--subFtColor);
+            text-align: center;
+
+            &:before {
+              @include iLayout;
+              @include img_homepage;
+              width: 600px;
+              height: 400px;
+              // aspect-ratio: 1/1;
+              background-size: contain;
+            }
+
+            p {
+              &:first-of-type {
+                @include ftM;
+                font-size: 22px;
+                margin: 20px 0 0 0;
+              }
+
+              &:last-of-type {
+                margin: 10px 0 0 0;
+                font-size: 16px;
+                color: var(--subFtColor);
+              }
+            }
+
+            button {
+              @include btnLayout;
+              @include btn_main;
+              @include ftM;
+              width: 220px;
+              height: 64px;
+              margin: 20px 0 0 0;
+              font-size: 18px;
+
+              &:after {
+                @include iLayout;
+                @include ico_lineRight3;
+                background-color: var(--ico_color8);
+                margin-left: 10px;
+                // mask-size: 9px 13px;
+                width: 9px;
+                height: 13px;
+                mask-size: 9px 13px;
+                // top: 1px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 대시보드, 사이트성능분석 화면 사이트 성능 section 공통 
+  .tune_tagDashboard,
+  .tune_siteAnalysis {
+    .content {
+      section {
+        &.sec_sitePerfomance {
+          .box_sitePerfomance {
+            // @include flexBox($g:30px);
+            @include boxLayout;
+            height: 650px;
+            margin: 30px 0 0 0;
+
+            .tit {
+              @include flexBox($a:top, $g:100px);
+
+              >p {
+                @include title;
+
+                >span {
+                  &:not(.iBox) {
+                    display: block;
+                    margin: 4px 0 0 0;
+                    font-size: 12px;
+                    color: var(--subFtColor);
+                  }
+                }
+
+                span {
+                  &.iMarkHover {
+                    @include iMarkHover($w:340px);
+                    @include iMarkHover_TL;
+                  }
+
+                  &.labelBox {
+                    @include flexBox($j:start);
+
+                    span {
+                      &:nth-child(1):before {
+                        @include label_t6($bw:0 7px 12px 7px);
+
+                      }
+
+                      &:nth-child(2):before {
+                        @include label_t2($width:13px, $height:13px, $bgColor:#fbbe30);
+                      }
+
+                      &:nth-child(3):before {
+                        @include label_t5($width:15px,
+                          $height:15px, $bgColor: var(--pointColor));
+                        top: 2px;
+                        margin-right: 5px;
+                      }
+
+                      &:before {
+                        margin-right: 5px;
+                        vertical-align: baseline;
+                      }
+                    }
+                  }
+
+                  &.img {
+                    @include iLayout($d:block);
+                    @include img_tooltip_t1;
+                    @include imgSize(320px, 220px);
+                    background-position: -12px -15px;
+                  }
+                }
+              }
+
+              .guideBox {
+                position: relative;
+                padding-left: 25px;
+                flex-grow: 1;
+
+                p {
+                  font-size: 15px;
+                  line-height: 1.5;
+
+                  &:nth-of-type(1) {
+                    &:before {
+                      @include iLayout($p:absolute);
+                      @include ico_check4;
+                      width: 15px;
+                      height: 15px;
+                      top: 3px;
+                      left: 6px;
+                      border-radius: 30px;
+                      background-color: #3dd06a;
+                    }
+                  }
+
+                  &:nth-of-type(2) {
+                    color: var(--subFtColor);
+                  }
+                }
+              }
+            }
+
+            .cont {
+              margin: 25px 0 0 0;
+
+              // box common 
+              .box {
+                @include iflexBox($g:20px, $d:column);
+                height: 100%;
+
+                .iBox {
+                  .iMarkHover {
+                    width: 250px;
+
+                    span {
+                      &.labelBox {
+                        @include flexBox($j:start);
+
+                        span {
+                          &:nth-child(1):before {
+                            @include label_t6($bw:0 7px 12px 7px);
+                          }
+
+                          &:nth-child(2):before {
+                            @include label_t2($width:13px, $height:13px, $bgColor:#fbbe30);
+                          }
+
+                          &:nth-child(3):before {
+                            @include label_t5($width:15px,
+                              $height:15px, $bgColor: var(--pointColor));
+                            top: 2px;
+                            margin-right: 5px;
+                          }
+
+                          &:before {
+                            margin-right: 5px;
+                            vertical-align: baseline;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .graphBox {
+                  text-align: center;
+
+                  .highcharts-pivot {
+                    fill: var(--ftColor6);
+                  }
+
+                  .highcharts-dial {
+                    fill: var(--ftColor6);
+                    /* ✅ 바늘 부분도 동일하게 */
+                    stroke: none;
+                  }
+
+                  .highcharts-data-label text {
+                    @include ftM;
+                    fill: var(--ftColor6) !important;
+                    letter-spacing: 1px;
+
+                    tspan {
+                      stroke: none !important;
+                    }
+                  }
+
+                  $icoClass: (t1, t2, t3);
+                  $icoBg: (#ff0000, #fbbe30, var(--pointColor));
+
+                  @for $i from 1 through length($icoClass) {
+                    $class: nth($icoClass, $i);
+                    $color: nth($icoBg, $i);
+
+                    p.#{$class} {
+                      @include iflexBox($j:center);
+
+                      // margin: 10px 0 0 0;
+                      padding: 0 6px;
+
+                      border-radius: 16px;
+                      color: #ffffff;
+                      background-color: $color;
+                    }
+
+                    .graph {
+                      >div {
+                        @include ftM;
+                        font-size: 34px;
+                        position: relative;
+                        overflow: visible;
+                      }
+                    }
+                  }
+
+                  @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                      border-left: 1px solid var(--borderColor);
+
+                      .iBox {
+                        .iMarkHover {
+                          @include iMarkHover_TR;
+                          width: 340px;
+
+                          .img {
+                            @include iLayout($d:block);
+                            @include imgSize(320px, 220px);
+
+                            @if $i==1 {
+                              @include img_tooltip_t2;
+                            }
+
+                            @else if $i==2 {
+                              @include img_tooltip_t3;
+                            }
+
+                            @else if $i==3 {
+                              @include img_tooltip_t4;
+                            }
+
+                            @else if $i==4 {
+                              @include img_tooltip_t5;
+                            }
+
+                            @else if $i==5 {
+                              @include img_tooltip_t6;
+                            }
+
+                            background-position: -12px -15px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                // .iBox {
+                //   .iMarkHover {
+                //     @include iMarkHover_TL;
+                //   }
+                // }
+
+                // box each 
+                &:nth-child(1) {
+                  @include flexBox($j:center);
+                  min-width: 360px;
+
+                  .graphBox {
+                    width: 50%;
+
+                    &:nth-child(1) {
+                      @include flexBox($j:space-evenly, $g:20px);
+
+
+
+                      .graph {
+                        >div {
+                          top: -40px;
+                        }
+
+                        >p {
+                          min-width: 80px;
+                          height: 33px;
+                          font-size: 18px;
+                        }
+                      }
+
+                      .labelBox {
+                        @include iflexBox($d:column, $j:center, $a:start, $g:25px);
+
+                        p {
+                          font-size: 18px;
+
+
+                          &:nth-child(1):before {
+                            @include label_t6;
+
+                          }
+
+                          &:nth-child(2):before {
+                            @include label_t2($width:20px, $height:20px, $bgColor:#fbbe30);
+                          }
+
+                          &:nth-child(3):before {
+                            @include label_t5($width:22px,
+                              $height:22px, $bgColor: var(--pointColor));
+                          }
+
+                          &:before {
+                            margin-right: 15px;
+                            vertical-align: text-top;
+                          }
+                        }
+                      }
+                    }
+
+                    &:nth-child(2) {
+                      border-left: 1px solid var(--borderColor);
+                      text-align: center;
+
+                      .statsBox {
+
+                        .bg {
+                          position: relative;
+                          display: inline-block;
+                          min-width: 350px;
+                          height: 200px;
+
+                          &:before {
+                            content: "";
+                            position: absolute;
+                            display: inline-block;
+                            width: 100%;
+                            height: 100%;
+                            // background-color: var(--dimBgColor);
+                            opacity: 0.8;
+                            background-color: #070707;
+                          }
+
+                          img {
+                            width: 100%;
+                            height: 100%;
+                          }
+                        }
+
+                        .time {
+                          position: absolute;
+                          top: 55%;
+                          left: 50%;
+                          transform: translate(-55%, -50%);
+                          @include iflexBox($j:end, $d:column, $g:5px);
+
+                          &.t1 {
+                            p:nth-child(3) {
+                              background-color: #fd3c3c;
+                            }
+                          }
+
+                          &.t2 {
+                            p:nth-child(3) {
+                              background-color: #fbbe30;
+                            }
+                          }
+
+                          &.t3 {
+                            p:nth-child(3) {
+                              background-color: var(--pointColor);
+                            }
+                          }
+
+
+                          &:before {
+                            content: "";
+                            position: absolute;
+                            display: inline-block;
+                            min-width: 100px;
+                            height: 100px;
+                            bottom: -10px;
+                            border-radius: 100px;
+                            border: 4px solid #535353;
+                            background-color: transparent;
+                          }
+
+                          p {
+                            z-index: 1;
+
+                            &:nth-child(1) {
+                              @include ftB;
+                              font-size: 20px;
+                              color: var(--ftColor4);                              
+                            }
+
+                            &:nth-child(2) {
+                              @include ftM;
+                              font-size: 12px;
+                              color: #b4b4b4;
+                            }
+
+                            &:nth-child(3) {
+                              @include flexBox($j:center);
+                              position: relative;
+                              min-width: 80px;
+                              top: 10px;
+                              height: 20px;
+                              padding: 2px 8px;
+                              color: #ffffff;
+                              border-radius: 2px;
+                              background-color: #fd3c3c;
+                            }
+                          }
+                        }
+                      }
+
+                      >p {
+                        margin: 10px 0 0 0;
+                        font-size: 18px;
+                        color: #ff8000;
+                      }
+                    }
+                  }
+
+                  .cont {
+                    width: 100%;
+                  }
+                }
+
+                &:nth-child(2) {
+                  @include flexBox($g:0);
+                  margin: 50px 0 0 0;
+                  padding-top: 40px;
+                  border-top: 1px solid var(--borderColor);
+
+                  .graphBox {
+                    @include flexBox($g:20px, $d:column);
+                    width: 20%;
+
+                    &:first-child {
+                      .iBox {
+                        .iMarkHover {
+                          @include iMarkHover($w:340px);
+                          @include iMarkHover_TL;
+
+                          .img {
+                            @include iLayout;
+                            @include img_tooltip_t2;
+                            @include imgSize(320px, 220px);
+                            background-position: -12px -15px;
+                          }
+                        }
+                      }
+                    }
+
+                    .graphTitle {
+                      text-align: center;
+
+                      p {
+                        font-size: 13px;
+
+                        &:first-child {
+                          @include ftMedium;
+                        }
+
+                        &:nth-child(2) {
+                          margin: 3px 0 0 0;
+                          color: var(--subFtColor);
+                        }
+                      }
+                    }
+
+                    .graph {
+                      >div {
+                        top: -20px;
+                      }
+
+                      >p {
+                        margin: 15px 0 0 0;
+                        height: 23px;
+                        min-width: 60px;
+                        font-size: 12px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  //* 원태그 > 대시보드 */
+  // 251022 > error추이 영역 데이터 없음 추가(sec_errorList)
+  .tune_tagDashboard {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      margin: 30px 0 0 0;
+
+      section {
+        &.sec_search {
+          @include iflexBox($g:20px);
+          position: absolute;
+          top: 15px;
+          right: 30px;
+
+          .checkBox {
+            @include checkbox_t2;
+          }
+
+          .selectDiv {
+            // @include selectDiv_size($w:230px);
+
+            @include selectDiv_list;
+            // li {
+            // }
+          }
+        }
+
+        &.sec_status {
+          @include flexBox($g:30px);
+          height: 400px;
+
+          // 태그 
+          .box_tag {
+            @include boxLayout;
+            @include flexBox($d:column);
+            min-width: 500px;
+            height: 100%;
+            width: 50%;
+
+            .tit {
+              @include title;
+              @include flexBox;
+              width: 100%;
+
+              button {
+                @include btnLayout($minw: 150px, $h:36px);
+                @include btn_main;
+
+                &:after {
+                  @include iLayout;
+                  @include ico_lineRight3;
+                  background-color: var(--ico_color8);
+                  margin-left: 4px;
+                }
+              }
+            }
+
+            .cont {
+              @include flexBox($d:column, $a:start, $g:20px);
+              margin: 20px 0 0 0;
+              width: 100%;
+              flex-grow: 1;
+
+              .count {
+                p {
+                  font-size: 16px;
+
+                  b {
+                    @include ftB;
+                    margin-left: 10px;
+                    font-size: 40px;
+                    color: var(--ftColor20);
+                  }
+                }
+              }
+
+              .graphBox {
+                position: relative;
+                width: 100%;
+                height: 40px;
+                border-radius: 20px;
+                background-color: var(--bgColor);
+
+                .graph {
+                  position: absolute;
+                  border-radius: 20px;
+                  cursor: pointer;
+
+                  .tooltip {
+                    display: none;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    min-width: 220px;
+                    min-height: 50px;
+                    border-radius: 5px;
+                    padding: 15px 15px 15px 15px;
+                    box-shadow: var(--bubbleShadow);
+                    background-color: var(--bubbleBgColor);
+
+                    b {
+                      @include ftM;
+                      margin-left: 20px;
+                      font-size: 20px;
+                      color: var(--ftColor20);
+                    }
+                  }
+
+                  &:hover {
+                    .tooltip {
+                      display: block;
+                      z-index: 1;
+                    }
+                  }
+
+                  &:nth-child(1) {
+                    border: 2px solid #fdb03c;
+                    background-color: #fff2df;
+
+                    .tooltip {
+                      b {
+                        color: #fdb03c;
+                      }
+                    }
+                  }
+
+                  &:nth-child(2) {
+                    border: 2px solid var(--pointColor);
+                    background-color: var(--pointColor);
+                  }
+                }
+              }
+
+              .guideBox {
+                @include flexBox();
+                width: 100%;
+
+                &:before {
+                  content: "";
+                  position: relative;
+                  width: 36px;
+                  height: 36px;
+                  border-radius: 100%;
+                  background-color: #fff2df;
+                }
+
+                &:after {
+                  @include iLayout($p:absolute);
+                  @include ico_lightning;
+                  @include maskSize(14px, 26px, 14px, 26px);
+                  background-color: #fdb03c;
+                  left: 36px;
+                }
+
+                p {
+                  flex-grow: 1;
+                  line-height: 1.5;
+
+                  span {
+                    &:nth-of-type(1) {
+                      color: var(--ftColor20);
+
+                    }
+
+                    &:nth-of-type(2) {
+                      color: #fdb03c;
+                    }
+                  }
+                }
+
+                button {
+                  @include btnLayout($minw:128px, $h:36px);
+                  background-color: #fdb03c;
+                  color: var(--ftColor4);
+                  line-height: 1.5;
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_lightning;
+                    @include maskSize(16px, 16px);
+                    background-color: #fff;
+                    top: 2px;
+                    left: -5px;
+                  }
+                }
+              }
+
+              .statsBox {
+                @include flexBox($g:0, $j:space-around);
+                border-top: 1px solid var(--borderColor);
+                width: 100%;
+                flex-grow: 1;
+                // background-color: pink;
+
+                .box {
+                  @include flexBox($d:column, $g:8px, $j:center);
+                  // height: 100%;
+                  margin: 15px 0 0 0;
+                  text-align: center;
+                  flex-grow: 1;
+                  min-width: 30%;
+                  // border: 1px solid #f00;
+
+                  &:nth-child(n+2) {
+                    border-left: 1px solid var(--borderColor);
+                  }
+
+                  p {
+                    position: relative;
+                    text-align: center;
+
+                    &:nth-child(1) {
+                      @include ftB;
+                      font-size: 32px;
+                    }
+
+                    &:nth-child(2) {
+                      // margin: 8px 0 0 0;
+                    }
+                  }
+
+                  &:nth-child(1) {
+                    color: var(--pointColor);
+                  }
+
+                  &:nth-child(2) {
+                    color: #fdb03c;
+
+                    p {
+                      &:first-child {
+                        &:before {
+                          content: "";
+                          position: relative;
+                          display: inline-block;
+                          width: 20px;
+                          height: 20px;
+                          margin-right: 4px;
+                          border-radius: 100%;
+                          background-color: #fff2df;
+                        }
+
+                        &:after {
+                          @include iLayout($p:absolute);
+                          @include ico_lightning;
+                          @include maskSize(8px, 14px);
+                          background-color: #fdb03c;
+                          left: 6px;
+                          top: 12px;
+                        }
+
+                      }
+                    }
+                  }
+
+                  &:nth-child(3) {
+                    color: var(--checkColor);
+                  }
+                }
+              }
+            }
+          }
+
+          // right > 최근 디버그 결과
+          .box_debug {
+            @include flexBox($d:column, $g:10px);
+            flex-grow: 1;
+            width: 50%;
+            height: -webkit-fill-available;
+
+            >div {
+              width: 100%;
+            }
+
+            .box_debugResult {
+              @include boxLayout($pd:25px 0 0 0);
+              @include flexBox($d:column);
+              flex-grow: 1;
+
+              .tit {
+                @include flexBox($a:top);
+                width: 100%;
+                padding: 0 25px;
+
+                >p {
+                  @include title;
+                }
+
+                .guideBox {
+                  position: relative;
+                  padding-left: 25px;
+                  flex-grow: 1;
+
+                  p {
+                    font-size: 15px;
+                    line-height: 1.5;
+
+                    &:nth-of-type(1) {
+                      &:before {
+                        @include iLayout($p:absolute);
+                        @include ico_check4;
+                        width: 15px;
+                        height: 15px;
+                        top: 3px;
+                        left: 6px;
+                        border-radius: 30px;
+                        background-color: #3dd06a;
+                      }
+                    }
+
+                    &:nth-of-type(2) {
+                      color: var(--subFtColor);
+                    }
+                  }
+                }
+
+                button {
+                  @include btnLayout($minw: 100px, $h: 36px);
+                  @include btn_main;
+                }
+              }
+
+              .cont {
+                @include flexBox($g:0);
+                width: 100%;
+                margin: 20px 0 0 0;
+                padding: 10px;
+                border-top: 1px solid var(--borderColor);
+                flex-grow: 1;
+                // height: 100%;
+                background-color: var(--bgc34);
+
+                .box {
+                  // min-width: calc(25% - 20px);
+                  @include flexBox($d:column, $j:space-evenly);
+                  padding: 10px;
+                  // width: calc(25% - 10px);
+                  width: 25%;
+                  height: 100%;
+                  background-color: var(--boxBgColor);
+
+                  p {
+                    width: 100%;
+                    // padding-left: 15px;
+                    text-align: center;
+
+                    .iBox {
+                      margin-left: 4px;
+
+                      .iMark {}
+                    }
+
+                    &:nth-child(1) {
+                      @include ftM;
+                      font-size: 20px;
+                    }
+
+                    &:nth-child(2) {
+                      @include ellipsis;
+                      @include ftB;
+                      margin: 20px 0 0 0;
+                      // padding: 0 15px;
+                      font-size: 40px;
+                      // text-align: right;
+                    }
+                  }
+
+                  &:nth-child(n+2) {
+                    position: relative;
+
+                    &:before {
+                      content: "";
+                      border-left: 1px solid var(--borderColor);
+                      width: 1px;
+                      height: 120px;
+                      left: 0;
+                      position: absolute;
+                      display: inline-block;
+                      top: 10px;
+                    }
+                  }
+
+                  &:nth-child(1) {
+                    border-radius: 6px 0 0 6px;
+
+                    p {
+                      color: var(--ftColor20);
+                    }
+                  }
+
+                  &:nth-child(2) {
+
+                    p {
+                      color: var(--checkColor);
+                    }
+                  }
+
+                  &:nth-child(3) {
+                    border-radius: 0 6px 6px 0;
+
+                    p {
+                      color: var(--errorColor);
+                      color: #ffc000;
+
+                      .iBox {
+                        .iMarkHover {
+                          @include iMarkHover_TR;
+                        }
+                      }
+                    }
+                  }
+
+                  &:nth-child(4) {
+                    width: calc(25% - 10px);
+                    margin-left: 10px;
+                    border-radius: 6px;
+
+                    &:before {
+                      display: none;
+                    }
+
+                    p {
+                      color: var(--ftColor4);
+                      color: #f00;
+
+                      .iBox {
+                        .iMarkHover {
+                          @include iMarkHover_TR;
+                        }
+                      }
+                    }
+                  }
+
+                  p {
+                    &:nth-child(1) {
+                      @include ftM;
+                      font-size: 20px;
+                    }
+
+                    &:nth-child(2) {
+                      @include ftB;
+                    }
+                  }
+                }
+              }
+            }
+
+            .box_state {
+              @include boxLayout($pd: 20px 40px);
+              min-height: 120px;
+
+              .slick {
+                @include flexBox($j:start);
+                height: 100%;
+
+                +.page-controls {
+                  position: absolute;
+                  @include flexBox;
+                  top: 20px;
+                  right: 40px;
+
+                  .page-count {
+                    @include ftR;
+                    display: inline-block;
+                    font-size: 13px;
+
+                    span {
+                      padding: 0 2px;
+                    }
+
+                    .total {
+                      color: var(--subFtColor);
+                    }
+                  }
+
+                  button {
+                    @include slick_arrow($p:relative, $iw:8px, $ih:13px);
+                    padding: 0;
+                    left: 0;
+                    right: 0;
+
+                    &.slick-prev,
+                    &.slick-next {
+                      transform: none;
+
+                      &:before {
+                        @include ico_lineLeft4;
+                        background-color: var(--ico_color2);
+                        transform: none;
+                      }
+                    }
+
+                    &.slick-next {
+                      &:before {
+                        transform: rotate(180deg);
+
+                      }
+                    }
+
+                    &.pause {
+                      @include iBtn;
+                      @include ico_pause2;
+                      padding: 0;
+                      width: 12px;
+                    }
+
+                    &.play {
+                      width: 12px;
+                      color: var(--ftColor);
+                    }
+                  }
+                }
+              }
+
+              .box {
+                >div {
+                  position: relative;
+                  padding-left: 100px;
+                }
+
+                p {
+                  line-height: 1.5;
+                }
+
+                .normal {
+                  &:before {
+                    @include iLayout($p:absolute);
+                    @include ico_normal2;
+                    left: 20px;
+                    height: 100%;
+                  }
+                }
+
+                .error {
+                  &:before {
+                    @include iLayout($p:absolute);
+                    @include ico_error2;
+                    left: 20px;
+                    height: 100%;
+
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.sec_guide {
+          @include boxLayout_t17($pd:30px 40px);
+          // background-color: #202c6e;
+          margin: 30px 0 0 0;
+
+          .box_guide {
+            @include flexBox;
+
+            p {
+              color: var(--ftColor4);
+              font-size: 24px;
+            }
+
+            button {
+              @include btnLayout($minw:250px, $h:64px);
+              @include btn_main;
+              @include ftM;
+              font-size: 18px;
+            }
+          }
+        }
+
+        // error 추이
+        &.sec_errorList {
+          @include boxLayout($pd:25px 15px 25px 25px);
+          @include flexBox;
+          height: 500px;
+          margin: 30px 0 0 0;
+
+
+          .box_graph,
+          .box_list {
+            @include flexBox($d:column, $g:20px);
+            height: 100%;
+
+            .tit {
+              @include flexBox;
+              width: 100%;
+
+              p {
+                &:first-child {
+                  @include title;
+                }
+              }
+            }
+
+            .cont {
+              width: 100%;
+              // margin: 20px 0 0 0;
+            }
+          }
+
+          .box_graph {
+            width: 70%;
+            flex-grow: 1;
+
+            .tit {
+              .calendarBox {
+                @include calendarBox;
+              }
+            }
+          }
+
+          .box_list {
+            width: 30%;
+            min-width: 500px;
+            margin-left: 25px;
+            padding-left: 25px;
+
+            border-left: 1px solid var(--borderColor);
+
+            .tit {
+              padding-right: 10px;
+
+              p {
+                span {
+                  color: #ff0000;
+                }
+
+                &:last-child {
+                  color: var(--subFtColor);
+                  font-size: 15px;
+
+                }
+              }
+            }
+
+            .cont {
+              // margin: 20px 0 0 0;
+
+              .listArea {
+
+                ul {
+                  height: 400px;
+                  overflow-y: auto;
+                  padding-right: 10px;
+
+                  li {
+                    min-height: 90px;
+                    padding: 20px;
+                    border: 1px solid var(--borderColor);
+                    border-radius: 6px;
+
+                    &:nth-child(n+2) {
+                      margin: 15px 0 0 0;
+                    }
+
+                    p {
+                      line-height: 1.5;
+
+                      &:nth-child(1) {
+                        @include ftM;
+                        font-size: 16px;
+                      }
+
+                      &:nth-child(2) {
+                        margin: 8px 0 0 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.sec_errorList {
+
+          .box_graph,
+          .box_list {
+
+            &.dataNoneArea {
+              @include dataNoneArea($selector: '.cont>div');
+
+              .cont {
+                height: 100%;
+
+                .dataNone {
+                  height: calc(100% - 20px);
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_nodata;
+                    @include imgSize(77px, 77px, 30px, 40px);
+                    background-color: #eeeeee;
+                    border-radius: 100%;
+                    margin-bottom: 15px;
+                  }
+
+                  p {
+                    &:nth-child(2) {
+                      color: var(--subFtColor);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .box_graph {
+            &.dataNoneArea {
+              .cont {
+                .dataNone {
+                  height: calc(100% - 60px);
+
+                  &:before {
+                    @include iLayout;
+                    @include ico_safe;
+                    @include imgSize(77px, 77px, 34px, 42px);
+                    background-color: #e6ffdf;
+                    border-radius: 100%;
+                    margin-bottom: 15px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout;
+          margin-top: 30px;
+
+          .tit {
+            @include titleLayout;
+
+
+            b {
+              @include ftMedium;
+              color: var(--pointColor);
+              // text-decoration: underline;
+            }
+
+            .buttonBox {
+              position: absolute;
+              top: 20px;
+              right: 30px;
+
+              button {
+                @include btnLayout($h:36px);
+                min-width: 120px;
+                // height: 40px;
+
+                &.off {
+                  @include btn_off;
+                }
+
+                &.on {
+                  @include btn_main;
+                }
+
+                &.excelDown {
+                  @include btn_excel_t2;
+                }
+
+                &:nth-child(n+2) {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+
+          .cont {
+
+
+            .version {
+              @include flex_between;
+              gap: 10px;
+              align-items: center;
+              min-height: 60px;
+              margin: 30px 0 0 0;
+              padding: 0 30px;
+              border-radius: 3px;
+              background-color: var(--pointColor);
+
+              p {
+                @include ftMedium;
+                margin: 0 auto 0 0;
+                color: var(--ftColor17);
+                font-size: 16px;
+              }
+
+              select {
+                &:nth-last-child(2) {
+                  min-width: 220px;
+                }
+              }
+            }
+
+            .tableArea {
+              @include tableDataNone($h:600px);
+              margin-top: 30px;
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 600px;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+                        &:nth-child(-n+3) {
+                          min-width: 120px;
+                        }
+
+                        &:last-child,
+                        &:nth-last-child(4) {
+                          width: 180px;
+                        }
+
+                        &:nth-last-child(2),
+                        &:nth-last-child(3) {
+                          width: 120px;
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      &:nth-child(-n+3) {
+                        td {
+                          .iBox {
+                            .iMarkHover {
+                              @include iMarkHover_TL;
+                            }
+                          }
+                        }
+                      }
+
+                      td {
+                        &:nth-child(4) {
+                          text-align: left;
+                        }
+
+                        &.on {
+                          color: var(--pointColor)
+                        }
+
+                        &.off {
+                          color: var(--btnDis_ftColor)
+                        }
+
+                        .iBox {
+                          position: absolute;
+                          left: 0px;
+                          // left: 0;
+                          // margin-right: 4px;
+
+                          i {
+                            &.iMark {
+                              @include iLayout;
+                              @include ico_script;
+                              top: 3px;
+                            }
+
+                            &.iMarkHover {
+                              width: 220px;
+                              // @include iMarkHover_TL;
+                            }
+                          }
+                        }
+
+                        a {
+                          // @include ellipsis;
+                          width: 110px;
+                          width: 100%;
+                          padding-left: 18px;
+                          position: relative;
+                          display: inline-block;
+                          text-decoration: underline;
+                          cursor: pointer;
+                        }
+
+                        .toggleBox {
+                          .ip_toggle {
+                            @include toggle_t3;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 사이트 성능 
+        &.sec_sitePerfomance {
+          &.dimReady {
+            >div {
+              &:not(.readyBox) {
+                display: none;
+              }
+            }
+
+            .readyBox {
+              @include flexBox($d:column, $g:50px);
+              padding: 50px 0;
+
+              p {
+                &:first-child {
+                  @include title($fs:26px);
+                }
+
+                &:last-child {
+                  // MARGIN: 50PX 0 0 0;
+                  font-size: 18px;
+                  color: var(--subFtColor);
+                }
+              }
+
+              .inputBox {
+                @include flexBox($fw:wrap);
+
+                &:before {
+                  @include iLayout($d:block);
+                  @include img_pc;
+                  width: 100%;
+                }
+
+                input {
+                  min-width: 330px;
+                  flex-grow: 1;
+                  height: 54px;
+                }
+
+                button {
+                  @include btnLayout;
+                  @include btn_main;
+                  @include ftM;
+                  width: 180px;
+                  height: 54px;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          .readyBox {
+            display: none;
+          }
+
+          .box_sitePerfomance {
+            // 상단  대시보드, 사이트성능분석 화면 사이트 성능 section 공통 에 있음
+          }
+        }
+
+
+        // 사이트 성능 변화
+        &.sec_sitePerformanceChange {
+          @include boxLayout;
+          margin: 30px 0 0 0;
+
+          .box_graph {
+            .tit {
+              @include title;
+              @include flexBox;
+
+              .calendarBox {
+                @include calendarBox;
+              }
+            }
+
+            .cont {
+              margin: 20px 0 0 0;
+
+              .graphArea {
+                .graph {}
+
+                .labelBox {
+                  @include flexBox($g:30px, $j:center);
+                  margin: 20px 0 0 0;
+
+                  p {
+                    $labelColors: (1: var(--labelColor),
+                        2: var(--labelColor11),
+                        3: var(--labelColor14),
+                        4: var(--labelColor12),
+                        5: var(--labelColor9));
+
+                    @each $i,
+                    $color in $labelColors {
+                      &:nth-child(#{$i}):before {
+                        // background-color: pink;
+
+                        @include label_t5($bgColor: $color);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 마이 태그 관리2(고도화)*/
+  .tune_mytag2 {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      section {
+        &.sec_search {
+          @include iflexBox($g:20px);
+          position: absolute;
+          top: 15px;
+          right: 30px;
+
+          .checkBox {
+            @include checkbox_t2;
+          }
+
+          .selectDiv {
+
+            @include selectDiv_list;
+            @include selectDiv_size($h:300px);
+            // li {
+            // }
+          }
+        }
+
+        &.sec_tag {
+          margin-top: 30px;
+
+          .box_tag {
+            @include flexBox;
+            min-height: 110px;
+
+            >button {
+              @include boxLayout($pd: 20px 40px 20px 30px);
+              min-width: 270px;
+              height: 110px;
+              font-size: 18px;
+              color: var(--ftColor);
+
+              &.tagAdd {
+                @include iflexBox();
+
+                &:before {
+                  @include ico_write_off;
+                  // @include ico_android2_on;
+                  content: "";
+                  position: relative;
+                  display: inline-block;
+                  width: 60px;
+                  height: 60px;
+                  top: -2px;
+                  margin-right: 20px;
+                  vertical-align: middle;
+                  border-radius: 100%;
+                  background-color: var(--btnOff_BgColor);
+                  z-index: auto;
+                  opacity: 1;
+                }
+              }
+
+              &.tagVersion {
+                span {
+                  @include ftBold;
+                  margin: 0 0 0 4px;
+                  text-decoration: underline;
+                }
+              }
+            }
+
+            .mytag {
+              @include boxLayout($pd:25px 25px 20px 25px);
+              @include flex_between_column;
+              margin: 0 0 0 auto;
+              height: 110px;
+
+              p {
+                font-size: 18px;
+                text-align: center;
+              }
+
+              span {
+                font-size: 13px;
+                color: var(--subFtColor);
+
+                &:before {
+                  @include txtDot_t2;
+                }
+              }
+
+              button {
+                @include btnLayout;
+                @include btn_main2;
+                min-width: 55px;
+                height: 36px;
+                margin-left: 12px;
+              }
+            }
+          }
+
+          // 사이트 분석하기
+          .box_guide {
+            @include flexBox;
+            height: 130px;
+            margin: 30px 0 0 0;
+            padding: 0 50px;
+            background-color: var(--pointColor);
+
+            p {
+              font-size: 22px;
+              color: var(--ftColor3);
+            }
+
+            button {
+              @include btnLayout($br:4px);
+              @include btn_main2;
+              width: 200px;
+              height: 60px;
+              font-size: 15px;
+            }
+          }
+
+          .box_option {
+            @include boxLayout;
+            @include flex_between;
+            gap: 30px;
+            margin-top: 30px;
+
+            >div {
+              flex-grow: 1;
+              @include flex_between;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 20px;
+
+              .box {
+                flex-grow: 1;
+                @include flex_between;
+                width: 50%;
+                align-items: center;
+                flex: 1 1 calc(50% - 90px);
+
+                &:nth-child(even) {
+                  margin-left: 70px;
+                }
+
+                >p {
+                  min-width: 150px;
+
+                  &:before {
+                    @include txtDot;
+                  }
+                }
+
+                >div {
+                  display: inline-flex;
+                  flex-grow: 1;
+                }
+
+                input,
+                select {
+                  width: 100%;
+                }
+
+                .selectDiv {
+                  // @include selectDiv_list;
+                  @include selectDiv_size($h:300px);
+                }
+
+                input[type="checkbox"] {
+                  @include checkboxBtn;
+
+                  +label {
+                    flex-grow: 1;
+                    justify-content: center;
+                  }
+                }
+              }
+            }
+
+            >button {
+              @include btnLayout;
+              @include btn_main;
+              min-width: 150px;
+              height: 100px;
+              margin: auto 0;
+            }
+          }
+        }
+
+        &.sec_list {
+          @include boxLayout;
+          margin-top: 30px;
+
+          .tit {
+            @include titleLayout;
+
+            b {
+              @include ftMedium;
+              color: var(--pointColor);
+              // text-decoration: underline;
+            }
+
+            .buttonBox {
+              position: absolute;
+              top: 20px;
+              right: 30px;
+
+              button {
+                @include btnLayout($h:36px);
+                min-width: 120px;
+                // height: 40px;
+
+                &.off {
+                  @include btn_off;
+                }
+
+                &.on {
+                  @include btn_main;
+                }
+
+                &.excelDown {
+                  @include btn_excel_t2;
+                }
+
+                &:nth-child(n+2) {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+
+          .cont {
+            .version {
+              @include flex_between;
+              gap: 10px;
+              align-items: center;
+              min-height: 60px;
+              margin: 30px 0 0 0;
+              padding: 0 30px;
+              border-radius: 3px;
+              background-color: var(--pointColor);
+
+              p {
+                @include ftMedium;
+                margin: 0 auto 0 0;
+                color: var(--ftColor17);
+                font-size: 16px;
+              }
+
+              select {
+                &:nth-last-child(2) {
+                  min-width: 220px;
+                }
+              }
+            }
+
+            .tableArea {
+              @include tableDataNone($h:600px);
+              margin-top: 30px;
+
+              .tableBox {
+                @include tableWrap;
+                @include tableLayout_t2;
+                max-height: 600px;
+
+                table {
+                  thead {
+                    tr {
+                      th {
+                        &:nth-child(-n+3) {
+                          min-width: 120px;
+                        }
+
+                        &:last-child,
+                        &:nth-last-child(4) {
+                          width: 180px;
+                        }
+
+                        &:nth-last-child(2),
+                        &:nth-last-child(3) {
+                          width: 120px;
+                        }
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      &:nth-child(-n+3) {
+                        td {
+                          .iBox {
+                            .iMarkHover {
+                              @include iMarkHover_TL;
+                            }
+                          }
+                        }
+                      }
+
+                      td {
+                        &:nth-child(4) {
+                          text-align: left;
+                        }
+
+                        &.on {
+                          color: var(--pointColor)
+                        }
+
+                        &.off {
+                          color: var(--btnDis_ftColor)
+                        }
+
+                        .iBox {
+                          position: absolute;
+                          left: 0px;
+                          // left: 0;
+                          // margin-right: 4px;
+
+                          i {
+                            &.iMark {
+                              @include iLayout;
+                              @include ico_script;
+                              top: 3px;
+                            }
+
+                            &.iMarkHover {
+                              width: 220px;
+                              // @include iMarkHover_TL;
+                            }
+                          }
+                        }
+
+                        a {
+                          // @include ellipsis;
+                          width: 110px;
+                          width: 100%;
+                          padding-left: 18px;
+                          position: relative;
+                          display: inline-block;
+                          text-decoration: underline;
+                          cursor: pointer;
+                        }
+
+                        .toggleBox {
+                          .ip_toggle {
+                            @include toggle_t3;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* 사이트 성능 분석 */
+  .tune_siteAnalysis {
+    .title {
+      @include titleLayout;
+    }
+
+    .content {
+      section {
+        &.sec_search {
+          @include iflexBox($g:20px);
+          position: absolute;
+          top: 15px;
+          right: 30px;
+
+          .checkBox {
+            @include checkbox_t2;
+          }
+
+          .selectDiv {
+            // @include selectDiv_size($w:230px);
+
+            @include selectDiv_list;
+            // li {
+            // }
+          }
+        }
+
+        // url 입력
+        &.sec_mysite {
+          margin: 30px 0 0 0;
+
+          .box_mysite {
+            @include flexBox($g:0px);
+            position: relative;
+            padding: 35px 50px;
+            border-radius: 5px;
+            color: var(--ftColor17);
+            background-color: var(--pointColor);
+
+            p {
+              font-size: 16px;
+              line-height: 25px;
+            }
+
+            input[type="text"] {
+              height: 58px;
+              @include ftMedium;
+              font-size: 16px;
+
+              &:nth-of-type(1) {
+                width: 90px;
+                margin: 0 0 0 50px;
+                border-radius: 5px 0 0 5px;
+                border-right: 1px solid var(--pointColor);
+              }
+
+              &:nth-of-type(2) {
+                gap: 0;
+                flex-grow: 1;
+                border-radius: 0 5px 5px 0;
+              }
+            }
+
+            button {
+              @include btnLayout($br:5px);
+              @include btn_main2;
+              @include ftMedium;
+              min-width: 200px;
+              height: 60px;
+              margin: 0 0 0 10px;
+              font-size: 15px;
+            }
+          }
+        }
+
+        // 사이트 성능 로딩
+        &.sec_loading {
+          .box_loading {
+            @include flexBox($d:column, $j:center);
+            position: relative;
+            height: 150px;
+            text-align: center;
+
+            p {
+              font-size: 16px;
+
+              &:before {
+                @include iLayout;
+                @include icoB_loadingCircle;
+                position: relative;
+                display: block;
+                // top: 50%;
+                // left: 50%;
+                width: 100%;
+                height: 45px;
+                margin: 0 0 10px 0;
+                // border-radius: inherit;
+                background-size: 70px 70px;
+                // transform: translate(-50%, -50%);
+                // background-color: rgba(0, 0, 0, 0.8);
+                // z-index: $zIndex;
+              }
+            }
+
+            p {}
+          }
+        }
+
+        // 당신의 사이트엔 몇 개의 스크립트가 ...
+        &.sec_ad {
+          margin-top: 30px;
+
+          .box_ad {
+            min-height: 250px;
+            padding: 40px 150px;
+            border-radius: 5px;
+            border: 1px solid var(--borderColor);
+            background-color: var(--bgColor6);
+
+            &.slick {
+              .slick-arrow {
+                @include slick_arrow($h:31px);
+
+                &.slick-prev {
+                  left: 150px;
+                }
+
+                &.slick-next {
+                  right: 150px;
+                }
+              }
+
+              .slick-dots {
+                @include slick_dot;
+                text-align: left;
+                bottom: 40px;
+                width: -webkit-fill-available;
+                padding-left: 100px;
+              }
+            }
+
+            .box {
+              @include flexBox();
+              padding: 10px 100px;
+
+              p {
+                @include ftBold;
+                position: relative;
+                font-size: 30px;
+                line-height: 40px;
+
+                &:nth-child(1) {
+                  span {
+                    color: var(--pointColor2);
+                  }
+
+                  &:before {
+                    @include iLayout($p:absolute);
+                    @include ico_q;
+                    top: -40px;
+                    left: 0;
+                  }
+                }
+
+                &:nth-child(2) {
+                  @include iflexBox($j:center);
+                  width: 500px;
+                  height: 150px;
+                  text-align: center;
+                  color: var(--ftColor4);
+                  border-radius: 20px;
+                  background-color: var(--pointColor2);
+                }
+              }
+            }
+          }
+        }
+
+        // 사이트 분석 결과
+        &.sec_siteGuide {
+          .box_siteGuide {
+            margin: 40px 0 0 0;
+
+            .tit {
+              @include title;
+            }
+
+            .cont {
+              @include boxLayout;
+              margin: 20px 0 0 0;
+
+              >div {
+                &:first-child {
+                  @include flexBox;
+
+                  p {
+                    &:first-child {
+                      @include ftMedium;
+                      font-size: 16px;
+                    }
+
+                    &:nth-child(2) {
+                      font-size: 13px;
+                      color: var(--subFtColor);
+                    }
+                  }
+                }
+
+                &:nth-child(2) {
+                  margin: 20px 0 0 0;
+                  padding: 20px 0 0 0;
+                  border-top: 1px solid var(--borderColor);
+
+                  p {
+                    line-height: 25px;
+                    font-size: 15px;
+
+                    span {
+                      @include ftBold;
+
+                      &.t1 {
+                        color: var(--pointColor9);
+                      }
+
+                      &.t2 {
+                        color: var(--issueColor5);
+                      }
+
+                      &.t3 {
+                        color: var(--red);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 사이트 성능 
+        &.sec_sitePerfomance {
+          &.dimReady {
+            >div {
+              &:not(.readyBox) {
+                display: none;
+              }
+            }
+
+            .readyBox {
+              @include flexBox($d:column, $g:50px);
+              padding: 50px 0;
+
+              p {
+                &:first-child {
+                  @include title($fs:26px);
+                }
+
+                &:last-child {
+                  // MARGIN: 50PX 0 0 0;
+                  font-size: 18px;
+                  color: var(--subFtColor);
+                }
+              }
+
+              .inputBox {
+                @include flexBox($fw:wrap);
+
+                &:before {
+                  @include iLayout($d:block);
+                  @include img_pc;
+                  width: 100%;
+                }
+
+                input {
+                  min-width: 330px;
+                  flex-grow: 1;
+                  height: 54px;
+                }
+
+                button {
+                  @include btnLayout;
+                  @include btn_main;
+                  @include ftM;
+                  width: 180px;
+                  height: 54px;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          .readyBox {
+            display: none;
+          }
+
+          .box_sitePerfomance {
+            // 상단  대시보드, 사이트성능분석 화면 사이트 성능 section 공통 에 있음
+          }
+        }
+
+        // 진단 결과
+        &.sec_resultList {
+          .box_resultList {
+            @include boxLayout;
+            margin: 30px 0 0 0;
+
+            .tit {
+              @include title;
+            }
+
+            .cont {
+              margin: 20px 0 0 0;
+
+              .tableArea {
+                @include tableDataNone($h: 210px, $minh:210px);
+
+                .tableBox {
+                  @include tableWrap;
+                  @include tableLayout_t2;
+
+                  table {
+                    tbody {
+                      tr {
+                        td {
+                          p {
+
+                            &.warning,
+                            &.normal,
+                            &.check,
+                            &.pass,
+                            &.etc {
+                              @include iflexBox($g:8px);
+
+                              &:before {
+                                content: "";
+                                position: relative;
+                                display: inline-block;
+                                width: 15px;
+                                height: 15px;
+                                border-radius: 100%;
+                                vertical-align: middle;
+                              }
+                            }
+
+                            &.warning:before {
+                              background-color: var(--red);
+                            }
+
+                            &.normal:before {
+                              background-color: var(--issueColor5);
+                            }
+
+                            &.check:before {
+                              background-color: var(--checkColor);
+
+                              // background-color: var(--checkColor);
+                            }
+
+                            &.pass:before {
+                              background-color: var(--pointColor9);
+                            }
+
+                            // &.etc:before {
+                            //   background-color: var(--unknowColor);
+                            // }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 스크립트 리소스 결과 
+        &.sec_scriptList {
+          .box_scriptList {
+            @include boxLayout;
+            margin: 30px 0 0 0;
+
+            .tit {
+              @include flexBox;
+
+              p {
+                &:nth-child(1) {
+                  @include title;
+                }
+
+                &:nth-child(2) {
+                  @include ftMedium;
+                  font-size: 14px;
+
+                  span {
+                    margin: 0 0 0 2px;
+                    color: var(--pointColor);
+                  }
+                }
+              }
+            }
+
+            .cont {
+              margin: 20px 0 0 0;
+
+              .tableArea {
+                @include tableDataNone($h:300px);
+
+                .tableBox {
+                  @include tableWrap;
+                  @include tableLayout_t2;
+
+                  table {
+                    tbody {
+                      tr {
+                        td {
+                          &:last-child {
+                            color: var(--pointColor);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

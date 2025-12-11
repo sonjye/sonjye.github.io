@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <g data-name="그룹 7675" transform="translate(-407 -315)">
+        <g data-name="모서리가 둥근 직사각형 11" transform="translate(407 315)" style="fill:#fff;stroke:#3c71fd;stroke-linejoin:round">
+            <rect width="16" height="16" rx="8" style="stroke:none"/>
+            <rect x=".5" y=".5" width="15" height="15" rx="7.5" style="fill:none"/>
+        </g>
+        <circle data-name="타원 535" cx="4" cy="4" r="4" transform="translate(411 319)" style="fill:#3c71fd"/>
+    </g>
+</svg>

@@ -1,0 +1,5468 @@
+@charset 'utf-8';
+/*
+File   : mixin.scss
+Date   : 2025.07.03
+*/
+
+
+//* font */
+@mixin ftRegular {
+  font-family: "NotoSansR";
+}
+
+@mixin ftR {
+  font-family: "NotoSansR";
+}
+
+@mixin ftMedium {
+  font-family: "NotoSansM";
+  font-weight: normal;
+}
+
+@mixin ftM {
+  font-family: "NotoSansM";
+  font-weight: normal;
+}
+
+@mixin ftBold {
+  font-family: "NotoSansB";
+}
+
+@mixin ftB {
+  font-family: "NotoSansB";
+}
+
+
+
+//* scroll  */
+// ::-webkit-scrollbar 
+@mixin scrollbar($w:4px, $bg: var(--scrollbarColor)) {
+  width: $w;
+  height: 4px;
+  background: $bg;
+}
+
+//::-webkit-scrollbar-thumb 
+@mixin scrollbar-thumb($br:0px) {
+  height: 15px;
+  border-radius: $br;
+  background: var(--scrollThumbColor);
+}
+
+
+
+//* text */
+// hide 
+@mixin txtHide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+// 드래그 방지
+@mixin dragBlock {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 클릭금지
+@mixin clickBlock {
+  pointer-events: none;
+  cursor: default;
+}
+
+
+//* ellipsis */
+//* hover visible */
+@mixin ellipsisHover {
+  white-space: normal !important;
+  overflow: visible !important;
+  word-break: break-all !important;
+}
+
+//* text ellipsis */
+// display 있어야 나타남
+@mixin ellipsis($d:null, $w:null) {
+  display: $d;
+  width: $w;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin ellipsis_l2($wlc:2) {
+  display: -webkit-box;
+  //width: 100px;
+  //height: 100px;
+  //line-height: 22px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-line-clamp: $wlc;
+  -webkit-box-orient: vertical;
+}
+
+
+@mixin ellipsis_l4($wlc:4) {
+  @include ellipsis_l2($wlc:$wlc);
+}
+
+
+//* display*/
+//* inline-block */
+@mixin dpLayout {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//* flex */
+@mixin flexBox($f:flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin iflexBox($f:inline-flex, $fw:null, $d:initial, $j:space-between, $a:center, $g:10px) {
+  display: $f;
+  flex-wrap: $fw;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+
+//* flex */
+@mixin flex_between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex_between_column {
+  @include flex_between;
+  flex-direction: column;
+}
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex_center2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex_center_column {
+  @include flex_center;
+  flex-direction: column;
+}
+
+@mixin flex_item_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin flex_end_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@mixin flex_around {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin flex_start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@mixin flex_end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@mixin flex_item {
+  display: flex;
+  align-items: center;
+}
+
+@mixin iflex_item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+//* ico */
+@mixin iLayout($p:relative, $d:inline-block, $bgp: 0px 0px) {
+  content: "";
+  position: $p;
+  display: $d;
+  font-size: 0;
+  font-style: normal;
+  background-position: $bgp;
+}
+
+
+//* animation */
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+//* gradient */
+@mixin B_gradient {}
+
+@mixin B_boxShadow {}
+
+
+//* loadingBg */
+//* 페이지 로딩 > 이미지 태그 */
+// @mixin B_loadingBg {
+//   display: block;
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 9999;
+//   background: rgba(0, 0, 0, 0.7);
+
+//   img {
+//     display: block;
+//     width: 100px;
+//     margin: 380px auto;
+//   }
+
+//   &.complete {
+//     display: none;
+//     opacity: 0;
+//     z-index: -999;
+//   }
+// }
+//* 페이지 로딩 -2 > 큐브 로딩 */
+@mixin loadingBg {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--dimShadow);
+  z-index: 9999;
+
+  &.complete {
+    display: none;
+    opacity: 0;
+    z-index: -999;
+  }
+
+  $--p-1: #6ef0ff;
+  $--p-2: #0fa5be;
+  $--p-3: #06697b;
+  $--p-4: #3f0684;
+
+  $--b-1: #0fa5be;
+  $--b-2: #06697b;
+  $--b-3: #3f0684;
+  $--b-4: #7f1eed;
+
+  $--g-1: #06697b;
+  $--g-2: #3f0684;
+  $--g-3: #7f1eed;
+  $--g-4: #ac64ff;
+
+  $--y-1: #3f0684;
+  $--y-2: #7f1eed;
+  $--y-3: #ac64ff;
+  $--y-4: #e0c4ff;
+
+  $colors: ($--p-1, $--p-2, $--p-3, $--p-4, $--b-1, $--b-2, $--b-3, $--b-4, $--g-1, $--g-2, $--g-3, $--g-4, $--y-1, $--y-2, $--y-3, $--y-4);
+
+  .loader {
+    --cell-size: 24px;
+    --cell-spacing: 1px;
+    --border-width: 1px;
+    --cells: 4;
+    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--total-size);
+    height: var(--total-size);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    >.cell {
+      --cell-color: white;
+      flex: 0 0 var(--cell-size);
+      margin: var(--cell-spacing);
+      background-color: transparent;
+      box-sizing: border-box;
+      border: var(--border-width) solid var(--cell-color);
+
+      animation: 1.5s ripple ease infinite;
+
+      $delays: (2 * 4) - 2;
+
+      @for $i from 1 through $delays {
+        &.d-#{$i} {
+          animation-delay: $i * 100ms;
+        }
+      }
+
+      @for $i from 1 through length($colors) {
+        &:nth-child(#{$i}) {
+          --cell-color: #{nth($colors, $i)};
+        }
+      }
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      background-color: transparent;
+    }
+
+    30% {
+      background-color: var(--cell-color);
+    }
+
+    60% {
+      background-color: transparent;
+    }
+
+    100% {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin loadingDot($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  &:before {
+    @include iLayout;
+    @include icoB_loadingDot;
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-size: 44px 44px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // background-color: rgba(0, 0, 0, 0.8) !important;
+    background-color: var(--dimBgColor);
+    opacity: var(--dimOpacity);
+    z-index: $zIndex;
+  }
+}
+
+
+@mixin loadingCircle($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  &:before {
+    @include iLayout;
+    @include icoB_loadingCircle;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: inherit;
+    background-size: 70px 70px;
+    transform: translate(-50%, -50%);
+    // background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--dimBgColor);
+    opacity: var(--dimOpacity);
+    z-index: $zIndex;
+  }
+}
+
+@mixin loadingText($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  >p.dText {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    color: var(--dimFtColor);
+    text-align: center;
+    line-height: 1.5;
+    transform: translate(-50%, -50%);
+    background-color: var(--dimBgColor);
+    opacity: var(--dimOpacity);
+    z-index: $zIndex;
+  }
+}
+
+// .dimText클래스 추가시 하위 dimTextArea 나타남
+@mixin loadingText_t2($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  z-index: $zIndex;
+
+  >p.dText,
+  >.loadingText {
+    @include flexBox($d:column, $g:0);
+    position: absolute;
+    // display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    color: var(--dimFtColor);
+    text-align: center;
+    line-height: 1.5;
+    transform: translate(-50%, -50%);
+    background-color: var(--dimBgColor);
+    opacity: var(--dimOpacity);
+    z-index: $zIndex;
+  }
+}
+
+
+//* ico */
+// i-issue,normal
+@mixin iText($m_width:60px, $height: 26px) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: $m_width;
+  height: $height;
+  font-size: 12px;
+  border-radius: 13px;
+  text-align: center;
+}
+
+@mixin i_issue {
+  color: var(--issueColor3);
+  border: 1px solid var(--issueColor);
+  background-color: var(--issueColor2);
+}
+
+@mixin i_normal {
+  color: var(--white);
+  border: 1px solid var(--normalColor3);
+  background-color: var(--normalColor2);
+}
+
+
+//* iBox */
+// B: wht, C: point
+@mixin iMark {
+  @include iLayout;
+  @include ico_i;
+}
+
+// B, C : wht
+@mixin iMark_wht {
+  @include iLayout;
+  @include ico_i_wht;
+}
+
+// B: blcak(ftColor), C: white
+@mixin iMark3 {
+  @include iLayout;
+  @include ico_i3;
+}
+
+@mixin iMarkHover($w:300px, $minW:200px, $l:-26px, $minH:70px, $br: 20px) {
+  @include ftRegular;
+  display: none;
+  position: absolute;
+  width: $w;
+  min-width: $minW;
+  height: auto;
+  min-height: $minH;
+  left: $l;
+  bottom: 28px;
+  padding: 15px;
+  color: var(--ftColor);
+  font-size: 13px;
+  text-align: left;
+  font-style: normal;
+  line-height: 18px;
+  white-space: normal;
+  border-radius: $br;
+  border: 1px solid var(--pointColor);
+  background-color: var(--bubbleBgColor);
+  box-shadow: var(--bubbleShadow);
+  cursor: default;
+  z-index: 800;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 12%;
+    border: solid transparent;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: var(--bubbleBorderColor);
+    border-width: 10px;
+    margin-left: -10px;
+  }
+
+  &:before {
+    border-color: rgba(133, 183, 78, 0);
+    border-top-color: var(--pointColor);
+    border-width: 11px;
+    margin-left: -11px;
+  }
+}
+
+@mixin iMarkHover_R {
+  right: -26px;
+  left: auto;
+
+  &:after,
+  &:before {
+    right: 12%;
+    left: auto;
+  }
+
+  &:after {
+    margin-right: 1px;
+  }
+}
+
+@mixin iMarkHover_TL($t:28px, $b:auto, $r:auto, $l:null, $l2: 12%) {
+  top: $t;
+  bottom: $b;
+  right: $r;
+  left: $l;
+
+  &:after,
+  &:before {
+    left: $l2;
+    right: auto;
+    border-top: none;
+    border-bottom-color: var(--bubbleBorderColor);
+    // transform: rotate(-180deg);
+  }
+
+  &:before {
+    top: -11px;
+    border-bottom-color: var(--pointColor);
+  }
+
+  &:after {
+    top: -9px;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+}
+
+@mixin iMarkHover_TR {
+  top: 28px;
+  right: -30px;
+  bottom: auto;
+  left: auto;
+
+  &:after,
+  &:before {
+    right: 12%;
+    left: auto;
+    border-top: none;
+    border-bottom-color: var(--bubbleBorderColor);
+  }
+
+  &:before {
+    top: -11px;
+    border-bottom-color: var(--pointColor);
+
+  }
+
+  &:after {
+    top: -10px;
+    border-width: 11px;
+    margin-left: -10px;
+  }
+}
+
+@mixin iMarkHover_TC {
+  top: 28px;
+  right: auto;
+  bottom: auto;
+  left: auto;
+
+  &:after,
+  &:before {
+    left: calc(50% - 1px);
+    border-top: none;
+    border-bottom-color: var(--bubbleBorderColor);
+  }
+
+  &:before {
+    top: -12px;
+    border-bottom-color: var(--pointColor);
+
+  }
+
+  &:after {
+    top: -10px;
+    border-width: 11px;
+    margin-left: -10px;
+  }
+}
+
+@mixin iMarkHover_L {
+  top: -20px;
+  right: 0px;
+  bottom: auto;
+  left: 50px;
+
+  &:after,
+  &:before {
+    right: 12%;
+    left: auto;
+    border-top: none;
+    border-bottom-color: var(--bubbleBorderColor);
+    transform: rotate(-90deg);
+  }
+
+  &:before {
+    top: 21px;
+    left: -6px;
+    border-bottom-color: var(--pointColor);
+  }
+
+  &:after {
+    top: 21px;
+    left: -6px;
+    border-width: 11px;
+    margin-left: -9px;
+  }
+}
+
+
+@mixin iMarkHover_C {
+
+  &:after,
+  &:before {
+    right: 50%;
+    left: auto;
+    // border-top: none;
+    // border-bottom-color: var(--bubbleBorderColor);
+    // transform: rotate(-90deg);
+  }
+
+  // &:before {
+  //   top: 21px;
+  //   left: -6px;
+  //   border-bottom-color: var(--pointColor);
+  // }
+
+  // &:after {
+  //   top: 21px;
+  //   left: -6px;
+  //   border-width: 11px;
+  //   margin-left: -9px;
+  // }
+}
+
+
+//* title > modal */
+@mixin title($fs: 18px, $ftColor: var(--ftColor)) {
+  @include ftMedium;
+  font-size: $fs;
+  color: $ftColor;
+}
+
+//  modal
+@mixin title2($fs: 16px, $ftColor: var(--ftColor)) {
+  @include ftMedium;
+  font-size: $fs;
+  color: $ftColor;
+}
+
+// 박스 내 타이틀  >  위젯
+@mixin title3($fs: 18px, $ftColor: var(--pointColor)) {
+  @include title($fs:$fs, $ftColor:$ftColor);
+}
+
+
+@mixin titleSub($m:5px 0 0 0, $lh:null) {
+  @include ftMedium;
+  margin: $m;
+  font-size: 13px;
+  line-height: $lh;
+  color: var(--subFtColor);
+}
+
+@mixin titleLayout {
+  p {
+    &:first-child {
+      @include title;
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub();
+    }
+  }
+}
+
+@mixin titleLayout2 {
+  p {
+    &:first-child {
+      @include title3;
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub();
+    }
+  }
+}
+
+//* title 하단 선 */
+@mixin titleLayout_t2($pd: 0 0 20px 0) {
+  padding: $pd;
+  border-bottom: 1px solid var(--borderColor3);
+
+  p {
+    &:first-child {
+      @include title;
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub();
+    }
+  }
+}
+
+// title 하단에 sub title 및 txtDot이 있는 경우 (titleLayout은 sub title이 flex 정렬되어있는 경우 있을 때)
+@mixin titleLayout3 {
+  p {
+    &:first-child {
+      @include title;
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub($lh:1.2);
+
+      &:before {
+        @include txtDot($bgColor:var(--subFtColor));
+      }
+    }
+  }
+}
+
+@mixin titleColor {
+  --ftColor20: var(--ftColor);
+}
+
+//* widget TITLE P(1) ftColor > pointColor */
+@mixin titleLayout4($ftColor: var(--ftColor20)) {
+  p {
+    &:first-child {
+      @include title3($ftColor:$ftColor);
+    }
+
+    &:nth-child(2) {
+      margin: 8px 0 0 0;
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub();
+
+      &:before {
+        @include txtDot($bgColor:var(--subFtColor));
+      }
+    }
+
+    button {
+      &.widgetAdd {
+        @include btn_widgetAdd;
+      }
+
+      &.map {
+        @include btn_map;
+      }
+    }
+  }
+}
+
+//* titleLayout 에서 font-color > ftColor */
+@mixin titleLayout5($m1: 8px 0 0 0, $m2:5px 0 0 0, $ftColor: var(--ftColor)) {
+  p {
+    &:first-child {
+      @include title3($ftColor:$ftColor);
+    }
+
+    &:nth-child(n+2) {
+      @include titleSub($m:$m2);
+
+      &:before {
+        @include txtDot($bgColor:var(--subFtColor));
+      }
+    }
+
+    &:nth-child(2) {
+      margin: $m1;
+    }
+
+    button {
+      &.widgetAdd {
+        @include btn_widgetAdd;
+      }
+
+      &.map {
+        @include btn_map;
+      }
+    }
+  }
+}
+
+
+//* txtDot */
+//* before */
+@mixin txtDot($p:relative, $width:3px, $height: 3px, $t:-3px, $bgColor: var(--ftColor)) {
+  content: "";
+  position: $p;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  top: $t;
+  margin-right: 4px;
+  border-radius: 100%;
+  background-color: $bgColor;
+}
+
+@mixin txtDot_t2($p:relative, $width:7px, $height:7px) {
+  content: "";
+  position: $p;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  top: -3px;
+  margin-right: 10px;
+  border-radius: 100%;
+  // box-shadow: 0 0 15px 0 var(--pointColor);
+  background-color: var(--pointColor);
+}
+
+//* daterangepicker */
+@mixin daterangepicker {
+  padding: 4px 4px 4px 4px;
+  box-shadow: var(--dateShadow);
+  border: 1px solid var(--dateBorderColor);
+  background-color: var(--dateBgColor);
+  right: 65px !important;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::selection {
+    color: #ffffff;
+    background-color: var(--mainColor);
+  }
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  &.show-ranges {
+    .drp-calendar {
+
+      // 왼쪽 달력 
+      &.left {
+        padding: 4px;
+        border-left: none;
+      }
+
+      // 오른쪽 달력 
+      &.right {
+        padding: 4px;
+      }
+    }
+  }
+
+  //* datepicker */
+  .calendar-table {
+    background-color: transparent;
+    border: 1px solid transparent;
+
+    //* 이전 & 다음 아이콘 */
+    .prev,
+    .next {
+      span {
+        border-color: var(--mainColor);
+      }
+    }
+
+    table {
+      thead {
+        tr {
+          th {
+            &.available {
+              &:hover {
+                border: none;
+                background-color: transparent;
+              }
+            }
+          }
+
+          // year 
+          &:nth-child(1) {
+            th {
+              @include ftMedium;
+              padding: 0px 0 5px 0px;
+              font-weight: normal;
+              font-size: 13px;
+              color: var(--dateFtColor5);
+            }
+          }
+
+          // day 
+          &:nth-child(2) {
+            th {
+              color: var(--dateFtColor2);
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+      tbody {
+        td {
+          // @include RobotoR;
+          position: relative;
+          height: 26px;
+          color: var(--dateFtColor5);
+          font-size: 12px;
+          border: none;
+
+          &.off {
+            color: var(--dateFtColor3);
+            background-color: transparent;
+          }
+
+          &:hover {
+            color: var(--dateFtColor4);
+            // border-radius: 100%;
+            border-radius: 5px;
+            background-color: var(--mainColor);
+          }
+
+          //* 기간 선택 */
+          &.in-range {
+            color: #ffffff;
+            background-color: var(--dateBgColor2);
+
+            &:hover {
+              border-radius: 0;
+              background-color: var(--mainColor);
+            }
+          }
+
+          &.start-date {
+            &:hover {
+              border-radius: 4px 0 0 4px;
+            }
+          }
+
+          &.active,
+          &.end-date {
+            color: var(--dateFtColor6);
+            background-color: var(--mainColor);
+          }
+
+          &.end-date {
+            &:hover {
+              border-radius: 0 4px 4px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //* time */
+  .calendar-time {
+    text-align: right;
+
+    select {
+
+      &.hourselect,
+      &.minuteselect,
+      &.ampmselect,
+      &.secondselect {
+        min-width: 50px;
+        height: 26px;
+        padding: 2px 6px;
+        border: 1px solid var(--dateIpBorderColor);
+        background-color: var(--dateIpBgColor);
+      }
+    }
+  }
+
+  .ranges {
+    // display: none;
+    padding-left: 6px;
+    overflow-x: hidden !important;
+
+    ul {
+
+      li {
+        color: var(--dateFtColor5);
+
+        &:hover {
+          color: var(--dateFtColor7);
+          background-color: var(--dateBgColor3);
+        }
+
+        &.active {
+          color: var(--dateFtColor6);
+          background-color: var(--mainColor);
+        }
+      }
+    }
+  }
+
+  //* 확인, 취소 버튼 */
+  .drp-buttons {
+    border-color: var(--dateBorderColor);
+
+    button {
+
+      &.cancelBtn,
+      &.applyBtn {
+        font-family: "NotoSansR";
+        position: relative;
+        text-align: center;
+        color: var(--dateFtColor7);
+        border: 2px solid var(--mainColor);
+        border-radius: 2px;
+        background-color: var(--mainColor);
+        cursor: pointer;
+      }
+    }
+  }
+
+  // single 
+  &.single {
+    width: fit-content;
+
+    .ranges {
+      display: none;
+    }
+  }
+}
+
+
+//* dim */
+@mixin dimBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 990;
+}
+
+@mixin dimBox_t2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 990;
+
+  p {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+  }
+}
+
+@mixin dimCircle($zIndex:700) {
+  position: relative;
+  top: 0;
+  width: auto;
+  height: 100%;
+  z-index: $zIndex;
+
+  &:before {
+    @include iLayout;
+    @include loadingCircle();
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    background-size: 80px 80px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.55) !important;
+    background-position: center;
+    z-index: $zIndex;
+    opacity: 1;
+  }
+}
+
+
+// .slick-arrow
+@mixin slick_arrow($p:null, $w:null, $h:null, $iw:null, $ih:null, $t1:null, $r1:null, $b1:null, $l1:null, $t2:null, $r2:null, $b2:null, $l2:null, $bgColor:null) {
+  &.slick-prev {
+    position: $p;
+    width: $w;
+    height: $h;
+    top: $t1;
+    right: $r1;
+    bottom: $b1;
+    left: $l1;
+
+    &:before {
+      @include iLayout;
+      @include ico_arrowRight3;
+      width: $iw;
+      height: $ih;
+      transform: rotate(180deg);
+      mask-size: contain;
+      background-color: $bgColor;
+    }
+  }
+
+  &.slick-next {
+    position: $p;
+    width: $w;
+    height: $h;
+    top: $t2;
+    bottom: $b2;
+    left: $l2;
+    right: $r2;
+
+    &:before {
+      @include iLayout;
+      @include ico_arrowRight3;
+      width: $iw;
+      height: $ih;
+      mask-size: contain;
+      background-color: $bgColor;
+
+    }
+  }
+
+  .slick-pause {
+    width: $w;
+    height: $h;
+
+    &:before {
+      @include iLayout;
+      @include ico_pause2;
+      width: $iw;
+      height: $ih;
+
+    }
+  }
+}
+
+// .slick-arrow > 조금 더 큰 포인트색상 화살표
+@mixin slick_arrow2($h:null) {
+  &.slick-prev {
+    height: $h;
+
+    &:before {
+      @include iLayout;
+      @include ico_lineLeft;
+      // transform: rotate(180deg);
+      background-size: contain;
+      background: var(--ico_color);
+    }
+  }
+
+  &.slick-next {
+    height: $h;
+
+    &:before {
+      @include iLayout;
+      @include ico_lineLeft;
+      transform: scaleX(-1);
+      background: var(--ico_color);
+      background-size: contain;
+    }
+  }
+}
+
+//.slick-dots
+@mixin slick_dot($p:null, $b:null, $w_active: 23px, $brdColor: var(--slickDot_active), $bg:var(--slickDot_active)) {
+  position: $p;
+  bottom: $b;
+
+  li {
+    width: 10px;
+    height: 10px;
+
+    &:nth-child(n+2) {
+      margin: 0 0 0 8px;
+    }
+
+    &.slick-active {
+      width: $w_active;
+
+      button {
+        width: $w_active;
+
+        &:before {
+          width: $w_active;
+          border-radius: 5px;
+          border: 1px solid $brdColor;
+          border: none;
+          background-color: $bg;
+          opacity: 1;
+        }
+      }
+    }
+
+    button {
+      width: 10px;
+      height: 10px;
+      // padding: 3px;
+
+      &:before {
+        top: 0px;
+        left: 0px;
+        font-size: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        border: 1px solid var(--slickDot);
+        border: none;
+        background-color: var(--slickDot);
+        opacity: 1;
+        // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+
+//* button */
+@mixin btn_shadow_none {
+  box-shadow: none;
+}
+
+// border (X)
+@mixin btn_disabled {
+  color: var(--btnDis_ftColor);
+  border-color: var(--btnDis_BorderColor);
+  background-color: var(--btnDis_bgColor);
+  box-shadow: none;
+  cursor: default;
+}
+
+// border (O)
+@mixin btn_disabled2 {
+  color: var(--btnDis_ftColor);
+  border-color: var(--btnDis_BorderColor2);
+  background-color: var(--btnDis_bgColor);
+  box-shadow: none;
+  cursor: default;
+}
+
+//* iBtn */
+@mixin iBtn($p:relative, $w:null, $minW:null, $h:null, $a:middle, $d:inline-block, $pd:10px) {
+  content: "";
+  position: $p;
+  display: $d;
+  width: $w;
+  min-width: $minW;
+  height: $h;
+  padding: $pd;
+  font-size: 0;
+  font-style: normal;
+  vertical-align: $a;
+  background-position: 0px 0px;
+  cursor: pointer;
+}
+
+
+@mixin btnLayout($d:null, $br:2px, $w:null, $minw:null, $h:null, $minh:null, $pd:null, $fs:null) {
+  @include ftRegular;
+  position: relative;
+  display: $d;
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  font-size: $fs;
+  text-align: center;
+  border-radius: $br;
+  cursor: pointer;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+//* normal */
+@mixin btnLayout_normal($width:140px) {
+  position: relative;
+  min-width: $width;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+@mixin btnLayout_small($width:84px, $height:40px) {
+  position: relative;
+  min-width: $width;
+  padding: 0 10px;
+  height: $height;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+// ON > B: skyblue(bg), C: point
+@mixin btn_main ($w:null, $minw:null, $h:null, $minh:null, $pd:null) {
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  padding: $pd;
+  color: var(--btnMain_ftColor);
+  border: 2px solid var(--btnMain_bgColor);
+  background-color: var(--btnMain_bgColor);
+  box-shadow: none;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+@mixin btn_search {
+  @include btnLayout;
+  @include btn_main4;
+  width: 84px;
+  height: $height;
+  margin-left: 10px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+// ON2 > B: skyblue(border), C: point border
+@mixin btn_main2 {
+  color: var(--btnMain_ftColor2);
+  border: var(--btnMain_border2);
+  box-shadow: var(--btnMain_shadow2);
+  background-color: var(--btnMain_bgColor2);
+}
+
+//* btn_main2에서 shadow 없는 경우 */
+@mixin btn_main3 {
+  color: var(--btnMain_ftColor2);
+  border: var(--btnMain_border2);
+  box-shadow: none;
+  background-color: var(--btnMain_bgColor2);
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+// ON2 > B: skyblue(border), C: point
+@mixin btn_main4 {
+  color: var(--btnMain_ftColor4);
+  border: var(--btnMain_border4);
+  box-shadow: var(--btnMain_shadow4);
+  background-color: var(--btnMain_bgColor4);
+}
+
+@mixin btn_off {
+  color: var(--btnOff_ftColor);
+  border: 2px solid var(--btnOff_BorderColor);
+  background-color: var(--btnOff_BgColor);
+  box-shadow: none;
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+// B: off, C: white
+@mixin btn_off2 {
+  color: var(--btnOff_ftColor2);
+  border: 1px solid var(--btnOff_BorderColor2);
+  background-color: var(--btnOff_BgColor2);
+  box-shadow: none
+}
+
+@mixin btn_off3 {
+  color: var(--btnOff_ftColor3);
+  border: 1px solid var(--btnOff_BrdColor3);
+  background-color: var(--btnOff_BgColor3);
+  box-shadow: none
+}
+
+@mixin btn2 ($w:null, $minw:null, $h:null, $minh:null, $pd:null, $br:null, $fs:null, $lh:null) {
+  width: $w;
+  min-width: $minw;
+  height: $h;
+  min-height: $minh;
+  border-radius: $br;
+  font-size: $fs;
+  line-height: $lh;
+  padding: $pd;
+  color: var(--btn_ftColor2);
+  border: 1px solid var(--btn_brdColor);
+  box-shadow: var(--btn_shadow2);
+  background-color: var(--btn_bgColor2);
+
+  &:disabled {
+    @include btn_disabled;
+  }
+}
+
+// btn5
+@mixin btn5 {
+  color: var(--btn_ftColor5);
+  border: 1px solid var(--btn_brdColor5);
+  box-shadow: var(--btn_shadow5);
+  background-color: var(--btn_bgColor5);
+}
+
+// btn5(on)
+@mixin btn6 {
+  color: var(--btn_ftColor6);
+  border: 1px solid var(--btn_brdColor6);
+  box-shadow: var(--btn_shadow6);
+  background-color: var(--btn_bgColor6);
+}
+
+// btn7(on)
+@mixin btn7 {
+  color: var(--btn_ftColor7);
+  border: 1px solid var(--btn_brdColor7);
+  background-color: var(--btn_bgColor7);
+}
+
+@mixin btn8 {
+  color: var(--btn_ftColor8);
+  border: 1px solid var(--btn_brdColor8);
+  background-color: var(--btn_bgColor8);
+}
+
+@mixin btn9 {
+  color: var(--btn_ftColor9);
+  border: 1px solid var(--btn_brdColor9);
+  background-color: var(--btn_bgColor9);
+}
+
+// B: point,Bg / C: point
+@mixin btn10 {
+  color: var(--btn_ftColor10);
+  border: 1px solid var(--btn_brdColor10);
+  background-color: var(--btn_bgColor10);
+}
+
+// 배경색, 선색(포인트), 글자색(화이트)
+@mixin btn12 {
+  color: var(--btn_ftColor12);
+  border: 1px solid var(--btn_brdColor12);
+  background-color: var(--btn_bgColor12);
+}
+
+// btn7(on)
+// @mixin btn8 {
+//   color: var(--btn_ftColor7);
+//   border: 1px solid var(--btn_brdColor7);
+//   background-color: var(--btn_bgColor7);
+// }
+
+// skyblue B: point, C: B_point
+@mixin btn_t2 {
+  color: var(--btnFtColor6);
+  background-color: var(--btnBgColor6);
+}
+
+// hover 시 btn_main2 사용 
+@mixin btn_white {
+  color: var(--btnFtColor5);
+  border: 1px solid var(--btnBorderColor5);
+  background-color: var(--btnBgColor5);
+}
+
+
+@mixin btn_delete {
+  color: var(--btnDlt_ftColor);
+  border: 1px solid var(--btnDlt_BorderColor);
+  box-shadow: var(--btnDlt_shadow);
+  background-color: var(--btnDlt_bgColor);
+}
+
+@mixin btn_pointSub {
+  color: var(--btnFtColor4);
+  border: 2px solid var(--btnBorderColor4);
+  box-shadow: var(--btnShadow4);
+  background-color: var(--btnBgColor4);
+}
+
+@mixin btn_pointSubOn {
+  color: var(--btnFtColor3);
+  border: 2px solid var(--btnBorderColor3);
+  box-shadow: var(--btnShadow3);
+  background-color: var(--btnBgColor3);
+}
+
+// B: bgColor, C: white
+@mixin btn_excel_t2($w:80px, $h:36px) {
+  @include btnLayout();
+  @include btn_main();
+  min-width: $w;
+  height: $h;
+  vertical-align: middle;
+
+  &:before {
+    @include iLayout;
+    @include ico_excel2;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+}
+
+//* download */
+@mixin btn_download_t2($width:80px, $height:36px, $padding: 0 34px 0 14px) {
+  @include btnLayout();
+  @include btn_main();
+  position: relative;
+  min-width: $width;
+  height: $height;
+  padding: $padding;
+  vertical-align: middle;
+
+  &:after {
+    @include iLayout;
+    @include ico_download;
+    position: absolute;
+    width: 16px;
+    height: 14px;
+    right: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+}
+
+@mixin btn_copy($width:80px, $height:30px) {
+  @include btnLayout();
+  @include btn_main3();
+  min-width: $width;
+  height: $height;
+  vertical-align: middle;
+
+  &:before {
+    @include iLayout;
+    @include ico_copy2;
+    mask-size: 17px 19px;
+    width: 17px;
+    height: 19px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+}
+
+//* ico search Button */
+@mixin btn_searchBox($width:28px, $height:28px) {
+  min-width: $width;
+  height: $height;
+  vertical-align: middle;
+  font-size: 0;
+
+  &:before {
+    @include iLayout;
+    @include ico_searchBox;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+  }
+}
+
+
+//* text search button */
+@mixin btn_search($width:80px, $height:40px, $fs:14px) {
+  @include btnLayout_normal;
+  @include btn_main2;
+  min-width: $width;
+  height: $height;
+  vertical-align: middle;
+  font-size: $fs;
+}
+
+
+//* add & remove */
+// @include btn_main; 버튼 색상에 맞게 추가 후 하단 mixin 추가
+// @include btn_main
+@mixin btn_add {
+  position: relative;
+  font-size: 0;
+  width: 40px;
+  height: 38px;
+  vertical-align: middle;
+
+  &:before {
+    content: "+";
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 0.7;
+  }
+}
+
+// @include btn_off; 버튼 색상에 맞게 추가 후 하단 mixin 추가
+// @include btn_off
+@mixin btn_remove {
+  position: relative;
+  font-size: 0;
+  width: 40px;
+  height: 38px;
+  vertical-align: middle;
+
+  &:before {
+    content: "-";
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    line-height: 0.3;
+  }
+}
+
+@mixin btn_widgetAdd {
+  @include iBtn($pd:0);
+  width: 26px;
+  height: 26px;
+  margin: 0 4px;
+  vertical-align: text-bottom;
+  border-radius: 5px;
+  background-color: var(--pointColor);
+
+  &:before {
+    @include iLayout;
+    @include ico_widgetAdd;
+    width: 19px;
+    height: 17px;
+    // margin: 0 4px;
+    padding: 4px;
+    border-radius: 5px;
+    // vertical-align: sub;
+    background-position-x: 5px;
+    background-color: var(--bgColor9);
+  }
+
+  &:disabled {
+    background-color: var(--btnOff_BgColor);
+    cursor: default;
+  }
+}
+
+@mixin btn_map {
+  @include iBtn($pd:0);
+  vertical-align: text-bottom;
+
+  &:before {
+    @include iLayout;
+    @include ico_map;
+    width: 15px;
+    height: 20px;
+    margin: 0 4px;
+    padding: 4px;
+    // border-radius: 5px;
+    // vertical-align: sub;
+    background-position-x: 5px;
+    // background-color: var(--pointColor);
+  }
+}
+
+//* ico toggle */
+//* background-color 추가 및 before에 ico_toggle_* 추가 */
+@mixin i_toggle($width:84px, $height:26px) {
+  @include iLayout;
+  min-width: $width;
+  height: $height;
+  padding: 3px 10px 3px 25px;
+  font-size: 13px;
+  text-align: center;
+  color: #060f3b;
+  border-radius: 13px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+//* btnArea */
+@mixin btnArea($margin:40px 0 0 0) {
+  margin: $margin;
+  font-size: 0;
+  text-align: center;
+
+  button {
+    @include btnLayout_normal;
+    @include btn_main;
+    display: inline-block;
+    min-width: 140px;
+    height: 44px;
+    font-size: 15px;
+    margin-left: 12px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+
+//* input */
+//* option title */
+@mixin ip_title($fs: 16px) {
+  @include ftMedium();
+  display: inline-block;
+  font-size: $fs;
+}
+
+//* input */
+@mixin input($pd: 6px 10px) {
+  @include ftRegular;
+  display: inline-block;
+  height: 40px;
+  padding: $pd;
+  font-size: 14px;
+  vertical-align: middle;
+  color: var(--ftColor);
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid var(--ipBorderColor);
+  background-color: var(--ipBgColor);
+
+  &:disabled,
+  &.disabled {
+    border: 1px solid var(--ipBorderColor_disabled);
+    background: var(--ipBgColor_disabled);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-size: 14px;
+    color: var(--ipFtColor_placeholder);
+  }
+}
+
+
+
+// input[type="file"]이 포함된 div에 추가
+// input안에 닫기 버튼이 있는 경우 >> 파일업로드버튼, input, 닫기버튼 구조에서 input+닫기버튼 div에 추가
+// .fileBox > .fileList 
+@mixin ip_fileBox {
+  @include input($pd: 0 10px);
+  @include flexBox;
+  position: relative;
+  flex-grow: 1;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  button.btnFileCancel {
+    @include iLayout;
+    @include ico_closeS2;
+    font-size: 0;
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    padding: 13px;
+    cursor: pointer;
+  }
+}
+
+// 파일 업로드 버튼
+// .fileBox > label 
+@mixin btn_fileUpload {
+  @include iflexBox($j:center, $g:4px);
+  @include btn_main;
+  width: 120px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:before {
+    content: "+";
+  }
+}
+
+//* textarea border 없어도 되는 경우 */
+@mixin textarea($h:null) {
+  @include ftRegular();
+  position: relative;
+  width: 100%;
+  height: $h;
+  padding: 0 10px 0 0;
+  border-radius: 5px;
+  color: var(--ftColor);
+  box-sizing: border-box;
+  border: 20px solid transparent;
+  background-color: var(--ipBgColor);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    color: var(--ipFtColor_placeholder);
+  }
+}
+
+// textarea
+// 복사버튼 & border 있는경우
+@mixin textarea_t2($width: 100%, $height: 200px, $heightMinus: 40px) {
+  @include textarea;
+  width: $width;
+  height: $height;
+  border: 1px solid var(--ipBorderColor);
+  background-color: var(--ipBgColor);
+
+  textarea {
+    height: calc(#{$height} - #{$heightMinus});
+    border-right: 10px;
+    resize: none;
+    background-color: var(--ipBgColor);
+  }
+}
+
+//* select */
+@mixin select($width:150px) {
+  @include ico_select;
+  @include ftRegular();
+  min-width: $width;
+  height: 40px;
+  padding: 4px 30px 4px 15px;
+  appearance: none;
+  font-size: 14px;
+  color: var(--ftColor);
+  line-height: 1;
+  border-radius: 5px;
+  border: 1px solid var(--ipBorderColor);
+  box-shadow: none;
+  background-color: var(--ipBgColor);
+  background-position-x: calc(100% - 15px);
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background-color: var(--ipBgColor);
+  }
+
+  &:disabled {
+    color: var(--ipFtColor_disabled);
+    border: 1px solid var(--ipBorderColor_disabled);
+    background-color: var(--ipBgColor_disabled);
+    opacity: 1;
+  }
+}
+
+//* checkbox */
+@mixin checkbox {
+  display: none;
+
+  +label {
+    position: relative;
+    display: block;
+    color: var(--ftColor);
+    cursor: pointer;
+
+    &:before {
+      @include iLayout;
+      @include ico_checkbox_off;
+      content: "";
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      top: -1px;
+      vertical-align: middle;
+      background-size: contain;
+    }
+  }
+
+  &:checked {
+    +label {
+      &:before {
+        @include iLayout;
+        @include ico_checkbox_on;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background-size: contain;
+      }
+    }
+
+
+  }
+
+  &:disabled {
+    +label {
+      &:before {
+        @include iLayout;
+        @include ico_checkbox_disabled;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background-size: contain;
+        cursor: default;
+      }
+    }
+  }
+}
+
+//* checkbox button version */
+//* input[type="checkbox"] */
+@mixin checkboxBtn($w:auto, $h:40px, $pd:19px 17px) {
+  display: none;
+
+  +label {
+    @include flex_item;
+    min-width: $w;
+    height: $h;
+    margin: 0 0 0 -1px;
+    padding: $pd;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border: 1px solid var(--borderColor4);
+    border-collapse: collapse;
+    background-color: var(--btnOff_BgColor);
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &:checked {
+    +label {
+      position: relative;
+      color: var(--btnMain_ftColor);
+      border: 1px solid var(--borderColor4);
+      background-color: var(--btnMain_bgColor);
+      z-index: 9;
+    }
+  }
+
+  &:disabled {
+    +label {
+      color: var(--btnDis_ftColor);
+      border: 1px solid var(--btnDis_BorderColor);
+      background-color: var(--btnDis_bgColor);
+      cursor: default;
+    }
+  }
+
+  &:first-child {
+    &[type="checkbox"] {
+      +label {
+        border-radius: 4px 0 0 4px;
+      }
+    }
+  }
+
+  &:last-of-type {
+    &[type="checkbox"] {
+      +label {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+}
+
+// sec_search > input check + selectDiv_t2 
+@mixin checkbox_t2 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  input[type="checkbox"] {
+    display: none;
+
+    +label {
+      @include iflexBox($g:0, $j:center);
+      width: 30px;
+      height: 30px;
+      font-size: 0;
+      border-radius: 100%;
+      border: none;
+      background-color: var(--btnOff_BgColor);
+
+      &:before {
+        margin: 0;
+      }
+
+      &.web {
+        &:before {
+          @include ico_web2_on;
+          height: 15px;
+        }
+      }
+
+      &.ios {
+        &:before {
+          @include ico_ios2_on;
+        }
+      }
+
+      &.android {
+        &:before {
+          @include ico_android2_on;
+        }
+      }
+    }
+
+    &:checked {
+      +label {
+        position: relative;
+        background-color: var(--btnMain_bgColor);
+      }
+    }
+
+    &:disabled {
+      +label {
+        background-color: var(--btnDis_ftColor);
+        cursor: default;
+
+        &:before {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+//* raio */
+@mixin radio($margin:0 0 0 30px) {
+  display: none;
+
+  +label {
+    position: relative;
+    display: inline-block;
+    margin: $margin;
+    cursor: pointer;
+
+    &:before {
+      @include iLayout;
+      @include ico_radio_off;
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      top: -1px;
+      vertical-align: middle;
+      background-size: auto;
+    }
+  }
+
+  &:first-child {
+    +label {
+      margin: 0;
+    }
+  }
+
+  &:checked {
+    +label {
+      &:before {
+        @include iLayout;
+        @include ico_radio_on;
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        background-size: auto;
+      }
+    }
+  }
+
+  &:disabled {
+    +label {
+      color: var(--btnDis_ftColor);
+      cursor: default;
+
+      &:before {
+        @include iLayout;
+        @include ico_radio_disabled;
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        background-size: auto;
+      }
+    }
+  }
+}
+
+//* radio, checkbox tabButton 
+//  input[type="radio"] 에 추가, display 는 하위 &+label에 추가 
+// ex : 세로정렬 &+label {
+//   @include flex_start;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 10px;
+//   padding: 0 14px;
+// }
+
+// ex : 가로정렬 &+label {
+// display: inline-flex;
+// align-items: center;
+// justify-content: center;
+// gap: 10px;
+// padding: 0 10px;
+// }
+
+// 하단 주석 아래에 추가
+// input[type="radio"] {}
+@mixin radioButton($width:70px, $minw: 70px, $height:30px, $margin:15px 0 0 0, $fs:14px, $br:15px, $pd:null) {
+  &+label {
+    @include btnLayout;
+    @include btn_off;
+    min-width: $width;
+    height: $height;
+    padding: $pd;
+    font-size: $fs;
+    border-radius: $br;
+    border-color: var(--btnOff_BgColor);
+
+    &:nth-of-type(n+2) {
+      margin: $margin;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked+label {
+    @include btn_main2;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &.on+label,
+  &:hover+label {
+    @include btn_main2;
+  }
+
+  // &.off+label,
+  // &:disabled+label {
+  //   @include btn_disabled();
+  // }
+}
+
+//* radio, checkbox tabButton type2 
+//*input[type="radio"] 에 추가, display 는 하위 &+label에 추가 */
+@mixin radioButton_t2($minW:90px, $h:30px, $m:0px 0 0 5px, $pd:null, $fs:13px, $br:4px) {
+  &+label {
+    @include btnLayout;
+    @include btn_off;
+    @include iflexBox($j:center);
+    min-width: $minW;
+    padding: $pd;
+    height: $h;
+    font-size: $fs;
+    border-radius: $br;
+
+    &:nth-of-type(n+2) {
+      margin: $m;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked+label {
+    @include btn_main;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:hover+label {
+    @include btn_main;
+  }
+
+  // &.off+label,
+  // &:disabled+label {
+  //   @include btn_disabled();
+  // }
+}
+
+
+
+
+//* toggle */
+@mixin toggleBox($width:70px, $height: 26px) {
+  input {
+    &[type="checkbox"] {
+      @include ftRegular;
+      position: absolute;
+      display: inline-block;
+      -webkit-appearance: none;
+      width: $width;
+      height: $height;
+      margin-right: 3px;
+      top: 50%;
+      margin-top: -15px;
+      font-size: 13px;
+      border-radius: 50px;
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      border: 1px solid var(--ipToggleBorder_off);
+      background-color: var(--ipToggleBg_off);
+      cursor: pointer;
+
+      &::before {
+        content: 'OFF';
+        position: absolute;
+        right: 13px;
+        color: var(--ipToggleFt_off);
+        transform: translateY(-50%);
+        top: 50%;
+        // border: 1px soild var(--borderColor);
+      }
+
+      //* on dot */
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        margin-top: -10px;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        background-color: var(--ipToggleDot_on);
+      }
+
+      //* on bg */
+      &:checked {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        border: 1px solid var(--ipToggleBorder_on);
+        background-color: var(--ipToggleBg_on);
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: 20px;
+          color: var(--ftColor4);
+        }
+
+        &::after {
+          left: 46px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          background-color: var(--ipToggleDot_on);
+        }
+      }
+
+      &:disabled {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        border: 1px solid var(--ipToggleBorder_disabled);
+        background-color: var(--ipToggleBg_disabled);
+        cursor: default;
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: 20px;
+          color: var(--ipToggleFt_disabled);
+        }
+
+        &::after {
+          left: 46px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          background-color: var(--ipToggleDot_disabled);
+        }
+      }
+
+      +label {
+        position: absolute;
+        font-size: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+
+        &::before {
+          display: inline;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+
+@mixin toggleBox_t2($p:relative, $w:70px, $h: 26px, $txt1: 'OFF', $txt2: 'ON') {
+  position: $p;
+  height: $h;
+
+  input {
+    &[type="checkbox"] {
+      @include ftRegular;
+      position: $p;
+      display: inline-block;
+      -webkit-appearance: none;
+      width: $w;
+      height: $h;
+      margin-right: 3px;
+      // top: 50%;
+      // margin-top: -15px;
+      font-size: 13px;
+      border-radius: 50px;
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      border: 1px solid var(--ipToggleBorder_off);
+      background-color: var(--ipToggleBg_off);
+      cursor: pointer;
+
+      &::before {
+        content: $txt1;
+        position: absolute;
+        right: 13px;
+        color: var(--ipToggleFt_off);
+        transform: translateY(-50%);
+        top: 50%;
+        // border: 1px soild var(--borderColor);
+        // position:relative;
+        display: inline-block;
+        right: 8px;
+
+        width: calc(100% - 34px);
+        text-align: center;
+      }
+
+      //* on dot */
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        margin-top: -10px;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        background-color: var(--ipToggleDot_on);
+      }
+
+      //* on bg */
+      &:checked {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        border: 1px solid var(--ipToggleBorder_on);
+        background-color: var(--ipToggleBg_on);
+
+        &::before {
+          content: $txt2;
+          right: auto;
+          // left: 20px;
+          color: var(--ftColor4);
+          left: 8px;
+          width: calc(100% - 34px);
+          text-align: center;
+        }
+
+        &::after {
+          // left: 46px;
+          left: $w - 25px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          background-color: var(--ipToggleDot_on);
+        }
+      }
+
+      &:disabled {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        border: 1px solid var(--ipToggleBorder_disabled);
+        background-color: var(--ipToggleBg_disabled);
+        cursor: default;
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          // left: 20px;
+          color: var(--ipToggleFt_disabled);
+        }
+
+        &::after {
+          // left: 46px;
+          left: $w - 25px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          background-color: var(--ipToggleDot_disabled);
+        }
+      }
+
+      +label {
+        display: none;
+        position: absolute;
+        font-size: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+
+        &::before {
+          display: inline;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+//* toggle -2 */
+// 글자 없는 버전
+@mixin toggle_t2() {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-top: 4px;
+  border-radius: 34px;
+
+  &:before {
+    content: "";
+  }
+
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 26px;
+      height: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--pointColor);
+      -webkit-transform: .4s;
+      transform: .4s;
+    }
+  }
+
+  input[type="checkbox"]+label {
+    position: absolute;
+    width: 40px;
+    height: 14px;
+    top: 0;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    border-radius: 34px;
+    // background-color: $etc_t3;
+    // border: 1px solid $etc_t3;
+    background-color: var(--subFtColor);
+    border: 1px solid var(--subFtColor);
+    -webkit-transform: .4s;
+    transition: .4s;
+    font-size: 0;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 20px;
+      top: auto;
+      left: -5px;
+      bottom: -5px;
+      background-color: var(--subFtColor);
+      border: 1px solid var(--subFtColor);
+      border-radius: 100%;
+      -webkit-transition: .4s;
+      transition: .4s;
+      background-image: none;
+    }
+  }
+
+  input[type="checkbox"]:checked+label {
+    background-color: var(--pointColor);
+    // background-color: $etc_t4;
+  }
+
+  input[type="checkbox"]:checked+label:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    border: 1px solid var(--pointColor);
+    background-color: var(--pointColor);
+    background-image: none;
+  }
+}
+
+
+// toggle-3 >> .ip_toggle에 추가
+@mixin toggle_t3($width:70px, $height: 26px) {
+  input {
+    &[type="checkbox"] {
+      @include ftRegular;
+      position: relative;
+      display: inline-block;
+      -webkit-appearance: none;
+      width: $width;
+      height: $height;
+      font-size: 13px;
+      border-radius: 50px;
+      border: 1px solid var(--ipToggleBorder_off);
+      background-color: var(--ipToggleBg_off);
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      cursor: pointer;
+
+      &::before {
+        content: 'OFF';
+        position: absolute;
+        right: 13px;
+        // color: $subFontColor;
+        color: var(--ipToggleFt_off);
+        transform: translateY(-50%);
+        top: 50%;
+        // border: 1px soild $borderColor;
+        // border: 1px solid var(--ipToggleBorder_off);
+      }
+
+      /* on dot */
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        margin-top: -10px;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        background-color: var(--ipToggleDot_on);
+      }
+
+      /* on bg */
+      &:checked {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        // border: 1px solid $pointColor;
+        // background-color: $bgColor_t4;
+        border: 1px solid var(--ipToggleBorder_on);
+        background-color: var(--ipToggleBg_on);
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: 20px;
+          // color: #fff;
+          color: var(--ftColor4);
+        }
+
+        &::after {
+          left: 46px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          // background-color: $pointColor;
+          background-color: var(--ipToggleDot_on);
+        }
+      }
+
+      &:disabled {
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        // border: 1px solid #496880;
+        border: 1px solid var(--ipToggleBorder_disabled);
+        background-color: var(--ipToggleBg_disabled);
+        cursor: default;
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: 20px;
+          // color: $subFontColor;
+          color: var(--ipToggleFt_disabled);
+        }
+
+        &::after {
+          left: 46px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          // background-color: $subFontColor;
+          background-color: var(--ipToggleDot_disabled);
+        }
+      }
+
+      +label {
+        position: absolute;
+        display: inline-block;
+        width: $width;
+        height: $height;
+
+        &:before {
+          background: none;
+        }
+      }
+    }
+  }
+}
+
+//* calendarBox */
+@mixin calendar($width: 230px, $height:40px, $bgColor: transparent) {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  // height: calc($height - 2px);
+  // padding: 0 18px;
+  padding: 0;
+  border-radius: 5px;
+  vertical-align: middle;
+  border: 1px solid var(--ipBorderColor);
+  background-color: var(--ipBgColor);
+
+  &:before {
+    @include iLayout;
+    @include ico_calendar;
+    position: absolute;
+    display: inline-block;
+    top: -1px;
+    right: 12px;
+    width: 20px;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .dateChoice {
+    height: 100%;
+  }
+
+  input {
+    @include ftRegular();
+    position: relative;
+    width: 100%;
+    height: $height;
+    margin: auto 0;
+    padding: 0 18px;
+    text-align: left;
+    font-size: 14px;
+    color: var(--ftColor);
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+
+// 테스트 중인 캘린더 
+@mixin calendar_test($width: 230px, $height:40px, $bgColor: transparent) {
+  // .dateChoice {
+  //   height: 100%;
+  // }
+
+  input {
+    @include ftRegular();
+    @include ico_calendar2;
+    position: relative;
+    display: inline-block;
+    width: $width;
+    height: $height;
+    margin: auto 0;
+    padding: 0 18px;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    color: var(--ftColor);
+    border: 1px solid var(--ipBorderColor);
+    background-color: var(--ipBgColor);
+    // background-position-x: calc(100% - 12px);
+    background-position: calc(100% - 12px) 8px;
+    z-index: 2;
+    cursor: pointer;
+
+    &:disabled {
+      @include ico_calendar_disabled;
+      background-color: var(--ipBgColor_disabled);
+      color: var(--ipFtColor_disabled);
+      border-color: var(--ipBorderColor_disabled);
+    }
+  }
+}
+
+@mixin calendarBox($width: 230px, $height:40px) {
+  position: relative;
+  cursor: pointer;
+  width: fit-content;
+
+  p {
+    display: inline-block;
+    padding-right: 12px;
+    font-size: 14px;
+  }
+
+  .calendar {
+    @include calendar;
+    width: $width;
+
+    input {
+      height: $height;
+    }
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_main4;
+    width: 84px;
+    height: $height;
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+}
+
+//* select 형식으로 제작된 날짜 */
+@mixin dataBox($width: 230px, $height:40px, $backColor: transparent) {
+  position: relative;
+
+  p {
+    @include flex_item();
+    position: relative;
+    min-width: $width;
+    height: $height;
+    margin: auto 0;
+    padding: 0 18px;
+    font-size: 14px;
+    border-radius: 5px;
+    vertical-align: middle;
+    border: 1px solid var(--ipBorderColor);
+    background-color: var(--ipBgColor);
+    cursor: pointer;
+
+    &::after {
+      @include iLayout;
+      @include ico_select;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0px;
+      right: 15px;
+      width: 10px;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    width: $width;
+    top: calc(100% - 1px);
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 1px solid var(--ipBorderColor);
+    background-color: var(--ipBgColor);
+    z-index: 10;
+
+    li {
+      font-size: 13px;
+      padding: 10px 12px;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--pointColor);
+      }
+
+      &.active {
+        color: var(--btnMain_ftColor);
+        background-color: var(--btnMain_bgColor);
+      }
+    }
+  }
+}
+
+//* select 형식으로 제작된 날짜 */
+@mixin buttonList($width: 230px, $height:100px, $backColor: transparent) {
+  // position: absolute;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  ul {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: calc(100% - 1px);
+    padding: 10px 0;
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+    // background-color: $bgColor3;
+    background-color: var(--ipBgColor);
+    overflow-y: auto;
+    z-index: 10;
+
+    li {
+      padding: 10px 12px;
+      cursor: pointer;
+
+      a {
+        font-size: 13px;
+        color: var(--pointColor);
+        text-decoration: line-through;
+
+        &:hover {
+          color: var(--pointColor);
+        }
+
+        &.active {
+          // color: $fontColor;
+          color: var(--ftColor5);
+          // background-color: var(--pointColor);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+//* selectBox DIV */
+// selectDiv의 selectList > li 값
+@mixin selectDiv_list {
+  .selectList {
+    ul {
+      li {
+        &.create {
+          color: var(--pointColor);
+
+          &:before {
+            content: "+";
+            position: relative;
+            display: inline-block;
+            margin: 0 2px;
+          }
+
+          &.active {
+            color: var(--white);
+          }
+        }
+
+        &.domainInfo {
+          color: var(--pointColor);
+
+          &:before {
+            content: "=";
+            position: relative;
+            display: inline-block;
+            margin: 0 2px;
+          }
+
+          &.active {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+}
+
+// selectDiv의 width, height값 조절
+@mixin selectDiv_size($w:null, $h:null) {
+  width: $w;
+
+  .selected {
+    width: $w;
+  }
+
+  .selectList {
+    width: $w;
+    // height: $h;
+
+    // ✅ $h가 null이 아니고, 단위가 있는 경우만 비교
+    @if $h !=null and type-of($h)==number {
+      @if $h>180px {
+        max-height: $h;
+        height: auto;
+        min-height: 180px;
+      }
+
+      @else {
+        max-height: 180px;
+      }
+    }
+
+    @else {
+      // height값이 없으면 기본값 180px
+      max-height: 180px;
+    }
+
+    >ul {
+      @if $h !=null and type-of($h)==number {
+        max-height: $h - 60px;
+        min-height: 120px;
+        height: auto;
+      }
+    }
+  }
+}
+
+
+// input 검색 포함되어있음
+@mixin selectDiv($w:230px, $btminw:80px, $minw:230px, $h:180px, $maxh:240px) {
+  position: relative;
+  @include iflexBox();
+  width: $w;
+  // z-index: 701;
+
+  &.disabled {
+    cursor: default;
+
+    .selected {
+      color: var(--ipFtColor_disabled);
+      border: 1px solid var(--ipBorderColor_disabled);
+      background: var(--ipBgColor_disabled);
+      cursor: default;
+    }
+
+    >button {
+      @include btn_disabled;
+    }
+  }
+
+  .selected,
+  .selectList {
+    flex-grow: 1;
+  }
+
+  .selected {
+    @include iflexBox($g:0, $j:start);
+    @include ftRegular();
+    position: relative;
+    width: $w;
+    height: 40px;
+    padding: 4px 30px 4px 15px;
+    appearance: none;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 5px;
+    border: 1px solid var(--ipBorderColor);
+    box-shadow: none;
+    background-color: var(--ipBgColor);
+    outline: none;
+    cursor: pointer;
+
+    &:after {
+      @include ico_select;
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 9px;
+      height: 6px;
+      right: 15px;
+    }
+
+    p {
+      @include ellipsis;
+      display: block;
+    }
+  }
+
+  .selectList {
+    position: absolute;
+    display: none;
+    width: $w;
+    min-width: -webkit-fill-available;
+    height: $h;
+    max-height: $maxh;
+    top: calc(100% - 1px);
+    // padding: 12px 0;
+    padding: 6px 0;
+    border: 1px solid var(--pointColor);
+    border-color: var(--ipBorderColor);
+    border-radius: 5px;
+    // box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: var(--ipBgColor);
+    z-index: 701;
+
+    .searchBox {
+      @include flexBox($g:10px);
+      height: 36px;
+      margin: 0 12px;
+      // padding: 15px 20px;
+      border: 1px solid var(--ipBorderColor);
+      border-radius: 4px;
+
+      input[type="text"] {
+        flex-grow: 1;
+        position: relative;
+        display: inline-block;
+        width: calc(100% - 40px);
+        font-size: 14px;
+        min-width: auto;
+        height: 100%;
+        border: none;
+      }
+
+      button {
+        vertical-align: middle;
+        font-size: 0;
+        width: 30px;
+        height: 30px;
+
+        &:before {
+          @include iLayout;
+          @include ico_search;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .searchBox+ul {
+      margin: 6px 1px 0 1px;
+      height: 180px;
+      height: $h - 60px;
+    }
+
+    ul {
+      height: $h - 12px;
+      margin: 0 1px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        @include scrollbar($w:6px, $bg:transparent);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @include scrollbar_thumb($br:4px);
+        // background-color: #dedede;
+      }
+
+      li {
+        @include flexBox($j:start);
+        @include ellipsis;
+
+        display: block;
+        padding: 10px 12px;
+        font-size: 13px;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--pointColor);
+        }
+
+        &.active {
+          // color: $ftColor3;
+          // background-color: $selectList_active;
+          color: var(--ftColor3);
+          background-color: var(--pointColor);
+        }
+
+        &.disabled {
+          color: var(--ipFtColor_disabled);
+          // border: 1px solid var(--ipBorderColor_disabled);
+          // background-color: var(--ipBgColor_disabled);
+          opacity: 1;
+          cursor: default;
+        }
+
+        // span {
+        //   &.cunnect {
+        //     @include flexBox($f:inline-flex, $j:center, $a:center);
+        //     position: relative;
+        //     min-width: 32px;
+        //     height: 16px;
+        //     margin-right: 8px;
+        //     border-radius: 3px;
+        //     font-size: 8px;
+        //     vertical-align: middle;
+        //     // color: $white;
+        //     // background-color: $pointColor;
+        //   }
+        // }
+      }
+    }
+  }
+
+  +button.search {
+    @include btnLayout($minw:80px, $h: 36px);
+    @include btn_main;
+    margin-left: 10px;
+  }
+}
+
+// checkbox selectbox 
+@mixin selectChkDiv($w:230px, $btminw:80px, $minw:230px, $h:180px, $maxh:240px) {
+  position: relative;
+  @include iflexBox();
+  width: $w;
+  // z-index: 701;
+
+  &.disabled {
+    cursor: default;
+
+    .selected {
+      color: var(--ipFtColor_disabled);
+      border: 1px solid var(--ipBorderColor_disabled);
+      background: var(--ipBgColor_disabled);
+      cursor: default;
+    }
+
+    >button {
+      @include btn_disabled;
+    }
+  }
+
+  .selected,
+  .listArea {
+    flex-grow: 1;
+  }
+
+  .selected {
+    @include iflexBox($g:0, $j:start);
+    @include ftRegular();
+    position: relative;
+    width: $w;
+    height: 40px;
+    padding: 4px 30px 4px 15px;
+    appearance: none;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 5px;
+    border: 1px solid var(--ipBorderColor);
+    box-shadow: none;
+    background-color: var(--ipBgColor);
+    outline: none;
+    cursor: pointer;
+
+    &:after {
+      @include ico_select;
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 9px;
+      height: 6px;
+      right: 15px;
+    }
+
+    p {
+      @include ellipsis;
+      display: block;
+    }
+  }
+
+  .listArea {
+    position: absolute;
+    display: none;
+    width: $w;
+    min-width: -webkit-fill-available;
+    height: $h;
+    max-height: $maxh;
+    top: calc(100% - 1px);
+    // padding: 12px 0;
+    padding: 6px 0;
+    border: 1px solid var(--pointColor);
+    border-color: var(--ipBorderColor);
+    border-radius: 5px;
+    // box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: var(--ipBgColor);
+    z-index: 701;
+
+    .searchBox {
+      @include flexBox($g:10px);
+      height: 36px;
+      margin: 0 12px;
+      // padding: 15px 20px;
+      border: 1px solid var(--ipBorderColor);
+      border-radius: 4px;
+
+      input[type="text"] {
+        flex-grow: 1;
+        position: relative;
+        display: inline-block;
+        width: calc(100% - 40px);
+        font-size: 14px;
+        min-width: auto;
+        height: 100%;
+        border: none;
+      }
+
+      button {
+        vertical-align: middle;
+        font-size: 0;
+        width: 30px;
+        height: 30px;
+
+        &:before {
+          @include iLayout;
+          @include ico_search;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    // list에 검색영역있을 때 높이값 조절
+    .searchBox+ul,
+    .searchBox+.listArea {
+      margin: 6px 1px 0 1px;
+      height: 180px;
+      max-height: $h - 60px;
+      height: auto;
+      min-height: 120px;
+    }
+
+    // 검색영역 없이 리스트만 출력될때 
+    >ul,
+    .listArea {
+      height: $h - 12px;
+      max-height: $h - 12px;
+      // min-height: 120px;
+      margin: 0 1px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        @include scrollbar($w:6px, $bg:transparent);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @include scrollbar_thumb($br:4px);
+        // background-color: #dedede;
+      }
+
+      button {
+        &.openAll {
+          display: block;
+          color: var(--ftColor);
+          @include btnLayout;
+          @include btn_main;
+        }
+      }
+
+      >a {
+        color: var(--ftColor);
+
+        &:before {
+          content: "<";
+          position: relative;
+          display: inline-block;
+          margin: 0 6px 0 0;
+        }
+      }
+
+      ul {
+        display: none;
+
+        &:only-child {
+          display: block;
+        }
+
+        &.active {
+          display: block;
+        }
+
+        li {
+          @include flexBox($j:start);
+          @include ellipsis;
+
+          display: block;
+          padding: 10px 12px;
+          font-size: 13px;
+          cursor: pointer;
+
+          &:hover {
+            color: var(--pointColor);
+          }
+
+          &.active {
+            // color: $ftColor3;
+            // background-color: $selectList_active;
+            color: var(--ftColor3);
+            background-color: var(--pointColor);
+          }
+
+          &.disabled {
+            color: var(--ipFtColor_disabled);
+            // border: 1px solid var(--ipBorderColor_disabled);
+            // background-color: var(--ipBgColor_disabled);
+            opacity: 1;
+            cursor: default;
+          }
+
+          // span {
+          //   &.cunnect {
+          //     @include flexBox($f:inline-flex, $j:center, $a:center);
+          //     position: relative;
+          //     min-width: 32px;
+          //     height: 16px;
+          //     margin-right: 8px;
+          //     border-radius: 3px;
+          //     font-size: 8px;
+          //     vertical-align: middle;
+          //     // color: $white;
+          //     // background-color: $pointColor;
+          //   }
+          // }
+        }
+      }
+
+      .checkBox {
+        ul {
+          display: none;
+
+          &.active {
+            display: block;
+          }
+
+          li {}
+        }
+      }
+    }
+  }
+
+  +button.search {
+    @include btnLayout($minw:80px, $h: 36px);
+    @include btn_main;
+    margin-left: 10px;
+  }
+}
+
+//*  timeBox */
+@mixin time($width: 110px, $height:40px, $bgColor: transparent) {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  // height: calc($height - 2px);
+  // padding: 0 18px;
+  padding: 0;
+  border-radius: 5px;
+  vertical-align: middle;
+  border: 1px solid var(--ipBorderColor);
+  background-color: var(--ipBgColor);
+
+  &:before {
+    @include iLayout;
+    @include ico_time;
+    position: absolute;
+    display: inline-block;
+    top: 1px;
+    right: 12px;
+    width: 20px;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  input {
+    @include ftRegular();
+    position: relative;
+    width: 100%;
+    height: $height;
+    margin: auto 0;
+    padding: 0 18px;
+    text-align: left;
+    font-size: 14px;
+    // color: #fff;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+@mixin timeBox($width: 110px, $height:40px) {
+  position: relative;
+  cursor: pointer;
+
+  p {
+    display: inline-block;
+    padding-right: 12px;
+    font-size: 14px;
+  }
+
+  .time {
+    @include time;
+    width: $width;
+  }
+
+  button {
+    @include btnLayout;
+    @include btn_main2;
+    width: 84px;
+    height: $height;
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+}
+
+//* input calendar, time off before add */
+@mixin inputOff {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  box-shadow: 0 0 10px 0 rgba(7, 230, 255, 0.1);
+  border: solid 1px #535a7a;
+  border-radius: 5px;
+  background-color: #2a3256;
+  z-index: 3;
+  opacity: 0.7;
+}
+
+
+//* searchBox */
+//* input 안에 검색 */
+@mixin searchBox {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 220px;
+  height: 40px;
+  font-size: 0;
+  vertical-align: middle;
+  border-radius: 5px;
+  border: 1px solid var(--ipBorderColor);
+  background-color: var(--ipBgColor);
+
+  input,
+  button {
+    @include dpLayout;
+  }
+
+  input {
+    flex-grow: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px 0px 10px;
+    text-align: left;
+    font-size: 13px;
+    border: none;
+    background-color: transparent;
+  }
+
+  button {
+    @include iLayout;
+    @include ico_search;
+    min-width: 40px;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+//* 검색버튼 있는 type */
+@mixin searchBox_t2($width:auto, $ip_width:200px) {
+  display: inline-flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  align-items: center;
+
+  input,
+  button {
+    @include dpLayout;
+  }
+
+  // input:search는 input에 텍스트 작성시 input칸 안에 글자 삭제(X)버튼이 생성됨
+  input[type="text"],
+  input[type="search"] {
+    flex-grow: 1;
+    width: $ip_width;
+    padding: 0 5px 0px 10px;
+    text-align: left;
+    font-size: 13px;
+    border: 1px solid var(--ipBorderColor);
+    background-color: var(--ipBgColor);
+  }
+
+  input[type="search"] {
+
+    // input 칸 안에 초기화(X)버튼 삭제
+    /* IE의 경우 */
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+
+    /* 크롬의 경우 */
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  button {
+    @include btnLayout_normal;
+    @include btn_main4;
+    min-width: 80px;
+    height: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+}
+
+//* label */
+//* label square(직사각형) > before add */
+@mixin label($width:20px, $height:15px, $bgColor: var(--labelColor)) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  top: 2px;
+  margin-right: 10px;
+  background-color: var(--labelColor);
+}
+
+
+//* label square(정사각형) > before add */
+@mixin label_t2($width:12px, $height:12px, $bgColor: var(--labelColor)) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  top: 2px;
+  margin-right: 10px;
+  background-color: $bgColor;
+}
+
+//* raoundLine > p add */
+@mixin label_t3($bgColor: var(--labelColor)) {
+  &:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 2px;
+    top: -3px;
+    background-color: $bgColor;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    top: 4px;
+    left: 6px;
+    border-radius: 100%;
+    background-color: $bgColor;
+  }
+}
+
+// label line  > before add
+@mixin label_t4($bgColor: var(--labelColor)) {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  top: -3px;
+  margin-right: 10px;
+  background-color: $bgColor;
+}
+
+//* label round(원형) > before add */
+@mixin label_t5($p:relative, $width:10px, $height:10px, $bgColor: var(--labelColor)) {
+  content: "";
+  position: $p;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  border-radius: 100%;
+  margin-right: 10px;
+  background-color: $bgColor;
+}
+
+// 정삼각형
+@mixin label_t6($p:relative, $d:inline-block, $brdc:#ff0000, $bw:0 11px 19px 11px) {
+  content: "";
+  position: $p;
+  display: $d;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: $bw;
+  border-color: transparent transparent $brdc transparent;
+  transform: rotate(0deg);
+}
+
+//* tab */
+//* tabButton  button 에 추가 */
+@mixin tabButton($width:70px, $height:30px, $br:15px, $fs:14px) {
+  @include btnLayout;
+  @include btn_off;
+  min-width: $width;
+  height: $height;
+  font-size: $fs;
+  border-radius: $br;
+
+  &.on,
+  &:hover {
+    @include btn_main;
+  }
+
+  &:nth-child(n+2) {
+    margin-left: 8px;
+  }
+
+  &.off {
+    @include btn_disabled();
+  }
+}
+
+//* 세로형 */
+@mixin tabButton_column($width:70px, $height:30px, $br:15px, $fs:14px, $margin:15px 0 0 0) {
+  @include btnLayout;
+  @include btn_main;
+  display: block;
+  min-width: $width;
+  height: $height;
+  font-size: $fs;
+  border-radius: $br;
+
+  &.on,
+  &:hover {
+    @include btn_main2;
+  }
+
+  &:nth-child(n+2) {
+    margin: $margin;
+  }
+
+  &.off {
+    @include btn_disabled();
+  }
+}
+
+// 라운드형
+@mixin tabLi {
+  ul {
+    li {
+      display: inline-block;
+      min-width: 74px;
+      height: 30px;
+      margin-left: 5px;
+      padding: 6px 10px;
+      text-align: center;
+      color: var(--btnOff_ftColor);
+      vertical-align: middle;
+      border-radius: 15px;
+      border: 2px solid var(--btnOff_BorderColor);
+      background-color: var(--btnOff_BgColor);
+      cursor: pointer;
+
+      &.on,
+      &:hover {
+        color: var(--btnMain_ftColor2);
+        border: var(--btnMain_border2);
+        background-color: var(--btnMain_bgColor2);
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+//* tab li 사각형(버튼형) */
+@mixin tabLi_t2($width:170px, $height:40px) {
+  ul {
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      min-width: $width;
+      height: $height;
+      padding: 0px 10px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--btnOff_ftColor);
+      vertical-align: middle;
+      border-radius: 0px;
+      border: 1px solid var(--tabBorderColor2);
+      background-color: var(--btnOff_BgColor);
+      cursor: pointer;
+
+      &.on,
+      &:hover {
+        color: var(--btnMain_ftColor2);
+        border: 1px solid var(--pointColor);
+        background-color: var(--btnMain_bgColor2);
+      }
+
+      &:first-child {
+        border-radius: 4px 0 0 4px;
+        margin-left: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+
+      a {
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+//* tab li 사각탭 */
+@mixin tabLi_t3($width:100px, $height:44px) {
+  position: relative;
+  top: 2px;
+
+  ul {
+    font-size: 0;
+
+    li {
+      position: relative;
+      display: inline-block;
+      min-width: $width;
+      height: $height;
+      margin-right: 4px;
+      padding: 12px 0;
+      font-size: 14px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 18px;
+      color: var(--subFtColor);
+      border-radius: 4px 4px 0 0;
+      border: 1px solid var(--tabBorderColor3);
+      border-bottom: 0;
+      box-shadow: var(--tabShadow3);
+      background-color: var(--tabBgColor3);
+      cursor: pointer;
+
+      &.on {
+        @include ftMedium;
+        position: relative;
+        color: var(--pointColor);
+        border-bottom: 0;
+        border-color: var(--tabBorderColor3_on);
+        box-shadow: var(--tabShadow3_on);
+        background-color: var(--tabBgColor3_on);
+        z-index: var(--tabZindex3);
+
+        // &::before {
+        //   position: absolute;
+        //   content: '';
+        //   top: -105px;
+        //   left: 0%;
+        //   width: 100%;
+        //   height: 120px;
+        //   background: radial-gradient(ellipse farthest-corner at, rgba(76, 235, 232, 1) 0%, rgba(76, 235, 232, 1) 50%, rgba(28, 190, 248, 0) 70%, rgba(7, 170, 255, 0) 100%);
+        //   opacity: 0.16;
+        // }
+
+        &::after {
+          position: absolute;
+          content: '';
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: var(--tabBgColor3_on2);
+        }
+      }
+
+      &.disabled {
+        color: var(--ipFtColor_disabled);
+        border: 1px solid var(--ipBorderColor_disabled);
+        background-color: var(--ipBgColor_disabled);
+        cursor: default;
+      }
+    }
+  }
+
+  // ul {
+  //   li {
+  //     @include ftRegular();
+  //     display: inline-block;
+  //     min-width: 88px;
+  //     min-height: 34px;
+  //     padding: 9px 15px;
+  //     text-align: center;
+  //     color: var(--subFtColor);
+  //     font-size: 16px;
+  //     border: 1px solid #2e3765;
+  //     border-radius: 4px 4px 0 0;
+  //     cursor: pointer;
+
+  //     &.on {
+  //       position: relative;
+  //       padding-bottom: 10px;
+  //       top: 1px;
+  //       color: var(--pointColor);
+  //     }
+
+  //     &.disabled {
+  //       color: #979797;
+  //       border: 1px solid #c9c9c9;
+  //       background-color: #cdcdcd;
+  //     }
+  //   }
+  // }
+}
+
+//* tab li 사각형 
+// tabLi_t2 에서 색이 다른 버전 */
+@mixin tabLi_t4($width:170px, $height:40px) {
+  ul {
+    li {
+      display: inline-block;
+      min-width: $width;
+      height: $height;
+      margin-left: -4px;
+      padding: 0px 10px;
+      text-align: center;
+      color: var(--tabFtColor4);
+      vertical-align: middle;
+      border-radius: 0px;
+      border: 1px solid var(--tabBorderColor4);
+      background-color: var(--tabBgColor4);
+      cursor: pointer;
+
+      &.on,
+      &:hover {
+        color: var(--ftColor3);
+        border: 1px solid var(--tabBorder4_on);
+        background-color: var(--tabBgColor_on);
+      }
+
+      &:first-child {
+        border-radius: 4px 0 0 4px;
+        margin-left: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+
+      a {
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+//* tab li 사각탭 
+// tabLi_t3 에서 색이 다른 버전 boxLayout_t7 탭 */
+@mixin tabLi_t5($width:100px, $height:44px) {
+  position: relative;
+  top: 2px;
+
+  ul {
+    font-size: 0;
+
+    li {
+      position: relative;
+      display: inline-block;
+      min-width: $width;
+      height: $height;
+      margin-right: 4px;
+      padding: 12px 0;
+      font-size: 14px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 18px;
+      color: var(--tabFtColor5);
+      border-radius: 4px 4px 0 0;
+      border: 1px solid var(--tabBorderColor5);
+      border-bottom: 0;
+      box-shadow: none;
+      background-color: var(--tabBgColor5);
+      cursor: pointer;
+
+      &.on {
+        @include ftMedium;
+        position: relative;
+        color: var(--pointColor);
+        border: 1px solid var(--tabBorderColor5_on);
+        border-bottom: 0;
+        box-shadow: none;
+        background-color: var(--tabBgColor5);
+        z-index: var(--zIndex);
+
+        &::after {
+          position: absolute;
+          content: '';
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: var(--gradient);
+        }
+      }
+
+      &.disabled {
+        color: var(--subFtColor);
+        border: var(--btnDis_BorderColor);
+        background-color: var(--btnDis_bgColor);
+      }
+    }
+  }
+
+  // ul {
+  //   li {
+  //     @include ftRegular();
+  //     display: inline-block;
+  //     min-width: 88px;
+  //     min-height: 34px;
+  //     padding: 9px 15px;
+  //     text-align: center;
+  //     color: var(--subFtColor);
+  //     font-size: 16px;
+  //     border: 1px solid #2e3765;
+  //     border-radius: 4px 4px 0 0;
+  //     cursor: pointer;
+
+  //     &.on {
+  //       position: relative;
+  //       padding-bottom: 10px;
+  //       top: 1px;
+  //       color: var(--pointColor);
+  //     }
+
+  //     &.disabled {
+  //       color: #979797;
+  //       border: 1px solid #c9c9c9;
+  //       background-color: #cdcdcd;
+  //     }
+  //   }
+  // }
+}
+
+//* tab li > big  */
+@mixin tabLi_t6($width:180px, $height:60px) {
+  position: relative;
+  top: 2px;
+
+  ul {
+    font-size: 0;
+
+    li {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: $width;
+      height: $height;
+      margin-right: 4px;
+      padding: 12px 15px;
+      font-size: 16px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 18px;
+      color: var(--subFtColor);
+      border-radius: 4px 4px 0 0;
+      border: 1px solid var(--tabBorderColor6);
+      border-bottom: 0;
+      box-shadow: var(--tabShadow6);
+      background-color: var(--tabBgColor6);
+      cursor: pointer;
+
+      &.on {
+        @include ftMedium;
+        position: relative;
+        color: var(--pointColor);
+        border: 1px solid var(--tabBorder6_on);
+        border-bottom: 0;
+        box-shadow: var(--tabShadow6_on);
+        background-color: var(--tabBgColor6_on);
+        // z-index: var(--zIndex);
+        z-index: 800; // dim에 말풍선이 가려져서  1 > 800으로 변경
+
+        &::after {
+          position: absolute;
+          content: '';
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: var(--tabBgColor6_on2);
+        }
+      }
+
+      &.disabled {
+        color: var(--btnDis_ftColor);
+        background-color: var(--btnDis_bgColor);
+      }
+    }
+  }
+}
+
+//* typeC 테마 때문에 탭 하단 박스에 추가해주어야 함 */
+@mixin tabViewBox($borderT: var(--tabViewBorder)) {
+  border-top: $borderT;
+}
+
+//* tabView > tabViewList */
+@mixin tabViewList($display: block) {
+  display: none;
+
+  &.show {
+    display: $display;
+  }
+}
+
+
+//* paging */
+@mixin paging($margin: 30px auto) {
+  position: relative;
+  text-align: center;
+
+  >ul {
+    margin: $margin;
+    text-align: center;
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    >li {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 18px;
+      height: 18px;
+      margin: 0 2px;
+      line-height: 18px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--subFtColor);
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--pointColor);
+      }
+
+      >a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      &.on {
+        @include ftBold;
+        line-height: 1.4;
+        color: var(--pointColor);
+      }
+
+      &.prev-list {
+        @include ico_pagingPrevList;
+      }
+
+      &.prev {
+        @include ico_pagingPrev;
+      }
+
+      &.next-list {
+        @include ico_pagingPrevList;
+        transform: rotate(180deg);
+      }
+
+      &.next {
+        @include ico_pagingPrev;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+
+//* dataNone */
+@mixin dataNoneContent($pd:10% 0) {
+  @include flex_center_column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: $pd;
+}
+
+//* 첫번째 글자는 크고, 두번째부터는 색과 폰트사이즈 다름 */
+@mixin dataNoneText {
+  p {
+    font-size: 18px;
+    text-align: center;
+    // margin-bottom: 10px;
+
+    &:nth-child(1) {
+      &:before {
+        content: "";
+        @include iLayout;
+        @include ico_dataNone;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: 10px;
+    }
+
+    &:nth-child(n+2) {
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--subFtColor);
+    }
+  }
+}
+
+@mixin dataNoneBorder($color: var(--tblBorderColor)) {
+  border-top: 1px solid $color;
+  border-bottom: 1px solid $color;
+}
+
+@mixin dataNone {
+  @include dataNoneContent;
+  @include dataNoneText;
+}
+
+//* 테이블이 아닌 태그에서 데이터가 없음이 필요할 떄 */
+// dataNoneArea 커스텀 > dataNone과 형제인 div,ul은 display: none
+// &.dataNoneArea {
+//           @include dataNoneArea;
+//         }
+//  $ipt2:'!important'
+@mixin dataNoneArea($d:block, $ipt1: null, $h:-webkit-fill-available, $h2:100%, $theadHeight:40px, $minh: 300px, $selector:'>div') {
+  $imp1: if($ipt1 !=null, ' !important', '');
+  // $imp2: if($ipt2 !=null, ' !important', '');
+  // display: block;
+  display: $d #{$ipt1};
+  height: $h;
+
+  #{$selector} {
+    &:not(.dataNone) {
+      display: none;
+    }
+  }
+
+  .dataNone {
+    position: relative;
+    height: $h2;
+    width: 100%;
+    min-height: $minh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    >p {
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+// 뒤에 내용 유지, 반투명 bg
+@mixin dataNoneArea2($d:block, $ipt1: null, $h:-webkit-fill-available, $h2:100%, $theadHeight:40px, $minh: 300px, $s:'>div') {
+  $imp1: if($ipt1 !=null, ' !important', '');
+  // $imp2: if($ipt2 !=null, ' !important', '');
+  // display: block;
+  display: $d #{$ipt1};
+  height: $h;
+
+  #{$s} {
+    &:not(.dataNone) {
+      display: none;
+    }
+  }
+
+  .dataNone {
+    position: relative;
+    position:absolute;
+    height: $h2;
+    width: 100%;
+    min-height: $minh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--dimBgColor3);
+    z-index: 100;
+
+    >p {
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+
+
+//* table */
+//* tableDataNone */
+//* tableArea에 추가 */
+@mixin tableDataNone($h:100%, $theadh:40px, $minh: 300px, $ipt:'!important', $brd:none) {
+
+  // tableAreaDataNone thead가 없는 경우
+  &.tableAreaDataNone {
+    height: auto;
+    border-bottom: none;
+
+    .tableDataNone {
+      display: block;
+      height: $h;
+      min-height: $minh;
+      border: $brd;
+
+      >div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        min-height: $minh;
+
+        p {
+          display: block;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+
+      +.paging {
+        display: none;
+      }
+    }
+
+    .tableBox {
+      display: none;
+    }
+
+    .paging {
+      display: none;
+    }
+  }
+
+  // tableAreaDataNone2 > thead가 있는 경우 
+  &.tableAreaDataNone2 {
+    height: auto;
+    border-bottom: none;
+
+    .tableDataNone {
+      display: block;
+      height: calc(#{$h} - #{$theadh});
+      min-height: $minh;
+      // border-bottom: 1px solid var(--borderColor);
+      border: none;
+
+      >div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        min-height: $minh;
+        text-align: center;
+
+        p {
+          display: block;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .tableBox {
+      height: auto #{$ipt};
+      overflow: clip;
+
+      tbody,
+      tfoot {
+        display: none;
+      }
+    }
+
+    .paging {
+      display: none;
+    }
+  }
+
+  .tableDataNone {
+    display: none;
+  }
+}
+
+//* tableArea에 추가 */
+// thead 유지
+@mixin tableDataNone_t2($h:100%, $theadh:40px, $minh: 300px, $fs:14px, $ipt:'!important') {
+
+  // tableAreaDataNone2 > thead가 있는 경우 
+  &.tableAreaDataNone {
+    position: relative;
+    height: auto;
+    border-bottom: none;
+
+    .tableDataNone {
+      display: block;
+      height: calc(#{$h} - #{$theadh});
+      min-height: $minh;
+      // border-bottom: 1px solid var(--borderColor);
+      border: none;
+      border: 1px solid var(--brdColor19);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+
+      >div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        min-height: $minh;
+        text-align: center;
+
+        p {
+          display: block;
+          font-size: $fs;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .tableBox {
+      height: auto #{$ipt};
+      overflow: clip;
+      display: block;
+
+
+      tbody,
+      tfoot {
+        display: none;
+      }
+    }
+
+    .paging {
+      display: none;
+    }
+  }
+
+  .tableDataNone {
+    display: none;
+  }
+}
+
+//* thead fixed */
+@mixin tableHeaderFixed($t:0, $l:null) {
+  position: sticky;
+  display: table-header-group;
+  top: $t;
+  left: $l;
+  z-index: 1;
+}
+
+
+//* thead before add */
+@mixin tableHeaderBeforeFixed {
+  content: "";
+  position: absolute;
+  display: table-header-group;
+  width: 100%;
+  height: -webkit-fill-available;
+  max-height: 1px; // safari 이슈 >> 크롬이슈..
+  // min-height: -webkit-fill-available;
+  // --webkit-max-height: -webkit-fill-available; //사파리 이슈로 인해 크롬 이슈
+  border-top: 1px solid var(--tblBorderColor);
+  border-bottom: 1px solid var(--tblBorderColor);
+  background-color: var(--tblBorderColor); // thead border
+  z-index: -1;
+}
+
+//* thead */
+@mixin tableHeaderFixedLayout {
+  @include tableHeaderFixed;
+
+  &:before {
+    @include tableHeaderBeforeFixed;
+  }
+}
+
+//* thead에 추가 */
+@mixin tableHeader_sort {
+  th {
+
+    &.sort,
+    &.sorting,
+    &.sorting_asc,
+    &.sorting_desc {
+      &:after {
+        content: "";
+        position: relative;
+        display: inline-block;
+        width: 15px;
+        height: 13px;
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+    }
+
+    &.sort,
+    &.sorting {
+      &:after {
+        @include ico_sort;
+        background-size: 100%;
+      }
+    }
+
+    &.sorting_asc {
+      &:after {
+        @include ico_sortUp;
+        background-size: 100%;
+      }
+    }
+
+    &.sorting_desc {
+      &:after {
+        @include ico_sortDown;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+//* thead에 추가 */
+@mixin tableHeader_bg($trBg_t2: var(--tblTheadBgColor), $trBg_t3: var(--tblTheadBgColor3)) {
+  table {
+    thead {
+      tr {
+        &:nth-child(2) {
+          th {
+            color: var(--white);
+            background-color: $trBg_t2;
+          }
+        }
+
+        &:nth-child(3) {
+          th {
+            background-color: $trBg_t3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin tableWrap {
+  overflow: overlay;
+  border: 1px solid var(--tblBorderColor);
+
+  &::-webkit-scrollbar {
+    border-radius: 2px;
+    background-color: var(--borderColor);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include scrollbar-thumb;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: var(--borderColor);
+  }
+}
+
+//* 세로형 -1  > td 선없음 */
+@mixin tableLayout {
+  border-radius: 5px 5px 0 0;
+  background-color: transparent;
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody {
+      tr {
+
+        td,
+        th {
+          padding: 10px 6px;
+          vertical-align: middle;
+          text-align: center;
+          line-height: 20px;
+          font-weight: normal;
+          color: var(--ftColor);
+        }
+      }
+    }
+
+    thead {
+      @include tableHeader_sort;
+
+      tr {
+        th {
+          @include ftMedium;
+          font-size: 14px;
+          color: var(--white);
+          background: var(--tblTheadBgColor7);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--tblBorderColor);
+
+        &:only-child {
+
+          th,
+          td {
+            border-bottom: none;
+          }
+        }
+
+        th,
+        td {
+          padding: 20px 6px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+// tableBox에 추가
+//* 세로형 -2 > td 선있음 */
+@mixin tableLayout_t2($w2:80px) {
+  @include tableWrap;
+  height: -webkit-fill-available;
+  border-radius: 5px 5px 0 0;
+  // border: none;
+  // border-bottom: 1px solid var(--tblBorderColor);
+  background-color: transparent;
+  overflow: overlay;
+
+  &::-webkit-scrollbar-thumb {
+    @include scrollbar-thumb;
+    border-radius: 4px;
+  }
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody {
+      tr {
+
+        th,
+        td {
+          padding: 10px 6px;
+          vertical-align: middle;
+          text-align: center;
+          line-height: 20px;
+          font-size: 13px;
+          font-weight: normal;
+          border: 1px solid var(--tblBorderColor);
+          border-left: none;
+          color: var(--ftColor);
+          word-break: break-all;
+          white-space: normal;
+          background-color: var(--tblBgColor);
+
+          // &:last-child {
+          //   padding-right: 18px;
+          // }
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+    thead {
+      @include tableHeaderFixedLayout;
+      @include tableHeader_sort;
+
+      // &:before {
+      //   @include tableHeaderBeforeFixed;
+      // }
+
+      tr {
+        th {
+          min-width: $w2;
+          @include ftMedium;
+          color: var(--white);
+          border-color: var(--tblBorderColor);
+          background-color: var(--tblTheadBgColor);
+
+          // &:first-child {
+          //   border-left: 1px solid var(--tblTheadBgColor);
+          // }
+
+          // &:last-child {
+          //   border-right: 1px solid var(--tblTheadBgColor);
+          // }
+        }
+
+        &:nth-child(2) {
+          th {
+            // color: var(--white);
+            color: var(--ftColor);
+            background-color: var(--tblTheadBgColor4);
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        &:last-child {
+
+          th,
+          td {
+            // border-bottom: none;
+          }
+        }
+
+        &:only-child {
+
+          th,
+          td {
+            border-bottom: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+//* 세로형 - 3 > tr 짝수의 td에 배경색 넣어주기 */
+@mixin tableLayout_t3 {
+  @include tableLayout_t2;
+
+  table {
+    tbody {
+      tr {
+        &:nth-child(even) {
+          td {
+            background-color: var(--tblTheadBgColor5);
+          }
+        }
+      }
+    }
+  }
+}
+
+//* tableLayout_t2, thead bg 변경 div에 추가 */
+@mixin tableLayout_t4 {
+  @include tableLayout_t2;
+  @include tableHeader_bg;
+}
+
+// ai tableLayout 
+@mixin tableLayout_t5 {
+  @include tableLayout_t2;
+  box-shadow: var(--boxShadow16);
+  border-color: var(--tblBrdColor2);
+  border: none;
+  // border-top: none;
+
+  // border-top-color:(--tblTheadBgColor);
+
+  table {
+    thead {
+      tr {
+        &:first-child {
+          th {
+            border-top: none;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          border-color: var(--tblBrdColor2);
+          background-color: var(--tblBgColor12);
+        }
+      }
+    }
+  }
+
+  &.tableAreaDataNone {
+    border-radius: 10px;
+    border: 1px solid var(--tblBrdColor);
+    box-shadow: var(--boxShadow16);
+
+    .tableBox {
+      display: block;
+    }
+  }
+}
+
+
+
+//* 가로형 > td 선있음*/
+@mixin tableLayout_tc($pd:20px 20px 20px 50px) {
+  height: -webkit-fill-available;
+  border: none;
+  background-color: transparent;
+  overflow: overlay;
+
+  &::-webkit-scrollbar-thumb {
+    @include scrollbar-thumb;
+    border-radius: 4px;
+  }
+
+  table {
+    width: auto;
+    min-width: 100%;
+    background: transparent;
+
+    .dimCircle {
+      &:before {
+        background-size: 30px 30px;
+      }
+    }
+
+    thead,
+    tbody {
+      tr {
+
+        th,
+        td {
+          padding: 10px 20px;
+          vertical-align: middle;
+          text-align: left;
+          line-height: 20px;
+          font-size: 13px;
+          font-weight: normal;
+          border: 1px solid var(--tblBorderColor);
+          background-color: var(--tblBgColor);
+          // color: var(--white);
+          color: var(--ftColor);
+          word-break: break-all;
+          white-space: normal;
+
+          &:last-child {
+            padding-right: 18px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        th {
+          padding: $pd;
+          @include ftMedium;
+          color: var(--white);
+          background-color: var(--tblTheadBgColor);
+        }
+      }
+    }
+  }
+}
+
+
+
+//* divTable */
+//* thead */
+@mixin divTblTheadTh {
+  display: table-cell;
+  min-height: 36px;
+  padding: 11px 10px 10px 10px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+  border-top: none;
+  color: var(--ftColor4);
+  border-right: 1px solid var(--tblBorderColor);
+  // background-color: #f8f8f8;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+//* tbody */
+@mixin divTblTbody {
+  display: table-row-group;
+}
+
+@mixin divTblTbodyTd {
+  display: table-cell;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 18px;
+  vertical-align: middle;
+  border: 1px solid var(--borderColor);
+  border-right: none;
+  border-bottom: none;
+}
+
+// th
+@mixin divTblTh {
+  @include ftMedium;
+  display: table-cell;
+  padding: 20px 30px;
+  font-size: 15px;
+  text-align: center;
+  border-bottom: 1px solid var(--tblBorderColor);
+  // background-color: #3f4a84;
+  background-color: var(--tblTheadBgColor);
+}
+
+// td
+@mixin divTableRowTd {
+  display: table-cell;
+  flex-grow: 1;
+  padding: 12px 25px;
+  font-size: 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--tblBorderColor);
+  background-color: transparent;
+}
+
+
+//* div table 세로형 */
+@mixin divTable {
+  display: table;
+  min-width: 100%;
+  border-bottom: 1px solid var(--tblBorderColor);
+
+  .divTblHead,
+  .thead {
+    @include tableHeaderFixed;
+    display: table-header-group;
+
+    .divTblTr,
+    .tr {
+      display: table-row;
+
+      // th
+      >div {
+        @include divTblTheadTh;
+        border-left: 1px solid var(--tblBorderColor);
+        border-bottom: 1px solid var(--tblBorderColor);
+        border-right: none;
+        background-color: var(--tblTheadBgColor);
+
+        .iBox {
+          .iMark {
+            @include iMark_wht;
+          }
+
+          .iMarkHover {
+            @include iMarkHover_TL;
+          }
+        }
+
+        &:last-child,
+        &:nth-last-child(2),
+        &:nth-last-child(3) {
+          .iMarkHover {
+            @include iMarkHover_TR;
+          }
+        }
+      }
+
+      // thead tr 2번째줄
+      &:nth-child(2) {
+        >div {
+          color: var(--ftColor6);
+          background-color: var(--tblTheadBgColor4);
+        }
+      }
+    }
+  }
+
+  .divTblBody,
+  .tbody {
+    @include divTblTbody;
+
+    .divTblTr,
+    .tr {
+      display: table-row;
+
+      >div {
+        @include divTblTbodyTd;
+        border-color: var(--tblBorderColor);
+        background-color: var(--tblBgColor);
+
+        &:last-child {
+          border-color: var(--tblBorderColor);
+        }
+      }
+
+      &:first-child {
+        >div {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin B_divTable_t2 {
+  display: table;
+  min-width: 100%;
+  border-bottom: 1px solid var(--tblBorderColor);
+
+  .thead {
+    @include tableHeaderFixed;
+    display: table-header-group;
+
+    .tr {
+      display: table-row;
+
+      .th {
+        @include divTblTheadTh;
+        border-left: 1px solid var(--tblBorderColor);
+        border-bottom: 1px solid var(--tblBorderColor);
+        border-right: none;
+        background-color: #5360c0;
+      }
+    }
+  }
+
+  .tbody {
+    @include divTblTbody;
+
+    .tr {
+      display: table-row;
+
+      .td {
+        @include divTblTbodyTd;
+        border-color: var(--tblBorderColor);
+        // background-color: $tblBgColor;
+        background-color: var(--tblTheadBgColor10);
+
+        &:last-child {
+          border-color: var(--tblBorderColor);
+        }
+      }
+
+      &:first-child {
+        .td {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+//* div table 가로형 */
+@mixin divTable_row {
+  display: table;
+  min-width: 100%;
+  border-top: 1px solid var(--tblBorderColor);
+
+  >div {
+    display: table-row;
+
+    >div {
+      &:first-child {
+        @include divTblTh;
+        background-color: var(--tblTheadBgColor11);
+      }
+
+      &:nth-child(n+2) {
+        @include divTableRowTd;
+      }
+    }
+  }
+}
+
+
+
+//*  box layout */
+//* shadow */
+@mixin B_box_shadow {
+  // border: 3px solid var(--pointColor);
+  box-shadow: var(--shadow);
+}
+
+@mixin box_shadow_t() {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient);
+  }
+}
+
+@mixin box_shadow_b() {
+  position: relative;
+  overflow: hidden;
+  border-bottom: var(--border2);
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient);
+  }
+}
+
+
+@mixin box($pd:25px, $brd:null, $br:10px, $bg:null) {
+  position: relative;
+  padding: $pd;
+  border: $brd;
+  border-radius: $br;
+  background-color: $bg;
+}
+
+
+//기본 박스(2) B : 그라데이션 있는 박스
+@mixin boxLayout($pd:25px 25px 25px 25px, $of:null, $br: 5px) {
+  position: relative;
+  padding: $pd;
+  border: 1px solid var(--boxBorderColor);
+  border-radius: $br;
+  box-shadow: var(--boxShadow);
+  background-color: var(--boxBgColor);
+  // overflow: $of;
+  // overflow:inherit;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -105px;
+    left: 0%;
+    width: 100%;
+    height: 120px;
+    background: var(--gradient2);
+    opacity: 0.16;
+    z-index: -1;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient);
+  }
+
+  &.dimDot {
+    @include loadingDot;
+  }
+
+  &.dimCircle {
+    @include loadingCircle;
+  }
+}
+
+// B : boxLayout 안에 추가할 때 사용
+@mixin boxLayout2($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 5px;
+  border: var(--boxBorder2);
+  box-shadow: var(--boxShadow2);
+  background-color: var(--boxBgColor2);
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    display: var(--display);
+    content: '';
+    top: -105px;
+    left: 0%;
+    width: 100%;
+    height: 120px;
+    background: var(--gradient2);
+    opacity: 0.16;
+    z-index: -1;
+  }
+
+  &::after {
+    position: absolute;
+    display: var(--display);
+    content: '';
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient);
+  }
+
+  &.dimDot {
+    @include loadingDot;
+  }
+
+  &.dimCircle {
+    @include loadingCircle;
+  }
+}
+
+//기본 박스(1)  B : border없는 박스, 탭사용 
+@mixin boxLayout_t3($pd:20px 30px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 5px;
+  box-shadow: var(--boxShadow3);
+  border: 1px solid var(--boxBorderColor3);
+  background-color: var(--boxBgColor2);
+}
+
+// B: inline, border 있는 박스
+@mixin boxLayout_t4($pd:25px) {
+  position: relative;
+  display: inline-block;
+  padding: $pd;
+  border-radius: 5px;
+  border: 1px solid var(--boxBorderColor4);
+  box-shadow: var(--boxShadow2);
+  background-color: var(--boxBgColor2);
+}
+
+// B : 조금 밝은 파랑, 선 있는 박스
+@mixin boxLayout_t5($d:inline-block, $pd:25px) {
+  position: relative;
+  display: $d;
+  padding: $pd;
+  border: 1px solid var(--boxBorderColor5);
+  border-radius: 5px;
+  background-color: var(--boxBgColor5);
+}
+
+// B : 밝은 파랑, hover 있는 박스
+@mixin boxLayout_t6($pd:15px 20px) {
+  position: relative;
+  padding: $pd;
+  color: var(--boxftColor6);
+  border-radius: 5px;
+  border: 1px solid var(--boxBorderColor6);
+  box-shadow: var(--boxShadow6);
+  background-color: var(--boxBgColor6);
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    display: var(--display);
+    content: '';
+    top: -25%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(ellipse farthest-corner at center top, rgba(76, 235, 232, 1) 0%, rgba(76, 235, 232, 1) 50%, rgba(28, 190, 248, 0) 70%, rgba(7, 170, 255, 0) 100%);
+    opacity: 0.15;
+  }
+
+  &::after {
+    position: absolute;
+    display: var(--display);
+    content: '';
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%);
+  }
+
+  &:hover {
+    position: relative;
+    // padding: 14px 19px;
+    color: var(--ftColor10);
+    border: var(--boxBorderColor6_hover);
+    box-shadow: var(--boxShadow6_hover);
+    background-color: var(--boxBgColor6_hover);
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: -25%;
+      left: 0%;
+      width: 100%;
+      height: 50%;
+      background: radial-gradient(ellipse farthest-corner at center top, rgba(76, 235, 232, 1) 0%, rgba(76, 235, 232, 1) 50%, rgba(28, 190, 248, 0) 70%, rgba(7, 170, 255, 0) 100%);
+      opacity: 0.15;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(7, 170, 255, 0) 0%, rgba(7, 170, 255, 1) 50%, rgba(7, 170, 255, 0) 100%);
+    }
+  }
+}
+
+// B : 어두은 색의 박스, C: border borderColor
+@mixin boxLayout_t7($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 5px;
+  border: 1px solid var(--boxBorderColor7);
+  background-color: var(--boxBgColor7);
+}
+
+// B :선 있는 박스
+@mixin boxLayout_t8($pd:25px, $bc:1px solid var(--boxBorderColor8)) {
+  position: relative;
+  padding: $pd;
+  border: $bc;
+  border-radius: 5px;
+  background-color: var(--boxBgColor8);
+}
+
+// bg: transparent
+@mixin boxLayout_t9($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border: 1px solid var(--boxBorderColor8);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+// bg: transparent C: borderColor, bgColor
+@mixin boxLayout_t10($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border: 1px solid var(--boxBorderColor10);
+  border-radius: 5px;
+  background-color: var(--boxBgColor10);
+}
+
+//  bg,border: point, ft:bgColor
+@mixin boxLayout_t11($pd:25px) {
+  position: relative;
+  padding: $pd;
+  color: var(--boxftColor11);
+  border-radius: 5px;
+  border: 1px solid var(--boxBorderColor11);
+  background-color: var(--boxBgColor11);
+}
+
+//   bg: bg컬러랑 유사, border: 블루,border, ft:ftColor
+@mixin boxLayout_t12($pd:25px) {
+  position: relative;
+  padding: $pd;
+  // color: var(--boxftColor12);
+  border-radius: 5px;
+  border: 1px solid var(--boxBorderColor12);
+  box-shadow: var(--boxShadow12);
+  background-color: var(--boxBgColor12);
+}
+
+// bg: white, border: 블루,  ft:black (B,C동일)
+@mixin boxLayout_t13($pd:0px, $br:10px) {
+  position: relative;
+  padding: $pd;
+  // color: #ffffff;
+  border-radius: $br;
+  border: 1px solid var(--boxBorderColor13);
+  box-shadow: var(--boxShadow13);
+  background-color: var(--boxBgColor13);
+  // border: 1px solid #3c71fd;
+  // box-shadow: 0 0 10px 0 #978eff;
+  // background-color: rgba(8, 156, 238, 0.2);
+}
+
+
+// bg: 연보라, border: 연보라,  ft:black (B,C동일)
+@mixin boxLayout_t14($pd:0px, $br:10px) {
+  position: relative;
+  padding: $pd;
+  // color: #ffffff;
+  border-radius: $br;
+  // border: 1px solid #978eff;
+  // box-shadow: 0 0 10px 0 #978eff;
+  // background-color: #089cee;
+  // opacity: 0.2;
+  border: 1px solid var(--boxBrdColor14);
+  box-shadow: var(--boxShadow14);
+  background-color: var(--boxBgColor14);
+}
+
+// bg opaticy 80%
+@mixin boxLayout_t15($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 10px;
+  border: 1px solid var(--boxBorderColor15);
+  box-shadow: var(--boxShadow15);
+  background-color: var(--boxBgColor15);
+}
+
+// bg opaticy 80%
+@mixin boxLayout_t16($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 10px;
+  border: 1px solid var(--boxBorderColor16);
+  box-shadow: var(--boxShadow16);
+  background-color: var(--boxBgColor16);
+}
+
+// B: 진파랑, C:임의로 색상넣음
+@mixin boxLayout_t17($pd:25px) {
+  position: relative;
+  padding: $pd;
+  border-radius: 10px;
+  border: 1px solid var(--boxBorderColor17);
+  box-shadow: var(--boxShadow17);
+  background-color: var(--boxBgColor17);
+}
+
+// B :선 있는 박스
+@mixin box_t18($pd:25px, $bc:1px solid var(--boxBrdColor18)) {
+  position: relative;
+  padding: $pd;
+  border: $bc;
+  border-radius: 5px;
+  background-color: var(--boxBgColor18);
+}
