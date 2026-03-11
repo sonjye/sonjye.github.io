@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="../../css/common.css" />
+  </head>
+
+  <body>
+    <!-- 미션 리워드 -->
+    <!-- pm_missionReward 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap pm_missionReward_multi">
+      <!-- modal 위치 >> wrap과 contents 클래스 사이-->
+      <!-- 예시로 하단 적립하기 버튼 클릭시 모달 나타나게 제작하였습니다.-->
+      <div class="modal">
+        <div class="modalWrap md_alert" id="md_alert">
+          <div class="modalContainer">
+            <div class="modalContent">
+              <div>
+                <p>저장 하시겠습니까?</p>
+              </div>
+            </div>
+            <div class="modalFooter">
+              <button type="button" class="confirm modalClose">확인</button>
+            </div>
+          </div>
+          <div class="modalDim"></div>
+        </div>
+        <!-- // modalWrap end-->
+      </div>
+      <!--// modal End -->
+      <section class="contents">
+        <div class="title">
+          <div class="imgBox">
+            <img src="../../image/custom/ico_lineage.png" alt="" />
+          </div>
+          <div>
+            <p>리니지 M</p>
+            <p>멀티 리워드</p>
+            <span>최대 포인트 12,000p</span>
+          </div>
+        </div>
+        <div class="content">
+          <section class="sec_list">
+            <div class="box_list">
+              <div class="imgBox"><img src="../../image/test/img_test1.webp" alt="" /></div>
+              <div class="listBox">
+                <ul>
+                  <!-- li에 unlock, lock, complete 클래스 추가 -->
+                  <li>
+                    <div class="tit">
+                      <p>첫 미션 : 회원가입하기</p>
+                    </div>
+                    <div class="cont">
+                      <p>신규 유저만 참여 가능한 캠페인입니다. 앱을 설치 후 실행하고 오시면 미션 잠금이 해제 됩니다.</p>
+                      <div class="point">
+                        <p>300P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="unlock">
+                    <div class="tit">
+                      <p>미션1 : 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="complete">
+                    <div class="tit">
+                      <p>미션2 : 2일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="lock">
+                    <div class="tit">
+                      <p>미션3 : 3일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="unlock">
+                    <div class="tit">
+                      <p>미션4 : 4일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="lock">
+                    <div class="tit">
+                      <p>미션5 : 5일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="lock">
+                    <div class="tit">
+                      <p>미션6 : 6일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="lock">
+                    <div class="tit">
+                      <p>미션7 : 7일차 앱을 실행해주세요.</p>
+                    </div>
+                    <div class="cont">
+                      <p>앱을 실행해주세요.</p>
+                      <div class="point">
+                        <p>5P</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_guide">
+              <div class="tit">
+                <p>안내사항</p>
+              </div>
+              <div class="cont">
+                <div class="guideBox">
+                  <p>
+                    성공한 미션만큼 <br />
+                    리워드 적립
+                  </p>
+                  <p>
+                    리워드 지급까지<br />
+                    최대 60분 소요가능
+                  </p>
+                </div>
+                <div class="listBox">
+                  <ul>
+                    <li>
+                      일부 미션은 앱을 한 번도 설치하지 않은 신규 유저만 참여 가능합니다.이미 앱을 설치했던 경우나
+                      설치되어 있는 경우 에는 적립이 불가합니다. 다른 미션을 참여해주세요
+                    </li>
+                    <li>미션 완료 전까지는 앱을 삭제하지 마십시오. 재설치 시 포인트 적립이 안될 수 있습니다.</li>
+                    <li>
+                      미션을 완료해도 바로 포인트가 지급이 안되는 경우가 있습니다. 최대 60분이 소요될 수 있습니다. 60분
+                      이후 에도 적립이 안되었다면 적립문의에 글을 남겨주세요.
+                    </li>
+                    <li>
+                      리워드 참여는 선착순입니다. 정상적으로 미션을 완료해도 전체참여가 완료되면 리워드 적립이
+                      불가합니다.
+                    </li>
+                    <li>부정적인 방법으로 미션참여 및 포인트 획득 시 참여 불가 조치될 수 있습니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <!--// contnets end -->
+      <footer>
+        <div class="guide">
+          <p>* 아래 버튼을 통해 참여해야 적립이 됩니다.</p>
+          <button type="button" class="inquire">적립문의</button>
+        </div>
+        <button type="button" class="confirm">미션 참여하고 포인트받기</button>
+      </footer>
+      <!--// footer end -->
+    </div>
+  </body>
+</html>

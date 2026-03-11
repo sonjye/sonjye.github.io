@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta name="description" content="MOBON" />
+    <meta name="keywords" content="MOBON" />
+    <meta name="author" content="인라이플" />
+    <title>포미션</title>
+    <script type="text/javascript" src="../../js/lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+    <link type="image/ico" rel="shortcut icon" href="../../image/favicon/favicon.ico" />
+    <script type="text/javascript" src="../../js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../css/common.css" />
+  </head>
+
+  <body>
+    <!-- 적립문의 -->
+    <!-- pm_inquireSave 클래스는 해당 페이지를 구분하는 id 값으로 사용하는 클래스입니다. 
+     다른 페이지에는 사용을 지양해주시기 바랍니다.(추후 유지보수때 css 수정 어려움) -->
+    <div class="wrap pm_inquireSave">
+      <section class="contents">
+        <div class="title">
+          <button type="button" class="back">이전</button>
+          <p>적립문의</p>
+        </div>
+        <div class="content">
+          <div class="tab">
+            <ul>
+              <li class="on"><a href="javascript:void(0)">적립문의</a></li>
+              <li><a href="javascript:void(0)">내 문의</a></li>
+            </ul>
+          </div>
+          <!-- 신고사유 선택시 dim 태그 추가 -->
+          <!-- <div class="dim"></div> -->
+          <div class="tabView">
+            <div class="tabList show">
+              <section class="sec_list">
+                <ul>
+                  <li>
+                    <p>미션 제목</p>
+                    <input type="text" />
+                  </li>
+                  <li>
+                    <p>미션 타입</p>
+                    <input type="text" />
+                  </li>
+                  <li>
+                    <p>이용 매체</p>
+                    <input type="text" />
+                  </li>
+                  <li>
+                    <p class="em">접수 사유</p>
+                    <div class="selectDiv">
+                      <div class="selected">
+                        <p>선택하세요.</p>
+                      </div>
+                    </div>
+                    <div class="selectList" style="display: none">
+                      <div class="list">
+                        <p>접수사유</p>
+                        <ul>
+                          <li>스크린샷 업로드 오류</li>
+                          <li>플레이스 주소가 없음</li>
+                          <li>상품 정보가 없음</li>
+                          <li>미션 정답 오류</li>
+                          <li>기타 서비스 오류(접속불가)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- data-ui=countError1, countInput1, countText1 한 세트로 사용함
+               숫자 1은 여러개 사용시를 대비해서 숫자로 구분함  -->
+                  <li data-ui="countError1">
+                    <div class="textareaBox">
+                      <textarea data-ui="countInput1" name="" id="" placeholder="문의사항을 입력해주세요"></textarea>
+                    </div>
+                    <div class="guideBox">
+                      <div class="alarm"><p>글자수를 초과하였습니다.</p></div>
+                      <div class="count" data-ui="countText1"><span>0</span>/<span>500</span></div>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <div class="tabList">
+              <!-- 문의 내용이 없는 경우 하단에 .dataNoneArea 추가 -->
+              <!-- <section class="sec_list dataNoneArea"> -->
+              <section class="sec_list">
+                <div class="box_list">
+                  <!-- t1:미답변, t2:답변완료 -->
+                  <ul data-ui="toggleList1">
+                    <li>
+                      <a href="javascript:void(0)" data-ui="list">
+                        <span class="t1">미답변</span>
+                        <div>
+                          <p>지마켓에서 적립이 안되었습니다.</p>
+                          <p>2026-03-04 15:03:23</p>
+                        </div>
+                      </a>
+                      <div class="detailBox">
+                        <div class="Qbox">
+                          <p>지마켓</p>
+                          <p>2026-03-04 15:03:23</p>
+                          <div>
+                            <p>
+                              적립이 안되었어요. 빨리 확인해주세요. 적립이 안되었어요. 빨리 확인해주세요.적립이
+                              안되었어요. 빨리 확인해주세요. 적립이 안되었어요. 빨리 확인해주세요.
+                            </p>
+                          </div>
+                        </div>
+                        <!-- <div class="Abox">
+                          <p>답변</p>
+                          <div>
+                            <p>
+                              안녕하세요. 불편을 드려 죄송합니다. 확인 후 적립 처리해드렸습니다.안녕하세요. 불편을 드려
+                              죄송합니다. 확인 후 적립 처리해드렸습니다.
+                            </p>
+                          </div>
+                        </div> -->
+                      </div>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" data-ui="list">
+                        <span class="t2">답변완료</span>
+                        <div>
+                          <p>
+                            쿠팡에서 적립이 안되었습니다. 글자길이 테스트중입니다. 글자가 길어지면 말줄임표가 나옵니다.
+                            두줄이 넘어가면 말줄임표가 나옵니다.
+                          </p>
+                          <p>2026-03-04 15:03:23</p>
+                        </div>
+                      </a>
+                      <div class="detailBox">
+                        <div class="Qbox">
+                          <p>지마켓2</p>
+                          <p>2026-03-04 15:03:23</p>
+                          <div>
+                            <p>
+                              적립이 안되었어요. 빨리 확인해주세요. 적립이 안되었어요. 빨리 확인해주세요.적립이
+                              안되었어요. 빨리 확인해주세요. 적립이 안되었어요. 빨리 확인해주세요.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="Abox">
+                          <p>답변</p>
+                          <div>
+                            <p>
+                              안녕하세요. 불편을 드려 죄송합니다. 확인 후 적립 처리해드렸습니다.안녕하세요. 불편을 드려
+                              죄송합니다. 확인 후 적립 처리해드렸습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="dataNone"><p>문의 내용이 없습니다.</p></div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <section class="sec_guide">
+            <div class="tit">
+              <p>적립문의</p>
+            </div>
+            <div class="cont">
+              <ul>
+                <li>해당 미션을 신고하는 사유를 정확하게 선택해 주세요.</li>
+                <li>신고가 완료되면 접수 사항이 처리될 때 까지 참여가 불가능하며, 리스트에서 보이지 않아요.</li>
+                <li>
+                  신고를 받은 미션이 수정되면 다시 미션 참여가 가능해요. (단, 처리되는 동안 미션이 종료되면 보이지 않을
+                  수 있어요.)
+                </li>
+                <li>
+                  참여 완료된 미션은 신고할 수 없어요. (적립 관련 문의는 매체의 '문의하기'&apos;'를 통해 접수해 주세요.)
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </section>
+      <!--// contnets end -->
+      <footer>
+        <button type="button" class="submit">제출하기</button>
+      </footer>
+      <!--// footer end -->
+    </div>
+  </body>
+</html>
