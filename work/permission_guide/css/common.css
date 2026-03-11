@@ -13596,6 +13596,8 @@ Date   : 2026.03.09
 .wrap.pm_inquireSave .content .tab {
   position: sticky;
   top: 40px;
+  background-color: #ffffff;
+  z-index: 1;
 }
 .wrap.pm_inquireSave .content .tab ul {
   font-family: "Pretendard_Light";
@@ -13626,7 +13628,6 @@ Date   : 2026.03.09
   height: 48px;
   font-size: 16px;
   border-radius: 0px;
-  background-color: #ffffff;
 }
 .wrap.pm_inquireSave .content .tab ul li {
   -webkit-box-flex: 1;
